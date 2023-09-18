@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="D:"
+config/name="Heavy Metal Geomatrix"
 run/main_scene="res://Scenes/playground.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/Managers/GameManager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

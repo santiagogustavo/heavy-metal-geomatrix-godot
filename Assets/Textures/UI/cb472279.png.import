@@ -1,9 +1,9 @@
 [remap]
 
-importer="texture"
-type="CompressedTexture2D"
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
 uid="uid://dhbf5e0ko18na"
-path="res://.godot/imported/cb472279.png-c475691834d174918c7dd4ac66705c28.ctex"
+path="res://.godot/imported/cb472279.png-c475691834d174918c7dd4ac66705c28.ctexarray"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Textures/UI/cb472279.png"
-dest_files=["res://.godot/imported/cb472279.png-c475691834d174918c7dd4ac66705c28.ctex"]
+dest_files=["res://.godot/imported/cb472279.png-c475691834d174918c7dd4ac66705c28.ctexarray"]
 
 [params]
 
@@ -19,16 +19,8 @@ compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/normal_map_invert_y=false
-process/hdr_as_srgb=false
-process/hdr_clamp_exposure=false
-process/size_limit=0
-detect_3d/compress_to=1
+slices/horizontal=4
+slices/vertical=4

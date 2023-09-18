@@ -1,0 +1,169 @@
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://csjnnlyg70rjj"]
+
+[ext_resource type="Script" path="res://addons/shaderV/uv/rotate.gd" id="1_d4wbw"]
+[ext_resource type="Script" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="2_so6xy"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_plssw"]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_rxu6t"]
+parameter_name = "Color"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_ummao"]
+parameter_name = "Color_Weight"
+hint = 1
+default_value_enabled = true
+default_value = 0.5
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_h31l5"]
+output_port_for_preview = 0
+default_input_values = [1, 0.0, 2, Vector3(0.5, 0.5, 0)]
+initialized = true
+script = ExtResource("1_d4wbw")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bdawk"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_koykn"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVec2Constant" id="VisualShaderNodeVec2Constant_ahicb"]
+constant = Vector2(10, 10)
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_2myv1"]
+output_port_for_preview = 0
+default_input_values = [1, Vector3(0, 0, 0), 2, 5.0]
+initialized = true
+script = ExtResource("2_so6xy")
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_gyuoc"]
+parameter_name = "Scale"
+hint = 1
+max = 500.0
+default_value_enabled = true
+default_value = 500.0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_mokv6"]
+parameter_name = "Opacity"
+hint = 1
+default_value_enabled = true
+default_value = 1.0
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec4 Color : source_color;
+uniform float Scale : hint_range(0, 500) = 500;
+uniform float Color_Weight : hint_range(0, 1) = 0.5;
+uniform float Opacity : hint_range(0, 1) = 1;
+
+
+// RotateUV
+vec3 _rotateUV(vec3 _rotate_uv, vec2 _rotate_pivot_vect, float _rotate_radians){
+	//_r0tation_r0tate = radians(_r0tationDeg_r0tate);
+	vec2 _rotation_angle = vec2(cos(_rotate_radians), sin(_rotate_radians));
+	_rotate_uv.xy -= _rotate_pivot_vect;
+	_rotate_uv.xy = vec2((_rotate_uv.x*_rotation_angle.x-_rotate_uv.y*_rotation_angle.y), 
+						 (_rotate_uv.x*_rotation_angle.y+_rotate_uv.y*_rotation_angle.x));
+	_rotate_uv.xy += _rotate_pivot_vect;
+	return _rotate_uv;
+}
+// GenericNoise2D
+float _hash2_generic2D(vec2 _p_hash2_generic) {
+	return (fract(1e4 * sin(17.0 * _p_hash2_generic.x + _p_hash2_generic.y * 0.1) *
+					(0.1 + abs(sin(_p_hash2_generic.y * 13.0 + _p_hash2_generic.x)))));
+}
+
+float _genericNoise2D(vec2 _x_generic2D) {
+	vec2 _temp_i_generic2D = floor(_x_generic2D);
+	vec2 _temp_f_generic2D = fract(_x_generic2D);
+
+	float _a_g1n2 = _hash2_generic2D(_temp_i_generic2D);
+	float _b_g1n2 = _hash2_generic2D(_temp_i_generic2D + vec2(1.0, 0.0));
+	float _c_g1n2 = _hash2_generic2D(_temp_i_generic2D + vec2(0.0, 1.0));
+	float _d_g1n2 = _hash2_generic2D(_temp_i_generic2D + vec2(1.0, 1.0));
+	
+	vec2 _u_g1n2 = _temp_f_generic2D * _temp_f_generic2D * (3.0 - 2.0 * _temp_f_generic2D);
+	return (mix(_a_g1n2, _b_g1n2, _u_g1n2.x) + (_c_g1n2 - _a_g1n2) *
+				_u_g1n2.y * (1.0 - _u_g1n2.x) + (_d_g1n2 - _b_g1n2) * _u_g1n2.x * _u_g1n2.y);
+}
+
+void fragment() {
+// ColorParameter:11
+	vec4 n_out11p0 = Color;
+
+
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// Vector2Constant:5
+	vec2 n_out5p0 = vec2(10.000000, 10.000000);
+
+
+	vec3 n_out2p0;
+// RotateUV:2
+	{
+		n_out2p0 = _rotateUV(vec3(n_out3p0, 0.0), vec3(n_out5p0, 0.0).xy, n_out4p0);
+	}
+
+
+// FloatParameter:7
+	float n_out7p0 = Scale;
+
+
+	float n_out6p0;
+// GenericNoise2D:6
+	vec3 n_in6p1 = vec3(0.00000, 0.00000, 0.00000);
+	{
+		n_out6p0 = _genericNoise2D((n_out2p0.xy + n_in6p1.xy) * n_out7p0);
+	}
+
+
+// FloatParameter:12
+	float n_out12p0 = Color_Weight;
+
+
+// Mix:10
+	float n_out10p0 = mix(n_out11p0.x, n_out6p0, n_out12p0);
+
+
+// FloatParameter:8
+	float n_out8p0 = Opacity;
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out10p0);
+	COLOR.a = n_out8p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeCustom_h31l5")
+nodes/fragment/2/position = Vector2(-660, 400)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_bdawk")
+nodes/fragment/3/position = Vector2(-1120, 340)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_koykn")
+nodes/fragment/4/position = Vector2(-1120, 420)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVec2Constant_ahicb")
+nodes/fragment/5/position = Vector2(-1020, 520)
+nodes/fragment/6/node = SubResource("VisualShaderNodeCustom_2myv1")
+nodes/fragment/6/position = Vector2(-280, 280)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_gyuoc")
+nodes/fragment/7/position = Vector2(-740, 100)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_mokv6")
+nodes/fragment/8/position = Vector2(-60, 480)
+nodes/fragment/10/node = SubResource("VisualShaderNodeMix_plssw")
+nodes/fragment/10/position = Vector2(20, 120)
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorParameter_rxu6t")
+nodes/fragment/11/position = Vector2(-340, -180)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatParameter_ummao")
+nodes/fragment/12/position = Vector2(-340, 0)
+nodes/fragment/connections = PackedInt32Array(4, 0, 2, 1, 5, 0, 2, 2, 2, 0, 6, 0, 7, 0, 6, 2, 3, 0, 2, 0, 8, 0, 0, 1, 6, 0, 10, 1, 10, 0, 0, 0, 11, 0, 10, 0, 12, 0, 10, 2)

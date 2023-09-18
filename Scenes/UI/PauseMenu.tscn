@@ -1,6 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://djao4jgemsc0"]
+[gd_scene load_steps=5 format=3 uid="uid://djao4jgemsc0"]
 
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_14uh4"]
+[ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Assets/Materials/UI/Static.tres" id="2_72h1y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fxo8j"]
+shader = ExtResource("2_72h1y")
+shader_parameter/Color = null
+shader_parameter/Scale = 500.0
+shader_parameter/Color_Weight = 0.2
+shader_parameter/Opacity = 0.7
 
 [sub_resource type="LabelSettings" id="LabelSettings_tkkjw"]
 font_size = 40
@@ -18,13 +26,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BG" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_fxo8j")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1

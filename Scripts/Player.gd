@@ -76,7 +76,6 @@ func _physics_process(delta):
 	compute_look_stick()
 	compute_gravity(delta)
 	compute_movement()
-	move_and_slide()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -88,3 +87,4 @@ func _process(delta):
 	update_dash()
 	update_aim()
 	set_camera_variables()
+	move_and_slide()	

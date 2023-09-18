@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=9 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Texture2D" uid="uid://bjlnvsdi0mcl6" path="res://Assets/Textures/UI/crosshair.png" id="1_xi4lv"]
+[ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Assets/Materials/UI/HUD/HealthBar.tres" id="2_c0808"]
+[ext_resource type="Texture2D" uid="uid://cvjyfg08t0s6a" path="res://Assets/Textures/Characters/Mayfly/Cards/e7b43538.png" id="2_jtruc"]
+[ext_resource type="Texture2D" uid="uid://dx4b8ctf1m11j" path="res://Assets/Textures/UI/b2fa8e8c_R1.png" id="2_kbik1"]
+[ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Assets/Materials/UI/MaskedTexture.tres" id="3_jxhmq"]
+[ext_resource type="Texture2D" uid="uid://bcuru11gjis05" path="res://Assets/Textures/UI/Masks/player_avatar.png" id="4_w0qti"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxa2b"]
+shader = ExtResource("2_c0808")
+shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
+shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
+shader_parameter/tiling = Vector2(3.3, 0.2)
+shader_parameter/wave_speed = Vector2(-0.1, 25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gla7n"]
+shader = ExtResource("3_jxhmq")
+shader_parameter/Mask = ExtResource("4_w0qti")
 
 [node name="PlayerHUD" type="CanvasLayer"]
 
@@ -12,17 +28,65 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="Crosshair" type="TextureRect" parent="Control"]
+modulate = Color(1, 0, 0.941176, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(24, 24)
 texture = ExtResource("1_xi4lv")
+
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_top = 518.0
+offset_right = 40.0
+offset_bottom = 558.0
+
+[node name="HealthBar" type="ColorRect" parent="Control/Control"]
+material = SubResource("ShaderMaterial_bxa2b")
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = 29.0
+offset_right = 150.0
+offset_bottom = 69.0
+grow_vertical = 2
+scale = Vector2(8.09454, 0.513157)
+
+[node name="Avatar" type="TextureRect" parent="Control/Control"]
+material = SubResource("ShaderMaterial_gla7n")
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 57.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 70.0
+grow_vertical = 2
+scale = Vector2(0.764392, 0.764392)
+texture = ExtResource("2_jtruc")
+
+[node name="Decoration" type="TextureRect" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 1431.0
+offset_bottom = 333.0
+grow_vertical = 0
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("2_kbik1")
