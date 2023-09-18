@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Upper Body
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/ElbowIK.L
+    m_Weight: 1
+  - m_Path: Armature/ElbowIK.R
+    m_Weight: 1
+  - m_Path: Armature/FootIK.L
+    m_Weight: 0
+  - m_Path: Armature/FootIK.R
+    m_Weight: 0
+  - m_Path: Armature/HeadTarget
+    m_Weight: 1
+  - m_Path: Armature/KneeIK.L
+    m_Weight: 0
+  - m_Path: Armature/KneeIK.R
+    m_Weight: 0
+  - m_Path: Armature/Spine0
+    m_Weight: 0
+  - m_Path: Armature/Spine0/CoreIK
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Boob.L
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Boob.R
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Neck
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Neck/Head
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.L
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.L/Bicep.L
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.L/Bicep.L/Tricep.L
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.L/Bicep.L/Tricep.L/Hand.L
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.L/ShoulderFIK.L
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.L/ShoulderFIK.L/HandIK.L
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.R
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.R/Bicep.R
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.R/Bicep.R/Tricep.R
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.R/Bicep.R/Tricep.R/Hand.R
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.R/ShoulderFIK.R
+    m_Weight: 1
+  - m_Path: Armature/Spine0/CoreIK/Spine3/Shoulder.R/ShoulderFIK.R/HandIK.R
+    m_Weight: 1
+  - m_Path: Armature/Spine0/Spine1
+    m_Weight: 0
+  - m_Path: Armature/Spine0/Spine1/Hip.L
+    m_Weight: 0
+  - m_Path: Armature/Spine0/Spine1/Hip.L/Shin.L
+    m_Weight: 0
+  - m_Path: Armature/Spine0/Spine1/Hip.L/Shin.L/Foot.L
+    m_Weight: 0
+  - m_Path: Armature/Spine0/Spine1/Hip.R
+    m_Weight: 0
+  - m_Path: Armature/Spine0/Spine1/Hip.R/Shin.R
+    m_Weight: 0
+  - m_Path: Armature/Spine0/Spine1/Hip.R/Shin.R/Foot.R
+    m_Weight: 0
+  - m_Path: Armature/Spine0/Spine1/Spine2
+    m_Weight: 1
+  - m_Path: Mayfly
+    m_Weight: 0

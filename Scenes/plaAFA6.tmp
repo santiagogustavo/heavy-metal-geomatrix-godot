@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5wu7c7eewugs"]
+
+[ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Assets/Materials/new_standard_material_3d.tres" id="1_cw28e"]
+[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="2_tyc0b"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="3_i5yem"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i8yc1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cy5th"]
+sky_material = SubResource("ProceduralSkyMaterial_i8yc1")
+
+[sub_resource type="Environment" id="Environment_obdgp"]
+background_mode = 2
+sky = SubResource("Sky_cy5th")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wgvrk"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75qwo"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t21dw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6jmhm"]
+
+[node name="Playground" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_obdgp")
+
+[node name="Level Geometry" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
+transform = Transform3D(20, 6.03282e-15, -3.47356e-07, 0, 20, 3.47356e-07, 3.47356e-07, -3.47356e-07, 20, 0, 0, 2.38419e-07)
+material_override = ExtResource("1_cw28e")
+mesh = SubResource("PlaneMesh_wgvrk")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_75qwo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Geometry"]
+transform = Transform3D(0.517071, -0.622551, -0.587425, 0.695129, -0.0950218, 0.712578, -0.499434, -0.776789, 0.38362, -0.844049, 11.9817, 3.06261)
+light_energy = 0.543
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8776, 5.33969, -0.274099)
+light_color = Color(0, 0.615686, 1, 1)
+light_energy = 12.144
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("2_tyc0b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.469, 0.34235, -16.0485)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0155735, 0.144355, -0.00745153)
+script = ExtResource("3_i5yem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.879319, 0)
+shape = SubResource("CapsuleShape3D_t21dw")
+
+[node name="Pivot" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815385, 0)
+
+[node name="Boxie" type="MeshInstance3D" parent="Player/Pivot"]
+transform = Transform3D(0.560818, 0, 0, 0, 1.61797, 0, 0, 0, 0.421882, 0, 0, 0)
+mesh = SubResource("BoxMesh_6jmhm")
+skeleton = NodePath("../../..")
+
+[node name="CameraPivot" type="Marker3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.741512, 0)
+
+[node name="Camera" type="Camera3D" parent="Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42569, 2.602)

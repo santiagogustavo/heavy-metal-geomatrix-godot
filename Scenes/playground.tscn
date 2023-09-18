@@ -1,0 +1,116 @@
+[gd_scene load_steps=19 format=3 uid="uid://b5wu7c7eewugs"]
+
+[ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="1_1nkjx"]
+[ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_p4fo3"]
+[ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Assets/Materials/Levels/Playground Material 1.tres" id="2_guig8"]
+[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="2_tyc0b"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="3_i5yem"]
+[ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Assets/Materials/Shaders/Warping Water.tres" id="3_ny7cr"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_p3p2p"]
+[ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Assets/Textures/Levels/1da126ac.png" id="4_u4w2r"]
+[ext_resource type="Texture2D" uid="uid://bkta1him3xg1t" path="res://Assets/Textures/Levels/1da126ac_spec.png" id="5_0vbqj"]
+[ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Assets/Textures/Levels/1da126ac_nrm.png" id="5_r2l3l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i8yc1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cy5th"]
+sky_material = SubResource("ProceduralSkyMaterial_i8yc1")
+
+[sub_resource type="Environment" id="Environment_obdgp"]
+background_mode = 2
+sky = SubResource("Sky_cy5th")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wgvrk"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75qwo"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqyya"]
+render_priority = 0
+shader = ExtResource("3_ny7cr")
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Panning = Vector2(-0.15, 0)
+shader_parameter/distortion_speed = 0.2
+shader_parameter/distortion_scale = 1.0
+shader_parameter/distortion_intensity = 0.1
+shader_parameter/Tiling = Vector2(1, 1)
+shader_parameter/Occlusion_Intensity = 1.0
+shader_parameter/Albedo = ExtResource("4_u4w2r")
+shader_parameter/Occlusion = ExtResource("5_0vbqj")
+shader_parameter/Normal_Map = ExtResource("5_r2l3l")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t21dw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6jmhm"]
+
+[node name="Playground" type="Node3D"]
+
+[node name="PlayerHUD" parent="." instance=ExtResource("1_p4fo3")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_1nkjx")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_obdgp")
+
+[node name="Level Geometry" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
+transform = Transform3D(20, 6.03282e-15, -3.47356e-07, 0, 20, 3.47356e-07, 3.47356e-07, -3.47356e-07, 20, 0, 0, 2.38419e-07)
+material_override = ExtResource("2_guig8")
+mesh = SubResource("PlaneMesh_wgvrk")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_75qwo")
+
+[node name="Water" type="MeshInstance3D" parent="Level Geometry"]
+transform = Transform3D(50, 4.52461e-14, -1.73678e-06, 1.5082e-14, 50, 1.73678e-06, 1.73678e-06, -1.73678e-06, 50, -0.124176, -8.64963, -0.104125)
+material_override = SubResource("ShaderMaterial_aqyya")
+mesh = SubResource("PlaneMesh_wgvrk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Water"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Water/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_75qwo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Geometry"]
+transform = Transform3D(0.517071, -0.622551, -0.587425, 0.695129, -0.0950218, 0.712578, -0.499434, -0.776789, 0.38362, -0.844049, 11.9817, 3.06261)
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8776, 5.33969, -0.274099)
+light_color = Color(0, 0.615686, 1, 1)
+light_energy = 12.144
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("2_tyc0b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.469, 0.34235, -16.0485)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0155735, 0.144355, -0.00745153)
+script = ExtResource("3_i5yem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.879319, 0)
+shape = SubResource("CapsuleShape3D_t21dw")
+
+[node name="Pivot" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815385, 0)
+
+[node name="Boxie" type="MeshInstance3D" parent="Player/Pivot"]
+transform = Transform3D(0.560818, 0, 0, 0, 1.61797, 0, 0, 0, 0.421882, 0, 0, 0)
+mesh = SubResource("BoxMesh_6jmhm")
+skeleton = NodePath("../../..")
+
+[node name="CameraPivot" type="Marker3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
+
+[node name="Camera" type="Camera3D" parent="Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 2.5)
+fov = 60.0
+script = ExtResource("4_p3p2p")

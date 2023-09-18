@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://cm0l0ldh7cvh1"]
+
+[ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Assets/Textures/Particles/fire.png" id="1_foemp"]
+
+[sub_resource type="Curve" id="Curve_f4bgm"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pih08"]
+curve = SubResource("Curve_f4bgm")
+
+[sub_resource type="Curve" id="Curve_5jprh"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0k4iq"]
+curve = SubResource("Curve_5jprh")
+
+[sub_resource type="Gradient" id="Gradient_agse7"]
+offsets = PackedFloat32Array(0, 0.305699, 0.994819, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.6, 0, 1, 1, 0.964706, 0.913725, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d540u"]
+gradient = SubResource("Gradient_agse7")
+
+[sub_resource type="Curve" id="Curve_m300o"]
+_data = [Vector2(0, 0), 0.0, 0.445113, 0, 1, Vector2(0.99999, 1), 1.33017, 1.33017, 0, 0, Vector2(1, 1), 0.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ed4q"]
+curve = SubResource("Curve_m300o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u6p28"]
+gravity = Vector3(0, 5, 0)
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+angular_velocity_curve = SubResource("CurveTexture_0k4iq")
+angle_curve = SubResource("CurveTexture_pih08")
+scale_curve = SubResource("CurveTexture_2ed4q")
+color_ramp = SubResource("GradientTexture1D_d540u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e25oy"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_foemp")
+heightmap_scale = 6.04
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_vw5h0"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("StandardMaterial3D_e25oy")
+size = Vector2(2, 2)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0101686, 0, -0.012117)
+process_material = SubResource("ParticleProcessMaterial_u6p28")
+draw_pass_1 = SubResource("QuadMesh_vw5h0")
