@@ -1,22 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=8 format=3 uid="uid://dobtjao64n6lp"]
 
-[ext_resource type="Texture2D" uid="uid://bjlnvsdi0mcl6" path="res://Assets/Textures/UI/crosshair.png" id="1_xi4lv"]
-[ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Assets/Materials/UI/HUD/HealthBar.tres" id="2_c0808"]
-[ext_resource type="Texture2D" uid="uid://cvjyfg08t0s6a" path="res://Assets/Textures/Characters/Mayfly/Cards/e7b43538.png" id="2_jtruc"]
-[ext_resource type="Texture2D" uid="uid://dx4b8ctf1m11j" path="res://Assets/Textures/UI/b2fa8e8c_R1.png" id="2_kbik1"]
-[ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Assets/Materials/UI/MaskedTexture.tres" id="3_jxhmq"]
-[ext_resource type="Texture2D" uid="uid://bcuru11gjis05" path="res://Assets/Textures/UI/Masks/player_avatar.png" id="4_w0qti"]
+[ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
+[ext_resource type="Texture2D" uid="uid://bjlnvsdi0mcl6" path="res://Textures/UI/crosshair.png" id="1_m8fje"]
+[ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2efbf"]
+[ext_resource type="Texture2D" uid="uid://cvjyfg08t0s6a" path="res://Textures/Characters/Mayfly/Cards/e7b43538.png" id="5_t312a"]
+[ext_resource type="Texture2D" uid="uid://dx4b8ctf1m11j" path="res://Textures/UI/b2fa8e8c_R1.png" id="6_71pp5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bxa2b"]
-shader = ExtResource("2_c0808")
+shader = ExtResource("1_h7o1f")
 shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
 shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
 shader_parameter/tiling = Vector2(3.3, 0.2)
 shader_parameter/wave_speed = Vector2(-0.1, 25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gla7n"]
-shader = ExtResource("3_jxhmq")
-shader_parameter/Mask = ExtResource("4_w0qti")
+shader = ExtResource("2_2efbf")
 
 [node name="PlayerHUD" type="CanvasLayer"]
 
@@ -44,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(24, 24)
-texture = ExtResource("1_xi4lv")
+texture = ExtResource("1_m8fje")
 
 [node name="Control" type="Control" parent="Control"]
 anchors_preset = 0
@@ -77,7 +75,7 @@ offset_right = 121.0
 offset_bottom = 70.0
 grow_vertical = 2
 scale = Vector2(0.764392, 0.764392)
-texture = ExtResource("2_jtruc")
+texture = ExtResource("5_t312a")
 
 [node name="Decoration" type="TextureRect" parent="Control/Control"]
 layout_mode = 1
@@ -89,4 +87,4 @@ offset_right = 1431.0
 offset_bottom = 333.0
 grow_vertical = 0
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("2_kbik1")
+texture = ExtResource("6_71pp5")

@@ -1,26 +1,38 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=31 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="1_1nkjx"]
 [ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_p4fo3"]
-[ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Assets/Materials/Levels/Playground Material 1.tres" id="2_guig8"]
 [ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="2_tyc0b"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="3_i5yem"]
-[ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Assets/Materials/Shaders/Warping Water.tres" id="3_ny7cr"]
+[ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="3_j4dea"]
+[ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="3_ny7cr"]
+[ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="4_2pyx8"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_p3p2p"]
-[ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Assets/Textures/Levels/1da126ac.png" id="4_u4w2r"]
-[ext_resource type="Texture2D" uid="uid://bkta1him3xg1t" path="res://Assets/Textures/Levels/1da126ac_spec.png" id="5_0vbqj"]
-[ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Assets/Textures/Levels/1da126ac_nrm.png" id="5_r2l3l"]
+[ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="5_bbjko"]
+[ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="5_jlncm"]
+[ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="6_8ndex"]
+[ext_resource type="Texture2D" uid="uid://bkta1him3xg1t" path="res://Textures/Levels/1da126ac_spec.png" id="7_tck27"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Frosted Glass.gdshader" id="9_reh48"]
+[ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="10_2e7ww"]
+[ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="11_ld4no"]
+[ext_resource type="PackedScene" uid="uid://up8ndl5jvgkt" path="res://Prefabs/Characters/Mayfly.tscn" id="16_rb0v6"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i8yc1"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
+panorama = ExtResource("3_j4dea")
 
 [sub_resource type="Sky" id="Sky_cy5th"]
-sky_material = SubResource("ProceduralSkyMaterial_i8yc1")
+sky_material = SubResource("PanoramaSkyMaterial_6eb3a")
 
 [sub_resource type="Environment" id="Environment_obdgp"]
 background_mode = 2
 sky = SubResource("Sky_cy5th")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1635"]
+cull_mode = 2
+albedo_texture = ExtResource("4_2pyx8")
+ao_enabled = true
+ao_texture = ExtResource("5_jlncm")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wgvrk"]
 
@@ -36,10 +48,33 @@ shader_parameter/distortion_speed = 0.2
 shader_parameter/distortion_scale = 1.0
 shader_parameter/distortion_intensity = 0.1
 shader_parameter/Tiling = Vector2(1, 1)
+shader_parameter/Metallic = 0.0
+shader_parameter/Roughness = 0.242
+shader_parameter/Specular = 0.167
 shader_parameter/Occlusion_Intensity = 1.0
-shader_parameter/Albedo = ExtResource("4_u4w2r")
-shader_parameter/Occlusion = ExtResource("5_0vbqj")
-shader_parameter/Normal_Map = ExtResource("5_r2l3l")
+shader_parameter/Albedo = ExtResource("5_bbjko")
+shader_parameter/Occlusion = ExtResource("7_tck27")
+shader_parameter/Normal_Map = ExtResource("6_8ndex")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kayqk"]
+render_priority = 0
+shader = ExtResource("9_reh48")
+shader_parameter/distortion_size = 0.2
+shader_parameter/normal_map = ExtResource("10_2e7ww")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rg8kh"]
+material = SubResource("ShaderMaterial_kayqk")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l6fwg"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12ns8"]
+metallic = 0.77
+metallic_specular = 1.0
+roughness = 0.16
+
+[sub_resource type="BoxMesh" id="BoxMesh_i1mvp"]
+material = SubResource("StandardMaterial3D_12ns8")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t21dw"]
 
@@ -58,7 +93,7 @@ environment = SubResource("Environment_obdgp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
 transform = Transform3D(20, 6.03282e-15, -3.47356e-07, 0, 20, 3.47356e-07, 3.47356e-07, -3.47356e-07, 20, 0, 0, 2.38419e-07)
-material_override = ExtResource("2_guig8")
+material_override = SubResource("StandardMaterial3D_w1635")
 mesh = SubResource("PlaneMesh_wgvrk")
 skeleton = NodePath("../..")
 
@@ -91,6 +126,32 @@ omni_range = 10.0
 [node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("2_tyc0b")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.469, 0.34235, -16.0485)
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry"]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 10.8627)
+mesh = SubResource("BoxMesh_rg8kh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_l6fwg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Level Geometry"]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, -10.8579)
+mesh = SubResource("BoxMesh_i1mvp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_l6fwg")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/MeshInstance3D3"]
+transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
+update_mode = 1
+size = Vector3(100, 20, 100)
+
+[node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("11_ld4no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
+
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0155735, 0.144355, -0.00745153)
 script = ExtResource("3_i5yem")
@@ -114,3 +175,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 2.5)
 fov = 60.0
 script = ExtResource("4_p3p2p")
+
+[node name="Mayfly" parent="." instance=ExtResource("16_rb0v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42026, 1.56492e-07, 0.430698)

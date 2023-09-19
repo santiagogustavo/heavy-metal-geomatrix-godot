@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dl58hh3cdi8gp"
+path.s3tc="res://.godot/imported/Title Card-3ba608544a8044044fe2d1011a6ee97f_b159c0de.png-a2259ced3fc6cacbbdd6a236af2f7469.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://Models/Menus/Select Player/Title Card-3ba608544a8044044fe2d1011a6ee97f_b159c0de.png"
+dest_files=["res://.godot/imported/Title Card-3ba608544a8044044fe2d1011a6ee97f_b159c0de.png-a2259ced3fc6cacbbdd6a236af2f7469.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -82,7 +82,7 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x) * HORIZONTAL_SENSITIVITY_MOUSE)
 		camera_pivot.rotate_x(deg_to_rad(-event.relative.y) * VERTICAL_SENSITIVITY_MOUSE)
 
-func _process(delta):
+func _process(_delta):
 	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60));
 	update_dash()
 	update_aim()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cm0l0ldh7cvh1"]
 
-[ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Assets/Textures/Particles/fire.png" id="1_foemp"]
+[ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="1_7vda6"]
 
 [sub_resource type="Curve" id="Curve_f4bgm"]
 min_value = -360.0
@@ -50,7 +50,7 @@ cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
-albedo_texture = ExtResource("1_foemp")
+albedo_texture = ExtResource("1_7vda6")
 heightmap_scale = 6.04
 billboard_mode = 3
 billboard_keep_scale = true
@@ -66,5 +66,6 @@ size = Vector2(2, 2)
 
 [node name="GPUParticles3D" type="GPUParticles3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0101686, 0, -0.012117)
+preprocess = 1.0
 process_material = SubResource("ParticleProcessMaterial_u6p28")
 draw_pass_1 = SubResource("QuadMesh_vw5h0")

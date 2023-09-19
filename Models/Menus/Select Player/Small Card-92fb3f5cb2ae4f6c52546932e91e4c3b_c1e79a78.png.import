@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://da535v2qewx38"
+path.s3tc="res://.godot/imported/Small Card-92fb3f5cb2ae4f6c52546932e91e4c3b_c1e79a78.png-f997d1ce6fc56847e6569cbec2f3d6b6.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://Models/Menus/Select Player/Small Card-92fb3f5cb2ae4f6c52546932e91e4c3b_c1e79a78.png"
+dest_files=["res://.godot/imported/Small Card-92fb3f5cb2ae4f6c52546932e91e4c3b_c1e79a78.png-f997d1ce6fc56847e6569cbec2f3d6b6.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

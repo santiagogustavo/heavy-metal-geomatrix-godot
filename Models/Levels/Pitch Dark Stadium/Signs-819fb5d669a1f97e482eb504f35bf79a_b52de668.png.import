@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dr8t7x6l23lgr"
+path.s3tc="res://.godot/imported/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png-158c62472d51bd4a1930c7a3533088f1.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://Models/Levels/Pitch Dark Stadium/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png"
+dest_files=["res://.godot/imported/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png-158c62472d51bd4a1930c7a3533088f1.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d17r60j3ucc0v"
+path.s3tc="res://.godot/imported/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_85205df4.png-942f87e94311cd2cdd2c7cbc9ab6cc56.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://Models/Levels/Sunken City Night/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_85205df4.png"
+dest_files=["res://.godot/imported/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_85205df4.png-942f87e94311cd2cdd2c7cbc9ab6cc56.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

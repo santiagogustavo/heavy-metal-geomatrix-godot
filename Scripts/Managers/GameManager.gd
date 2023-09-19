@@ -16,6 +16,6 @@ func toggle_pause_game():
 	
 	get_tree().paused = is_game_paused
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause_game()
