@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=9 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Texture2D" uid="uid://bjlnvsdi0mcl6" path="res://Textures/UI/crosshair.png" id="1_m8fje"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2efbf"]
+[ext_resource type="Texture2D" uid="uid://bcuru11gjis05" path="res://Textures/UI/Masks/player_avatar.png" id="4_4xvm0"]
 [ext_resource type="Texture2D" uid="uid://cvjyfg08t0s6a" path="res://Textures/Characters/Mayfly/Cards/e7b43538.png" id="5_t312a"]
 [ext_resource type="Texture2D" uid="uid://dx4b8ctf1m11j" path="res://Textures/UI/b2fa8e8c_R1.png" id="6_71pp5"]
 
@@ -15,6 +16,7 @@ shader_parameter/wave_speed = Vector2(-0.1, 25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gla7n"]
 shader = ExtResource("2_2efbf")
+shader_parameter/Mask = ExtResource("4_4xvm0")
 
 [node name="PlayerHUD" type="CanvasLayer"]
 

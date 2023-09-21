@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
+@onready var animation_tree = $Mayfly/AnimationTree
+@onready var dash_particle = $Dash
 
 @export var speed = 7.5
 @export var dashing_speed = 10
@@ -11,42 +13,80 @@ extends CharacterBody3D
 
 var dash_duration = 1
 
+@export var LOOK_CLAMP = 60
 @export var HORIZONTAL_SENSITIVITY_MOUSE = 0.5
 @export var VERTICAL_SENSITIVITY_MOUSE = 0.5
-@export var HORIZONTAL_SENSITIVITY_STICK = 1
-@export var VERTICAL_SENSITIVITY_STICK = 1
+@export var HORIZONTAL_SENSITIVITY_STICK = 2
+@export var VERTICAL_SENSITIVITY_STICK = 2
 
 var is_walking = false
 var is_dashing = false
 var is_aiming = false
+var is_jumping = false
+var is_double_jumping = false
+var can_double_jump = false
+var input_direction = Vector2.ZERO
+var input_look = Vector2.ZERO
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-		
+
+func _ready():
+	move_and_slide()
+
+func _physics_process(delta):
+	compute_gravity(delta)
+	compute_movement()
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(-event.relative.x) * HORIZONTAL_SENSITIVITY_MOUSE)
+		camera_pivot.rotate_x(deg_to_rad(-event.relative.y) * VERTICAL_SENSITIVITY_MOUSE)
+		input_look.x = event.relative.x / 20
+
+func _process(_delta):
+	# VARIABLES AND MOTION
+	set_animator_variables()
+	set_camera_variables()	
+	move_and_slide()
+	
+	# COMPUTE FOR NEXT FRAME
+	compute_look_stick()
+	update_look_and_aim()
+	update_dash()
+	update_camera_clamp()
+
 func dash_stop():
 	is_dashing = false
 	
 func update_dash():
+	if dash_particle:
+		dash_particle.emitting = is_dashing
+		dash_particle.process_material.direction = -Vector3(input_direction.x, clampf(velocity.y / gravity, -1, 1), input_direction.y)
+
 	if !is_walking:
 		is_dashing = false
-		return
 	
-	if Input.is_action_just_pressed("dash") and is_walking and is_on_floor():
+	if Input.is_action_just_pressed("dash") and !is_dashing and is_walking and is_on_floor():
 		is_dashing = true
 		get_tree().create_timer(dash_duration).timeout.connect(dash_stop)
 
-func update_aim():
+func update_look_and_aim():
+	input_look.y = -rad_to_deg(camera_pivot.rotation.x) / 90
 	is_aiming = Input.is_action_pressed("aim")
+
+func update_camera_clamp():
+	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-LOOK_CLAMP), deg_to_rad(LOOK_CLAMP))
 
 func compute_look_stick():
 	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	look_dir = look_dir.normalized()
-	
+	input_look.x = look_dir.x * 0.6
 	rotate_y(deg_to_rad(-look_dir.x) * HORIZONTAL_SENSITIVITY_STICK)
 	camera_pivot.rotate_x(deg_to_rad(-look_dir.y) * VERTICAL_SENSITIVITY_STICK)
 
 func compute_movement():
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction = (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	
 	var current_speed = speed
 	if is_dashing:
@@ -62,29 +102,26 @@ func compute_movement():
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 func compute_gravity(delta):
-	if not is_on_floor():
-		velocity.y -= weight * gravity * delta
+	velocity.y -= weight * gravity * delta
+	if is_on_floor():
+		is_jumping = false
+		is_double_jumping = false
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_height
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			is_jumping = true
+			velocity.y = jump_height
+		elif !is_double_jumping and can_double_jump:
+			is_double_jumping = true
+			velocity.y = jump_height
 
 func set_camera_variables():
 	camera.is_dashing = is_dashing
 	camera.is_aiming = is_aiming
 
-func _physics_process(delta):
-	compute_look_stick()
-	compute_gravity(delta)
-	compute_movement()
-
-func _input(event):
-	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x) * HORIZONTAL_SENSITIVITY_MOUSE)
-		camera_pivot.rotate_x(deg_to_rad(-event.relative.y) * VERTICAL_SENSITIVITY_MOUSE)
-
-func _process(_delta):
-	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60));
-	update_dash()
-	update_aim()
-	set_camera_variables()
-	move_and_slide()	
+func set_animator_variables():
+	animation_tree.direction = input_direction
+	animation_tree.look = input_look
+	animation_tree.is_dashing = is_dashing
+	animation_tree.is_jumping = is_jumping
+	animation_tree.is_on_floor = is_on_floor()

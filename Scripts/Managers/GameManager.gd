@@ -2,10 +2,10 @@ extends Node
 
 var is_game_paused = false
 
-func _ready():
+func _init():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
+
 func toggle_pause_game():
 	if get_tree().paused:
 		is_game_paused = false

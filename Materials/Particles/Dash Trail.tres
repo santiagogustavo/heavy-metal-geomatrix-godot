@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ck7cvytka8t4t"]
+
+[ext_resource type="Texture2D" uid="uid://tmk1qk2at6ol" path="res://Textures/Particles/a9e43388.png" id="1_cvow7"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_cvow7")
+texture_filter = 0
+texture_repeat = false
+disable_receive_shadows = true
+use_particle_trails = true

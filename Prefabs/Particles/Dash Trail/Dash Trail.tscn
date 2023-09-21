@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://de4uiy610h5pr"]
+
+[ext_resource type="Material" uid="uid://c5r2kwj7etubr" path="res://Prefabs/Particles/Dash Trail/Dash Particle Trail.tres" id="1_ewgnq"]
+[ext_resource type="RibbonTrailMesh" uid="uid://ba4ijok7xbl2h" path="res://Prefabs/Particles/Dash Trail/Dash Trail.tres" id="2_rqctk"]
+
+[node name="Dash Trail" type="GPUParticles3D"]
+amount = 12
+lifetime = 0.2
+preprocess = 1.0
+randomness = 1.0
+local_coords = true
+transform_align = 3
+trail_enabled = true
+process_material = ExtResource("1_ewgnq")
+draw_pass_1 = ExtResource("2_rqctk")

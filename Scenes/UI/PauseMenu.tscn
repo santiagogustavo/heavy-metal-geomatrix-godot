@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://djao4jgemsc0"]
+[gd_scene load_steps=16 format=3 uid="uid://djao4jgemsc0"]
 
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_14uh4"]
 [ext_resource type="Texture2D" uid="uid://coc5bni6fs6ub" path="res://Textures/UI/Menus/Pause Menu/36303815_R1.png" id="3_2blfx"]
+[ext_resource type="Texture2D" uid="uid://d3qhb6cdwpkq2" path="res://Textures/UI/Menus/Pause Menu/1p.png" id="4_hwcto"]
 [ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Panel.gd" id="4_pay3k"]
 [ext_resource type="Texture2D" uid="uid://br5qgfapdetmw" path="res://Textures/UI/Menus/Pause Menu/continue.png" id="4_v001x"]
 [ext_resource type="Texture2D" uid="uid://ite6tp8d1wev" path="res://Textures/UI/Menus/Pause Menu/character_change.png" id="5_bhu21"]
@@ -88,6 +89,15 @@ pivot_offset = Vector2(250, 168)
 texture = ExtResource("3_2blfx")
 expand_mode = 1
 script = ExtResource("4_pay3k")
+
+[node name="1P" type="TextureRect" parent="Control/Panel"]
+layout_mode = 2
+offset_left = 142.453
+offset_top = 1.96225
+offset_right = 228.453
+offset_bottom = 87.9622
+scale = Vector2(0.57257, 0.57257)
+texture = ExtResource("4_hwcto")
 
 [node name="Buttons" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1

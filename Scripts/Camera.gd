@@ -10,7 +10,7 @@ var original_fov
 func _ready():
 	original_fov = fov
 
-func _process(delta):
+func _process(_delta):
 	var current_fov = original_fov
 	
 	if is_aiming:

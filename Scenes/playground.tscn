@@ -15,6 +15,7 @@
 [ext_resource type="Shader" path="res://Materials/Shaders/Frosted Glass.gdshader" id="9_reh48"]
 [ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="10_2e7ww"]
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="11_ld4no"]
+[ext_resource type="PackedScene" uid="uid://de4uiy610h5pr" path="res://Prefabs/Particles/Dash Trail/Dash Trail.tscn" id="15_01gna"]
 [ext_resource type="PackedScene" uid="uid://up8ndl5jvgkt" path="res://Prefabs/Characters/Mayfly.tscn" id="16_rb0v6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
@@ -77,8 +78,8 @@ roughness = 0.16
 material = SubResource("StandardMaterial3D_12ns8")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t21dw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_6jmhm"]
+radius = 0.3
+height = 1.8
 
 [node name="Playground" type="Node3D"]
 
@@ -153,28 +154,26 @@ size = Vector3(100, 20, 100)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0155735, 0.144355, -0.00745153)
 script = ExtResource("3_i5yem")
 
+[node name="Dash" parent="Player" instance=ExtResource("15_01gna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+amount = 8
+lifetime = 0.1
+local_coords = false
+trail_lifetime = 1.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.879319, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_t21dw")
 
-[node name="Pivot" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815385, 0)
-
-[node name="Boxie" type="MeshInstance3D" parent="Player/Pivot"]
-transform = Transform3D(0.560818, 0, 0, 0, 1.61797, 0, 0, 0, 0.421882, 0, 0, 0)
-mesh = SubResource("BoxMesh_6jmhm")
-skeleton = NodePath("../../..")
+[node name="Mayfly" parent="Player" instance=ExtResource("16_rb0v6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CameraPivot" type="Marker3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
 
 [node name="Camera" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 1.5)
 fov = 60.0
 script = ExtResource("4_p3p2p")
-
-[node name="Mayfly" parent="." instance=ExtResource("16_rb0v6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42026, 1.56492e-07, 0.430698)

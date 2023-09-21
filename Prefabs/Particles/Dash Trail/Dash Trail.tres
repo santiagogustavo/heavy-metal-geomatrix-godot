@@ -1,0 +1,10 @@
+[gd_resource type="RibbonTrailMesh" load_steps=2 format=3 uid="uid://ba4ijok7xbl2h"]
+
+[ext_resource type="Material" uid="uid://ck7cvytka8t4t" path="res://Materials/Particles/Dash Trail.tres" id="1_dh4id"]
+
+[resource]
+material = ExtResource("1_dh4id")
+shape = 0
+size = 0.03
+sections = 2
+section_segments = 5
