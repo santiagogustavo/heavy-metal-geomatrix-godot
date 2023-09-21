@@ -14,6 +14,7 @@ extends CharacterBody3D
 var dash_duration = 1
 
 @export var LOOK_CLAMP = 60
+@export var LOOK_SMOOTHING = 0.2
 @export var HORIZONTAL_SENSITIVITY_MOUSE = 0.5
 @export var VERTICAL_SENSITIVITY_MOUSE = 0.5
 @export var HORIZONTAL_SENSITIVITY_STICK = 2
@@ -28,6 +29,8 @@ var can_double_jump = false
 var input_direction = Vector2.ZERO
 var input_look = Vector2.ZERO
 
+var new_rotation = Vector3.ZERO
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
@@ -39,14 +42,15 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x) * HORIZONTAL_SENSITIVITY_MOUSE)
-		camera_pivot.rotate_x(deg_to_rad(-event.relative.y) * VERTICAL_SENSITIVITY_MOUSE)
+		new_rotation.y += deg_to_rad(-event.relative.x) * HORIZONTAL_SENSITIVITY_MOUSE
+		new_rotation.x += deg_to_rad(-event.relative.y) * VERTICAL_SENSITIVITY_MOUSE
 		input_look.x = event.relative.x / 20
 
 func _process(_delta):
 	# VARIABLES AND MOTION
 	set_animator_variables()
-	set_camera_variables()	
+	set_camera_variables()
+	update_rotation_smoothing()
 	move_and_slide()
 	
 	# COMPUTE FOR NEXT FRAME
@@ -77,12 +81,16 @@ func update_look_and_aim():
 func update_camera_clamp():
 	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-LOOK_CLAMP), deg_to_rad(LOOK_CLAMP))
 
+func update_rotation_smoothing():
+	rotation.y = lerp_angle(rotation.y, new_rotation.y, LOOK_SMOOTHING)
+	camera_pivot.rotation.x = lerp_angle(camera_pivot.rotation.x, new_rotation.x, LOOK_SMOOTHING)
+
 func compute_look_stick():
 	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	look_dir = look_dir.normalized()
 	input_look.x = look_dir.x * 0.6
-	rotate_y(deg_to_rad(-look_dir.x) * HORIZONTAL_SENSITIVITY_STICK)
-	camera_pivot.rotate_x(deg_to_rad(-look_dir.y) * VERTICAL_SENSITIVITY_STICK)
+	new_rotation.y += deg_to_rad(-look_dir.x) * HORIZONTAL_SENSITIVITY_STICK
+	new_rotation.x += deg_to_rad(-look_dir.y) * VERTICAL_SENSITIVITY_STICK
 
 func compute_movement():
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

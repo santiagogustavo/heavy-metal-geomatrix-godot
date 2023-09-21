@@ -7,7 +7,7 @@ var is_dashing = false
 var is_jumping = false
 var is_on_floor = true
 const lower_blend_tree_lerp = 15
-const upper_blend_tree_lerp = 30
+const upper_blend_tree_lerp = 20
 
 func _process(delta):
 	update_lower_body(delta)
