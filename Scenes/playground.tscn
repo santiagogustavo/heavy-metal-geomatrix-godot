@@ -27,6 +27,7 @@ sky_material = SubResource("PanoramaSkyMaterial_6eb3a")
 [sub_resource type="Environment" id="Environment_obdgp"]
 background_mode = 2
 sky = SubResource("Sky_cy5th")
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1635"]
 cull_mode = 2
@@ -147,7 +148,6 @@ shape = SubResource("ConcavePolygonShape3D_l6fwg")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/MeshInstance3D3"]
 transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
-update_mode = 1
 size = Vector3(100, 20, 100)
 
 [node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("11_ld4no")]
@@ -157,7 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 script = ExtResource("3_i5yem")
 
 [node name="Dash" parent="Player" instance=ExtResource("15_01gna")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853793, 0)
 amount = 8
 lifetime = 0.1
 local_coords = false

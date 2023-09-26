@@ -23,6 +23,8 @@ var dash_duration = 1
 var is_walking = false
 var is_dashing = false
 var is_aiming = false
+var is_shooting = false
+var is_attacking = false
 var is_jumping = false
 var is_double_jumping = false
 var can_double_jump = false
@@ -57,6 +59,8 @@ func _process(_delta):
 	compute_look_stick()
 	update_look_and_aim()
 	update_dash()
+	update_shoot()
+	update_attack()
 	update_camera_clamp()
 
 func dash_stop():
@@ -73,6 +77,18 @@ func update_dash():
 	if Input.is_action_just_pressed("dash") and !is_dashing and is_walking and is_on_floor():
 		is_dashing = true
 		get_tree().create_timer(dash_duration).timeout.connect(dash_stop)
+
+func update_shoot():
+	if Input.is_action_pressed("shoot"):
+		is_shooting = true
+	else:
+		is_shooting = false
+
+func update_attack():
+	if Input.is_action_just_pressed("shoot"):
+		is_attacking = true
+	else:
+		is_attacking = false
 
 func update_look_and_aim():
 	input_look.y = -rad_to_deg(camera_pivot.rotation.x) / 90
@@ -100,7 +116,7 @@ func compute_movement():
 	if is_dashing:
 		current_speed = dashing_speed
 	
-	if direction:
+	if direction.length():
 		is_walking = true
 		velocity.x = direction.x * current_speed
 		velocity.z = direction.z * current_speed
@@ -132,4 +148,7 @@ func set_animator_variables():
 	animation_tree.look = input_look
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
+	animation_tree.is_aiming = is_aiming
+	animation_tree.is_shooting = is_shooting
+	animation_tree.is_attacking = is_attacking
 	animation_tree.is_on_floor = is_on_floor()
