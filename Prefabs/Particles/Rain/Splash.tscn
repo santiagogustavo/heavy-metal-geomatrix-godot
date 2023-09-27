@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwviqwmnstw4j"]
+
+[ext_resource type="Texture2D" uid="uid://euj2cdrwk2gu" path="res://Textures/Particles/Rain/splash_1.png" id="1_bauld"]
+
+[sub_resource type="Gradient" id="Gradient_e1vgg"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_58kcp"]
+gradient = SubResource("Gradient_e1vgg")
+
+[sub_resource type="Curve" id="Curve_mvb0m"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_3fxwm"]
+_data = [Vector2(0, 0.5), 0.0, 0.5, 0, 1, Vector2(1, 1), 0.5, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_fjbby"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 1, Vector2(1, 0.5), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2you0"]
+curve_x = SubResource("Curve_mvb0m")
+curve_y = SubResource("Curve_3fxwm")
+curve_z = SubResource("Curve_fjbby")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4dtw"]
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveXYZTexture_2you0")
+color_ramp = SubResource("GradientTexture1D_58kcp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkt64"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.501961)
+albedo_texture = ExtResource("1_bauld")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_dfkvj"]
+material = SubResource("StandardMaterial3D_mkt64")
+center_offset = Vector3(0, 0.5, 0)
+
+[node name="Splash" type="GPUParticles3D"]
+extra_cull_margin = 10.0
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+visibility_aabb = AABB(-0.25, 0, 0, 0.5, 1, 0)
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_g4dtw")
+draw_pass_1 = SubResource("QuadMesh_dfkvj")

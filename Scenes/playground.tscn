@@ -1,39 +1,36 @@
-[gd_scene load_steps=31 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=27 format=3 uid="uid://b5wu7c7eewugs"]
 
-[ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="1_1nkjx"]
-[ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_p4fo3"]
-[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="2_tyc0b"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="3_i5yem"]
-[ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="3_j4dea"]
-[ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="3_ny7cr"]
-[ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="4_2pyx8"]
-[ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_p3p2p"]
-[ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="5_bbjko"]
-[ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="5_jlncm"]
-[ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="6_8ndex"]
-[ext_resource type="Texture2D" uid="uid://bkta1him3xg1t" path="res://Textures/Levels/1da126ac_spec.png" id="7_tck27"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Frosted Glass.gdshader" id="9_reh48"]
-[ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="10_2e7ww"]
-[ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="11_ld4no"]
-[ext_resource type="PackedScene" uid="uid://de4uiy610h5pr" path="res://Prefabs/Particles/Dash Trail/Dash Trail.tscn" id="15_01gna"]
-[ext_resource type="PackedScene" uid="uid://up8ndl5jvgkt" path="res://Prefabs/Characters/Mayfly.tscn" id="16_rb0v6"]
+[ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_nv42q"]
+[ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="2_qrrg6"]
+[ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="3_ydoo2"]
+[ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="4_weequ"]
+[ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="5_3lnoh"]
+[ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="6_5jbeo"]
+[ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="7_6an43"]
+[ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="8_uss5s"]
+[ext_resource type="Texture2D" uid="uid://bkta1him3xg1t" path="res://Textures/Levels/1da126ac_spec.png" id="9_e2svu"]
+[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="10_12fmy"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Frosted Glass.gdshader" id="11_jtcjx"]
+[ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="12_dp443"]
+[ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="13_hu3jd"]
+[ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="14_tgsiy"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
-panorama = ExtResource("3_j4dea")
+panorama = ExtResource("3_ydoo2")
 
-[sub_resource type="Sky" id="Sky_cy5th"]
+[sub_resource type="Sky" id="Sky_epnlb"]
 sky_material = SubResource("PanoramaSkyMaterial_6eb3a")
 
 [sub_resource type="Environment" id="Environment_obdgp"]
 background_mode = 2
-sky = SubResource("Sky_cy5th")
+sky = SubResource("Sky_epnlb")
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1635"]
 cull_mode = 2
-albedo_texture = ExtResource("4_2pyx8")
+albedo_texture = ExtResource("4_weequ")
 ao_enabled = true
-ao_texture = ExtResource("5_jlncm")
+ao_texture = ExtResource("5_3lnoh")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wgvrk"]
@@ -43,7 +40,7 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqyya"]
 render_priority = 0
-shader = ExtResource("3_ny7cr")
+shader = ExtResource("6_5jbeo")
 shader_parameter/Color = Color(1, 1, 1, 1)
 shader_parameter/Panning = Vector2(-0.15, 0)
 shader_parameter/distortion_speed = 0.2
@@ -54,15 +51,15 @@ shader_parameter/Metallic = 0.0
 shader_parameter/Roughness = 0.242
 shader_parameter/Specular = 0.167
 shader_parameter/Occlusion_Intensity = 1.0
-shader_parameter/Albedo = ExtResource("5_bbjko")
-shader_parameter/Occlusion = ExtResource("7_tck27")
-shader_parameter/Normal_Map = ExtResource("6_8ndex")
+shader_parameter/Albedo = ExtResource("7_6an43")
+shader_parameter/Occlusion = ExtResource("9_e2svu")
+shader_parameter/Normal_Map = ExtResource("8_uss5s")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kayqk"]
 render_priority = 0
-shader = ExtResource("9_reh48")
+shader = ExtResource("11_jtcjx")
 shader_parameter/distortion_size = 0.2
-shader_parameter/normal_map = ExtResource("10_2e7ww")
+shader_parameter/normal_map = ExtResource("12_dp443")
 
 [sub_resource type="BoxMesh" id="BoxMesh_rg8kh"]
 material = SubResource("ShaderMaterial_kayqk")
@@ -78,15 +75,11 @@ roughness = 0.16
 [sub_resource type="BoxMesh" id="BoxMesh_i1mvp"]
 material = SubResource("StandardMaterial3D_12ns8")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t21dw"]
-radius = 0.3
-height = 1.8
-
 [node name="Playground" type="Node3D"]
 
-[node name="PlayerHUD" parent="." instance=ExtResource("1_p4fo3")]
+[node name="PlayerHUD" parent="." instance=ExtResource("1_nv42q")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_1nkjx")]
+[node name="PauseMenu" parent="." instance=ExtResource("2_qrrg6")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_obdgp")
@@ -125,7 +118,7 @@ light_energy = 12.144
 shadow_enabled = true
 omni_range = 10.0
 
-[node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("2_tyc0b")]
+[node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("10_12fmy")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.469, 0.34235, -16.0485)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry"]
@@ -150,30 +143,7 @@ shape = SubResource("ConcavePolygonShape3D_l6fwg")
 transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
 size = Vector3(100, 20, 100)
 
-[node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("11_ld4no")]
+[node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("13_hu3jd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
-[node name="Player" type="CharacterBody3D" parent="."]
-script = ExtResource("3_i5yem")
-
-[node name="Dash" parent="Player" instance=ExtResource("15_01gna")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853793, 0)
-amount = 8
-lifetime = 0.1
-local_coords = false
-trail_lifetime = 1.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-shape = SubResource("CapsuleShape3D_t21dw")
-
-[node name="Mayfly" parent="Player" instance=ExtResource("16_rb0v6")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="CameraPivot" type="Marker3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
-
-[node name="Camera" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 1.5)
-fov = 60.0
-script = ExtResource("4_p3p2p")
+[node name="Player" parent="." instance=ExtResource("14_tgsiy")]

@@ -8,4 +8,4 @@ cull_mode = 2
 albedo_texture = ExtResource("1_alicm")
 ao_enabled = true
 ao_texture = ExtResource("2_j2ihg")
-uv1_scale = Vector3(4, 4, 4)
+uv1_scale = Vector3(5, 5, 5)
