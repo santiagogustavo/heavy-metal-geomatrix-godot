@@ -19,7 +19,7 @@ func _ready():
 
 	area.connect("body_entered", _on_area_3d_body_entered)
 	area.connect("body_exited", _on_area_3d_body_exited)
-	get_tree().create_timer(timeout).timeout.connect(_on_timeout)
+	get_tree().create_timer(timeout, false).timeout.connect(_on_timeout)
 
 func _process(_delta):
 	for mesh: MeshInstance3D in meshes:

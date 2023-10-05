@@ -158,8 +158,8 @@ cap_bottom = false
 [node name="Base G" instance=ExtResource("1_iuckg")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0.643826, 0, 0.765172)
-bones/1/rotation = Quaternion(0, -0.750427, 0, 0.660954)
+bones/0/rotation = Quaternion(0, 0.911654, 0, 0.410958)
+bones/1/rotation = Quaternion(0, -0.472106, 0, 0.881542)
 
 [node name="PopinPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {

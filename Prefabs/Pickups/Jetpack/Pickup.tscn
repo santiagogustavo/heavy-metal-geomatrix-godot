@@ -62,6 +62,7 @@ transitions = ["Start", "PopIn", SubResource("AnimationNodeStateMachineTransitio
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mxjrs"]
 
 [node name="Pickup" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_365sy")
 
 [node name="Jetpack" parent="." instance=ExtResource("1_15w0v")]
