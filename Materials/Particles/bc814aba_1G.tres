@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c45a564s5mb7y"]
+
+[ext_resource type="Texture2D" uid="uid://c5xe78cnbwoig" path="res://Textures/Particles/bc814aba_1G.png" id="1_d6xjg"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_d6xjg")
+uv1_scale = Vector3(1, 1.7, 1)
+uv1_offset = Vector3(0, 0.1, 0)

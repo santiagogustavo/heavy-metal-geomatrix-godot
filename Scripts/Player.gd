@@ -95,7 +95,7 @@ func update_look_and_aim():
 	is_aiming = Input.is_action_pressed("aim")
 
 func update_camera_clamp():
-	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-LOOK_CLAMP), deg_to_rad(LOOK_CLAMP))
+	new_rotation.x = clamp(new_rotation.x, -deg_to_rad(LOOK_CLAMP), deg_to_rad(LOOK_CLAMP))
 
 func update_rotation_smoothing():
 	rotation.y = lerp_angle(rotation.y, new_rotation.y, LOOK_SMOOTHING)

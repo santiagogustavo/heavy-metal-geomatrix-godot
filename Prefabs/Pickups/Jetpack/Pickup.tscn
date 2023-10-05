@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://qataf12e30v0"]
+
+[ext_resource type="PackedScene" uid="uid://c01rbkt5o481y" path="res://Prefabs/Pickups/Jetpack/Jetpack.tscn" id="1_15w0v"]
+[ext_resource type="Script" path="res://Scripts/Pickups/PickupController.gd" id="1_365sy"]
+[ext_resource type="PackedScene" uid="uid://cbgvy2t34sq10" path="res://Prefabs/Pickups/Base G.tscn" id="2_xeykn"]
+
+[sub_resource type="Animation" id="Animation_a6jyh"]
+resource_name = "PopIn"
+length = 0.3
+step = 0.05
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_i4nkf"]
+resource_name = "PopOut"
+length = 0.5
+step = 0.05
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qng4"]
+_data = {
+"PopIn": SubResource("Animation_a6jyh"),
+"PopOut": SubResource("Animation_i4nkf")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kv2d0"]
+animation = &"PopIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0g4hl"]
+animation = &"PopIn"
+play_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qo7cj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bb8yn"]
+advance_mode = 2
+advance_condition = &"is_destroying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6x3nw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xharf"]
+states/PopIn/node = SubResource("AnimationNodeAnimation_kv2d0")
+states/PopIn/position = Vector2(437, 100)
+states/PopOut/node = SubResource("AnimationNodeAnimation_0g4hl")
+states/PopOut/position = Vector2(669, 100)
+transitions = ["Start", "PopIn", SubResource("AnimationNodeStateMachineTransition_qo7cj"), "PopIn", "PopOut", SubResource("AnimationNodeStateMachineTransition_bb8yn"), "PopOut", "End", SubResource("AnimationNodeStateMachineTransition_6x3nw")]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mxjrs"]
+
+[node name="Pickup" type="Node3D"]
+script = ExtResource("1_365sy")
+
+[node name="Jetpack" parent="." instance=ExtResource("1_15w0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Base G" parent="." instance=ExtResource("2_xeykn")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0qng4")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0qng4")
+}
+tree_root = SubResource("AnimationNodeStateMachine_xharf")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_destroying = false
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_mxjrs")

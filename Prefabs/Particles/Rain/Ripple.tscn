@@ -94,5 +94,6 @@ one_shot = false
 visibility_aabb = AABB(-10, 0, -10, 20, 0.1, 20)
 process_material = SubResource("ParticleProcessMaterial_ewtqk")
 
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
-size = Vector3(20, 0.1, 20)
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(20, 0.5, 20)

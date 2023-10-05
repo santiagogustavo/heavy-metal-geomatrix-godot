@@ -46,7 +46,7 @@ billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_dfkvj"]
 material = SubResource("StandardMaterial3D_mkt64")
-center_offset = Vector3(0, 0.5, 0)
+center_offset = Vector3(0, 0.45, 0)
 
 [node name="Splash" type="GPUParticles3D"]
 extra_cull_margin = 10.0

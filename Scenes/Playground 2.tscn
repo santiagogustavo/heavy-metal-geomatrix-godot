@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=18 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_pygnr"]
 [ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="2_di0fh"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://dc5ihrsx5aehi" path="res://Materials/Levels/Playground Material 2.tres" id="4_mip5i"]
 [ext_resource type="PackedScene" uid="uid://1lkvm44wjt4x" path="res://Prefabs/Particles/Rain/Raindrops.tscn" id="6_aw2r8"]
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="7_nmb3m"]
+[ext_resource type="Script" path="res://Scripts/Spawner.gd" id="10_cmbqg"]
+[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/Jetpack/Pickup.tscn" id="10_fh3ev"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
 panorama = ExtResource("1_pygnr")
@@ -73,10 +75,15 @@ shadow_enabled = true
 [node name="Rain" type="Node3D" parent="Level Geometry"]
 
 [node name="Raindrops" parent="Level Geometry/Rain" instance=ExtResource("6_aw2r8")]
-draw_passes = 2
-draw_pass_2 = null
 
 [node name="Ripple" parent="Level Geometry/Rain" instance=ExtResource("7_nmb3m")]
 
 [node name="Player" parent="." instance=ExtResource("4_mdhg1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152066, 0, 0.181705)
+
+[node name="Spawner" type="Node3D" parent="."]
+script = ExtResource("10_cmbqg")
+node_path = "res://Prefabs/Pickups/Jetpack/Pickup.tscn"
+
+[node name="Jetpack Pickup" parent="." instance=ExtResource("10_fh3ev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)

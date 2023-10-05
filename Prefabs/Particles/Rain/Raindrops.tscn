@@ -40,6 +40,7 @@ cast_shadow = 0
 extra_cull_margin = 10.0
 amount = 50
 preprocess = 1.0
+collision_base_size = 1.0
 visibility_aabb = AABB(-10, -0.5, -10, 20, 1, 20)
 process_material = SubResource("ParticleProcessMaterial_w6f2w")
 draw_pass_1 = SubResource("QuadMesh_t3c5q")
