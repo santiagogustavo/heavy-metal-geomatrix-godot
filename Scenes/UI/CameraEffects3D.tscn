@@ -1,0 +1,127 @@
+[gd_scene load_steps=22 format=3 uid="uid://byafmx5elekej"]
+
+[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort.gdshader" id="1_2x3nj"]
+[ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain.gd" id="1_psrnk"]
+[ext_resource type="Texture2D" uid="uid://b5g3eif2k2s6r" path="res://Textures/Particles/Rain/rain_camera_small_medium.png" id="2_on5pt"]
+[ext_resource type="Texture2D" uid="uid://bknc85c8amrvn" path="res://Textures/Particles/Rain/rain_camera_trail.png" id="3_j056e"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort Trail.gdshader" id="3_jkh6r"]
+
+[sub_resource type="Gradient" id="Gradient_jidq3"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynsu8"]
+gradient = SubResource("Gradient_jidq3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ccfgd"]
+emission_shape = 3
+emission_box_extents = Vector3(1.6, 0.9, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+color_ramp = SubResource("GradientTexture1D_ynsu8")
+
+[sub_resource type="Gradient" id="Gradient_58gwp"]
+offsets = PackedFloat32Array(0, 0.412698, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_psaub"]
+gradient = SubResource("Gradient_58gwp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hrxc"]
+render_priority = 0
+shader = ExtResource("1_2x3nj")
+shader_parameter/distortion_size = 0.5
+shader_parameter/mask = SubResource("GradientTexture2D_psaub")
+shader_parameter/normal_map = ExtResource("2_on5pt")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dh61r"]
+material = SubResource("ShaderMaterial_6hrxc")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_l0fw3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_udqmn"]
+gradient = SubResource("Gradient_l0fw3")
+
+[sub_resource type="Curve" id="Curve_gsba0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_vicpc"]
+curve = SubResource("Curve_gsba0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ig8j"]
+emission_shape = 3
+emission_box_extents = Vector3(1.6, 0.9, 0)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_vicpc")
+color_ramp = SubResource("GradientTexture1D_udqmn")
+turbulence_enabled = true
+turbulence_noise_scale = 0.0
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.02
+turbulence_influence_max = 0.02
+
+[sub_resource type="Gradient" id="Gradient_vwj1v"]
+offsets = PackedFloat32Array(0, 0.333333, 0.693122, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2hot0"]
+gradient = SubResource("Gradient_vwj1v")
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elj8r"]
+render_priority = 0
+shader = ExtResource("3_jkh6r")
+shader_parameter/distortion_size = 0.5
+shader_parameter/mask = SubResource("GradientTexture2D_2hot0")
+shader_parameter/normal_map = ExtResource("3_j056e")
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_f8nli"]
+material = SubResource("ShaderMaterial_elj8r")
+shape = 0
+size = 0.1
+sections = 2
+section_length = 0.3
+
+[node name="CameraEffects3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -1.5)
+
+[node name="CameraRain" type="Node3D" parent="."]
+script = ExtResource("1_psrnk")
+effect_enabled = true
+
+[node name="Rain Drops" type="GPUParticles3D" parent="CameraRain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.5)
+layers = 524288
+amount = 25
+lifetime = 2.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ccfgd")
+draw_pass_1 = SubResource("QuadMesh_dh61r")
+
+[node name="Rain Drips" type="GPUParticles3D" parent="CameraRain"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.25, 0.5)
+layers = 524288
+amount = 20
+lifetime = 2.0
+local_coords = true
+trail_enabled = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_4ig8j")
+draw_pass_1 = SubResource("RibbonTrailMesh_f8nli")
