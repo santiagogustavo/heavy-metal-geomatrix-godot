@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgmh6d0tf813g"]
 
-[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort.gdshader" id="1_lvlfq"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort Rain.gdshader" id="1_lvlfq"]
 [ext_resource type="Texture2D" uid="uid://b5g3eif2k2s6r" path="res://Textures/Particles/Rain/rain_camera_small_medium.png" id="2_7nkky"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u1x4u"]

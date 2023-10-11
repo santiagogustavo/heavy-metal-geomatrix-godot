@@ -1,7 +1,5 @@
 shader_type spatial;
 
-render_mode unshaded;
-
 uniform float distortion_size = 0.4;
 uniform sampler2D mask;
 uniform sampler2D normal_map;

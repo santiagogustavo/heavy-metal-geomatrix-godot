@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8whq6m2jdvku"
+path="res://.godot/imported/Madatracker - Bang Your Head.mp3-2f525161322fcde6ed006682202d61c6.mp3str"
+
+[deps]
+
+source_file="res://Music/Madatracker - Bang Your Head.mp3"
+dest_files=["res://.godot/imported/Madatracker - Bang Your Head.mp3-2f525161322fcde6ed006682202d61c6.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

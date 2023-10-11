@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwgia2k52s1ol"
+path="res://.godot/imported/Attack 2.wav-74c64be1233e69b35ae25c82986e7246.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Mayfly/Attacks/Attack 2.wav"
+dest_files=["res://.godot/imported/Attack 2.wav-74c64be1233e69b35ae25c82986e7246.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

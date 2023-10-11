@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="4_weequ"]
 [ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="5_3lnoh"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="6_5jbeo"]
-[ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="7_6an43"]
-[ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="8_uss5s"]
-[ext_resource type="Texture2D" uid="uid://bkta1him3xg1t" path="res://Textures/Levels/1da126ac_spec.png" id="9_e2svu"]
+[ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="7_nvg67"]
+[ext_resource type="Texture2D" uid="uid://djdwcspbmak5r" path="res://Textures/Levels/5a480546_nrm.png" id="8_e1rhi"]
+[ext_resource type="Texture2D" uid="uid://yhc2736083x" path="res://Textures/Levels/5a480546_spec.png" id="9_81n0c"]
 [ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="10_12fmy"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Frosted Glass.gdshader" id="11_jtcjx"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort.gdshader" id="11_gcapk"]
 [ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="12_dp443"]
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="13_hu3jd"]
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="14_tgsiy"]
@@ -42,23 +42,23 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 render_priority = 0
 shader = ExtResource("6_5jbeo")
 shader_parameter/Color = Color(1, 1, 1, 1)
-shader_parameter/Panning = Vector2(-0.15, 0)
-shader_parameter/distortion_speed = 0.2
-shader_parameter/distortion_scale = 1.0
-shader_parameter/distortion_intensity = 0.1
-shader_parameter/Tiling = Vector2(1, 1)
-shader_parameter/Metallic = 0.0
-shader_parameter/Roughness = 0.242
-shader_parameter/Specular = 0.167
+shader_parameter/Panning = Vector2(0, 0.05)
+shader_parameter/distortion_speed = Vector2(0.1, 0.1)
+shader_parameter/distortion_scale = 0.8
+shader_parameter/distortion_intensity = 0.02
+shader_parameter/Tiling = Vector2(5, 5)
+shader_parameter/Metallic = 0.19
+shader_parameter/Roughness = 0.0
+shader_parameter/Specular = 0.505
 shader_parameter/Occlusion_Intensity = 1.0
-shader_parameter/Albedo = ExtResource("7_6an43")
-shader_parameter/Occlusion = ExtResource("9_e2svu")
-shader_parameter/Normal_Map = ExtResource("8_uss5s")
+shader_parameter/Albedo = ExtResource("7_nvg67")
+shader_parameter/Occlusion = ExtResource("9_81n0c")
+shader_parameter/Normal_Map = ExtResource("8_e1rhi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kayqk"]
 render_priority = 0
-shader = ExtResource("11_jtcjx")
-shader_parameter/distortion_size = 0.2
+shader = ExtResource("11_gcapk")
+shader_parameter/distortion_size = 0.22
 shader_parameter/normal_map = ExtResource("12_dp443")
 
 [sub_resource type="BoxMesh" id="BoxMesh_rg8kh"]
@@ -93,6 +93,7 @@ mesh = SubResource("PlaneMesh_wgvrk")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_75qwo")
@@ -103,9 +104,14 @@ material_override = SubResource("ShaderMaterial_aqyya")
 mesh = SubResource("PlaneMesh_wgvrk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Water"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Water/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_75qwo")
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="Level Geometry/Water"]
+transform = Transform3D(0.02, 6.0328e-18, 6.94712e-10, 1.80984e-17, 0.02, -6.94712e-10, -6.94712e-10, 6.94712e-10, 0.02, 0, 0.22, 7.21775e-09)
+size = Vector3(100, 20, 100)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Geometry"]
 transform = Transform3D(0.517071, -0.622551, -0.587425, 0.695129, -0.0950218, 0.712578, -0.499434, -0.776789, 0.38362, -0.844049, 11.9817, 3.06261)
@@ -126,6 +132,7 @@ transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 
 mesh = SubResource("BoxMesh_rg8kh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D2"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_l6fwg")
@@ -135,6 +142,7 @@ transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 
 mesh = SubResource("BoxMesh_i1mvp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D3"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_l6fwg")

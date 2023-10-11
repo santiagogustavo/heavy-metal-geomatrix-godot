@@ -34,7 +34,7 @@ graph_offset = Vector2(-73, 5)
 [node name="Jetpack" instance=ExtResource("1_jwmna")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1.24893, 1.24893, 1)
+bones/0/scale = Vector3(1.04266, 1.04266, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 libraries = {

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d7lbvw0h2m3l"
+path="res://.godot/imported/Special 3.wav-ded6a627a85ebd3541a68adc4f62fa88.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Mayfly/Specials/Special 3.wav"
+dest_files=["res://.godot/imported/Special 3.wav-ded6a627a85ebd3541a68adc4f62fa88.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

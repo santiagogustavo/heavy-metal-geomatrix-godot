@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://17xy5t8bj071"
+path="res://.godot/imported/Anders - Insanity Control.mp3-b51dbae9901e351de105ae949584e6d1.mp3str"
+
+[deps]
+
+source_file="res://Music/Anders - Insanity Control.mp3"
+dest_files=["res://.godot/imported/Anders - Insanity Control.mp3-b51dbae9901e351de105ae949584e6d1.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

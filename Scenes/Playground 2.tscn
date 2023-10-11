@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=20 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_pygnr"]
 [ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="2_di0fh"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="7_nmb3m"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="10_cmbqg"]
 [ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/Jetpack/Pickup.tscn" id="10_fh3ev"]
+[ext_resource type="AudioStream" uid="uid://ccjcfq7n3xcyc" path="res://Music/Madatracker - New Era.mp3" id="11_rj2it"]
+[ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="12_ga0ue"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
 panorama = ExtResource("1_pygnr")
@@ -53,6 +55,7 @@ mesh = SubResource("BoxMesh_qce16")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7r066")
@@ -63,6 +66,7 @@ mesh = SubResource("BoxMesh_yubfn")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D2"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_u6mn8")
@@ -87,3 +91,11 @@ node_path = "res://Prefabs/Pickups/Jetpack/Pickup.tscn"
 
 [node name="Jetpack Pickup" parent="." instance=ExtResource("10_fh3ev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+pickup_on_press = false
+
+[node name="Madatracker - New Era" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_rj2it")
+autoplay = true
+bus = &"Game"
+script = ExtResource("12_ga0ue")

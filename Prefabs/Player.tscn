@@ -11,7 +11,9 @@ radius = 0.3
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 7
 script = ExtResource("1_s5b7i")
+LOOK_SMOOTHING = 0.3
 
 [node name="Dash" parent="." instance=ExtResource("2_3ycw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853793, 0)

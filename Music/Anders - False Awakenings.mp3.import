@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8l3uaflxqx0k"
+path="res://.godot/imported/Anders - False Awakenings.mp3-6d9b728c593e1dbba3e17095ec028872.mp3str"
+
+[deps]
+
+source_file="res://Music/Anders - False Awakenings.mp3"
+dest_files=["res://.godot/imported/Anders - False Awakenings.mp3-6d9b728c593e1dbba3e17095ec028872.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
 @onready var animation_tree = $Mayfly/AnimationTree
+@onready var sound_tree = $Mayfly/SoundAnimationTree
 @onready var dash_particle = $Dash
 
 @export var speed = 7.5
@@ -26,6 +27,8 @@ var is_aiming = false
 var is_shooting = false
 var is_attacking = false
 var is_jumping = false
+var is_picking_up = false
+var is_pickup_collided = false
 var is_double_jumping = false
 var can_double_jump = false
 var input_direction = Vector2.ZERO
@@ -39,6 +42,10 @@ func _ready():
 	move_and_slide()
 
 func _physics_process(delta):
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#if collision.get_collider().collision_layer == 2:
+			#print("I collided with ", collision.get_collider().collision_layer)
 	compute_gravity(delta)
 	compute_movement()
 
@@ -50,6 +57,7 @@ func _input(event):
 
 func _process(_delta):
 	# VARIABLES AND MOTION
+	set_sound_variables()
 	set_animator_variables()
 	set_camera_variables()
 	update_rotation_smoothing()
@@ -61,6 +69,7 @@ func _process(_delta):
 	update_dash()
 	update_shoot()
 	update_attack()
+	update_pickup()
 	update_camera_clamp()
 
 func dash_stop():
@@ -78,17 +87,14 @@ func update_dash():
 		is_dashing = true
 		get_tree().create_timer(dash_duration).timeout.connect(dash_stop)
 
+func update_pickup():
+	is_picking_up = Input.is_action_just_pressed("pickup") and is_pickup_collided
+
 func update_shoot():
-	if Input.is_action_pressed("shoot"):
-		is_shooting = true
-	else:
-		is_shooting = false
+	is_shooting = Input.is_action_pressed("shoot")
 
 func update_attack():
-	if Input.is_action_just_pressed("shoot"):
-		is_attacking = true
-	else:
-		is_attacking = false
+	is_attacking = Input.is_action_just_pressed("shoot")
 
 func update_look_and_aim():
 	input_look.y = -rad_to_deg(camera_pivot.rotation.x) / 90
@@ -142,6 +148,13 @@ func compute_gravity(delta):
 func set_camera_variables():
 	camera.is_dashing = is_dashing
 	camera.is_aiming = is_aiming
+	
+func set_sound_variables():
+	sound_tree.is_walking = is_walking
+	sound_tree.is_jumping = is_jumping
+	sound_tree.is_dashing = is_dashing
+	sound_tree.is_picking_up = is_picking_up
+	sound_tree.is_on_floor = is_on_floor()
 
 func set_animator_variables():
 	animation_tree.direction = input_direction
@@ -151,4 +164,5 @@ func set_animator_variables():
 	animation_tree.is_aiming = is_aiming
 	animation_tree.is_shooting = is_shooting
 	animation_tree.is_attacking = is_attacking
+	animation_tree.is_picking_up = is_picking_up
 	animation_tree.is_on_floor = is_on_floor()

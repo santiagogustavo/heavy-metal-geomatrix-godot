@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbgvy2t34sq10"]
+[gd_scene load_steps=21 format=3 uid="uid://cbgvy2t34sq10"]
 
 [ext_resource type="PackedScene" uid="uid://c6bn8nmmjs4pb" path="res://Models/Pickups/Bases/Base G.glb" id="1_iuckg"]
 [ext_resource type="Material" uid="uid://c45a564s5mb7y" path="res://Materials/Particles/bc814aba_1G.tres" id="2_kamof"]
@@ -55,8 +55,28 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 2, 0, 2, 0.1, 1, 1, 1.5, 1, 0.5, 1, 0, 1.5, 0)
 
+[sub_resource type="Animation" id="Animation_p85n7"]
+resource_name = "Pickup"
+length = 0.5
+step = 0.05
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inner Ring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.05, 1, 0, 1.5, 0, 0.2, 1, 0, 1.5, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inner Ring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 2, 0, 2, 0.05, 1, 1, 1.5, 1, 0.2, 1, 0, 1.5, 0)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yfkuc"]
 _data = {
+"Pickup": SubResource("Animation_p85n7"),
 "PopIn": SubResource("Animation_cq5vq"),
 "PopOut": SubResource("Animation_kp83m")
 }
@@ -125,6 +145,9 @@ states/Idle/position = Vector2(461, 100)
 states/Start/position = Vector2(203, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_0k005")]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jdudd"]
+animation = &"Pickup"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ikw1o"]
 animation = &"PopIn"
 
@@ -142,13 +165,20 @@ advance_condition = &"is_destroying"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nwchr"]
+advance_mode = 2
+advance_condition = &"is_picking_up"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p4lk4"]
+states/Pickup/node = SubResource("AnimationNodeAnimation_jdudd")
+states/Pickup/position = Vector2(469, -30)
 states/PopIn/node = SubResource("AnimationNodeAnimation_ikw1o")
 states/PopIn/position = Vector2(469, 100)
 states/PopOut/node = SubResource("AnimationNodeAnimation_rcw78")
-states/PopOut/position = Vector2(678, 100)
+states/PopOut/position = Vector2(679, 100)
 states/Start/position = Vector2(203, 100)
-transitions = ["Start", "PopIn", SubResource("AnimationNodeStateMachineTransition_xdihu"), "PopIn", "PopOut", SubResource("AnimationNodeStateMachineTransition_elr1q"), "PopOut", "End", SubResource("AnimationNodeStateMachineTransition_0a5lq")]
+transitions = ["Start", "PopIn", SubResource("AnimationNodeStateMachineTransition_xdihu"), "PopIn", "PopOut", SubResource("AnimationNodeStateMachineTransition_elr1q"), "PopOut", "End", SubResource("AnimationNodeStateMachineTransition_0a5lq"), "PopIn", "Pickup", SubResource("AnimationNodeStateMachineTransition_nwchr")]
+graph_offset = Vector2(-24, -115)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_cq4b8"]
 material = ExtResource("2_kamof")
@@ -158,8 +188,8 @@ cap_bottom = false
 [node name="Base G" instance=ExtResource("1_iuckg")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0.911654, 0, 0.410958)
-bones/1/rotation = Quaternion(0, -0.472106, 0, 0.881542)
+bones/0/rotation = Quaternion(0, -0.217004, 0, 0.976171)
+bones/1/rotation = Quaternion(0, -0.528919, 0, 0.848673)
 
 [node name="PopinPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
@@ -182,6 +212,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_p4lk4")
 anim_player = NodePath("../PopinPlayer")
 parameters/conditions/is_destroying = false
+parameters/conditions/is_picking_up = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)

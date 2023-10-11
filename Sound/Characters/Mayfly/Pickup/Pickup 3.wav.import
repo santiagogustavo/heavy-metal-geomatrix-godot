@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cabr1pk1akabc"
+path="res://.godot/imported/Pickup 3.wav-f27a38851ce2165ade8a36e56243568a.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Mayfly/Pickup/Pickup 3.wav"
+dest_files=["res://.godot/imported/Pickup 3.wav-f27a38851ce2165ade8a36e56243568a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
