@@ -1,19 +1,21 @@
 extends CharacterBody3D
+class_name Player
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
-@onready var animation_tree = $Mayfly/AnimationTree
-@onready var sound_tree = $Mayfly/SoundAnimationTree
+@onready var animation_tree = $CharacterController/AnimationTree
+@onready var sound_tree = $CharacterController/SoundAnimationTree
 @onready var dash_particle = $Dash
+@onready var inventory_manager = $InventoryManager
 
+@export_subgroup("Physics")
 @export var speed = 7.5
 @export var dashing_speed = 10
 @export var jetpack_dashing_speed = 12.5
 @export var jump_height = 10
 @export var weight = 2.5
 
-var dash_duration = 1
-
+@export_subgroup("Controls")
 @export var LOOK_CLAMP = 60
 @export var LOOK_SMOOTHING = 0.2
 @export var HORIZONTAL_SENSITIVITY_MOUSE = 0.5
@@ -30,13 +32,13 @@ var is_jumping = false
 var is_picking_up = false
 var is_pickup_collided = false
 var is_double_jumping = false
-var can_double_jump = false
 var input_direction = Vector2.ZERO
 var input_look = Vector2.ZERO
 
 var new_rotation = Vector3.ZERO
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+const dash_duration = 1
 
 func _ready():
 	move_and_slide()
@@ -60,6 +62,7 @@ func _process(_delta):
 	set_sound_variables()
 	set_animator_variables()
 	set_camera_variables()
+	set_inventory_items_variables()
 	update_rotation_smoothing()
 	move_and_slide()
 	
@@ -71,6 +74,7 @@ func _process(_delta):
 	update_attack()
 	update_pickup()
 	update_camera_clamp()
+	clear_frame_variables()
 
 func dash_stop():
 	is_dashing = false
@@ -119,8 +123,10 @@ func compute_movement():
 	var direction = (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	
 	var current_speed = speed
-	if is_dashing:
+	if is_dashing and (!inventory_manager.has_jetpack or !inventory_manager.jetpack_has_fuel):
 		current_speed = dashing_speed
+	elif is_dashing and inventory_manager.has_jetpack and inventory_manager.jetpack_has_fuel:
+		current_speed = jetpack_dashing_speed
 	
 	if direction.length():
 		is_walking = true
@@ -135,15 +141,18 @@ func compute_gravity(delta):
 	velocity.y -= weight * gravity * delta
 	if is_on_floor():
 		is_jumping = false
-		is_double_jumping = false
-	
+
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			is_jumping = true
 			velocity.y = jump_height
-		elif !is_double_jumping and can_double_jump:
+		elif inventory_manager.has_jetpack:
 			is_double_jumping = true
-			velocity.y = jump_height
+			if inventory_manager.jetpack_has_fuel:
+				velocity.y = jump_height
+
+func clear_frame_variables():
+	is_double_jumping = false
 
 func set_camera_variables():
 	camera.is_dashing = is_dashing
@@ -166,3 +175,8 @@ func set_animator_variables():
 	animation_tree.is_attacking = is_attacking
 	animation_tree.is_picking_up = is_picking_up
 	animation_tree.is_on_floor = is_on_floor()
+
+func set_inventory_items_variables():
+	if inventory_manager.body_instance:
+		inventory_manager.body_instance.is_dashing = is_dashing
+		inventory_manager.body_instance.is_double_jumping = is_double_jumping

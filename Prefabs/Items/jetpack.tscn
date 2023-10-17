@@ -1,0 +1,295 @@
+[gd_scene load_steps=30 format=3 uid="uid://cy8lwontrbyhp"]
+
+[ext_resource type="Script" path="res://Scripts/Items/JetpackController.gd" id="1_06500"]
+[ext_resource type="PackedScene" uid="uid://yfmwmuu7yccd" path="res://Models/Items/Jetpack.glb" id="1_gojhc"]
+[ext_resource type="Material" uid="uid://d3u6rrjmll62h" path="res://Materials/Particles/Fire.tres" id="3_8lj7x"]
+[ext_resource type="AudioStream" uid="uid://cc2dcvyvhg6qh" path="res://Sound/Items/Jetpack/Beam.wav" id="3_b1kod"]
+[ext_resource type="AudioStream" uid="uid://c1cldxe1velc5" path="res://Sound/Items/Jetpack/Loop.wav" id="4_b0fqt"]
+[ext_resource type="Material" uid="uid://cjg0pv440lpce" path="res://Materials/Particles/Smoke.tres" id="4_t04u2"]
+[ext_resource type="AudioStream" uid="uid://kme5bco3a6er" path="res://Sound/Items/Jetpack/Smoke.wav" id="6_wpqex"]
+
+[sub_resource type="Gradient" id="Gradient_jsjqp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lms57"]
+gradient = SubResource("Gradient_jsjqp")
+
+[sub_resource type="Curve" id="Curve_jtxmc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.3), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_rxyc7"]
+curve = SubResource("Curve_jtxmc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mc44s"]
+lifetime_randomness = 0.2
+direction = Vector3(0, 0, -1)
+spread = 5.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_rxyc7")
+color = Color(0.258824, 1, 0.603922, 1)
+color_ramp = SubResource("GradientTexture1D_lms57")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2bbk3"]
+material = ExtResource("3_8lj7x")
+size = Vector2(0.35, 0.35)
+
+[sub_resource type="Curve" id="Curve_o320o"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8kdu1"]
+curve = SubResource("Curve_o320o")
+
+[sub_resource type="Gradient" id="Gradient_xi5vl"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.308108, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l3ffo"]
+gradient = SubResource("Gradient_xi5vl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dt43q"]
+emission_shape_scale = Vector3(0.04, 0.04, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+angle_min = -90.0
+angle_max = 90.0
+angle_curve = SubResource("CurveTexture_8kdu1")
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+color = Color(0.258824, 1, 0.603922, 1)
+color_ramp = SubResource("GradientTexture1D_l3ffo")
+
+[sub_resource type="QuadMesh" id="QuadMesh_m4sa3"]
+material = ExtResource("3_8lj7x")
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="Gradient" id="Gradient_wk8af"]
+colors = PackedColorArray(0.2, 0.2, 0.2, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t6hih"]
+gradient = SubResource("Gradient_wk8af")
+
+[sub_resource type="Curve" id="Curve_b8xv6"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1e-05, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_d03qc"]
+curve = SubResource("Curve_b8xv6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_besxl"]
+lifetime_randomness = 0.5
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 0, -1)
+spread = 20.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_d03qc")
+color = Color(0.490196, 0.490196, 0.490196, 1)
+color_ramp = SubResource("GradientTexture1D_t6hih")
+
+[sub_resource type="QuadMesh" id="QuadMesh_q2u8w"]
+material = ExtResource("4_t04u2")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Animation" id="Animation_0grsm"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Indicator:light_energy")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e6ux"]
+_data = {
+"Idle": SubResource("Animation_0grsm")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebwl5"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_eccwe"]
+graph_offset = Vector2(-343.43, 34.588)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ebwl5")
+nodes/Animation/position = Vector2(120, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="Jetpack" type="Node3D" node_paths=PackedStringArray("empty_indicator")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
+script = ExtResource("1_06500")
+empty_indicator = NodePath("Indicator")
+
+[node name="Jetpack" parent="." instance=ExtResource("1_gojhc")]
+transform = Transform3D(0.9, 3.55271e-14, 8.9407e-08, -1.42109e-14, 0.9, 7.10543e-15, -1.19209e-07, 7.10543e-15, 0.9, 0, 0, 0)
+
+[node name="Indicator" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206257, -0.133774)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.0
+omni_range = 0.5
+omni_attenuation = 0.241484
+
+[node name="L" type="Node3D" parent="."]
+transform = Transform3D(0.95609, -0.0909778, -0.278594, 0.293073, 0.296797, 0.908856, -3.15944e-10, -0.950597, 0.310428, 0.149188, -0.370422, -0.0232501)
+
+[node name="JetStream" type="GPUParticles3D" parent="L"]
+emitting = false
+amount = 20
+lifetime = 0.15
+local_coords = true
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_mc44s")
+draw_pass_1 = SubResource("QuadMesh_2bbk3")
+
+[node name="JetBase" type="GPUParticles3D" parent="L/JetStream"]
+transform = Transform3D(1, -3.68081e-10, 2.74895e-08, 2.83929e-10, 1, -5.96046e-08, -2.9895e-08, -5.96046e-08, 1, 0, 0, 0)
+emitting = false
+amount = 2
+lifetime = 0.15
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_dt43q")
+draw_pass_1 = SubResource("QuadMesh_m4sa3")
+
+[node name="JetBeam" type="GPUParticles3D" parent="L"]
+emitting = false
+amount = 20
+lifetime = 0.15
+one_shot = true
+local_coords = true
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_mc44s")
+draw_pass_1 = SubResource("QuadMesh_2bbk3")
+
+[node name="JetBase" type="GPUParticles3D" parent="L/JetBeam"]
+transform = Transform3D(1, -3.68081e-10, 2.74895e-08, 2.83929e-10, 1, -5.96046e-08, -2.9895e-08, -5.96046e-08, 1, 0, 0, 0)
+emitting = false
+amount = 2
+lifetime = 0.15
+one_shot = true
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_dt43q")
+draw_pass_1 = SubResource("QuadMesh_m4sa3")
+
+[node name="JetSmoke" type="GPUParticles3D" parent="L"]
+emitting = false
+amount = 20
+lifetime = 0.15
+one_shot = true
+local_coords = true
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_besxl")
+draw_pass_1 = SubResource("QuadMesh_q2u8w")
+
+[node name="R" type="Node3D" parent="."]
+transform = Transform3D(0.103951, -0.954629, 0.279065, 0.293407, 0.297532, 0.908508, -0.950319, -0.0125607, 0.311023, -0.149, -0.37, -0.023)
+
+[node name="JetStream" type="GPUParticles3D" parent="R"]
+emitting = false
+amount = 20
+lifetime = 0.15
+local_coords = true
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_mc44s")
+draw_pass_1 = SubResource("QuadMesh_2bbk3")
+
+[node name="JetBase" type="GPUParticles3D" parent="R/JetStream"]
+transform = Transform3D(1, -3.68081e-10, 2.74895e-08, 2.83929e-10, 1, -5.96046e-08, -2.9895e-08, -5.96046e-08, 1, 0, 0, 0)
+emitting = false
+amount = 2
+lifetime = 0.15
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_dt43q")
+draw_pass_1 = SubResource("QuadMesh_m4sa3")
+
+[node name="JetBeam" type="GPUParticles3D" parent="R"]
+emitting = false
+amount = 20
+lifetime = 0.15
+one_shot = true
+local_coords = true
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_mc44s")
+draw_pass_1 = SubResource("QuadMesh_2bbk3")
+
+[node name="JetBase" type="GPUParticles3D" parent="R/JetBeam"]
+transform = Transform3D(1, -3.68081e-10, 2.74895e-08, 2.83929e-10, 1, -5.96046e-08, -2.9895e-08, -5.96046e-08, 1, 0, 0, 0)
+emitting = false
+amount = 2
+lifetime = 0.15
+one_shot = true
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_dt43q")
+draw_pass_1 = SubResource("QuadMesh_m4sa3")
+
+[node name="JetSmoke" type="GPUParticles3D" parent="R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+emitting = false
+amount = 20
+lifetime = 0.15
+one_shot = true
+local_coords = true
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_besxl")
+draw_pass_1 = SubResource("QuadMesh_q2u8w")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Beam" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_b1kod")
+max_db = 0.0
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Loop" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("4_b0fqt")
+volume_db = -25.0
+max_db = 0.0
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[node name="Smoke" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("6_wpqex")
+volume_db = -30.0
+max_db = 0.0
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6e6ux")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6e6ux")
+}
+tree_root = SubResource("AnimationNodeBlendTree_eccwe")
+anim_player = NodePath("../AnimationPlayer")

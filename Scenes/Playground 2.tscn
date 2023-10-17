@@ -87,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152066, 0, 0.181705)
 
 [node name="Spawner" type="Node3D" parent="."]
 script = ExtResource("10_cmbqg")
-node_path = "res://Prefabs/Pickups/Jetpack/Pickup.tscn"
+pickup_to_spawn = ExtResource("10_fh3ev")
 
 [node name="Jetpack Pickup" parent="." instance=ExtResource("10_fh3ev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)

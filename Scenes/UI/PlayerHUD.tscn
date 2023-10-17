@@ -47,10 +47,13 @@ pivot_offset = Vector2(24, 24)
 texture = ExtResource("1_m8fje")
 
 [node name="Control" type="Control" parent="Control"]
-anchors_preset = 0
-offset_top = 518.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 558.0
+grow_vertical = 0
 
 [node name="HealthBar" type="ColorRect" parent="Control/Control"]
 material = SubResource("ShaderMaterial_bxa2b")
@@ -59,9 +62,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 110.0
-offset_top = 29.0
+offset_top = -87.9999
 offset_right = 150.0
-offset_bottom = 69.0
+offset_bottom = -47.9999
 grow_vertical = 2
 scale = Vector2(8.09454, 0.513157)
 
@@ -72,9 +75,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 57.0
-offset_top = 6.0
+offset_top = -111.0
 offset_right = 121.0
-offset_bottom = 70.0
+offset_bottom = -47.0
 grow_vertical = 2
 scale = Vector2(0.764392, 0.764392)
 texture = ExtResource("5_t312a")
@@ -84,9 +87,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
+offset_top = -157.0
 offset_right = 1431.0
-offset_bottom = 333.0
+offset_bottom = 216.0
 grow_vertical = 0
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("6_71pp5")

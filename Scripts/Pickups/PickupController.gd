@@ -1,8 +1,12 @@
 extends Node3D
 
+@export_subgroup("Configs")
 @export var timeout: float = 5
 @export var pickup_on_press: bool = true
+
+@export_subgroup("Pickup Definitions")
 @export var equip_type: Definitions.EquipType = Definitions.EquipType.Body
+@export var item: PackedScene
 
 @onready var area: Area3D = $Area3D
 @onready var meshes: Array = find_children("", "MeshInstance3D")
@@ -37,11 +41,14 @@ func _process(_delta):
 func detect_player_pickup():
 	if collider:
 		if collider.is_picking_up:
-			collider.is_pickup_collided = false
-			is_picking_up = true
 			_on_pickup()
 
 func _on_pickup():
+	if collider:
+		collider.inventory_manager.pick_up_item(equip_type, item)
+		collider.is_pickup_collided = false
+		is_picking_up = true
+
 	for animation_tree: AnimationTree in animation_trees:
 		animation_tree.set("parameters/conditions/is_picking_up", true)
 	await get_tree().create_timer(0.2).timeout
@@ -57,9 +64,9 @@ func lerp_collision_color():
 	color_lerp = pingpong(Time.get_ticks_msec(), lerp_duration) / lerp_duration
 
 func _on_area_3d_body_entered(body: Node3D):
+	collider = body
 	if pickup_on_press:
 		is_collided = true
-		collider = body
 		collider.is_pickup_collided = true
 	else:
 		_on_pickup()
