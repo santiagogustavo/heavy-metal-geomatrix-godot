@@ -8,6 +8,36 @@
 [ext_resource type="Material" uid="uid://cjg0pv440lpce" path="res://Materials/Particles/Smoke.tres" id="4_t04u2"]
 [ext_resource type="AudioStream" uid="uid://kme5bco3a6er" path="res://Sound/Items/Jetpack/Smoke.wav" id="6_wpqex"]
 
+[sub_resource type="Animation" id="Animation_0grsm"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Indicator:light_energy")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e6ux"]
+_data = {
+"Idle": SubResource("Animation_0grsm")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebwl5"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_eccwe"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ebwl5")
+nodes/Animation/position = Vector2(120, 140)
+node_connections = [&"output", 0, &"Animation"]
+
 [sub_resource type="Gradient" id="Gradient_jsjqp"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
@@ -36,7 +66,7 @@ color_ramp = SubResource("GradientTexture1D_lms57")
 
 [sub_resource type="QuadMesh" id="QuadMesh_2bbk3"]
 material = ExtResource("3_8lj7x")
-size = Vector2(0.35, 0.35)
+size = Vector2(0.4, 0.4)
 
 [sub_resource type="Curve" id="Curve_o320o"]
 min_value = -360.0
@@ -56,7 +86,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_xi5vl")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dt43q"]
-emission_shape_scale = Vector3(0.04, 0.04, 0)
+emission_shape_scale = Vector3(0.01, 0.01, 0)
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
@@ -107,37 +137,6 @@ color_ramp = SubResource("GradientTexture1D_t6hih")
 material = ExtResource("4_t04u2")
 size = Vector2(0.4, 0.4)
 
-[sub_resource type="Animation" id="Animation_0grsm"]
-resource_name = "Idle"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Indicator:light_energy")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e6ux"]
-_data = {
-"Idle": SubResource("Animation_0grsm")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebwl5"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_eccwe"]
-graph_offset = Vector2(-343.43, 34.588)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_ebwl5")
-nodes/Animation/position = Vector2(120, 140)
-node_connections = [&"output", 0, &"Animation"]
-
 [node name="Jetpack" type="Node3D" node_paths=PackedStringArray("empty_indicator")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
 script = ExtResource("1_06500")
@@ -153,8 +152,28 @@ light_energy = 0.0
 omni_range = 0.5
 omni_attenuation = 0.241484
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Indicator"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6e6ux")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Indicator"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_6e6ux")
+}
+tree_root = SubResource("AnimationNodeBlendTree_eccwe")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="L" type="Node3D" parent="."]
 transform = Transform3D(0.95609, -0.0909778, -0.278594, 0.293073, 0.296797, 0.908856, -3.15944e-10, -0.950597, 0.310428, 0.149188, -0.370422, -0.0232501)
+
+[node name="JetLight" type="OmniLight3D" parent="L"]
+transform = Transform3D(0.95609, 0.293073, 1.43652e-07, -0.0909781, 0.296797, -0.950597, -0.278594, 0.908857, 0.310428, 0.00260729, 0.00333105, -0.0138407)
+light_color = Color(0.258824, 1, 0.603922, 1)
+light_energy = 0.3
+omni_range = 1.0
 
 [node name="JetStream" type="GPUParticles3D" parent="L"]
 emitting = false
@@ -209,6 +228,12 @@ draw_pass_1 = SubResource("QuadMesh_q2u8w")
 [node name="R" type="Node3D" parent="."]
 transform = Transform3D(0.103951, -0.954629, 0.279065, 0.293407, 0.297532, 0.908508, -0.950319, -0.0125607, 0.311023, -0.149, -0.37, -0.023)
 
+[node name="JetLight" type="OmniLight3D" parent="R"]
+transform = Transform3D(0.103951, 0.293407, -0.95032, -0.954629, 0.297532, -0.0125607, 0.279065, 0.908508, 0.311024, 0.00332259, 0.00239348, -0.0145504)
+light_color = Color(0.258824, 1, 0.603922, 1)
+light_energy = 0.3
+omni_range = 1.0
+
 [node name="JetStream" type="GPUParticles3D" parent="R"]
 emitting = false
 amount = 20
@@ -250,7 +275,6 @@ process_material = SubResource("ParticleProcessMaterial_dt43q")
 draw_pass_1 = SubResource("QuadMesh_m4sa3")
 
 [node name="JetSmoke" type="GPUParticles3D" parent="R"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 emitting = false
 amount = 20
 lifetime = 0.15
@@ -281,15 +305,3 @@ volume_db = -30.0
 max_db = 0.0
 bus = &"Effects"
 attenuation_filter_db = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6e6ux")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6e6ux")
-}
-tree_root = SubResource("AnimationNodeBlendTree_eccwe")
-anim_player = NodePath("../AnimationPlayer")

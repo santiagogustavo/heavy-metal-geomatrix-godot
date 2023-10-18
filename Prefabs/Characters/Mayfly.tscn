@@ -1780,7 +1780,7 @@ bone_name = "Boob.R"
 stiffness = 0.3
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.733325, 0.679878, -1.74838e-07, 2.38419e-07, 0, 1, 0.679878, -0.733325, -1.62095e-07, -0.038445, 1.15737, -0.0330699)
+transform = Transform3D(0.733325, 0.679878, -1.74838e-07, 2.38419e-07, 0, 1, 0.679878, -0.733325, -1.62096e-07, -0.038445, 1.15737, -0.0330699)
 bone_name = "CoreIK"
 bone_idx = 13
 

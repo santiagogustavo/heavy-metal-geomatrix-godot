@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=32 format=3 uid="uid://b5wu7c7eewugs"]
 
+[ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_d7yff"]
 [ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_nv42q"]
 [ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="2_qrrg6"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="3_ydoo2"]
@@ -14,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="12_dp443"]
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="13_hu3jd"]
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="14_tgsiy"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="15_sduvl"]
+[ext_resource type="AudioStream" uid="uid://17xy5t8bj071" path="res://Music/Anders - Insanity Control.mp3" id="17_ni7qc"]
+[ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="18_2efy7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("3_ydoo2")
@@ -75,14 +79,21 @@ roughness = 0.16
 [sub_resource type="BoxMesh" id="BoxMesh_i1mvp"]
 material = SubResource("StandardMaterial3D_12ns8")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xwkx1"]
+size = Vector3(40, 0, 40)
+
 [node name="Playground" type="Node3D"]
+
+[node name="LevelConfig" type="Node3D" parent="."]
+script = ExtResource("1_d7yff")
+level_name = "Playground"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_obdgp")
 
 [node name="PlayerHUD" parent="." instance=ExtResource("1_nv42q")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_qrrg6")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_obdgp")
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
@@ -154,4 +165,19 @@ size = Vector3(100, 20, 100)
 [node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("13_hu3jd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
+[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shape") instance=ExtResource("15_sduvl")]
+collision_shape = NodePath("Area3D/CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
+shape = SubResource("BoxShape3D_xwkx1")
+
 [node name="Player" parent="." instance=ExtResource("14_tgsiy")]
+
+[node name="Anders - Insanity Control" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("17_ni7qc")
+autoplay = true
+bus = &"Game"
+script = ExtResource("18_2efy7")
+
+[editable path="Spawner"]

@@ -1,15 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=21 format=3 uid="uid://ckv2g8hx55b6r"]
 
+[ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_46m8r"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_pygnr"]
 [ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="2_di0fh"]
 [ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="3_wetqh"]
 [ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Materials/Levels/Playground Material 1.tres" id="4_ebvkg"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="4_gq87b"]
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="4_mdhg1"]
 [ext_resource type="Material" uid="uid://dc5ihrsx5aehi" path="res://Materials/Levels/Playground Material 2.tres" id="4_mip5i"]
 [ext_resource type="PackedScene" uid="uid://1lkvm44wjt4x" path="res://Prefabs/Particles/Rain/Raindrops.tscn" id="6_aw2r8"]
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="7_nmb3m"]
-[ext_resource type="Script" path="res://Scripts/Spawner.gd" id="10_cmbqg"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/Jetpack/Pickup.tscn" id="10_fh3ev"]
 [ext_resource type="AudioStream" uid="uid://ccjcfq7n3xcyc" path="res://Music/Madatracker - New Era.mp3" id="11_rj2it"]
 [ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="12_ga0ue"]
 
@@ -23,6 +23,9 @@ sky_material = SubResource("PanoramaSkyMaterial_ctbho")
 background_mode = 2
 background_energy_multiplier = 0.5
 sky = SubResource("Sky_cnmp7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08udg"]
+size = Vector3(20, 0, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qce16"]
 material = ExtResource("4_mip5i")
@@ -40,12 +43,23 @@ data = PackedVector3Array(-30, 0.025, 30, 30, 0.025, 30, -30, -0.025, 30, 30, 0.
 
 [node name="Playground 2" type="Node3D"]
 
+[node name="LevelConfig" type="Node3D" parent="."]
+script = ExtResource("1_46m8r")
+level_name = "Playground 2"
+is_rainy = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qo5h5")
 
 [node name="PlayerHUD" parent="." instance=ExtResource("3_wetqh")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_di0fh")]
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shape") instance=ExtResource("4_gq87b")]
+collision_shape = NodePath("Area3D/CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
+shape = SubResource("BoxShape3D_08udg")
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
@@ -85,17 +99,11 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("4_mdhg1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152066, 0, 0.181705)
 
-[node name="Spawner" type="Node3D" parent="."]
-script = ExtResource("10_cmbqg")
-pickup_to_spawn = ExtResource("10_fh3ev")
-
-[node name="Jetpack Pickup" parent="." instance=ExtResource("10_fh3ev")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
-pickup_on_press = false
-
 [node name="Madatracker - New Era" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("11_rj2it")
 autoplay = true
 bus = &"Game"
 script = ExtResource("12_ga0ue")
+
+[editable path="Spawner"]

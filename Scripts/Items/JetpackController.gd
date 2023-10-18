@@ -6,6 +6,10 @@ class_name JetpackController
 @export var is_dashing: bool = false
 @export var is_double_jumping: bool = false
 
+@onready var jet_lights: Array[OmniLight3D] = [
+	$L/JetLight,
+	$R/JetLight
+]
 @onready var jet_beam: Array[GPUParticles3D] = [
 	$L/JetBeam, $L/JetBeam/JetBase,
 	$R/JetBeam, $R/JetBeam/JetBase
@@ -23,18 +27,35 @@ class_name JetpackController
 @onready var loop_sfx: AudioStreamPlayer3D = $SFX/Loop
 @onready var smoke_sfx: AudioStreamPlayer3D = $SFX/Smoke
 
+var double_jumped = false
+
 func _ready():
 	play_jet_beam()
 
 func _process(delta):
 	spend_fuel(delta)
+	randomize_lights_energy()
+	enable_or_disable_indicator()
+	enable_or_disable_lights()
 	play_jet_stream()
 	if is_double_jumping:
+		double_jumped = true
+		get_tree().create_timer(0.1).connect("timeout", _on_double_jump_timeout)
 		play_jet_beam()
-	if fuel <= 0:
-		empty_indicator.visible = true
-	else:
-		empty_indicator.visible = false
+
+func _on_double_jump_timeout():
+	double_jumped = false
+
+func randomize_lights_energy():
+	for light in jet_lights:
+		light.light_energy = randf_range(0.01, 0.3)
+
+func enable_or_disable_indicator():
+	empty_indicator.visible = fuel <= 0
+
+func enable_or_disable_lights():
+	for light in jet_lights:
+		light.visible = fuel > 0 and (is_dashing or double_jumped)
 
 func spend_fuel(delta):
 	if fuel <= 0:
