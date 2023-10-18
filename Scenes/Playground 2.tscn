@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=22 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_46m8r"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_pygnr"]
@@ -26,6 +26,9 @@ sky = SubResource("Sky_cnmp7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08udg"]
 size = Vector3(20, 0, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dr3vy"]
+size = Vector3(60, 0, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qce16"]
 material = ExtResource("4_mip5i")
@@ -55,11 +58,15 @@ environment = SubResource("Environment_qo5h5")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_di0fh")]
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shape") instance=ExtResource("4_gq87b")]
-collision_shape = NodePath("Area3D/CollisionShape3D")
+[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("4_gq87b")]
+collision_shapes = [NodePath("Area3D/CollisionShape3D"), NodePath("Area3D/CollisionShape3D2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
 shape = SubResource("BoxShape3D_08udg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Spawner/Area3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+shape = SubResource("BoxShape3D_dr3vy")
 
 [node name="Level Geometry" type="Node3D" parent="."]
 

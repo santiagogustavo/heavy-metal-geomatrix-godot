@@ -127,7 +127,7 @@ item = ExtResource("2_4neja")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Jetpack/Armature" index="0"]
-bones/0/scale = Vector3(1.12416, 1.12416, 1)
+bones/0/scale = Vector3(1.06929, 1.06929, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="Jetpack"]
 libraries = {

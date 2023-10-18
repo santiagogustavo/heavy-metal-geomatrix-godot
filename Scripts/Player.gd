@@ -3,6 +3,8 @@ class_name Player
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
+@onready var camera_collider = $CameraPivot/CameraCollider
+
 @onready var animation_tree = $CharacterController/AnimationTree
 @onready var sound_tree = $CharacterController/SoundAnimationTree
 @onready var dash_particle = $Dash
@@ -74,6 +76,7 @@ func _process(_delta):
 	update_attack()
 	update_pickup()
 	update_camera_clamp()
+	update_camera_collision()
 	clear_frame_variables()
 
 func dash_stop():
@@ -106,6 +109,16 @@ func update_look_and_aim():
 
 func update_camera_clamp():
 	new_rotation.x = clamp(new_rotation.x, -deg_to_rad(LOOK_CLAMP), deg_to_rad(LOOK_CLAMP))
+
+func update_camera_collision():
+	if camera_collider.is_colliding():
+		camera.global_transform.origin = lerp(
+			camera.global_transform.origin,
+			camera_collider.get_collision_point(),
+			0.05
+		)
+	else:
+		camera.global_transform.origin = camera_collider.global_transform.origin
 
 func update_rotation_smoothing():
 	rotation.y = lerp_angle(rotation.y, new_rotation.y, LOOK_SMOOTHING)
