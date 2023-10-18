@@ -1436,7 +1436,7 @@ transitions = ["Start", "Look - Empty", SubResource("AnimationNodeStateMachineTr
 graph_offset = Vector2(223, -247)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xj3b2"]
-graph_offset = Vector2(-536.102, 89.9699)
+graph_offset = Vector2(-635, 218)
 nodes/Blend/node = SubResource("AnimationNodeBlend2_bsv2t")
 nodes/Blend/position = Vector2(80, 160)
 "nodes/Lower Body/node" = SubResource("AnimationNodeStateMachine_7op5x")
@@ -1713,9 +1713,10 @@ states/Walk/position = Vector2(344, -5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_hrlnw"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_sn3is"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_t7rwe"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_ig65e"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_36gve"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_4qvih"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_koovl"), "Walk", "Dash", SubResource("AnimationNodeStateMachineTransition_6hio0"), "Dash", "DashStop", SubResource("AnimationNodeStateMachineTransition_hi63h"), "Dash", "Jump", SubResource("AnimationNodeStateMachineTransition_t5arr"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_00lba"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_fcbk2"), "DashStop", "Idle", SubResource("AnimationNodeStateMachineTransition_rpjk7"), "Walk", "Land", SubResource("AnimationNodeStateMachineTransition_fh0hl"), "Pickup", "Idle", SubResource("AnimationNodeStateMachineTransition_h7cyo"), "Walk", "Pickup", SubResource("AnimationNodeStateMachineTransition_g7ivo"), "Idle", "Pickup", SubResource("AnimationNodeStateMachineTransition_6jngs"), "Dash", "Pickup", SubResource("AnimationNodeStateMachineTransition_kj28v"), "DashStop", "Pickup", SubResource("AnimationNodeStateMachineTransition_iswb6")]
 graph_offset = Vector2(-333, 4)
 
-[node name="Mayfly" node_paths=PackedStringArray("body_slot") instance=ExtResource("1_cyxfh")]
+[node name="Mayfly" node_paths=PackedStringArray("body_slot", "right_hand_slot") instance=ExtResource("1_cyxfh")]
 script = ExtResource("2_dvgvp")
 body_slot = NodePath("Armature/Skeleton3D/Body Slot")
+right_hand_slot = NodePath("Armature/Skeleton3D/Right Hand Slot")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0.787353, 1.4491, -0.692334)
@@ -1725,18 +1726,18 @@ bones/1/rotation = Quaternion(0.707107, 5.33851e-08, 5.33851e-08, 0.707107)
 bones/2/position = Vector3(0.24132, 0.114338, 0.15053)
 bones/2/rotation = Quaternion(0.877691, -0.0360352, 0.0668425, 0.473173)
 bones/3/position = Vector3(-0.0236415, 1.4761, 0.707735)
-bones/4/position = Vector3(2.20996e-16, 0.876023, -0.0745371)
+bones/4/position = Vector3(2.20996e-16, 0.88075, -0.0745371)
 bones/4/rotation = Quaternion(0, -0.365154, 0, 0.930947)
 bones/5/rotation = Quaternion(0.151144, 0.159373, -0.0245526, 0.975271)
 bones/6/rotation = Quaternion(-0.121255, -0.168692, 0.0933068, 0.973722)
 bones/7/position = Vector3(0.0761895, 0.0237471, 0.0274088)
-bones/7/rotation = Quaternion(0.826499, 0.145016, -0.33694, 0.427015)
-bones/8/rotation = Quaternion(0.415757, 2.17442e-09, 3.897e-07, 0.909476)
-bones/9/rotation = Quaternion(-0.538071, 0.177951, 0.165254, 0.807158)
+bones/7/rotation = Quaternion(0.82956, 0.142185, -0.337836, 0.421285)
+bones/8/rotation = Quaternion(0.404418, -4.8729e-09, 3.744e-07, 0.914574)
+bones/9/rotation = Quaternion(-0.533908, 0.177066, 0.165701, 0.810021)
 bones/10/position = Vector3(-0.0761895, 0.0237472, 0.0274088)
-bones/10/rotation = Quaternion(0.913159, -0.135119, 0.184633, 0.337334)
-bones/11/rotation = Quaternion(0.447342, 4.95621e-09, 2.53835e-07, 0.894363)
-bones/12/rotation = Quaternion(-0.668723, -0.170001, -0.16964, 0.703656)
+bones/10/rotation = Quaternion(0.915304, -0.133253, 0.184947, 0.332049)
+bones/11/rotation = Quaternion(0.436827, 3.1675e-08, 2.07202e-07, 0.899545)
+bones/12/rotation = Quaternion(-0.664834, -0.16872, -0.169748, 0.707612)
 bones/13/rotation = Quaternion(-0.707107, -8.42937e-08, 8.42937e-08, 0.707107)
 bones/14/position = Vector3(0.000132272, 8.2316e-05, -0.00106313)
 bones/16/rotation = Quaternion(0.653116, 0.260394, -0.25642, 0.663237)
@@ -1766,23 +1767,34 @@ bones/33/position = Vector3(-0.199665, 0.114338, -0.236088)
 bones/33/rotation = Quaternion(0.863059, -0.093279, 0.173023, 0.465285)
 
 [node name="BoobJiggle_L" type="Node3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.927595, -0.244454, 0.282505, 0.371606, -0.681495, 0.630455, 0.0384082, 0.689788, 0.722992, -0.312095, 0.687259, -0.707692)
+transform = Transform3D(-0.927713, -0.244238, 0.282305, 0.371343, -0.681013, 0.631131, 0.0381069, 0.690341, 0.722481, -0.311701, 0.686989, -0.706682)
 top_level = true
 script = ExtResource("2_vgrem")
 bone_name = "Boob.L"
 stiffness = 0.3
 
 [node name="BoobJiggle_R" type="Node3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(-0.031764, -0.669352, -0.742267, -0.371607, -0.681496, 0.630453, -0.927847, 0.295857, -0.227089, 0.655116, 0.687263, 0.189024)
+transform = Transform3D(-0.0320748, -0.669921, -0.741739, -0.371343, -0.681012, 0.631132, -0.927942, 0.295683, -0.226927, 0.654076, 0.686989, 0.188706)
 top_level = true
 script = ExtResource("2_vgrem")
 bone_name = "Boob.R"
 stiffness = 0.3
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.733325, 0.679878, -1.74838e-07, 2.38419e-07, 0, 1, 0.679878, -0.733325, -1.62096e-07, -0.038445, 1.15737, -0.0330699)
+transform = Transform3D(0.733325, 0.679878, -1.74838e-07, 2.38419e-07, 0, 1, 0.679878, -0.733325, -1.62095e-07, -0.038445, 1.1621, -0.0330699)
 bone_name = "CoreIK"
 bone_idx = 13
+
+[node name="Offset" type="Node3D" parent="Armature/Skeleton3D/Body Slot" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
+
+[node name="Right Hand Slot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
+transform = Transform3D(-0.981107, -0.0298179, 0.191154, 0.193451, -0.163341, 0.967417, 0.00237691, 0.986119, 0.166024, -0.289731, 1.14964, -0.0761778)
+bone_name = "Hand.R"
+bone_idx = 26
+
+[node name="Offset" type="Node3D" parent="Armature/Skeleton3D/Right Hand Slot" index="0"]
+transform = Transform3D(0.967476, 0.252964, -2.28174e-08, -0.252964, 0.967476, 0, 2.98023e-08, 0, 1, 5.96046e-08, 0.0858372, -2.38419e-07)
 
 [node name="SFX" type="Node3D" parent="." index="1"]
 

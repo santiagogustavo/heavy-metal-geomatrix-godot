@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cbgvy2t34sq10"]
+[gd_scene load_steps=24 format=3 uid="uid://cl3qjunydgocd"]
 
-[ext_resource type="PackedScene" uid="uid://c6bn8nmmjs4pb" path="res://Models/Pickups/Bases/Base G.glb" id="1_iuckg"]
-[ext_resource type="Material" uid="uid://c45a564s5mb7y" path="res://Materials/Particles/bc814aba_1G.tres" id="2_kamof"]
-[ext_resource type="AudioStream" uid="uid://bnbmu41mb38a2" path="res://Sound/Pickups/Spawn.wav" id="3_ky3aj"]
+[ext_resource type="PackedScene" uid="uid://deje4momhgjj8" path="res://Models/Pickups/Bases/Base R.glb" id="1_gdlfn"]
+[ext_resource type="Texture2D" uid="uid://d34wccg0c87se" path="res://Textures/Particles/bc814aba_1R.png" id="3_brwlc"]
+[ext_resource type="AudioStream" uid="uid://bnbmu41mb38a2" path="res://Sound/Pickups/Spawn.wav" id="3_poxcl"]
 
 [sub_resource type="Animation" id="Animation_5bp5h"]
 resource_name = "Idle"
@@ -62,7 +62,7 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0k005"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xf54e"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_b58xg"]
 states/Idle/node = SubResource("AnimationNodeAnimation_5v3ug")
 states/Idle/position = Vector2(461, 100)
 states/Start/position = Vector2(203, 100)
@@ -170,7 +170,7 @@ advance_mode = 2
 advance_mode = 2
 advance_condition = &"is_picking_up"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p4lk4"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v7b6i"]
 states/Pickup/node = SubResource("AnimationNodeAnimation_jdudd")
 states/Pickup/position = Vector2(469, -30)
 states/PopIn/node = SubResource("AnimationNodeAnimation_ikw1o")
@@ -181,25 +181,43 @@ states/Start/position = Vector2(203, 100)
 transitions = ["Start", "PopIn", SubResource("AnimationNodeStateMachineTransition_xdihu"), "PopIn", "PopOut", SubResource("AnimationNodeStateMachineTransition_elr1q"), "PopOut", "End", SubResource("AnimationNodeStateMachineTransition_0a5lq"), "PopIn", "Pickup", SubResource("AnimationNodeStateMachineTransition_nwchr")]
 graph_offset = Vector2(-24, -115)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_cq4b8"]
-material = ExtResource("2_kamof")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86bsk"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_brwlc")
+uv1_scale = Vector3(1, 1.7, 1)
+uv1_offset = Vector3(0, 0.1, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o00rb"]
+material = SubResource("StandardMaterial3D_86bsk")
 cap_top = false
 cap_bottom = false
 
-[node name="Base G" instance=ExtResource("1_iuckg")]
+[sub_resource type="CylinderMesh" id="CylinderMesh_5dio1"]
+material = SubResource("StandardMaterial3D_86bsk")
+cap_top = false
+cap_bottom = false
+
+[node name="Base R" instance=ExtResource("1_gdlfn")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, -0.962547, 0, 0.271116)
+bones/0/rotation = Quaternion(0, -0.536, 0, 0.844218)
 bones/1/position = Vector3(0, 0.2, 0)
-bones/1/rotation = Quaternion(0, 0.582184, 0, 0.813057)
+bones/1/rotation = Quaternion(0, -0.975722, 0, 0.219014)
+
+[node name="IdlePlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_gtvn1")
+}
 
 [node name="IdleTree" type="AnimationTree" parent="." index="2"]
 deterministic = false
 libraries = {
 "": SubResource("AnimationLibrary_gtvn1")
 }
-tree_root = SubResource("AnimationNodeStateMachine_xf54e")
-anim_player = NodePath("../AnimationPlayer")
+tree_root = SubResource("AnimationNodeStateMachine_b58xg")
+anim_player = NodePath("../IdlePlayer")
 
 [node name="PopinPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
@@ -211,25 +229,25 @@ deterministic = false
 libraries = {
 "": SubResource("AnimationLibrary_yfkuc")
 }
-tree_root = SubResource("AnimationNodeStateMachine_p4lk4")
+tree_root = SubResource("AnimationNodeStateMachine_v7b6i")
 anim_player = NodePath("../PopinPlayer")
 parameters/conditions/is_destroying = false
 parameters/conditions/is_picking_up = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
-light_color = Color(0.347656, 0.996094, 0.878906, 1)
+light_color = Color(1, 0, 0, 1)
 
 [node name="Inner Ring" type="MeshInstance3D" parent="." index="6"]
 transform = Transform3D(2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
-mesh = SubResource("CylinderMesh_cq4b8")
+mesh = SubResource("CylinderMesh_o00rb")
 
 [node name="Outer Ring" type="MeshInstance3D" parent="." index="7"]
 transform = Transform3D(4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0)
-mesh = SubResource("CylinderMesh_cq4b8")
+mesh = SubResource("CylinderMesh_5dio1")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." index="8"]
-stream = ExtResource("3_ky3aj")
+stream = ExtResource("3_poxcl")
 volume_db = -15.0
 max_db = 0.0
 autoplay = true

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ck110ylvtm5hn"]
+
+[ext_resource type="Texture2D" uid="uid://dykq2ai74mk35" path="res://Textures/Pickups/af4cf111_R.png" id="1_jye3x"]
+
+[resource]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_jye3x")
+billboard_mode = 2
+billboard_keep_scale = true

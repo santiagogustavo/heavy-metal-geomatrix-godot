@@ -1,10 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://qataf12e30v0"]
+[gd_scene load_steps=23 format=3 uid="uid://qataf12e30v0"]
 
 [ext_resource type="Script" path="res://Scripts/Pickups/PickupController.gd" id="1_365sy"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="2_4neja"]
 [ext_resource type="PackedScene" uid="uid://cdenl4dsil0cq" path="res://Models/Pickups/Jetpack.glb" id="3_eawb3"]
 [ext_resource type="PackedScene" uid="uid://cbgvy2t34sq10" path="res://Prefabs/Pickups/Base G.tscn" id="6_javxo"]
-[ext_resource type="AudioStream" uid="uid://bnbmu41mb38a2" path="res://Sound/Pickups/Spawn.wav" id="7_on0xv"]
 
 [sub_resource type="Animation" id="Animation_jyi7t"]
 resource_name = "Idle"
@@ -127,7 +126,7 @@ item = ExtResource("2_4neja")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Jetpack/Armature" index="0"]
-bones/0/scale = Vector3(1.06929, 1.06929, 1)
+bones/0/scale = Vector3(1.03104, 1.03104, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="Jetpack"]
 libraries = {
@@ -158,15 +157,5 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_mxjrs")
-
-[node name="SFX" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("7_on0xv")
-volume_db = -15.0
-max_db = 0.0
-autoplay = true
-max_distance = 100.0
-panning_strength = 0.0
-bus = &"Reverb"
-attenuation_filter_db = 0.0
 
 [editable path="Jetpack"]
