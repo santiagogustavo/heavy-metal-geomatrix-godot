@@ -40,6 +40,9 @@ func update_combo_animation():
 	
 	last_combo_animation = current_node
 
+func get_current_upper_body_animation():
+	return upper_body_state_machine.get_current_node()
+
 func is_current_node_attacking():
 	var current_node = upper_body_state_machine.get_current_node()
 	return current_node in [

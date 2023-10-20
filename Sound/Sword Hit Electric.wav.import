@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://co2w483nywhna"
+path="res://.godot/imported/Sword Hit Electric.wav-5403709c5e823e76f3c653beeddce021.sample"
+
+[deps]
+
+source_file="res://Sound/Sword Hit Electric.wav"
+dest_files=["res://.godot/imported/Sword Hit Electric.wav-5403709c5e823e76f3c653beeddce021.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

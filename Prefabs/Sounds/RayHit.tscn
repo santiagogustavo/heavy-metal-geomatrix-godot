@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0pfhle8odb23"]
+
+[ext_resource type="AudioStream" uid="uid://co2w483nywhna" path="res://Sound/Sword Hit Electric.wav" id="1_4utyn"]
+[ext_resource type="Script" path="res://Prefabs/Utils/QueueFreeTimeout.gd" id="2_ndp4i"]
+
+[node name="RayHit" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_4utyn")
+volume_db = -20.0
+max_db = 0.0
+pitch_scale = 0.64
+autoplay = true
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+script = ExtResource("2_ndp4i")
+timeout = 0.42

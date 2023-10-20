@@ -7,7 +7,7 @@ extends Node3D
 @onready var particle_drops = $"Rain Drops"
 @onready var particle_drips = $"Rain Drips"
 
-func _process(delta):
+func _process(_delta):
 	var is_emitting = current_camera.global_rotation_degrees.x >= minimum_camera_rotation and effect_enabled
 	particle_drops.emitting = is_emitting
 	particle_drips.emitting = is_emitting

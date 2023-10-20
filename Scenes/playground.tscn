@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=36 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_d7yff"]
 [ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_nv42q"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="17_30tnt"]
 [ext_resource type="AudioStream" uid="uid://17xy5t8bj071" path="res://Music/Anders - Insanity Control.mp3" id="17_ni7qc"]
 [ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="18_2efy7"]
+[ext_resource type="PackedScene" uid="uid://cokc4rj1u2ass" path="res://Prefabs/Particles/RaySpark.tscn" id="21_u2n03"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("3_ydoo2")
@@ -190,5 +191,7 @@ stream = ExtResource("17_ni7qc")
 autoplay = true
 bus = &"Game"
 script = ExtResource("18_2efy7")
+
+[node name="RaySpark" parent="." instance=ExtResource("21_u2n03")]
 
 [editable path="Spawner"]

@@ -71,7 +71,7 @@ func _on_area_3d_body_entered(body: Node3D):
 	else:
 		_on_pickup()
 	
-func _on_area_3d_body_exited(body: Node3D):
+func _on_area_3d_body_exited(_body: Node3D):
 	is_collided = false
 	if collider:
 		collider.is_pickup_collided = false
