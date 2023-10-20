@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=43 format=3 uid="uid://dkjcr2ocolsln"]
+[gd_resource type="VisualShader" load_steps=42 format=3 uid="uid://dkjcr2ocolsln"]
 
 [ext_resource type="Script" path="res://addons/shaderV/rgba/noise/fractal/simplex4d_fractal.gd" id="1_u6rvw"]
 
@@ -147,20 +147,13 @@ parameter_name = "Metallic"
 hint = 1
 default_value_enabled = true
 
-[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_45mpc"]
-parameter_name = "distortion_speed"
-default_value_enabled = true
-default_value = Vector2(0.5, 0.5)
-
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_5tlss"]
-default_input_values = [0, Vector2(-0.5, -0.5), 1, Vector2(0, 0)]
-op_type = 0
-operator = 2
-
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_tbprn"]
 default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
 op_type = 0
 operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_kol75"]
+parameter_name = "distortion_speed"
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_dklpf"]
 constant = 6.0
@@ -177,7 +170,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 
 uniform vec4 Color : source_color;
 uniform vec2 Panning = vec2(0.000000, 0.000000);
-uniform vec2 distortion_speed = vec2(0.500000, 0.500000);
+uniform float distortion_speed;
 uniform float distortion_scale : hint_range(0, 10) = 5;
 uniform float distortion_intensity : hint_range(0, 1) = 0.5;
 uniform vec2 Tiling = vec2(1.000000, 1.000000);
@@ -320,13 +313,8 @@ void fragment() {
 	vec2 n_out17p0 = UV;
 
 
-// Vector2Parameter:52
-	vec2 n_out52p0 = distortion_speed;
-
-
-// VectorOp:53
-	vec2 n_in53p0 = vec2(-0.50000, -0.50000);
-	vec2 n_out53p0 = n_in53p0 * n_out52p0;
+// FloatParameter:55
+	float n_out55p0 = distortion_speed;
 
 
 // Input:20
@@ -334,7 +322,7 @@ void fragment() {
 
 
 // VectorOp:54
-	vec2 n_out54p0 = n_out53p0 * vec2(n_out20p0);
+	vec2 n_out54p0 = vec2(n_out55p0) * vec2(n_out20p0);
 
 
 // UVFunc:22
@@ -452,6 +440,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-2595.44, 40.947)
 nodes/fragment/0/position = Vector2(1520, 100)
 nodes/fragment/3/node = SubResource("VisualShaderNodeCustom_qdxpn")
 nodes/fragment/3/position = Vector2(-1000, 400)
@@ -529,10 +518,8 @@ nodes/fragment/50/node = SubResource("VisualShaderNodeFloatParameter_wqcht")
 nodes/fragment/50/position = Vector2(800, -40)
 nodes/fragment/51/node = SubResource("VisualShaderNodeFloatParameter_1hmlg")
 nodes/fragment/51/position = Vector2(800, -620)
-nodes/fragment/52/node = SubResource("VisualShaderNodeVec2Parameter_45mpc")
-nodes/fragment/52/position = Vector2(-2440, 420)
-nodes/fragment/53/node = SubResource("VisualShaderNodeVectorOp_5tlss")
-nodes/fragment/53/position = Vector2(-2080, 420)
 nodes/fragment/54/node = SubResource("VisualShaderNodeVectorOp_tbprn")
 nodes/fragment/54/position = Vector2(-1740, 520)
-nodes/fragment/connections = PackedInt32Array(17, 0, 22, 0, 23, 0, 24, 2, 24, 0, 26, 1, 25, 0, 26, 0, 27, 0, 28, 1, 30, 0, 29, 0, 29, 1, 28, 0, 29, 0, 31, 0, 27, 0, 31, 1, 31, 0, 32, 0, 28, 0, 32, 1, 5, 0, 3, 9, 21, 0, 3, 2, 22, 0, 3, 0, 13, 0, 3, 8, 10, 0, 3, 7, 12, 0, 3, 6, 11, 0, 3, 5, 9, 0, 3, 4, 8, 0, 3, 3, 6, 0, 3, 1, 39, 0, 38, 2, 32, 0, 40, 2, 34, 0, 40, 0, 40, 0, 38, 0, 41, 0, 42, 2, 44, 0, 43, 1, 42, 0, 43, 0, 43, 0, 0, 6, 38, 0, 45, 0, 46, 0, 45, 1, 45, 0, 24, 0, 45, 0, 42, 0, 47, 0, 48, 2, 45, 0, 48, 0, 48, 0, 0, 9, 3, 0, 38, 1, 49, 0, 0, 3, 50, 0, 0, 4, 51, 0, 0, 2, 26, 0, 0, 0, 52, 0, 53, 1, 20, 0, 54, 1, 53, 0, 54, 0, 54, 0, 22, 2)
+nodes/fragment/55/node = SubResource("VisualShaderNodeFloatParameter_kol75")
+nodes/fragment/55/position = Vector2(-2120, 440)
+nodes/fragment/connections = PackedInt32Array(17, 0, 22, 0, 23, 0, 24, 2, 24, 0, 26, 1, 25, 0, 26, 0, 27, 0, 28, 1, 30, 0, 29, 0, 29, 1, 28, 0, 29, 0, 31, 0, 27, 0, 31, 1, 31, 0, 32, 0, 28, 0, 32, 1, 39, 0, 38, 2, 32, 0, 40, 2, 34, 0, 40, 0, 40, 0, 38, 0, 41, 0, 42, 2, 44, 0, 43, 1, 42, 0, 43, 0, 43, 0, 0, 6, 38, 0, 45, 0, 46, 0, 45, 1, 45, 0, 24, 0, 45, 0, 42, 0, 47, 0, 48, 2, 45, 0, 48, 0, 48, 0, 0, 9, 49, 0, 0, 3, 50, 0, 0, 4, 51, 0, 0, 2, 26, 0, 0, 0, 20, 0, 54, 1, 54, 0, 22, 2, 6, 0, 3, 1, 8, 0, 3, 3, 9, 0, 3, 4, 11, 0, 3, 5, 12, 0, 3, 6, 10, 0, 3, 7, 13, 0, 3, 8, 5, 0, 3, 9, 22, 0, 3, 0, 3, 0, 38, 1, 21, 0, 3, 2, 55, 0, 54, 0)

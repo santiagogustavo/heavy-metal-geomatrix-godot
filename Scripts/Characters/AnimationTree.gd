@@ -82,10 +82,11 @@ func update_lower_body(delta):
 
 func update_upper_body(delta):
 	# CONDITIONS #
+	set("parameters/Upper Body/conditions/equip", equip)
 	set("parameters/Upper Body/conditions/is_aiming", is_aiming)
 	set("parameters/Upper Body/conditions/is_shooting", is_shooting)
 	set("parameters/Upper Body/conditions/is_attacking", is_attacking || is_attack_combo)
-	set("parameters/Upper Body/conditions/is_picking_up", is_picking_up)	
+	set("parameters/Upper Body/conditions/is_picking_up", is_picking_up)
 	
 	# BLEND TREES #
 	var current_look = get("parameters/Upper Body/Look - Empty/blend_position")

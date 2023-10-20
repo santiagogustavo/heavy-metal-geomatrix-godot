@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpg30i416jxra"
-path.s3tc="res://.godot/imported/Ray Sword-6ea737885abbf0569a7b309fde2319a6_b0e9db7e.png-34493ba7c0bbdcd34f6845bcdc2f2e1b.s3tc.ctex"
+uid="uid://fxq2v6ou128p"
+path.s3tc="res://.godot/imported/sword_trail.png-8509ab3690570a15857195645a8befe2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Models/Pickups/Ray Sword-6ea737885abbf0569a7b309fde2319a6_b0e9db7e.png"
-dest_files=["res://.godot/imported/Ray Sword-6ea737885abbf0569a7b309fde2319a6_b0e9db7e.png-34493ba7c0bbdcd34f6845bcdc2f2e1b.s3tc.ctex"]
+source_file="res://Textures/Particles/sword_trail.png"
+dest_files=["res://.godot/imported/sword_trail.png-8509ab3690570a15857195645a8befe2.s3tc.ctex"]
 
 [params]
 

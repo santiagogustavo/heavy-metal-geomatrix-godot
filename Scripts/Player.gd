@@ -8,7 +8,7 @@ class_name Player
 @onready var animation_tree = $CharacterController/AnimationTree
 @onready var sound_tree = $CharacterController/SoundAnimationTree
 @onready var dash_particle = $Dash
-@onready var inventory_manager = $InventoryManager
+@onready var inventory_manager: InventoryManager = $InventoryManager
 
 @export_subgroup("Physics")
 @export var speed = 7.5
@@ -179,6 +179,7 @@ func set_sound_variables():
 	sound_tree.is_on_floor = is_on_floor()
 
 func set_animator_variables():
+	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.direction = input_direction
 	animation_tree.look = input_look
 	animation_tree.is_dashing = is_dashing
@@ -193,3 +194,5 @@ func set_inventory_items_variables():
 	if inventory_manager.body_instance:
 		inventory_manager.body_instance.is_dashing = is_dashing
 		inventory_manager.body_instance.is_double_jumping = is_double_jumping
+	if inventory_manager.right_hand_instance:
+		inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=35 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_d7yff"]
 [ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_nv42q"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="13_hu3jd"]
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="14_tgsiy"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="15_sduvl"]
+[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="16_xk5mc"]
+[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="17_30tnt"]
 [ext_resource type="AudioStream" uid="uid://17xy5t8bj071" path="res://Music/Anders - Insanity Control.mp3" id="17_ni7qc"]
 [ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="18_2efy7"]
 
@@ -48,8 +50,8 @@ render_priority = 0
 shader = ExtResource("6_5jbeo")
 shader_parameter/Color = Color(1, 1, 1, 1)
 shader_parameter/Panning = Vector2(0, 0.05)
-shader_parameter/distortion_speed = Vector2(0.1, 0.1)
-shader_parameter/distortion_scale = 0.8
+shader_parameter/distortion_speed = 0.1
+shader_parameter/distortion_scale = 1.0
 shader_parameter/distortion_intensity = 0.02
 shader_parameter/Tiling = Vector2(5, 5)
 shader_parameter/Metallic = 0.19
@@ -170,6 +172,7 @@ size = Vector3(100, 20, 100)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("15_sduvl")]
+pickups_to_spawn = Array[PackedScene]([ExtResource("16_xk5mc"), ExtResource("17_30tnt")])
 collision_shapes = [NodePath("Area3D/CollisionShape3D"), NodePath("Area3D/CollisionShape3D2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpjbtr2xpyum5"
-path.s3tc="res://.godot/imported/Ray Sword-bbc00370ccefe054efc07e5590afdf3d_af4cf111_R.png-ad6c41f30f7bf3f2d26ebc9e20677477.s3tc.ctex"
+uid="uid://cqxpcak26ysh8"
+path.s3tc="res://.godot/imported/Ray Sword_b0e9db7e.png-257fa2e28137710e8165948156e98eed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/Pickups/Ray Sword-bbc00370ccefe054efc07e5590afdf3d_af4cf111_R.png"
-dest_files=["res://.godot/imported/Ray Sword-bbc00370ccefe054efc07e5590afdf3d_af4cf111_R.png-ad6c41f30f7bf3f2d26ebc9e20677477.s3tc.ctex"]
+source_file="res://Models/Pickups/Ray Sword_b0e9db7e.png"
+dest_files=["res://.godot/imported/Ray Sword_b0e9db7e.png-257fa2e28137710e8165948156e98eed.s3tc.ctex"]
 
 [params]
 

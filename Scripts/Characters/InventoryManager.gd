@@ -36,4 +36,8 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 	if right_hand_instance:
 		right_hand_instance.queue_free()
 	right_hand_instance = item.instantiate()
-	right_hand_instance.get_node("Offset").add_child(right_hand_instance)
+	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
+
+func drop_right_hand_item():
+	right_hand_instance.queue_free()
+	equip_type = Definitions.EquipType.Body

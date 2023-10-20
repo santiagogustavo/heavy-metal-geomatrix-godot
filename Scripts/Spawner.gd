@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var pickup_to_spawn: PackedScene
+@export var pickups_to_spawn: Array[PackedScene]
 @export var collision_shapes: Array[CollisionShape3D]
 @onready var timer: Timer = $Timer
 
@@ -29,6 +29,8 @@ func spawn_at_random_position():
 			spawn_center[index].z - spawn_radius[index].z,
 			spawn_center[index].z + spawn_radius[index].z
 		)
+		var random_pickup_index = randi_range(0, pickups_to_spawn.size() - 1)
+		var pickup_to_spawn = pickups_to_spawn[random_pickup_index]
 		var pickup = pickup_to_spawn.instantiate()
 		pickup.position = spawn_location
 		add_child(pickup)

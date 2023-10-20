@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://qkr7d8wvqggv"]
+
+[ext_resource type="Texture2D" uid="uid://bopo0wkl43rym" path="res://Textures/Weapons/Ray Sword/f3337a7.png" id="1_t5bqw"]
+[ext_resource type="Texture2D" uid="uid://8ri44ctrutsv" path="res://Textures/Weapons/Ray Sword/f3337a7_spec.png" id="2_46ju2"]
+
+[resource]
+albedo_texture = ExtResource("1_t5bqw")
+ao_enabled = true
+ao_texture = ExtResource("2_46ju2")

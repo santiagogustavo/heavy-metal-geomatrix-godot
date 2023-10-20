@@ -2,8 +2,8 @@ extends Node
 
 enum EquipType {
 	Body,
-	MeleeLight,
-	MeleeHeavy,
 	WeaponSingle,
-	WeaponDouble
+	WeaponDouble,
+	MeleeLight,
+	MeleeHeavy
 }

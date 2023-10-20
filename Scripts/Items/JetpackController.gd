@@ -12,7 +12,7 @@ class_name JetpackController
 ]
 @onready var jet_beam: Array[GPUParticles3D] = [
 	$L/JetBeam, $L/JetBeam/JetBase,
-	$R/JetBeam, $R/JetBeam/JetBase 
+	$R/JetBeam, $R/JetBeam/JetBase
 ]
 @onready var jet_stream: Array[GPUParticles3D] = [
 	$L/JetStream, $L/JetStream/JetBase,

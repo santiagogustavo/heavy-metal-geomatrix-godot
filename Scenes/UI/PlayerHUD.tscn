@@ -11,8 +11,8 @@
 shader = ExtResource("1_h7o1f")
 shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
 shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
-shader_parameter/tiling = Vector2(3.3, 0.2)
-shader_parameter/wave_speed = Vector2(-0.1, 25)
+shader_parameter/tiling = Vector2(3, 0.3)
+shader_parameter/wave_speed = Vector2(-0.1, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gla7n"]
 shader = ExtResource("2_2efbf")
