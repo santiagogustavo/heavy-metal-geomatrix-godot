@@ -113,3 +113,4 @@ nodes/fragment/10/position = Vector2(-60, 620)
 nodes/fragment/11/node = SubResource("VisualShaderNodeFloatOp_3c3oo")
 nodes/fragment/11/position = Vector2(220, 540)
 nodes/fragment/connections = PackedInt32Array(4, 0, 5, 2, 2, 0, 5, 0, 6, 0, 2, 1, 5, 0, 7, 0, 7, 0, 8, 0, 7, 1, 8, 1, 7, 2, 8, 2, 8, 0, 0, 0, 9, 0, 10, 0, 7, 3, 11, 0, 10, 3, 11, 1, 11, 0, 0, 1)
+metadata/_edit_res_path = "res://Materials/Particles/SwordTrail.tres"

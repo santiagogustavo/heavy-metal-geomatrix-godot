@@ -7,6 +7,7 @@ class_name Player
 
 @onready var animation_tree = $CharacterController/AnimationTree
 @onready var sound_tree = $CharacterController/SoundAnimationTree
+@onready var sound_attack_tree = $CharacterController/SoundAttackTree
 @onready var dash_particle = $Dash
 @onready var inventory_manager: InventoryManager = $InventoryManager
 
@@ -177,6 +178,9 @@ func set_sound_variables():
 	sound_tree.is_dashing = is_dashing
 	sound_tree.is_picking_up = is_picking_up
 	sound_tree.is_on_floor = is_on_floor()
+	sound_attack_tree.equip_type = inventory_manager.equip_type
+	sound_attack_tree.is_current_node_attacking = animation_tree.is_current_node_attacking()
+	sound_attack_tree.current_animation = animation_tree.get_current_upper_body_animation()
 
 func set_animator_variables():
 	animation_tree.equip = inventory_manager.equip_type

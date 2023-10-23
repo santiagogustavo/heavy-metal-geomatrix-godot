@@ -41,7 +41,7 @@ shader_parameter/normal_map = ExtResource("2_on5pt")
 
 [sub_resource type="QuadMesh" id="QuadMesh_dh61r"]
 material = SubResource("ShaderMaterial_6hrxc")
-size = Vector2(0.1, 0.1)
+size = Vector2(0.05, 0.05)
 
 [sub_resource type="Gradient" id="Gradient_l0fw3"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -96,7 +96,7 @@ shader_parameter/normal_map = ExtResource("3_j056e")
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_f8nli"]
 material = SubResource("ShaderMaterial_elj8r")
 shape = 0
-size = 0.1
+size = 0.05
 sections = 2
 section_length = 0.3
 
@@ -111,8 +111,8 @@ minimum_camera_rotation = 20
 [node name="Rain Drops" type="GPUParticles3D" parent="CameraRain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.5)
 layers = 524288
-amount = 50
-lifetime = 2.0
+amount = 125
+lifetime = 3.0
 randomness = 1.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_ccfgd")
@@ -121,8 +121,8 @@ draw_pass_1 = SubResource("QuadMesh_dh61r")
 [node name="Rain Drips" type="GPUParticles3D" parent="CameraRain"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.75, 0.5)
 layers = 524288
-amount = 15
-lifetime = 2.0
+amount = 40
+lifetime = 3.0
 randomness = 1.0
 local_coords = true
 trail_enabled = true

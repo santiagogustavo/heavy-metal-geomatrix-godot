@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dyxq3lfyh46m2"]
+[gd_scene load_steps=29 format=3 uid="uid://dyxq3lfyh46m2"]
 
 [ext_resource type="PackedScene" uid="uid://ddcr0ywp6fpmh" path="res://Models/Weapons/Ray Sword.glb" id="1_jfy31"]
 [ext_resource type="Script" path="res://Scripts/Weapons/SwordController.gd" id="1_qluvp"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Scripts/Lights/FlickeringLight.gd" id="4_7yc0k"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail.gdshader" id="4_j333q"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="5_1aidu"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="6_thw14"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="7_libxb"]
 [ext_resource type="Texture2D" uid="uid://4vjrkbjsgvqe" path="res://Textures/Particles/ray_trail.png" id="8_k3qwy"]
 [ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="9_25co4"]
@@ -72,18 +71,24 @@ size = Vector2(0.3, 0.3)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_35kew"]
 shader = ExtResource("4_j333q")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wljdo"]
+[sub_resource type="Gradient" id="Gradient_d18ky"]
+colors = PackedColorArray(1, 1, 1, 0.490196, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o2j70"]
+gradient = SubResource("Gradient_d18ky")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2q0u"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_1aidu")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/flags = 40
 shader_parameter/tex = ExtResource("8_k3qwy")
-shader_parameter/color_ramp = ExtResource("6_thw14")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_o2j70")
 shader_parameter/curve = ExtResource("7_libxb")
 
 [sub_resource type="QuadMesh" id="QuadMesh_xyyg3"]
-material = SubResource("ShaderMaterial_wljdo")
+material = SubResource("ShaderMaterial_d2q0u")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qj37j"]
 size = Vector3(0.1, 1.3, 0.05)
@@ -130,7 +135,7 @@ draw_pass_1 = SubResource("QuadMesh_xyyg3")
 script = ExtResource("9_25co4")
 length = 30
 texture = ExtResource("8_k3qwy")
-color_ramp = ExtResource("6_thw14")
+color_ramp = SubResource("GradientTexture1D_o2j70")
 curve = ExtResource("7_libxb")
 _defaults_have_been_set = true
 

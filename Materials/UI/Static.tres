@@ -167,3 +167,4 @@ nodes/fragment/11/position = Vector2(-340, -180)
 nodes/fragment/12/node = SubResource("VisualShaderNodeFloatParameter_ummao")
 nodes/fragment/12/position = Vector2(-340, 0)
 nodes/fragment/connections = PackedInt32Array(8, 0, 0, 1, 10, 0, 0, 0, 11, 0, 10, 0, 12, 0, 10, 2, 2, 0, 6, 0, 6, 0, 10, 1, 7, 0, 6, 2, 3, 0, 2, 0, 4, 0, 2, 1, 5, 0, 2, 2)
+metadata/_edit_res_path = "res://Materials/UI/Static.tres"

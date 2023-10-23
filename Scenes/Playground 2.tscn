@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=25 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_46m8r"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_pygnr"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://ccjcfq7n3xcyc" path="res://Music/Madatracker - New Era.mp3" id="11_rj2it"]
 [ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="12_ga0ue"]
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="15_1gwn8"]
+[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="15_4rl0q"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
 panorama = ExtResource("1_pygnr")
@@ -61,7 +62,7 @@ environment = SubResource("Environment_qo5h5")
 [node name="PauseMenu" parent="." instance=ExtResource("2_di0fh")]
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("4_gq87b")]
-pickups_to_spawn = Array[PackedScene]([ExtResource("6_nuy8b"), ExtResource("15_1gwn8")])
+pickups_to_spawn = Array[PackedScene]([ExtResource("6_nuy8b"), ExtResource("15_1gwn8"), ExtResource("15_4rl0q")])
 collision_shapes = [NodePath("Area3D/CollisionShape3D"), NodePath("Area3D/CollisionShape3D2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]

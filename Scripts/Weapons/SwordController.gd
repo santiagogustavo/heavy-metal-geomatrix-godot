@@ -4,8 +4,6 @@ class_name SwordController
 @export var hit_particle: PackedScene
 @export var hit_sfx: PackedScene
 @export var is_attacking = false
-@export var current_animation: String
-var last_animation: String
 
 @onready var trail = $GPUTrail3D
 @onready var raycast: RayCast3D = $StaticBody3D/RayCast3D

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://72lpmb1sq5lf"
-path.s3tc="res://.godot/imported/Killer Sword-7446511971ded4a936106210a14c21d5_af4cf111_R.png-e94bc7387ef1f7a669018f3464905b32.s3tc.ctex"
+uid="uid://b5kuftsygmico"
+path.s3tc="res://.godot/imported/Killer Sword_6420195c.png-d4e3e7badb0b9f0bee6322952e5e0924.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/Pickups/Killer Sword-7446511971ded4a936106210a14c21d5_af4cf111_R.png"
-dest_files=["res://.godot/imported/Killer Sword-7446511971ded4a936106210a14c21d5_af4cf111_R.png-e94bc7387ef1f7a669018f3464905b32.s3tc.ctex"]
+source_file="res://Models/Weapons/Killer Sword_6420195c.png"
+dest_files=["res://.godot/imported/Killer Sword_6420195c.png-d4e3e7badb0b9f0bee6322952e5e0924.s3tc.ctex"]
 
 [params]
 
