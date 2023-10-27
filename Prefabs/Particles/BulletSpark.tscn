@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://hgy5kkni0cpm"]
+
+[ext_resource type="PackedScene" uid="uid://cnpyrs6ijr5fd" path="res://Prefabs/Particles/HitSpark.tscn" id="1_m836g"]
+
+[node name="BulletSpark" type="Node3D"]
+
+[node name="RaySpark" parent="." instance=ExtResource("1_m836g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.1)
+amount = 25

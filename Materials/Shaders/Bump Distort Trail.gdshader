@@ -1,6 +1,6 @@
 shader_type spatial;
 
-render_mode unshaded, particle_trails;
+render_mode unshaded, particle_trails, cull_disabled;
 
 uniform float distortion_size = 0.4;
 uniform sampler2D mask;

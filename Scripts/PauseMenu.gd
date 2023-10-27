@@ -14,7 +14,7 @@ func _ready():
 	var index = 0
 	for child in buttons.get_children():
 		child.connect("mouse_entered", func (): _on_mouse_entered(child.name, index));
-		index += 1		
+		index += 1
 
 func _input(event):
 	if event.is_action_pressed("ui_up"):

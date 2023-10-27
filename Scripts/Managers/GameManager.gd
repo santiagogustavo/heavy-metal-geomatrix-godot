@@ -6,6 +6,7 @@ var is_game_paused = false
 func _init():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	print_debug(Engine.get_version_info().string)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):

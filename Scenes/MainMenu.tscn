@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpf3eubmomcnn"]
+
+[ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="1_6nodx"]
+[ext_resource type="Texture2D" uid="uid://cpsfyshmuxbgj" path="res://Textures/Menus/Main Menu/logo_shadow.png" id="2_0gbut"]
+[ext_resource type="Texture2D" uid="uid://4avfrj5mau1k" path="res://Textures/Menus/Main Menu/logo.png" id="3_apavv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w472t"]
+shader = ExtResource("1_6nodx")
+shader_parameter/Bubble_Color = Color(0.337255, 0.803922, 1, 1)
+shader_parameter/Speed = 0.1
+shader_parameter/Size = 10.0
+shader_parameter/BG_Color = Color(0, 0.533333, 0.968627, 1)
+shader_parameter/Mask = ExtResource("2_0gbut")
+
+[sub_resource type="Animation" id="Animation_awy6a"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_6h6io"]
+resource_name = "Open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo + Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 2),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.4, 0.4), Vector2(0.35, 0.35)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5m1p"]
+_data = {
+"Idle": SubResource("Animation_awy6a"),
+"Open": SubResource("Animation_6h6io")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Logo + Shadow" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_w472t")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1058.0
+offset_top = -625.0
+offset_right = 1059.0
+offset_bottom = 502.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(1058, 563)
+texture = ExtResource("2_0gbut")
+
+[node name="Logo" type="TextureRect" parent="Logo + Shadow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -748.5
+offset_top = -470.5
+offset_right = 751.5
+offset_bottom = 470.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(750, 470)
+texture = ExtResource("3_apavv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q5m1p")
+}

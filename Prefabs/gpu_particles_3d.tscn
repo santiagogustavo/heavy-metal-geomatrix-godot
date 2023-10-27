@@ -35,11 +35,11 @@ point_count = 3
 curve = SubResource("Curve_m300o")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u6p28"]
-gravity = Vector3(0, 5, 0)
+angle_curve = SubResource("CurveTexture_pih08")
 angular_velocity_min = -60.0
 angular_velocity_max = 60.0
 angular_velocity_curve = SubResource("CurveTexture_0k4iq")
-angle_curve = SubResource("CurveTexture_pih08")
+gravity = Vector3(0, 5, 0)
 scale_curve = SubResource("CurveTexture_2ed4q")
 color_ramp = SubResource("GradientTexture1D_d540u")
 

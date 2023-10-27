@@ -28,10 +28,9 @@ func detect_raycast_collision():
 		
 		raycast.get_collider().add_child(hit_instance)
 		hit_instance.global_transform.origin = point
-		
-		if normal == Vector3.UP:
+		if normal == Vector3.DOWN:
 			hit_instance.rotation_degrees.x = 90
-		else:
+		elif normal != Vector3.UP:
 			hit_instance.look_at(point + normal, Vector3.UP)
 		hit_instance.emitting = true
 		has_collided = true

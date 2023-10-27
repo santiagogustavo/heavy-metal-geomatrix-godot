@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf1bfsleugb3w"]
+[gd_scene load_steps=16 format=3 uid="uid://cf1bfsleugb3w"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/SwordController.gd" id="1_3jf6o"]
 [ext_resource type="PackedScene" uid="uid://dru0a6nggo15i" path="res://Models/Weapons/Killer Sword.glb" id="1_vi24m"]
@@ -6,13 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://cnpyrs6ijr5fd" path="res://Prefabs/Particles/HitSpark.tscn" id="2_yh655"]
 [ext_resource type="PackedScene" uid="uid://wrnxy6t8mqtk" path="res://Prefabs/Sounds/SwordHit.tscn" id="3_njj2e"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_uxaca"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="4_48gjt"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="5_hrv4q"]
 [ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="7_7wymm"]
 [ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="9_v8fy7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ka7vw"]
 shader = ExtResource("2_oav5y")
+
+[sub_resource type="Gradient" id="Gradient_3g0vb"]
+offsets = PackedFloat32Array(0, 0.986971)
+colors = PackedColorArray(1, 0.776471, 0.501961, 0.490196, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_annj2"]
+gradient = SubResource("Gradient_3g0vb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wljdo"]
 resource_local_to_scene = true
@@ -21,7 +27,7 @@ shader = ExtResource("3_uxaca")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/flags = 40
 shader_parameter/tex = ExtResource("9_v8fy7")
-shader_parameter/color_ramp = ExtResource("4_48gjt")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_annj2")
 shader_parameter/curve = ExtResource("5_hrv4q")
 
 [sub_resource type="QuadMesh" id="QuadMesh_aif53"]
@@ -48,7 +54,7 @@ draw_pass_1 = SubResource("QuadMesh_aif53")
 script = ExtResource("7_7wymm")
 length = 30
 texture = ExtResource("9_v8fy7")
-color_ramp = ExtResource("4_48gjt")
+color_ramp = SubResource("GradientTexture1D_annj2")
 curve = ExtResource("5_hrv4q")
 _defaults_have_been_set = true
 

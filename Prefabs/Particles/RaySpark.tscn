@@ -17,7 +17,7 @@ color = Color(0.392157, 1, 0.988235, 1)
 material = ExtResource("1_imsem")
 size = Vector2(0.1, 0.4)
 
-[node name="RaySpark" type="GPUParticles3D"]
+[node name="BulletSpark" type="GPUParticles3D"]
 emitting = false
 amount = 5
 lifetime = 0.1

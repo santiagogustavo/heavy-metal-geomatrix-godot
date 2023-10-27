@@ -22,7 +22,9 @@ buses/default_bus_layout="res://AudioBus.tres"
 [autoload]
 
 Definitions="*res://Scripts/Managers/Definitions.gd"
+SettingsManager="*res://Scripts/Managers/SettingsManager.gd"
 GameManager="*res://Scripts/Managers/GameManager.gd"
+AudioManager="*res://Scripts/Managers/AudioManager.gd"
 
 [display]
 
@@ -31,7 +33,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gputrail/plugin.cfg", "res://addons/jigglebones/plugin.cfg")
+enabled=PackedStringArray("res://addons/gputrail/plugin.cfg", "res://addons/jigglebones/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
 
 [input]
 
@@ -141,3 +143,4 @@ pickup={
 3d_physics/layer_2="Pickup"
 3d_physics/layer_3="Level Geometry"
 3d_physics/layer_4="Blade"
+3d_physics/layer_5="World Boundary"

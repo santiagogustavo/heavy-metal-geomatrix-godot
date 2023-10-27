@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dd1squ580mobp"
+path="res://.godot/imported/Hand Gun Shoot.wav-2f3f2afbf625f36387b36fc70913a68c.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav"
+dest_files=["res://.godot/imported/Hand Gun Shoot.wav-2f3f2afbf625f36387b36fc70913a68c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

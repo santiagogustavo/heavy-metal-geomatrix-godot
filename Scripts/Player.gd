@@ -4,6 +4,7 @@ class_name Player
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
 @onready var camera_collider = $CameraPivot/CameraCollider
+@onready var camera_target_raycast = $CameraPivot/TargetRaycast
 
 @onready var animation_tree = $CharacterController/AnimationTree
 @onready var sound_tree = $CharacterController/SoundAnimationTree
@@ -39,6 +40,7 @@ var input_direction = Vector2.ZERO
 var input_look = Vector2.ZERO
 
 var new_rotation = Vector3.ZERO
+var shoot_target = Vector3.ZERO
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 const dash_duration = 1
@@ -78,6 +80,7 @@ func _process(_delta):
 	update_pickup()
 	update_camera_clamp()
 	update_camera_collision()
+	update_camera_target()
 	clear_frame_variables()
 
 func dash_stop():
@@ -120,6 +123,11 @@ func update_camera_collision():
 		)
 	else:
 		camera.global_transform.origin = camera_collider.global_transform.origin
+
+func update_camera_target():
+	if camera_target_raycast.is_colliding():
+		var point = camera_target_raycast.get_collision_point()
+		shoot_target = point
 
 func update_rotation_smoothing():
 	rotation.y = lerp_angle(rotation.y, new_rotation.y, LOOK_SMOOTHING)
@@ -199,4 +207,8 @@ func set_inventory_items_variables():
 		inventory_manager.body_instance.is_dashing = is_dashing
 		inventory_manager.body_instance.is_double_jumping = is_double_jumping
 	if inventory_manager.right_hand_instance:
-		inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
+		if inventory_manager.right_hand_instance.get("is_attacking") != null:
+			inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
+		if inventory_manager.right_hand_instance.get("is_shooting") != null:
+			inventory_manager.right_hand_instance.is_shooting = is_shooting
+			inventory_manager.right_hand_instance.target_point = shoot_target

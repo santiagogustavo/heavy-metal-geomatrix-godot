@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfajww0ysqvm8"
+path="res://.godot/imported/Bullet Hit 4.wav-11d99b7ae70bea8168c96defd575a053.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Common/Bullet Hit 4.wav"
+dest_files=["res://.godot/imported/Bullet Hit 4.wav-11d99b7ae70bea8168c96defd575a053.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

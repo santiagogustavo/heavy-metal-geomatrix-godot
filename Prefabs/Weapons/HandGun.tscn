@@ -1,0 +1,297 @@
+[gd_scene load_steps=32 format=3 uid="uid://d2eirpsbs2b4x"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_ebr1j"]
+[ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="1_n0lg1"]
+[ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Bullet.tscn" id="2_47qvm"]
+[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="3_tt5e3"]
+[ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="4_caes6"]
+[ext_resource type="Script" path="res://Scripts/Weapons/GunAnimationTree.gd" id="4_eujq3"]
+[ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="6_h6s7g"]
+
+[sub_resource type="Animation" id="Animation_aauk2"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_u2ae3"]
+resource_name = "Shoot"
+length = 0.25
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Grip")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Grip")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0553004, 1.19027e-07, -6.59232e-09, 0.99847)
+tracks/2/type = "scale_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Grip")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/3/type = "position_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Barrell")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 3.5544e-08, 0.288226, -0.149083, 0.0333333, 1, 3.5544e-08, 0.288226, -0.149083, 0.0666667, 1, -1.84829e-08, 0.263048, 0.0775229, 0.1, 1, -5.22498e-08, 0.247311, 0.219151, 0.133333, 1, -4.54964e-08, 0.250459, 0.190826, 0.166667, 1, -3.19897e-08, 0.256753, 0.134174, 0.2, 1, -9.47841e-09, 0.267244, 0.0397553, 0.233333, 1, 1.97862e-08, 0.280883, -0.0829893, 0.25, 1, 3.5544e-08, 0.288226, -0.149083)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:Barrell")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.666921, -4.76792e-15, -1.59006e-07, 0.745128)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:Barrell")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BulletHole/Muzzle Flash:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BulletHole/Muzzle Light:light_energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../BulletHole/SFX:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("..")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prc7n"]
+_data = {
+"Idle": SubResource("Animation_aauk2"),
+"Shoot": SubResource("Animation_u2ae3")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wj4m"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tne18"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0xu2e"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_hfi10"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lhv35"]
+graph_offset = Vector2(-523, -3)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_tne18")
+nodes/Animation/position = Vector2(-200, 120)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0xu2e")
+nodes/TimeScale/position = Vector2(140, 120)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_hfi10")
+nodes/TimeSeek/position = Vector2(-20, 120)
+node_connections = [&"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_armo7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vsmr"]
+advance_mode = 2
+advance_condition = &"is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f5hq7"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!is_shooting"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_a2l3g"]
+states/Idle/node = SubResource("AnimationNodeAnimation_3wj4m")
+states/Idle/position = Vector2(380, 100)
+states/Shoot/node = SubResource("AnimationNodeBlendTree_lhv35")
+states/Shoot/position = Vector2(380, -5)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_armo7"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7")]
+graph_offset = Vector2(-92, -60)
+
+[sub_resource type="Gradient" id="Gradient_ds7hw"]
+offsets = PackedFloat32Array(0, 0.984791)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0e63q"]
+gradient = SubResource("Gradient_ds7hw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8kahf"]
+particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 0, -1)
+spread = 1.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+color_ramp = SubResource("GradientTexture1D_0e63q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7bl1"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_tt5e3")
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_mmxmh"]
+material = SubResource("StandardMaterial3D_r7bl1")
+
+[sub_resource type="Gradient" id="Gradient_hd5mk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rh5fm"]
+gradient = SubResource("Gradient_hd5mk")
+
+[sub_resource type="Curve" id="Curve_jpvqv"]
+_data = [Vector2(0, 0.2), 0.0, 0.8, 0, 1, Vector2(1, 1), 0.8, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_rkgto"]
+curve = SubResource("Curve_jpvqv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4v0n"]
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_rkgto")
+color = Color(1, 1, 1, 0.196078)
+color_ramp = SubResource("GradientTexture1D_rh5fm")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkrti"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_h6s7g")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_rr5n7"]
+material = SubResource("StandardMaterial3D_dkrti")
+
+[node name="HandGun" type="Node3D"]
+script = ExtResource("1_ebr1j")
+bullet = ExtResource("2_47qvm")
+
+[node name="Hand Gun" parent="." instance=ExtResource("1_n0lg1")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.0553004, 1.19027e-07, -6.59232e-09, 0.99847)
+bones/1/rotation = Quaternion(-0.666921, -4.76792e-15, -1.59007e-07, 0.745128)
+
+[node name="Bullet" parent="Hand Gun" index="1"]
+visible = false
+
+[node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Hand Gun"]
+libraries = {
+"": SubResource("AnimationLibrary_prc7n")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Hand Gun")
+libraries = {
+"": SubResource("AnimationLibrary_prc7n")
+}
+tree_root = SubResource("AnimationNodeStateMachine_a2l3g")
+anim_player = NodePath("../Hand Gun/AnimationPlayerCustom")
+parameters/conditions/is_shooting = false
+parameters/Shoot/TimeScale/scale = 1.0
+parameters/Shoot/TimeSeek/seek_request = -1.0
+script = ExtResource("4_eujq3")
+
+[node name="BulletHole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192, -0.462)
+
+[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235036, 0.000154138)
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_8kahf")
+draw_pass_1 = SubResource("QuadMesh_mmxmh")
+
+[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00157207, -0.0459177)
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 0.0
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
+stream = ExtResource("4_caes6")
+volume_db = -20.0
+max_db = 0.0
+pitch_scale = 0.64
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[node name="Smoke" type="GPUParticles3D" parent="BulletHole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235036, 0.000154138)
+visible = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_y4v0n")
+draw_pass_1 = SubResource("QuadMesh_rr5n7")
+
+[editable path="Hand Gun"]

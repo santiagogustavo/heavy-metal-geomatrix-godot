@@ -1,4 +1,4 @@
-extends TextureRect
+extends Node
 
 @onready var animator = $AnimationPlayer
 

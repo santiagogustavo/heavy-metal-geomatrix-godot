@@ -18,13 +18,13 @@ point_count = 2
 curve = SubResource("Curve_pev7s")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ioryv"]
+particle_flag_rotate_y = true
 emission_shape = 3
 emission_box_extents = Vector3(10, 0, 10)
-particle_flag_rotate_y = true
-direction = Vector3(0, 1, 0)
-gravity = Vector3(0, 0, 0)
 angle_min = -180.0
 angle_max = 180.0
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
 scale_min = 0.0
 scale_curve = SubResource("CurveTexture_vj08a")
 color_ramp = SubResource("GradientTexture1D_u5ib0")
