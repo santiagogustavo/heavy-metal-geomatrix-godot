@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvgj5cg2pvlo0"
-path.s3tc="res://.godot/imported/Moto Gun-7177503b23b9471cd3da82b632055c1c_b0e9db7e.png-f39067400c4b95414f5e3adac4c807cf.s3tc.ctex"
+uid="uid://bgmg23mxhlfa5"
+path.s3tc="res://.godot/imported/Moto Gun_e1c81ffd.png-7d9830ba826fd415aa173f3c295251bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/Pickups/Moto Gun-7177503b23b9471cd3da82b632055c1c_b0e9db7e.png"
-dest_files=["res://.godot/imported/Moto Gun-7177503b23b9471cd3da82b632055c1c_b0e9db7e.png-f39067400c4b95414f5e3adac4c807cf.s3tc.ctex"]
+source_file="res://Models/Weapons/Moto Gun_e1c81ffd.png"
+dest_files=["res://.godot/imported/Moto Gun_e1c81ffd.png-7d9830ba826fd415aa173f3c295251bd.s3tc.ctex"]
 
 [params]
 

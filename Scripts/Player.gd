@@ -36,6 +36,7 @@ var is_jumping = false
 var is_picking_up = false
 var is_pickup_collided = false
 var is_double_jumping = false
+var is_dropping = false
 var input_direction = Vector2.ZERO
 var input_look = Vector2.ZERO
 
@@ -49,10 +50,6 @@ func _ready():
 	move_and_slide()
 
 func _physics_process(delta):
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#if collision.get_collider().collision_layer == 2:
-			#print("I collided with ", collision.get_collider().collision_layer)
 	compute_gravity(delta)
 	compute_movement()
 
@@ -99,7 +96,12 @@ func update_dash():
 		get_tree().create_timer(dash_duration).timeout.connect(dash_stop)
 
 func update_pickup():
-	is_picking_up = Input.is_action_just_pressed("pickup") and is_pickup_collided
+	is_picking_up = (
+		Input.is_action_just_pressed("pickup")
+		and is_pickup_collided
+		and !animation_tree.is_current_node_shooting()
+		and !animation_tree.is_current_node_attacking()
+	)
 
 func update_shoot():
 	is_shooting = Input.is_action_pressed("shoot")
@@ -191,13 +193,19 @@ func set_sound_variables():
 	sound_attack_tree.current_animation = animation_tree.get_current_upper_body_animation()
 
 func set_animator_variables():
+	if inventory_manager.right_hand_instance and inventory_manager.right_hand_instance is GunController:
+		animation_tree.burst_count = inventory_manager.right_hand_instance.burst_count
+		animation_tree.current_burst_count = inventory_manager.right_hand_instance.current_burst_count
+		animation_tree.burst_rate = inventory_manager.right_hand_instance.burst_rate
+		animation_tree.fire_rate = inventory_manager.right_hand_instance.fire_rate
+		animation_tree.is_shooting = inventory_manager.right_hand_instance.can_shoot
+		animation_tree.is_shooting_input = is_shooting
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.direction = input_direction
 	animation_tree.look = input_look
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
 	animation_tree.is_aiming = is_aiming
-	animation_tree.is_shooting = is_shooting
 	animation_tree.is_attacking = is_attacking
 	animation_tree.is_picking_up = is_picking_up
 	animation_tree.is_on_floor = is_on_floor()
@@ -207,8 +215,8 @@ func set_inventory_items_variables():
 		inventory_manager.body_instance.is_dashing = is_dashing
 		inventory_manager.body_instance.is_double_jumping = is_double_jumping
 	if inventory_manager.right_hand_instance:
-		if inventory_manager.right_hand_instance.get("is_attacking") != null:
+		if inventory_manager.right_hand_instance is SwordController:
 			inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
-		if inventory_manager.right_hand_instance.get("is_shooting") != null:
+		if inventory_manager.right_hand_instance is GunController:
 			inventory_manager.right_hand_instance.is_shooting = is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

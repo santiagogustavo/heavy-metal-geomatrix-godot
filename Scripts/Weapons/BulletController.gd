@@ -45,5 +45,4 @@ func collide():
 		instantiate_decal(point, normal)
 		mesh.visible = false
 		sfx.play()
-		await get_tree().create_timer(1).timeout
-		queue_free()
+		get_tree().create_timer(1).connect("timeout", queue_free)

@@ -158,7 +158,7 @@ graph_offset = Vector2(-92, -60)
 offsets = PackedFloat32Array(0, 0.984791)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0e63q"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r8cdr"]
 gradient = SubResource("Gradient_ds7hw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8kahf"]
@@ -171,23 +171,28 @@ initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
-color_ramp = SubResource("GradientTexture1D_0e63q")
+color_ramp = SubResource("GradientTexture1D_r8cdr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7bl1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qixgv"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_tt5e3")
+billboard_mode = 3
 billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_mmxmh"]
-material = SubResource("StandardMaterial3D_r7bl1")
+material = SubResource("StandardMaterial3D_qixgv")
+size = Vector2(0.75, 0.75)
 
 [sub_resource type="Gradient" id="Gradient_hd5mk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rh5fm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ym4xu"]
 gradient = SubResource("Gradient_hd5mk")
 
 [sub_resource type="Curve" id="Curve_jpvqv"]
@@ -195,7 +200,7 @@ _data = [Vector2(0, 0.2), 0.0, 0.8, 0, 1, Vector2(1, 1), 0.8, 0.0, 1, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
-[sub_resource type="CurveTexture" id="CurveTexture_rkgto"]
+[sub_resource type="CurveTexture" id="CurveTexture_amcst"]
 curve = SubResource("Curve_jpvqv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4v0n"]
@@ -203,17 +208,17 @@ angle_min = -90.0
 angle_max = 90.0
 direction = Vector3(0, 1, 0)
 spread = 5.0
-initial_velocity_min = 1.0
-initial_velocity_max = 1.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
 angular_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
-scale_curve = SubResource("CurveTexture_rkgto")
+scale_curve = SubResource("CurveTexture_amcst")
 color = Color(1, 1, 1, 0.196078)
-color_ramp = SubResource("GradientTexture1D_rh5fm")
+color_ramp = SubResource("GradientTexture1D_ym4xu")
 turbulence_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkrti"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0fif"]
 transparency = 1
 blend_mode = 1
 cull_mode = 2
@@ -227,10 +232,12 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_rr5n7"]
-material = SubResource("StandardMaterial3D_dkrti")
+material = SubResource("StandardMaterial3D_y0fif")
+size = Vector2(0.5, 0.5)
 
 [node name="HandGun" type="Node3D"]
 script = ExtResource("1_ebr1j")
+fire_rate = 0.3
 bullet = ExtResource("2_47qvm")
 
 [node name="Hand Gun" parent="." instance=ExtResource("1_n0lg1")]
@@ -290,7 +297,10 @@ attenuation_filter_db = 0.0
 [node name="Smoke" type="GPUParticles3D" parent="BulletHole"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235036, 0.000154138)
 visible = false
-amount = 10
+amount = 5
+lifetime = 0.2
+randomness = 1.0
+transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_y4v0n")
 draw_pass_1 = SubResource("QuadMesh_rr5n7")
 

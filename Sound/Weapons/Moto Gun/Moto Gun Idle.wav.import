@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://baxree7roh7ni"
+path="res://.godot/imported/Moto Gun Idle.wav-1b7e1770d5ac7e5723ab204c3102ad7b.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Moto Gun/Moto Gun Idle.wav"
+dest_files=["res://.godot/imported/Moto Gun Idle.wav-1b7e1770d5ac7e5723ab204c3102ad7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

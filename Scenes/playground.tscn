@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=39 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_d7yff"]
 [ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_nv42q"]
@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://17xy5t8bj071" path="res://Music/Anders - Insanity Control.mp3" id="17_ni7qc"]
 [ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="18_2efy7"]
 [ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="18_jr7x8"]
+[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="20_xun26"]
+[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="22_bqmq8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("3_ydoo2")
@@ -74,6 +76,7 @@ material = SubResource("ShaderMaterial_kayqk")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l6fwg"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+backface_collision = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12ns8"]
 metallic = 0.77
@@ -82,6 +85,10 @@ roughness = 0.16
 
 [sub_resource type="BoxMesh" id="BoxMesh_i1mvp"]
 material = SubResource("StandardMaterial3D_12ns8")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ni3jg"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+backface_collision = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xwkx1"]
 size = Vector3(40, 0, 40)
@@ -160,10 +167,11 @@ transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 
 mesh = SubResource("BoxMesh_i1mvp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D3/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_l6fwg")
+shape = SubResource("ConcavePolygonShape3D_ni3jg")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/MeshInstance3D3"]
 transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
@@ -173,7 +181,7 @@ size = Vector3(100, 20, 100)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("15_sduvl")]
-pickups_to_spawn = Array[PackedScene]([ExtResource("16_xk5mc"), ExtResource("17_30tnt"), ExtResource("18_jr7x8")])
+pickups_to_spawn = Array[PackedScene]([ExtResource("16_xk5mc"), ExtResource("17_30tnt"), ExtResource("18_jr7x8"), ExtResource("22_bqmq8"), ExtResource("20_xun26")])
 collision_shapes = [NodePath("Area3D/CollisionShape3D"), NodePath("Area3D/CollisionShape3D2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
@@ -191,5 +199,8 @@ stream = ExtResource("17_ni7qc")
 autoplay = true
 bus = &"Game"
 script = ExtResource("18_2efy7")
+
+[node name="HandGunPickup" parent="." instance=ExtResource("22_bqmq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
 
 [editable path="Spawner"]

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bwe611ugk28c6"]
+
+[ext_resource type="Texture2D" uid="uid://dlfbb1pdahf6f" path="res://Textures/Weapons/Moto Gun/e1c81ffd.png" id="1_qsqd3"]
+[ext_resource type="Texture2D" uid="uid://brwx3k1r22apt" path="res://Textures/Weapons/Moto Gun/e1c81ffd_spec.png" id="2_hjw1g"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_qsqd3")
+ao_enabled = true
+ao_texture = ExtResource("2_hjw1g")

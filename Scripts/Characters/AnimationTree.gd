@@ -6,7 +6,7 @@ var last_combo_animation
 var direction = Vector2.ZERO
 var look = Vector2.ZERO
 
-var equip = 0
+var equip = Definitions.EquipType.Body
 
 var is_dashing = false
 var is_jumping = false
@@ -16,6 +16,14 @@ var is_shooting = false
 var is_attacking = false
 var is_attack_combo = false
 var is_picking_up = false
+
+var is_bursting = false
+var is_shooting_input = false
+var current_burst_count = 0
+
+var burst_count = 0
+var burst_rate = 0
+var fire_rate = 0
 
 const lower_blend_tree_lerp = 15
 const upper_blend_tree_lerp = 20
@@ -29,6 +37,33 @@ func _process(delta):
 	update_combo_input()
 	update_combo_animation()
 	
+	if equip == Definitions.EquipType.WeaponSingle:
+		if current_burst_count > 0:
+			update_burst()
+		update_fire_rate()
+
+func update_fire_rate():
+	if is_shooting_input:
+		get_tree().create_timer(fire_rate).connect("timeout", _unlock_fire)
+	
+func _unlock_fire():
+	if is_shooting:
+		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0)
+
+func update_burst():
+	if is_shooting and !is_bursting:
+		is_bursting = true
+		current_burst_count = burst_count
+		get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
+
+func _burst_fire():
+	if current_burst_count == 0:
+		is_bursting = false
+		return
+	set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0)
+	current_burst_count -= 1
+	get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
+
 func update_combo_input():
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):
 		is_attack_combo = true
@@ -42,6 +77,13 @@ func update_combo_animation():
 
 func get_current_upper_body_animation():
 	return upper_body_state_machine.get_current_node()
+
+func is_current_node_shooting():
+	var current_node = upper_body_state_machine.get_current_node()
+	return current_node in [
+		'Shoot - Weapon Single',
+		'Shoot - Weapon Double'
+	]
 
 func is_current_node_attacking():
 	var current_node = upper_body_state_machine.get_current_node()

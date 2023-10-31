@@ -100,10 +100,10 @@ mesh = SubResource("ArrayMesh_qh0d3")
 skeleton = NodePath("")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 target_position = Vector3(0, 0, 1)
 collision_mask = 20
 hit_from_inside = true
-collide_with_areas = true
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0656571)
