@@ -43,6 +43,8 @@ func _process(delta):
 		update_fire_rate()
 
 func update_fire_rate():
+	var scale = fire_rate / get_animation("5 - Shoot - Weapon Single - Straight").length
+	set("parameters/Upper Body/Shoot - Weapon Single/TimeScale/scale", scale)
 	if is_shooting_input:
 		get_tree().create_timer(fire_rate).connect("timeout", _unlock_fire)
 	

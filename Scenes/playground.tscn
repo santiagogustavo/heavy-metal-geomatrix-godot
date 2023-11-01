@@ -167,7 +167,6 @@ transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 
 mesh = SubResource("BoxMesh_i1mvp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D3/StaticBody3D"]

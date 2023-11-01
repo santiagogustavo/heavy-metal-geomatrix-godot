@@ -142,6 +142,7 @@ advance_condition = &"is_shooting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f5hq7"]
 xfade_time = 0.1
+reset = false
 switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting"

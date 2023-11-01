@@ -1,10 +1,13 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cwyymwlj666vt"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://cwyymwlj666vt"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_nex1h"]
 resource_name = "Reverb"
 room_size = 0.7
 damping = 0.65
 wet = 0.22
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cxl52"]
+resource_name = "Reverb"
 
 [resource]
 bus/1/name = &"UI"
@@ -19,6 +22,8 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.267241
 bus/2/send = &"UI"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_cxl52")
+bus/2/effect/0/enabled = true
 bus/3/name = &"Select Menus"
 bus/3/solo = false
 bus/3/mute = false

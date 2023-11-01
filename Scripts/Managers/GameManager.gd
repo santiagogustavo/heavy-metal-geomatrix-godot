@@ -1,23 +1,37 @@
 extends Node
 
-@export var current_level_config: LevelConfig = LevelConfig.new()
+var current_level_config: LevelConfig = LevelConfig.new()
+var current_scene_type: Definitions.SceneType = Definitions.SceneType.Intro
+
+var engine_version = Engine.get_version_info().string
 var is_game_paused = false
 
 func _init():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	print_debug(Engine.get_version_info().string)
+	lock_cursor()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and current_scene_type == Definitions.SceneType.LocalGame:
 		toggle_pause_game()
+
+func lock_cursor():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+func unlock_cursor():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+func resume_game():
+	is_game_paused = false
+	lock_cursor()
+	get_tree().paused = false
+
+func pause_game():
+	is_game_paused = true
+	unlock_cursor()
+	get_tree().paused = true
 
 func toggle_pause_game():
 	if get_tree().paused:
-		is_game_paused = false
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		resume_game()
 	else:
-		is_game_paused = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
-	get_tree().paused = is_game_paused
+		pause_game()

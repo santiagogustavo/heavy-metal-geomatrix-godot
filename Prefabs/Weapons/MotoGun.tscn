@@ -203,6 +203,7 @@ advance_condition = &"is_shooting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f5hq7"]
 xfade_time = 0.1
+reset = false
 switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting and !is_bursting"
@@ -389,7 +390,7 @@ bullet = ExtResource("2_yq5ka")
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(7.79613e-05, 0.00880532, -0.0172)
+bones/1/position = Vector3(0.000106136, 0.00945297, -0.0172123)
 bones/2/position = Vector3(0, 0.01, 0.00158699)
 
 [node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Moto Gun"]

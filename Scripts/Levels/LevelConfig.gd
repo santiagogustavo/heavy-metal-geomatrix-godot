@@ -8,4 +8,6 @@ class_name LevelConfig
 @export var is_rainy: bool
 
 func _ready():
+	GameManager.lock_cursor()
+	GameManager.current_scene_type = Definitions.SceneType.LocalGame
 	GameManager.current_level_config = self

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp0v2qtkgtn"
-path="res://.godot/imported/santiago.png-673670cd636e115736bd4895de8ed9f8.ctex"
+uid="uid://f77156h7aln2"
+path="res://.godot/imported/pablo-dobarro-r15.jpg-6442e8eaa894126ef85c38280f0ff1fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Intro/santiago.png"
-dest_files=["res://.godot/imported/santiago.png-673670cd636e115736bd4895de8ed9f8.ctex"]
+source_file="res://Textures/Menus/Intro/pablo-dobarro-r15.jpg"
+dest_files=["res://.godot/imported/pablo-dobarro-r15.jpg-6442e8eaa894126ef85c38280f0ff1fb.ctex"]
 
 [params]
 

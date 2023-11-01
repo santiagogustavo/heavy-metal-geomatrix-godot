@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhvjn3mhseqbk"
-path="res://.godot/imported/capcom_logo.png-43ee3f1c48c02bd649bd8b08ad41de5f.ctex"
+uid="uid://dp0v2qtkgtn"
+path="res://.godot/imported/santiago.png-d5acdbf4c65582be48f0da898213d991.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Intro/capcom_logo.png"
-dest_files=["res://.godot/imported/capcom_logo.png-43ee3f1c48c02bd649bd8b08ad41de5f.ctex"]
+source_file="res://Textures/Menus/Intro/santiago.png"
+dest_files=["res://.godot/imported/santiago.png-d5acdbf4c65582be48f0da898213d991.ctex"]
 
 [params]
 

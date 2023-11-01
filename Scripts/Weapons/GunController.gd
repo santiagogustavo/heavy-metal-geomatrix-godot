@@ -21,6 +21,9 @@ var current_burst_count = 0
 var target_point = Vector3.ZERO
 
 func _process(_delta):
+	var scale = fire_rate / animation_tree.get_animation("Shoot").length
+	animation_tree.set("parameters/Shoot/TimeScale/scale", scale)
+	
 	can_shoot = is_shooting and !is_shooting_locked
 	
 	animation_tree.is_shooting = can_shoot

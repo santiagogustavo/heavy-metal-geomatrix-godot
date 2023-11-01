@@ -7,3 +7,9 @@ enum EquipType {
 	MeleeLight,
 	MeleeHeavy
 }
+
+enum SceneType {
+	Intro,
+	Menu,
+	LocalGame
+}
