@@ -121,7 +121,7 @@ _defaults_have_been_set = true
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_0811i")
-volume_db = -15.0
+volume_db = -25.0
 max_db = 0.0
 pitch_scale = 0.64
 bus = &"Reverb"
