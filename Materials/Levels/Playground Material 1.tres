@@ -7,5 +7,6 @@
 cull_mode = 2
 albedo_texture = ExtResource("1_alicm")
 ao_enabled = true
+ao_light_affect = 1.0
 ao_texture = ExtResource("2_j2ihg")
 uv1_scale = Vector3(5, 5, 5)

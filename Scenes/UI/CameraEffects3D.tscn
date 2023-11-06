@@ -1,10 +1,34 @@
-[gd_scene load_steps=24 format=3 uid="uid://byafmx5elekej"]
+[gd_scene load_steps=30 format=3 uid="uid://byafmx5elekej"]
 
+[ext_resource type="Script" path="res://Scripts/UI/CameraEffects/MotionBlur.gd" id="1_d58io"]
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain.gd" id="1_psrnk"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort Rain.gdshader" id="2_jn1u1"]
 [ext_resource type="Texture2D" uid="uid://b5g3eif2k2s6r" path="res://Textures/Particles/Rain/rain_camera_small_medium.png" id="2_on5pt"]
 [ext_resource type="Texture2D" uid="uid://bknc85c8amrvn" path="res://Textures/Particles/Rain/rain_camera_trail.png" id="3_j056e"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort Trail.gdshader" id="3_jkh6r"]
+[ext_resource type="Shader" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
+
+[sub_resource type="Gradient" id="Gradient_3amfu"]
+offsets = PackedFloat32Array(0.390681, 0.584229, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8hx76"]
+gradient = SubResource("Gradient_3amfu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyot4"]
+render_priority = 0
+shader = ExtResource("6_djyu1")
+shader_parameter/blur_center = Vector2(0.5, 0.5)
+shader_parameter/blur_power = 0.01
+shader_parameter/sampling_count = 10
+shader_parameter/mask = SubResource("GradientTexture2D_8hx76")
+
+[sub_resource type="QuadMesh" id="QuadMesh_hwlvg"]
+material = SubResource("ShaderMaterial_uyot4")
+size = Vector2(3, 2)
 
 [sub_resource type="Gradient" id="Gradient_jidq3"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
@@ -111,6 +135,14 @@ section_length = 0.3
 
 [node name="CameraEffects3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -1.5)
+
+[node name="MotionBlur" type="Node3D" parent="."]
+script = ExtResource("1_d58io")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MotionBlur"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.4)
+mesh = SubResource("QuadMesh_hwlvg")
+skeleton = NodePath("../..")
 
 [node name="CameraRain" type="Node3D" parent="."]
 script = ExtResource("1_psrnk")

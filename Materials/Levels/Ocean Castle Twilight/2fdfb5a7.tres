@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://pmupgl1f26pb"]
+
+[ext_resource type="Texture2D" uid="uid://cgwtnu1jirnmb" path="res://Textures/Levels/Ocean Castle Twilight/2fdfb5a7.png" id="1_1n067"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+specular_mode = 2
+albedo_texture = ExtResource("1_1n067")

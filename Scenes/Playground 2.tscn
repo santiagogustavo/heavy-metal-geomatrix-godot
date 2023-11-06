@@ -1,9 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=28 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_46m8r"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_pygnr"]
-[ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="2_di0fh"]
-[ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="3_wetqh"]
+[ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="3_lpe6w"]
 [ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Materials/Levels/Playground Material 1.tres" id="4_ebvkg"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="4_gq87b"]
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="4_mdhg1"]
@@ -67,9 +66,10 @@ is_rainy = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qo5h5")
 
-[node name="PlayerHUD" parent="." instance=ExtResource("3_wetqh")]
+[node name="UI" parent="." instance=ExtResource("3_lpe6w")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_di0fh")]
+[node name="Player" parent="." instance=ExtResource("4_mdhg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152066, -0.0625354, 0.181705)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("4_gq87b")]
 pickups_to_spawn = Array[PackedScene]([ExtResource("6_nuy8b"), ExtResource("15_1gwn8"), ExtResource("15_4rl0q"), ExtResource("16_lgwdq"), ExtResource("17_dx33x")])
@@ -143,9 +143,6 @@ shape = SubResource("BoxShape3D_6mf1q")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="World Boundaries"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 4, 0)
 shape = SubResource("BoxShape3D_6mf1q")
-
-[node name="Player" parent="." instance=ExtResource("4_mdhg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152066, 0, 0.181705)
 
 [node name="Madatracker - New Era" type="AudioStreamPlayer" parent="."]
 process_mode = 3

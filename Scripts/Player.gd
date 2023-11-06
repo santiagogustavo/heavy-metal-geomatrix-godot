@@ -179,6 +179,7 @@ func clear_frame_variables():
 	is_double_jumping = false
 
 func set_camera_variables():
+	camera.has_jetpack = inventory_manager.has_jetpack and inventory_manager.jetpack_has_fuel
 	camera.is_dashing = is_dashing
 	camera.is_aiming = is_aiming
 	

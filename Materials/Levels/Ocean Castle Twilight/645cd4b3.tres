@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://kgj56wy85g6k"]
+
+[ext_resource type="Texture2D" uid="uid://b247ju4xhp5l6" path="res://Textures/Levels/Ocean Castle Twilight/645cd4b3.png" id="1_4mlno"]
+[ext_resource type="Texture2D" uid="uid://c163eheqdkrad" path="res://Textures/Levels/Ocean Castle Twilight/645cd4b3_spec.png" id="2_kxtnx"]
+
+[resource]
+albedo_texture = ExtResource("1_4mlno")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_kxtnx")
