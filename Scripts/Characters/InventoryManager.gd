@@ -13,7 +13,11 @@ class_name InventoryManager
 
 @export var equip_type: Definitions.EquipType = Definitions.EquipType.Body
 
+var is_gun_shooting = false
+var is_dropping = false
+
 func _process(_delta):
+	is_gun_shooting = false
 	if body_instance:
 		jetpack_has_fuel = body_instance.fuel > 0
 
@@ -33,11 +37,23 @@ func clear_and_instantiate_body_item(item: PackedScene):
 		has_jetpack = true
 
 func clear_and_instantiate_right_hand_item(item: PackedScene):
-	if right_hand_instance:
+	if right_hand_instance != null:
 		right_hand_instance.queue_free()
 	right_hand_instance = item.instantiate()
 	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
+	if right_hand_instance is GunController:
+		right_hand_instance.connect("gun_shot", _on_gun_shot)
+		right_hand_instance.connect("drop", _on_item_drop)
 
 func drop_right_hand_item():
 	right_hand_instance.queue_free()
 	equip_type = Definitions.EquipType.Body
+	
+func _on_gun_shot():
+	is_gun_shooting = true
+	
+func _on_item_drop():
+	is_dropping = true
+	await get_tree().create_timer(0.2).timeout
+	is_dropping = false
+	drop_right_hand_item()

@@ -6,6 +6,8 @@ var current_scene_type: Definitions.SceneType = Definitions.SceneType.Intro
 var engine_version = Engine.get_version_info().string
 var is_game_paused = false
 
+var players: Array[Player] = []
+
 func _init():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	lock_cursor()
@@ -35,3 +37,6 @@ func toggle_pause_game():
 		resume_game()
 	else:
 		pause_game()
+		
+func add_player(player: Player):
+	players.append(player)

@@ -1,17 +1,6 @@
 extends CharacterBody3D
 class_name Player
 
-@onready var camera_pivot = $CameraPivot
-@onready var camera = $CameraPivot/Camera
-@onready var camera_collider = $CameraPivot/CameraCollider
-@onready var camera_target_raycast = $CameraPivot/TargetRaycast
-
-@onready var animation_tree = $CharacterController/AnimationTree
-@onready var sound_tree = $CharacterController/SoundAnimationTree
-@onready var sound_attack_tree = $CharacterController/SoundAttackTree
-@onready var dash_particle = $Dash
-@onready var inventory_manager: InventoryManager = $InventoryManager
-
 @export_subgroup("Physics")
 @export var speed = 7.5
 @export var dashing_speed = 10
@@ -26,6 +15,17 @@ class_name Player
 @export var VERTICAL_SENSITIVITY_MOUSE = 0.5
 @export var HORIZONTAL_SENSITIVITY_STICK = 2
 @export var VERTICAL_SENSITIVITY_STICK = 2
+
+@onready var camera_pivot = $CameraPivot
+@onready var camera = $CameraPivot/Camera
+@onready var camera_collider = $CameraPivot/CameraCollider
+@onready var camera_target_raycast = $CameraPivot/TargetRaycast
+
+@onready var animation_tree = $CharacterController/AnimationTree
+@onready var sound_tree = $CharacterController/SoundAnimationTree
+@onready var sound_attack_tree = $CharacterController/SoundAttackTree
+@onready var dash_particle = $Dash
+@onready var inventory_manager: InventoryManager = $InventoryManager
 
 var is_walking = false
 var is_dashing = false
@@ -47,6 +47,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 const dash_duration = 1
 
 func _ready():
+	GameManager.add_player(self)
 	move_and_slide()
 
 func _physics_process(delta):
@@ -60,6 +61,9 @@ func _input(event):
 		input_look.x = event.relative.x / 20
 
 func _process(_delta):
+	if GameManager.is_game_paused:
+		return
+	
 	# VARIABLES AND MOTION
 	set_sound_variables()
 	set_animator_variables()
@@ -194,19 +198,16 @@ func set_sound_variables():
 	sound_attack_tree.current_animation = animation_tree.get_current_upper_body_animation()
 
 func set_animator_variables():
-	if inventory_manager.right_hand_instance and inventory_manager.right_hand_instance is GunController:
-		animation_tree.burst_count = inventory_manager.right_hand_instance.burst_count
-		animation_tree.current_burst_count = inventory_manager.right_hand_instance.current_burst_count
-		animation_tree.burst_rate = inventory_manager.right_hand_instance.burst_rate
+	if inventory_manager.right_hand_instance != null and inventory_manager.right_hand_instance is GunController:
 		animation_tree.fire_rate = inventory_manager.right_hand_instance.fire_rate
-		animation_tree.is_shooting = inventory_manager.right_hand_instance.can_shoot
-		animation_tree.is_shooting_input = is_shooting
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.direction = input_direction
 	animation_tree.look = input_look
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
 	animation_tree.is_aiming = is_aiming
+	animation_tree.is_shooting = inventory_manager.is_gun_shooting
+	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_attacking = is_attacking
 	animation_tree.is_picking_up = is_picking_up
 	animation_tree.is_on_floor = is_on_floor()
@@ -215,7 +216,7 @@ func set_inventory_items_variables():
 	if inventory_manager.body_instance:
 		inventory_manager.body_instance.is_dashing = is_dashing
 		inventory_manager.body_instance.is_double_jumping = is_double_jumping
-	if inventory_manager.right_hand_instance:
+	if inventory_manager.right_hand_instance != null:
 		if inventory_manager.right_hand_instance is SwordController:
 			inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
 		if inventory_manager.right_hand_instance is GunController:

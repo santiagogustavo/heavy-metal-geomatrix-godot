@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=40 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://yhc2736083x" path="res://Textures/Levels/5a480546_spec.png" id="7_heaxk"]
 [ext_resource type="Texture2D" uid="uid://cg0oqjndqox1w" path="res://Textures/Particles/splash.png" id="8_3yxf3"]
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="10_bkbwv"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="11_gh28t"]
+[ext_resource type="Script" path="res://Scripts/InvisibleWall.gd" id="11_hawtf"]
+[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="12_5adl6"]
+[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="13_5jmdf"]
+[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="14_7te7v"]
+[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="15_j23vd"]
+[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="16_utl88"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="17_27cky"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gvb5h"]
 panorama = ExtResource("2_p2odm")
@@ -84,6 +92,51 @@ backface_collision = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0w4s"]
 size = Vector3(5.595, 0.225, 5.605)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxytm"]
+size = Vector3(0.75, 25, 30.632)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukakb"]
+render_priority = 0
+shader = ExtResource("17_27cky")
+shader_parameter/scale = 200.0
+shader_parameter/line_thickness = 0.06
+shader_parameter/line_speed = 0.5
+shader_parameter/ripple_speed = 1.564
+shader_parameter/line_color = Color(0.2, 1, 1, 1)
+shader_parameter/ripple_color = Color(0.6, 0.7, 1, 0.7)
+shader_parameter/surface_color = Color(0.01, 0.18, 0.7, 0.4)
+shader_parameter/sphere_size = 2.0
+shader_parameter/pos1 = Vector3(0, 0, 0)
+shader_parameter/pos2 = Vector3(10000, 10000, 10000)
+shader_parameter/pos3 = Vector3(10000, 10000, 10000)
+shader_parameter/pos4 = Vector3(10000, 10000, 10000)
+shader_parameter/pos5 = Vector3(10000, 10000, 10000)
+shader_parameter/pos6 = Vector3(10000, 10000, 10000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_08vni"]
+material = SubResource("ShaderMaterial_ukakb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrepm"]
+size = Vector3(0.75, 25, 35.483)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wlbdw"]
+size = Vector3(22.468, 25, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fd30"]
+size = Vector3(18.737, 25, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_afc0c"]
+size = Vector3(6.085, 25, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eb3pp"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujy2k"]
+size = Vector3(100, 30, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e54qi"]
+size = Vector3(15, 0, 20)
 
 [node name="Ocean Castle Twilight" type="Node3D"]
 
@@ -291,6 +344,7 @@ collision_layer = 4
 shape = SubResource("ConcavePolygonShape3D_ynxdv")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Level Geometry/Collisions"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D2"]
 transform = Transform3D(0.999998, -0.000194507, 0.000157295, 0.000124109, 0.931738, 0.36312, -0.000217189, -0.36312, 0.931738, -0.208363, 2.40564, -7.35765)
@@ -298,6 +352,7 @@ shape = SubResource("BoxShape3D_g0w4s")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Level Geometry/Collisions"]
 transform = Transform3D(1, -1.81331e-11, -8.73115e-11, -1.76442e-10, 1, -6.98492e-10, 0, 3.49246e-10, 1, 1.39698e-09, -1.94594, -9.15719)
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D3"]
 transform = Transform3D(0.999998, -0.000194507, 0.000157295, 0.000124109, 0.931738, 0.36312, -0.000217189, -0.36312, 0.931738, -0.208363, 2.40564, -7.35765)
@@ -305,6 +360,7 @@ shape = SubResource("BoxShape3D_g0w4s")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Level Geometry/Collisions"]
 transform = Transform3D(-4.35684e-08, -1.76215e-11, 0.999999, 1.39698e-09, 0.999999, -2.88765e-10, -0.999999, 8.14907e-10, -4.3714e-08, -5.18472, -8.96556e-05, 5.60591)
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D4"]
 transform = Transform3D(0.999997, -0.000191087, 0.000177212, 0.000124109, 0.939318, 0.376564, -0.000217189, -0.343035, 1.03113, -0.208418, 2.34743, -7.63617)
@@ -312,6 +368,7 @@ shape = SubResource("BoxShape3D_g0w4s")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Level Geometry/Collisions"]
 transform = Transform3D(0.798604, -7.49765e-11, -3.20142e-10, -1.4137e-10, 0.999999, -2.91038e-09, -2.32831e-10, 1.62981e-09, 0.999999, -18.174, -2.03365, 6.2812)
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D5"]
 transform = Transform3D(0.999998, -0.000191578, 0.000160849, 0.000124109, 0.938266, 0.345903, -0.000217189, -0.345903, 0.938266, -0.208382, 2.47593, -7.36889)
@@ -327,7 +384,97 @@ shadow_reverse_cull_face = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5.5, -1)
 size = Vector3(86, 31, 88)
 
+[node name="Invisible Walls" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.12044, 0)
+collision_layer = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61075, 7.93903, -11.1658)
+shape = SubResource("BoxShape3D_wxytm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D"]
+transform = Transform3D(0.75, 0, 0, 0, 25, 0, 0, 0, 30.632, 0, 0, 0)
+mesh = SubResource("BoxMesh_08vni")
+skeleton = NodePath("../..")
+script = ExtResource("11_hawtf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6086, 7.93903, -8.75897)
+shape = SubResource("BoxShape3D_qrepm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D2"]
+transform = Transform3D(0.75, 0, 0, 0, 25, 0, 0, 0, 35.483, 0, 0, 0)
+mesh = SubResource("BoxMesh_08vni")
+skeleton = NodePath("../..")
+script = ExtResource("11_hawtf")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99855, 7.93903, -26.1159)
+shape = SubResource("BoxShape3D_wlbdw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D3"]
+transform = Transform3D(22.468, 0, 0, 0, 25, 0, 0, 0, 0.75, 0, 0, 0)
+mesh = SubResource("BoxMesh_08vni")
+skeleton = NodePath("../..")
+script = ExtResource("11_hawtf")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8706, 7.93903, 8.61026)
+shape = SubResource("BoxShape3D_3fd30")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D4"]
+transform = Transform3D(18.737, 0, 0, 0, 25, 0, 0, 0, 0.75, 0, 0, 0)
+mesh = SubResource("BoxMesh_08vni")
+skeleton = NodePath("../..")
+script = ExtResource("11_hawtf")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.395506, 7.93903, 6.34366)
+shape = SubResource("BoxShape3D_afc0c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D5"]
+transform = Transform3D(6.085, 0, 0, 0, 25, 0, 0, 0, 0.75, 0, 0, 0)
+mesh = SubResource("BoxMesh_08vni")
+skeleton = NodePath("../..")
+script = ExtResource("11_hawtf")
+
+[node name="World Boundaries" type="StaticBody3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
+shape = SubResource("BoxShape3D_eb3pp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
+shape = SubResource("BoxShape3D_eb3pp")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="World Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 50)
+shape = SubResource("BoxShape3D_ujy2k")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="World Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -50)
+shape = SubResource("BoxShape3D_ujy2k")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="World Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 4, 0)
+shape = SubResource("BoxShape3D_ujy2k")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="World Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 4, 0)
+shape = SubResource("BoxShape3D_ujy2k")
+
 [node name="Player" parent="." instance=ExtResource("10_bkbwv")]
 transform = Transform3D(0.897374, 0, 0.441271, 0, 1, 0, -0.441271, 0, 0.897374, -3.48376, 3.49639, 2.97039)
 
+[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("11_gh28t")]
+pickups_to_spawn = Array[PackedScene]([ExtResource("12_5adl6"), ExtResource("13_5jmdf"), ExtResource("14_7te7v"), ExtResource("15_j23vd"), ExtResource("16_utl88")])
+collision_shapes = [NodePath("Area3D/CollisionShape3D")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1356, 0, -13.9988)
+shape = SubResource("BoxShape3D_e54qi")
+
 [editable path="Level Geometry/Ocean Castle Twilight"]
+[editable path="Spawner"]

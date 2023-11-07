@@ -124,7 +124,7 @@ animation = &"Shoot"
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_hfi10"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lhv35"]
-graph_offset = Vector2(-523, -3)
+graph_offset = Vector2(-311, 40)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_tne18")
 nodes/Animation/position = Vector2(-200, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0xu2e")
@@ -238,6 +238,7 @@ size = Vector2(0.5, 0.5)
 
 [node name="HandGun" type="Node3D"]
 script = ExtResource("1_ebr1j")
+bullets = 8
 fire_rate = 0.3
 bullet = ExtResource("2_47qvm")
 

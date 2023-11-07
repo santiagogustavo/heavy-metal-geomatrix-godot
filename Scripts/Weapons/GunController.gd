@@ -1,6 +1,9 @@
 extends Node3D
 class_name GunController
 
+signal gun_shot
+signal drop
+
 @export_subgroup("Properties")
 @export var bullets: int
 @export var fire_rate: float
@@ -19,13 +22,16 @@ var can_shoot = false
 var current_burst_count = 0
 
 var target_point = Vector3.ZERO
+var is_dropping = false
 
 func _process(_delta):
-	var scale = fire_rate / animation_tree.get_animation("Shoot").length
-	animation_tree.set("parameters/Shoot/TimeScale/scale", scale)
-	
+	if is_dropping:
+		return
+	if bullets <= 0:
+		drop.emit()
+		is_dropping = true
+		return
 	can_shoot = is_shooting and !is_shooting_locked
-	
 	animation_tree.is_shooting = can_shoot
 	animation_tree.is_bursting = is_bursting
 	
@@ -34,6 +40,8 @@ func _process(_delta):
 	update_fire_rate()
 
 func update_fire_rate():
+	var scale = fire_rate / animation_tree.get_animation("Shoot").length
+	animation_tree.set("parameters/Shoot/TimeScale/scale", scale)
 	if can_shoot:
 		is_shooting_locked = true
 		get_tree().create_timer(fire_rate).connect("timeout", _unlock_fire)
@@ -58,6 +66,8 @@ func _burst_fire():
 	get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
 
 func _shoot():
+	gun_shot.emit()
+	bullets -= 1
 	var bullet_instance = bullet.instantiate()
 	get_tree().root.add_child(bullet_instance)
 	bullet_instance.position = bullet_hole.global_position

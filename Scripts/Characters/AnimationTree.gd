@@ -16,13 +16,8 @@ var is_shooting = false
 var is_attacking = false
 var is_attack_combo = false
 var is_picking_up = false
+var is_dropping = false
 
-var is_bursting = false
-var is_shooting_input = false
-var current_burst_count = 0
-
-var burst_count = 0
-var burst_rate = 0
 var fire_rate = 0
 
 const lower_blend_tree_lerp = 15
@@ -36,35 +31,19 @@ func _process(delta):
 	update_upper_body(delta)
 	update_combo_input()
 	update_combo_animation()
-	
-	if equip == Definitions.EquipType.WeaponSingle:
-		if current_burst_count > 0:
-			update_burst()
-		update_fire_rate()
+	update_fire_rate()
+	update_pickup()
+
+func update_pickup():
+	if is_picking_up:
+		upper_body_state_machine.travel("Pickup")
 
 func update_fire_rate():
-	var scale = fire_rate / get_animation("5 - Shoot - Weapon Single - Straight").length
-	set("parameters/Upper Body/Shoot - Weapon Single/TimeScale/scale", scale)
-	if is_shooting_input:
-		get_tree().create_timer(fire_rate).connect("timeout", _unlock_fire)
-	
-func _unlock_fire():
+	#var scale = fire_rate / get_animation("5 - Shoot - Weapon Single - Straight").length
+	#set("parameters/Upper Body/Shoot - Weapon Single/TimeScale/scale", scale)
 	if is_shooting:
-		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0)
-
-func update_burst():
-	if is_shooting and !is_bursting:
-		is_bursting = true
-		current_burst_count = burst_count
-		get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
-
-func _burst_fire():
-	if current_burst_count == 0:
-		is_bursting = false
-		return
-	set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0)
-	current_burst_count -= 1
-	get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
+		upper_body_state_machine.travel("Shoot - Weapon Single")
+		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 
 func update_combo_input():
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):
@@ -133,7 +112,7 @@ func update_upper_body(delta):
 	set("parameters/Upper Body/conditions/is_aiming", is_aiming)
 	set("parameters/Upper Body/conditions/is_shooting", is_shooting)
 	set("parameters/Upper Body/conditions/is_attacking", is_attacking || is_attack_combo)
-	set("parameters/Upper Body/conditions/is_picking_up", is_picking_up)
+	set("parameters/Upper Body/conditions/is_dropping", is_dropping)
 	
 	# BLEND TREES #
 	var current_look = get("parameters/Upper Body/Look - Empty/blend_position")
