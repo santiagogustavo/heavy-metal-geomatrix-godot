@@ -744,7 +744,7 @@ pivot_offset = Vector2(0, 110)
 texture = ExtResource("9_1ywlp")
 expand_mode = 3
 script = ExtResource("13_rqnl3")
-redirect_to_scene = "res://Scenes/Playground 2.tscn"
+redirect_to_scene = "res://Scenes/Levels/OceanCastleTwilight.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OptionsContainer/OptionsList/Arcade"]
 libraries = {

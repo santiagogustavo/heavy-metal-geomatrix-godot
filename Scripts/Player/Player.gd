@@ -125,7 +125,7 @@ func update_camera_collision():
 		camera.global_transform.origin = lerp(
 			camera.global_transform.origin,
 			camera_collider.get_collision_point(),
-			0.05
+			0.1
 		)
 	else:
 		camera.global_transform.origin = camera_collider.global_transform.origin
