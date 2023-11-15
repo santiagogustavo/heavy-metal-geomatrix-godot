@@ -21,12 +21,12 @@ func _ready():
 	bind_mouse_over()
 	animation_player.current_animation = 'Idle'
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_start") and !is_menu_open:
 		is_menu_open = true
 		animation_player.current_animation = "PressedStart"
 	elif is_menu_open:
-		update_options(delta)
+		update_options()
 		update_description_label()
 
 func _input(event):
@@ -62,7 +62,7 @@ func bind_mouse_over():
 		);
 		index += 1
 
-func update_options(delta):
+func update_options():
 	var index = 0
 	for option in options:
 		if index == selected_option:
@@ -82,9 +82,9 @@ func play_selected_sfx():
 	else:
 		select2_sfx.play()
 	
-func _on_mouse_entered(name: String, description: String, with_close: bool, index: int):
+func _on_mouse_entered(option_name: String, description: String, with_close: bool, index: int):
 	cursor_sfx.play()
 	selected_option = index
-	selected_option_name = name
+	selected_option_name = option_name
 	selected_option_description = description
 	selected_with_close = with_close

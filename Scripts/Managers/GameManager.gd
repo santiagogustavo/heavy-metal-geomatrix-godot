@@ -1,5 +1,7 @@
 extends Node
 
+var sun: DirectionalLight3D
+
 var current_level_config: LevelConfig = LevelConfig.new()
 var current_scene_type: Definitions.SceneType = Definitions.SceneType.Intro
 
@@ -37,6 +39,20 @@ func toggle_pause_game():
 		resume_game()
 	else:
 		pause_game()
-		
+
+func set_sun(new_sun: DirectionalLight3D):
+	sun = new_sun
+
+func remove_sun():
+	sun = null
+
 func add_player(player: Player):
 	players.append(player)
+
+func remove_player(rid: RID):
+	var pop_index = -1
+	for i in range(players.size()):
+		if players[i].get_rid() == rid:
+			pop_index = i
+			break
+	players.pop_at(pop_index)

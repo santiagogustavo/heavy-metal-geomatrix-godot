@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=41 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
 [ext_resource type="Texture2D" uid="uid://24rcfmn5xmcj" path="res://Textures/Skyboxes/Twilight Cloudy.png" id="2_p2odm"]
+[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_1hprl"]
 [ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="3_qj2i6"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="4_xw4kr"]
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="5_g0vas"]
@@ -147,7 +148,17 @@ level_name = "Ocean Castle Twilight"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q5l4r")
 
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.517081, 0.0541334, -0.854223, -0.292522, 0.926731, 0.235798, 0.8044, 0.371806, -0.463359, -15.0005, 5.98375, -6.01507)
+shadow_enabled = true
+shadow_bias = 0.02
+shadow_reverse_cull_face = true
+script = ExtResource("3_1hprl")
+
 [node name="UI" parent="." instance=ExtResource("3_qj2i6")]
+
+[node name="Player" parent="." instance=ExtResource("10_bkbwv")]
+transform = Transform3D(0.897374, 0, 0.441271, 0, 1, 0, -0.441271, 0, 0.897374, -3.48376, 3.49639, 2.97039)
 
 [node name="Level Geometry" type="Node3D" parent="."]
 transform = Transform3D(1, -0.000515652, -0.000438724, 0.000516282, 0.999999, 0.00141729, 0.000437982, -0.00141752, 0.999999, 0, 0, 0)
@@ -374,12 +385,6 @@ collision_layer = 4
 transform = Transform3D(0.999998, -0.000191578, 0.000160849, 0.000124109, 0.938266, 0.345903, -0.000217189, -0.345903, 0.938266, -0.208382, 2.47593, -7.36889)
 shape = SubResource("BoxShape3D_g0w4s")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Geometry"]
-transform = Transform3D(-0.516879, 0.0547746, -0.854304, -0.293395, 0.926175, 0.236895, 0.804211, 0.373095, -0.46265, -15, 6, -6)
-shadow_enabled = true
-shadow_bias = 0.02
-shadow_reverse_cull_face = true
-
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5.5, -1)
 size = Vector3(86, 31, 88)
@@ -464,9 +469,6 @@ shape = SubResource("BoxShape3D_ujy2k")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="World Boundaries"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 4, 0)
 shape = SubResource("BoxShape3D_ujy2k")
-
-[node name="Player" parent="." instance=ExtResource("10_bkbwv")]
-transform = Transform3D(0.897374, 0, 0.441271, 0, 1, 0, -0.441271, 0, 0.897374, -3.48376, 3.49639, 2.97039)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("11_gh28t")]
 pickups_to_spawn = Array[PackedScene]([ExtResource("12_5adl6"), ExtResource("13_5jmdf"), ExtResource("14_7te7v"), ExtResource("15_j23vd"), ExtResource("16_utl88")])

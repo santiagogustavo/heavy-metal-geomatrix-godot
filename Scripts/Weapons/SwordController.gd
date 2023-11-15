@@ -15,24 +15,28 @@ func _process(_delta):
 	trail.set_process(is_attacking)
 	trail.visible = is_attacking
 
+func instantiate_sfx(point: Vector3):
+	var sfx_instance = hit_sfx.instantiate()
+	raycast.get_collider().add_child(sfx_instance)
+	sfx_instance.global_transform.origin = point
+
+func instantiate_hit(point: Vector3, normal: Vector3):
+	var hit_instance = hit_particle.instantiate()
+	get_tree().root.add_child(hit_instance)
+	
+	hit_instance.global_transform.origin = point
+	TransformUtils.safe_look_at(hit_instance, point + normal)
+	hit_instance.emitting = true
+
 func detect_raycast_collision():
 	if is_attacking and raycast.is_colliding():
 		var point = raycast.get_collision_point()
 		var normal = raycast.get_collision_normal()
-		var hit_instance = hit_particle.instantiate()
 		
 		if !has_collided:
-			var sfx_instance = hit_sfx.instantiate()
-			raycast.get_collider().add_child(sfx_instance)
-			sfx_instance.global_transform.origin = point
+			instantiate_sfx(point)
 		
-		raycast.get_collider().add_child(hit_instance)
-		hit_instance.global_transform.origin = point
-		if normal == Vector3.DOWN:
-			hit_instance.rotation_degrees.x = 90
-		elif normal != Vector3.UP:
-			hit_instance.look_at(point + normal, Vector3.UP)
-		hit_instance.emitting = true
+		instantiate_hit(point, normal)
 		has_collided = true
 	else:
 		has_collided = false

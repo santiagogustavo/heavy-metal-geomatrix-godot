@@ -3,7 +3,7 @@ class_name InvisibleWall
 
 @onready var material = mesh.material
 
-func _process(delta):
+func _process(_delta):
 	var index = 1
 	for player in GameManager.players:
 		if (index <= 6):

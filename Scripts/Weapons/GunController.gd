@@ -40,8 +40,8 @@ func _process(_delta):
 	update_fire_rate()
 
 func update_fire_rate():
-	var scale = fire_rate / animation_tree.get_animation("Shoot").length
-	animation_tree.set("parameters/Shoot/TimeScale/scale", scale)
+	var animation_scale = fire_rate / animation_tree.get_animation("Shoot").length
+	animation_tree.set("parameters/Shoot/TimeScale/scale", animation_scale)
 	if can_shoot:
 		is_shooting_locked = true
 		get_tree().create_timer(fire_rate).connect("timeout", _unlock_fire)

@@ -1,5 +1,6 @@
 extends Camera3D
 
+
 @export var aim_fov_change = -15 
 @export var dash_fov_change = 10
 @onready var camera_effects = $CameraEffects3D

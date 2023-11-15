@@ -1,8 +1,8 @@
 [gd_scene load_steps=39 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_d7yff"]
-[ext_resource type="PackedScene" uid="uid://dobtjao64n6lp" path="res://Scenes/UI/PlayerHUD.tscn" id="1_nv42q"]
-[ext_resource type="PackedScene" uid="uid://djao4jgemsc0" path="res://Scenes/UI/PauseMenu.tscn" id="2_qrrg6"]
+[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_duxkp"]
+[ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="3_hqawh"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="3_ydoo2"]
 [ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="4_weequ"]
 [ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="5_3lnoh"]
@@ -106,9 +106,14 @@ level_name = "Playground"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_obdgp")
 
-[node name="PlayerHUD" parent="." instance=ExtResource("1_nv42q")]
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.517071, -0.622551, -0.587425, 0.695129, -0.0950213, 0.712578, -0.499434, -0.776789, 0.38362, -0.844049, 11.9817, 3.06261)
+shadow_enabled = true
+script = ExtResource("3_duxkp")
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_qrrg6")]
+[node name="UI" parent="." instance=ExtResource("3_hqawh")]
+
+[node name="Player" parent="." instance=ExtResource("14_tgsiy")]
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
@@ -138,10 +143,6 @@ shape = SubResource("ConcavePolygonShape3D_75qwo")
 [node name="ReflectionProbe2" type="ReflectionProbe" parent="Level Geometry/Water"]
 transform = Transform3D(0.02, 6.0328e-18, 6.94712e-10, 1.80984e-17, 0.02, -6.94712e-10, -6.94712e-10, 6.94712e-10, 0.02, 0, 0.22, 7.21775e-09)
 size = Vector3(100, 20, 100)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Geometry"]
-transform = Transform3D(0.517071, -0.622551, -0.587425, 0.695129, -0.0950218, 0.712578, -0.499434, -0.776789, 0.38362, -0.844049, 11.9817, 3.06261)
-shadow_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8776, 5.33969, -0.274099)
@@ -190,8 +191,6 @@ shape = SubResource("BoxShape3D_xwkx1")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Spawner/Area3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
 shape = SubResource("BoxShape3D_jmt0g")
-
-[node name="Player" parent="." instance=ExtResource("14_tgsiy")]
 
 [node name="Anders - Insanity Control" type="AudioStreamPlayer" parent="."]
 process_mode = 3

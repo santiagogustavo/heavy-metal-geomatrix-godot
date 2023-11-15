@@ -84,6 +84,9 @@ func _process(_delta):
 	update_camera_target()
 	clear_frame_variables()
 
+func _exit_tree():
+	GameManager.remove_player(get_rid())
+
 func dash_stop():
 	is_dashing = false
 	

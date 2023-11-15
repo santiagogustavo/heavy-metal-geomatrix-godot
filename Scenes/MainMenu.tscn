@@ -521,7 +521,7 @@ offset_right = 1059.0
 offset_bottom = 497.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.341126, 0.341126)
 pivot_offset = Vector2(1058, 563)
 texture = ExtResource("2_0gbut")
 

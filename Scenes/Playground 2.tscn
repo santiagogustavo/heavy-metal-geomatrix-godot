@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=29 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_46m8r"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_pygnr"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="7_nmb3m"]
 [ext_resource type="AudioStream" uid="uid://ccjcfq7n3xcyc" path="res://Music/Madatracker - New Era.mp3" id="11_rj2it"]
 [ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="12_ga0ue"]
+[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="13_be71l"]
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="15_1gwn8"]
 [ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="15_4rl0q"]
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="16_lgwdq"]
@@ -66,6 +67,12 @@ is_rainy = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qo5h5")
 
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, 1.13133e-08, -0.258819, 0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, -11, 11, 0)
+light_energy = 0.3
+shadow_enabled = true
+script = ExtResource("13_be71l")
+
 [node name="UI" parent="." instance=ExtResource("3_lpe6w")]
 
 [node name="Player" parent="." instance=ExtResource("4_mdhg1")]
@@ -105,11 +112,6 @@ collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_u6mn8")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Geometry"]
-transform = Transform3D(0.965926, 1.13133e-08, -0.258819, 0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, -21, 7, 0)
-light_energy = 0.3
-shadow_enabled = true
 
 [node name="Rain" type="Node3D" parent="Level Geometry"]
 
