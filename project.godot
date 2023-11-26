@@ -33,7 +33,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gputrail/plugin.cfg", "res://addons/jigglebones/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
+enabled=PackedStringArray("res://addons/SIsilicon.vfx.lens flare/plugin.cfg", "res://addons/gputrail/plugin.cfg", "res://addons/jigglebones/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
 
 [input]
 

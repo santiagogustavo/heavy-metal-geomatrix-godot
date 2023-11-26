@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cdenl4dsil0cq" path="res://Models/Pickups/Jetpack.glb" id="3_eawb3"]
 [ext_resource type="PackedScene" uid="uid://cbgvy2t34sq10" path="res://Prefabs/Pickups/Base G.tscn" id="6_javxo"]
 
-[sub_resource type="Animation" id="Animation_jyi7t"]
+[sub_resource type="Animation" id="Animation_ojf2c"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -17,9 +17,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.0333333, 1, 1, 1, 1, 0.0666667, 1, 1.01667, 1.01667, 1, 0.416667, 1, 1.25, 1.25, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gxx5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jw5x"]
 _data = {
-"Idle": SubResource("Animation_jyi7t")
+"Idle": SubResource("Animation_ojf2c")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5vjb0"]
@@ -126,11 +126,20 @@ item = ExtResource("2_4neja")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Jetpack/Armature" index="0"]
-bones/0/scale = Vector3(1.01811, 1.01811, 1)
+bones/0/scale = Vector3(1.10209, 1.10209, 1)
+
+[node name="object_0_001" parent="Jetpack/Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="object_0" parent="Jetpack" index="1"]
+cast_shadow = 0
+
+[node name="object_0_002" parent="Jetpack" index="2"]
+cast_shadow = 0
 
 [node name="AnimationTree" type="AnimationTree" parent="Jetpack"]
 libraries = {
-"": SubResource("AnimationLibrary_3gxx5")
+"": SubResource("AnimationLibrary_5jw5x")
 }
 tree_root = SubResource("AnimationNodeStateMachine_8oyym")
 anim_player = NodePath("../AnimationPlayer")

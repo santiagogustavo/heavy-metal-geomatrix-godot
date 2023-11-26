@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://c45a564s5mb7y" path="res://Materials/Particles/bc814aba_1G.tres" id="2_kamof"]
 [ext_resource type="AudioStream" uid="uid://bnbmu41mb38a2" path="res://Sound/Pickups/Spawn.wav" id="3_ky3aj"]
 
-[sub_resource type="Animation" id="Animation_5bp5h"]
+[sub_resource type="Animation" id="Animation_bjobf"]
 resource_name = "Idle"
 length = 1.66667
 loop_mode = 1
@@ -51,9 +51,9 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtvn1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxfpr"]
 _data = {
-"Idle": SubResource("Animation_5bp5h")
+"Idle": SubResource("Animation_bjobf")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5v3ug"]
@@ -189,14 +189,19 @@ cap_bottom = false
 [node name="Base G" instance=ExtResource("1_iuckg")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, -0.962547, 0, 0.271116)
-bones/1/position = Vector3(0, 0.2, 0)
-bones/1/rotation = Quaternion(0, 0.582184, 0, 0.813057)
+bones/0/rotation = Quaternion(0, 0.933892, 0, 0.357556)
+bones/1/rotation = Quaternion(0, -0.422263, 0, 0.906473)
+
+[node name="object_0" parent="Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="object_0_001" parent="Armature/Skeleton3D" index="1"]
+cast_shadow = 0
 
 [node name="IdleTree" type="AnimationTree" parent="." index="2"]
 deterministic = false
 libraries = {
-"": SubResource("AnimationLibrary_gtvn1")
+"": SubResource("AnimationLibrary_gxfpr")
 }
 tree_root = SubResource("AnimationNodeStateMachine_xf54e")
 anim_player = NodePath("../AnimationPlayer")
@@ -222,10 +227,12 @@ light_color = Color(0.347656, 0.996094, 0.878906, 1)
 
 [node name="Inner Ring" type="MeshInstance3D" parent="." index="6"]
 transform = Transform3D(2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_cq4b8")
 
 [node name="Outer Ring" type="MeshInstance3D" parent="." index="7"]
 transform = Transform3D(4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_cq4b8")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." index="8"]

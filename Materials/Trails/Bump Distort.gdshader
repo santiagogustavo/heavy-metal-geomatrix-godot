@@ -90,4 +90,5 @@ void fragment(){
 	
 	vec2 d = texture(normal_map, UV).xy - vec2(0.5);
 	ALBEDO = texture(SCREEN_TEXTURE, SCREEN_UV + d * distortion_size).rgb;
+	ALPHA = COLOR[3];
 }

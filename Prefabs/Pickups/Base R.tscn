@@ -202,9 +202,15 @@ cap_bottom = false
 [node name="Base R" instance=ExtResource("1_gdlfn")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, -0.536, 0, 0.844218)
+bones/0/rotation = Quaternion(0, 0.111259, 0, 0.993791)
 bones/1/position = Vector3(0, 0.2, 0)
-bones/1/rotation = Quaternion(0, -0.975722, 0, 0.219014)
+bones/1/rotation = Quaternion(0, -0.988882, 0, 0.148701)
+
+[node name="object_0" parent="Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="object_0_001" parent="Armature/Skeleton3D" index="1"]
+cast_shadow = 0
 
 [node name="IdlePlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -240,10 +246,12 @@ light_color = Color(1, 0, 0, 1)
 
 [node name="Inner Ring" type="MeshInstance3D" parent="." index="6"]
 transform = Transform3D(2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_o00rb")
 
 [node name="Outer Ring" type="MeshInstance3D" parent="." index="7"]
 transform = Transform3D(4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_5dio1")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." index="8"]

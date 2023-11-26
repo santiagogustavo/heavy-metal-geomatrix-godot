@@ -124,8 +124,17 @@ item = ExtResource("2_1brb4")
 [node name="Hand Gun" parent="." instance=ExtResource("1_b72h3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
+[node name="object_0_001" parent="Hand Gun" index="0"]
+cast_shadow = 0
+
 [node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.24954, 1.24954, 1)
+bones/0/scale = Vector3(1.13028, 1.13028, 1)
+
+[node name="object_0_002" parent="Hand Gun/Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="object_0_003" parent="Hand Gun" index="2"]
+cast_shadow = 0
 
 [node name="AnimationTree" type="AnimationTree" parent="Hand Gun"]
 libraries = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=42 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="15_j23vd"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="16_utl88"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="17_27cky"]
+[ext_resource type="Script" path="res://addons/SIsilicon.vfx.lens flare/lens-flare.gd" id="20_c064o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gvb5h"]
 panorama = ExtResource("2_p2odm")
@@ -149,7 +150,7 @@ level_name = "Ocean Castle Twilight"
 environment = SubResource("Environment_q5l4r")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.517081, 0.0541334, -0.854223, -0.292522, 0.926731, 0.235798, 0.8044, 0.371806, -0.463359, -15.0005, 5.98375, -6.01507)
+transform = Transform3D(-0.517081, 0.0541335, -0.854223, -0.292522, 0.926731, 0.235799, 0.804399, 0.371806, -0.463359, -15.0005, 5.98375, -6.01507)
 shadow_enabled = true
 shadow_bias = 0.02
 shadow_reverse_cull_face = true
@@ -477,6 +478,14 @@ collision_shapes = [NodePath("Area3D/CollisionShape3D")]
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1356, 0, -13.9988)
 shape = SubResource("BoxShape3D_e54qi")
+
+[node name="LensFlare" type="Node" parent="."]
+script = ExtResource("20_c064o")
+flareStrength = 0.05
+flareBias = 0.0
+flareBlur = 5.047
+distortion = 3.0
+ghostCount = 1
 
 [editable path="Level Geometry/Ocean Castle Twilight"]
 [editable path="Spawner"]

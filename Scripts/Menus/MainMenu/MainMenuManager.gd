@@ -25,6 +25,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_start") and !is_menu_open:
 		is_menu_open = true
 		animation_player.current_animation = "PressedStart"
+	elif Input.is_action_just_pressed("ui_cancel") and is_menu_open:
+		is_menu_open = false
+		animation_player.current_animation = "Idle"
 	elif is_menu_open:
 		update_options()
 		update_description_label()

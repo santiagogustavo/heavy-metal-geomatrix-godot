@@ -125,7 +125,16 @@ item = ExtResource("2_g4h3k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Killer Sword/Armature" index="0"]
-bones/0/scale = Vector3(1.16481, 1.16481, 1)
+bones/0/scale = Vector3(1.24675, 1.24675, 1)
+
+[node name="object_0" parent="Killer Sword/Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="object_0_001" parent="Killer Sword" index="1"]
+cast_shadow = 0
+
+[node name="object_0_003" parent="Killer Sword" index="2"]
+cast_shadow = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Killer Sword"]
 libraries = {

@@ -124,8 +124,17 @@ item = ExtResource("2_gxj4p")
 [node name="Moto Gun" parent="." instance=ExtResource("1_3xvka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
+[node name="object_0_003" parent="Moto Gun" index="0"]
+cast_shadow = 0
+
+[node name="object_0" parent="Moto Gun" index="1"]
+cast_shadow = 0
+
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.04567, 1.04567, 1)
+bones/0/scale = Vector3(1.03192, 1.03192, 1)
+
+[node name="object_0_001" parent="Moto Gun/Armature/Skeleton3D" index="0"]
+cast_shadow = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Moto Gun"]
 libraries = {

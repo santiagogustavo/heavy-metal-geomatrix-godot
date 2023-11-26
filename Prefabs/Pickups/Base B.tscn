@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxod4bjxierx" path="res://Textures/Particles/bc814aba_1.png" id="2_ivhov"]
 [ext_resource type="AudioStream" uid="uid://bnbmu41mb38a2" path="res://Sound/Pickups/Spawn.wav" id="3_k04hr"]
 
-[sub_resource type="Animation" id="Animation_3np8h"]
+[sub_resource type="Animation" id="Animation_l4ise"]
 resource_name = "Idle"
 length = 1.66667
 loop_mode = 1
@@ -23,9 +23,9 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, 0, -0.0745438, 0, 0.997218, 0.1, 1, 0, -0.184863, 0, 0.982764, 0.133333, 1, 0, -0.310168, 0, 0.950682, 0.166667, 1, 0, -0.447214, 0, 0.894427, 0.2, 1, 0, -0.591181, 0, 0.806539, 0.233333, 1, 0, -0.722582, 0, 0.691286, 0.266667, 1, 0, -0.830772, 0, 0.556613, 0.3, 1, 0, -0.910387, 0, 0.413758, 0.333333, 1, 0, -0.961524, 0, 0.274721, 0.366667, 1, 0, -0.987989, 0, 0.154522, 0.4, 1, 0, -0.998763, 0, 0.0497215, 0.433333, 1, 0, -0.999021, 0, -0.0442484, 0.466667, 1, 0, 0.990559, 0, 0.137088, 0.5, 1, 0, 0.970143, 0, 0.242536, 0.533333, 1, 0, 0.931271, 0, 0.364326, 0.566667, 1, 0, 0.870412, 0, 0.492324, 0.6, 1, 0, 0.785705, 0, 0.618601, 0.666667, 1, 0, 0.5547, 0, 0.83205, 0.7, 1, 0, 0.427309, 0, 0.904106, 0.733333, 1, 0, 0.304053, 0, 0.952655, 0.766667, 1, 0, 0.190086, 0, 0.981767, 0.8, 1, 0, 0.0884103, 0, 0.996084, 0.833333, 1, 0, 8.74228e-08, 0, 1, 0.866667, 1, 0, -0.0884101, 0, 0.996084, 0.9, 1, 0, -0.190086, 0, 0.981767, 0.933333, 1, 0, -0.304053, 0, 0.952655, 0.966667, 1, 0, -0.427309, 0, 0.904106, 1, 1, 0, -0.5547, 0, 0.83205, 1.06667, 1, 0, -0.785706, 0, 0.618601, 1.1, 1, 0, -0.870412, 0, 0.492325, 1.13333, 1, 0, -0.931271, 0, 0.364326, 1.16667, 1, 0, -0.970142, 0, 0.242536, 1.2, 1, 0, -0.990559, 0, 0.137088, 1.23333, 1, 0, -0.999021, 0, 0.0442486, 1.26667, 1, 0, -0.999021, 0, -0.0442483, 1.3, 1, 0, 0.990559, 0, 0.137088, 1.33333, 1, 0, 0.970143, 0, 0.242536, 1.36667, 1, 0, 0.931271, 0, 0.364326, 1.4, 1, 0, 0.870412, 0, 0.492324, 1.43333, 1, 0, 0.785706, 0, 0.618601, 1.5, 1, 0, 0.5547, 0, 0.83205, 1.53333, 1, 0, 0.427309, 0, 0.904106, 1.56667, 1, 0, 0.304053, 0, 0.952655, 1.6, 1, 0, 0.190087, 0, 0.981767, 1.63333, 1, 0, 0.0884104, 0, 0.996084, 1.66667, 1, 0, 1.74846e-07, 0, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5g4hs"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vw4vs"]
 _data = {
-"Idle": SubResource("Animation_3np8h")
+"Idle": SubResource("Animation_l4ise")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5v3ug"]
@@ -182,13 +182,19 @@ cap_bottom = false
 [node name="Base B" instance=ExtResource("1_awi47")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0.0182377, 0, 0.999834)
-bones/1/rotation = Quaternion(0, 0.0383726, 0, 0.999264)
+bones/0/rotation = Quaternion(0, -0.961749, 0, 0.273933)
+bones/1/rotation = Quaternion(0, 0.58787, 0, 0.808955)
+
+[node name="object_0" parent="Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="object_0_001" parent="Armature/Skeleton3D" index="1"]
+cast_shadow = 0
 
 [node name="IdleTree" type="AnimationTree" parent="." index="2"]
 deterministic = false
 libraries = {
-"": SubResource("AnimationLibrary_5g4hs")
+"": SubResource("AnimationLibrary_vw4vs")
 }
 tree_root = SubResource("AnimationNodeStateMachine_ek453")
 anim_player = NodePath("../AnimationPlayer")
@@ -214,10 +220,12 @@ light_color = Color(0, 0.356863, 1, 1)
 
 [node name="Inner Ring" type="MeshInstance3D" parent="." index="6"]
 transform = Transform3D(2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_ejmdf")
 
 [node name="Outer Ring" type="MeshInstance3D" parent="." index="7"]
 transform = Transform3D(4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_30pj2")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." index="8"]

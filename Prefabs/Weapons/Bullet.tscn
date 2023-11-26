@@ -51,7 +51,7 @@ shadow_mesh = SubResource("ArrayMesh_ccrdb")
 shader = ExtResource("4_0llqw")
 
 [sub_resource type="Gradient" id="Gradient_4xjgf"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_5g3if"]
 gradient = SubResource("Gradient_4xjgf")
@@ -68,8 +68,8 @@ curve = SubResource("Curve_7m7sq")
 render_priority = 0
 shader = ExtResource("5_tjdrs")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
-shader_parameter/distortion_size = 1.0
+shader_parameter/flags = 42
+shader_parameter/distortion_size = 0.2
 shader_parameter/color_ramp = SubResource("GradientTexture1D_5g3if")
 shader_parameter/curve = SubResource("CurveTexture_o0x3p")
 shader_parameter/normal_map = ExtResource("5_3n51u")
@@ -117,6 +117,7 @@ draw_pass_1 = SubResource("QuadMesh_yusx2")
 script = ExtResource("7_c46t5")
 color_ramp = SubResource("GradientTexture1D_5g3if")
 curve = SubResource("CurveTexture_o0x3p")
+use_red_as_alpha = true
 _defaults_have_been_set = true
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
