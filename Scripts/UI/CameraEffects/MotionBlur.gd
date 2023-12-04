@@ -1,6 +1,7 @@
 extends Node3D
 
-@onready var material = $MeshInstance3D.mesh.material
+#@onready var material = $MeshInstance3D.mesh.material
+@onready var material = $Control/ColorRect.material
 @onready var original_blur_power = material.get("shader_parameter/blur_power")
 
 var has_jetpack = false

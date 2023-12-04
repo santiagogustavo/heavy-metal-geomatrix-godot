@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=45 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="15_j23vd"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="16_utl88"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="17_27cky"]
-[ext_resource type="Script" path="res://addons/SIsilicon.vfx.lens flare/lens-flare.gd" id="20_c064o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gvb5h"]
 panorama = ExtResource("2_p2odm")
@@ -30,7 +29,8 @@ sky_material = SubResource("PanoramaSkyMaterial_gvb5h")
 [sub_resource type="Environment" id="Environment_q5l4r"]
 background_mode = 2
 sky = SubResource("Sky_57a52")
-sky_rotation = Vector3(0, -2.79078, 0)
+sky_rotation = Vector3(0, -2.90423, 0)
+glow_enabled = true
 
 [sub_resource type="Gradient" id="Gradient_60yld"]
 offsets = PackedFloat32Array(0, 0.37276, 0.637993, 1)
@@ -186,7 +186,8 @@ transform = Transform3D(0.897374, 0, 0.441271, 0, 1, 0, -0.441271, 0, 0.897374, 
 transform = Transform3D(1, -0.000515652, -0.000438724, 0.000516282, 0.999999, 0.00141729, 0.000437982, -0.00141752, 0.999999, 0, 0, 0)
 
 [node name="SunMesh" type="MeshInstance3D" parent="Level Geometry"]
-transform = Transform3D(0.5, -2.00089e-11, 0.866025, -2.32831e-10, 0.999999, -6.98492e-10, -0.866025, -5.82077e-10, 0.499999, -161.516, 0.0113446, -81.5069)
+transform = Transform3D(0.5, -1.98952e-11, 0.866025, -3.49246e-10, 0.999999, -6.98492e-10, -0.866025, -6.98492e-10, 0.499999, -161.516, 0.0113446, -81.5069)
+visible = false
 cast_shadow = 0
 mesh = SubResource("QuadMesh_jhafx")
 
@@ -504,14 +505,6 @@ collision_shapes = [NodePath("Area3D/CollisionShape3D")]
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1356, 0, -13.9988)
 shape = SubResource("BoxShape3D_e54qi")
-
-[node name="LensFlare" type="Node" parent="."]
-script = ExtResource("20_c064o")
-flareStrength = 0.05
-flareBias = 0.0
-flareBlur = 5.047
-distortion = 3.0
-ghostCount = 1
 
 [editable path="Level Geometry/Ocean Castle Twilight"]
 [editable path="Spawner"]

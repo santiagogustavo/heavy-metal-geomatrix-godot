@@ -4,7 +4,7 @@
 
 	MIT License
 */
-shader_type spatial;
+shader_type canvas_item;
 
 render_mode unshaded;
 
@@ -27,6 +27,6 @@ void fragment()
 	for( int i=0; i < sampling_count; i++ ) {
 		c += texture( SCREEN_TEXTURE, SCREEN_UV - blur_power * direction * float(i) ).rgb * f;
 	}
-	ALBEDO.rgb = c;
-	ALPHA = COLOR[3] * texture(mask, UV).a;
+	
+	COLOR = vec4(c, COLOR[3] * texture(mask, UV).a);
 }

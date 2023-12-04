@@ -21,7 +21,7 @@ func _process(_delta):
 	update_motion_blur()
 
 func load_level_configs():
-	camera_effects.get_node("CameraRain").visible = GameManager.current_level_config.is_rainy
+	camera_effects.get_node("CameraRain").effect_enabled = GameManager.current_level_config.is_rainy
 	
 func update_motion_blur():
 	motion_blur.is_dashing = is_dashing

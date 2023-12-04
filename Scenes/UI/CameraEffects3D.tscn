@@ -1,15 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://byafmx5elekej"]
+[gd_scene load_steps=25 format=3 uid="uid://byafmx5elekej"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/MotionBlur.gd" id="1_d58io"]
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain.gd" id="1_psrnk"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort Rain.gdshader" id="2_jn1u1"]
 [ext_resource type="Texture2D" uid="uid://b5g3eif2k2s6r" path="res://Textures/Particles/Rain/rain_camera_small_medium.png" id="2_on5pt"]
-[ext_resource type="Texture2D" uid="uid://bknc85c8amrvn" path="res://Textures/Particles/Rain/rain_camera_trail.png" id="3_j056e"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort Trail.gdshader" id="3_jkh6r"]
+[ext_resource type="Shader" path="res://Materials/UI/Rain.gdshader" id="4_3ivn6"]
 [ext_resource type="Shader" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
 
 [sub_resource type="Gradient" id="Gradient_3amfu"]
-offsets = PackedFloat32Array(0.390681, 0.584229, 1)
+offsets = PackedFloat32Array(0.436364, 0.698182, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8hx76"]
@@ -18,32 +16,12 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyot4"]
-render_priority = 0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_808tx"]
 shader = ExtResource("6_djyu1")
 shader_parameter/blur_center = Vector2(0.5, 0.5)
 shader_parameter/blur_power = 0.01
 shader_parameter/sampling_count = 10
 shader_parameter/mask = SubResource("GradientTexture2D_8hx76")
-
-[sub_resource type="QuadMesh" id="QuadMesh_hwlvg"]
-material = SubResource("ShaderMaterial_uyot4")
-size = Vector2(3, 2)
-
-[sub_resource type="Gradient" id="Gradient_jidq3"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynsu8"]
-gradient = SubResource("Gradient_jidq3")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ccfgd"]
-lifetime_randomness = 0.5
-emission_shape = 3
-emission_box_extents = Vector3(1, 0.6, 0)
-gravity = Vector3(0, 0, 0)
-scale_min = 0.1
-scale_max = 0.6
-color_ramp = SubResource("GradientTexture1D_ynsu8")
 
 [sub_resource type="Gradient" id="Gradient_58gwp"]
 offsets = PackedFloat32Array(0, 0.814815, 1)
@@ -56,16 +34,33 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hrxc"]
-render_priority = 0
-shader = ExtResource("2_jn1u1")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jg7g8"]
+shader = ExtResource("4_3ivn6")
 shader_parameter/distortion_size = 0.5
 shader_parameter/mask = SubResource("GradientTexture2D_psaub")
 shader_parameter/normal_map = ExtResource("2_on5pt")
 
-[sub_resource type="QuadMesh" id="QuadMesh_dh61r"]
-material = SubResource("ShaderMaterial_6hrxc")
-size = Vector2(0.05, 0.05)
+[sub_resource type="Gradient" id="Gradient_jidq3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynsu8"]
+gradient = SubResource("Gradient_jidq3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d6d6x"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(900, 400, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.4
+color_ramp = SubResource("GradientTexture1D_ynsu8")
+
+[sub_resource type="Gradient" id="Gradient_ltn3y"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h51im"]
+gradient = SubResource("Gradient_ltn3y")
 
 [sub_resource type="Gradient" id="Gradient_l0fw3"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -89,84 +84,84 @@ metadata/_snap_enabled = true
 [sub_resource type="CurveTexture" id="CurveTexture_hglk0"]
 curve = SubResource("Curve_nxaif")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ig8j"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ic2by"]
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -100, 0)
 emission_shape = 3
-emission_box_extents = Vector3(1, 0.6, 0)
+emission_box_extents = Vector3(800, 400, 1)
 direction = Vector3(0, 1, 0)
 spread = 5.0
-initial_velocity_min = 0.1
-initial_velocity_max = 2.0
+initial_velocity_min = 50.0
+initial_velocity_max = 300.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 0.6
 scale_curve = SubResource("CurveTexture_vicpc")
 color_ramp = SubResource("GradientTexture1D_udqmn")
 turbulence_enabled = true
 turbulence_noise_strength = 0.1
-turbulence_noise_scale = 0.0
-turbulence_noise_speed_random = 0.0
-turbulence_influence_min = 0.01
-turbulence_influence_max = 0.01
 turbulence_influence_over_life = SubResource("CurveTexture_hglk0")
 
-[sub_resource type="Gradient" id="Gradient_vwj1v"]
-offsets = PackedFloat32Array(0, 0.333333, 0.693122, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2hot0"]
-gradient = SubResource("Gradient_vwj1v")
-fill_from = Vector2(0, 0.5)
-fill_to = Vector2(1, 0.5)
-metadata/_snap_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_elj8r"]
-render_priority = 0
-shader = ExtResource("3_jkh6r")
-shader_parameter/distortion_size = 0.5
-shader_parameter/mask = SubResource("GradientTexture2D_2hot0")
-shader_parameter/normal_map = ExtResource("3_j056e")
-
-[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_f8nli"]
-material = SubResource("ShaderMaterial_elj8r")
-shape = 0
-size = 0.05
-sections = 2
-section_length = 0.3
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_87sf8"]
+gradient = SubResource("Gradient_ltn3y")
 
 [node name="CameraEffects3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="MotionBlur" type="Node3D" parent="."]
 script = ExtResource("1_d58io")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MotionBlur"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.4)
-mesh = SubResource("QuadMesh_hwlvg")
-skeleton = NodePath("../..")
+[node name="Control" type="Control" parent="MotionBlur"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MotionBlur/Control"]
+material = SubResource("ShaderMaterial_808tx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CameraRain" type="Node3D" parent="."]
 script = ExtResource("1_psrnk")
 effect_enabled = true
 minimum_camera_rotation = 20
 
-[node name="Rain Drops" type="GPUParticles3D" parent="CameraRain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.5)
-layers = 524288
+[node name="Control" type="Control" parent="CameraRain"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RainDrips" type="GPUParticles2D" parent="CameraRain/Control"]
+material = SubResource("ShaderMaterial_jg7g8")
+position = Vector2(-20, -20)
 amount = 125
+process_material = SubResource("ParticleProcessMaterial_d6d6x")
+texture = SubResource("GradientTexture2D_h51im")
 lifetime = 3.0
 randomness = 1.0
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_ccfgd")
-draw_pass_1 = SubResource("QuadMesh_dh61r")
 
-[node name="Rain Drips" type="GPUParticles3D" parent="CameraRain"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.75, 0.5)
-layers = 524288
-amount = 40
+[node name="RainDrops" type="GPUParticles2D" parent="CameraRain/Control"]
+material = SubResource("ShaderMaterial_jg7g8")
+position = Vector2(-20, -20)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_ic2by")
+texture = SubResource("GradientTexture2D_87sf8")
 lifetime = 3.0
 randomness = 1.0
 local_coords = true
 trail_enabled = true
 trail_lifetime = 1.0
-process_material = SubResource("ParticleProcessMaterial_4ig8j")
-draw_pass_1 = SubResource("RibbonTrailMesh_f8nli")
