@@ -1,12 +1,8 @@
 extends CharacterBody3D
 class_name Player
 
-@export_subgroup("Physics")
-@export var speed = 7.5
-@export var dashing_speed = 10
-@export var jetpack_dashing_speed = 12.5
-@export var jump_height = 10
-@export var weight = 2.5
+@export_subgroup("Properties")
+@export var health = 100;
 
 @export_subgroup("Controls")
 @export var LOOK_CLAMP = 60
@@ -21,6 +17,7 @@ class_name Player
 @onready var camera_collider = $CameraPivot/CameraCollider
 @onready var camera_target_raycast = $CameraPivot/TargetRaycast
 
+@onready var character_controller = $CharacterController
 @onready var animation_tree = $CharacterController/AnimationTree
 @onready var sound_tree = $CharacterController/SoundAnimationTree
 @onready var sound_attack_tree = $CharacterController/SoundAttackTree
@@ -153,11 +150,11 @@ func compute_movement():
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	
-	var current_speed = speed
+	var current_speed = character_controller.speed
 	if is_dashing and (!inventory_manager.has_jetpack or !inventory_manager.jetpack_has_fuel):
-		current_speed = dashing_speed
+		current_speed = character_controller.dashing_speed
 	elif is_dashing and inventory_manager.has_jetpack and inventory_manager.jetpack_has_fuel:
-		current_speed = jetpack_dashing_speed
+		current_speed = character_controller.jetpack_dashing_speed
 	
 	if direction.length():
 		is_walking = true
@@ -165,22 +162,22 @@ func compute_movement():
 		velocity.z = direction.z * current_speed
 	else:
 		is_walking = false
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 func compute_gravity(delta):
-	velocity.y -= weight * gravity * delta
+	velocity.y -= character_controller.weight * gravity * delta
 	if is_on_floor():
 		is_jumping = false
 
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			is_jumping = true
-			velocity.y = jump_height
+			velocity.y = character_controller.jump_height
 		elif inventory_manager.has_jetpack:
 			is_double_jumping = true
 			if inventory_manager.jetpack_has_fuel:
-				velocity.y = jump_height
+				velocity.y = character_controller.jump_height
 
 func clear_frame_variables():
 	is_double_jumping = false

@@ -1,4 +1,4 @@
-extends TextureRectButton
+extends TextureButton
 
-func _on_button_pressed():
+func _on_button_down():
 	GameManager.toggle_pause_game()

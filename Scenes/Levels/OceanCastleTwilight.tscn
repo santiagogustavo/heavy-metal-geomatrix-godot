@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=46 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
@@ -31,6 +31,27 @@ sky_material = SubResource("PanoramaSkyMaterial_gvb5h")
 background_mode = 2
 sky = SubResource("Sky_57a52")
 sky_rotation = Vector3(0, -2.79078, 0)
+
+[sub_resource type="Gradient" id="Gradient_60yld"]
+offsets = PackedFloat32Array(0, 0.37276, 0.637993, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.631373, 1, 1, 0.670028, 0.0601307, 0.0952381, 1, 0.635294, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_je2vf"]
+gradient = SubResource("Gradient_60yld")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc1dt"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_je2vf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jhafx"]
+material = SubResource("StandardMaterial3D_pc1dt")
+size = Vector2(20, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
 render_priority = 0
@@ -163,6 +184,11 @@ transform = Transform3D(0.897374, 0, 0.441271, 0, 1, 0, -0.441271, 0, 0.897374, 
 
 [node name="Level Geometry" type="Node3D" parent="."]
 transform = Transform3D(1, -0.000515652, -0.000438724, 0.000516282, 0.999999, 0.00141729, 0.000437982, -0.00141752, 0.999999, 0, 0, 0)
+
+[node name="SunMesh" type="MeshInstance3D" parent="Level Geometry"]
+transform = Transform3D(0.5, -2.00089e-11, 0.866025, -2.32831e-10, 0.999999, -6.98492e-10, -0.866025, -5.82077e-10, 0.499999, -161.516, 0.0113446, -81.5069)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_jhafx")
 
 [node name="Ocean Castle Twilight" parent="Level Geometry" instance=ExtResource("1_shppn")]
 transform = Transform3D(1, -1.8531e-11, 0, -1.76613e-10, 1, 0, 0, -3.49246e-10, 1, 0, 0, 0)

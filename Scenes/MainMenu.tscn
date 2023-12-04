@@ -250,50 +250,50 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("OptionsContainer/OptionsList/Options/AnimationPlayer:current_animation")
+tracks/2/path = NodePath("Fade:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Close"]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("OptionsContainer/OptionsList/Exit/AnimationPlayer:current_animation")
+tracks/3/path = NodePath("Fade:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Close"]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Fade:color")
+tracks/4/path = NodePath("OptionsContainer/OptionsList/Options/AnimationPlayer:current_animation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Close"]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Fade:visible")
+tracks/5/path = NodePath("OptionsContainer/OptionsList/Exit/AnimationPlayer:current_animation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [&"Close"]
 }
 
 [sub_resource type="Animation" id="Animation_ocbuu"]
@@ -406,30 +406,6 @@ tracks/4/path = NodePath("OptionsContainer/ModeExplanation/BG/AnimationPlayer:cu
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Open"]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("OptionsContainer/OptionsList/Options/AnimationPlayer:current_animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Open"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("OptionsContainer/OptionsList/Exit/AnimationPlayer:current_animation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -564,7 +540,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Press Start"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -597,7 +572,6 @@ tree_root = SubResource("AnimationNodeStateMachine_r45pc")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="OptionsContainer" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -698,6 +672,7 @@ offset_left = -556.426
 offset_top = -150.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(1, 1e-05)
 pivot_offset = Vector2(0, 150)
 texture = ExtResource("12_ej331")
 expand_mode = 3
@@ -734,14 +709,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Arcade" type="TextureRect" parent="OptionsContainer/OptionsList"]
+[node name="Arcade" type="TextureButton" parent="OptionsContainer/OptionsList"]
 layout_mode = 0
 offset_top = 50.0
 offset_right = 411.328
 offset_bottom = 150.0
-pivot_offset = Vector2(0, 110)
-texture = ExtResource("9_1ywlp")
-expand_mode = 3
+pivot_offset = Vector2(0, 100)
+texture_normal = ExtResource("9_1ywlp")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("13_rqnl3")
 redirect_to_scene = "res://Scenes/Levels/OceanCastleTwilight.tscn"
 
@@ -750,14 +726,15 @@ libraries = {
 "": SubResource("AnimationLibrary_63wpo")
 }
 
-[node name="Options" type="TextureRect" parent="OptionsContainer/OptionsList"]
+[node name="Options" type="TextureButton" parent="OptionsContainer/OptionsList"]
 layout_mode = 0
 offset_top = 150.0
 offset_right = 411.328
 offset_bottom = 250.0
-pivot_offset = Vector2(0, 110)
-texture = ExtResource("10_m0khw")
-expand_mode = 3
+pivot_offset = Vector2(0, 100)
+texture_normal = ExtResource("10_m0khw")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("15_k7ur8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OptionsContainer/OptionsList/Options"]
@@ -765,14 +742,15 @@ libraries = {
 "": SubResource("AnimationLibrary_63wpo")
 }
 
-[node name="Exit" type="TextureRect" parent="OptionsContainer/OptionsList"]
+[node name="Exit" type="TextureButton" parent="OptionsContainer/OptionsList"]
 layout_mode = 0
 offset_top = 250.0
 offset_right = 411.328
 offset_bottom = 350.0
-pivot_offset = Vector2(0, 110)
-texture = ExtResource("11_ntssn")
-expand_mode = 3
+pivot_offset = Vector2(0, 100)
+texture_normal = ExtResource("11_ntssn")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("17_wmugx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OptionsContainer/OptionsList/Exit"]
@@ -781,7 +759,6 @@ libraries = {
 }
 
 [node name="Fade" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

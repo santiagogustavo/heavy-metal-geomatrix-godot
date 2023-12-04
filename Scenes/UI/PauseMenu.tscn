@@ -119,27 +119,31 @@ size_flags_vertical = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Continue" type="TextureRect" parent="Control/Panel/Buttons"]
+[node name="Continue" type="TextureButton" parent="Control/Panel/Buttons"]
 layout_mode = 2
-texture = ExtResource("4_v001x")
+action_mode = 0
+texture_normal = ExtResource("4_v001x")
 stretch_mode = 3
 script = ExtResource("6_fwu7w")
 
-[node name="Character Change" type="TextureRect" parent="Control/Panel/Buttons"]
+[node name="CharacterChange" type="TextureButton" parent="Control/Panel/Buttons"]
 layout_mode = 2
-texture = ExtResource("5_bhu21")
+action_mode = 0
+texture_normal = ExtResource("5_bhu21")
 stretch_mode = 3
 script = ExtResource("7_a0u3f")
 
-[node name="Options" type="TextureRect" parent="Control/Panel/Buttons"]
+[node name="Options" type="TextureButton" parent="Control/Panel/Buttons"]
 layout_mode = 2
-texture = ExtResource("6_qwnrg")
+action_mode = 0
+texture_normal = ExtResource("6_qwnrg")
 stretch_mode = 3
 script = ExtResource("9_s581u")
 
-[node name="Exit" type="TextureRect" parent="Control/Panel/Buttons"]
+[node name="Exit" type="TextureButton" parent="Control/Panel/Buttons"]
 layout_mode = 2
-texture = ExtResource("7_1cvxh")
+action_mode = 0
+texture_normal = ExtResource("7_1cvxh")
 stretch_mode = 3
 script = ExtResource("11_3m3t1")
 redirect_to_scene = "res://Scenes/MainMenu.tscn"
