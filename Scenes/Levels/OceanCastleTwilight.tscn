@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=49 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://yhc2736083x" path="res://Textures/Levels/5a480546_spec.png" id="7_heaxk"]
 [ext_resource type="Texture2D" uid="uid://cg0oqjndqox1w" path="res://Textures/Particles/splash.png" id="8_3yxf3"]
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="10_bkbwv"]
+[ext_resource type="PackedScene" uid="uid://c0plmj1r7g8v0" path="res://Prefabs/Levels/Ocean Castle Twilight/Flag.tscn" id="11_38psi"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="11_gh28t"]
 [ext_resource type="Script" path="res://Scripts/InvisibleWall.gd" id="11_hawtf"]
 [ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="12_5adl6"]
+[ext_resource type="AudioStream" uid="uid://cg8wt5w2o7mp5" path="res://Sound/Levels/Ocean Castle Twilight/waves.wav" id="12_rttfk"]
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="13_5jmdf"]
 [ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="14_7te7v"]
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="15_j23vd"]
@@ -31,6 +33,24 @@ background_mode = 2
 sky = SubResource("Sky_57a52")
 sky_rotation = Vector3(0, -2.90423, 0)
 glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
+render_priority = 0
+shader = ExtResource("4_xw4kr")
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Panning = Vector2(0, 0.25)
+shader_parameter/distortion_speed = Vector2(0, 0.1)
+shader_parameter/distortion_scale = 1.0
+shader_parameter/distortion_intensity = 0.1
+shader_parameter/Tiling = Vector2(1, 1)
+shader_parameter/Metallic = 0.25
+shader_parameter/Roughness = 0.078
+shader_parameter/Specular = 0.505
+shader_parameter/Occlusion_Intensity = 1.0
+shader_parameter/normal_intensity = 0.263
+shader_parameter/Albedo = ExtResource("5_g0vas")
+shader_parameter/Occlusion = ExtResource("7_heaxk")
+shader_parameter/Normal_Map = ExtResource("6_1xlmj")
 
 [sub_resource type="Gradient" id="Gradient_60yld"]
 offsets = PackedFloat32Array(0, 0.37276, 0.637993, 1)
@@ -52,24 +72,6 @@ albedo_texture = SubResource("GradientTexture2D_je2vf")
 [sub_resource type="QuadMesh" id="QuadMesh_jhafx"]
 material = SubResource("StandardMaterial3D_pc1dt")
 size = Vector2(20, 20)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
-render_priority = 0
-shader = ExtResource("4_xw4kr")
-shader_parameter/Color = Color(1, 1, 1, 1)
-shader_parameter/Panning = Vector2(0, 0.25)
-shader_parameter/distortion_speed = Vector2(0, 0.1)
-shader_parameter/distortion_scale = 1.0
-shader_parameter/distortion_intensity = 0.1
-shader_parameter/Tiling = Vector2(1, 1)
-shader_parameter/Metallic = 0.25
-shader_parameter/Roughness = 0.078
-shader_parameter/Specular = 0.505
-shader_parameter/Occlusion_Intensity = 1.0
-shader_parameter/normal_intensity = 0.263
-shader_parameter/Albedo = ExtResource("5_g0vas")
-shader_parameter/Occlusion = ExtResource("7_heaxk")
-shader_parameter/Normal_Map = ExtResource("6_1xlmj")
 
 [sub_resource type="Gradient" id="Gradient_64ile"]
 offsets = PackedFloat32Array(0.00380228, 1)
@@ -115,6 +117,12 @@ backface_collision = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0w4s"]
 size = Vector3(5.595, 0.225, 5.605)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_166ly"]
+size = Vector3(5.595, 0.225, 5.92457)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fndbu"]
+size = Vector3(4.96564, 0.225, 5.605)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxytm"]
 size = Vector3(0.75, 25, 30.632)
@@ -185,12 +193,6 @@ transform = Transform3D(0.897374, 0, 0.441271, 0, 1, 0, -0.441271, 0, 0.897374, 
 [node name="Level Geometry" type="Node3D" parent="."]
 transform = Transform3D(1, -0.000515652, -0.000438724, 0.000516282, 0.999999, 0.00141729, 0.000437982, -0.00141752, 0.999999, 0, 0, 0)
 
-[node name="SunMesh" type="MeshInstance3D" parent="Level Geometry"]
-transform = Transform3D(0.5, -1.98952e-11, 0.866025, -3.49246e-10, 0.999999, -6.98492e-10, -0.866025, -6.98492e-10, 0.499999, -161.516, 0.0113446, -81.5069)
-visible = false
-cast_shadow = 0
-mesh = SubResource("QuadMesh_jhafx")
-
 [node name="Ocean Castle Twilight" parent="Level Geometry" instance=ExtResource("1_shppn")]
 transform = Transform3D(1, -1.8531e-11, 0, -1.76613e-10, 1, 0, 0, -3.49246e-10, 1, 0, 0, 0)
 
@@ -199,6 +201,85 @@ transform = Transform3D(-1, -1.80762e-11, -2.91038e-11, 3.50894e-10, 1, -8.14907
 
 [node name="object_12" parent="Level Geometry/Ocean Castle Twilight" index="11"]
 surface_material_override/0 = SubResource("ShaderMaterial_kbkfy")
+
+[node name="SunMesh" type="MeshInstance3D" parent="Level Geometry/Ocean Castle Twilight"]
+transform = Transform3D(0.5, -1.9952e-11, 0.866025, -3.49246e-10, 0.999999, -5.82077e-10, -0.866025, -4.65661e-10, 0.499999, -161.516, 0.0113446, -81.5069)
+visible = false
+cast_shadow = 0
+mesh = SubResource("QuadMesh_jhafx")
+skeleton = NodePath("../..")
+
+[node name="Flag" parent="Level Geometry/Ocean Castle Twilight" instance=ExtResource("11_38psi")]
+transform = Transform3D(-4.36557e-08, -1.97247e-11, 0.999999, 9.31323e-10, 0.999999, -4.06146e-10, -0.999999, 0, -4.4005e-08, -44.5211, 8.47067, 18.6375)
+
+[node name="Flag2" parent="Level Geometry/Ocean Castle Twilight" instance=ExtResource("11_38psi")]
+transform = Transform3D(-4.35975e-08, -1.95541e-11, 0.999998, 1.5134e-09, 0.999998, -8.13088e-10, -0.999998, -2.32831e-10, -4.42087e-08, -33.6248, 8.46801, -42.5291)
+
+[node name="Audios" type="Node3D" parent="Level Geometry"]
+transform = Transform3D(1, -2.02931e-11, 0, -6.1732e-11, 1, -1.16415e-10, -2.91038e-11, 0, 1, 0, 0, 0)
+
+[node name="Waves" type="AudioStreamPlayer3D" parent="Level Geometry/Audios"]
+transform = Transform3D(1, -8.63497e-09, 1.08557e-08, -3.12639e-12, 1, 3.84171e-09, -1.45519e-10, -1.16415e-10, 1, -26.9558, 8.3819e-09, 2)
+stream = ExtResource("12_rttfk")
+volume_db = -15.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Waves2" type="AudioStreamPlayer3D" parent="Level Geometry/Audios"]
+transform = Transform3D(1, -8.63497e-09, 1.09139e-08, -3.0127e-12, 1, 3.84171e-09, -2.03727e-10, -1.16415e-10, 1, -26.9558, -6.14673e-08, -17)
+stream = ExtResource("12_rttfk")
+volume_db = -15.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Waves3" type="AudioStreamPlayer3D" parent="Level Geometry/Audios"]
+transform = Transform3D(1, -8.63497e-09, 1.12341e-08, -2.55795e-12, 1, 3.84171e-09, -5.23869e-10, -1.16415e-10, 1, -17.1022, 0.00360952, -31.9969)
+stream = ExtResource("12_rttfk")
+volume_db = -15.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Waves4" type="AudioStreamPlayer3D" parent="Level Geometry/Audios"]
+transform = Transform3D(1, -8.63497e-09, 1.12632e-08, -2.55795e-12, 1, 3.84171e-09, -5.52973e-10, -1.16415e-10, 1, 2.89782, 0.00257822, -31.9977)
+stream = ExtResource("12_rttfk")
+volume_db = -15.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Waves5" type="AudioStreamPlayer3D" parent="Level Geometry/Audios"]
+transform = Transform3D(1, -8.63497e-09, 1.1205e-08, -2.6148e-12, 1, 3.84171e-09, -4.94765e-10, -1.16415e-10, 1, 6.89782, 0.00257828, -13.9978)
+stream = ExtResource("12_rttfk")
+volume_db = -15.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Waves6" type="AudioStreamPlayer3D" parent="Level Geometry/Audios"]
+transform = Transform3D(1, -8.63497e-09, 1.12632e-08, -2.55795e-12, 1, 3.84171e-09, -5.52973e-10, -1.16415e-10, 1, 6.8987, 0.00180594, 5.00397)
+stream = ExtResource("12_rttfk")
+volume_db = -15.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Waves7" type="AudioStreamPlayer3D" parent="Level Geometry/Audios"]
+transform = Transform3D(1, -8.63497e-09, 1.14669e-08, -2.27374e-12, 1, 3.84171e-09, -7.567e-10, -1.16415e-10, 1, -12.0995, 0.00593344, 13.0123)
+stream = ExtResource("12_rttfk")
+volume_db = -15.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
 
 [node name="Particles" type="Node3D" parent="Level Geometry"]
 
@@ -363,7 +444,7 @@ process_material = SubResource("ParticleProcessMaterial_ifcfs")
 draw_pass_1 = SubResource("QuadMesh_nrtou")
 
 [node name="WaterSplash17" type="GPUParticles3D" parent="Level Geometry/Particles"]
-transform = Transform3D(1.74641, -1.87015e-11, -1.45519e-11, -5.99925e-10, 1, 4.36557e-11, -2.91038e-10, -6.98492e-10, 0.0769178, -21.6344, -0.491716, 19.9186)
+transform = Transform3D(1.74641, -2.05773e-11, -1.09139e-11, -5.99925e-10, 1, 3.63798e-11, -2.91038e-10, -6.98492e-10, 0.0769178, -21.6344, -0.491716, 19.9186)
 amount = 10
 lifetime = 2.0
 preprocess = 2.0
@@ -402,16 +483,16 @@ transform = Transform3D(-4.35684e-08, -1.76215e-11, 0.999999, 1.39698e-09, 0.999
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D4"]
-transform = Transform3D(0.999997, -0.000191087, 0.000177212, 0.000124109, 0.939318, 0.376564, -0.000217189, -0.343035, 1.03113, -0.208418, 2.34743, -7.63617)
-shape = SubResource("BoxShape3D_g0w4s")
+transform = Transform3D(1, -0.000191093, 0.000161439, 0.000124115, 0.939325, 0.343035, -0.000217189, -0.343036, 0.939322, -0.208393, 2.40224, -7.48609)
+shape = SubResource("BoxShape3D_166ly")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Level Geometry/Collisions"]
-transform = Transform3D(0.798604, -7.49765e-11, -3.20142e-10, -1.4137e-10, 0.999999, -2.91038e-09, -2.32831e-10, 1.62981e-09, 0.999999, -18.174, -2.03365, 6.2812)
+transform = Transform3D(1, 1.77021e-10, 2.91548e-10, -1.77021e-10, 1, -1.62981e-09, -2.91548e-10, 1.62981e-09, 1, -18.174, -2.03365, 6.2812)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D5"]
-transform = Transform3D(0.999998, -0.000191578, 0.000160849, 0.000124109, 0.938266, 0.345903, -0.000217189, -0.345903, 0.938266, -0.208382, 2.47593, -7.36889)
-shape = SubResource("BoxShape3D_g0w4s")
+transform = Transform3D(1, -0.000191579, 0.000160849, 0.000124108, 0.938263, 0.345902, -0.00021719, -0.345901, 0.938263, -0.319126, 2.47592, -7.36886)
+shape = SubResource("BoxShape3D_fndbu")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5.5, -1)
