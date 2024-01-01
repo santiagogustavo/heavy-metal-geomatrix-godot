@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://cddl3bdm4dln6"]
+[gd_resource type="VisualShader" load_steps=23 format=3 uid="uid://cddl3bdm4dln6"]
 
 [ext_resource type="Texture2D" uid="uid://cavmhrqs2g8xs" path="res://Textures/UI/Masks/player_health.png" id="1_fxwts"]
 [ext_resource type="Script" path="res://addons/shaderV/rgba/noise/fractal/generic2d_fractal.gd" id="1_jkhrk"]
@@ -40,7 +40,32 @@ default_input_values = [1, 2, 2, Vector3(2, 2, 0), 3, 2.0, 4, 1.0, 5, 1.0, 6, 0.
 initialized = true
 script = ExtResource("1_jkhrk")
 
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_5fx8n"]
+parameter_name = "Alpha_Mask"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_18m2v"]
+output_port_for_preview = 0
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_onqwu"]
+
+[sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_v466n"]
+function = 5
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_oycgv"]
+parameter_name = "Progress"
+hint = 1
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_8qddb"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_rxlk3"]
+source = 5
 texture = ExtResource("1_fxwts")
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_ngkwc"]
@@ -71,7 +96,8 @@ uniform vec4 wave_color : source_color = vec4(0.117647, 0.231373, 1.000000, 1.00
 uniform vec4 noise_color : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform vec2 tiling = vec2(1.000000, 1.000000);
 uniform vec2 wave_speed = vec2(0.000000, 0.500000);
-uniform sampler2D tex_frg_3;
+uniform sampler2D Alpha_Mask;
+uniform float Progress : hint_range(0, 1) = 1;
 
 
 // FractalGenericNoise2D
@@ -165,8 +191,9 @@ void fragment() {
 	vec4 n_out15p0 = n_out16p0 + n_out13p0;
 
 
+	vec4 n_out3p0;
 // Texture2D:3
-	vec4 n_out3p0 = texture(tex_frg_3, UV);
+	n_out3p0 = texture(Alpha_Mask, UV);
 
 
 // VectorDecompose:4
@@ -176,19 +203,42 @@ void fragment() {
 	float n_out4p3 = n_out3p0.w;
 
 
+// Input:21
+	vec2 n_out21p0 = UV;
+
+
+// VectorDecompose:22
+	float n_out22p0 = vec3(n_out21p0, 0.0).x;
+	float n_out22p1 = vec3(n_out21p0, 0.0).y;
+	float n_out22p2 = vec3(n_out21p0, 0.0).z;
+
+
+// FloatParameter:24
+	float n_out24p0 = Progress;
+
+
+// Compare:23
+	bool n_out23p0 = n_out22p0 <= n_out24p0;
+
+
+// VectorOp:27
+	vec4 n_out27p0 = vec4(n_out4p3) * vec4(n_out23p0 ? 1.0 : 0.0);
+
+
 // Output:0
 	COLOR.rgb = vec3(n_out15p0.xyz);
-	COLOR.a = n_out4p3;
+	COLOR.a = n_out27p0.x;
 
 
 }
 "
 mode = 1
 flags/light_only = false
+nodes/fragment/0/position = Vector2(880, 40)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_rxlk3")
-nodes/fragment/3/position = Vector2(-220, 340)
+nodes/fragment/3/position = Vector2(-860, 560)
 nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_ngkwc")
-nodes/fragment/4/position = Vector2(20, 340)
+nodes/fragment/4/position = Vector2(-540, 540)
 nodes/fragment/6/node = SubResource("VisualShaderNodeInput_hlmp2")
 nodes/fragment/6/position = Vector2(-1600, 480)
 nodes/fragment/7/node = SubResource("VisualShaderNodeVec2Parameter_n17a5")
@@ -213,5 +263,17 @@ nodes/fragment/17/node = SubResource("VisualShaderNodeUVFunc_r5con")
 nodes/fragment/17/position = Vector2(-820, 100)
 nodes/fragment/19/node = SubResource("VisualShaderNodeCustom_1ds27")
 nodes/fragment/19/position = Vector2(-540, 0)
-nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 3, 0, 1, 7, 0, 8, 0, 6, 0, 8, 1, 8, 0, 9, 2, 14, 0, 13, 0, 13, 0, 15, 1, 16, 0, 15, 0, 15, 0, 0, 0, 11, 0, 9, 1, 10, 0, 9, 0, 9, 0, 17, 0, 11, 0, 17, 1, 19, 0, 13, 1, 17, 0, 19, 0)
+nodes/fragment/20/node = SubResource("VisualShaderNodeTexture2DParameter_5fx8n")
+nodes/fragment/20/position = Vector2(-1220, 560)
+nodes/fragment/21/node = SubResource("VisualShaderNodeInput_18m2v")
+nodes/fragment/21/position = Vector2(-1240, 880)
+nodes/fragment/22/node = SubResource("VisualShaderNodeVectorDecompose_onqwu")
+nodes/fragment/22/position = Vector2(-820, 980)
+nodes/fragment/23/node = SubResource("VisualShaderNodeCompare_v466n")
+nodes/fragment/23/position = Vector2(-460, 1100)
+nodes/fragment/24/node = SubResource("VisualShaderNodeFloatParameter_oycgv")
+nodes/fragment/24/position = Vector2(-920, 1180)
+nodes/fragment/27/node = SubResource("VisualShaderNodeVectorOp_8qddb")
+nodes/fragment/27/position = Vector2(-40, 620)
+nodes/fragment/connections = PackedInt32Array(7, 0, 8, 0, 6, 0, 8, 1, 8, 0, 9, 2, 14, 0, 13, 0, 13, 0, 15, 1, 16, 0, 15, 0, 11, 0, 9, 1, 10, 0, 9, 0, 9, 0, 17, 0, 11, 0, 17, 1, 19, 0, 13, 1, 17, 0, 19, 0, 20, 0, 3, 2, 3, 0, 4, 0, 21, 0, 22, 0, 22, 0, 23, 0, 24, 0, 23, 1, 15, 0, 0, 0, 4, 3, 27, 0, 23, 0, 27, 1, 27, 0, 0, 1)
 metadata/_edit_res_path = "res://Materials/UI/HUD/HealthBar.tres"

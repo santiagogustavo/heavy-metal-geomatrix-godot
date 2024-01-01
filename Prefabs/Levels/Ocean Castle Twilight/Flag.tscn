@@ -337,6 +337,5 @@ stream = ExtResource("2_bpyei")
 volume_db = -30.0
 max_db = 0.0
 autoplay = true
-stream_paused = true
 bus = &"Effects"
 attenuation_filter_db = 0.0

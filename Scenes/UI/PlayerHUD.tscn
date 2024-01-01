@@ -1,11 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=38 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Squish Y.gdshader" id="1_k0nky"]
 [ext_resource type="Texture2D" uid="uid://bjlnvsdi0mcl6" path="res://Textures/UI/crosshair.png" id="1_m8fje"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2efbf"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD/HudViewport.gd" id="2_os422"]
 [ext_resource type="Texture2D" uid="uid://bcuru11gjis05" path="res://Textures/UI/Masks/player_avatar.png" id="4_4xvm0"]
+[ext_resource type="Texture2D" uid="uid://cavmhrqs2g8xs" path="res://Textures/UI/Masks/player_health.png" id="5_ddy4o"]
 [ext_resource type="Texture2D" uid="uid://cvjyfg08t0s6a" path="res://Textures/Characters/Mayfly/Cards/e7b43538.png" id="5_t312a"]
 [ext_resource type="Texture2D" uid="uid://dx4b8ctf1m11j" path="res://Textures/UI/b2fa8e8c_R1.png" id="6_71pp5"]
+[ext_resource type="Texture2D" uid="uid://dkyffhb4exh4n" path="res://Textures/UI/HUD/health_bar.png" id="9_3hqni"]
+[ext_resource type="Texture2D" uid="uid://cd2yy3oq27wlw" path="res://Textures/UI/HUD/health_bar_mask.png" id="10_8lhpc"]
+[ext_resource type="Texture2D" uid="uid://ptp35yt7fh3d" path="res://Textures/UI/HUD/grid.png" id="11_2lcjo"]
+[ext_resource type="Texture2D" uid="uid://bmxavxm16phiy" path="res://Textures/UI/HUD/avatar_mask.png" id="11_f26df"]
+[ext_resource type="Texture2D" uid="uid://b0g1xv1gbqo2t" path="res://Textures/Characters/Mayfly/Cards/6c34b3ba.png" id="12_tjik2"]
+[ext_resource type="Texture2D" uid="uid://b0h2li1v105f3" path="res://Textures/UI/HUD/round_win.png" id="14_ubjs3"]
+[ext_resource type="Texture2D" uid="uid://cmnug8w1hvgl0" path="res://Textures/UI/HUD/round_idle.png" id="15_1lxsh"]
+[ext_resource type="Texture2D" uid="uid://d21rylclcaqwi" path="res://Textures/UI/HUD/jetpack_bar_mask.png" id="16_qyfc6"]
+[ext_resource type="Texture2D" uid="uid://cha8hmcd7dn0f" path="res://Textures/UI/HUD/jetpack_bar.png" id="17_0nwtp"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD/Jetpack.gd" id="17_kcelk"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD/Ammo.gd" id="20_c6iue"]
+[ext_resource type="FontFile" uid="uid://c68jnfdf06sdl" path="res://Fonts/Glitchguy.ttf" id="21_3g7io"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD/Melee.gd" id="21_agdla"]
+[ext_resource type="Texture2D" uid="uid://dnvgvrclpxe6j" path="res://Textures/UI/HUD/ammo.png" id="21_bdk28"]
+[ext_resource type="Texture2D" uid="uid://vjuq0hixgfka" path="res://Textures/UI/HUD/melee_bar.png" id="21_gg7my"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bxa2b"]
 shader = ExtResource("1_h7o1f")
@@ -13,12 +31,131 @@ shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
 shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
 shader_parameter/tiling = Vector2(3, 0.3)
 shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Progress = 1.0
+shader_parameter/Alpha_Mask = ExtResource("5_ddy4o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gla7n"]
 shader = ExtResource("2_2efbf")
 shader_parameter/Mask = ExtResource("4_4xvm0")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iknaq"]
+shader = ExtResource("2_2efbf")
+shader_parameter/Mask = ExtResource("10_8lhpc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbx78"]
+shader = ExtResource("1_h7o1f")
+shader_parameter/wave_color = Color(0.545098, 0.109804, 0.109804, 1)
+shader_parameter/noise_color = Color(0.701961, 0.223529, 0.223529, 1)
+shader_parameter/tiling = Vector2(3, 0.3)
+shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Progress = 1.0
+shader_parameter/Alpha_Mask = ExtResource("10_8lhpc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbkkf"]
+shader = ExtResource("2_2efbf")
+shader_parameter/Mask = ExtResource("11_f26df")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4bne"]
+shader = ExtResource("2_2efbf")
+shader_parameter/Mask = ExtResource("16_qyfc6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3buy1"]
+shader = ExtResource("1_h7o1f")
+shader_parameter/wave_color = Color(0.0705882, 0.501961, 0.415686, 1)
+shader_parameter/noise_color = Color(0.113725, 0.8, 0.662745, 1)
+shader_parameter/tiling = Vector2(3, 0.3)
+shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Progress = 1.0
+shader_parameter/Alpha_Mask = ExtResource("16_qyfc6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mi474"]
+font = ExtResource("21_3g7io")
+font_size = 32
+font_color = Color(0.8, 0.8, 0.8, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(1, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8qr6"]
+font = ExtResource("21_3g7io")
+font_size = 42
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(1, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dchxr"]
+shader = ExtResource("2_2efbf")
+shader_parameter/Mask = ExtResource("16_qyfc6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5v7g"]
+shader = ExtResource("1_h7o1f")
+shader_parameter/wave_color = Color(0.611765, 0.423529, 0.156863, 1)
+shader_parameter/noise_color = Color(0.721569, 0.498039, 0.188235, 1)
+shader_parameter/tiling = Vector2(3, 0.3)
+shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Progress = 1.0
+shader_parameter/Alpha_Mask = ExtResource("16_qyfc6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehfxt"]
+shader = ExtResource("1_k0nky")
+shader_parameter/uv_mode = false
+shader_parameter/y_factor = 1.0
+shader_parameter/bulge = -0.15
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nxnmn"]
+viewport_path = NodePath("UI Viewport")
+
 [node name="PlayerHUD" type="CanvasLayer"]
+process_mode = 3
+
+[node name="PlayerLegacy" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="HealthBar" type="ColorRect" parent="PlayerLegacy"]
+material = SubResource("ShaderMaterial_bxa2b")
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = -87.9999
+offset_right = 150.0
+offset_bottom = -47.9999
+grow_vertical = 2
+scale = Vector2(8.09454, 0.513157)
+
+[node name="Avatar" type="TextureRect" parent="PlayerLegacy"]
+material = SubResource("ShaderMaterial_gla7n")
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 57.0
+offset_top = -111.0
+offset_right = 121.0
+offset_bottom = -47.0
+grow_vertical = 2
+scale = Vector2(0.764392, 0.764392)
+texture = ExtResource("5_t312a")
+
+[node name="Decoration" type="TextureRect" parent="PlayerLegacy"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -157.0
+offset_right = 1431.0
+offset_bottom = 216.0
+grow_vertical = 0
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("6_71pp5")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -27,6 +164,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Crosshair" type="TextureRect" parent="Control"]
 modulate = Color(1, 0, 0.941176, 1)
@@ -46,50 +185,224 @@ scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(24, 24)
 texture = ExtResource("1_m8fje")
 
-[node name="Control" type="Control" parent="Control"]
+[node name="Player" type="Control" parent="Control"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
+anchors_preset = 0
 offset_right = 40.0
-grow_vertical = 0
+offset_bottom = 40.0
 
-[node name="HealthBar" type="ColorRect" parent="Control/Control"]
-material = SubResource("ShaderMaterial_bxa2b")
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 110.0
-offset_top = -87.9999
-offset_right = 150.0
-offset_bottom = -47.9999
-grow_vertical = 2
-scale = Vector2(8.09454, 0.513157)
+[node name="HealthBackground" type="TextureRect" parent="Control/Player"]
+material = SubResource("ShaderMaterial_iknaq")
+layout_mode = 0
+offset_left = 102.0
+offset_top = 35.0
+offset_right = 449.0
+offset_bottom = 80.0
+texture = ExtResource("11_2lcjo")
+expand_mode = 1
 
-[node name="Avatar" type="TextureRect" parent="Control/Control"]
-material = SubResource("ShaderMaterial_gla7n")
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 57.0
-offset_top = -111.0
-offset_right = 121.0
-offset_bottom = -47.0
-grow_vertical = 2
-scale = Vector2(0.764392, 0.764392)
-texture = ExtResource("5_t312a")
+[node name="HealthBar" type="ColorRect" parent="Control/Player"]
+material = SubResource("ShaderMaterial_gbx78")
+layout_mode = 0
+offset_left = 102.0
+offset_top = 35.0
+offset_right = 449.0
+offset_bottom = 80.0
 
-[node name="Decoration" type="TextureRect" parent="Control/Control"]
+[node name="Avatar" type="TextureRect" parent="Control/Player"]
+material = SubResource("ShaderMaterial_lbkkf")
+layout_mode = 0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 110.0
+offset_bottom = 96.0
+texture = ExtResource("12_tjik2")
+expand_mode = 1
+
+[node name="Decoration" type="TextureRect" parent="Control/Player"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 461.0
+offset_bottom = 105.0
+texture = ExtResource("9_3hqni")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Rounds" type="HBoxContainer" parent="Control/Player"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 20.0
+offset_right = 274.0
+offset_bottom = 42.0
+theme_override_constants/separation = 0
+
+[node name="RoundWin" type="TextureRect" parent="Control/Player/Rounds"]
+layout_mode = 2
+texture = ExtResource("14_ubjs3")
+expand_mode = 2
+
+[node name="RoundIdle" type="TextureRect" parent="Control/Player/Rounds"]
+layout_mode = 2
+texture = ExtResource("15_1lxsh")
+expand_mode = 2
+
+[node name="RoundIdle2" type="TextureRect" parent="Control/Player/Rounds"]
+layout_mode = 2
+texture = ExtResource("15_1lxsh")
+expand_mode = 2
+
+[node name="Jetpack" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -157.0
-offset_right = 1431.0
-offset_bottom = 216.0
+offset_left = 40.0
+offset_top = -56.0
+offset_right = 80.0
+offset_bottom = -16.0
 grow_vertical = 0
-scale = Vector2(0.308, 0.308)
-texture = ExtResource("6_71pp5")
+script = ExtResource("17_kcelk")
+
+[node name="FuelBackground" type="TextureRect" parent="Control/Jetpack"]
+material = SubResource("ShaderMaterial_b4bne")
+layout_mode = 0
+offset_left = 86.0
+offset_top = -33.0
+offset_right = 303.0
+offset_bottom = 5.0
+texture = ExtResource("11_2lcjo")
+expand_mode = 1
+
+[node name="FuelBar" type="ColorRect" parent="Control/Jetpack"]
+material = SubResource("ShaderMaterial_3buy1")
+layout_mode = 0
+offset_left = 86.0
+offset_top = -33.0
+offset_right = 303.0
+offset_bottom = 5.0
+
+[node name="Decoration" type="TextureRect" parent="Control/Jetpack"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 318.0
+offset_bottom = 24.0
+texture = ExtResource("17_0nwtp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Ammo" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -56.0
+offset_right = -40.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("20_c6iue")
+
+[node name="AmmoTotal" type="Label" parent="Control/Ammo"]
+layout_mode = 0
+offset_left = -98.0
+offset_top = -42.0
+offset_right = -64.0
+offset_bottom = 17.0
+text = "32"
+label_settings = SubResource("LabelSettings_mi474")
+horizontal_alignment = 2
+
+[node name="Ammo" type="Label" parent="Control/Ammo"]
+layout_mode = 0
+offset_left = -166.0
+offset_top = -47.0
+offset_right = -101.0
+offset_bottom = 18.0
+text = "32"
+label_settings = SubResource("LabelSettings_p8qr6")
+horizontal_alignment = 2
+
+[node name="Decoration" type="TextureRect" parent="Control/Ammo"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -48.0
+offset_right = 22.0
+offset_bottom = 24.0
+texture = ExtResource("21_bdk28")
+expand_mode = 1
+
+[node name="Melee" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -56.0
+offset_right = -40.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("21_agdla")
+
+[node name="ConditionBackground" type="TextureRect" parent="Control/Melee"]
+material = SubResource("ShaderMaterial_dchxr")
+layout_mode = 0
+offset_left = -60.0
+offset_top = -38.0
+offset_right = 174.0
+offset_bottom = 2.0
+scale = Vector2(-1, 1)
+texture = ExtResource("11_2lcjo")
+expand_mode = 1
+
+[node name="ConditionBar" type="ColorRect" parent="Control/Melee"]
+material = SubResource("ShaderMaterial_n5v7g")
+layout_mode = 0
+offset_left = -60.0
+offset_top = -38.0
+offset_right = 174.0
+offset_bottom = 2.0
+scale = Vector2(-1, 1)
+
+[node name="Decoration" type="TextureRect" parent="Control/Melee"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -96.0
+offset_right = -24.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("21_gg7my")
+expand_mode = 1
+
+[node name="ViewportRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ehfxt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("ViewportTexture_nxnmn")
+expand_mode = 1
+
+[node name="UI Viewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("2_os422")

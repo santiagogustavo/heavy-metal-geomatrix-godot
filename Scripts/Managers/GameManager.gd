@@ -46,6 +46,9 @@ func set_sun(new_sun: DirectionalLight3D):
 func remove_sun():
 	sun = null
 
+func get_player_one() -> Player:
+	return players[0] if players.size() > 0 else null
+
 func add_player(player: Player):
 	players.append(player)
 
