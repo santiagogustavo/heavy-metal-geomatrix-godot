@@ -147,6 +147,7 @@ grow_vertical = 2
 [node name="RainDrips" type="GPUParticles2D" parent="CameraRain/Control"]
 material = SubResource("ShaderMaterial_jg7g8")
 position = Vector2(-20, -20)
+emitting = false
 amount = 125
 process_material = SubResource("ParticleProcessMaterial_d6d6x")
 texture = SubResource("GradientTexture2D_h51im")
@@ -157,6 +158,7 @@ local_coords = true
 [node name="RainDrops" type="GPUParticles2D" parent="CameraRain/Control"]
 material = SubResource("ShaderMaterial_jg7g8")
 position = Vector2(-20, -20)
+emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_ic2by")
 texture = SubResource("GradientTexture2D_87sf8")

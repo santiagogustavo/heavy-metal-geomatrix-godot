@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2dqf8eoucva7"]
+[gd_scene load_steps=30 format=3 uid="uid://2dqf8eoucva7"]
 
 [ext_resource type="Material" uid="uid://c54x6gqn0oxcu" path="res://Materials/Weapons/Common/54429747.tres" id="1_qsoso"]
 [ext_resource type="Script" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
 [ext_resource type="AudioStream" uid="uid://1ctwiqskxayt" path="res://Sound/Weapons/Common/Bullet Hit 1.wav" id="8_so8bn"]
 [ext_resource type="AudioStream" uid="uid://c5sl1oaowhx4m" path="res://Sound/Weapons/Common/Bullet Hit 2.wav" id="9_dhmob"]
+[ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="10_rkhkj"]
 [ext_resource type="AudioStream" uid="uid://cut5s6chdhiqh" path="res://Sound/Weapons/Common/Bullet Hit 3.wav" id="10_xv7tl"]
 [ext_resource type="AudioStream" uid="uid://cfajww0ysqvm8" path="res://Sound/Weapons/Common/Bullet Hit 4.wav" id="11_6qbni"]
 
@@ -77,6 +79,30 @@ shader_parameter/normal_map = ExtResource("5_3n51u")
 [sub_resource type="QuadMesh" id="QuadMesh_yusx2"]
 material = SubResource("ShaderMaterial_qefsi")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rppy"]
+shader = ExtResource("4_0llqw")
+
+[sub_resource type="Curve" id="Curve_hhuuh"]
+_data = [Vector2(0, 0.0452409), 0.0, -0.0452409, 0, 1, Vector2(1, 0), -0.0452409, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_count = 15
+
+[sub_resource type="CurveTexture" id="CurveTexture_k2op2"]
+curve = SubResource("Curve_hhuuh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bacuo"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_ma2x0")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+shader_parameter/tex = ExtResource("10_rkhkj")
+shader_parameter/color_ramp = ExtResource("10_rkhkj")
+shader_parameter/curve = SubResource("CurveTexture_k2op2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2gd2c"]
+material = SubResource("ShaderMaterial_bacuo")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0811i"]
 streams_count = 4
 stream_0/stream = ExtResource("8_so8bn")
@@ -90,7 +116,7 @@ stream_3/weight = 1.0
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_rn5p5")
-speed = 70.0
+speed = 100.0
 hit_particle = ExtResource("2_vudbe")
 hit_decal = ExtResource("3_8h365")
 
@@ -107,6 +133,7 @@ hit_from_inside = true
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0656571)
+visible = false
 amount = 100
 lifetime = 100.0
 explosiveness = 1.0
@@ -118,6 +145,20 @@ script = ExtResource("7_c46t5")
 color_ramp = SubResource("GradientTexture1D_5g3if")
 curve = SubResource("CurveTexture_o0x3p")
 use_red_as_alpha = true
+_defaults_have_been_set = true
+
+[node name="GPUTrail3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.066)
+amount = 20
+lifetime = 20.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_8rppy")
+draw_pass_1 = SubResource("QuadMesh_2gd2c")
+script = ExtResource("7_c46t5")
+length = 20
+color_ramp = ExtResource("10_rkhkj")
+curve = SubResource("CurveTexture_k2op2")
 _defaults_have_been_set = true
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]

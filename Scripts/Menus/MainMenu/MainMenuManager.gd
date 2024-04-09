@@ -7,13 +7,12 @@ extends Control
 @export var description_label: Label
 @onready var animation_player = $AnimationPlayer
 
-@onready var exit2 = $OptionsContainer/OptionsList/Exit2
-
 var selected_option_index = -1
 var selected_option_name = ''
 var selected_option_description = ''
 var selected_with_close = false
 
+var is_input_enabled = false
 var is_menu_open = false
 var selected = false
 
@@ -30,16 +29,22 @@ func _ready():
 		index += 1
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_start") and !is_menu_open:
+	if Input.is_action_just_pressed("ui_start") and !is_menu_open and is_input_enabled:
 		is_menu_open = true
 		animation_player.current_animation = "PressedStart"
 		select_first_option()
-	elif Input.is_action_just_pressed("ui_cancel") and is_menu_open:
+	elif Input.is_action_just_pressed("ui_cancel") and is_menu_open and is_input_enabled:
 		is_menu_open = false
 		animation_player.current_animation = "Idle"
-	elif is_menu_open:
+	if is_menu_open:
 		update_description_label()
 		update_options_slide()
+
+func enable_input():
+	is_input_enabled = true
+
+func disable_input():
+	is_input_enabled = false
 
 func update_options_slide():
 	var index = 0;

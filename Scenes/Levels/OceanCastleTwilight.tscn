@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=51 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
@@ -13,12 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="10_bkbwv"]
 [ext_resource type="PackedScene" uid="uid://c0plmj1r7g8v0" path="res://Prefabs/Levels/Ocean Castle Twilight/Flag.tscn" id="11_38psi"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="11_gh28t"]
-[ext_resource type="Script" path="res://Scripts/InvisibleWall.gd" id="11_hawtf"]
 [ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="12_5adl6"]
 [ext_resource type="AudioStream" uid="uid://cg8wt5w2o7mp5" path="res://Sound/Levels/Ocean Castle Twilight/waves.wav" id="12_rttfk"]
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="13_5jmdf"]
+[ext_resource type="Script" path="res://Scripts/Levels/InvisibleWall.gd" id="14_6n51p"]
 [ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="14_7te7v"]
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="15_j23vd"]
+[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_7xh2r"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="16_utl88"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="17_27cky"]
 
@@ -140,7 +141,7 @@ size = Vector3(4.96564, 0.225, 5.605)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxytm"]
 size = Vector3(0.75, 25, 30.632)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukakb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dxjn8"]
 render_priority = 0
 shader = ExtResource("17_27cky")
 shader_parameter/scale = 200.0
@@ -158,26 +159,89 @@ shader_parameter/pos4 = Vector3(10000, 10000, 10000)
 shader_parameter/pos5 = Vector3(10000, 10000, 10000)
 shader_parameter/pos6 = Vector3(10000, 10000, 10000)
 
-[sub_resource type="BoxMesh" id="BoxMesh_08vni"]
-material = SubResource("ShaderMaterial_ukakb")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_qrepm"]
 size = Vector3(0.75, 25, 35.483)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6b8i"]
+render_priority = 0
+shader = ExtResource("17_27cky")
+shader_parameter/scale = 200.0
+shader_parameter/line_thickness = 0.06
+shader_parameter/line_speed = 0.5
+shader_parameter/ripple_speed = 1.564
+shader_parameter/line_color = Color(0.2, 1, 1, 1)
+shader_parameter/ripple_color = Color(0.6, 0.7, 1, 0.7)
+shader_parameter/surface_color = Color(0.01, 0.18, 0.7, 0.4)
+shader_parameter/sphere_size = 2.0
+shader_parameter/pos1 = Vector3(0, 0, 0)
+shader_parameter/pos2 = Vector3(10000, 10000, 10000)
+shader_parameter/pos3 = Vector3(10000, 10000, 10000)
+shader_parameter/pos4 = Vector3(10000, 10000, 10000)
+shader_parameter/pos5 = Vector3(10000, 10000, 10000)
+shader_parameter/pos6 = Vector3(10000, 10000, 10000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlbdw"]
 size = Vector3(22.468, 25, 0.75)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68n2r"]
+render_priority = 0
+shader = ExtResource("17_27cky")
+shader_parameter/scale = 200.0
+shader_parameter/line_thickness = 0.06
+shader_parameter/line_speed = 0.5
+shader_parameter/ripple_speed = 1.564
+shader_parameter/line_color = Color(0.2, 1, 1, 1)
+shader_parameter/ripple_color = Color(0.6, 0.7, 1, 0.7)
+shader_parameter/surface_color = Color(0.01, 0.18, 0.7, 0.4)
+shader_parameter/sphere_size = 2.0
+shader_parameter/pos1 = Vector3(0, 0, 0)
+shader_parameter/pos2 = Vector3(10000, 10000, 10000)
+shader_parameter/pos3 = Vector3(10000, 10000, 10000)
+shader_parameter/pos4 = Vector3(10000, 10000, 10000)
+shader_parameter/pos5 = Vector3(10000, 10000, 10000)
+shader_parameter/pos6 = Vector3(10000, 10000, 10000)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3fd30"]
 size = Vector3(18.737, 25, 0.75)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7act3"]
+render_priority = 0
+shader = ExtResource("17_27cky")
+shader_parameter/scale = 200.0
+shader_parameter/line_thickness = 0.06
+shader_parameter/line_speed = 0.5
+shader_parameter/ripple_speed = 1.564
+shader_parameter/line_color = Color(0.2, 1, 1, 1)
+shader_parameter/ripple_color = Color(0.6, 0.7, 1, 0.7)
+shader_parameter/surface_color = Color(0.01, 0.18, 0.7, 0.4)
+shader_parameter/sphere_size = 2.0
+shader_parameter/pos1 = Vector3(0, 0, 0)
+shader_parameter/pos2 = Vector3(10000, 10000, 10000)
+shader_parameter/pos3 = Vector3(10000, 10000, 10000)
+shader_parameter/pos4 = Vector3(10000, 10000, 10000)
+shader_parameter/pos5 = Vector3(10000, 10000, 10000)
+shader_parameter/pos6 = Vector3(10000, 10000, 10000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afc0c"]
 size = Vector3(6.085, 25, 0.75)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_eb3pp"]
-size = Vector3(100, 1, 100)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ujy2k"]
-size = Vector3(100, 30, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyu1w"]
+render_priority = 0
+shader = ExtResource("17_27cky")
+shader_parameter/scale = 200.0
+shader_parameter/line_thickness = 0.06
+shader_parameter/line_speed = 0.5
+shader_parameter/ripple_speed = 1.564
+shader_parameter/line_color = Color(0.2, 1, 1, 1)
+shader_parameter/ripple_color = Color(0.6, 0.7, 1, 0.7)
+shader_parameter/surface_color = Color(0.01, 0.18, 0.7, 0.4)
+shader_parameter/sphere_size = 2.0
+shader_parameter/pos1 = Vector3(0, 0, 0)
+shader_parameter/pos2 = Vector3(10000, 10000, 10000)
+shader_parameter/pos3 = Vector3(10000, 10000, 10000)
+shader_parameter/pos4 = Vector3(10000, 10000, 10000)
+shader_parameter/pos5 = Vector3(10000, 10000, 10000)
+shader_parameter/pos6 = Vector3(10000, 10000, 10000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e54qi"]
 size = Vector3(15, 0, 20)
@@ -518,79 +582,34 @@ collision_layer = 32
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61075, 7.93903, -11.1658)
 shape = SubResource("BoxShape3D_wxytm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D"]
-transform = Transform3D(0.75, 0, 0, 0, 25, 0, 0, 0, 30.632, 0, 0, 0)
-mesh = SubResource("BoxMesh_08vni")
-skeleton = NodePath("../..")
-script = ExtResource("11_hawtf")
+script = ExtResource("14_6n51p")
+material = SubResource("ShaderMaterial_dxjn8")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6086, 7.93903, -8.75897)
 shape = SubResource("BoxShape3D_qrepm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D2"]
-transform = Transform3D(0.75, 0, 0, 0, 25, 0, 0, 0, 35.483, 0, 0, 0)
-mesh = SubResource("BoxMesh_08vni")
-skeleton = NodePath("../..")
-script = ExtResource("11_hawtf")
+script = ExtResource("14_6n51p")
+material = SubResource("ShaderMaterial_i6b8i")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99855, 7.93903, -26.1159)
 shape = SubResource("BoxShape3D_wlbdw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D3"]
-transform = Transform3D(22.468, 0, 0, 0, 25, 0, 0, 0, 0.75, 0, 0, 0)
-mesh = SubResource("BoxMesh_08vni")
-skeleton = NodePath("../..")
-script = ExtResource("11_hawtf")
+script = ExtResource("14_6n51p")
+material = SubResource("ShaderMaterial_68n2r")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8706, 7.93903, 8.61026)
 shape = SubResource("BoxShape3D_3fd30")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D4"]
-transform = Transform3D(18.737, 0, 0, 0, 25, 0, 0, 0, 0.75, 0, 0, 0)
-mesh = SubResource("BoxMesh_08vni")
-skeleton = NodePath("../..")
-script = ExtResource("11_hawtf")
+script = ExtResource("14_6n51p")
+material = SubResource("ShaderMaterial_7act3")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Invisible Walls"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.395506, 7.93903, 6.34366)
 shape = SubResource("BoxShape3D_afc0c")
+script = ExtResource("14_6n51p")
+material = SubResource("ShaderMaterial_qyu1w")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Invisible Walls/CollisionShape3D5"]
-transform = Transform3D(6.085, 0, 0, 0, 25, 0, 0, 0, 0.75, 0, 0, 0)
-mesh = SubResource("BoxMesh_08vni")
-skeleton = NodePath("../..")
-script = ExtResource("11_hawtf")
-
-[node name="World Boundaries" type="StaticBody3D" parent="."]
-collision_layer = 16
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
-shape = SubResource("BoxShape3D_eb3pp")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="World Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
-shape = SubResource("BoxShape3D_eb3pp")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="World Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 50)
-shape = SubResource("BoxShape3D_ujy2k")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="World Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -50)
-shape = SubResource("BoxShape3D_ujy2k")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="World Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 4, 0)
-shape = SubResource("BoxShape3D_ujy2k")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="World Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 4, 0)
-shape = SubResource("BoxShape3D_ujy2k")
+[node name="World Boundaries" parent="." instance=ExtResource("16_7xh2r")]
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("11_gh28t")]
 pickups_to_spawn = Array[PackedScene]([ExtResource("12_5adl6"), ExtResource("13_5jmdf"), ExtResource("14_7te7v"), ExtResource("15_j23vd"), ExtResource("16_utl88")])

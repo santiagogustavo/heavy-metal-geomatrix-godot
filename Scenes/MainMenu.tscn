@@ -295,6 +295,20 @@ tracks/5/keys = {
 "update": 1,
 "values": [&"Close"]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disable_input"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ocbuu"]
 resource_name = "Idle"
@@ -346,6 +360,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enable_input"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_fu4lt"]
@@ -406,6 +434,30 @@ tracks/4/path = NodePath("OptionsContainer/ModeExplanation/BG/AnimationPlayer:cu
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OptionsContainer/OptionsList/Options/AnimationPlayer:current_animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OptionsContainer/OptionsList/Exit/AnimationPlayer:current_animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -497,7 +549,7 @@ offset_right = 1059.0
 offset_bottom = 497.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.300761, 0.300761)
+scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(1058, 563)
 texture = ExtResource("2_0gbut")
 
@@ -532,6 +584,7 @@ tree_root = SubResource("AnimationNodeStateMachine_uabnh")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Press Start" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -672,7 +725,6 @@ offset_left = -556.426
 offset_top = -150.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1, 1e-05)
 pivot_offset = Vector2(0, 150)
 texture = ExtResource("12_ej331")
 expand_mode = 3
@@ -759,6 +811,7 @@ libraries = {
 }
 
 [node name="Fade" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

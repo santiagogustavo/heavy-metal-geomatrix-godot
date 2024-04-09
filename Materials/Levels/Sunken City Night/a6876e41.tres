@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bwi2doxhvn5re"]
+
+[ext_resource type="Texture2D" uid="uid://emvl7pqhaqvl" path="res://Textures/Levels/Sunken City Night/a6876e41.png" id="1_rw383"]
+[ext_resource type="Texture2D" uid="uid://dkvmg2b12nuws" path="res://Textures/Levels/Sunken City Night/a6876e41_spec.png" id="2_ntdku"]
+
+[resource]
+albedo_texture = ExtResource("1_rw383")
+ao_enabled = true
+ao_texture = ExtResource("2_ntdku")

@@ -13,12 +13,13 @@ var is_jumping = false
 var is_on_floor = true
 var is_aiming = false
 var is_shooting = false
+var is_bursting = false
 var is_attacking = false
 var is_attack_combo = false
 var is_picking_up = false
 var is_dropping = false
 
-var fire_rate = 0
+var fire_rate = 1
 
 const lower_blend_tree_lerp = 15
 const upper_blend_tree_lerp = 20
@@ -43,6 +44,8 @@ func update_fire_rate():
 	#set("parameters/Upper Body/Shoot - Weapon Single/TimeScale/scale", scale)
 	if is_shooting:
 		upper_body_state_machine.travel("Shoot - Weapon Single")
+		#set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0)
+	if is_bursting:
 		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 
 func update_combo_input():

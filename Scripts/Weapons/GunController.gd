@@ -28,6 +28,7 @@ func _process(_delta):
 	if is_dropping:
 		return
 	if bullets <= 0:
+		bullets = 0
 		drop.emit()
 		is_dropping = true
 		return
@@ -69,7 +70,7 @@ func _shoot():
 	gun_shot.emit()
 	bullets -= 1
 	var bullet_instance = bullet.instantiate()
-	get_tree().root.add_child(bullet_instance)
 	bullet_instance.position = bullet_hole.global_position
 	bullet_instance.transform.basis = bullet_hole.global_transform.basis
+	get_tree().root.add_child(bullet_instance)
 	TransformUtils.safe_look_at(bullet_instance, target_point)

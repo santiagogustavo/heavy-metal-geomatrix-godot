@@ -1,0 +1,137 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://nkwpbcej5qsd"
+path="res://.godot/imported/Sunken City Night.glb-6eaaba3130239e877b571eb2d2c3a371.scn"
+
+[deps]
+
+source_file="res://Models/Levels/Sunken City Night/Sunken City Night.glb"
+dest_files=["res://.godot/imported/Sunken City Night.glb-6eaaba3130239e877b571eb2d2c3a371.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"110a3c4a": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/110a3c4a.tres"
+},
+"149ee502": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/149ee502.tres"
+},
+"193cef1d": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/193cef1d.tres"
+},
+"35743e07": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/35743e07.tres"
+},
+"3bc171cf": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/3bc171cf.tres"
+},
+"4b2181eb": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/4b2181eb.tres"
+},
+"510b6e74": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/510b6e74.tres"
+},
+"56ad2daf": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/56ad2daf.tres"
+},
+"5949aaca": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/5949aaca.tres"
+},
+"79fbbd8b": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/79fbbd8b.tres"
+},
+"8bc01ff4": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/8bc01ff4.tres"
+},
+"8f08089f": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/8f08089f.tres"
+},
+"9a19043b": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/9a19043b.tres"
+},
+"9c089690": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/9c089690.tres"
+},
+"a2d8d22b": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/a2d8d22b.tres"
+},
+"a6876e41": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/a6876e41.tres"
+},
+"ae58880f": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/ae58880f.tres"
+},
+"ccc08d4a": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/ccc08d4a.tres"
+},
+"d5c4dd88": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/d5c4dd88.tres"
+},
+"d745d8c0": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/d745d8c0.tres"
+},
+"d745d8c0.001": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/d745d8c0.tres"
+},
+"dacc25f": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/dacc25f.tres"
+},
+"f480be53": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/f480be53.tres"
+},
+"feb320f3": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/feb320f3.tres"
+},
+"feb47083": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Sunken City Night/feb47083.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

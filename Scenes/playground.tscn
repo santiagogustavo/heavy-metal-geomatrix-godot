@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=40 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_d7yff"]
 [ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_duxkp"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="18_jr7x8"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="20_xun26"]
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="22_bqmq8"]
+[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_ikh5l"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("3_ydoo2")
@@ -191,6 +192,8 @@ shape = SubResource("BoxShape3D_xwkx1")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Spawner/Area3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
 shape = SubResource("BoxShape3D_jmt0g")
+
+[node name="World Boundaries" parent="." instance=ExtResource("22_ikh5l")]
 
 [node name="Anders - Insanity Control" type="AudioStreamPlayer" parent="."]
 process_mode = 3

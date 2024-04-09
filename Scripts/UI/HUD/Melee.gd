@@ -2,7 +2,7 @@ extends Control
 
 @onready var condition_bar = $ConditionBar
 
-func _process(delta):
+func _process(_delta):
 	if GameManager.get_player_one():
 		visible = GameManager.get_player_one().inventory_manager.has_melee
 		if visible:
