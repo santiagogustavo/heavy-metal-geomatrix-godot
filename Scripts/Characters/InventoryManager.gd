@@ -23,8 +23,6 @@ var melee_health = 0.0
 @onready var body_slot: BoneAttachment3D = character_controller.body_slot
 @onready var right_hand_slot: BoneAttachment3D = character_controller.right_hand_slot
 
-var is_gun_shooting = false
-var is_gun_bursting = false
 var is_dropping = false
 
 func _process(_delta):
@@ -37,15 +35,11 @@ func update_variables():
 	else:
 		has_jetpack = false
 	
-	if right_hand_instance != null:
-		is_gun_shooting = right_hand_instance is GunController and right_hand_instance.can_shoot
-		is_gun_bursting = false
-		has_gun = right_hand_instance is GunController
+	if right_hand_instance and right_hand_instance != null:
 		ammo = right_hand_instance.bullets if right_hand_instance is GunController else 0
 		has_melee = right_hand_instance is SwordController
 		melee_health = right_hand_instance.health if right_hand_instance is SwordController else 0.0
 	else:
-		has_gun = false
 		has_melee = false
 
 func pick_up_item(slot: Definitions.EquipType, item: PackedScene):
@@ -69,18 +63,19 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 		right_hand_instance.queue_free()
 	right_hand_instance = item.instantiate()
 	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
-	right_hand_pickup.emit()
 	if right_hand_instance is GunController:
+		has_gun = true
 		ammo_total = right_hand_instance.bullets
-		right_hand_instance.connect("gun_burst", _on_gun_burst)
 		right_hand_instance.connect("drop", _on_item_drop)
+		right_hand_instance.bullet_hole.transform.basis = body_slot.transform.basis
+	else:
+		has_gun = false
+	right_hand_pickup.emit()
 
 func drop_right_hand_item():
+	has_gun = false
 	right_hand_instance.queue_free()
 	equip_type = Definitions.EquipType.Body
-
-func _on_gun_burst():
-	is_gun_bursting = true
 	
 func _on_item_drop():
 	is_dropping = true

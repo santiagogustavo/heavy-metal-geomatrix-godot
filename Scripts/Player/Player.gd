@@ -22,6 +22,7 @@ class_name Player
 @onready var sound_tree = $CharacterController/SoundAnimationTree
 @onready var sound_attack_tree = $CharacterController/SoundAttackTree
 @onready var dash_particle = $Dash
+@onready var input_manager: InputManager = $InputManager
 @onready var inventory_manager: InventoryManager = $InventoryManager
 
 var is_walking = false
@@ -46,6 +47,7 @@ const dash_duration = 1
 func _ready():
 	GameManager.add_player(self)
 	move_and_slide()
+	connect_inventory_signals()
 
 func _physics_process(delta):
 	compute_gravity(delta)
@@ -83,6 +85,15 @@ func _process(_delta):
 
 func _exit_tree():
 	GameManager.remove_player(get_rid())
+
+func connect_inventory_signals():
+	input_manager.inventory_manager = inventory_manager
+	inventory_manager.connect("right_hand_pickup", connect_right_hand_slot)
+	
+func connect_right_hand_slot():
+	if inventory_manager.has_gun:
+		input_manager.connect("shoot", animation_tree.update_shot)
+		input_manager.connect("shoot", inventory_manager.right_hand_instance.shoot)
 
 func dash_stop():
 	is_dashing = false
@@ -206,8 +217,6 @@ func set_animator_variables():
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
 	animation_tree.is_aiming = is_aiming
-	animation_tree.is_shooting = inventory_manager.is_gun_shooting
-	animation_tree.is_bursting = inventory_manager.is_gun_bursting
 	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_attacking = is_attacking
 	animation_tree.is_picking_up = is_picking_up
@@ -221,5 +230,4 @@ func set_inventory_items_variables():
 		if inventory_manager.right_hand_instance is SwordController:
 			inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
 		if inventory_manager.right_hand_instance is GunController:
-			inventory_manager.right_hand_instance.is_shooting = is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

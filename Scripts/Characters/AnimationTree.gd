@@ -32,21 +32,15 @@ func _process(delta):
 	update_upper_body(delta)
 	update_combo_input()
 	update_combo_animation()
-	update_fire_rate()
 	update_pickup()
 
 func update_pickup():
 	if is_picking_up:
 		upper_body_state_machine.travel("Pickup")
 
-func update_fire_rate():
-	#var scale = fire_rate / get_animation("5 - Shoot - Weapon Single - Straight").length
-	#set("parameters/Upper Body/Shoot - Weapon Single/TimeScale/scale", scale)
-	if is_shooting:
-		upper_body_state_machine.travel("Shoot - Weapon Single")
-		#set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0)
-	if is_bursting:
-		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
+func update_shot():
+	upper_body_state_machine.travel("Shoot - Weapon Single")
+	set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 
 func update_combo_input():
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):

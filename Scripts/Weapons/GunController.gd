@@ -14,15 +14,12 @@ signal drop
 @onready var animation_tree = $AnimationTree
 @onready var bullet_hole = $BulletHole
 
-var is_shooting = false
-var is_shooting_locked = false
-var is_bursting = false
+var target_point: Vector3 = Vector3.ZERO
+var is_dropping: bool = false
 
-var can_shoot = false
-var current_burst_count = 0
-
-var target_point = Vector3.ZERO
-var is_dropping = false
+func _ready():
+	var animation_scale = fire_rate / animation_tree.get_animation("Shoot").length
+	animation_tree.set("parameters/Shoot/TimeScale/scale", animation_scale)
 
 func _process(_delta):
 	if is_dropping:
@@ -32,42 +29,12 @@ func _process(_delta):
 		drop.emit()
 		is_dropping = true
 		return
-	can_shoot = is_shooting and !is_shooting_locked
-	animation_tree.is_shooting = can_shoot
-	animation_tree.is_bursting = is_bursting
-	
-	if burst_count > 0:
-		update_burst()
-	update_fire_rate()
 
-func update_fire_rate():
-	var animation_scale = fire_rate / animation_tree.get_animation("Shoot").length
-	animation_tree.set("parameters/Shoot/TimeScale/scale", animation_scale)
-	if can_shoot:
-		is_shooting_locked = true
-		get_tree().create_timer(fire_rate).connect("timeout", _unlock_fire)
-
-func update_burst():
-	if can_shoot and !is_bursting:
-		is_bursting = true
-		current_burst_count = burst_count
-		get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
-
-func _unlock_fire():
-	is_shooting_locked = false
-	if is_shooting:
-		animation_tree.set("parameters/Shoot/TimeSeek/seek_request", 0.0)
-
-func _burst_fire():
-	if current_burst_count == 0:
-		is_bursting = false
-		return
+func shoot():
+	animation_tree.get("parameters/playback").travel("Shoot")
 	animation_tree.set("parameters/Shoot/TimeSeek/seek_request", 0.0)
-	current_burst_count -= 1
-	get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
-
-func _shoot():
-	gun_shot.emit()
+	if is_dropping:
+		return
 	bullets -= 1
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = bullet_hole.global_position
