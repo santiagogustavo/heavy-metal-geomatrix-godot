@@ -2,6 +2,7 @@ extends Node3D
 class_name GunController
 
 signal gun_shot
+signal gun_burst
 signal drop
 
 @export_subgroup("Properties")
@@ -64,6 +65,7 @@ func _burst_fire():
 		return
 	animation_tree.set("parameters/Shoot/TimeSeek/seek_request", 0.0)
 	current_burst_count -= 1
+	gun_burst.emit()
 	get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
 
 func _shoot():
