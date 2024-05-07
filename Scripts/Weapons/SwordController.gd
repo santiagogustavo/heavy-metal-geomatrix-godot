@@ -1,6 +1,8 @@
 extends Node3D
 class_name SwordController
 
+signal sword_drop
+
 @export var hit_particle: PackedScene
 @export var hit_sfx: PackedScene
 @export var is_attacking = false
@@ -10,11 +12,18 @@ class_name SwordController
 @onready var raycast: RayCast3D = $StaticBody3D/RayCast3D
 
 var has_collided = false
+var is_dropping = false
 
 func _process(_delta):
+	if is_dropping:
+		return
 	detect_raycast_collision()
 	trail.set_process(is_attacking)
 	trail.visible = is_attacking
+
+func drop():
+	is_dropping = true
+	sword_drop.emit()
 
 func instantiate_sfx(point: Vector3):
 	var sfx_instance = hit_sfx.instantiate()

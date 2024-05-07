@@ -37,7 +37,6 @@ func update_variables():
 	
 	if right_hand_instance and right_hand_instance != null:
 		ammo = right_hand_instance.bullets if right_hand_instance is GunController else 0
-		has_melee = right_hand_instance is SwordController
 		melee_health = right_hand_instance.health if right_hand_instance is SwordController else 0.0
 	else:
 		has_melee = false
@@ -65,16 +64,21 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
 	if right_hand_instance is GunController:
 		has_gun = true
+		has_melee = false
 		ammo_total = right_hand_instance.bullets
-		right_hand_instance.connect("drop", _on_item_drop)
-		right_hand_instance.bullet_hole.transform.basis = body_slot.transform.basis
-	else:
+		right_hand_instance.connect("gun_drop", _on_item_drop)
+	elif right_hand_instance is SwordController:
 		has_gun = false
+		has_melee = true
+		right_hand_instance.connect("sword_drop", _on_item_drop)
 	right_hand_pickup.emit()
 
 func drop_right_hand_item():
 	has_gun = false
-	right_hand_instance.queue_free()
+	has_melee = false
+	if right_hand_instance != null:
+		right_hand_instance.queue_free()
+		right_hand_instance = null
 	equip_type = Definitions.EquipType.Body
 	
 func _on_item_drop():

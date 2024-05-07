@@ -2,6 +2,7 @@ extends Node3D
 class_name InputManager
 
 signal shoot
+signal drop
 
 var inventory_manager: InventoryManager
 
@@ -13,6 +14,12 @@ func _process(_delta):
 		return
 	if inventory_manager.has_gun:
 		update_shoot()
+	if inventory_manager.right_hand_instance != null:
+		update_drop()
+
+func update_drop():
+	if Input.is_action_pressed("drop"):
+		drop.emit()
 
 # GUN SIGNALS #
 func _unlock_fire():

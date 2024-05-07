@@ -17,7 +17,6 @@ var is_bursting = false
 var is_attacking = false
 var is_attack_combo = false
 var is_picking_up = false
-var is_dropping = false
 
 var fire_rate = 1
 
@@ -41,6 +40,14 @@ func update_pickup():
 func update_shot():
 	upper_body_state_machine.travel("Shoot - Weapon Single")
 	set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
+
+func update_drop(equip_type: Definitions.EquipType):
+	if equip_type == Definitions.EquipType.WeaponSingle:
+		upper_body_state_machine.travel("Drop - Weapon Single")
+	elif equip_type == Definitions.EquipType.MeleeLight:
+		upper_body_state_machine.travel("Drop - Melee Light")
+	elif equip_type == Definitions.EquipType.MeleeHeavy:
+		upper_body_state_machine.travel("Drop - Melee Heavy")
 
 func update_combo_input():
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):
@@ -109,7 +116,6 @@ func update_upper_body(delta):
 	set("parameters/Upper Body/conditions/is_aiming", is_aiming)
 	set("parameters/Upper Body/conditions/is_shooting", is_shooting)
 	set("parameters/Upper Body/conditions/is_attacking", is_attacking || is_attack_combo)
-	set("parameters/Upper Body/conditions/is_dropping", is_dropping)
 	
 	# BLEND TREES #
 	var current_look = get("parameters/Upper Body/Look - Empty/blend_position")

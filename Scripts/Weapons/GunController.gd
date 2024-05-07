@@ -2,7 +2,7 @@ extends Node3D
 class_name GunController
 
 signal gun_shot
-signal drop
+signal gun_drop
 
 @export_subgroup("Properties")
 @export var bullets: int
@@ -26,15 +26,17 @@ func _process(_delta):
 		return
 	if bullets <= 0:
 		bullets = 0
-		drop.emit()
-		is_dropping = true
-		return
+		drop()
+
+func drop():
+	is_dropping = true
+	gun_drop.emit()
 
 func shoot():
-	animation_tree.get("parameters/playback").travel("Shoot")
-	animation_tree.set("parameters/Shoot/TimeSeek/seek_request", 0.0)
 	if is_dropping:
 		return
+	animation_tree.get("parameters/playback").travel("Shoot")
+	animation_tree.set("parameters/Shoot/TimeSeek/seek_request", 0.0)
 	bullets -= 1
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = bullet_hole.global_position

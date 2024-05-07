@@ -503,7 +503,6 @@ stream = ExtResource("9_rrald")
 volume_db = -30.0
 max_db = 0.0
 pitch_scale = 0.64
-stream_paused = true
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 

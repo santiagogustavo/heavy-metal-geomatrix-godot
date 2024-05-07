@@ -91,6 +91,8 @@ func connect_inventory_signals():
 	inventory_manager.connect("right_hand_pickup", connect_right_hand_slot)
 	
 func connect_right_hand_slot():
+	input_manager.connect("drop", func (): animation_tree.update_drop(inventory_manager.equip_type))
+	input_manager.connect("drop", inventory_manager.right_hand_instance.drop)
 	if inventory_manager.has_gun:
 		input_manager.connect("shoot", animation_tree.update_shot)
 		input_manager.connect("shoot", inventory_manager.right_hand_instance.shoot)
@@ -217,7 +219,6 @@ func set_animator_variables():
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
 	animation_tree.is_aiming = is_aiming
-	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_attacking = is_attacking
 	animation_tree.is_picking_up = is_picking_up
 	animation_tree.is_on_floor = is_on_floor()
