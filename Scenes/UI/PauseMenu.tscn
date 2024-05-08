@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djao4jgemsc0"]
+[gd_scene load_steps=17 format=3 uid="uid://djao4jgemsc0"]
 
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_14uh4"]
 [ext_resource type="Texture2D" uid="uid://coc5bni6fs6ub" path="res://Textures/UI/Menus/Pause Menu/36303815_R1.png" id="3_2blfx"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Character Change.gd" id="7_a0u3f"]
 [ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Options.gd" id="9_s581u"]
 [ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Exit.gd" id="11_3m3t1"]
+[ext_resource type="PackedScene" uid="uid://bgn8aq1m4p0rb" path="res://Scenes/Menus/OptionsMenu.tscn" id="13_queq0"]
 
 [sub_resource type="Animation" id="Animation_bf8ru"]
 resource_name = "Open"
@@ -152,3 +153,5 @@ redirect_to_scene = "res://Scenes/MainMenu.tscn"
 libraries = {
 "": SubResource("AnimationLibrary_ghj2q")
 }
+
+[node name="OptionsMenu" parent="." instance=ExtResource("13_queq0")]

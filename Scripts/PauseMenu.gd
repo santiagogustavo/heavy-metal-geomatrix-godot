@@ -3,8 +3,13 @@ class_name PauseMenu
 
 @onready var control = $Control
 @onready var buttons = $Control/Panel/Buttons
+@onready var options_button = $Control/Panel/Buttons/Options
+
+@onready var options_menu = $OptionsMenu as OptionsMenu
 
 func _ready():
+	exit_options_menu()
+	connect_options_signals()
 	var index = 0
 	for child in buttons.get_children():
 		if index == 0:
@@ -31,8 +36,21 @@ func _on_focus_entered(button):
 func _on_focus_exited(button):
 	button.modulate = Color(Color.WHITE, 0.5)
 
+func connect_options_signals() -> void:
+	options_button.button_down.connect(open_options_menu)
+	options_menu.exit.connect(exit_options_menu)
+
+func open_options_menu() -> void:
+	options_menu.visible = true
+	options_menu.set_process(true)
+
+func exit_options_menu() -> void:
+	options_menu.visible = false
+	options_menu.set_process(false)
+
 func update_show_hide():
 	if GameManager.is_game_paused:
 		control.show()
 	else:
 		control.hide()
+		exit_options_menu()

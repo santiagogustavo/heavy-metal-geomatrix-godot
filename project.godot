@@ -24,7 +24,6 @@ buses/default_bus_layout="res://AudioBus.tres"
 Definitions="*res://Scripts/Managers/Definitions.gd"
 SettingsManager="*res://Scripts/Managers/SettingsManager.gd"
 GameManager="*res://Scripts/Managers/GameManager.gd"
-AudioManager="*res://Scripts/Managers/AudioManager.gd"
 
 [display]
 

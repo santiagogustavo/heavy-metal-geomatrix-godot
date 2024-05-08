@@ -12,7 +12,7 @@ var players: Array[Player] = []
 
 func _init():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	lock_cursor()
+	#lock_cursor()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause") and current_scene_type == Definitions.SceneType.LocalGame:
