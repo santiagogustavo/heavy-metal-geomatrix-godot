@@ -22,6 +22,7 @@ buses/default_bus_layout="res://AudioBus.tres"
 [autoload]
 
 Definitions="*res://Scripts/Managers/Definitions.gd"
+VideoSettingsManager="*res://Scripts/Managers/VideoSettingsManager.gd"
 SettingsManager="*res://Scripts/Managers/SettingsManager.gd"
 GameManager="*res://Scripts/Managers/GameManager.gd"
 

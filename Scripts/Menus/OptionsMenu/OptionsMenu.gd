@@ -10,7 +10,6 @@ func _ready():
 	set_process(false)
 
 func on_exit_pressed() -> void:
-	SettingsManager.save_audio_settings()
-	SettingsManager.save_settings_file()
+	SettingsManager.save_settings()
 	exit.emit()
 	set_process(false)
