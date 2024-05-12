@@ -21,6 +21,6 @@ func update_labels(player):
 	ammo_label.text = ('0' if ammo < 10 else "") + str(ammo)
 
 func play_shoot_animation(player):
-	if player.inventory_manager.is_gun_shooting:
+	if player.inventory_manager.is_gun_shooting || player.inventory_manager.is_gun_bursting:
 		animation_player.stop(true)
 		animation_player.play("Shoot")

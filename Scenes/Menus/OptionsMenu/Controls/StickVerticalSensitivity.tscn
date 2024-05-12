@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://brw3vc6j0hkoj"]
+
+[ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="1_27x4m"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/StickVerticalSensitivity.gd" id="2_deqcj"]
+
+[node name="StickVerticalSensitivity" instance=ExtResource("1_27x4m")]
+script = ExtResource("2_deqcj")
+
+[node name="HBoxContainer" parent="." index="0"]
+layout_mode = 0
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Look Vertical"
+
+[node name="HSlider" parent="HBoxContainer" index="2"]
+min_value = 1.0
+max_value = 3.0
+step = 0.2
+
+[node name="VSeparator2" parent="HBoxContainer" index="3"]
+visible = false
+
+[node name="AudioNumLabel" parent="HBoxContainer" index="4"]
+visible = false

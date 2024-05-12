@@ -29,6 +29,5 @@ func get_bus_index_from_name() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
 
 func on_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
-	SettingsManager.audio_volumes[bus_name] = value
+	AudioSettingsManager.set_volume_index(bus_index, value)
 	set_num_label_text()

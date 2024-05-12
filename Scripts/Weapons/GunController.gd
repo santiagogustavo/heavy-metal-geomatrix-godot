@@ -29,7 +29,6 @@ func _process(_delta):
 	if is_dropping:
 		return
 	if bullets <= 0:
-		bullets = 0
 		drop.emit()
 		is_dropping = true
 		return
@@ -37,7 +36,7 @@ func _process(_delta):
 	animation_tree.is_shooting = can_shoot
 	animation_tree.is_bursting = is_bursting
 	
-	if burst_count > 0:
+	if burst_count > 0 and bullets > 0:
 		update_burst()
 	update_fire_rate()
 
@@ -69,6 +68,8 @@ func _burst_fire():
 	get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
 
 func _shoot():
+	if bullets == 0:
+		return
 	gun_shot.emit()
 	bullets -= 1
 	var bullet_instance = bullet.instantiate()

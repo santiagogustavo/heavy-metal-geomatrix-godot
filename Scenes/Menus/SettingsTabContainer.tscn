@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=11 format=3 uid="uid://ckmlfl5g8p20j"]
 
-[ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/AudioSliderSettings.tscn" id="1_xuqcl"]
-[ext_resource type="PackedScene" uid="uid://vus2orvm6aam" path="res://Scenes/Menus/WindowModeButton.tscn" id="2_o2luy"]
-[ext_resource type="PackedScene" uid="uid://848adl403xtl" path="res://Scenes/Menus/ResolutionModeButton.tscn" id="3_2h1vi"]
+[ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
+[ext_resource type="PackedScene" uid="uid://vus2orvm6aam" path="res://Scenes/Menus/OptionsMenu/WindowModeButton.tscn" id="2_3fvw6"]
+[ext_resource type="PackedScene" uid="uid://848adl403xtl" path="res://Scenes/Menus/OptionsMenu/ResolutionModeButton.tscn" id="3_imv6s"]
+[ext_resource type="PackedScene" uid="uid://dk1oahwurq31k" path="res://Scenes/Menus/OptionsMenu/CategorySeparator.tscn" id="4_rb5w8"]
+[ext_resource type="PackedScene" uid="uid://chkuo5br2qn7m" path="res://Scenes/Menus/OptionsMenu/Controls/LookSmoothingButton.tscn" id="5_shsid"]
+[ext_resource type="PackedScene" uid="uid://xixis7sqo151" path="res://Scenes/Menus/OptionsMenu/Controls/LookSmoothingSlider.tscn" id="6_4u23p"]
+[ext_resource type="PackedScene" uid="uid://nlkur7rpmjtc" path="res://Scenes/Menus/OptionsMenu/Controls/MouseHorizontalSlider.tscn" id="7_4f7kh"]
+[ext_resource type="PackedScene" uid="uid://it3yom2h6orw" path="res://Scenes/Menus/OptionsMenu/Controls/MouseVerticalSlider.tscn" id="8_ge777"]
+[ext_resource type="PackedScene" uid="uid://c4ra6c5mj8rk7" path="res://Scenes/Menus/OptionsMenu/Controls/StickHorizontalSensitivity.tscn" id="9_8hf25"]
+[ext_resource type="PackedScene" uid="uid://brw3vc6j0hkoj" path="res://Scenes/Menus/OptionsMenu/Controls/StickVerticalSensitivity.tscn" id="10_07rme"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3
@@ -47,18 +54,18 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="MasterVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_xuqcl")]
+[node name="MasterVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="UIVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_xuqcl")]
+[node name="UIVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 
-[node name="MusicVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_xuqcl")]
+[node name="MusicVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="EffectsVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_xuqcl")]
+[node name="EffectsVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Effects"
 
@@ -85,10 +92,10 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="WindowModeButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_o2luy")]
+[node name="WindowModeButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_3fvw6")]
 layout_mode = 2
 
-[node name="ResolutionModeButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_2h1vi")]
+[node name="ResolutionModeButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_imv6s")]
 layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
@@ -107,28 +114,51 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
 layout_mode = 2
-text = "Controls1"
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
 
-[node name="Label2" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="AimingLabel" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
-text = "Controls2"
+label_text = "Aiming"
 
-[node name="Label3" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="LookSmoothingButton" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_shsid")]
 layout_mode = 2
-text = "Controls3"
 
-[node name="Accessibility" type="TabBar" parent="TabContainer"]
+[node name="LookSmoothingSlider" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("6_4u23p")]
+layout_mode = 2
+
+[node name="MouseLabel" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+label_text = "Mouse"
+
+[node name="MouseHorizontalSlider" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("7_4f7kh")]
+layout_mode = 2
+
+[node name="MouseVerticalSlider" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("8_ge777")]
+layout_mode = 2
+
+[node name="ControllerLabel" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+label_text = "Controller"
+
+[node name="StickHorizontalSensitivity" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_8hf25")]
+layout_mode = 2
+
+[node name="StickVerticalSensitivity" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_07rme")]
+layout_mode = 2
+
+[node name="Gameplay" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Accessibility"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Gameplay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,19 +170,19 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Accessibility/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Gameplay/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Accessibility1"
 
-[node name="Label2" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Gameplay/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Accessibility2"
 
-[node name="Label3" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="TabContainer/Gameplay/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Accessibility3"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://848adl403xtl"]
 
-[ext_resource type="PackedScene" uid="uid://c6xsebkooln5q" path="res://Scenes/Menus/OptionsDisplayButton.tscn" id="1_cl4d2"]
+[ext_resource type="PackedScene" uid="uid://c6xsebkooln5q" path="res://Scenes/Menus/OptionsMenu/OptionsDisplayButton.tscn" id="1_cl4d2"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/ResolutionModeButton.gd" id="2_45eny"]
 
 [node name="ResolutionModeButton" instance=ExtResource("1_cl4d2")]

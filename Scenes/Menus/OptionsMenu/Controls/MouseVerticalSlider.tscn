@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://it3yom2h6orw"]
+
+[ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="1_enebc"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/MouseVerticalSlider.gd" id="2_8g332"]
+
+[node name="MouseVerticalSlider" instance=ExtResource("1_enebc")]
+script = ExtResource("2_8g332")
+
+[node name="HBoxContainer" parent="." index="0"]
+layout_mode = 0
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Vertical Sensitivity
+"
+
+[node name="HSlider" parent="HBoxContainer" index="2"]
+min_value = 0.1
+
+[node name="VSeparator2" parent="HBoxContainer" index="3"]
+visible = false
+
+[node name="AudioNumLabel" parent="HBoxContainer" index="4"]
+visible = false

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://chkuo5br2qn7m"]
+
+[ext_resource type="PackedScene" uid="uid://bljpytl0oq7sy" path="res://Scenes/Menus/OptionsMenu/OptionsToggleButton.tscn" id="1_lrh0g"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/LookSmoothingButton.gd" id="2_83il3"]
+
+[node name="LookSmoothingButton" instance=ExtResource("1_lrh0g")]
+custom_minimum_size = Vector2(0, 40)
+script = ExtResource("2_83il3")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 24
+text = "Smoothing"

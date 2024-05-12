@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://nlkur7rpmjtc"]
+
+[ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="1_5j34f"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/MouseHorizontalSlider.gd" id="2_gvpva"]
+
+[node name="MouseHorizontalSlider" instance=ExtResource("1_5j34f")]
+script = ExtResource("2_gvpva")
+
+[node name="HBoxContainer" parent="." index="0"]
+layout_mode = 0
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Horizontal Sensitivity
+"
+
+[node name="HSlider" parent="HBoxContainer" index="2"]
+min_value = 0.1
+
+[node name="VSeparator2" parent="HBoxContainer" index="3"]
+visible = false
+
+[node name="AudioNumLabel" parent="HBoxContainer" index="4"]
+visible = false

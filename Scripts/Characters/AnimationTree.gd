@@ -44,7 +44,7 @@ func update_fire_rate():
 	#set("parameters/Upper Body/Shoot - Weapon Single/TimeScale/scale", scale)
 	if is_shooting:
 		upper_body_state_machine.travel("Shoot - Weapon Single")
-		#set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0)
+		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 	if is_bursting:
 		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 

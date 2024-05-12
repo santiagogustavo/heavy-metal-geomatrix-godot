@@ -1,10 +1,12 @@
 extends Node
 
-var window_mode = 1
-var resolution = DisplayServer.window_get_size()
+var window_mode: = 1
+var viewport_width: int = DisplayServer.window_get_size().x
+var viewport_height: int = DisplayServer.window_get_size().y
 
 func set_window_size(size: Vector2i) -> void:
-	resolution = size
+	viewport_width = size.x
+	viewport_height = size.y
 	DisplayServer.window_set_size(size)
 
 func set_window_mode(index: int) -> void:

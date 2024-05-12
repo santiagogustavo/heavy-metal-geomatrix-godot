@@ -407,7 +407,7 @@ size = Vector2(0.5, 0.5)
 
 [node name="MotoGun" type="Node3D"]
 script = ExtResource("1_imp6h")
-bullets = 44
+bullets = 45
 fire_rate = 1.0
 burst_count = 4
 burst_rate = 0.1
@@ -416,7 +416,7 @@ bullet = ExtResource("2_yq5ka")
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(0.000169616, 0.00955405, -0.0172064)
+bones/1/position = Vector3(0.000113172, 0.00878821, -0.0172)
 bones/2/position = Vector3(0, 0.01, 0.00158699)
 
 [node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Moto Gun"]
@@ -426,9 +426,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Moto Gun")
-libraries = {
-"": SubResource("AnimationLibrary_h0mab")
-}
 tree_root = SubResource("AnimationNodeStateMachine_qh7na")
 anim_player = NodePath("../Moto Gun/AnimationPlayerCustom")
 parameters/conditions/is_shooting = false

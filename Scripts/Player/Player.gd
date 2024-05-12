@@ -2,15 +2,10 @@ extends CharacterBody3D
 class_name Player
 
 @export_subgroup("Properties")
-@export var health = 100;
+@export var health = 100
 
 @export_subgroup("Controls")
 @export var LOOK_CLAMP = 60
-@export var LOOK_SMOOTHING = 0.2
-@export var HORIZONTAL_SENSITIVITY_MOUSE = 0.5
-@export var VERTICAL_SENSITIVITY_MOUSE = 0.5
-@export var HORIZONTAL_SENSITIVITY_STICK = 2
-@export var VERTICAL_SENSITIVITY_STICK = 2
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
@@ -53,8 +48,8 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		new_rotation.y += deg_to_rad(-event.relative.x) * HORIZONTAL_SENSITIVITY_MOUSE
-		new_rotation.x += deg_to_rad(-event.relative.y) * VERTICAL_SENSITIVITY_MOUSE
+		new_rotation.y += deg_to_rad(-event.relative.x) * InputSettingsManager.mouse_horizontal_sensitivity
+		new_rotation.x += deg_to_rad(-event.relative.y) * InputSettingsManager.mouse_vertical_sensitivity
 		input_look.x = event.relative.x / 20
 
 func _process(_delta):
@@ -136,15 +131,19 @@ func update_camera_target():
 		shoot_target = point
 
 func update_rotation_smoothing():
-	rotation.y = lerp_angle(rotation.y, new_rotation.y, LOOK_SMOOTHING)
-	camera_pivot.rotation.x = lerp_angle(camera_pivot.rotation.x, new_rotation.x, LOOK_SMOOTHING)
+	if InputSettingsManager.look_smoothing_enabled:
+		rotation.y = lerp_angle(rotation.y, new_rotation.y, InputSettingsManager.look_smoothing_intensity)
+		camera_pivot.rotation.x = lerp_angle(camera_pivot.rotation.x, new_rotation.x, InputSettingsManager.look_smoothing_intensity)
+	else:
+		rotation.y = new_rotation.y
+		camera_pivot.rotation.x = new_rotation.x
 
 func compute_look_stick():
 	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	look_dir = look_dir.normalized()
 	input_look.x = look_dir.x * 0.6
-	new_rotation.y += deg_to_rad(-look_dir.x) * HORIZONTAL_SENSITIVITY_STICK
-	new_rotation.x += deg_to_rad(-look_dir.y) * VERTICAL_SENSITIVITY_STICK
+	new_rotation.y += deg_to_rad(-look_dir.x) * InputSettingsManager.stick_horizontal_sensitivity
+	new_rotation.x += deg_to_rad(-look_dir.y) * InputSettingsManager.stick_vertical_sensitivity
 
 func compute_movement():
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
