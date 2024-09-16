@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmq6da7dayio0"]
+[gd_scene load_steps=10 format=3 uid="uid://dmq6da7dayio0"]
 
 [ext_resource type="Texture2D" uid="uid://c1040jkf8xlwv" path="res://Textures/Particles/Bullet Hole.png" id="1_ay44e"]
 [ext_resource type="Texture2D" uid="uid://dpr3qcuokl8r5" path="res://Textures/Particles/Bullet Hole nrm.png" id="2_mmown"]
+[ext_resource type="AudioStream" uid="uid://1ctwiqskxayt" path="res://Sound/Weapons/Common/Bullet Hit 1.wav" id="3_7f6m7"]
+[ext_resource type="AudioStream" uid="uid://c5sl1oaowhx4m" path="res://Sound/Weapons/Common/Bullet Hit 2.wav" id="4_i0qa6"]
+[ext_resource type="AudioStream" uid="uid://cut5s6chdhiqh" path="res://Sound/Weapons/Common/Bullet Hit 3.wav" id="5_26lcb"]
+[ext_resource type="AudioStream" uid="uid://cfajww0ysqvm8" path="res://Sound/Weapons/Common/Bullet Hit 4.wav" id="6_exh6t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abkvh"]
 transparency = 1
-cull_mode = 2
+cull_mode = 1
 albedo_texture = ExtResource("1_ay44e")
 normal_enabled = true
 normal_texture = ExtResource("2_mmown")
@@ -14,8 +18,26 @@ normal_texture = ExtResource("2_mmown")
 material = SubResource("StandardMaterial3D_abkvh")
 size = Vector2(0.2, 0.2)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6o1ag"]
+streams_count = 4
+stream_0/stream = ExtResource("3_7f6m7")
+stream_1/stream = ExtResource("4_i0qa6")
+stream_2/stream = ExtResource("5_26lcb")
+stream_3/stream = ExtResource("6_exh6t")
+
 [node name="BulletDecal" type="Node3D"]
+top_level = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0.02, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+cast_shadow = 0
 mesh = SubResource("QuadMesh_c4150")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_6o1ag")
+volume_db = -25.0
+max_db = 0.0
+pitch_scale = 0.64
+autoplay = true
+bus = &"Reverb"
+attenuation_filter_db = 0.0

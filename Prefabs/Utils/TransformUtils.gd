@@ -20,14 +20,3 @@ static func safe_look_at(node : Node3D, target : Vector3) -> void:
 	# Look at the target
 	if up != Vector3.ZERO:
 		node.look_at(target, up)
-
-static func look_at_with_y(trans: Transform3D, new_y: Vector3, v_up: Vector3):
-	#Y vector
-	trans.basis.y=new_y.normalized()
-	trans.basis.z=v_up*-1
-	trans.basis.x = trans.basis.z.cross(trans.basis.y).normalized();
-	#Recompute z = y cross X
-	trans.basis.z = trans.basis.y.cross(trans.basis.x).normalized();
-	trans.basis.x = trans.basis.x * -1
-	trans.basis = trans.basis.orthonormalized()
-	return trans

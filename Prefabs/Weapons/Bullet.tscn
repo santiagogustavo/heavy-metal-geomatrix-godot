@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://2dqf8eoucva7"]
+[gd_scene load_steps=26 format=4 uid="uid://2dqf8eoucva7"]
 
 [ext_resource type="Material" uid="uid://c54x6gqn0oxcu" path="res://Materials/Weapons/Common/54429747.tres" id="1_qsoso"]
 [ext_resource type="Script" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
@@ -8,12 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://7pnioue54hb4" path="res://Textures/Particles/Rain/rain_camera_big.png" id="5_3n51u"]
 [ext_resource type="Shader" path="res://Materials/Trails/Bump Distort.gdshader" id="5_tjdrs"]
 [ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
-[ext_resource type="AudioStream" uid="uid://1ctwiqskxayt" path="res://Sound/Weapons/Common/Bullet Hit 1.wav" id="8_so8bn"]
-[ext_resource type="AudioStream" uid="uid://c5sl1oaowhx4m" path="res://Sound/Weapons/Common/Bullet Hit 2.wav" id="9_dhmob"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="10_rkhkj"]
-[ext_resource type="AudioStream" uid="uid://cut5s6chdhiqh" path="res://Sound/Weapons/Common/Bullet Hit 3.wav" id="10_xv7tl"]
-[ext_resource type="AudioStream" uid="uid://cfajww0ysqvm8" path="res://Sound/Weapons/Common/Bullet Hit 4.wav" id="11_6qbni"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ccrdb"]
 _surfaces = [{
@@ -107,38 +103,24 @@ shader_parameter/curve = SubResource("CurveTexture_k2op2")
 [sub_resource type="QuadMesh" id="QuadMesh_2gd2c"]
 material = SubResource("ShaderMaterial_bacuo")
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0811i"]
-streams_count = 4
-stream_0/stream = ExtResource("8_so8bn")
-stream_1/stream = ExtResource("9_dhmob")
-stream_2/stream = ExtResource("10_xv7tl")
-stream_3/stream = ExtResource("11_6qbni")
-
-[node name="Bullet" type="Node3D"]
+[node name="Bullet" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 21
+gravity_scale = 0.0
 script = ExtResource("1_rn5p5")
 speed = 100.0
 hit_particle = ExtResource("2_vudbe")
 hit_decal = ExtResource("3_8h365")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0)
-collision_layer = 8
-collision_mask = 21
-gravity_scale = 0.0
-
-[node name="Mesh" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0, 0, 0)
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_qh0d3")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(-1.5, -1.06581e-14, -1.31134e-07, -1.31134e-07, -6.55671e-08, 1.5, -1.63902e-14, 1.5, 6.55671e-08, -1.92619e-16, 0, 0.0271087)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.5, 4.40457e-20, -1.31134e-07, -1.31134e-07, -6.55671e-08, 1.5, -5.73205e-15, 1.5, 6.55671e-08, -3.97047e-23, 0, 0.0271087)
 shape = SubResource("CapsuleShape3D_1hjxn")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, 1)
-collision_mask = 21
-hit_back_faces = false
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0656571)
@@ -169,11 +151,3 @@ length = 20
 color_ramp = ExtResource("10_rkhkj")
 curve = SubResource("CurveTexture_k2op2")
 _defaults_have_been_set = true
-
-[node name="SFX" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamRandomizer_0811i")
-volume_db = -25.0
-max_db = 0.0
-pitch_scale = 0.64
-bus = &"Reverb"
-attenuation_filter_db = 0.0

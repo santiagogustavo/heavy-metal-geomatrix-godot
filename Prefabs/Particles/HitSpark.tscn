@@ -20,8 +20,10 @@ size = Vector2(0.1, 0.4)
 [node name="RaySpark" type="GPUParticles3D"]
 emitting = false
 amount = 5
-lifetime = 0.1
+lifetime = 0.2
 one_shot = true
+explosiveness = 1.0
+randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_sigh4")
 draw_pass_1 = SubResource("QuadMesh_vnxkf")
 script = ExtResource("2_tr6r1")
