@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1802rgql6dif"
 path.s3tc="res://.godot/imported/Player Card Border-685d1949744db9c0e358d015c671a75f_64a5da50.png-24c07f7ff4050b7743a6a1173448aa7c.s3tc.ctex"
+path.etc2="res://.godot/imported/Player Card Border-685d1949744db9c0e358d015c671a75f_64a5da50.png-24c07f7ff4050b7743a6a1173448aa7c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/Player Card Border-685d1949744db9c0e358d015c671a75f_64a5da50.png"
-dest_files=["res://.godot/imported/Player Card Border-685d1949744db9c0e358d015c671a75f_64a5da50.png-24c07f7ff4050b7743a6a1173448aa7c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Player Card Border-685d1949744db9c0e358d015c671a75f_64a5da50.png-24c07f7ff4050b7743a6a1173448aa7c.s3tc.ctex", "res://.godot/imported/Player Card Border-685d1949744db9c0e358d015c671a75f_64a5da50.png-24c07f7ff4050b7743a6a1173448aa7c.etc2.ctex"]
 
 [params]
 

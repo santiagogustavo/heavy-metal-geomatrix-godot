@@ -3,6 +3,7 @@ extends Control
 @onready var option_button = $HBoxContainer/OptionButton as OptionButton
 
 var RESOLUTION_DICTIONARY: Dictionary = {
+	"640x480": Vector2i(640, 480),
 	"1280x720": Vector2i(1280, 720),
 	"1366x768": Vector2i(1366, 768),
 	"1920x1080": Vector2i(1920, 1080),

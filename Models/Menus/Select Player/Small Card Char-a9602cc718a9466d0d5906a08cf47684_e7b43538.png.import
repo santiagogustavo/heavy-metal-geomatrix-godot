@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0vapo2v3glv6"
 path.s3tc="res://.godot/imported/Small Card Char-a9602cc718a9466d0d5906a08cf47684_e7b43538.png-82f59dd38ab7b8444380b9c8801b7f16.s3tc.ctex"
+path.etc2="res://.godot/imported/Small Card Char-a9602cc718a9466d0d5906a08cf47684_e7b43538.png-82f59dd38ab7b8444380b9c8801b7f16.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/Small Card Char-a9602cc718a9466d0d5906a08cf47684_e7b43538.png"
-dest_files=["res://.godot/imported/Small Card Char-a9602cc718a9466d0d5906a08cf47684_e7b43538.png-82f59dd38ab7b8444380b9c8801b7f16.s3tc.ctex"]
+dest_files=["res://.godot/imported/Small Card Char-a9602cc718a9466d0d5906a08cf47684_e7b43538.png-82f59dd38ab7b8444380b9c8801b7f16.s3tc.ctex", "res://.godot/imported/Small Card Char-a9602cc718a9466d0d5906a08cf47684_e7b43538.png-82f59dd38ab7b8444380b9c8801b7f16.etc2.ctex"]
 
 [params]
 

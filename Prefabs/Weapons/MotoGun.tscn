@@ -416,8 +416,8 @@ bullet = ExtResource("2_yq5ka")
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(0.000113172, 0.00878821, -0.0172)
-bones/2/position = Vector3(0, 0.01, 0.00158699)
+bones/1/position = Vector3(0.000472488, 0.00863331, -0.0172)
+bones/2/position = Vector3(0, 0.01, 0.0004)
 
 [node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Moto Gun"]
 libraries = {
@@ -426,6 +426,7 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Moto Gun")
+callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_qh7na")
 anim_player = NodePath("../Moto Gun/AnimationPlayerCustom")
 parameters/conditions/is_shooting = false
@@ -455,6 +456,7 @@ draw_pass_1 = SubResource("QuadMesh_n1467")
 
 [node name="SmokeL" type="GPUParticles3D" parent="."]
 transform = Transform3D(-0.717573, 0.277028, -0.639019, 0.463262, 0.874949, -0.140901, 0.520075, -0.39714, -0.756176, -0.482, 0.349, -0.305)
+emitting = false
 amount = 5
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_h2qjb")
@@ -462,6 +464,7 @@ draw_pass_1 = SubResource("QuadMesh_ofont")
 
 [node name="SmokeR" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.697317, -0.314907, -0.643881, 0.512496, 0.847077, 0.140742, 0.501096, -0.428128, 0.75207, 0.481962, 0.348832, -0.305018)
+emitting = false
 amount = 5
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_h2qjb")

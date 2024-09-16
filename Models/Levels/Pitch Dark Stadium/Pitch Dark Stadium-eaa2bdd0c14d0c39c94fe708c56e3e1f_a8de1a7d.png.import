@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c50rktkad06q4"
 path.s3tc="res://.godot/imported/Pitch Dark Stadium-eaa2bdd0c14d0c39c94fe708c56e3e1f_a8de1a7d.png-6f1b3d39b010eb5947a7bee90ac86b7d.s3tc.ctex"
+path.etc2="res://.godot/imported/Pitch Dark Stadium-eaa2bdd0c14d0c39c94fe708c56e3e1f_a8de1a7d.png-6f1b3d39b010eb5947a7bee90ac86b7d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Pitch Dark Stadium/Pitch Dark Stadium-eaa2bdd0c14d0c39c94fe708c56e3e1f_a8de1a7d.png"
-dest_files=["res://.godot/imported/Pitch Dark Stadium-eaa2bdd0c14d0c39c94fe708c56e3e1f_a8de1a7d.png-6f1b3d39b010eb5947a7bee90ac86b7d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pitch Dark Stadium-eaa2bdd0c14d0c39c94fe708c56e3e1f_a8de1a7d.png-6f1b3d39b010eb5947a7bee90ac86b7d.s3tc.ctex", "res://.godot/imported/Pitch Dark Stadium-eaa2bdd0c14d0c39c94fe708c56e3e1f_a8de1a7d.png-6f1b3d39b010eb5947a7bee90ac86b7d.etc2.ctex"]
 
 [params]
 

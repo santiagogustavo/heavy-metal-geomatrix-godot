@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://csq82bo8iiwmo"
 path.s3tc="res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_a6cbf87d.png-055d5298cb37f9db075d945c034ff697.s3tc.ctex"
+path.etc2="res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_a6cbf87d.png-055d5298cb37f9db075d945c034ff697.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Characters/Di/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_a6cbf87d.png"
-dest_files=["res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_a6cbf87d.png-055d5298cb37f9db075d945c034ff697.s3tc.ctex"]
+dest_files=["res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_a6cbf87d.png-055d5298cb37f9db075d945c034ff697.s3tc.ctex", "res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_a6cbf87d.png-055d5298cb37f9db075d945c034ff697.etc2.ctex"]
 
 [params]
 

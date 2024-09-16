@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7dtxl7b0veye"
 path.s3tc="res://.godot/imported/Totem_Large_Left_Broken-0d841390d61e50577caf99042d5aef2a_86af1c00.png-2f1ee7fecf71c21c12b470e16f9bddf5.s3tc.ctex"
+path.etc2="res://.godot/imported/Totem_Large_Left_Broken-0d841390d61e50577caf99042d5aef2a_86af1c00.png-2f1ee7fecf71c21c12b470e16f9bddf5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Red Hot Shrine Day/Totem_Large_Left_Broken-0d841390d61e50577caf99042d5aef2a_86af1c00.png"
-dest_files=["res://.godot/imported/Totem_Large_Left_Broken-0d841390d61e50577caf99042d5aef2a_86af1c00.png-2f1ee7fecf71c21c12b470e16f9bddf5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Totem_Large_Left_Broken-0d841390d61e50577caf99042d5aef2a_86af1c00.png-2f1ee7fecf71c21c12b470e16f9bddf5.s3tc.ctex", "res://.godot/imported/Totem_Large_Left_Broken-0d841390d61e50577caf99042d5aef2a_86af1c00.png-2f1ee7fecf71c21c12b470e16f9bddf5.etc2.ctex"]
 
 [params]
 

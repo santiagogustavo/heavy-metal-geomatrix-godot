@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr78bw2a82giy"
 path.s3tc="res://.godot/imported/Di v2-75e46ae46b3af875bc774038591863f3_406c45bc.png-611dfce5759c6600f2ed686b8e85595f.s3tc.ctex"
+path.etc2="res://.godot/imported/Di v2-75e46ae46b3af875bc774038591863f3_406c45bc.png-611dfce5759c6600f2ed686b8e85595f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Characters/Di/Di v2-75e46ae46b3af875bc774038591863f3_406c45bc.png"
-dest_files=["res://.godot/imported/Di v2-75e46ae46b3af875bc774038591863f3_406c45bc.png-611dfce5759c6600f2ed686b8e85595f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Di v2-75e46ae46b3af875bc774038591863f3_406c45bc.png-611dfce5759c6600f2ed686b8e85595f.s3tc.ctex", "res://.godot/imported/Di v2-75e46ae46b3af875bc774038591863f3_406c45bc.png-611dfce5759c6600f2ed686b8e85595f.etc2.ctex"]
 
 [params]
 

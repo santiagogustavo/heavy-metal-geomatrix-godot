@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcyuksc71n4pv"
 path.s3tc="res://.godot/imported/Blueprint Screen-ed8de8938952777398a1ac03d4497dc2_b52de668.png-c4c5a89cef7190072a5bc98a74728950.s3tc.ctex"
+path.etc2="res://.godot/imported/Blueprint Screen-ed8de8938952777398a1ac03d4497dc2_b52de668.png-c4c5a89cef7190072a5bc98a74728950.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Pitch Dark Stadium/Blueprint Screen-ed8de8938952777398a1ac03d4497dc2_b52de668.png"
-dest_files=["res://.godot/imported/Blueprint Screen-ed8de8938952777398a1ac03d4497dc2_b52de668.png-c4c5a89cef7190072a5bc98a74728950.s3tc.ctex"]
+dest_files=["res://.godot/imported/Blueprint Screen-ed8de8938952777398a1ac03d4497dc2_b52de668.png-c4c5a89cef7190072a5bc98a74728950.s3tc.ctex", "res://.godot/imported/Blueprint Screen-ed8de8938952777398a1ac03d4497dc2_b52de668.png-c4c5a89cef7190072a5bc98a74728950.etc2.ctex"]
 
 [params]
 

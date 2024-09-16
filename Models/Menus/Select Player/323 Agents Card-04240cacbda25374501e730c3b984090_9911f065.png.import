@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhaytun32uosh"
 path.s3tc="res://.godot/imported/323 Agents Card-04240cacbda25374501e730c3b984090_9911f065.png-bf15bf880c678995cafff7664c5d08c1.s3tc.ctex"
+path.etc2="res://.godot/imported/323 Agents Card-04240cacbda25374501e730c3b984090_9911f065.png-bf15bf880c678995cafff7664c5d08c1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/323 Agents Card-04240cacbda25374501e730c3b984090_9911f065.png"
-dest_files=["res://.godot/imported/323 Agents Card-04240cacbda25374501e730c3b984090_9911f065.png-bf15bf880c678995cafff7664c5d08c1.s3tc.ctex"]
+dest_files=["res://.godot/imported/323 Agents Card-04240cacbda25374501e730c3b984090_9911f065.png-bf15bf880c678995cafff7664c5d08c1.s3tc.ctex", "res://.godot/imported/323 Agents Card-04240cacbda25374501e730c3b984090_9911f065.png-bf15bf880c678995cafff7664c5d08c1.etc2.ctex"]
 
 [params]
 

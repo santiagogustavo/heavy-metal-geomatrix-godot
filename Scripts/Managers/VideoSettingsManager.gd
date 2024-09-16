@@ -7,6 +7,7 @@ var viewport_height: int = DisplayServer.window_get_size().y
 func set_window_size(size: Vector2i) -> void:
 	viewport_width = size.x
 	viewport_height = size.y
+	#get_viewport().content_scale_size = size
 	DisplayServer.window_set_size(size)
 
 func set_window_mode(index: int) -> void:

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d7qcrqvjx6j1"
 path.s3tc="res://.godot/imported/H Bazooka-a7181649d42f64e8614d2d74b697136d_9ff11751.png-d6482bcf2696b35eea41a956d3b959f3.s3tc.ctex"
+path.etc2="res://.godot/imported/H Bazooka-a7181649d42f64e8614d2d74b697136d_9ff11751.png-d6482bcf2696b35eea41a956d3b959f3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Weapons/H Bazooka-a7181649d42f64e8614d2d74b697136d_9ff11751.png"
-dest_files=["res://.godot/imported/H Bazooka-a7181649d42f64e8614d2d74b697136d_9ff11751.png-d6482bcf2696b35eea41a956d3b959f3.s3tc.ctex"]
+dest_files=["res://.godot/imported/H Bazooka-a7181649d42f64e8614d2d74b697136d_9ff11751.png-d6482bcf2696b35eea41a956d3b959f3.s3tc.ctex", "res://.godot/imported/H Bazooka-a7181649d42f64e8614d2d74b697136d_9ff11751.png-d6482bcf2696b35eea41a956d3b959f3.etc2.ctex"]
 
 [params]
 

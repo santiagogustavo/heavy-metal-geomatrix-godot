@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbqfqa6422skr"
 path.s3tc="res://.godot/imported/Power Box-390e9b5c0e3fc7067a5972c2e1a75072_31e96356.png-ffd1b63090fe2670680fc9a7f3213343.s3tc.ctex"
+path.etc2="res://.godot/imported/Power Box-390e9b5c0e3fc7067a5972c2e1a75072_31e96356.png-ffd1b63090fe2670680fc9a7f3213343.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Sunken City Night/Power Box-390e9b5c0e3fc7067a5972c2e1a75072_31e96356.png"
-dest_files=["res://.godot/imported/Power Box-390e9b5c0e3fc7067a5972c2e1a75072_31e96356.png-ffd1b63090fe2670680fc9a7f3213343.s3tc.ctex"]
+dest_files=["res://.godot/imported/Power Box-390e9b5c0e3fc7067a5972c2e1a75072_31e96356.png-ffd1b63090fe2670680fc9a7f3213343.s3tc.ctex", "res://.godot/imported/Power Box-390e9b5c0e3fc7067a5972c2e1a75072_31e96356.png-ffd1b63090fe2670680fc9a7f3213343.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d05qh8d2ite1s"
 path.s3tc="res://.godot/imported/Day Cloudy.png-b425cfdaf3e9b732980f064885d7fac5.s3tc.ctex"
+path.etc2="res://.godot/imported/Day Cloudy.png-b425cfdaf3e9b732980f064885d7fac5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Skyboxes/Day Cloudy.png"
-dest_files=["res://.godot/imported/Day Cloudy.png-b425cfdaf3e9b732980f064885d7fac5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Day Cloudy.png-b425cfdaf3e9b732980f064885d7fac5.s3tc.ctex", "res://.godot/imported/Day Cloudy.png-b425cfdaf3e9b732980f064885d7fac5.etc2.ctex"]
 
 [params]
 

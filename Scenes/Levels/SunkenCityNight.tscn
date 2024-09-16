@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cfdmaidpgq6oq"]
+[gd_scene load_steps=40 format=3 uid="uid://cfdmaidpgq6oq"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_ju2fq"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_x780f"]
@@ -14,7 +14,11 @@
 [ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="12_0w60c"]
 [ext_resource type="Script" path="res://Scripts/Levels/InvisibleWall.gd" id="12_d067t"]
 [ext_resource type="Texture2D" uid="uid://c2axca041ro8" path="res://Textures/Lens Flares/flare1.png" id="12_te444"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="13_28rel"]
+[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="14_itd51"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="14_mbsx2"]
+[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="15_5qahw"]
+[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="16_284yf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -94,6 +98,9 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="QuadMesh_kfi7b"]
 material = SubResource("StandardMaterial3D_rys5s")
 size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8uua"]
+size = Vector3(14, 0, 18)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rdg16"]
 size = Vector3(0.318848, 22.8315, 31.0303)
@@ -256,6 +263,14 @@ spot_angle = 30.18
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/SpotLight3D"]
 mesh = SubResource("QuadMesh_kfi7b")
 
+[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("13_28rel")]
+pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_284yf")])
+collision_shapes = [NodePath("Area3D/CollisionShape3D")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 8.50996, -30.5)
+shape = SubResource("BoxShape3D_m8uua")
+
 [node name="Invisible Walls" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8619, 4.12044, -25.0382)
 collision_layer = 32
@@ -288,3 +303,4 @@ material = SubResource("ShaderMaterial_f40a8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7744, 12.8224, -20.8766)
 
 [editable path="Level Geometry/Sunken City Night"]
+[editable path="Spawner"]

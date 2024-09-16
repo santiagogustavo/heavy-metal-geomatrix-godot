@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7hm8gyd1018m"
 path.s3tc="res://.godot/imported/BG Dome Bottom-3e6891b7da5d1bc0fa4cd508ea2772d0_bf365546.png-8416a0425e269f091f0c4376e43f7bcf.s3tc.ctex"
+path.etc2="res://.godot/imported/BG Dome Bottom-3e6891b7da5d1bc0fa4cd508ea2772d0_bf365546.png-8416a0425e269f091f0c4376e43f7bcf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/BG Dome Bottom-3e6891b7da5d1bc0fa4cd508ea2772d0_bf365546.png"
-dest_files=["res://.godot/imported/BG Dome Bottom-3e6891b7da5d1bc0fa4cd508ea2772d0_bf365546.png-8416a0425e269f091f0c4376e43f7bcf.s3tc.ctex"]
+dest_files=["res://.godot/imported/BG Dome Bottom-3e6891b7da5d1bc0fa4cd508ea2772d0_bf365546.png-8416a0425e269f091f0c4376e43f7bcf.s3tc.ctex", "res://.godot/imported/BG Dome Bottom-3e6891b7da5d1bc0fa4cd508ea2772d0_bf365546.png-8416a0425e269f091f0c4376e43f7bcf.etc2.ctex"]
 
 [params]
 

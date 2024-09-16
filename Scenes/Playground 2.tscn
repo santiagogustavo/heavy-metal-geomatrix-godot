@@ -40,15 +40,14 @@ size = Vector3(60, 0, 60)
 material = ExtResource("4_mip5i")
 size = Vector3(20, 0.05, 20)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7r066"]
-data = PackedVector3Array(-10, 0.025, 10, 10, 0.025, 10, -10, -0.025, 10, 10, 0.025, 10, 10, -0.025, 10, -10, -0.025, 10, 10, 0.025, -10, -10, 0.025, -10, 10, -0.025, -10, -10, 0.025, -10, -10, -0.025, -10, 10, -0.025, -10, 10, 0.025, 10, 10, 0.025, -10, 10, -0.025, 10, 10, 0.025, -10, 10, -0.025, -10, 10, -0.025, 10, -10, 0.025, -10, -10, 0.025, 10, -10, -0.025, -10, -10, 0.025, 10, -10, -0.025, 10, -10, -0.025, -10, 10, 0.025, 10, -10, 0.025, 10, 10, 0.025, -10, -10, 0.025, 10, -10, 0.025, -10, 10, 0.025, -10, -10, -0.025, 10, 10, -0.025, 10, -10, -0.025, -10, 10, -0.025, 10, 10, -0.025, -10, -10, -0.025, -10)
-backface_collision = true
+[sub_resource type="BoxShape3D" id="BoxShape3D_a64xa"]
+size = Vector3(20, 0.05, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yubfn"]
 material = ExtResource("4_ebvkg")
 size = Vector3(60, 0.05, 60)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u6mn8"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yfk20"]
 data = PackedVector3Array(-30, 0.025, 30, 30, 0.025, 30, -30, -0.025, 30, 30, 0.025, 30, 30, -0.025, 30, -30, -0.025, 30, 30, 0.025, -30, -30, 0.025, -30, 30, -0.025, -30, -30, 0.025, -30, -30, -0.025, -30, 30, -0.025, -30, 30, 0.025, 30, 30, 0.025, -30, 30, -0.025, 30, 30, 0.025, -30, 30, -0.025, -30, 30, -0.025, 30, -30, 0.025, -30, -30, 0.025, 30, -30, -0.025, -30, -30, 0.025, 30, -30, -0.025, 30, -30, -0.025, -30, 30, 0.025, 30, -30, 0.025, 30, 30, 0.025, -30, -30, 0.025, 30, -30, 0.025, -30, 30, 0.025, -30, -30, -0.025, 30, 30, -0.025, 30, -30, -0.025, -30, 30, -0.025, 30, 30, -0.025, -30, -30, -0.025, -30)
 backface_collision = true
 
@@ -95,7 +94,7 @@ skeleton = NodePath("../..")
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_7r066")
+shape = SubResource("BoxShape3D_a64xa")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
@@ -106,7 +105,7 @@ skeleton = NodePath("../..")
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_u6mn8")
+shape = SubResource("ConcavePolygonShape3D_yfk20")
 
 [node name="Rain" type="Node3D" parent="Level Geometry"]
 

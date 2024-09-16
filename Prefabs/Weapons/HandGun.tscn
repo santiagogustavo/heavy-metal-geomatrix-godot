@@ -247,7 +247,9 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
 bones/0/rotation = Quaternion(-0.0553004, 1.19027e-07, -6.59232e-09, 0.99847)
-bones/1/rotation = Quaternion(-0.666921, -4.76792e-15, -1.59007e-07, 0.745128)
+bones/1/position = Vector3(3.5544e-08, 0.288226, -0.149083)
+bones/1/rotation = Quaternion(-0.666921, -6.37343e-15, -1.59006e-07, 0.745128)
+bones/1/scale = Vector3(1, 1, 1)
 
 [node name="Bullet" parent="Hand Gun" index="1"]
 visible = false
@@ -259,9 +261,7 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Hand Gun")
-libraries = {
-"": SubResource("AnimationLibrary_prc7n")
-}
+callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_a2l3g")
 anim_player = NodePath("../Hand Gun/AnimationPlayerCustom")
 parameters/conditions/is_shooting = false

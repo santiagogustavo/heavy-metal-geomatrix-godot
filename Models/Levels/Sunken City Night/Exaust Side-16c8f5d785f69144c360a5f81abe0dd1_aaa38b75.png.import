@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hy0kwtc351fs"
 path.s3tc="res://.godot/imported/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_aaa38b75.png-ae9cdddd532114ab18bc82a405045491.s3tc.ctex"
+path.etc2="res://.godot/imported/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_aaa38b75.png-ae9cdddd532114ab18bc82a405045491.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Sunken City Night/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_aaa38b75.png"
-dest_files=["res://.godot/imported/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_aaa38b75.png-ae9cdddd532114ab18bc82a405045491.s3tc.ctex"]
+dest_files=["res://.godot/imported/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_aaa38b75.png-ae9cdddd532114ab18bc82a405045491.s3tc.ctex", "res://.godot/imported/Exaust Side-16c8f5d785f69144c360a5f81abe0dd1_aaa38b75.png-ae9cdddd532114ab18bc82a405045491.etc2.ctex"]
 
 [params]
 

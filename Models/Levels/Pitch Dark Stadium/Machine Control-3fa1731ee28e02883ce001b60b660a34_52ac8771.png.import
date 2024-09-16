@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdcks2p5xrrtl"
 path.s3tc="res://.godot/imported/Machine Control-3fa1731ee28e02883ce001b60b660a34_52ac8771.png-dee7ac0e1522de2174a54165124ceb10.s3tc.ctex"
+path.etc2="res://.godot/imported/Machine Control-3fa1731ee28e02883ce001b60b660a34_52ac8771.png-dee7ac0e1522de2174a54165124ceb10.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Pitch Dark Stadium/Machine Control-3fa1731ee28e02883ce001b60b660a34_52ac8771.png"
-dest_files=["res://.godot/imported/Machine Control-3fa1731ee28e02883ce001b60b660a34_52ac8771.png-dee7ac0e1522de2174a54165124ceb10.s3tc.ctex"]
+dest_files=["res://.godot/imported/Machine Control-3fa1731ee28e02883ce001b60b660a34_52ac8771.png-dee7ac0e1522de2174a54165124ceb10.s3tc.ctex", "res://.godot/imported/Machine Control-3fa1731ee28e02883ce001b60b660a34_52ac8771.png-dee7ac0e1522de2174a54165124ceb10.etc2.ctex"]
 
 [params]
 

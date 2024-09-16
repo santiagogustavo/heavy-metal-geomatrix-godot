@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqeirjervftft"
 path.s3tc="res://.godot/imported/Hard Sword-c0177ef2f382b3579568df01f2b2f652_606fc457.png-3d9c356f18ce1f173859fcfccf802d28.s3tc.ctex"
+path.etc2="res://.godot/imported/Hard Sword-c0177ef2f382b3579568df01f2b2f652_606fc457.png-3d9c356f18ce1f173859fcfccf802d28.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Pickups/Hard Sword-c0177ef2f382b3579568df01f2b2f652_606fc457.png"
-dest_files=["res://.godot/imported/Hard Sword-c0177ef2f382b3579568df01f2b2f652_606fc457.png-3d9c356f18ce1f173859fcfccf802d28.s3tc.ctex"]
+dest_files=["res://.godot/imported/Hard Sword-c0177ef2f382b3579568df01f2b2f652_606fc457.png-3d9c356f18ce1f173859fcfccf802d28.s3tc.ctex", "res://.godot/imported/Hard Sword-c0177ef2f382b3579568df01f2b2f652_606fc457.png-3d9c356f18ce1f173859fcfccf802d28.etc2.ctex"]
 
 [params]
 

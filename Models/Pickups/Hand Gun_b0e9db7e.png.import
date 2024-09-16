@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b07751xdaea7"
 path.s3tc="res://.godot/imported/Hand Gun_b0e9db7e.png-ac30dc88675e4d06ebad9fb68c19531b.s3tc.ctex"
+path.etc2="res://.godot/imported/Hand Gun_b0e9db7e.png-ac30dc88675e4d06ebad9fb68c19531b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Pickups/Hand Gun_b0e9db7e.png"
-dest_files=["res://.godot/imported/Hand Gun_b0e9db7e.png-ac30dc88675e4d06ebad9fb68c19531b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Hand Gun_b0e9db7e.png-ac30dc88675e4d06ebad9fb68c19531b.s3tc.ctex", "res://.godot/imported/Hand Gun_b0e9db7e.png-ac30dc88675e4d06ebad9fb68c19531b.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dem7e6i3ou4p4"
 path.s3tc="res://.godot/imported/frosted_glass.png-acd3ecf53d38c4b6237d2498b754fa76.s3tc.ctex"
+path.etc2="res://.godot/imported/frosted_glass.png-acd3ecf53d38c4b6237d2498b754fa76.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Levels/frosted_glass.png"
-dest_files=["res://.godot/imported/frosted_glass.png-acd3ecf53d38c4b6237d2498b754fa76.s3tc.ctex"]
+dest_files=["res://.godot/imported/frosted_glass.png-acd3ecf53d38c4b6237d2498b754fa76.s3tc.ctex", "res://.godot/imported/frosted_glass.png-acd3ecf53d38c4b6237d2498b754fa76.etc2.ctex"]
 
 [params]
 

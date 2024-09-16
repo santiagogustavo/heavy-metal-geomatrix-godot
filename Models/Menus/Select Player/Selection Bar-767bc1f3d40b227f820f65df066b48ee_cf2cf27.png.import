@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsftxlbh12gc3"
 path.s3tc="res://.godot/imported/Selection Bar-767bc1f3d40b227f820f65df066b48ee_cf2cf27.png-291ad48812d822bb89a5cb9aa1bb5b97.s3tc.ctex"
+path.etc2="res://.godot/imported/Selection Bar-767bc1f3d40b227f820f65df066b48ee_cf2cf27.png-291ad48812d822bb89a5cb9aa1bb5b97.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/Selection Bar-767bc1f3d40b227f820f65df066b48ee_cf2cf27.png"
-dest_files=["res://.godot/imported/Selection Bar-767bc1f3d40b227f820f65df066b48ee_cf2cf27.png-291ad48812d822bb89a5cb9aa1bb5b97.s3tc.ctex"]
+dest_files=["res://.godot/imported/Selection Bar-767bc1f3d40b227f820f65df066b48ee_cf2cf27.png-291ad48812d822bb89a5cb9aa1bb5b97.s3tc.ctex", "res://.godot/imported/Selection Bar-767bc1f3d40b227f820f65df066b48ee_cf2cf27.png-291ad48812d822bb89a5cb9aa1bb5b97.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2exhqr8oomdc"
 path.s3tc="res://.godot/imported/Ray Sword-7f483b0cff89cc2b68a99492c6877fed_f3337a7.png-db00fc7983fe5e0620deede838f6cbea.s3tc.ctex"
+path.etc2="res://.godot/imported/Ray Sword-7f483b0cff89cc2b68a99492c6877fed_f3337a7.png-db00fc7983fe5e0620deede838f6cbea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Weapons/Ray Sword-7f483b0cff89cc2b68a99492c6877fed_f3337a7.png"
-dest_files=["res://.godot/imported/Ray Sword-7f483b0cff89cc2b68a99492c6877fed_f3337a7.png-db00fc7983fe5e0620deede838f6cbea.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ray Sword-7f483b0cff89cc2b68a99492c6877fed_f3337a7.png-db00fc7983fe5e0620deede838f6cbea.s3tc.ctex", "res://.godot/imported/Ray Sword-7f483b0cff89cc2b68a99492c6877fed_f3337a7.png-db00fc7983fe5e0620deede838f6cbea.etc2.ctex"]
 
 [params]
 

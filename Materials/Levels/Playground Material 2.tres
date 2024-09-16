@@ -5,7 +5,6 @@
 
 [resource]
 albedo_texture = ExtResource("1_1xos8")
-metallic_specular = 1.0
 ao_enabled = true
 ao_light_affect = 1.0
 ao_texture = ExtResource("2_qnr8n")

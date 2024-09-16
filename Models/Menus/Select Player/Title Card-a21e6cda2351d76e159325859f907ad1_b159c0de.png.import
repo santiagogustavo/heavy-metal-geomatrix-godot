@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb0g6tbf4qhrs"
 path.s3tc="res://.godot/imported/Title Card-a21e6cda2351d76e159325859f907ad1_b159c0de.png-8c8f3181652ab0f0bad7aec83eab979d.s3tc.ctex"
+path.etc2="res://.godot/imported/Title Card-a21e6cda2351d76e159325859f907ad1_b159c0de.png-8c8f3181652ab0f0bad7aec83eab979d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/Title Card-a21e6cda2351d76e159325859f907ad1_b159c0de.png"
-dest_files=["res://.godot/imported/Title Card-a21e6cda2351d76e159325859f907ad1_b159c0de.png-8c8f3181652ab0f0bad7aec83eab979d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Title Card-a21e6cda2351d76e159325859f907ad1_b159c0de.png-8c8f3181652ab0f0bad7aec83eab979d.s3tc.ctex", "res://.godot/imported/Title Card-a21e6cda2351d76e159325859f907ad1_b159c0de.png-8c8f3181652ab0f0bad7aec83eab979d.etc2.ctex"]
 
 [params]
 

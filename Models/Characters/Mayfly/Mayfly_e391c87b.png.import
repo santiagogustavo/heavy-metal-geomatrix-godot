@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cggogpfegmgdj"
 path.s3tc="res://.godot/imported/Mayfly_e391c87b.png-37d36ae35e1eb1373343d3226eb695c3.s3tc.ctex"
+path.etc2="res://.godot/imported/Mayfly_e391c87b.png-37d36ae35e1eb1373343d3226eb695c3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Characters/Mayfly/Mayfly_e391c87b.png"
-dest_files=["res://.godot/imported/Mayfly_e391c87b.png-37d36ae35e1eb1373343d3226eb695c3.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mayfly_e391c87b.png-37d36ae35e1eb1373343d3226eb695c3.s3tc.ctex", "res://.godot/imported/Mayfly_e391c87b.png-37d36ae35e1eb1373343d3226eb695c3.etc2.ctex"]
 
 [params]
 

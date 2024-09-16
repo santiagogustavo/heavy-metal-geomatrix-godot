@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn32lot2hx67q"
 path.s3tc="res://.godot/imported/b0fb780e_spec.png-c6aab8ab77fc1f61be01875880281e90.s3tc.ctex"
+path.etc2="res://.godot/imported/b0fb780e_spec.png-c6aab8ab77fc1f61be01875880281e90.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Levels/Sunken City Night/b0fb780e_spec.png"
-dest_files=["res://.godot/imported/b0fb780e_spec.png-c6aab8ab77fc1f61be01875880281e90.s3tc.ctex"]
+dest_files=["res://.godot/imported/b0fb780e_spec.png-c6aab8ab77fc1f61be01875880281e90.s3tc.ctex", "res://.godot/imported/b0fb780e_spec.png-c6aab8ab77fc1f61be01875880281e90.etc2.ctex"]
 
 [params]
 
