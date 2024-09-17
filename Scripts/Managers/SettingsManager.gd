@@ -11,6 +11,7 @@ func _ready():
 		load_audio_settings()
 		load_video_settings()
 		load_input_settings()
+		load_gameplay_settings()
 	else:
 		save_settings()
 
@@ -18,6 +19,7 @@ func save_settings():
 	save_audio_settings()
 	save_video_settings()
 	save_input_settings()
+	save_gameplay_settings()
 	save_settings_file()
 
 func load_audio_settings():
@@ -42,7 +44,16 @@ func load_input_settings():
 	InputSettingsManager.set_mouse_vertical_sensitivity(file.get_value("input", "mouse_vertical_sensitivity", InputSettingsManager.mouse_vertical_sensitivity))
 	InputSettingsManager.set_stick_horizontal_sensitivity(file.get_value("input", "stick_horizontal_sensitivity", InputSettingsManager.stick_horizontal_sensitivity))
 	InputSettingsManager.set_stick_vertical_sensitivity(file.get_value("input", "stick_vertical_sensitivity", InputSettingsManager.stick_vertical_sensitivity))
-	
+
+func load_gameplay_settings():
+	GameplaySettingsManager.set_fov(file.get_value("gameplay", "fov", GameplaySettingsManager.fov))
+	GameplaySettingsManager.set_crosshair_style(file.get_value("gameplay", "crosshair_style", GameplaySettingsManager.crosshair_style))
+	GameplaySettingsManager.set_crosshair_scale(file.get_value("gameplay", "crosshair_scale", GameplaySettingsManager.crosshair_scale))
+	GameplaySettingsManager.set_crosshair_color_r(file.get_value("gameplay", "crosshair_color_r", GameplaySettingsManager.crosshair_color_r))
+	GameplaySettingsManager.set_crosshair_color_g(file.get_value("gameplay", "crosshair_color_g", GameplaySettingsManager.crosshair_color_g))
+	GameplaySettingsManager.set_crosshair_color_b(file.get_value("gameplay", "crosshair_color_b", GameplaySettingsManager.crosshair_color_b))
+	GameplaySettingsManager.set_crosshair_color_a(file.get_value("gameplay", "crosshair_color_a", GameplaySettingsManager.crosshair_color_a))
+
 func save_audio_settings():
 	file.set_value("audio", "master_volume", AudioSettingsManager.volumes["Master"])
 	file.set_value("audio", "ui_volume", AudioSettingsManager.volumes["UI"])
@@ -61,6 +72,15 @@ func save_input_settings():
 	file.set_value("input", "mouse_vertical_sensitivity", InputSettingsManager.mouse_vertical_sensitivity)
 	file.set_value("input", "stick_horizontal_sensitivity", InputSettingsManager.stick_horizontal_sensitivity)
 	file.set_value("input", "stick_vertical_sensitivity", InputSettingsManager.stick_vertical_sensitivity)
+	
+func save_gameplay_settings():
+	file.set_value("gameplay", "fov", GameplaySettingsManager.fov)
+	file.set_value("gameplay", "crosshair_style", GameplaySettingsManager.crosshair_style)
+	file.set_value("gameplay", "crosshair_scale", GameplaySettingsManager.crosshair_scale)
+	file.set_value("gameplay", "crosshair_color_r", GameplaySettingsManager.crosshair_color_r)
+	file.set_value("gameplay", "crosshair_color_g", GameplaySettingsManager.crosshair_color_g)
+	file.set_value("gameplay", "crosshair_color_b", GameplaySettingsManager.crosshair_color_b)
+	file.set_value("gameplay", "crosshair_color_a", GameplaySettingsManager.crosshair_color_a)
 	
 func save_settings_file():
 	file.save(path)
