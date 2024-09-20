@@ -20,5 +20,5 @@ step = 0.2
 [node name="VSeparator2" parent="HBoxContainer" index="3"]
 visible = false
 
-[node name="AudioNumLabel" parent="HBoxContainer" index="4"]
+[node name="NumLabel" parent="HBoxContainer" index="4"]
 visible = false

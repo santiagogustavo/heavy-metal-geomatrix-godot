@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ssac5qbrc5v6"]
+
+[ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Common/Bullet.tscn" id="1_i3mwg"]
+
+[node name="Bullet" instance=ExtResource("1_i3mwg")]
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="GPUTrail3D" parent="." index="2"]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+
+[editable path="Mesh"]

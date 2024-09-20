@@ -2,7 +2,7 @@ extends TextureRect
 
 @export var sprites: Array[Texture2D]
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	modulate = Color(
 		GameplaySettingsManager.crosshair_color_r,
 		GameplaySettingsManager.crosshair_color_g,

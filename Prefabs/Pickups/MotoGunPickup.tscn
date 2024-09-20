@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pfpli85b385k" path="res://Models/Pickups/Moto Gun.glb" id="1_3xvka"]
 [ext_resource type="Script" path="res://Scripts/Pickups/PickupController.gd" id="1_r4njm"]
 [ext_resource type="PackedScene" uid="uid://c5uyv0j4ns2sj" path="res://Prefabs/Pickups/Base B.tscn" id="2_4r4kv"]
-[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun.tscn" id="2_gxj4p"]
+[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="2_gxj4p"]
 
 [sub_resource type="Animation" id="Animation_fnnnm"]
 resource_name = "Idle"

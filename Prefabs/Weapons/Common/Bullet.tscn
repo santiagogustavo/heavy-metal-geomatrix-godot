@@ -1,12 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://2dqf8eoucva7"]
+[gd_scene load_steps=15 format=3 uid="uid://2dqf8eoucva7"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
 [ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="2_vudbe"]
-[ext_resource type="PackedScene" uid="uid://dmq6da7dayio0" path="res://Prefabs/Weapons/BulletDecal.tscn" id="3_8h365"]
+[ext_resource type="PackedScene" uid="uid://dmq6da7dayio0" path="res://Prefabs/Weapons/Common/BulletDecal.tscn" id="3_8h365"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail.gdshader" id="4_0llqw"]
 [ext_resource type="PackedScene" uid="uid://06cs7q5vcdgy" path="res://Models/Weapons/Bullet.glb" id="4_7ms7h"]
-[ext_resource type="Texture2D" uid="uid://7pnioue54hb4" path="res://Textures/Particles/Rain/rain_camera_big.png" id="5_3n51u"]
-[ext_resource type="Shader" path="res://Materials/Trails/Bump Distort.gdshader" id="5_tjdrs"]
 [ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="10_rkhkj"]
@@ -15,43 +13,14 @@
 radius = 0.05
 height = 0.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb4df"]
-shader = ExtResource("4_0llqw")
-
-[sub_resource type="Gradient" id="Gradient_4xjgf"]
-colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5g3if"]
-gradient = SubResource("Gradient_4xjgf")
-
-[sub_resource type="Curve" id="Curve_7m7sq"]
-_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-metadata/_snap_enabled = true
-
-[sub_resource type="CurveTexture" id="CurveTexture_o0x3p"]
-curve = SubResource("Curve_7m7sq")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qefsi"]
-render_priority = 0
-shader = ExtResource("5_tjdrs")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 42
-shader_parameter/distortion_size = 0.2
-shader_parameter/color_ramp = SubResource("GradientTexture1D_5g3if")
-shader_parameter/curve = SubResource("CurveTexture_o0x3p")
-shader_parameter/normal_map = ExtResource("5_3n51u")
-
-[sub_resource type="QuadMesh" id="QuadMesh_yusx2"]
-material = SubResource("ShaderMaterial_qefsi")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8rppy"]
 shader = ExtResource("4_0llqw")
 
 [sub_resource type="Curve" id="Curve_hhuuh"]
-_data = [Vector2(0, 0.0452409), 0.0, -0.0452409, 0, 1, Vector2(1, 0), -0.0452409, 0.0, 1, 0]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
 point_count = 2
 metadata/_snap_count = 15
+metadata/_snap_enabled = true
 
 [sub_resource type="CurveTexture" id="CurveTexture_k2op2"]
 curve = SubResource("Curve_hhuuh")
@@ -92,23 +61,7 @@ transform = Transform3D(-1.5, 4.40457e-20, -1.31134e-07, -1.31134e-07, -6.55671e
 shape = SubResource("CapsuleShape3D_1hjxn")
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0656571)
-visible = false
-amount = 100
-lifetime = 100.0
-explosiveness = 1.0
-fixed_fps = 0
-visibility_aabb = AABB(-1.5904, -4, -4, 3.1808, 8, 8)
-process_material = SubResource("ShaderMaterial_pb4df")
-draw_pass_1 = SubResource("QuadMesh_yusx2")
-script = ExtResource("7_c46t5")
-color_ramp = SubResource("GradientTexture1D_5g3if")
-curve = SubResource("CurveTexture_o0x3p")
-use_red_as_alpha = true
-_defaults_have_been_set = true
-
-[node name="GPUTrail3D2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.066)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 amount = 10
 lifetime = 10.0
 explosiveness = 1.0

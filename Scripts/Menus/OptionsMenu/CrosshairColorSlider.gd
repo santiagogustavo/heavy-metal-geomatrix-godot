@@ -13,7 +13,7 @@ func update_num_label(value: float):
 func _ready():
 	slider.min_value = 0
 	slider.max_value = 1
-	slider.step = 1 / 255
+	slider.step = 1.0 / 255.0
 	slider.value_changed.connect(on_value_changed)
 	match color_channel:
 		"R":

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://di062cjwjx8x1"]
+
+[ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Common/Bullet.tscn" id="1_2ufxa"]
+
+[node name="Bullet" instance=ExtResource("1_2ufxa")]
+speed = 300.0
+
+[editable path="Mesh"]

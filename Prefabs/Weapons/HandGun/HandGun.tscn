@@ -1,16 +1,19 @@
 [gd_scene load_steps=34 format=3 uid="uid://d2eirpsbs2b4x"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_ebr1j"]
-[ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="1_n0lg1"]
-[ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Bullet.tscn" id="2_47qvm"]
-[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="3_tt5e3"]
-[ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="4_caes6"]
-[ext_resource type="Script" path="res://Scripts/Weapons/GunAnimationTree.gd" id="4_eujq3"]
-[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/EjectingBrass.tscn" id="5_bu5dd"]
-[ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="6_h6s7g"]
+[ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_mw4kj"]
+[ext_resource type="PackedScene" uid="uid://di062cjwjx8x1" path="res://Prefabs/Weapons/HandGun/Bullet.tscn" id="2_y54om"]
+[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_68f05"]
+[ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="4_7qq3n"]
+[ext_resource type="Script" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_dnrwh"]
+[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="6_q0g1c"]
+[ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="7_mi2mh"]
+[ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="8_hvdwy"]
 
 [sub_resource type="Animation" id="Animation_aauk2"]
 resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_yefmb"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_u2ae3"]
 resource_name = "Shoot"
@@ -108,9 +111,6 @@ tracks/9/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_yefmb"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_prc7n"]
 _data = {
 "Idle": SubResource("Animation_aauk2"),
@@ -182,7 +182,7 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_tt5e3")
+albedo_texture = ExtResource("6_q0g1c")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -228,7 +228,7 @@ blend_mode = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_h6s7g")
+albedo_texture = ExtResource("8_hvdwy")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -240,20 +240,18 @@ material = SubResource("StandardMaterial3D_y0fif")
 size = Vector2(0.5, 0.5)
 
 [node name="HandGun" type="Node3D"]
-script = ExtResource("1_ebr1j")
+script = ExtResource("1_mw4kj")
 bullets = 8
 fire_rate = 0.3
-bullet = ExtResource("2_47qvm")
-ejecting_brass = ExtResource("5_bu5dd")
+bullet = ExtResource("2_y54om")
+ejecting_brass = ExtResource("3_68f05")
 
-[node name="Hand Gun" parent="." instance=ExtResource("1_n0lg1")]
+[node name="Hand Gun" parent="." instance=ExtResource("4_7qq3n")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
 bones/0/rotation = Quaternion(-0.0553004, 1.19027e-07, -6.59232e-09, 0.99847)
-bones/1/position = Vector3(3.5544e-08, 0.288226, -0.149083)
-bones/1/rotation = Quaternion(-0.666921, -6.37343e-15, -1.59006e-07, 0.745128)
-bones/1/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(-0.666921, -4.76792e-15, -1.59007e-07, 0.745128)
 
 [node name="Bullet" parent="Hand Gun" index="1"]
 visible = false
@@ -271,7 +269,7 @@ anim_player = NodePath("../Hand Gun/AnimationPlayerCustom")
 parameters/conditions/is_shooting = false
 parameters/Shoot/TimeScale/scale = 1.0
 parameters/Shoot/TimeSeek/seek_request = -1.0
-script = ExtResource("4_eujq3")
+script = ExtResource("5_dnrwh")
 
 [node name="BulletHole" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192, -0.462)
@@ -293,7 +291,7 @@ light_color = Color(1, 0.666667, 0, 1)
 light_energy = 0.0
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
-stream = ExtResource("4_caes6")
+stream = ExtResource("7_mi2mh")
 volume_db = -20.0
 max_db = 0.0
 pitch_scale = 0.64
