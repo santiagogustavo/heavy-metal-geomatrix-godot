@@ -11,9 +11,11 @@ signal drop
 @export var burst_count: int
 @export var burst_rate: float
 @export var bullet: PackedScene
+@export var ejecting_brass: PackedScene
 
 @onready var animation_tree = $AnimationTree
 @onready var bullet_hole = $BulletHole
+@onready var eject_hole = $EjectHole
 
 var is_shooting = false
 var is_shooting_locked = false
@@ -75,5 +77,9 @@ func _shoot():
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = bullet_hole.global_position
 	bullet_instance.transform.basis = bullet_hole.global_transform.basis
+	var brass_instance = ejecting_brass.instantiate()
+	brass_instance.position = eject_hole.global_position
+	brass_instance.transform.basis = eject_hole.global_transform.basis
 	get_tree().root.add_child(bullet_instance)
+	get_tree().root.add_child(brass_instance)
 	TransformUtils.safe_look_at(bullet_instance, target_point)

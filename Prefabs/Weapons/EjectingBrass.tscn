@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=4 uid="uid://cl467cu0ksyhu"]
+
+[ext_resource type="Material" uid="uid://c54x6gqn0oxcu" path="res://Materials/Weapons/Common/54429747.tres" id="1_d6kfc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ob0m"]
+particle_flag_align_y = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wi2f0"]
+_surfaces = [{
+"aabb": AABB(-0.0352091, -0.040656, -0.050656, 0.0704183, 0.081312, 0.091312),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("CgACAAAACgABAAIAAQAEAAIAAQADAAQAAwAGAAQAAwAFAAYABQAHAAYABQALAAcABAAAAAIAAAAHAAkABwAEAAYAAAAEAAcACwAJAAcACwAIAAkACAAAAAkACAAKAAAAAwABAAoACgAIAAsACwAFAAMACgALAAMA"),
+"name": "54429747",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/3//////AAD///+/AAAAAP///7///wAA////PwAAAAD///8///8AAP9/AAAAAAAA/38AAP7/AAAAAP8///8AAAAA/78AAAAAAAD/v///AAD/f///AAAAAAAA/z8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lbd24"]
+resource_name = "Bullet_Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-0.0352091, -0.040656, -0.050656, 0.0704183, 0.081312, 0.091312),
+"attribute_data": PackedByteArray("1oPswiaEye9z+aOQc71br+C7L87ify/Oc/lbr3mgt755oLe+eaC3vuC7tuTif7bk2d63vtS/+u8Pxf3CPoRbr9aD+u8mhP3CPsRbr99/MM4+xKOQyMCW5HmgR4Hff5bk2d5HgXO9o5DUv+zCD8XJ73O9o5BzvaOQyMAwzj6Eo5A+hKOQPoSjkA=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("GgAFAAAAGgAEAAUABAALAAUABAAKAAsACgAQAAsACgANABAADgATABEADgAeABMADAACAAYAAgAUABgAFAAMABIAAgAMABQAHgAXABMAHgAVABcAFQABABcAFQAbAAEACQADAB0AGQAWAB8AIAAPAAcAHAAhAAgA"),
+"material": ExtResource("1_d6kfc"),
+"name": "54429747",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 34,
+"vertex_data": PackedByteArray("/3///////sf/f//////+x/9//////xCx////vwAATgv///+/AACiuf///7///5Cq////v///lb7///8/AACMEv///z8AAFQk////PwAABCT///8/AAA+yf///z///5Cq////P///erf/fwAAAABDz/9/AAAAAEPP/38AAAAAqhT/fwAA/v/+x/9/AAD+//7H/38AAP7/ELEAAP8////l7AAA/z///5W+AAD/vwAAa/wAAP+/AADsEgAA/7///+XsAAD/v///erf/f///AAD4Bv9///8AAHnF/3///wAAecX/f///AACFIP9///8AALkhAAD/PwAANO4AAP8/AACfFgAA/z8AAKoeAAD/PwAAfw8/4L8fP+C/HxjoiDfLQM5ZbNVrG1+57BKvNm8GqNaGxz/ZM7Ih0ROiR16PXRJtYDneGokuaGBZZ2hgWWfbyFSmQGBAYEBgQGDmF3bINVmadU/Jj/mMVwh+QinWP5r1yiYg5XXRQ0ZyWefqqBbn6qgWODJoXYsnH0wo9TcqnsB1ovYnD0JfKVU3")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wi2f0")
+
+[sub_resource type="Animation" id="Animation_tbpj8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Particle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vmkpf"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Particle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6anb"]
+_data = {
+"RESET": SubResource("Animation_tbpj8"),
+"default": SubResource("Animation_vmkpf")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vmnjm"]
+animation = &"default"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hwh3n"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hwhvj"]
+states/default/node = SubResource("AnimationNodeAnimation_vmnjm")
+states/default/position = Vector2(515.5, 105)
+transitions = ["Start", "default", SubResource("AnimationNodeStateMachineTransition_hwh3n")]
+
+[node name="EjectingBrass" type="Node3D"]
+
+[node name="Particle" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 1
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4ob0m")
+draw_pass_1 = SubResource("ArrayMesh_lbd24")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j6anb")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_hwhvj")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,53 +1,19 @@
-[gd_scene load_steps=26 format=4 uid="uid://2dqf8eoucva7"]
+[gd_scene load_steps=24 format=3 uid="uid://2dqf8eoucva7"]
 
-[ext_resource type="Material" uid="uid://c54x6gqn0oxcu" path="res://Materials/Weapons/Common/54429747.tres" id="1_qsoso"]
 [ext_resource type="Script" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
 [ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="2_vudbe"]
 [ext_resource type="PackedScene" uid="uid://dmq6da7dayio0" path="res://Prefabs/Weapons/BulletDecal.tscn" id="3_8h365"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail.gdshader" id="4_0llqw"]
+[ext_resource type="PackedScene" uid="uid://06cs7q5vcdgy" path="res://Models/Weapons/Bullet.glb" id="4_7ms7h"]
 [ext_resource type="Texture2D" uid="uid://7pnioue54hb4" path="res://Textures/Particles/Rain/rain_camera_big.png" id="5_3n51u"]
 [ext_resource type="Shader" path="res://Materials/Trails/Bump Distort.gdshader" id="5_tjdrs"]
 [ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
 [ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="10_rkhkj"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ccrdb"]
-_surfaces = [{
-"aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 34896613377,
-"index_count": 96,
-"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAFAAMAAgAEAAUABAAHAAUABAAGAAcABgAJAAcABgAIAAkABQABAAMAAQAJAAsACQAFAAcAAQAFAAkACAALAAkACAAKAAsACgABAAsACgAAAAEAAgAOAAQAAgANAA4AEQANAAwADQAPAA4ADwARABAADQARAA8ACAARAAoACAAQABEAAAANAAIAAAAMAA0ABAAPAAYABAAOAA8ACgAMAAAACgARAAwABgAQAAgABgAPABAA"),
-"lods": [0.0193061, PackedByteArray("AAADAAEAAAAOAAMADgAHAAMADgAGAAcADgAPAAYABgALAAcABgARAAsACwADAAcAAQADAAsAEQABAAsAEQAAAAEAEQAMAAAAEQAOAAwADgARAA8AAAAMAA4ABgAPABEA")],
-"name": "54429747",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 18,
-"vertex_data": PackedByteArray("/3/2//tNAAD/f/b///8AAP//+b/7TQAA///5v///AAD///0/+00AAP///T///wAA/38AAPtNAAD/fwAA//8AAAAA/T/7TQAAAAD9P///AAAAAPm/+00AAAAA+b///wAA/3/FzAAAAADMzGCmAAAAAMzMllkAAAAA/38xMwAAAAAzM5ZZAAAAADMzYKYAAAAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_qh0d3"]
-resource_name = "Hand Gun_Cylinder"
-_surfaces = [{
-"aabb": AABB(-0.0352091, -0.040656, -0.090656, 0.0704183, 0.081322, 0.131312),
-"attribute_data": PackedByteArray("beL25x3l5P+lw/bnzsPk////JM1m4PjtnsH47f//h91m4P35nsH9+VjyuOVt4v//HeX/56XD///Ow//nseSH3evi+e2cwfntseQkzevi6/mcwev5WPLzxOnvxey08x37qfl40LLuYPBb8hbMDet40LLulfcN6zzZ6e8w+7Tzx+xb8p/dY/Jc8GPyiPep+TzZbeL2523i9ucd5eT/pcP2587D5P/Ow+T///8kzZ7B+O2ewfjtnsH47f//h93//4fdbeL//x3l/+cd5f/npcP//6XD///Ow//nseSH3ZzB6/mcwev5nMHr+Vjy88RY8vPEtPMd+6n5eNAN63jQDet40LLulfey7pX3su6V9w3rPNnp7zD7Y/KI92PyiPdj8oj3qfk82an5PNk="),
-"format": 34896613399,
-"index_count": 96,
-"index_data": PackedByteArray("AAAGAAIAAAAFAAYABQAJAAYABQAIAAkACAANAAkACAALAA0ADAARAA4ADAAQABEACgAEAAcABAASABUAEgAKAA8ABAAKABIAEAAUABEAEAATABQAEwADABQAEwABAAMABQAcAAgABQAZABwAIwAaABgAGgAdABsAHQAjACAAGgAjAB0AEAAiABMAEAAhACIAAAAZAAUAAAAWABkACAAeAAsACAAcAB4AEwAXAAEAEwAiABcADAAhABAADAAfACEA"),
-"lods": [0.0193061, PackedByteArray("JAArACcAJQBAACwAQQAzAC0AQgAwADQAQgBEADAAMQA3ADUAMgBFADgAOgAuADYAKgAvADsARgAoADkARwAmACkARwA8ACYASAA+AD0APwBJAEMAAAAWABwADAAfACIA")],
-"material": ExtResource("1_qsoso"),
-"name": "54429747",
-"primitive": 3,
-"uv_scale": Vector4(1.94887, 1.87486, 0, 0),
-"vertex_count": 74,
-"vertex_data": PackedByteArray("/3/2//tNBOD/f/b/+00b1P9/9v////7H/3/2/////sf/f/b///8Qsf//+b/7TcLK///5v///kKr///m///+Vvv///T/7TcLK///9P///kKr///0///97t/9/AAD7TQTg/38AAPtNG9T/fwAA/v/+x/9/AAD+//7H/38AAP7/ELEAAP0/+02a7wAA/T///+bsAAD9P///lb4AAPm/+02a7wAA+b///+bsAAD5v///e7f/f8XMAABe9f9/xcwAALfk/3/FzAAAOfPMzGCmAADU5MzMYKYAAIXxzMyWWQAAouLMzJZZAADU5P9/MTMAADnz/38xMwAAXvX/fzEzAAC35DMzllkAAIXxMzOWWQAAGfUzM2CmAAAZ9TMzYKYAAKLi/3/2//tNUdb/f/b/+02iz/9/9v/7TQnh/3/2////x8r/f/b///9z1f9/9v///5Lb/3/2////vLD///m///9Nuf//+b///6q8///5v///Y7f///m///8JxP//+b///6jF/38AAPtNM97/fwAA+03F0f9/AAD7TXPh/38AAP7/Tcb/fwAA/v9V0v9/AAD+/2bV/38AAP7/u7AAAPm////D7QAA+b//////AAD5v///3OwAAPm///97twAA+b///3u3/3/FzAAA693/f8XMAABW8szMllkAAN3rzMyWWQAAgurMzJZZAADg3czMllkAAHbczMyWWQAAhOj/fzEzAADU8v9/MTMAAGLuMzNgpgAAWNMzM2CmAAC0yjMzYKYAAEzcMzNgpgAAvOszM2CmAABi61nOBCWq1xc2P+C/Hz/gvx8Y6Ig3MakiEl+57BKvNm8G3G0xKRJtXzneGoku+lpZTuhJqldAYEBgQGBAYOYXdsiIQL1yNVmadU/Jj/m88nY/mvXKJiDlddHTt5EcNd/TUrGhcsQcnL4NeEHMJVNLaDJAchwcTV6MO21j1DcsLTVfhr4y2iIqLnQu9N1Vq7SWzUfCNSK6q9wZddaNNA7WsBoa7HorB+neLU/jjjBlzx0nCrq7GNFV2x/+LcsAwuEFF0RiCjwJRdJX5kMWWGN+yjZOaMNKwVJJcj4yq/LKV1ER/EsxhjjonyIg+Y7yUftf0Fzm+l7gm5naZrL/CjhRFiSxY60Ah3CfFpVumi1iZw4RtF0LLms8EJYh9axeLOm8UJOv19Ufpnb+")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ccrdb")
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1hjxn"]
 radius = 0.05
-height = 0.15
+height = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pb4df"]
 shader = ExtResource("4_0llqw")
@@ -108,18 +74,21 @@ collision_layer = 8
 collision_mask = 21
 gravity_scale = 0.0
 script = ExtResource("1_rn5p5")
-speed = 100.0
+speed = 150.0
 hit_particle = ExtResource("2_vudbe")
 hit_decal = ExtResource("3_8h365")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" parent="." instance=ExtResource("4_7ms7h")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-cast_shadow = 0
-mesh = SubResource("ArrayMesh_qh0d3")
-skeleton = NodePath("")
+
+[node name="Bullet" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0514191)
+
+[node name="BulletCasing" parent="Mesh" index="1"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.5, 4.40457e-20, -1.31134e-07, -1.31134e-07, -6.55671e-08, 1.5, -5.73205e-15, 1.5, 6.55671e-08, -3.97047e-23, 0, 0.0271087)
+transform = Transform3D(-1.5, 4.40457e-20, -1.31134e-07, -1.31134e-07, -6.55671e-08, 1.5, -5.73205e-15, 1.5, 6.55671e-08, -3.97047e-23, 0, 0.000448741)
 shape = SubResource("CapsuleShape3D_1hjxn")
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
@@ -140,14 +109,16 @@ _defaults_have_been_set = true
 
 [node name="GPUTrail3D2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.066)
-amount = 20
-lifetime = 20.0
+amount = 10
+lifetime = 10.0
 explosiveness = 1.0
 fixed_fps = 0
 process_material = SubResource("ShaderMaterial_8rppy")
 draw_pass_1 = SubResource("QuadMesh_2gd2c")
 script = ExtResource("7_c46t5")
-length = 20
+length = 10
 color_ramp = ExtResource("10_rkhkj")
 curve = SubResource("CurveTexture_k2op2")
 _defaults_have_been_set = true
+
+[editable path="Mesh"]

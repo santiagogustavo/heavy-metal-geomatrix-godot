@@ -1,9 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://ca42hevpjgitj"]
+[gd_scene load_steps=49 format=3 uid="uid://ca42hevpjgitj"]
 
 [ext_resource type="PackedScene" uid="uid://7xmuvkjde0ri" path="res://Models/Weapons/Moto Gun.glb" id="1_b0xym"]
 [ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_imp6h"]
 [ext_resource type="Script" path="res://Scripts/Weapons/GunAnimationTree.gd" id="2_fdte5"]
 [ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Bullet.tscn" id="2_yq5ka"]
+[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/EjectingBrass.tscn" id="3_r4mkb"]
 [ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="3_ws2xp"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="4_nd3bl"]
 [ext_resource type="AudioStream" uid="uid://dw6saiukdbbkh" path="res://Sound/Weapons/Moto Gun/Moto Gun Shoot.wav" id="5_p3ww2"]
@@ -412,6 +413,7 @@ fire_rate = 1.0
 burst_count = 4
 burst_rate = 0.1
 bullet = ExtResource("2_yq5ka")
+ejecting_brass = ExtResource("3_r4mkb")
 
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
@@ -506,6 +508,9 @@ randomness = 1.0
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_otdfm")
 draw_pass_1 = SubResource("QuadMesh_ryd2t")
+
+[node name="EjectHole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339788, -0.268159)
 
 [node name="IdleSfx" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367834, -0.521461)
