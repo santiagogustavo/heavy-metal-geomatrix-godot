@@ -9,27 +9,26 @@ extends Node3D
 @export var item: PackedScene
 
 @onready var area: Area3D = $Area3D
-@onready var meshes: Array = find_children("", "MeshInstance3D")
-@onready var animation_trees: Array = find_children("", "AnimationTree")
+@onready var meshes: Array[Node] = find_children("", "MeshInstance3D")
+@onready var animation_trees: Array[Node] = find_children("", "AnimationTree")
 
-var collider
-var is_collided = false
-var is_picking_up = false
-var color_lerp = 0
-const lerp_duration = 200
+var collider: Node3D
+var is_collided: bool = false
+var is_picking_up: bool = false
+var color_lerp: float = 0
+const lerp_duration: float = 200
 
-const color_start = Color.WHITE
-const color_end = Color.RED
+const color_start: Color = Color.WHITE
+const color_end: Color = Color.RED
 
-func _ready():
+func _ready() -> void:
 	for mesh: MeshInstance3D in meshes:
 		mesh.set_surface_override_material(0, mesh.mesh.surface_get_material(0).duplicate())
-
 	area.connect("body_entered", _on_area_3d_body_entered)
 	area.connect("body_exited", _on_area_3d_body_exited)
 	get_tree().create_timer(timeout, false).timeout.connect(_on_timeout)
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	detect_player_pickup()
 	for mesh: MeshInstance3D in meshes:
 		if is_collided and !is_picking_up:
@@ -38,12 +37,25 @@ func _process(_delta):
 		else:
 			mesh.get_surface_override_material(0).albedo_color = color_start
 
-func detect_player_pickup():
+func _on_area_3d_body_entered(body: Node3D):
+	if pickup_on_press:
+		collider = body
+		is_collided = true
+		collider.is_pickup_collided = true
+	else:
+		pickup_item()
+	
+func _on_area_3d_body_exited(_body: Node3D):
 	if collider:
-		if collider.is_picking_up:
-			_on_pickup()
+		is_collided = false
+		collider.is_pickup_collided = false
+		collider = null
 
-func _on_pickup():
+func detect_player_pickup():
+	if collider && collider.is_picking_up:
+		pickup_item()
+
+func pickup_item():
 	if collider:
 		collider.inventory_manager.pick_up_item(equip_type, item)
 		collider.is_pickup_collided = false
@@ -62,17 +74,3 @@ func _on_timeout():
 
 func lerp_collision_color():
 	color_lerp = pingpong(Time.get_ticks_msec(), lerp_duration) / lerp_duration
-
-func _on_area_3d_body_entered(body: Node3D):
-	collider = body
-	if pickup_on_press:
-		is_collided = true
-		collider.is_pickup_collided = true
-	else:
-		_on_pickup()
-	
-func _on_area_3d_body_exited(_body: Node3D):
-	is_collided = false
-	if collider:
-		collider.is_pickup_collided = false
-		collider = null

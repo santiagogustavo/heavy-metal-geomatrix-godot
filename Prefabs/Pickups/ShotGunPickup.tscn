@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://hasw7ncxhjoy"]
 
-[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="1_bwkl8"]
+[ext_resource type="PackedScene" uid="uid://cea3karygo70v" path="res://Prefabs/Pickups/Templates/PickupB.tscn" id="1_lqndy"]
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="2_da61n"]
 [ext_resource type="PackedScene" uid="uid://fchoy6howv6j" path="res://Models/Pickups/Shot Gun.glb" id="3_irsux"]
 
@@ -10,30 +10,33 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0bec"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f6fm1"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4x6dr"]
 states/Idle/node = SubResource("AnimationNodeAnimation_5vjb0")
 states/Idle/position = Vector2(445, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_y0bec")]
 graph_offset = Vector2(-23, -72)
 
-[node name="ShotGunPickup" instance=ExtResource("1_bwkl8")]
+[node name="ShotGunPickup" instance=ExtResource("1_lqndy")]
+equip_type = 1
 item = ExtResource("2_da61n")
 
 [node name="Shot Gun" parent="." index="0" instance=ExtResource("3_irsux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Shot Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.06191, 1.06191, 1)
+bones/0/scale = Vector3(1.22798, 1.22798, 1)
+
+[node name="object_0_001" parent="Shot Gun/Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="object_0_002" parent="Shot Gun" index="1"]
+cast_shadow = 0
+
+[node name="object_0_003" parent="Shot Gun" index="2"]
+cast_shadow = 0
 
 [node name="AnimationTree" type="AnimationTree" parent="Shot Gun" index="4"]
-tree_root = SubResource("AnimationNodeStateMachine_f6fm1")
+tree_root = SubResource("AnimationNodeStateMachine_4x6dr")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Moto Gun" parent="." index="1"]
-visible = false
-
-[node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/0/scale = Vector3(1, 1, 1)
-
 [editable path="Shot Gun"]
-[editable path="Moto Gun"]

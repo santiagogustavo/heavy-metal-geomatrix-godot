@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://qataf12e30v0"]
+[gd_scene load_steps=7 format=3 uid="uid://qataf12e30v0"]
 
-[ext_resource type="Script" path="res://Scripts/Pickups/PickupController.gd" id="1_365sy"]
+[ext_resource type="PackedScene" uid="uid://bn7p2nhkfaicw" path="res://Prefabs/Pickups/Templates/PickupG.tscn" id="1_6uvp0"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="2_4neja"]
 [ext_resource type="PackedScene" uid="uid://cdenl4dsil0cq" path="res://Models/Pickups/Jetpack.glb" id="3_eawb3"]
-[ext_resource type="PackedScene" uid="uid://cbgvy2t34sq10" path="res://Prefabs/Pickups/Base G.tscn" id="6_javxo"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5vjb0"]
 animation = &"Idle"
@@ -11,105 +10,21 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0bec"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8oyym"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5s6pq"]
 states/Idle/node = SubResource("AnimationNodeAnimation_5vjb0")
 states/Idle/position = Vector2(445, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_y0bec")]
 graph_offset = Vector2(-23, -72)
 
-[sub_resource type="Animation" id="Animation_eoggo"]
-resource_name = "Pickup"
-length = 0.5
-step = 0.05
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 0, 1, 0)
-
-[sub_resource type="Animation" id="Animation_a6jyh"]
-resource_name = "PopIn"
-length = 0.3
-step = 0.05
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 1, 1, 1)
-
-[sub_resource type="Animation" id="Animation_i4nkf"]
-resource_name = "PopOut"
-length = 0.5
-step = 0.05
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qng4"]
-_data = {
-"Pickup": SubResource("Animation_eoggo"),
-"PopIn": SubResource("Animation_a6jyh"),
-"PopOut": SubResource("Animation_i4nkf")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wiu8o"]
-animation = &"Pickup"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kv2d0"]
-animation = &"PopIn"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0g4hl"]
-animation = &"PopIn"
-play_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qo7cj"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bb8yn"]
-advance_mode = 2
-advance_condition = &"is_destroying"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6x3nw"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o62bs"]
-advance_mode = 2
-advance_condition = &"is_picking_up"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xharf"]
-states/Pickup/node = SubResource("AnimationNodeAnimation_wiu8o")
-states/Pickup/position = Vector2(437, -38)
-states/PopIn/node = SubResource("AnimationNodeAnimation_kv2d0")
-states/PopIn/position = Vector2(437, 100)
-states/PopOut/node = SubResource("AnimationNodeAnimation_0g4hl")
-states/PopOut/position = Vector2(669, 100)
-states/Start/position = Vector2(201, 100)
-transitions = ["Start", "PopIn", SubResource("AnimationNodeStateMachineTransition_qo7cj"), "PopIn", "PopOut", SubResource("AnimationNodeStateMachineTransition_bb8yn"), "PopOut", "End", SubResource("AnimationNodeStateMachineTransition_6x3nw"), "PopIn", "Pickup", SubResource("AnimationNodeStateMachineTransition_o62bs")]
-graph_offset = Vector2(-30, -64)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_mxjrs"]
-radius = 0.75
-
-[node name="JetpackPickup" type="Node3D"]
-process_mode = 1
-script = ExtResource("1_365sy")
+[node name="JetpackPickup" instance=ExtResource("1_6uvp0")]
 pickup_on_press = false
 item = ExtResource("2_4neja")
 
-[node name="Jetpack" parent="." instance=ExtResource("3_eawb3")]
+[node name="Jetpack" parent="." index="0" instance=ExtResource("3_eawb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Jetpack/Armature" index="0"]
-bones/0/scale = Vector3(1.15306, 1.15306, 1)
+bones/0/scale = Vector3(1.24227, 1.24227, 1)
 
 [node name="object_0_001" parent="Jetpack/Armature/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -120,28 +35,8 @@ cast_shadow = 0
 [node name="object_0_002" parent="Jetpack" index="2"]
 cast_shadow = 0
 
-[node name="AnimationTree" type="AnimationTree" parent="Jetpack"]
-tree_root = SubResource("AnimationNodeStateMachine_8oyym")
+[node name="AnimationTree" type="AnimationTree" parent="Jetpack" index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_5s6pq")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="Base G" parent="." instance=ExtResource("6_javxo")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_0qng4")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_xharf")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_destroying = false
-parameters/conditions/is_picking_up = false
-
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CylinderShape3D_mxjrs")
 
 [editable path="Jetpack"]

@@ -74,17 +74,17 @@ func _burst_fire() -> void:
 	gun_burst.emit()
 	get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
 
-func instantiate_bullet(position: Vector3, basis: Basis) -> Node3D:
+func instantiate_bullet(newPosition: Vector3, newBasis: Basis) -> Node3D:
 	var bullet_instance = bullet.instantiate()
-	bullet_instance.position = position
-	bullet_instance.transform.basis = basis
+	bullet_instance.position = newPosition
+	bullet_instance.transform.basis = newBasis
 	get_tree().root.add_child(bullet_instance)
 	return bullet_instance
 
-func instantiate_brass(position: Vector3, basis: Basis) -> Node3D:
+func instantiate_brass(newPosition: Vector3, newBasis: Basis) -> Node3D:
 	var brass_instance = ejecting_brass.instantiate()
-	brass_instance.position = position
-	brass_instance.transform.basis = basis
+	brass_instance.position = newPosition
+	brass_instance.transform.basis = newBasis
 	get_tree().root.add_child(brass_instance)
 	return brass_instance
 
@@ -95,10 +95,8 @@ func _shoot() -> void:
 	bullets -= bullets_per_shot
 	for bullet_hole in bullet_holes:
 		var bullet_instance: Node3D = instantiate_bullet(bullet_hole.global_position, bullet_hole.global_transform.basis)
-		var random_direction: Vector3 = Vector3(
-			randf_range(-spray_amount, spray_amount),
-			randf_range(-spray_amount, spray_amount),
-			randf_range(-spray_amount, spray_amount),
-		)
-		TransformUtils.safe_look_at(bullet_instance, target_point + random_direction)
+		TransformUtils.safe_look_at(bullet_instance, target_point)
+		bullet_instance.rotate_x(deg_to_rad(randf_range(-spray_amount, spray_amount)))
+		bullet_instance.rotate_y(deg_to_rad(randf_range(-spray_amount, spray_amount)))
+		bullet_instance.rotate_z(deg_to_rad(randf_range(-spray_amount, spray_amount)))
 	instantiate_brass(eject_hole.global_position, eject_hole.global_transform.basis)

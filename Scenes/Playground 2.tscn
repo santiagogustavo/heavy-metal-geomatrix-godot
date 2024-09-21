@@ -132,4 +132,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
 [node name="ShotGunPickup" parent="." instance=ExtResource("19_fo8u7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
 
+[node name="KillerSwordPickup" parent="." instance=ExtResource("15_4rl0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+
+[node name="RaySwordPickup" parent="." instance=ExtResource("15_1gwn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
 [editable path="Spawner"]
