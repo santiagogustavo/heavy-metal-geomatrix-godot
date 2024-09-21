@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://hasw7ncxhjoy"]
+
+[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="1_bwkl8"]
+[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="2_da61n"]
+[ext_resource type="PackedScene" uid="uid://fchoy6howv6j" path="res://Models/Pickups/Shot Gun.glb" id="3_irsux"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5vjb0"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0bec"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f6fm1"]
+states/Idle/node = SubResource("AnimationNodeAnimation_5vjb0")
+states/Idle/position = Vector2(445, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_y0bec")]
+graph_offset = Vector2(-23, -72)
+
+[node name="ShotGunPickup" instance=ExtResource("1_bwkl8")]
+item = ExtResource("2_da61n")
+
+[node name="Shot Gun" parent="." index="0" instance=ExtResource("3_irsux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Skeleton3D" parent="Shot Gun/Armature" index="0"]
+bones/0/scale = Vector3(1.06191, 1.06191, 1)
+
+[node name="AnimationTree" type="AnimationTree" parent="Shot Gun" index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_f6fm1")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Moto Gun" parent="." index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
+bones/0/scale = Vector3(1, 1, 1)
+
+[editable path="Shot Gun"]
+[editable path="Moto Gun"]

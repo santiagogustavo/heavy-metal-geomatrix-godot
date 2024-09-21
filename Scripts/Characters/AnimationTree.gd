@@ -1,33 +1,33 @@
 extends AnimationTree
 
-var upper_body_state_machine
-var last_combo_animation
+var upper_body_state_machine: AnimationNodeStateMachinePlayback
+var last_combo_animation: StringName
 
-var direction = Vector2.ZERO
-var look = Vector2.ZERO
+var direction: Vector2 = Vector2.ZERO
+var look: Vector2 = Vector2.ZERO
 
-var equip = Definitions.EquipType.Body
+var equip: Definitions.EquipType = Definitions.EquipType.Body
 
-var is_dashing = false
-var is_jumping = false
-var is_on_floor = true
-var is_aiming = false
-var is_shooting = false
-var is_bursting = false
-var is_attacking = false
-var is_attack_combo = false
-var is_picking_up = false
-var is_dropping = false
+var is_dashing: bool = false
+var is_jumping: bool = false
+var is_on_floor: bool = true
+var is_aiming: bool = false
+var is_shooting: bool = false
+var is_gun_shooting: bool = false
+var is_bursting: bool = false
+var is_attacking: bool = false
+var is_attack_combo: bool = false
+var is_picking_up: bool = false
+var is_dropping: bool = false
+var is_shooting_locked: bool = false
 
-var fire_rate = 1
+const lower_blend_tree_lerp: float = 15
+const upper_blend_tree_lerp: float = 20
 
-const lower_blend_tree_lerp = 15
-const upper_blend_tree_lerp = 20
-
-func _ready():
+func _ready() -> void:
 	upper_body_state_machine = get("parameters/Upper Body/playback")
 
-func _process(delta):
+func _process(delta: float) -> void:
 	update_lower_body(delta)
 	update_upper_body(delta)
 	update_combo_input()
@@ -35,42 +35,39 @@ func _process(delta):
 	update_fire_rate()
 	update_pickup()
 
-func update_pickup():
+func update_pickup() -> void:
 	if is_picking_up:
 		upper_body_state_machine.travel("Pickup")
 
-func update_fire_rate():
-	#var scale = fire_rate / get_animation("5 - Shoot - Weapon Single - Straight").length
-	#set("parameters/Upper Body/Shoot - Weapon Single/TimeScale/scale", scale)
-	if is_shooting:
-		upper_body_state_machine.travel("Shoot - Weapon Single")
+func update_fire_rate() -> void:
+	if is_gun_shooting:
 		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 	if is_bursting:
 		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 
-func update_combo_input():
+func update_combo_input() -> void:
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):
 		is_attack_combo = true
 
-func update_combo_animation():
-	var current_node = upper_body_state_machine.get_current_node()
+func update_combo_animation() -> void:
+	var current_node: StringName = upper_body_state_machine.get_current_node()
 	if (current_node != last_combo_animation):
 		is_attack_combo = false
 	
 	last_combo_animation = current_node
 
-func get_current_upper_body_animation():
+func get_current_upper_body_animation() -> StringName:
 	return upper_body_state_machine.get_current_node()
 
-func is_current_node_shooting():
-	var current_node = upper_body_state_machine.get_current_node()
+func is_current_node_shooting() -> bool:
+	var current_node: StringName = upper_body_state_machine.get_current_node()
 	return current_node in [
 		'Shoot - Weapon Single',
 		'Shoot - Weapon Double'
 	]
 
-func is_current_node_attacking():
-	var current_node = upper_body_state_machine.get_current_node()
+func is_current_node_attacking() -> bool:
+	var current_node: StringName = upper_body_state_machine.get_current_node()
 	return current_node in [
 		'Attack - Punch 1',
 		'Attack - Punch 2',
@@ -86,22 +83,22 @@ func is_current_node_attacking():
 		'Attack - Melee Heavy 4'
 	]
 
-func is_current_node_last_combo():
-	var current_node = upper_body_state_machine.get_current_node()
+func is_current_node_last_combo() -> bool:
+	var current_node: StringName = upper_body_state_machine.get_current_node()
 	return current_node in [
 		'Attack - Punch 4',
 		'Attack - Melee Light 4',
 		'Attack - Melee Heavy 4'
 	]
 
-func update_lower_body(delta):
+func update_lower_body(delta: float) -> void:
 	# CONDITIONS #
 	set("parameters/Lower Body/conditions/is_dashing", is_dashing)
 	set("parameters/Lower Body/conditions/is_jumping", is_jumping)
 	
 	# BLEND TREES #
-	var current_direction = get("parameters/Lower Body/Walk/Blend/blend_position")
-	var lerp_direction = current_direction.lerp(
+	var current_direction: Vector2 = get("parameters/Lower Body/Walk/Blend/blend_position")
+	var lerp_direction: Vector2 = current_direction.lerp(
 		Vector2(direction.x, -direction.y), lower_blend_tree_lerp * delta
 	)
 	set("parameters/Lower Body/Walk/Blend/blend_position", lerp_direction)
@@ -109,17 +106,17 @@ func update_lower_body(delta):
 	set("parameters/Lower Body/Dash Loop/Blend/blend_position", lerp_direction)
 	set("parameters/Lower Body/Dash Stop/Blend/blend_position", lerp_direction)
 
-func update_upper_body(delta):
+func update_upper_body(delta: float) -> void:
 	# CONDITIONS #
 	set("parameters/Upper Body/conditions/equip", equip)
 	set("parameters/Upper Body/conditions/is_aiming", is_aiming)
-	set("parameters/Upper Body/conditions/is_shooting", is_shooting)
+	set("parameters/Upper Body/conditions/is_shooting", is_gun_shooting)
 	set("parameters/Upper Body/conditions/is_attacking", is_attacking || is_attack_combo)
 	set("parameters/Upper Body/conditions/is_dropping", is_dropping)
 	
 	# BLEND TREES #
-	var current_look = get("parameters/Upper Body/Look - Empty/blend_position")
-	var lerp_look = current_look.lerp(
+	var current_look: Vector2 = get("parameters/Upper Body/Look - Empty/blend_position")
+	var lerp_look: Vector2 = current_look.lerp(
 		Vector2(look.x, -look.y), upper_blend_tree_lerp * delta
 	)
 	set("parameters/Upper Body/Look - Empty/blend_position", lerp_look)

@@ -1006,7 +1006,7 @@ snap = Vector2(1, 0.5)
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_8741r"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_myjvn"]
-graph_offset = Vector2(-508.2, -77.3)
+graph_offset = Vector2(-584.2, 19.7)
 nodes/Blend/node = SubResource("AnimationNodeBlendSpace2D_l2j84")
 nodes/Blend/position = Vector2(-380, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_sbskr")
@@ -1040,7 +1040,7 @@ advance_expression = "is_shooting"
 xfade_time = 0.1
 switch_mode = 2
 advance_mode = 2
-advance_expression = "is_aiming and !is_shooting"
+advance_expression = "is_aiming && !is_shooting && !is_shooting_locked"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rneoo"]
 advance_mode = 2
@@ -1050,7 +1050,7 @@ advance_expression = "is_shooting"
 xfade_time = 0.1
 switch_mode = 2
 advance_mode = 2
-advance_expression = "!is_aiming and !is_shooting"
+advance_expression = "!is_aiming && !is_shooting && !is_shooting_locked"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ee6oq"]
 xfade_time = 0.1
@@ -1431,10 +1431,10 @@ states/Pickup/position = Vector2(702, -19)
 "states/Shoot - Weapon Single/position" = Vector2(444, -427)
 states/Start/position = Vector2(1717, 100)
 transitions = ["Start", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_ci3dl"), "Start", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_xbu2p"), "Look - Weapon Single", "Aim - Weapon Single", SubResource("AnimationNodeStateMachineTransition_vfnjm"), "Aim - Weapon Single", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_167ny"), "Aim - Weapon Single", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_2qs3w"), "Shoot - Weapon Single", "Aim - Weapon Single", SubResource("AnimationNodeStateMachineTransition_vhjav"), "Look - Weapon Single", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_rneoo"), "Shoot - Weapon Single", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_cxnrg"), "Drop - Weapon Single", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_ee6oq"), "Aim - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_ygv4d"), "Look - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_sjntw"), "Shoot - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_1ifnj"), "Start", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_itx7r"), "Look - Weapon Double", "Aim - Weapon Double", SubResource("AnimationNodeStateMachineTransition_pa304"), "Aim - Weapon Double", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_y6oyi"), "Look - Weapon Double", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_y5x7m"), "Shoot - Weapon Double", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_88apo"), "Aim - Weapon Double", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_4u7i1"), "Shoot - Weapon Double", "Aim - Weapon Double", SubResource("AnimationNodeStateMachineTransition_7tgba"), "Aim - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_o7gw0"), "Shoot - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_nh4cj"), "Look - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_q4gor"), "Drop - Weapon Double", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_2khjs"), "Start", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_bdrbj"), "Look - Melee Light", "Attack - Melee Light 1", SubResource("AnimationNodeStateMachineTransition_eh00e"), "Attack - Melee Light 1", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_lf3kl"), "Attack - Melee Light 1", "Attack - Melee Light 2", SubResource("AnimationNodeStateMachineTransition_ddjc7"), "Attack - Melee Light 2", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_5h7ut"), "Attack - Melee Light 2", "Attack - Melee Light 3", SubResource("AnimationNodeStateMachineTransition_cba35"), "Attack - Melee Light 3", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_v80gd"), "Attack - Melee Light 3", "Attack - Melee Light 4", SubResource("AnimationNodeStateMachineTransition_klpvo"), "Attack - Melee Light 4", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_lno3n"), "Drop - Melee Light", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_u2hkq"), "Attack - Melee Light 1", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_k1agu"), "Attack - Melee Light 2", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_xp4g1"), "Attack - Melee Light 3", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_5h8ch"), "Attack - Melee Light 4", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_qex3x"), "Look - Melee Light", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_gopue"), "Start", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_f843a"), "Look - Melee Heavy", "Attack - Melee Heavy 1", SubResource("AnimationNodeStateMachineTransition_adybj"), "Attack - Melee Heavy 1", "Attack - Melee Heavy 2", SubResource("AnimationNodeStateMachineTransition_613w6"), "Attack - Melee Heavy 2", "Attack - Melee Heavy 3", SubResource("AnimationNodeStateMachineTransition_7fjad"), "Attack - Melee Heavy 3", "Attack - Melee Heavy 4", SubResource("AnimationNodeStateMachineTransition_u8o41"), "Attack - Melee Heavy 1", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_j1lei"), "Attack - Melee Heavy 2", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_vr2u5"), "Attack - Melee Heavy 3", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_vu055"), "Attack - Melee Heavy 4", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_8a4qj"), "Pickup", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_1f8k0"), "Pickup", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_hoskd"), "Pickup", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_2y8c7"), "Pickup", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_addn6"), "Pickup", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_tudk7"), "Attack - Melee Heavy 1", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_407xy"), "Attack - Melee Heavy 2", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_qnte2"), "Attack - Melee Heavy 3", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_xtsq7"), "Attack - Melee Heavy 4", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_hxu16"), "Look - Melee Heavy", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_kobxd"), "Drop - Melee Heavy", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_xsyyy"), "Look - Empty", "Attack - Punch 1", SubResource("AnimationNodeStateMachineTransition_7p814"), "Attack - Punch 1", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_310m2"), "Attack - Punch 2", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_2l4r1"), "Attack - Punch 3", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_k0wdx"), "Attack - Punch 4", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_jhr1l"), "Attack - Punch 1", "Attack - Punch 2", SubResource("AnimationNodeStateMachineTransition_5yoj1"), "Attack - Punch 2", "Attack - Punch 3", SubResource("AnimationNodeStateMachineTransition_p57s6"), "Attack - Punch 3", "Attack - Punch 4", SubResource("AnimationNodeStateMachineTransition_hy1px"), "Pickup", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_a5x70"), "Pickup", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_hpvun")]
-graph_offset = Vector2(350, -667)
+graph_offset = Vector2(-138, -595)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xj3b2"]
-graph_offset = Vector2(-605, 11)
+graph_offset = Vector2(-693.166, 46.1)
 nodes/Blend/node = SubResource("AnimationNodeBlend2_bsv2t")
 nodes/Blend/position = Vector2(80, 160)
 "nodes/Lower Body/node" = SubResource("AnimationNodeStateMachine_7op5x")
@@ -1906,69 +1906,49 @@ body_slot = NodePath("Armature/Skeleton3D/Body Slot")
 right_hand_slot = NodePath("Armature/Skeleton3D/Right Hand Slot")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0.787353, 1.4491, -0.692334)
 bones/0/rotation = Quaternion(0.49735, -0.502636, 0.502636, -0.49735)
-bones/1/position = Vector3(0.377811, 0.462767, 0.755394)
 bones/1/rotation = Quaternion(0.707107, 5.33851e-08, 5.33851e-08, 0.707107)
-bones/2/position = Vector3(0.24132, 0.114338, 0.15053)
-bones/2/rotation = Quaternion(0.877691, -0.0360352, 0.0668425, 0.473173)
-bones/3/position = Vector3(-0.0236415, 1.4761, 0.707735)
-bones/4/position = Vector3(2.20996e-16, 0.854462, -0.0745371)
-bones/4/rotation = Quaternion(0, -0.365154, 0, 0.930947)
-bones/5/rotation = Quaternion(0.151144, 0.159373, -0.0245526, 0.975271)
-bones/6/rotation = Quaternion(-0.121255, -0.168692, 0.0933068, 0.973722)
-bones/7/position = Vector3(0.0761895, 0.0237471, 0.0274088)
-bones/7/rotation = Quaternion(0.81258, 0.157545, -0.332778, 0.451832)
-bones/8/rotation = Quaternion(0.463488, -9.28509e-09, 4.41302e-07, 0.886103)
-bones/9/rotation = Quaternion(-0.555366, 0.181682, 0.16356, 0.794864)
-bones/10/position = Vector3(-0.0761895, 0.0237472, 0.0274088)
-bones/10/rotation = Quaternion(0.903321, -0.14363, 0.183262, 0.360272)
-bones/11/rotation = Quaternion(0.49203, 1.12201e-08, 2.67903e-07, 0.870578)
-bones/12/rotation = Quaternion(-0.685149, -0.175693, -0.169412, 0.686296)
+bones/2/rotation = Quaternion(0.880232, 1.6971e-07, 3.14796e-07, 0.474543)
+bones/5/rotation = Quaternion(0.15391, -1.17789e-07, -1.83475e-08, 0.988085)
+bones/7/rotation = Quaternion(0.989323, 3.89409e-08, -6.17329e-10, 0.14574)
+bones/8/rotation = Quaternion(0.00585445, 2.4873e-11, 5.62249e-09, 0.999983)
+bones/9/rotation = Quaternion(-0.486938, 2.08244e-07, -2.3219e-07, 0.873436)
+bones/10/rotation = Quaternion(0.989323, 4.19377e-09, -2.3649e-07, 0.14574)
+bones/11/rotation = Quaternion(0.00585445, 2.48721e-11, 2.83088e-09, 0.999983)
+bones/12/rotation = Quaternion(-0.486938, -2.08244e-07, 2.3219e-07, 0.873436)
 bones/13/rotation = Quaternion(-0.707107, -8.42937e-08, 8.42937e-08, 0.707107)
-bones/14/position = Vector3(0.000132272, 8.2316e-05, -0.00106313)
-bones/16/rotation = Quaternion(0.653116, 0.260394, -0.25642, 0.663237)
-bones/17/rotation = Quaternion(0.0162141, 0.0703316, -0.706514, 0.704009)
-bones/18/position = Vector3(-2.59419e-07, 0.0729111, 8.70015e-11)
-bones/18/rotation = Quaternion(0.0891216, 0.0658667, -0.393194, 0.912753)
-bones/19/rotation = Quaternion(0.510004, 2.73064e-06, 0.0767795, 0.856739)
-bones/20/rotation = Quaternion(0.15888, -0.188343, -0.0826816, 0.965634)
+bones/16/rotation = Quaternion(0.707107, -5.33851e-08, -2.21972e-07, 0.707107)
+bones/17/rotation = Quaternion(0.045178, 0.0451783, -0.705662, 0.705662)
+bones/18/rotation = Quaternion(-0.00913653, -0.000545311, -0.00529087, 0.999944)
+bones/20/position = Vector3(-3.55988e-07, 0.242325, 7.8775e-10)
+bones/20/rotation = Quaternion(-0.0102374, 0.000593583, 0.00236313, 0.999945)
 bones/21/rotation = Quaternion(-5.99714e-08, 1.78245e-08, 0.707107, 0.707107)
-bones/22/position = Vector3(0.236932, -0.269743, 0.255313)
-bones/22/rotation = Quaternion(0.221455, -0.635344, -0.730224, 0.118613)
-bones/23/position = Vector3(-0.0423809, 0.187138, 0.00484253)
-bones/23/rotation = Quaternion(0.102394, 0.0209151, 0.700375, 0.706083)
-bones/24/position = Vector3(-3.04563e-07, 0.0729111, -5.13459e-09)
-bones/24/rotation = Quaternion(-0.135753, -0.214697, 0.46009, 0.850761)
-bones/25/rotation = Quaternion(0.847394, -1.65519e-06, -0.127573, 0.515411)
-bones/26/position = Vector3(-8.55507e-08, 0.242325, -4.99377e-08)
-bones/26/rotation = Quaternion(0.0337608, 0.249884, 0.222016, 0.941874)
-bones/27/position = Vector3(-1.63091e-07, 0.0729111, 4.11842e-09)
-bones/28/position = Vector3(-0.119178, -0.202827, 0.124282)
-bones/28/rotation = Quaternion(0.269123, 0.63617, 0.713061, -0.120016)
-bones/31/position = Vector3(-0.122186, 1.14633, -0.677365)
+bones/23/rotation = Quaternion(0.0451782, -0.0451781, 0.705662, 0.705662)
+bones/24/rotation = Quaternion(-0.00913653, 0.000545334, 0.00529087, 0.999944)
+bones/25/position = Vector3(-1.60231e-07, 0.271611, 2.41778e-09)
+bones/25/rotation = Quaternion(0.0193658, -3.18381e-06, -0.00291547, 0.999808)
+bones/26/position = Vector3(3.57091e-07, 0.242325, 1.05656e-09)
+bones/26/rotation = Quaternion(-0.0102357, -0.000593603, -0.0023631, 0.999945)
 bones/31/rotation = Quaternion(-0.49735, -0.502636, 0.502636, 0.49735)
-bones/32/position = Vector3(-0.712804, 0.749806, 0.466946)
 bones/32/rotation = Quaternion(0.707107, -5.33851e-08, -5.33851e-08, 0.707107)
-bones/33/position = Vector3(-0.199665, 0.114338, -0.236088)
-bones/33/rotation = Quaternion(0.863059, -0.093279, 0.173023, 0.465285)
+bones/33/rotation = Quaternion(0.880232, -1.6971e-07, -3.14796e-07, 0.474543)
 
 [node name="BoobJiggle_L" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.929578, -0.240813, 0.279092, 0.366861, -0.678311, 0.636638, 0.0360006, 0.694193, 0.718888, -0.0270638, 1.28373, 0.0217681)
+transform = Transform3D(-0.657809, 0.29648, 0.692378, 0.368236, -0.675315, 0.639025, 0.65703, 0.675315, 0.335054, 0.0454969, 1.42576, 0.0145684)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("3_acref")
 properties = SubResource("Resource_oovx2")
 
 [node name="BoobJiggle_R" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(-0.0343157, -0.674021, -0.737915, -0.366861, -0.678311, 0.636638, -0.929643, 0.292559, -0.223995, -0.093792, 1.28373, -0.0400966)
+transform = Transform3D(-0.65781, -0.29648, -0.692377, -0.368236, -0.675314, 0.639025, -0.65703, 0.675315, 0.335054, -0.0454969, 1.42576, 0.0145684)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("3_acref")
 properties = SubResource("Resource_oovx2")
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.733325, 0.679878, -1.74838e-07, 2.38419e-07, 0, 1, 0.679878, -0.733325, -1.62095e-07, -0.038445, 1.13581, -0.0330699)
+transform = Transform3D(1, 0, -2.38419e-07, 2.38419e-07, 0, 1, 0, -1, 0, 2.39059e-16, 1.27663, -0.0179903)
 bone_name = "CoreIK"
 bone_idx = 13
 
@@ -1976,7 +1956,7 @@ bone_idx = 13
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
 
 [node name="Right Hand Slot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(-0.981107, -0.0298179, 0.191154, 0.193451, -0.163341, 0.967417, 0.00237691, 0.986119, 0.166024, -0.289731, 1.12336, -0.0761778)
+transform = Transform3D(-2.38757e-06, -1, -1.48863e-05, 1, -2.37585e-06, 4.84188e-05, -4.84192e-05, -1.48825e-05, 1, -0.628356, 1.44795, -0.035851)
 bone_name = "Hand.R"
 bone_idx = 26
 

@@ -131,7 +131,7 @@ cast_shadow = 0
 cast_shadow = 0
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.03192, 1.03192, 1)
+bones/0/scale = Vector3(1.16847, 1.16847, 1)
 
 [node name="object_0_001" parent="Moto Gun/Armature/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -142,9 +142,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Moto Gun"]
-libraries = {
-"": SubResource("AnimationLibrary_42xh6")
-}
 tree_root = SubResource("AnimationNodeStateMachine_f6fm1")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -156,9 +153,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_0qng4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_40l3q")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_destroying = false

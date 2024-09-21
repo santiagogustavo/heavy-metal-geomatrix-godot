@@ -1,26 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://l4jr5gshy6ea"]
+[gd_scene load_steps=21 format=3 uid="uid://l4jr5gshy6ea"]
 
 [ext_resource type="PackedScene" uid="uid://d02h15fmu8wiv" path="res://Models/Pickups/Hand Gun.glb" id="1_b72h3"]
 [ext_resource type="PackedScene" uid="uid://c5uyv0j4ns2sj" path="res://Prefabs/Pickups/Base B.tscn" id="1_o053l"]
 [ext_resource type="Script" path="res://Scripts/Pickups/PickupController.gd" id="1_sfxmg"]
 [ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="2_1brb4"]
-
-[sub_resource type="Animation" id="Animation_fnnnm"]
-resource_name = "Idle"
-length = 0.416667
-loop_mode = 1
-tracks/0/type = "scale_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Border")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.0333333, 1, 1, 1, 1, 0.0666667, 1, 1.01667, 1.01667, 1, 0.416667, 1, 1.25, 1.25, 1)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_42xh6"]
-_data = {
-"Idle": SubResource("Animation_fnnnm")
-}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5vjb0"]
 animation = &"Idle"
@@ -128,7 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 cast_shadow = 0
 
 [node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.13028, 1.13028, 1)
+bones/0/scale = Vector3(1.06303, 1.06303, 1)
 
 [node name="object_0_002" parent="Hand Gun/Armature/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -137,9 +120,6 @@ cast_shadow = 0
 cast_shadow = 0
 
 [node name="AnimationTree" type="AnimationTree" parent="Hand Gun"]
-libraries = {
-"": SubResource("AnimationLibrary_42xh6")
-}
 tree_root = SubResource("AnimationNodeStateMachine_1kkeo")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -151,9 +131,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_0qng4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_b7oho")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_destroying = false

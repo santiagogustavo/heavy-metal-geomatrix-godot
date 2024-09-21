@@ -198,14 +198,15 @@ func set_sound_variables():
 
 func set_animator_variables():
 	if inventory_manager.right_hand_instance != null and inventory_manager.right_hand_instance is GunController:
-		animation_tree.fire_rate = inventory_manager.right_hand_instance.fire_rate
+		animation_tree.is_shooting_locked = inventory_manager.right_hand_instance.is_shooting_locked
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.direction = input_direction
 	animation_tree.look = input_look
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
 	animation_tree.is_aiming = is_aiming
-	animation_tree.is_shooting = inventory_manager.is_gun_shooting
+	animation_tree.is_gun_shooting = inventory_manager.is_gun_shooting
+	animation_tree.is_shooting = is_shooting
 	animation_tree.is_bursting = inventory_manager.is_gun_bursting
 	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_attacking = is_attacking

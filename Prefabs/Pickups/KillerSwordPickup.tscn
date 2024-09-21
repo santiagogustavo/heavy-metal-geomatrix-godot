@@ -125,7 +125,7 @@ item = ExtResource("2_g4h3k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Killer Sword/Armature" index="0"]
-bones/0/scale = Vector3(1.24675, 1.24675, 1)
+bones/0/scale = Vector3(1.11066, 1.11066, 1)
 
 [node name="object_0" parent="Killer Sword/Armature/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -142,9 +142,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Killer Sword"]
-libraries = {
-"": SubResource("AnimationLibrary_3gxx5")
-}
 tree_root = SubResource("AnimationNodeStateMachine_gkjs3")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -156,9 +153,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_0qng4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_2rl5v")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_destroying = false
