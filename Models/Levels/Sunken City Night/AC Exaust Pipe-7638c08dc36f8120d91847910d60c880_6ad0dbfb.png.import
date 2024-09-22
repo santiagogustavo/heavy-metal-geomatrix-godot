@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uu7ydwdb1cpm"
 path.s3tc="res://.godot/imported/AC Exaust Pipe-7638c08dc36f8120d91847910d60c880_6ad0dbfb.png-e05871f28f3629199770c5cf1e659b10.s3tc.ctex"
+path.etc2="res://.godot/imported/AC Exaust Pipe-7638c08dc36f8120d91847910d60c880_6ad0dbfb.png-e05871f28f3629199770c5cf1e659b10.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Sunken City Night/AC Exaust Pipe-7638c08dc36f8120d91847910d60c880_6ad0dbfb.png"
-dest_files=["res://.godot/imported/AC Exaust Pipe-7638c08dc36f8120d91847910d60c880_6ad0dbfb.png-e05871f28f3629199770c5cf1e659b10.s3tc.ctex"]
+dest_files=["res://.godot/imported/AC Exaust Pipe-7638c08dc36f8120d91847910d60c880_6ad0dbfb.png-e05871f28f3629199770c5cf1e659b10.s3tc.ctex", "res://.godot/imported/AC Exaust Pipe-7638c08dc36f8120d91847910d60c880_6ad0dbfb.png-e05871f28f3629199770c5cf1e659b10.etc2.ctex"]
 
 [params]
 

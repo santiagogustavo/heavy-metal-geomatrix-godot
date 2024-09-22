@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://euj2cdrwk2gu"
 path.s3tc="res://.godot/imported/splash_1.png-9e75ac9b6a48c27fd80a875023d80251.s3tc.ctex"
+path.etc2="res://.godot/imported/splash_1.png-9e75ac9b6a48c27fd80a875023d80251.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Particles/Rain/splash_1.png"
-dest_files=["res://.godot/imported/splash_1.png-9e75ac9b6a48c27fd80a875023d80251.s3tc.ctex"]
+dest_files=["res://.godot/imported/splash_1.png-9e75ac9b6a48c27fd80a875023d80251.s3tc.ctex", "res://.godot/imported/splash_1.png-9e75ac9b6a48c27fd80a875023d80251.etc2.ctex"]
 
 [params]
 

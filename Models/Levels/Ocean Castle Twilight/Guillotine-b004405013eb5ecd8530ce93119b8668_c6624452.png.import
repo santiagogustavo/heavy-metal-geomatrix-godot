@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx5qjn64vt64e"
 path.s3tc="res://.godot/imported/Guillotine-b004405013eb5ecd8530ce93119b8668_c6624452.png-8ea64d2b72ed01373f40b63863b9224c.s3tc.ctex"
+path.etc2="res://.godot/imported/Guillotine-b004405013eb5ecd8530ce93119b8668_c6624452.png-8ea64d2b72ed01373f40b63863b9224c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Ocean Castle Twilight/Guillotine-b004405013eb5ecd8530ce93119b8668_c6624452.png"
-dest_files=["res://.godot/imported/Guillotine-b004405013eb5ecd8530ce93119b8668_c6624452.png-8ea64d2b72ed01373f40b63863b9224c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Guillotine-b004405013eb5ecd8530ce93119b8668_c6624452.png-8ea64d2b72ed01373f40b63863b9224c.s3tc.ctex", "res://.godot/imported/Guillotine-b004405013eb5ecd8530ce93119b8668_c6624452.png-8ea64d2b72ed01373f40b63863b9224c.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl7w017ow0lvh"
 path.s3tc="res://.godot/imported/Slash-aed273ce6e821c57efa6291e4af448f5_5eccf1e4.png-574b4b14cdd8a742178a13670f514e9d.s3tc.ctex"
+path.etc2="res://.godot/imported/Slash-aed273ce6e821c57efa6291e4af448f5_5eccf1e4.png-574b4b14cdd8a742178a13670f514e9d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Characters/Slash/Slash-aed273ce6e821c57efa6291e4af448f5_5eccf1e4.png"
-dest_files=["res://.godot/imported/Slash-aed273ce6e821c57efa6291e4af448f5_5eccf1e4.png-574b4b14cdd8a742178a13670f514e9d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Slash-aed273ce6e821c57efa6291e4af448f5_5eccf1e4.png-574b4b14cdd8a742178a13670f514e9d.s3tc.ctex", "res://.godot/imported/Slash-aed273ce6e821c57efa6291e4af448f5_5eccf1e4.png-574b4b14cdd8a742178a13670f514e9d.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlio4jly3h4sr"
 path.s3tc="res://.godot/imported/Generator-18f7fbdc2a92a151bec713bd37b85637_8bc01ff4.png-cd1688d46206f688bc1f1f20952e9c1f.s3tc.ctex"
+path.etc2="res://.godot/imported/Generator-18f7fbdc2a92a151bec713bd37b85637_8bc01ff4.png-cd1688d46206f688bc1f1f20952e9c1f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Sunken City Night/Generator-18f7fbdc2a92a151bec713bd37b85637_8bc01ff4.png"
-dest_files=["res://.godot/imported/Generator-18f7fbdc2a92a151bec713bd37b85637_8bc01ff4.png-cd1688d46206f688bc1f1f20952e9c1f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Generator-18f7fbdc2a92a151bec713bd37b85637_8bc01ff4.png-cd1688d46206f688bc1f1f20952e9c1f.s3tc.ctex", "res://.godot/imported/Generator-18f7fbdc2a92a151bec713bd37b85637_8bc01ff4.png-cd1688d46206f688bc1f1f20952e9c1f.etc2.ctex"]
 
 [params]
 

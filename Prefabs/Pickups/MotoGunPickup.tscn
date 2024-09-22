@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdcus70hgu8gh"]
+[gd_scene load_steps=9 format=3 uid="uid://cdcus70hgu8gh"]
 
 [ext_resource type="PackedScene" uid="uid://pfpli85b385k" path="res://Models/Pickups/Moto Gun.glb" id="1_3xvka"]
-[ext_resource type="Script" path="res://Scripts/Pickups/PickupController.gd" id="1_r4njm"]
-[ext_resource type="PackedScene" uid="uid://c5uyv0j4ns2sj" path="res://Prefabs/Pickups/Base B.tscn" id="2_4r4kv"]
-[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun.tscn" id="2_gxj4p"]
+[ext_resource type="PackedScene" uid="uid://cea3karygo70v" path="res://Prefabs/Pickups/Templates/PickupB.tscn" id="1_ual56"]
+[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="2_gxj4p"]
 
 [sub_resource type="Animation" id="Animation_fnnnm"]
 resource_name = "Idle"
@@ -28,100 +27,17 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0bec"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f6fm1"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kin1n"]
 states/Idle/node = SubResource("AnimationNodeAnimation_5vjb0")
 states/Idle/position = Vector2(445, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_y0bec")]
 graph_offset = Vector2(-23, -72)
 
-[sub_resource type="Animation" id="Animation_eoggo"]
-resource_name = "Pickup"
-length = 0.5
-step = 0.05
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 0, 1, 0)
-
-[sub_resource type="Animation" id="Animation_a6jyh"]
-resource_name = "PopIn"
-length = 0.3
-step = 0.05
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 1, 1, 1)
-
-[sub_resource type="Animation" id="Animation_i4nkf"]
-resource_name = "PopOut"
-length = 0.5
-step = 0.05
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qng4"]
-_data = {
-"Pickup": SubResource("Animation_eoggo"),
-"PopIn": SubResource("Animation_a6jyh"),
-"PopOut": SubResource("Animation_i4nkf")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wiu8o"]
-animation = &"Pickup"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kv2d0"]
-animation = &"PopIn"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0g4hl"]
-animation = &"PopIn"
-play_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qo7cj"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bb8yn"]
-advance_mode = 2
-advance_condition = &"is_destroying"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6x3nw"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o62bs"]
-advance_mode = 2
-advance_condition = &"is_picking_up"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_40l3q"]
-states/Pickup/node = SubResource("AnimationNodeAnimation_wiu8o")
-states/Pickup/position = Vector2(437, -38)
-states/PopIn/node = SubResource("AnimationNodeAnimation_kv2d0")
-states/PopIn/position = Vector2(437, 100)
-states/PopOut/node = SubResource("AnimationNodeAnimation_0g4hl")
-states/PopOut/position = Vector2(669, 100)
-states/Start/position = Vector2(201, 100)
-transitions = ["Start", "PopIn", SubResource("AnimationNodeStateMachineTransition_qo7cj"), "PopIn", "PopOut", SubResource("AnimationNodeStateMachineTransition_bb8yn"), "PopOut", "End", SubResource("AnimationNodeStateMachineTransition_6x3nw"), "PopIn", "Pickup", SubResource("AnimationNodeStateMachineTransition_o62bs")]
-graph_offset = Vector2(-30, -64)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_vymr6"]
-radius = 0.75
-
-[node name="MotoGunPickup" type="Node3D"]
-script = ExtResource("1_r4njm")
+[node name="MotoGunPickup" instance=ExtResource("1_ual56")]
 equip_type = 1
 item = ExtResource("2_gxj4p")
 
-[node name="Moto Gun" parent="." instance=ExtResource("1_3xvka")]
+[node name="Moto Gun" parent="." index="0" instance=ExtResource("1_3xvka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="object_0_003" parent="Moto Gun" index="0"]
@@ -130,45 +46,16 @@ cast_shadow = 0
 [node name="object_0" parent="Moto Gun" index="1"]
 cast_shadow = 0
 
-[node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.03192, 1.03192, 1)
-
 [node name="object_0_001" parent="Moto Gun/Armature/Skeleton3D" index="0"]
 cast_shadow = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Moto Gun"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Moto Gun" index="3"]
 libraries = {
 "": SubResource("AnimationLibrary_42xh6")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Moto Gun"]
-libraries = {
-"": SubResource("AnimationLibrary_42xh6")
-}
-tree_root = SubResource("AnimationNodeStateMachine_f6fm1")
+[node name="AnimationTree" type="AnimationTree" parent="Moto Gun" index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_kin1n")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="Base B" parent="." instance=ExtResource("2_4r4kv")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_0qng4")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_0qng4")
-}
-tree_root = SubResource("AnimationNodeStateMachine_40l3q")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_destroying = false
-parameters/conditions/is_picking_up = false
-
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CylinderShape3D_vymr6")
 
 [editable path="Moto Gun"]

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr8t7x6l23lgr"
 path.s3tc="res://.godot/imported/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png-158c62472d51bd4a1930c7a3533088f1.s3tc.ctex"
+path.etc2="res://.godot/imported/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png-158c62472d51bd4a1930c7a3533088f1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Pitch Dark Stadium/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png"
-dest_files=["res://.godot/imported/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png-158c62472d51bd4a1930c7a3533088f1.s3tc.ctex"]
+dest_files=["res://.godot/imported/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png-158c62472d51bd4a1930c7a3533088f1.s3tc.ctex", "res://.godot/imported/Signs-819fb5d669a1f97e482eb504f35bf79a_b52de668.png-158c62472d51bd4a1930c7a3533088f1.etc2.ctex"]
 
 [params]
 

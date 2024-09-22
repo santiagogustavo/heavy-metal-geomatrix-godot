@@ -1,0 +1,77 @@
+[gd_scene load_steps=15 format=3 uid="uid://2dqf8eoucva7"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
+[ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="2_vudbe"]
+[ext_resource type="PackedScene" uid="uid://dmq6da7dayio0" path="res://Prefabs/Weapons/Common/BulletDecal.tscn" id="3_8h365"]
+[ext_resource type="Shader" path="res://addons/gputrail/shaders/trail.gdshader" id="4_0llqw"]
+[ext_resource type="PackedScene" uid="uid://06cs7q5vcdgy" path="res://Models/Weapons/Bullet.glb" id="4_7ms7h"]
+[ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
+[ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="10_rkhkj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1hjxn"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rppy"]
+shader = ExtResource("4_0llqw")
+
+[sub_resource type="Curve" id="Curve_hhuuh"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_count = 15
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_k2op2"]
+curve = SubResource("Curve_hhuuh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bacuo"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_ma2x0")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+shader_parameter/tex = ExtResource("10_rkhkj")
+shader_parameter/color_ramp = ExtResource("10_rkhkj")
+shader_parameter/curve = SubResource("CurveTexture_k2op2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2gd2c"]
+material = SubResource("ShaderMaterial_bacuo")
+
+[node name="Bullet" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 21
+gravity_scale = 0.0
+script = ExtResource("1_rn5p5")
+speed = 150.0
+hit_particle = ExtResource("2_vudbe")
+hit_decal = ExtResource("3_8h365")
+
+[node name="Mesh" parent="." instance=ExtResource("4_7ms7h")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Bullet" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0514191)
+
+[node name="BulletCasing" parent="Mesh" index="1"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.5, 4.40457e-20, -1.31134e-07, -1.31134e-07, -6.55671e-08, 1.5, -5.73205e-15, 1.5, 6.55671e-08, -3.97047e-23, 0, 0.000448741)
+shape = SubResource("CapsuleShape3D_1hjxn")
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+amount = 10
+lifetime = 10.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_8rppy")
+draw_pass_1 = SubResource("QuadMesh_2gd2c")
+script = ExtResource("7_c46t5")
+length = 10
+color_ramp = ExtResource("10_rkhkj")
+curve = SubResource("CurveTexture_k2op2")
+_defaults_have_been_set = true
+
+[editable path="Mesh"]

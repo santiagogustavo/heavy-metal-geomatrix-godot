@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=17 format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
 [ext_resource type="PackedScene" uid="uid://vus2orvm6aam" path="res://Scenes/Menus/OptionsMenu/WindowModeButton.tscn" id="2_3fvw6"]
@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://it3yom2h6orw" path="res://Scenes/Menus/OptionsMenu/Controls/MouseVerticalSlider.tscn" id="8_ge777"]
 [ext_resource type="PackedScene" uid="uid://c4ra6c5mj8rk7" path="res://Scenes/Menus/OptionsMenu/Controls/StickHorizontalSensitivity.tscn" id="9_8hf25"]
 [ext_resource type="PackedScene" uid="uid://brw3vc6j0hkoj" path="res://Scenes/Menus/OptionsMenu/Controls/StickVerticalSensitivity.tscn" id="10_07rme"]
+[ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="11_7172o"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/FovSlider.gd" id="12_fjwlq"]
+[ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="13_cerdy"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairColorSlider.gd" id="13_rsdcg"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairStyleSlider.gd" id="14_he2h0"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairScaleSlider.gd" id="14_hv86s"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3
@@ -31,9 +37,11 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
+current_tab = 0
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
 layout_mode = 1
@@ -72,6 +80,7 @@ bus_name = "Effects"
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
 layout_mode = 1
@@ -101,6 +110,7 @@ layout_mode = 2
 [node name="Controls" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
 layout_mode = 1
@@ -157,6 +167,7 @@ layout_mode = 2
 [node name="Gameplay" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Gameplay"]
 layout_mode = 1
@@ -170,19 +181,114 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Gameplay/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Gameplay/MarginContainer/VBoxContainer"]
+[node name="FeelLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
-text = "Accessibility1"
+label_text = "Look and Feel"
 
-[node name="Label2" type="Label" parent="TabContainer/Gameplay/MarginContainer/VBoxContainer"]
+[node name="FOV" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
-text = "Accessibility2"
+script = ExtResource("12_fjwlq")
 
-[node name="Label3" type="Label" parent="TabContainer/Gameplay/MarginContainer/VBoxContainer"]
+[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV/HBoxContainer" index="0"]
+text = "FOV"
+
+[node name="HSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV/HBoxContainer" index="2"]
+min_value = 50.0
+max_value = 70.0
+step = 1.0
+value = 60.0
+
+[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV/HBoxContainer" index="4"]
+text = "60
+"
+
+[node name="CrosshairLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
-text = "Accessibility3"
+label_text = "Crosshair"
+
+[node name="Preview" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+
+[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="0"]
+text = "Preview"
+
+[node name="Crosshair" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="2" instance=ExtResource("13_cerdy")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="3"]
+visible = false
+
+[node name="VSeparator2" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="4"]
+visible = false
+
+[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="5"]
+visible = false
+
+[node name="StyleSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+script = ExtResource("14_he2h0")
+
+[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="0"]
+text = "Style
+"
+
+[node name="HSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="2"]
+max_value = 7.0
+step = 1.0
+value = 2.0
+
+[node name="VSeparator2" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="3"]
+visible = false
+
+[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="4"]
+visible = false
+
+[node name="ScaleSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+script = ExtResource("14_hv86s")
+
+[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider/HBoxContainer" index="0"]
+text = "Size
+"
+
+[node name="VSeparator2" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider/HBoxContainer" index="3"]
+visible = false
+
+[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider/HBoxContainer" index="4"]
+visible = false
+
+[node name="RColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+script = ExtResource("13_rsdcg")
+color_channel = "R"
+
+[node name="GColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+script = ExtResource("13_rsdcg")
+color_channel = "G"
+
+[node name="BColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+script = ExtResource("13_rsdcg")
+color_channel = "B"
+
+[node name="AColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+script = ExtResource("13_rsdcg")
+color_channel = "A"
+
+[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV"]
+[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview"]
+[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider"]
+[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider"]

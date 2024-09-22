@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb1b67iwsu4aa"
 path.s3tc="res://.godot/imported/Tunnel-148dc558177eddb09110c51ed66eae5c_988eb3fe.png-3e3ef799fb7d94f2b2853dd941d45f30.s3tc.ctex"
+path.etc2="res://.godot/imported/Tunnel-148dc558177eddb09110c51ed66eae5c_988eb3fe.png-3e3ef799fb7d94f2b2853dd941d45f30.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/Tunnel-148dc558177eddb09110c51ed66eae5c_988eb3fe.png"
-dest_files=["res://.godot/imported/Tunnel-148dc558177eddb09110c51ed66eae5c_988eb3fe.png-3e3ef799fb7d94f2b2853dd941d45f30.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tunnel-148dc558177eddb09110c51ed66eae5c_988eb3fe.png-3e3ef799fb7d94f2b2853dd941d45f30.s3tc.ctex", "res://.godot/imported/Tunnel-148dc558177eddb09110c51ed66eae5c_988eb3fe.png-3e3ef799fb7d94f2b2853dd941d45f30.etc2.ctex"]
 
 [params]
 

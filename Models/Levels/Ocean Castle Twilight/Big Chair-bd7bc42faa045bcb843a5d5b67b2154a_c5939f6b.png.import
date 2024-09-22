@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d166ay6s4ngqt"
 path.s3tc="res://.godot/imported/Big Chair-bd7bc42faa045bcb843a5d5b67b2154a_c5939f6b.png-0d6f5ae82a0fbeb15689cc01d1e323ec.s3tc.ctex"
+path.etc2="res://.godot/imported/Big Chair-bd7bc42faa045bcb843a5d5b67b2154a_c5939f6b.png-0d6f5ae82a0fbeb15689cc01d1e323ec.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Ocean Castle Twilight/Big Chair-bd7bc42faa045bcb843a5d5b67b2154a_c5939f6b.png"
-dest_files=["res://.godot/imported/Big Chair-bd7bc42faa045bcb843a5d5b67b2154a_c5939f6b.png-0d6f5ae82a0fbeb15689cc01d1e323ec.s3tc.ctex"]
+dest_files=["res://.godot/imported/Big Chair-bd7bc42faa045bcb843a5d5b67b2154a_c5939f6b.png-0d6f5ae82a0fbeb15689cc01d1e323ec.s3tc.ctex", "res://.godot/imported/Big Chair-bd7bc42faa045bcb843a5d5b67b2154a_c5939f6b.png-0d6f5ae82a0fbeb15689cc01d1e323ec.etc2.ctex"]
 
 [params]
 

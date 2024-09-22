@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://10kr75vbkqqn"
 path.s3tc="res://.godot/imported/a69ee3bd.png-c3100606bd258f9b7e230ceeb7a6b286.s3tc.ctex"
+path.etc2="res://.godot/imported/a69ee3bd.png-c3100606bd258f9b7e230ceeb7a6b286.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Levels/Ocean Castle Twilight/a69ee3bd.png"
-dest_files=["res://.godot/imported/a69ee3bd.png-c3100606bd258f9b7e230ceeb7a6b286.s3tc.ctex"]
+dest_files=["res://.godot/imported/a69ee3bd.png-c3100606bd258f9b7e230ceeb7a6b286.s3tc.ctex", "res://.godot/imported/a69ee3bd.png-c3100606bd258f9b7e230ceeb7a6b286.etc2.ctex"]
 
 [params]
 

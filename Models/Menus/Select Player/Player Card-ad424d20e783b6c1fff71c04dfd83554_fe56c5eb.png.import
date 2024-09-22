@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0aduxvj3bk8e"
 path.s3tc="res://.godot/imported/Player Card-ad424d20e783b6c1fff71c04dfd83554_fe56c5eb.png-f14d79396b8eb8767ea4318780fff4e6.s3tc.ctex"
+path.etc2="res://.godot/imported/Player Card-ad424d20e783b6c1fff71c04dfd83554_fe56c5eb.png-f14d79396b8eb8767ea4318780fff4e6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/Player Card-ad424d20e783b6c1fff71c04dfd83554_fe56c5eb.png"
-dest_files=["res://.godot/imported/Player Card-ad424d20e783b6c1fff71c04dfd83554_fe56c5eb.png-f14d79396b8eb8767ea4318780fff4e6.s3tc.ctex"]
+dest_files=["res://.godot/imported/Player Card-ad424d20e783b6c1fff71c04dfd83554_fe56c5eb.png-f14d79396b8eb8767ea4318780fff4e6.s3tc.ctex", "res://.godot/imported/Player Card-ad424d20e783b6c1fff71c04dfd83554_fe56c5eb.png-f14d79396b8eb8767ea4318780fff4e6.etc2.ctex"]
 
 [params]
 

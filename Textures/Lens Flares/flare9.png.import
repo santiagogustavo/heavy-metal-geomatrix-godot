@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpkt74bkia1gw"
 path.s3tc="res://.godot/imported/flare9.png-241ff08e43e30c714c2026caeeb4820e.s3tc.ctex"
+path.etc2="res://.godot/imported/flare9.png-241ff08e43e30c714c2026caeeb4820e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Lens Flares/flare9.png"
-dest_files=["res://.godot/imported/flare9.png-241ff08e43e30c714c2026caeeb4820e.s3tc.ctex"]
+dest_files=["res://.godot/imported/flare9.png-241ff08e43e30c714c2026caeeb4820e.s3tc.ctex", "res://.godot/imported/flare9.png-241ff08e43e30c714c2026caeeb4820e.etc2.ctex"]
 
 [params]
 

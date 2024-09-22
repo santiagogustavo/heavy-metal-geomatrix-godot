@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0e1cukmqytv0"
 path.s3tc="res://.godot/imported/ripple_1.png-98e047fb5b62022f8ca9304e88a1644e.s3tc.ctex"
+path.etc2="res://.godot/imported/ripple_1.png-98e047fb5b62022f8ca9304e88a1644e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Particles/Rain/ripple_1.png"
-dest_files=["res://.godot/imported/ripple_1.png-98e047fb5b62022f8ca9304e88a1644e.s3tc.ctex"]
+dest_files=["res://.godot/imported/ripple_1.png-98e047fb5b62022f8ca9304e88a1644e.s3tc.ctex", "res://.godot/imported/ripple_1.png-98e047fb5b62022f8ca9304e88a1644e.etc2.ctex"]
 
 [params]
 

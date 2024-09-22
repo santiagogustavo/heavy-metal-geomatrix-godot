@@ -2,13 +2,13 @@
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Squish Y.gdshader" id="1_k0nky"]
-[ext_resource type="Texture2D" uid="uid://bjlnvsdi0mcl6" path="res://Textures/UI/crosshair.png" id="1_m8fje"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2efbf"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/HudViewport.gd" id="2_os422"]
 [ext_resource type="Texture2D" uid="uid://bcuru11gjis05" path="res://Textures/UI/Masks/player_avatar.png" id="4_4xvm0"]
 [ext_resource type="Texture2D" uid="uid://cavmhrqs2g8xs" path="res://Textures/UI/Masks/player_health.png" id="5_ddy4o"]
 [ext_resource type="Texture2D" uid="uid://cvjyfg08t0s6a" path="res://Textures/Characters/Mayfly/Cards/e7b43538.png" id="5_t312a"]
 [ext_resource type="Texture2D" uid="uid://dx4b8ctf1m11j" path="res://Textures/UI/b2fa8e8c_R1.png" id="6_71pp5"]
+[ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="7_nt7e2"]
 [ext_resource type="Texture2D" uid="uid://dkyffhb4exh4n" path="res://Textures/UI/HUD/health_bar.png" id="9_3hqni"]
 [ext_resource type="Texture2D" uid="uid://cd2yy3oq27wlw" path="res://Textures/UI/HUD/health_bar_mask.png" id="10_8lhpc"]
 [ext_resource type="Texture2D" uid="uid://ptp35yt7fh3d" path="res://Textures/UI/HUD/grid.png" id="11_2lcjo"]
@@ -210,23 +210,19 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Crosshair" type="TextureRect" parent="Control"]
-modulate = Color(1, 0, 0.941176, 1)
+[node name="Crosshair" parent="Control" instance=ExtResource("7_nt7e2")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.4, 0.4)
-pivot_offset = Vector2(24, 24)
-texture = ExtResource("1_m8fje")
 
 [node name="Player" type="Control" parent="Control"]
 layout_mode = 1

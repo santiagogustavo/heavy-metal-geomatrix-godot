@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh3c4ldaps3rm"
 path.s3tc="res://.godot/imported/Water Drain-2cfa765c7d0ae0af1a356ab5c3513614_6ad0dbfb.png-80e78ceb476548d32704d6d962604e32.s3tc.ctex"
+path.etc2="res://.godot/imported/Water Drain-2cfa765c7d0ae0af1a356ab5c3513614_6ad0dbfb.png-80e78ceb476548d32704d6d962604e32.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Sunken City Night/Water Drain-2cfa765c7d0ae0af1a356ab5c3513614_6ad0dbfb.png"
-dest_files=["res://.godot/imported/Water Drain-2cfa765c7d0ae0af1a356ab5c3513614_6ad0dbfb.png-80e78ceb476548d32704d6d962604e32.s3tc.ctex"]
+dest_files=["res://.godot/imported/Water Drain-2cfa765c7d0ae0af1a356ab5c3513614_6ad0dbfb.png-80e78ceb476548d32704d6d962604e32.s3tc.ctex", "res://.godot/imported/Water Drain-2cfa765c7d0ae0af1a356ab5c3513614_6ad0dbfb.png-80e78ceb476548d32704d6d962604e32.etc2.ctex"]
 
 [params]
 

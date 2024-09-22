@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjplevuu04yr1"
 path.s3tc="res://.godot/imported/BG-1f44cc4f41585cb82b96cc57366ea7cd_7dbfa667.png-2350cd71e8361af4ee5685d4968587e7.s3tc.ctex"
+path.etc2="res://.godot/imported/BG-1f44cc4f41585cb82b96cc57366ea7cd_7dbfa667.png-2350cd71e8361af4ee5685d4968587e7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Stage/BG-1f44cc4f41585cb82b96cc57366ea7cd_7dbfa667.png"
-dest_files=["res://.godot/imported/BG-1f44cc4f41585cb82b96cc57366ea7cd_7dbfa667.png-2350cd71e8361af4ee5685d4968587e7.s3tc.ctex"]
+dest_files=["res://.godot/imported/BG-1f44cc4f41585cb82b96cc57366ea7cd_7dbfa667.png-2350cd71e8361af4ee5685d4968587e7.s3tc.ctex", "res://.godot/imported/BG-1f44cc4f41585cb82b96cc57366ea7cd_7dbfa667.png-2350cd71e8361af4ee5685d4968587e7.etc2.ctex"]
 
 [params]
 

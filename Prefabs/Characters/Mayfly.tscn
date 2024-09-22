@@ -1,142 +1,29 @@
-[gd_scene load_steps=431 format=3 uid="uid://up8ndl5jvgkt"]
+[gd_scene load_steps=326 format=3 uid="uid://up8ndl5jvgkt"]
 
 [ext_resource type="PackedScene" uid="uid://bu2ontvhx7wrb" path="res://Models/Characters/Mayfly/Mayfly.glb" id="1_cyxfh"]
 [ext_resource type="Script" path="res://Scripts/Characters/AnimationTree.gd" id="2_5ab2o"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterController.gd" id="2_dvgvp"]
-[ext_resource type="Animation" uid="uid://dw4ugov2jpixh" path="res://Animations/Characters/Mayfly/0 - T-Pose.res" id="3_12h1q"]
 [ext_resource type="Script" path="res://addons/wigglebone/wiggle_bone.gd" id="3_acref"]
 [ext_resource type="AudioStream" uid="uid://bhhxa2te238dq" path="res://Sound/Characters/Common/Walk 1.wav" id="3_o6qel"]
 [ext_resource type="AudioStream" uid="uid://dl1hfingloqq2" path="res://Sound/Characters/Common/Walk 2.wav" id="4_8hxiw"]
-[ext_resource type="Animation" uid="uid://co56qy2vvdy7l" path="res://Animations/Characters/Mayfly/1 - Idle.res" id="4_n5tnc"]
 [ext_resource type="Script" path="res://addons/wigglebone/wiggle_properties.gd" id="4_vu0fd"]
 [ext_resource type="AudioStream" uid="uid://yk2ao02e632c" path="res://Sound/Characters/Common/Jump.wav" id="5_hbrif"]
-[ext_resource type="Animation" uid="uid://b7u5ncr74x0ie" path="res://Animations/Characters/Mayfly/1 - Idle - Melee Heavy.res" id="5_y466x"]
 [ext_resource type="AudioStream" uid="uid://c5jqnb048ungr" path="res://Sound/Characters/Common/Land.wav" id="6_bdbpa"]
-[ext_resource type="Animation" uid="uid://c46c05nnbrvf0" path="res://Animations/Characters/Mayfly/1 - Idle - Melee Light.res" id="6_mrgre"]
 [ext_resource type="AudioStream" uid="uid://bs6lyls8o0t8c" path="res://Sound/Characters/Common/Dash.wav" id="7_6kti6"]
-[ext_resource type="Animation" uid="uid://bij4j0uv3rb5b" path="res://Animations/Characters/Mayfly/1 - Idle - Weapon Double.res" id="7_xl6a1"]
-[ext_resource type="Animation" uid="uid://dd6jyfd1tg6qm" path="res://Animations/Characters/Mayfly/1 - Idle - Weapon Single.res" id="8_rq8x5"]
 [ext_resource type="AudioStream" uid="uid://beetiidqh3b8r" path="res://Sound/Characters/Common/Dash Loop.wav" id="8_uq8df"]
 [ext_resource type="AudioStream" uid="uid://dunkyet5380ap" path="res://Sound/Characters/Mayfly/Pickup/Pickup 1.wav" id="9_d8rh6"]
-[ext_resource type="Animation" uid="uid://crwv87bshofer" path="res://Animations/Characters/Mayfly/1 - Look - Empty - Down 45.res" id="9_hw0b2"]
 [ext_resource type="AudioStream" uid="uid://bja1heleqytcy" path="res://Sound/Characters/Mayfly/Attacks/Attack 1.wav" id="10_1cgh3"]
-[ext_resource type="Animation" uid="uid://bw8ff4u2pghda" path="res://Animations/Characters/Mayfly/1 - Look - Empty - Down 90.res" id="10_d55we"]
 [ext_resource type="AudioStream" uid="uid://cd5rtf68q1psx" path="res://Sound/Characters/Mayfly/Pickup/Pickup 2.wav" id="10_ywwvi"]
-[ext_resource type="Animation" uid="uid://bsbxpbrybd3aw" path="res://Animations/Characters/Mayfly/1 - Look - Empty - Left.res" id="11_c1k0p"]
 [ext_resource type="AudioStream" uid="uid://cabr1pk1akabc" path="res://Sound/Characters/Mayfly/Pickup/Pickup 3.wav" id="11_gdl6u"]
 [ext_resource type="AudioStream" uid="uid://bwgia2k52s1ol" path="res://Sound/Characters/Mayfly/Attacks/Attack 2.wav" id="11_y8gsp"]
 [ext_resource type="AudioStream" uid="uid://chuyhvdaw4eiv" path="res://Sound/Characters/Mayfly/Attacks/Attack 3.wav" id="12_5wpea"]
-[ext_resource type="Animation" uid="uid://k3js3n711ed8" path="res://Animations/Characters/Mayfly/1 - Look - Empty - Right.res" id="12_kkc1e"]
 [ext_resource type="AudioStream" uid="uid://d7lbvw0h2m3l" path="res://Sound/Characters/Mayfly/Specials/Special 3.wav" id="13_dbe02"]
-[ext_resource type="Animation" uid="uid://brk1l40vrfu7u" path="res://Animations/Characters/Mayfly/1 - Look - Empty - Straight.res" id="13_e7n0y"]
-[ext_resource type="Animation" uid="uid://di4fnmyj4eaps" path="res://Animations/Characters/Mayfly/1 - Look - Empty - Up 45.res" id="14_m47ta"]
-[ext_resource type="Animation" uid="uid://syhtce467h3f" path="res://Animations/Characters/Mayfly/1 - Look - Empty - Up 90.res" id="15_j6n6l"]
-[ext_resource type="Animation" uid="uid://hqh5w72atpca" path="res://Animations/Characters/Mayfly/1 - Look - Melee Heavy - Down 45.res" id="16_rcdp0"]
 [ext_resource type="AudioStream" uid="uid://b3hv8lahvhavx" path="res://Sound/Characters/Mayfly/Specials/Special 1.wav" id="16_v6mi0"]
-[ext_resource type="Animation" uid="uid://bys47k58ahiyr" path="res://Animations/Characters/Mayfly/1 - Look - Melee Heavy - Down 90.res" id="17_64d4t"]
 [ext_resource type="AudioStream" uid="uid://xvrtauyxmkuq" path="res://Sound/Characters/Mayfly/Specials/Special 2.wav" id="17_bvfes"]
-[ext_resource type="Animation" uid="uid://djghu2uotupa1" path="res://Animations/Characters/Mayfly/1 - Look - Melee Heavy - Left.res" id="18_shlkv"]
-[ext_resource type="Animation" uid="uid://imi3esawi87i" path="res://Animations/Characters/Mayfly/1 - Look - Melee Heavy - Right.res" id="19_pw8eh"]
-[ext_resource type="Animation" uid="uid://7pigls78pyw5" path="res://Animations/Characters/Mayfly/1 - Look - Melee Heavy - Straight.res" id="20_0k2km"]
-[ext_resource type="Animation" uid="uid://btpbds013bcar" path="res://Animations/Characters/Mayfly/1 - Look - Melee Heavy - Up 45.res" id="21_fefa7"]
-[ext_resource type="Animation" uid="uid://dgh8f1xomh3y3" path="res://Animations/Characters/Mayfly/1 - Look - Melee Heavy - Up 90.res" id="22_ccbkl"]
-[ext_resource type="Animation" uid="uid://d1kh2skbr51ie" path="res://Animations/Characters/Mayfly/1 - Look - Melee Light - Down 45.res" id="23_17qxh"]
-[ext_resource type="Animation" uid="uid://c42ptw0342sjl" path="res://Animations/Characters/Mayfly/1 - Look - Melee Light - Down 90.res" id="24_4r7sr"]
-[ext_resource type="Animation" uid="uid://ccw6qpwlvywej" path="res://Animations/Characters/Mayfly/1 - Look - Melee Light - Left.res" id="25_dqrs2"]
-[ext_resource type="Animation" uid="uid://3l6n2uqpjrv7" path="res://Animations/Characters/Mayfly/1 - Look - Melee Light - Right.res" id="26_4gesg"]
-[ext_resource type="Animation" uid="uid://cvde53pt5h7pt" path="res://Animations/Characters/Mayfly/1 - Look - Melee Light - Straight.res" id="27_2oh03"]
-[ext_resource type="Animation" uid="uid://bbdrtuu60bh5n" path="res://Animations/Characters/Mayfly/1 - Look - Melee Light - Up 45.res" id="28_evk0f"]
-[ext_resource type="Animation" uid="uid://onu0rccbd21j" path="res://Animations/Characters/Mayfly/1 - Look - Melee Light - Up 90.res" id="29_vrjaa"]
-[ext_resource type="Animation" uid="uid://cmc4hbfq7ksvf" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Double - Down 45.res" id="30_8yyph"]
-[ext_resource type="Animation" uid="uid://5rrw1e5s3tjw" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Double - Down 90.res" id="31_7du7o"]
-[ext_resource type="Animation" uid="uid://bp13a4p50n0ir" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Double - Left.res" id="32_6mchf"]
-[ext_resource type="Animation" uid="uid://bglr5euu0oicu" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Double - Right.res" id="33_qvb3h"]
-[ext_resource type="Animation" uid="uid://foabgdonltuw" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Double - Straight.res" id="34_6flbk"]
-[ext_resource type="Animation" uid="uid://ch1rkl4rc7lkt" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Double - Up 45.res" id="35_fbtyn"]
-[ext_resource type="Animation" uid="uid://cmhyctv1hyq8j" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Double - Up 90.res" id="36_2d46x"]
-[ext_resource type="Animation" uid="uid://6b0n2qstvnts" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Single - Down 45.res" id="37_pu64s"]
-[ext_resource type="Animation" uid="uid://dh14affwsgylx" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Single - Down 90.res" id="38_poit1"]
-[ext_resource type="Animation" uid="uid://c870ytsbwt2sl" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Single - Left.res" id="39_1g52v"]
-[ext_resource type="Animation" uid="uid://c3sx4808gdci5" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Single - Right.res" id="40_o2x8g"]
-[ext_resource type="Animation" uid="uid://4d7nv33gmpci" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Single - Straight.res" id="41_iqb1l"]
-[ext_resource type="Animation" uid="uid://dij5uhjwywq23" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Single - Up 45.res" id="42_dnp3i"]
-[ext_resource type="Animation" uid="uid://byd2p2idenskf" path="res://Animations/Characters/Mayfly/1 - Look - Weapon Single - Up 90.res" id="43_a0gu2"]
-[ext_resource type="Animation" uid="uid://cj6gu60gx28ny" path="res://Animations/Characters/Mayfly/1 - Turn Left.res" id="44_kruiq"]
-[ext_resource type="Animation" uid="uid://bitjvawnrrvw0" path="res://Animations/Characters/Mayfly/1 - Turn Right.res" id="45_ogjum"]
-[ext_resource type="Animation" uid="uid://b8osqfbtkan85" path="res://Animations/Characters/Mayfly/2 - Run Backward.res" id="46_0tavn"]
-[ext_resource type="Animation" uid="uid://djjg8jrj5w4ar" path="res://Animations/Characters/Mayfly/2 - Run Backward Left.res" id="47_88iv2"]
-[ext_resource type="Animation" uid="uid://tyo4bcl5t8on" path="res://Animations/Characters/Mayfly/2 - Run Backward Right.res" id="48_2c3b6"]
-[ext_resource type="Animation" uid="uid://vcvajirnnpm4" path="res://Animations/Characters/Mayfly/2 - Run Forward.res" id="49_n1w2h"]
-[ext_resource type="Animation" uid="uid://cpdnfbvx33omf" path="res://Animations/Characters/Mayfly/2 - Run Forward Left.res" id="50_2h8c6"]
-[ext_resource type="Animation" uid="uid://c86ski216e7m1" path="res://Animations/Characters/Mayfly/2 - Run Forward Right.res" id="51_1wki3"]
-[ext_resource type="Animation" uid="uid://crc6hyr26cx8d" path="res://Animations/Characters/Mayfly/2 - Run Forward2.res" id="52_j363r"]
-[ext_resource type="Animation" uid="uid://b71tu6cnvefw2" path="res://Animations/Characters/Mayfly/2 - Run Left.res" id="53_ofvog"]
-[ext_resource type="Animation" uid="uid://bbqoj1wy5yika" path="res://Animations/Characters/Mayfly/2 - Run Right.res" id="54_g5ye5"]
-[ext_resource type="Animation" uid="uid://brcvyjnfuv02j" path="res://Animations/Characters/Mayfly/3 - Dash Loop - Backward.res" id="55_hfo8c"]
-[ext_resource type="Animation" uid="uid://ctrhljmtvhb57" path="res://Animations/Characters/Mayfly/3 - Dash Loop - Forward.res" id="56_g0ha7"]
-[ext_resource type="Animation" uid="uid://77fuwtt27guk" path="res://Animations/Characters/Mayfly/3 - Dash Loop - Left.res" id="57_kbbhg"]
-[ext_resource type="Animation" uid="uid://b58h6mmsfv7ve" path="res://Animations/Characters/Mayfly/3 - Dash Loop - Right.res" id="58_uusf8"]
-[ext_resource type="Animation" uid="uid://chysg1k0dqe63" path="res://Animations/Characters/Mayfly/3 - Dash Start - Backward.res" id="59_mgwdo"]
-[ext_resource type="Animation" uid="uid://4l3b1bx5aqyi" path="res://Animations/Characters/Mayfly/3 - Dash Start - Forward.res" id="60_pep2g"]
-[ext_resource type="Animation" uid="uid://clcb7nsjp075w" path="res://Animations/Characters/Mayfly/3 - Dash Start - Left.res" id="61_pi4h5"]
-[ext_resource type="Animation" uid="uid://bhk1qidt6p24j" path="res://Animations/Characters/Mayfly/3 - Dash Start - Right.res" id="62_d0sdp"]
-[ext_resource type="Animation" uid="uid://d0ukvdty4yu6i" path="res://Animations/Characters/Mayfly/3 - Dash Stop - Backward.res" id="63_gprwr"]
-[ext_resource type="Animation" uid="uid://bexoa1at5w7ao" path="res://Animations/Characters/Mayfly/3 - Dash Stop - Forward.res" id="64_0bcfn"]
-[ext_resource type="Animation" uid="uid://b5f6qhj2skftf" path="res://Animations/Characters/Mayfly/3 - Dash Stop - Left.res" id="65_qll08"]
-[ext_resource type="Animation" uid="uid://ctljgv7xoabt3" path="res://Animations/Characters/Mayfly/3 - Dash Stop - Right.res" id="66_0korc"]
-[ext_resource type="Animation" uid="uid://b48bem7xafvpb" path="res://Animations/Characters/Mayfly/3 - Jump Fall.res" id="67_1yp30"]
-[ext_resource type="Animation" uid="uid://bw2c7gejkt5nq" path="res://Animations/Characters/Mayfly/3 - Jump Land.res" id="68_5u2yg"]
-[ext_resource type="Animation" uid="uid://cu5on448ri5gl" path="res://Animations/Characters/Mayfly/3 - Jump Start.res" id="69_kumrb"]
-[ext_resource type="Animation" uid="uid://d0563nf23m2xl" path="res://Animations/Characters/Mayfly/3 - Pickup.res" id="70_aoj80"]
-[ext_resource type="Animation" uid="uid://ga5v5x2gt8jq" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Double - Down 45.res" id="71_k86c8"]
-[ext_resource type="Animation" uid="uid://c67u8t51pd0rn" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Double - Down 90.res" id="72_d8lxo"]
-[ext_resource type="Animation" uid="uid://jkr8olik3m6o" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Double - Left.res" id="73_yqrsv"]
-[ext_resource type="Animation" uid="uid://cv3k3wjn1fto1" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Double - Right.res" id="74_2t4hh"]
-[ext_resource type="Animation" uid="uid://dpyykjjgm2e0t" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Double - Straight.res" id="75_6q133"]
-[ext_resource type="Animation" uid="uid://dqodsp0vboy7x" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Double - Up 45.res" id="76_5a4l0"]
-[ext_resource type="Animation" uid="uid://ce50atycp5nls" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Double - Up 90.res" id="77_fjsj5"]
-[ext_resource type="Animation" uid="uid://vfc8dhjikju1" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Single - Down 45.res" id="78_qrv55"]
-[ext_resource type="Animation" uid="uid://je6v0p7ekia6" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Single - Down 90.res" id="79_i7pow"]
-[ext_resource type="Animation" uid="uid://bh5g2omadd4vm" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Single - Left.res" id="80_iw5cm"]
-[ext_resource type="Animation" uid="uid://cesvpl7qkmh1u" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Single - Right.res" id="81_n6sxe"]
-[ext_resource type="Animation" uid="uid://l33qkixklgmo" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Single - Straight.res" id="82_lpgp3"]
-[ext_resource type="Animation" uid="uid://d07jsklx7k4p7" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Single - Up 45.res" id="83_vcsey"]
-[ext_resource type="Animation" uid="uid://nafnja6ssyxo" path="res://Animations/Characters/Mayfly/4 - Aim - Weapon Single - Up 90.res" id="84_vlfls"]
-[ext_resource type="Animation" uid="uid://b31v02ae53ke5" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Heavy 1.res" id="85_4eeka"]
-[ext_resource type="Animation" uid="uid://cjx0t6o4hwi3p" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Heavy 2.res" id="86_5su3l"]
-[ext_resource type="Animation" uid="uid://b3eukepn1a1pc" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Heavy 3.res" id="87_jwukd"]
-[ext_resource type="Animation" uid="uid://biclepdxxnyv0" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Heavy 4.res" id="88_e1yf1"]
-[ext_resource type="Animation" uid="uid://7thpx32w37v0" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Light 1.res" id="89_q86pe"]
-[ext_resource type="Animation" uid="uid://d24ylmsn1ydtu" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Light 2.res" id="90_u2s4r"]
-[ext_resource type="Animation" uid="uid://bn6oahvcv01fi" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Light 3.res" id="91_4w5hq"]
-[ext_resource type="Animation" uid="uid://1ffvd242s3ct" path="res://Animations/Characters/Mayfly/5 - Attack - Melee Light 4.res" id="92_eyqpy"]
-[ext_resource type="Animation" uid="uid://cd77ms38sfy2a" path="res://Animations/Characters/Mayfly/5 - Attack - Punch 1.res" id="93_u4wc5"]
-[ext_resource type="Animation" uid="uid://diwi43t2gwa85" path="res://Animations/Characters/Mayfly/5 - Attack - Punch 2.res" id="94_qbcjx"]
-[ext_resource type="Animation" uid="uid://bhwigajj1a7uv" path="res://Animations/Characters/Mayfly/5 - Attack - Punch 3.res" id="95_b52on"]
-[ext_resource type="Animation" uid="uid://o1wecsfogett" path="res://Animations/Characters/Mayfly/5 - Attack - Punch 4.res" id="96_vigmp"]
-[ext_resource type="Animation" uid="uid://b71sslfxq5bin" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Double - Down 45.res" id="97_ji5cu"]
-[ext_resource type="Animation" uid="uid://b2y52bpvmsgkl" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Double - Down 90.res" id="98_6so77"]
-[ext_resource type="Animation" uid="uid://ddhoydb4k6c8l" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Double - Left.res" id="99_nqf0l"]
-[ext_resource type="Animation" uid="uid://et0i3u2xf6w3" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Double - Right.res" id="100_gbe7d"]
-[ext_resource type="Animation" uid="uid://cceoyy7nceq5a" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Double - Straight.res" id="101_c3ofk"]
-[ext_resource type="Animation" uid="uid://dbc2rpc24o0nh" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Double - Up 45.res" id="102_i07mu"]
-[ext_resource type="Animation" uid="uid://hvoo7lwl7p5g" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Double - Up 90.res" id="103_xbiw5"]
-[ext_resource type="Animation" uid="uid://mri0g4y5enqh" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Single - Down 45.res" id="104_fm62f"]
-[ext_resource type="Animation" uid="uid://d1uj8jxv5871v" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Single - Down 90.res" id="105_bvbrs"]
-[ext_resource type="Animation" uid="uid://bcgfp60a5r2kx" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Single - Left.res" id="106_vmydp"]
-[ext_resource type="Animation" uid="uid://c88xciyk00so1" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Single - Right.res" id="107_uscpp"]
-[ext_resource type="Animation" uid="uid://bfe4x73kupg4i" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Single - Straight.res" id="108_duyjp"]
-[ext_resource type="Animation" uid="uid://hjyymwf4xqjd" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Single - Up 45.res" id="109_4xxwc"]
-[ext_resource type="Animation" uid="uid://2v377vxwjd10" path="res://Animations/Characters/Mayfly/5 - Shoot - Weapon Single - Up 90.res" id="110_ihvgs"]
-[ext_resource type="Animation" uid="uid://dvv1monjx5f4q" path="res://Animations/Characters/Mayfly/6 - Drop - Melee Heavy.res" id="111_gwl6b"]
-[ext_resource type="Animation" uid="uid://fpa8iuvnu7yb" path="res://Animations/Characters/Mayfly/6 - Drop - Melee Light.res" id="112_46knl"]
-[ext_resource type="Animation" uid="uid://15dvp8f2xbln" path="res://Animations/Characters/Mayfly/6 - Drop - Weapon Double.res" id="113_gljmb"]
-[ext_resource type="Animation" uid="uid://cwuwcvf2nercj" path="res://Animations/Characters/Mayfly/6 - Drop - Weapon Single.res" id="114_wvpue"]
-[ext_resource type="Animation" uid="uid://dybq2drpr2b8k" path="res://Animations/Characters/Mayfly/Entrance.res" id="115_hvwue"]
 [ext_resource type="Script" path="res://Scripts/Characters/SoundAnimationTree.gd" id="119_38k6h"]
 [ext_resource type="Script" path="res://Scripts/Characters/SoundAttackTree.gd" id="134_gtrkl"]
 
-[sub_resource type="Resource" id="Resource_oovx2"]
+[sub_resource type="Resource" id="Resource_3nc00"]
 script = ExtResource("4_vu0fd")
 mode = 0
 stiffness = 0.1
@@ -146,173 +33,48 @@ length = 1.0
 max_distance = 0.1
 max_degrees = 60.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_irgfe"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pmirb"]
 playback_mode = 1
 streams_count = 2
 stream_0/stream = ExtResource("3_o6qel")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("4_8hxiw")
-stream_1/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5uftp"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gvv5l"]
 streams_count = 3
 stream_0/stream = ExtResource("9_d8rh6")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("10_ywwvi")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("11_gdl6u")
-stream_2/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kcnjg"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8y20s"]
 streams_count = 3
 stream_0/stream = ExtResource("10_1cgh3")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("11_y8gsp")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("12_5wpea")
-stream_2/weight = 1.0
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8ji7"]
-_data = {
-"0 - T-Pose": ExtResource("3_12h1q"),
-"1 - Idle": ExtResource("4_n5tnc"),
-"1 - Idle - Melee Heavy": ExtResource("5_y466x"),
-"1 - Idle - Melee Light": ExtResource("6_mrgre"),
-"1 - Idle - Weapon Double": ExtResource("7_xl6a1"),
-"1 - Idle - Weapon Single": ExtResource("8_rq8x5"),
-"1 - Look - Empty - Down 45": ExtResource("9_hw0b2"),
-"1 - Look - Empty - Down 90": ExtResource("10_d55we"),
-"1 - Look - Empty - Left": ExtResource("11_c1k0p"),
-"1 - Look - Empty - Right": ExtResource("12_kkc1e"),
-"1 - Look - Empty - Straight": ExtResource("13_e7n0y"),
-"1 - Look - Empty - Up 45": ExtResource("14_m47ta"),
-"1 - Look - Empty - Up 90": ExtResource("15_j6n6l"),
-"1 - Look - Melee Heavy - Down 45": ExtResource("16_rcdp0"),
-"1 - Look - Melee Heavy - Down 90": ExtResource("17_64d4t"),
-"1 - Look - Melee Heavy - Left": ExtResource("18_shlkv"),
-"1 - Look - Melee Heavy - Right": ExtResource("19_pw8eh"),
-"1 - Look - Melee Heavy - Straight": ExtResource("20_0k2km"),
-"1 - Look - Melee Heavy - Up 45": ExtResource("21_fefa7"),
-"1 - Look - Melee Heavy - Up 90": ExtResource("22_ccbkl"),
-"1 - Look - Melee Light - Down 45": ExtResource("23_17qxh"),
-"1 - Look - Melee Light - Down 90": ExtResource("24_4r7sr"),
-"1 - Look - Melee Light - Left": ExtResource("25_dqrs2"),
-"1 - Look - Melee Light - Right": ExtResource("26_4gesg"),
-"1 - Look - Melee Light - Straight": ExtResource("27_2oh03"),
-"1 - Look - Melee Light - Up 45": ExtResource("28_evk0f"),
-"1 - Look - Melee Light - Up 90": ExtResource("29_vrjaa"),
-"1 - Look - Weapon Double - Down 45": ExtResource("30_8yyph"),
-"1 - Look - Weapon Double - Down 90": ExtResource("31_7du7o"),
-"1 - Look - Weapon Double - Left": ExtResource("32_6mchf"),
-"1 - Look - Weapon Double - Right": ExtResource("33_qvb3h"),
-"1 - Look - Weapon Double - Straight": ExtResource("34_6flbk"),
-"1 - Look - Weapon Double - Up 45": ExtResource("35_fbtyn"),
-"1 - Look - Weapon Double - Up 90": ExtResource("36_2d46x"),
-"1 - Look - Weapon Single - Down 45": ExtResource("37_pu64s"),
-"1 - Look - Weapon Single - Down 90": ExtResource("38_poit1"),
-"1 - Look - Weapon Single - Left": ExtResource("39_1g52v"),
-"1 - Look - Weapon Single - Right": ExtResource("40_o2x8g"),
-"1 - Look - Weapon Single - Straight": ExtResource("41_iqb1l"),
-"1 - Look - Weapon Single - Up 45": ExtResource("42_dnp3i"),
-"1 - Look - Weapon Single - Up 90": ExtResource("43_a0gu2"),
-"1 - Turn Left": ExtResource("44_kruiq"),
-"1 - Turn Right": ExtResource("45_ogjum"),
-"2 - Run Backward": ExtResource("46_0tavn"),
-"2 - Run Backward Left": ExtResource("47_88iv2"),
-"2 - Run Backward Right": ExtResource("48_2c3b6"),
-"2 - Run Forward": ExtResource("49_n1w2h"),
-"2 - Run Forward Left": ExtResource("50_2h8c6"),
-"2 - Run Forward Right": ExtResource("51_1wki3"),
-"2 - Run Forward2": ExtResource("52_j363r"),
-"2 - Run Left": ExtResource("53_ofvog"),
-"2 - Run Right": ExtResource("54_g5ye5"),
-"3 - Dash Loop - Backward": ExtResource("55_hfo8c"),
-"3 - Dash Loop - Forward": ExtResource("56_g0ha7"),
-"3 - Dash Loop - Left": ExtResource("57_kbbhg"),
-"3 - Dash Loop - Right": ExtResource("58_uusf8"),
-"3 - Dash Start - Backward": ExtResource("59_mgwdo"),
-"3 - Dash Start - Forward": ExtResource("60_pep2g"),
-"3 - Dash Start - Left": ExtResource("61_pi4h5"),
-"3 - Dash Start - Right": ExtResource("62_d0sdp"),
-"3 - Dash Stop - Backward": ExtResource("63_gprwr"),
-"3 - Dash Stop - Forward": ExtResource("64_0bcfn"),
-"3 - Dash Stop - Left": ExtResource("65_qll08"),
-"3 - Dash Stop - Right": ExtResource("66_0korc"),
-"3 - Jump Fall": ExtResource("67_1yp30"),
-"3 - Jump Land": ExtResource("68_5u2yg"),
-"3 - Jump Start": ExtResource("69_kumrb"),
-"3 - Pickup": ExtResource("70_aoj80"),
-"4 - Aim - Weapon Double - Down 45": ExtResource("71_k86c8"),
-"4 - Aim - Weapon Double - Down 90": ExtResource("72_d8lxo"),
-"4 - Aim - Weapon Double - Left": ExtResource("73_yqrsv"),
-"4 - Aim - Weapon Double - Right": ExtResource("74_2t4hh"),
-"4 - Aim - Weapon Double - Straight": ExtResource("75_6q133"),
-"4 - Aim - Weapon Double - Up 45": ExtResource("76_5a4l0"),
-"4 - Aim - Weapon Double - Up 90": ExtResource("77_fjsj5"),
-"4 - Aim - Weapon Single - Down 45": ExtResource("78_qrv55"),
-"4 - Aim - Weapon Single - Down 90": ExtResource("79_i7pow"),
-"4 - Aim - Weapon Single - Left": ExtResource("80_iw5cm"),
-"4 - Aim - Weapon Single - Right": ExtResource("81_n6sxe"),
-"4 - Aim - Weapon Single - Straight": ExtResource("82_lpgp3"),
-"4 - Aim - Weapon Single - Up 45": ExtResource("83_vcsey"),
-"4 - Aim - Weapon Single - Up 90": ExtResource("84_vlfls"),
-"5 - Attack - Melee Heavy 1": ExtResource("85_4eeka"),
-"5 - Attack - Melee Heavy 2": ExtResource("86_5su3l"),
-"5 - Attack - Melee Heavy 3": ExtResource("87_jwukd"),
-"5 - Attack - Melee Heavy 4": ExtResource("88_e1yf1"),
-"5 - Attack - Melee Light 1": ExtResource("89_q86pe"),
-"5 - Attack - Melee Light 2": ExtResource("90_u2s4r"),
-"5 - Attack - Melee Light 3": ExtResource("91_4w5hq"),
-"5 - Attack - Melee Light 4": ExtResource("92_eyqpy"),
-"5 - Attack - Punch 1": ExtResource("93_u4wc5"),
-"5 - Attack - Punch 2": ExtResource("94_qbcjx"),
-"5 - Attack - Punch 3": ExtResource("95_b52on"),
-"5 - Attack - Punch 4": ExtResource("96_vigmp"),
-"5 - Shoot - Weapon Double - Down 45": ExtResource("97_ji5cu"),
-"5 - Shoot - Weapon Double - Down 90": ExtResource("98_6so77"),
-"5 - Shoot - Weapon Double - Left": ExtResource("99_nqf0l"),
-"5 - Shoot - Weapon Double - Right": ExtResource("100_gbe7d"),
-"5 - Shoot - Weapon Double - Straight": ExtResource("101_c3ofk"),
-"5 - Shoot - Weapon Double - Up 45": ExtResource("102_i07mu"),
-"5 - Shoot - Weapon Double - Up 90": ExtResource("103_xbiw5"),
-"5 - Shoot - Weapon Single - Down 45": ExtResource("104_fm62f"),
-"5 - Shoot - Weapon Single - Down 90": ExtResource("105_bvbrs"),
-"5 - Shoot - Weapon Single - Left": ExtResource("106_vmydp"),
-"5 - Shoot - Weapon Single - Right": ExtResource("107_uscpp"),
-"5 - Shoot - Weapon Single - Straight": ExtResource("108_duyjp"),
-"5 - Shoot - Weapon Single - Up 45": ExtResource("109_4xxwc"),
-"5 - Shoot - Weapon Single - Up 90": ExtResource("110_ihvgs"),
-"6 - Drop - Melee Heavy": ExtResource("111_gwl6b"),
-"6 - Drop - Melee Light": ExtResource("112_46knl"),
-"6 - Drop - Weapon Double": ExtResource("113_gljmb"),
-"6 - Drop - Weapon Single": ExtResource("114_wvpue"),
-"Entrance": ExtResource("115_hvwue")
-}
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bsv2t"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:ElbowIK.L", "Armature/Skeleton3D:ElbowIK.R", "Armature/Skeleton3D:Foot.L", "Armature/Skeleton3D:Foot.R", "Armature/Skeleton3D:FootIK.L", "Armature/Skeleton3D:FootIK.R", "Armature/Skeleton3D:Hip.L", "Armature/Skeleton3D:Hip.R", "Armature/Skeleton3D:KneeIK.L", "Armature/Skeleton3D:KneeIK.R", "Armature/Skeleton3D:Shin.L", "Armature/Skeleton3D:Shin.R", "Armature/Skeleton3D:Spine0", "Armature/Skeleton3D:Spine1"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5u0dx"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pyux6"]
 animation = &"3 - Dash Loop - Forward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qjd3o"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jh66n"]
 animation = &"3 - Dash Loop - Backward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_87fny"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t25c5"]
 animation = &"3 - Dash Loop - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yo7cw"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qc0xa"]
 animation = &"3 - Dash Loop - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_vet6m"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_5u0dx")
+blend_point_0/node = SubResource("AnimationNodeAnimation_pyux6")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_qjd3o")
+blend_point_1/node = SubResource("AnimationNodeAnimation_jh66n")
 blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_87fny")
+blend_point_2/node = SubResource("AnimationNodeAnimation_t25c5")
 blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_yo7cw")
+blend_point_3/node = SubResource("AnimationNodeAnimation_qc0xa")
 blend_point_3/pos = Vector2(1, 0)
 snap = Vector2(1, 1)
 sync = true
@@ -327,26 +89,26 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_u805d")
 nodes/TimeScale/position = Vector2(107.69, 157.3)
 node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l1eyl"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wb78w"]
 animation = &"3 - Dash Start - Forward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6w2co"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_glngv"]
 animation = &"3 - Dash Start - Backward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l78fr"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8reti"]
 animation = &"3 - Dash Start - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6e3c"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fmfdk"]
 animation = &"3 - Dash Start - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_vfo47"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_l1eyl")
+blend_point_0/node = SubResource("AnimationNodeAnimation_wb78w")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_6w2co")
+blend_point_1/node = SubResource("AnimationNodeAnimation_glngv")
 blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_l78fr")
+blend_point_2/node = SubResource("AnimationNodeAnimation_8reti")
 blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_q6e3c")
+blend_point_3/node = SubResource("AnimationNodeAnimation_fmfdk")
 blend_point_3/pos = Vector2(1, 0)
 snap = Vector2(1, 1)
 sync = true
@@ -361,26 +123,26 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ifi24")
 nodes/TimeScale/position = Vector2(100, 140)
 node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ywl7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4q77g"]
 animation = &"3 - Dash Stop - Forward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h2tbe"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7r338"]
 animation = &"3 - Dash Stop - Backward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dxda7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6fax0"]
 animation = &"3 - Dash Stop - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o6utj"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jcv7m"]
 animation = &"3 - Dash Stop - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_qwilg"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_4ywl7")
+blend_point_0/node = SubResource("AnimationNodeAnimation_4q77g")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_h2tbe")
+blend_point_1/node = SubResource("AnimationNodeAnimation_7r338")
 blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_dxda7")
+blend_point_2/node = SubResource("AnimationNodeAnimation_6fax0")
 blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_o6utj")
+blend_point_3/node = SubResource("AnimationNodeAnimation_jcv7m")
 blend_point_3/pos = Vector2(1, 0)
 snap = Vector2(1, 1)
 sync = true
@@ -394,6 +156,19 @@ nodes/Blend/position = Vector2(-198.44, 159.72)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_van8m")
 nodes/TimeScale/position = Vector2(73.81, 169.4)
 node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlvda"]
+animation = &"3 - Jump Double"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_dtr6r"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qplun"]
+graph_offset = Vector2(-376.45, -3)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_dlvda")
+nodes/Animation/position = Vector2(-260, 130)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_dtr6r")
+nodes/TimeSeek/position = Vector2(60, 140)
+node_connections = [&"TimeSeek", 0, &"Animation", &"output", 0, &"TimeSeek"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vihmd"]
 animation = &"3 - Jump Fall"
@@ -434,51 +209,51 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_kry4l")
 nodes/TimeScale/position = Vector2(66.3636, 163.636)
 node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ev16i"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8y1if"]
 animation = &"2 - Run Forward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_206nx"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3cmwb"]
 animation = &"2 - Run Forward Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gh05u"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dbure"]
 animation = &"2 - Run Forward Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jojft"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xrslx"]
 animation = &"2 - Run Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mwyag"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eoabv"]
 animation = &"2 - Run Backward Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a6ytj"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hbdcs"]
 animation = &"2 - Run Backward"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs7w3"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4wd5i"]
 animation = &"2 - Run Backward Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ocbw0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rxriv"]
 animation = &"2 - Run Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t60d1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7egfn"]
 animation = &"1 - Idle"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7wpjo"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_ev16i")
+blend_point_0/node = SubResource("AnimationNodeAnimation_8y1if")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_206nx")
+blend_point_1/node = SubResource("AnimationNodeAnimation_3cmwb")
 blend_point_1/pos = Vector2(-1, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_gh05u")
+blend_point_2/node = SubResource("AnimationNodeAnimation_dbure")
 blend_point_2/pos = Vector2(1, 1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_jojft")
+blend_point_3/node = SubResource("AnimationNodeAnimation_xrslx")
 blend_point_3/pos = Vector2(1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_mwyag")
+blend_point_4/node = SubResource("AnimationNodeAnimation_eoabv")
 blend_point_4/pos = Vector2(1, -1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_a6ytj")
+blend_point_5/node = SubResource("AnimationNodeAnimation_hbdcs")
 blend_point_5/pos = Vector2(0, -1)
-blend_point_6/node = SubResource("AnimationNodeAnimation_bs7w3")
+blend_point_6/node = SubResource("AnimationNodeAnimation_4wd5i")
 blend_point_6/pos = Vector2(-1, -1)
-blend_point_7/node = SubResource("AnimationNodeAnimation_ocbw0")
+blend_point_7/node = SubResource("AnimationNodeAnimation_rxriv")
 blend_point_7/pos = Vector2(-1, 0)
-blend_point_8/node = SubResource("AnimationNodeAnimation_t60d1")
+blend_point_8/node = SubResource("AnimationNodeAnimation_7egfn")
 blend_point_8/pos = Vector2(0, 0)
 snap = Vector2(1, 1)
 sync = true
@@ -585,97 +360,116 @@ advance_expression = "!is_jumping and !is_on_floor"
 advance_mode = 2
 advance_expression = "is_jumping and is_dashing"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bxuv"]
+advance_mode = 2
+advance_expression = "is_double_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_apmyj"]
+advance_mode = 2
+advance_expression = "is_double_jumping && !is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kgbrc"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_52ovb"]
+advance_mode = 2
+advance_expression = "is_on_floor"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7op5x"]
 "states/Dash Loop/node" = SubResource("AnimationNodeBlendTree_cubfd")
-"states/Dash Loop/position" = Vector2(461, 265)
+"states/Dash Loop/position" = Vector2(502.625, 372)
 "states/Dash Start/node" = SubResource("AnimationNodeBlendTree_5x43h")
-"states/Dash Start/position" = Vector2(366, 182)
+"states/Dash Start/position" = Vector2(367.188, 266.75)
 "states/Dash Stop/node" = SubResource("AnimationNodeBlendTree_e6ont")
-"states/Dash Stop/position" = Vector2(563, 182)
+"states/Dash Stop/position" = Vector2(652.5, 264.75)
+"states/Double Jump/node" = SubResource("AnimationNodeBlendTree_qplun")
+"states/Double Jump/position" = Vector2(502.859, -409.5)
 states/Fall/node = SubResource("AnimationNodeBlendTree_yc0ro")
-states/Fall/position = Vector2(461, -66)
+states/Fall/position = Vector2(501.75, -228.5)
 states/Jump/node = SubResource("AnimationNodeBlendTree_cfcvy")
-states/Jump/position = Vector2(366, 15)
+states/Jump/position = Vector2(366.875, -102.5)
 states/Land/node = SubResource("AnimationNodeBlendTree_m2q8j")
-states/Land/position = Vector2(563, 15)
+states/Land/position = Vector2(652, -103.625)
 states/Walk/node = SubResource("AnimationNodeBlendTree_34ed1")
 states/Walk/position = Vector2(366, 100)
-transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_tqjij"), "Walk", "Dash Start", SubResource("AnimationNodeStateMachineTransition_n8fmi"), "Dash Start", "Dash Loop", SubResource("AnimationNodeStateMachineTransition_v5u1q"), "Dash Loop", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_wuuwg"), "Dash Start", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_736w8"), "Dash Stop", "Walk", SubResource("AnimationNodeStateMachineTransition_rfqys"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_pg6u1"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_n43x8"), "Land", "Walk", SubResource("AnimationNodeStateMachineTransition_ik7w8"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_rpode"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_y120s"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_dxhkg"), "Dash Loop", "Jump", SubResource("AnimationNodeStateMachineTransition_2g13o")]
-graph_offset = Vector2(-8, 65)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_tqjij"), "Walk", "Dash Start", SubResource("AnimationNodeStateMachineTransition_n8fmi"), "Dash Start", "Dash Loop", SubResource("AnimationNodeStateMachineTransition_v5u1q"), "Dash Loop", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_wuuwg"), "Dash Start", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_736w8"), "Dash Stop", "Walk", SubResource("AnimationNodeStateMachineTransition_rfqys"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_pg6u1"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_n43x8"), "Land", "Walk", SubResource("AnimationNodeStateMachineTransition_ik7w8"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_rpode"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_y120s"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_dxhkg"), "Dash Loop", "Jump", SubResource("AnimationNodeStateMachineTransition_2g13o"), "Jump", "Double Jump", SubResource("AnimationNodeStateMachineTransition_1bxuv"), "Fall", "Double Jump", SubResource("AnimationNodeStateMachineTransition_apmyj"), "Double Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_kgbrc"), "Double Jump", "Land", SubResource("AnimationNodeStateMachineTransition_52ovb")]
+graph_offset = Vector2(4, -449)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ij7gw"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ajkfq"]
 animation = &"4 - Aim - Weapon Double - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5yaxk"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t8u0v"]
 animation = &"4 - Aim - Weapon Single - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jpddb"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l1le6"]
 animation = &"4 - Aim - Weapon Double - Straight"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o7oey"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lc1ft"]
 animation = &"4 - Aim - Weapon Double - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y6m78"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qpw7b"]
 animation = &"4 - Aim - Weapon Double - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2mshh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kypp0"]
 animation = &"4 - Aim - Weapon Double - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t13k4"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_atlvl"]
 animation = &"4 - Aim - Weapon Double - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_jfxqy"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_ij7gw")
+blend_point_0/node = SubResource("AnimationNodeAnimation_ajkfq")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_5yaxk")
+blend_point_1/node = SubResource("AnimationNodeAnimation_t8u0v")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_jpddb")
+blend_point_2/node = SubResource("AnimationNodeAnimation_l1le6")
 blend_point_2/pos = Vector2(0, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_o7oey")
+blend_point_3/node = SubResource("AnimationNodeAnimation_lc1ft")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_y6m78")
+blend_point_4/node = SubResource("AnimationNodeAnimation_qpw7b")
 blend_point_4/pos = Vector2(0, -1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_2mshh")
+blend_point_5/node = SubResource("AnimationNodeAnimation_kypp0")
 blend_point_5/pos = Vector2(-1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_t13k4")
+blend_point_6/node = SubResource("AnimationNodeAnimation_atlvl")
 blend_point_6/pos = Vector2(1, 0)
 snap = Vector2(1, 0.5)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_50dta"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8k4d0"]
 animation = &"4 - Aim - Weapon Single - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fnqk3"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ldy5d"]
 animation = &"4 - Aim - Weapon Single - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ihmlp"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3xg4f"]
 animation = &"4 - Aim - Weapon Single - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1u2ul"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aeb6d"]
 animation = &"4 - Aim - Weapon Single - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_41mq7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fmu2r"]
 animation = &"4 - Aim - Weapon Single - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v62eo"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jki1g"]
 animation = &"4 - Aim - Weapon Single - Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i5k3e"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bk08o"]
 animation = &"4 - Aim - Weapon Single - Straight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_axrtu"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_50dta")
+blend_point_0/node = SubResource("AnimationNodeAnimation_8k4d0")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_fnqk3")
+blend_point_1/node = SubResource("AnimationNodeAnimation_ldy5d")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_ihmlp")
+blend_point_2/node = SubResource("AnimationNodeAnimation_3xg4f")
 blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_1u2ul")
+blend_point_3/node = SubResource("AnimationNodeAnimation_aeb6d")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_41mq7")
+blend_point_4/node = SubResource("AnimationNodeAnimation_fmu2r")
 blend_point_4/pos = Vector2(-1, 0)
-blend_point_5/node = SubResource("AnimationNodeAnimation_v62eo")
+blend_point_5/node = SubResource("AnimationNodeAnimation_jki1g")
 blend_point_5/pos = Vector2(1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_i5k3e")
+blend_point_6/node = SubResource("AnimationNodeAnimation_bk08o")
 blend_point_6/pos = Vector2(0, 0)
 snap = Vector2(1, 0.5)
 sync = true
@@ -728,194 +522,194 @@ animation = &"6 - Drop - Weapon Double"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hvtfh"]
 animation = &"6 - Drop - Weapon Single"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f14ol"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wp2fu"]
 animation = &"1 - Look - Empty - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u5rm7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b0kou"]
 animation = &"1 - Look - Empty - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wl4bi"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jktdx"]
 animation = &"1 - Look - Empty - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ecea"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_84qyl"]
 animation = &"1 - Look - Empty - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f6nd7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f7fbn"]
 animation = &"1 - Look - Empty - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4lkek"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jfeyx"]
 animation = &"1 - Look - Empty - Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph1sl"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_br10g"]
 animation = &"1 - Look - Empty - Straight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_4covu"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_f14ol")
+blend_point_0/node = SubResource("AnimationNodeAnimation_wp2fu")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_u5rm7")
+blend_point_1/node = SubResource("AnimationNodeAnimation_b0kou")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_wl4bi")
+blend_point_2/node = SubResource("AnimationNodeAnimation_jktdx")
 blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_2ecea")
+blend_point_3/node = SubResource("AnimationNodeAnimation_84qyl")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_f6nd7")
+blend_point_4/node = SubResource("AnimationNodeAnimation_f7fbn")
 blend_point_4/pos = Vector2(-1, 0)
-blend_point_5/node = SubResource("AnimationNodeAnimation_4lkek")
+blend_point_5/node = SubResource("AnimationNodeAnimation_jfeyx")
 blend_point_5/pos = Vector2(1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_ph1sl")
+blend_point_6/node = SubResource("AnimationNodeAnimation_br10g")
 blend_point_6/pos = Vector2(0, 0)
 snap = Vector2(1, 0.1)
 sync = true
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gr8xl"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uy2n6"]
 animation = &"1 - Look - Melee Heavy - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xhxbf"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vttij"]
 animation = &"1 - Look - Melee Heavy - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ixhl2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i4wwh"]
 animation = &"1 - Look - Melee Heavy - Straight"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3e0ab"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1x1j1"]
 animation = &"1 - Look - Melee Heavy - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wmwq2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebfb0"]
 animation = &"1 - Look - Melee Heavy - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gc5hd"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xljoq"]
 animation = &"1 - Look - Melee Heavy - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pv2i1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_137mr"]
 animation = &"1 - Look - Melee Heavy - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_q7ldf"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_gr8xl")
+blend_point_0/node = SubResource("AnimationNodeAnimation_uy2n6")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_xhxbf")
+blend_point_1/node = SubResource("AnimationNodeAnimation_vttij")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_ixhl2")
+blend_point_2/node = SubResource("AnimationNodeAnimation_i4wwh")
 blend_point_2/pos = Vector2(0, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_3e0ab")
+blend_point_3/node = SubResource("AnimationNodeAnimation_1x1j1")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_wmwq2")
+blend_point_4/node = SubResource("AnimationNodeAnimation_ebfb0")
 blend_point_4/pos = Vector2(0, -1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_gc5hd")
+blend_point_5/node = SubResource("AnimationNodeAnimation_xljoq")
 blend_point_5/pos = Vector2(-1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_pv2i1")
+blend_point_6/node = SubResource("AnimationNodeAnimation_137mr")
 blend_point_6/pos = Vector2(1, 0)
 snap = Vector2(1, 0.5)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dwrn7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_034ny"]
 animation = &"1 - Look - Melee Light - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_janab"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_itrmg"]
 animation = &"1 - Look - Melee Light - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2dpw6"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_43sse"]
 animation = &"1 - Look - Melee Light - Straight"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vl66d"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_si5yw"]
 animation = &"1 - Look - Melee Light - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xqln0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8bvet"]
 animation = &"1 - Look - Melee Light - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8rd6d"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q2u28"]
 animation = &"1 - Look - Melee Light - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1b432"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uq1ww"]
 animation = &"1 - Look - Melee Light - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_h8ugj"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_dwrn7")
+blend_point_0/node = SubResource("AnimationNodeAnimation_034ny")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_janab")
+blend_point_1/node = SubResource("AnimationNodeAnimation_itrmg")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_2dpw6")
+blend_point_2/node = SubResource("AnimationNodeAnimation_43sse")
 blend_point_2/pos = Vector2(0, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_vl66d")
+blend_point_3/node = SubResource("AnimationNodeAnimation_si5yw")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_xqln0")
+blend_point_4/node = SubResource("AnimationNodeAnimation_8bvet")
 blend_point_4/pos = Vector2(0, -1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_8rd6d")
+blend_point_5/node = SubResource("AnimationNodeAnimation_q2u28")
 blend_point_5/pos = Vector2(-1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_1b432")
+blend_point_6/node = SubResource("AnimationNodeAnimation_uq1ww")
 blend_point_6/pos = Vector2(1, 0)
 snap = Vector2(1, 0.5)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6h021"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1c1fh"]
 animation = &"1 - Look - Weapon Double - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jinj5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xowh3"]
 animation = &"1 - Look - Weapon Double - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vyvjl"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npyjo"]
 animation = &"1 - Look - Weapon Double - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k66fa"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u7cc2"]
 animation = &"1 - Look - Weapon Double - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ad3h0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y5jog"]
 animation = &"1 - Look - Weapon Double - Straight"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cuy2s"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rrikj"]
 animation = &"1 - Look - Weapon Double - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kgkjx"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ahxpf"]
 animation = &"1 - Look - Weapon Double - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_4dwsy"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_6h021")
+blend_point_0/node = SubResource("AnimationNodeAnimation_1c1fh")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_jinj5")
+blend_point_1/node = SubResource("AnimationNodeAnimation_xowh3")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_vyvjl")
+blend_point_2/node = SubResource("AnimationNodeAnimation_npyjo")
 blend_point_2/pos = Vector2(0, -0.5)
-blend_point_3/node = SubResource("AnimationNodeAnimation_k66fa")
+blend_point_3/node = SubResource("AnimationNodeAnimation_u7cc2")
 blend_point_3/pos = Vector2(0, -1)
-blend_point_4/node = SubResource("AnimationNodeAnimation_ad3h0")
+blend_point_4/node = SubResource("AnimationNodeAnimation_y5jog")
 blend_point_4/pos = Vector2(0, 0)
-blend_point_5/node = SubResource("AnimationNodeAnimation_cuy2s")
+blend_point_5/node = SubResource("AnimationNodeAnimation_rrikj")
 blend_point_5/pos = Vector2(-1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_kgkjx")
+blend_point_6/node = SubResource("AnimationNodeAnimation_ahxpf")
 blend_point_6/pos = Vector2(1, 0)
 snap = Vector2(1, 0.5)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cpwm0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a0vwb"]
 animation = &"1 - Look - Weapon Single - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83se3"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tbv04"]
 animation = &"1 - Look - Weapon Single - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nqwy8"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fgu0c"]
 animation = &"1 - Look - Weapon Single - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7l7m4"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lrqf4"]
 animation = &"1 - Look - Weapon Single - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_blt21"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dcgy7"]
 animation = &"1 - Look - Weapon Single - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0dlc"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1qcl1"]
 animation = &"1 - Look - Weapon Single - Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_880bk"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jsd61"]
 animation = &"1 - Look - Weapon Single - Straight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_el5j8"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_cpwm0")
+blend_point_0/node = SubResource("AnimationNodeAnimation_a0vwb")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_83se3")
+blend_point_1/node = SubResource("AnimationNodeAnimation_tbv04")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_nqwy8")
+blend_point_2/node = SubResource("AnimationNodeAnimation_fgu0c")
 blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_7l7m4")
+blend_point_3/node = SubResource("AnimationNodeAnimation_lrqf4")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_blt21")
+blend_point_4/node = SubResource("AnimationNodeAnimation_dcgy7")
 blend_point_4/pos = Vector2(-1, 0)
-blend_point_5/node = SubResource("AnimationNodeAnimation_d0dlc")
+blend_point_5/node = SubResource("AnimationNodeAnimation_1qcl1")
 blend_point_5/pos = Vector2(1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_880bk")
+blend_point_6/node = SubResource("AnimationNodeAnimation_jsd61")
 blend_point_6/pos = Vector2(0, 0)
 snap = Vector2(1, 0.5)
 sync = true
@@ -923,41 +717,41 @@ sync = true
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_er7k5"]
 animation = &"3 - Pickup"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_orvqc"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rc88a"]
 animation = &"5 - Shoot - Weapon Double - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bqnci"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t8gb7"]
 animation = &"5 - Shoot - Weapon Double - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cguyo"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dwklq"]
 animation = &"5 - Shoot - Weapon Double - Straight"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oiwn0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_repsk"]
 animation = &"5 - Shoot - Weapon Double - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yym71"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxr6h"]
 animation = &"5 - Shoot - Weapon Double - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yfmfs"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y4puy"]
 animation = &"5 - Shoot - Weapon Double - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0mgle"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hq07u"]
 animation = &"5 - Shoot - Weapon Double - Right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_f258v"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_orvqc")
+blend_point_0/node = SubResource("AnimationNodeAnimation_rc88a")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_bqnci")
+blend_point_1/node = SubResource("AnimationNodeAnimation_t8gb7")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_cguyo")
+blend_point_2/node = SubResource("AnimationNodeAnimation_dwklq")
 blend_point_2/pos = Vector2(0, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_oiwn0")
+blend_point_3/node = SubResource("AnimationNodeAnimation_repsk")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_yym71")
+blend_point_4/node = SubResource("AnimationNodeAnimation_xxr6h")
 blend_point_4/pos = Vector2(0, -1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_yfmfs")
+blend_point_5/node = SubResource("AnimationNodeAnimation_y4puy")
 blend_point_5/pos = Vector2(-1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_0mgle")
+blend_point_6/node = SubResource("AnimationNodeAnimation_hq07u")
 blend_point_6/pos = Vector2(1, 0)
 snap = Vector2(1, 0.5)
 
@@ -971,41 +765,41 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_elhto")
 nodes/TimeScale/position = Vector2(100, 120)
 node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g23d0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_le201"]
 animation = &"5 - Shoot - Weapon Single - Up 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qrk2g"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3oam"]
 animation = &"5 - Shoot - Weapon Single - Up 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bsksh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_blvf4"]
 animation = &"5 - Shoot - Weapon Single - Down 90"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ux441"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u06ca"]
 animation = &"5 - Shoot - Weapon Single - Down 45"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4dii4"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_upw7r"]
 animation = &"5 - Shoot - Weapon Single - Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qhyqm"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a7n3u"]
 animation = &"5 - Shoot - Weapon Single - Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0mg0x"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jjrel"]
 animation = &"5 - Shoot - Weapon Single - Straight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_l2j84"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_g23d0")
+blend_point_0/node = SubResource("AnimationNodeAnimation_le201")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_qrk2g")
+blend_point_1/node = SubResource("AnimationNodeAnimation_c3oam")
 blend_point_1/pos = Vector2(0, 0.5)
-blend_point_2/node = SubResource("AnimationNodeAnimation_bsksh")
+blend_point_2/node = SubResource("AnimationNodeAnimation_blvf4")
 blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_ux441")
+blend_point_3/node = SubResource("AnimationNodeAnimation_u06ca")
 blend_point_3/pos = Vector2(0, -0.5)
-blend_point_4/node = SubResource("AnimationNodeAnimation_4dii4")
+blend_point_4/node = SubResource("AnimationNodeAnimation_upw7r")
 blend_point_4/pos = Vector2(-1, 0)
-blend_point_5/node = SubResource("AnimationNodeAnimation_qhyqm")
+blend_point_5/node = SubResource("AnimationNodeAnimation_a7n3u")
 blend_point_5/pos = Vector2(1, 0)
-blend_point_6/node = SubResource("AnimationNodeAnimation_0mg0x")
+blend_point_6/node = SubResource("AnimationNodeAnimation_jjrel")
 blend_point_6/pos = Vector2(0, 0)
 snap = Vector2(1, 0.5)
 
@@ -1014,7 +808,7 @@ snap = Vector2(1, 0.5)
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_8741r"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_myjvn"]
-graph_offset = Vector2(-508.2, -77.3)
+graph_offset = Vector2(-584.2, 19.7)
 nodes/Blend/node = SubResource("AnimationNodeBlendSpace2D_l2j84")
 nodes/Blend/position = Vector2(-380, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_sbskr")
@@ -1048,7 +842,7 @@ advance_expression = "is_shooting"
 xfade_time = 0.1
 switch_mode = 2
 advance_mode = 2
-advance_expression = "is_aiming and !is_shooting"
+advance_expression = "is_aiming && !is_shooting && !is_shooting_locked"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rneoo"]
 advance_mode = 2
@@ -1058,7 +852,7 @@ advance_expression = "is_shooting"
 xfade_time = 0.1
 switch_mode = 2
 advance_mode = 2
-advance_expression = "!is_aiming and !is_shooting"
+advance_expression = "!is_aiming && !is_shooting && !is_shooting_locked"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ee6oq"]
 xfade_time = 0.1
@@ -1375,6 +1169,14 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"is_attacking"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a5x70"]
+advance_mode = 2
+advance_expression = "equip == 1 && is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hpvun"]
+advance_mode = 2
+advance_expression = "equip == 2 && is_shooting"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_phig5"]
 "states/Aim - Weapon Double/node" = SubResource("AnimationNodeBlendSpace2D_jfxqy")
 "states/Aim - Weapon Double/position" = Vector2(201, 803)
@@ -1430,11 +1232,11 @@ states/Pickup/position = Vector2(702, -19)
 "states/Shoot - Weapon Single/node" = SubResource("AnimationNodeBlendTree_myjvn")
 "states/Shoot - Weapon Single/position" = Vector2(444, -427)
 states/Start/position = Vector2(1717, 100)
-transitions = ["Start", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_ci3dl"), "Start", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_xbu2p"), "Look - Weapon Single", "Aim - Weapon Single", SubResource("AnimationNodeStateMachineTransition_vfnjm"), "Aim - Weapon Single", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_167ny"), "Aim - Weapon Single", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_2qs3w"), "Shoot - Weapon Single", "Aim - Weapon Single", SubResource("AnimationNodeStateMachineTransition_vhjav"), "Look - Weapon Single", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_rneoo"), "Shoot - Weapon Single", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_cxnrg"), "Drop - Weapon Single", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_ee6oq"), "Aim - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_ygv4d"), "Look - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_sjntw"), "Shoot - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_1ifnj"), "Start", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_itx7r"), "Look - Weapon Double", "Aim - Weapon Double", SubResource("AnimationNodeStateMachineTransition_pa304"), "Aim - Weapon Double", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_y6oyi"), "Look - Weapon Double", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_y5x7m"), "Shoot - Weapon Double", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_88apo"), "Aim - Weapon Double", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_4u7i1"), "Shoot - Weapon Double", "Aim - Weapon Double", SubResource("AnimationNodeStateMachineTransition_7tgba"), "Aim - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_o7gw0"), "Shoot - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_nh4cj"), "Look - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_q4gor"), "Drop - Weapon Double", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_2khjs"), "Start", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_bdrbj"), "Look - Melee Light", "Attack - Melee Light 1", SubResource("AnimationNodeStateMachineTransition_eh00e"), "Attack - Melee Light 1", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_lf3kl"), "Attack - Melee Light 1", "Attack - Melee Light 2", SubResource("AnimationNodeStateMachineTransition_ddjc7"), "Attack - Melee Light 2", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_5h7ut"), "Attack - Melee Light 2", "Attack - Melee Light 3", SubResource("AnimationNodeStateMachineTransition_cba35"), "Attack - Melee Light 3", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_v80gd"), "Attack - Melee Light 3", "Attack - Melee Light 4", SubResource("AnimationNodeStateMachineTransition_klpvo"), "Attack - Melee Light 4", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_lno3n"), "Drop - Melee Light", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_u2hkq"), "Attack - Melee Light 1", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_k1agu"), "Attack - Melee Light 2", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_xp4g1"), "Attack - Melee Light 3", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_5h8ch"), "Attack - Melee Light 4", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_qex3x"), "Look - Melee Light", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_gopue"), "Start", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_f843a"), "Look - Melee Heavy", "Attack - Melee Heavy 1", SubResource("AnimationNodeStateMachineTransition_adybj"), "Attack - Melee Heavy 1", "Attack - Melee Heavy 2", SubResource("AnimationNodeStateMachineTransition_613w6"), "Attack - Melee Heavy 2", "Attack - Melee Heavy 3", SubResource("AnimationNodeStateMachineTransition_7fjad"), "Attack - Melee Heavy 3", "Attack - Melee Heavy 4", SubResource("AnimationNodeStateMachineTransition_u8o41"), "Attack - Melee Heavy 1", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_j1lei"), "Attack - Melee Heavy 2", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_vr2u5"), "Attack - Melee Heavy 3", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_vu055"), "Attack - Melee Heavy 4", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_8a4qj"), "Pickup", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_1f8k0"), "Pickup", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_hoskd"), "Pickup", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_2y8c7"), "Pickup", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_addn6"), "Pickup", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_tudk7"), "Attack - Melee Heavy 1", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_407xy"), "Attack - Melee Heavy 2", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_qnte2"), "Attack - Melee Heavy 3", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_xtsq7"), "Attack - Melee Heavy 4", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_hxu16"), "Look - Melee Heavy", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_kobxd"), "Drop - Melee Heavy", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_xsyyy"), "Look - Empty", "Attack - Punch 1", SubResource("AnimationNodeStateMachineTransition_7p814"), "Attack - Punch 1", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_310m2"), "Attack - Punch 2", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_2l4r1"), "Attack - Punch 3", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_k0wdx"), "Attack - Punch 4", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_jhr1l"), "Attack - Punch 1", "Attack - Punch 2", SubResource("AnimationNodeStateMachineTransition_5yoj1"), "Attack - Punch 2", "Attack - Punch 3", SubResource("AnimationNodeStateMachineTransition_p57s6"), "Attack - Punch 3", "Attack - Punch 4", SubResource("AnimationNodeStateMachineTransition_hy1px")]
-graph_offset = Vector2(-62, -593)
+transitions = ["Start", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_ci3dl"), "Start", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_xbu2p"), "Look - Weapon Single", "Aim - Weapon Single", SubResource("AnimationNodeStateMachineTransition_vfnjm"), "Aim - Weapon Single", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_167ny"), "Aim - Weapon Single", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_2qs3w"), "Shoot - Weapon Single", "Aim - Weapon Single", SubResource("AnimationNodeStateMachineTransition_vhjav"), "Look - Weapon Single", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_rneoo"), "Shoot - Weapon Single", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_cxnrg"), "Drop - Weapon Single", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_ee6oq"), "Aim - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_ygv4d"), "Look - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_sjntw"), "Shoot - Weapon Single", "Drop - Weapon Single", SubResource("AnimationNodeStateMachineTransition_1ifnj"), "Start", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_itx7r"), "Look - Weapon Double", "Aim - Weapon Double", SubResource("AnimationNodeStateMachineTransition_pa304"), "Aim - Weapon Double", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_y6oyi"), "Look - Weapon Double", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_y5x7m"), "Shoot - Weapon Double", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_88apo"), "Aim - Weapon Double", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_4u7i1"), "Shoot - Weapon Double", "Aim - Weapon Double", SubResource("AnimationNodeStateMachineTransition_7tgba"), "Aim - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_o7gw0"), "Shoot - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_nh4cj"), "Look - Weapon Double", "Drop - Weapon Double", SubResource("AnimationNodeStateMachineTransition_q4gor"), "Drop - Weapon Double", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_2khjs"), "Start", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_bdrbj"), "Look - Melee Light", "Attack - Melee Light 1", SubResource("AnimationNodeStateMachineTransition_eh00e"), "Attack - Melee Light 1", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_lf3kl"), "Attack - Melee Light 1", "Attack - Melee Light 2", SubResource("AnimationNodeStateMachineTransition_ddjc7"), "Attack - Melee Light 2", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_5h7ut"), "Attack - Melee Light 2", "Attack - Melee Light 3", SubResource("AnimationNodeStateMachineTransition_cba35"), "Attack - Melee Light 3", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_v80gd"), "Attack - Melee Light 3", "Attack - Melee Light 4", SubResource("AnimationNodeStateMachineTransition_klpvo"), "Attack - Melee Light 4", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_lno3n"), "Drop - Melee Light", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_u2hkq"), "Attack - Melee Light 1", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_k1agu"), "Attack - Melee Light 2", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_xp4g1"), "Attack - Melee Light 3", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_5h8ch"), "Attack - Melee Light 4", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_qex3x"), "Look - Melee Light", "Drop - Melee Light", SubResource("AnimationNodeStateMachineTransition_gopue"), "Start", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_f843a"), "Look - Melee Heavy", "Attack - Melee Heavy 1", SubResource("AnimationNodeStateMachineTransition_adybj"), "Attack - Melee Heavy 1", "Attack - Melee Heavy 2", SubResource("AnimationNodeStateMachineTransition_613w6"), "Attack - Melee Heavy 2", "Attack - Melee Heavy 3", SubResource("AnimationNodeStateMachineTransition_7fjad"), "Attack - Melee Heavy 3", "Attack - Melee Heavy 4", SubResource("AnimationNodeStateMachineTransition_u8o41"), "Attack - Melee Heavy 1", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_j1lei"), "Attack - Melee Heavy 2", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_vr2u5"), "Attack - Melee Heavy 3", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_vu055"), "Attack - Melee Heavy 4", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_8a4qj"), "Pickup", "Look - Weapon Single", SubResource("AnimationNodeStateMachineTransition_1f8k0"), "Pickup", "Look - Weapon Double", SubResource("AnimationNodeStateMachineTransition_hoskd"), "Pickup", "Look - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_2y8c7"), "Pickup", "Look - Melee Light", SubResource("AnimationNodeStateMachineTransition_addn6"), "Pickup", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_tudk7"), "Attack - Melee Heavy 1", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_407xy"), "Attack - Melee Heavy 2", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_qnte2"), "Attack - Melee Heavy 3", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_xtsq7"), "Attack - Melee Heavy 4", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_hxu16"), "Look - Melee Heavy", "Drop - Melee Heavy", SubResource("AnimationNodeStateMachineTransition_kobxd"), "Drop - Melee Heavy", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_xsyyy"), "Look - Empty", "Attack - Punch 1", SubResource("AnimationNodeStateMachineTransition_7p814"), "Attack - Punch 1", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_310m2"), "Attack - Punch 2", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_2l4r1"), "Attack - Punch 3", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_k0wdx"), "Attack - Punch 4", "Look - Empty", SubResource("AnimationNodeStateMachineTransition_jhr1l"), "Attack - Punch 1", "Attack - Punch 2", SubResource("AnimationNodeStateMachineTransition_5yoj1"), "Attack - Punch 2", "Attack - Punch 3", SubResource("AnimationNodeStateMachineTransition_p57s6"), "Attack - Punch 3", "Attack - Punch 4", SubResource("AnimationNodeStateMachineTransition_hy1px"), "Pickup", "Shoot - Weapon Single", SubResource("AnimationNodeStateMachineTransition_a5x70"), "Pickup", "Shoot - Weapon Double", SubResource("AnimationNodeStateMachineTransition_hpvun")]
+graph_offset = Vector2(-138, -595)
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xj3b2"]
-graph_offset = Vector2(-333, 35)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_kut72"]
+graph_offset = Vector2(-751.537, 2.3595)
 nodes/Blend/node = SubResource("AnimationNodeBlend2_bsv2t")
 nodes/Blend/position = Vector2(80, 160)
 "nodes/Lower Body/node" = SubResource("AnimationNodeStateMachine_7op5x")
@@ -1702,26 +1504,27 @@ advance_condition = &"is_picking_up"
 advance_mode = 2
 advance_condition = &"is_picking_up"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pwlbn"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1qljg"]
+allow_transition_to_self = true
 states/Dash/node = SubResource("AnimationNodeAnimation_7gk8n")
 states/Dash/position = Vector2(344, -114)
 states/DashStop/node = SubResource("AnimationNodeAnimation_67xma")
-states/DashStop/position = Vector2(110, -5)
+states/DashStop/position = Vector2(109.75, -5)
 states/Fall/node = SubResource("AnimationNodeAnimation_u0rla")
 states/Fall/position = Vector2(595, 214)
 states/Idle/node = SubResource("AnimationNodeAnimation_8mi48")
-states/Idle/position = Vector2(344, 100)
+states/Idle/position = Vector2(344.875, 99.9688)
 states/Jump/node = SubResource("AnimationNodeAnimation_82vuh")
 states/Jump/position = Vector2(595, -5)
 states/Land/node = SubResource("AnimationNodeAnimation_wg0p6")
-states/Land/position = Vector2(595, 100)
+states/Land/position = Vector2(595.25, 100)
 states/Pickup/node = SubResource("AnimationNodeAnimation_6oy5h")
-states/Pickup/position = Vector2(110, 214)
+states/Pickup/position = Vector2(109.875, 214)
 states/Start/position = Vector2(344, 368)
 states/Walk/node = SubResource("AnimationNodeBlendTree_l378x")
 states/Walk/position = Vector2(344, -5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_hrlnw"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_sn3is"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_t7rwe"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_ig65e"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_36gve"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_4qvih"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_koovl"), "Walk", "Dash", SubResource("AnimationNodeStateMachineTransition_6hio0"), "Dash", "DashStop", SubResource("AnimationNodeStateMachineTransition_hi63h"), "Dash", "Jump", SubResource("AnimationNodeStateMachineTransition_t5arr"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_00lba"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_fcbk2"), "DashStop", "Idle", SubResource("AnimationNodeStateMachineTransition_rpjk7"), "Walk", "Land", SubResource("AnimationNodeStateMachineTransition_fh0hl"), "Pickup", "Idle", SubResource("AnimationNodeStateMachineTransition_h7cyo"), "Walk", "Pickup", SubResource("AnimationNodeStateMachineTransition_g7ivo"), "Idle", "Pickup", SubResource("AnimationNodeStateMachineTransition_6jngs"), "Dash", "Pickup", SubResource("AnimationNodeStateMachineTransition_kj28v"), "DashStop", "Pickup", SubResource("AnimationNodeStateMachineTransition_iswb6")]
-graph_offset = Vector2(-51, 134)
+graph_offset = Vector2(-291, 40)
 
 [sub_resource type="Animation" id="Animation_fkqbj"]
 resource_name = "Idle"
@@ -1879,7 +1682,7 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_current_node_attacking"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tsjoj"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_u68f4"]
 states/Idle/node = SubResource("AnimationNodeAnimation_sbnf2")
 states/Idle/position = Vector2(127, 100)
 "states/Play Random Attack/node" = SubResource("AnimationNodeAnimation_kpf1x")
@@ -1896,103 +1699,124 @@ states/Idle/position = Vector2(127, 100)
 "states/Special 3/position" = Vector2(239, -243)
 states/Start/position = Vector2(-66, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_okt2x"), "Idle", "Play Random Attack", SubResource("AnimationNodeStateMachineTransition_tmrwa"), "Play Random Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_ygaof"), "Play Random Attack", "Play Random Attack 2", SubResource("AnimationNodeStateMachineTransition_cqq0r"), "Play Random Attack 2", "Play Random Attack 3", SubResource("AnimationNodeStateMachineTransition_8kqhp"), "Play Random Attack 3", "Special 1", SubResource("AnimationNodeStateMachineTransition_qbl64"), "Play Random Attack 2", "Idle", SubResource("AnimationNodeStateMachineTransition_1c7mw"), "Play Random Attack 3", "Idle", SubResource("AnimationNodeStateMachineTransition_m6n3c"), "Special 1", "Idle", SubResource("AnimationNodeStateMachineTransition_mfeu5"), "Play Random Attack 3", "Special 2", SubResource("AnimationNodeStateMachineTransition_qku3s"), "Play Random Attack 3", "Special 3", SubResource("AnimationNodeStateMachineTransition_jx7oi"), "Special 3", "Idle", SubResource("AnimationNodeStateMachineTransition_exnag"), "Special 2", "Idle", SubResource("AnimationNodeStateMachineTransition_6s82b")]
-graph_offset = Vector2(49, -38)
+graph_offset = Vector2(-89, -414)
 
-[node name="Mayfly" node_paths=PackedStringArray("body_slot", "right_hand_slot") instance=ExtResource("1_cyxfh")]
+[node name="Mayfly" type="Node3D" node_paths=PackedStringArray("body_slot", "right_hand_slot")]
 script = ExtResource("2_dvgvp")
 character_name = "Mayfly"
-body_slot = NodePath("Armature/Skeleton3D/Body Slot")
-right_hand_slot = NodePath("Armature/Skeleton3D/Right Hand Slot")
+body_slot = NodePath("Mayfly/Armature/Skeleton3D/Body Slot")
+right_hand_slot = NodePath("Mayfly/Armature/Skeleton3D/Right Hand Slot")
 
-[node name="Skeleton3D" parent="Armature" index="0"]
+[node name="Mayfly" parent="." instance=ExtResource("1_cyxfh")]
+
+[node name="Skeleton3D" parent="Mayfly/Armature" index="0"]
 bones/0/position = Vector3(0.787353, 1.4491, -0.692334)
-bones/0/rotation = Quaternion(0.49735, -0.502636, 0.502636, -0.49735)
+bones/0/rotation = Quaternion(-0.49735, 0.502636, -0.502636, 0.49735)
+bones/0/scale = Vector3(1, 1, 1)
 bones/1/position = Vector3(0.377811, 0.462767, 0.755394)
 bones/1/rotation = Quaternion(0.707107, 5.33851e-08, 5.33851e-08, 0.707107)
 bones/2/position = Vector3(0.24132, 0.114338, 0.15053)
 bones/2/rotation = Quaternion(0.877691, -0.0360352, 0.0668425, 0.473173)
 bones/3/position = Vector3(-0.0236415, 1.4761, 0.707735)
-bones/4/position = Vector3(2.20996e-16, 0.85405, -0.0745371)
+bones/3/rotation = Quaternion(0.707107, -1.37679e-07, -1.37679e-07, 0.707107)
+bones/4/position = Vector3(2.20996e-16, 0.880635, -0.0745371)
 bones/4/rotation = Quaternion(0, -0.365154, 0, 0.930947)
+bones/5/position = Vector3(-1.91572e-09, -1.45715e-08, 1.03642e-08)
 bones/5/rotation = Quaternion(0.151144, 0.159373, -0.0245526, 0.975271)
 bones/6/rotation = Quaternion(-0.121255, -0.168692, 0.0933068, 0.973722)
-bones/7/position = Vector3(0.0761895, 0.0237471, 0.0274088)
-bones/7/rotation = Quaternion(0.812529, 0.15759, -0.332763, 0.451919)
-bones/8/rotation = Quaternion(0.463654, -1.30573e-08, 4.3514e-07, 0.886016)
-bones/9/rotation = Quaternion(-0.555672, 0.181749, 0.163532, 0.79464)
-bones/10/position = Vector3(-0.0761895, 0.0237472, 0.0274088)
-bones/10/rotation = Quaternion(0.903285, -0.143661, 0.183257, 0.360353)
-bones/11/rotation = Quaternion(0.492186, 6.87721e-09, 2.60249e-07, 0.87049)
-bones/12/rotation = Quaternion(-0.685444, -0.1758, -0.169412, 0.685975)
+bones/7/rotation = Quaternion(0.829485, 0.142254, -0.337814, 0.421427)
+bones/8/rotation = Quaternion(0.404859, -4.44742e-09, 3.75287e-07, 0.914379)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.534011, 0.177088, 0.16569, 0.80995)
+bones/10/rotation = Quaternion(0.915252, -0.133298, 0.184939, 0.332179)
+bones/11/rotation = Quaternion(0.437235, -2.05302e-08, 2.24961e-07, 0.899347)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.66493, -0.168752, -0.169745, 0.707515)
+bones/13/position = Vector3(6.19672e-10, 0.281348, 0.0565469)
 bones/13/rotation = Quaternion(-0.707107, -8.42937e-08, 8.42937e-08, 0.707107)
-bones/14/position = Vector3(0.000132272, 8.2316e-05, -0.00106313)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/position = Vector3(0.000132288, 8.23039e-05, -0.00106313)
+bones/14/rotation = Quaternion(0.660484, -2.36583e-14, -1.57472e-07, 0.75084)
+bones/15/rotation = Quaternion(0.0638916, 9.06684e-15, -1.5233e-08, 0.997957)
+bones/15/scale = Vector3(1, 1, 1)
 bones/16/rotation = Quaternion(0.653116, 0.260394, -0.25642, 0.663237)
+bones/17/position = Vector3(0.0416225, 0.176188, 0.00464887)
 bones/17/rotation = Quaternion(0.0162141, 0.0703316, -0.706514, 0.704009)
-bones/18/position = Vector3(-2.59419e-07, 0.0729111, 8.70015e-11)
-bones/18/rotation = Quaternion(0.0891216, 0.0658667, -0.393194, 0.912753)
-bones/19/rotation = Quaternion(0.510004, 2.73064e-06, 0.0767795, 0.856739)
-bones/20/rotation = Quaternion(0.15888, -0.188343, -0.0826816, 0.965634)
-bones/21/rotation = Quaternion(-5.99714e-08, 1.78245e-08, 0.707107, 0.707107)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.0891215, 0.0658667, -0.393194, 0.912753)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(0.510004, 2.72621e-06, 0.0767796, 0.856739)
+bones/20/rotation = Quaternion(0.15888, -0.188343, -0.0826817, 0.965633)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-3.35171e-08, 4.43419e-08, 0.707107, 0.707107)
 bones/22/position = Vector3(0.236932, -0.269743, 0.255313)
-bones/22/rotation = Quaternion(0.221455, -0.635344, -0.730224, 0.118613)
-bones/23/position = Vector3(-0.0423809, 0.187138, 0.00484253)
+bones/22/rotation = Quaternion(0.221455, -0.635344, -0.730224, 0.118614)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/position = Vector3(-0.0423809, 0.187138, 0.00484252)
 bones/23/rotation = Quaternion(0.102394, 0.0209151, 0.700375, 0.706083)
-bones/24/position = Vector3(-3.04563e-07, 0.0729111, -5.13459e-09)
+bones/23/scale = Vector3(1, 1, 1)
 bones/24/rotation = Quaternion(-0.135753, -0.214697, 0.46009, 0.850761)
-bones/25/rotation = Quaternion(0.847394, -1.65519e-06, -0.127573, 0.515411)
-bones/26/position = Vector3(-8.55507e-08, 0.242325, -4.99377e-08)
-bones/26/rotation = Quaternion(0.0337608, 0.249884, 0.222016, 0.941874)
-bones/27/position = Vector3(-1.63091e-07, 0.0729111, 4.11842e-09)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(0.847394, -1.64425e-06, -0.127573, 0.515411)
+bones/26/rotation = Quaternion(0.0337611, 0.249884, 0.222016, 0.941874)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-2.9194e-08, -5.05144e-08, -0.707107, 0.707107)
 bones/28/position = Vector3(-0.119178, -0.202827, 0.124282)
 bones/28/rotation = Quaternion(0.269123, 0.63617, 0.713061, -0.120016)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/rotation = Quaternion(0.413613, 0.349315, 0.840764, -0.00447091)
+bones/29/scale = Vector3(1, 1, 1)
+bones/30/rotation = Quaternion(-0.413612, 0.349315, 0.840764, 0.00447079)
+bones/30/scale = Vector3(1, 1, 1)
 bones/31/position = Vector3(-0.122186, 1.14633, -0.677365)
-bones/31/rotation = Quaternion(-0.49735, -0.502636, 0.502636, 0.49735)
+bones/31/rotation = Quaternion(0.49735, 0.502636, -0.502636, -0.49735)
+bones/31/scale = Vector3(1, 1, 1)
 bones/32/position = Vector3(-0.712804, 0.749806, 0.466946)
 bones/32/rotation = Quaternion(0.707107, -5.33851e-08, -5.33851e-08, 0.707107)
 bones/33/position = Vector3(-0.199665, 0.114338, -0.236088)
 bones/33/rotation = Quaternion(0.863059, -0.093279, 0.173023, 0.465285)
 
-[node name="BoobJiggle_L" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.929088, -0.241716, 0.279942, 0.368236, -0.675315, 0.639025, 0.0345866, 0.696796, 0.716436, -0.0270639, 1.28347, 0.0217682)
+[node name="BoobJiggle_L" type="BoneAttachment3D" parent="Mayfly/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.928606, -0.242596, 0.28078, 0.369579, -0.672366, 0.641354, 0.0331966, 0.699336, 0.714022, -0.0270638, 1.30947, 0.0217682)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("3_acref")
-properties = SubResource("Resource_oovx2")
+properties = SubResource("Resource_3nc00")
 
-[node name="BoobJiggle_R" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(-0.0356875, -0.676548, -0.735533, -0.368236, -0.675315, 0.639025, -0.929047, 0.293655, -0.225029, -0.093792, 1.28347, -0.0400966)
+[node name="BoobJiggle_R" type="BoneAttachment3D" parent="Mayfly/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.0370387, -0.679014, -0.73319, -0.369579, -0.672366, 0.641355, -0.928461, 0.294726, -0.226046, -0.093792, 1.30947, -0.0400965)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("3_acref")
-properties = SubResource("Resource_oovx2")
+properties = SubResource("Resource_3nc00")
 
-[node name="Body Slot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.733325, 0.679878, -1.74838e-07, 2.38419e-07, 0, 1, 0.679878, -0.733325, -1.62096e-07, -0.038445, 1.1354, -0.0330699)
+[node name="Body Slot" type="BoneAttachment3D" parent="Mayfly/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.733325, 0.679878, -2.9641e-07, 2.38419e-07, 1.78814e-07, 1, 0.679878, -0.733325, -3.09666e-08, -0.038445, 1.16198, -0.0330699)
 bone_name = "CoreIK"
 bone_idx = 13
 
-[node name="Offset" type="Node3D" parent="Armature/Skeleton3D/Body Slot" index="0"]
+[node name="Offset" type="Node3D" parent="Mayfly/Armature/Skeleton3D/Body Slot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
 
-[node name="Right Hand Slot" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(-0.981107, -0.0298187, 0.191155, 0.193452, -0.163342, 0.967417, 0.00237653, 0.986119, 0.166025, -0.289731, 1.12294, -0.0761782)
+[node name="Right Hand Slot" type="BoneAttachment3D" parent="Mayfly/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-0.981107, -0.0298179, 0.191154, 0.193451, -0.163341, 0.967417, 0.00237681, 0.986119, 0.166024, -0.289731, 1.14953, -0.0761781)
 bone_name = "Hand.R"
 bone_idx = 26
 
-[node name="Offset" type="Node3D" parent="Armature/Skeleton3D/Right Hand Slot" index="0"]
+[node name="Offset" type="Node3D" parent="Mayfly/Armature/Skeleton3D/Right Hand Slot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.96046e-08, 0.0858372, -3.57628e-07)
 
-[node name="SFX" type="Node3D" parent="." index="1"]
+[node name="SFX" type="Node3D" parent="."]
 
-[node name="Walk" type="AudioStreamPlayer3D" parent="SFX" index="0"]
-stream = SubResource("AudioStreamRandomizer_irgfe")
+[node name="Walk" type="AudioStreamPlayer3D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_pmirb")
 volume_db = -15.0
 max_db = 0.0
 pitch_scale = 0.64
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="Jump" type="AudioStreamPlayer3D" parent="SFX" index="1"]
+[node name="Jump" type="AudioStreamPlayer3D" parent="SFX"]
 stream = ExtResource("5_hbrif")
 volume_db = -15.0
 max_db = 0.0
@@ -2000,7 +1824,7 @@ pitch_scale = 0.64
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="Land" type="AudioStreamPlayer3D" parent="SFX" index="2"]
+[node name="Land" type="AudioStreamPlayer3D" parent="SFX"]
 stream = ExtResource("6_bdbpa")
 volume_db = -15.0
 max_db = 0.0
@@ -2008,7 +1832,7 @@ pitch_scale = 0.64
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="Dash" type="AudioStreamPlayer3D" parent="SFX" index="3"]
+[node name="Dash" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 stream = ExtResource("7_6kti6")
 volume_db = -20.0
@@ -2017,7 +1841,7 @@ pitch_scale = 0.64
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="Dash Loop" type="AudioStreamPlayer3D" parent="SFX" index="4"]
+[node name="Dash Loop" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 stream = ExtResource("8_uq8df")
 volume_db = -25.0
@@ -2025,25 +1849,25 @@ max_db = 0.0
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 
-[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX" index="5"]
+[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
-stream = SubResource("AudioStreamRandomizer_5uftp")
+stream = SubResource("AudioStreamRandomizer_gvv5l")
 volume_db = -10.0
 max_db = 0.0
 pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Attack" type="AudioStreamPlayer3D" parent="SFX" index="6"]
+[node name="Attack" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
-stream = SubResource("AudioStreamRandomizer_kcnjg")
+stream = SubResource("AudioStreamRandomizer_8y20s")
 volume_db = -10.0
 max_db = 0.0
 pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX" index="7"]
+[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("16_v6mi0")
 volume_db = -10.0
@@ -2052,7 +1876,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX" index="8"]
+[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("17_bvfes")
 volume_db = -10.0
@@ -2061,7 +1885,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX" index="9"]
+[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("13_dbe02")
 volume_db = -10.0
@@ -2070,12 +1894,10 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
-libraries = {
-"": SubResource("AnimationLibrary_v8ji7")
-}
-tree_root = SubResource("AnimationNodeBlendTree_xj3b2")
-anim_player = NodePath("../AnimationPlayer")
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Mayfly")
+tree_root = SubResource("AnimationNodeBlendTree_kut72")
+anim_player = NodePath("../Mayfly/AnimationPlayer")
 parameters/Blend/blend_amount = 1.0
 "parameters/Lower Body/conditions/is_dashing" = false
 "parameters/Lower Body/conditions/is_jumping" = false
@@ -2085,6 +1907,7 @@ parameters/Blend/blend_amount = 1.0
 "parameters/Lower Body/Dash Start/TimeScale/scale" = 1.25
 "parameters/Lower Body/Dash Stop/Blend/blend_position" = Vector2(0, 0)
 "parameters/Lower Body/Dash Stop/TimeScale/scale" = 1.25
+"parameters/Lower Body/Double Jump/TimeSeek/seek_request" = -1.0
 "parameters/Lower Body/Fall/TimeScale/scale" = 0.75
 "parameters/Lower Body/Jump/TimeScale/scale" = 1.25
 "parameters/Lower Body/Land/TimeScale/scale" = 1.25
@@ -2107,16 +1930,14 @@ parameters/Blend/blend_amount = 1.0
 "parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request" = -1.0
 script = ExtResource("2_5ab2o")
 
-[node name="SoundAnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="SoundAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1inu7")
 }
 
-[node name="SoundAnimationTree" type="AnimationTree" parent="." index="5"]
-libraries = {
-"": SubResource("AnimationLibrary_1inu7")
-}
-tree_root = SubResource("AnimationNodeStateMachine_pwlbn")
+[node name="SoundAnimationTree" type="AnimationTree" parent="."]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_1qljg")
 anim_player = NodePath("../SoundAnimationPlayer")
 parameters/conditions/is_dashing = false
 parameters/conditions/is_jumping = false
@@ -2126,15 +1947,15 @@ parameters/conditions/is_walking = false
 parameters/Walk/TimeScale/scale = 1.5
 script = ExtResource("119_38k6h")
 
-[node name="SoundAttackPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="SoundAttackPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4g7vl")
 }
 
-[node name="SoundAttackTree" type="AnimationTree" parent="." index="7"]
-libraries = {
-"": SubResource("AnimationLibrary_4g7vl")
-}
-tree_root = SubResource("AnimationNodeStateMachine_tsjoj")
+[node name="SoundAttackTree" type="AnimationTree" parent="."]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_u68f4")
 anim_player = NodePath("../SoundAttackPlayer")
 script = ExtResource("134_gtrkl")
+
+[editable path="Mayfly"]

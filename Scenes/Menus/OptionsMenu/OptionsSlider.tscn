@@ -10,6 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 42
@@ -35,7 +36,7 @@ value = 1.0
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="AudioNumLabel" type="Label" parent="HBoxContainer"]
+[node name="NumLabel" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24

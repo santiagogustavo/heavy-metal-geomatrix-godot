@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbb5v2cn2gxq4"
 path.s3tc="res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_bed17116.png-eedaf244c6ec156fec46fe8b97c99e5b.s3tc.ctex"
+path.etc2="res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_bed17116.png-eedaf244c6ec156fec46fe8b97c99e5b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Characters/Di/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_bed17116.png"
-dest_files=["res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_bed17116.png-eedaf244c6ec156fec46fe8b97c99e5b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_bed17116.png-eedaf244c6ec156fec46fe8b97c99e5b.s3tc.ctex", "res://.godot/imported/Di-4dbc9c98b6c00dbd3da0ab254e2797e2_bed17116.png-eedaf244c6ec156fec46fe8b97c99e5b.etc2.ctex"]
 
 [params]
 

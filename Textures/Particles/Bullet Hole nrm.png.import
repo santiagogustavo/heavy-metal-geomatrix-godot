@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpr3qcuokl8r5"
 path.s3tc="res://.godot/imported/Bullet Hole nrm.png-c7085b457815d913b6a4e0a5d34e03ac.s3tc.ctex"
+path.etc2="res://.godot/imported/Bullet Hole nrm.png-c7085b457815d913b6a4e0a5d34e03ac.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Particles/Bullet Hole nrm.png"
-dest_files=["res://.godot/imported/Bullet Hole nrm.png-c7085b457815d913b6a4e0a5d34e03ac.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bullet Hole nrm.png-c7085b457815d913b6a4e0a5d34e03ac.s3tc.ctex", "res://.godot/imported/Bullet Hole nrm.png-c7085b457815d913b6a4e0a5d34e03ac.etc2.ctex"]
 
 [params]
 

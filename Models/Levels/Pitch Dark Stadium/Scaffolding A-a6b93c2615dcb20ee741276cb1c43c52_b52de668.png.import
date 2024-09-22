@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dub04a2s8ixhh"
 path.s3tc="res://.godot/imported/Scaffolding A-a6b93c2615dcb20ee741276cb1c43c52_b52de668.png-e3498416bf95c0ef7dfdb08bac07fb1c.s3tc.ctex"
+path.etc2="res://.godot/imported/Scaffolding A-a6b93c2615dcb20ee741276cb1c43c52_b52de668.png-e3498416bf95c0ef7dfdb08bac07fb1c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Pitch Dark Stadium/Scaffolding A-a6b93c2615dcb20ee741276cb1c43c52_b52de668.png"
-dest_files=["res://.godot/imported/Scaffolding A-a6b93c2615dcb20ee741276cb1c43c52_b52de668.png-e3498416bf95c0ef7dfdb08bac07fb1c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Scaffolding A-a6b93c2615dcb20ee741276cb1c43c52_b52de668.png-e3498416bf95c0ef7dfdb08bac07fb1c.s3tc.ctex", "res://.godot/imported/Scaffolding A-a6b93c2615dcb20ee741276cb1c43c52_b52de668.png-e3498416bf95c0ef7dfdb08bac07fb1c.etc2.ctex"]
 
 [params]
 

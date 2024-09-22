@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkhcxilx3tn83"
 path.s3tc="res://.godot/imported/flash.png-5f0a3ffd9c664fcf7f44649d5fd9bf88.s3tc.ctex"
+path.etc2="res://.godot/imported/flash.png-5f0a3ffd9c664fcf7f44649d5fd9bf88.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Particles/Muzzle/flash.png"
-dest_files=["res://.godot/imported/flash.png-5f0a3ffd9c664fcf7f44649d5fd9bf88.s3tc.ctex"]
+dest_files=["res://.godot/imported/flash.png-5f0a3ffd9c664fcf7f44649d5fd9bf88.s3tc.ctex", "res://.godot/imported/flash.png-5f0a3ffd9c664fcf7f44649d5fd9bf88.etc2.ctex"]
 
 [params]
 

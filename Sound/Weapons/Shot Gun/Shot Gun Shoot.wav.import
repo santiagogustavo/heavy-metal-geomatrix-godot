@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://beriiufu35fwu"
+path="res://.godot/imported/Shot Gun Shoot.wav-4f198cff691f990b6cc7945110d06a9c.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Shot Gun/Shot Gun Shoot.wav"
+dest_files=["res://.godot/imported/Shot Gun Shoot.wav-4f198cff691f990b6cc7945110d06a9c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7pnioue54hb4"
 path.s3tc="res://.godot/imported/rain_camera_big.png-e8ba6c16c876f25cc2d73038777917d2.s3tc.ctex"
+path.etc2="res://.godot/imported/rain_camera_big.png-e8ba6c16c876f25cc2d73038777917d2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Particles/Rain/rain_camera_big.png"
-dest_files=["res://.godot/imported/rain_camera_big.png-e8ba6c16c876f25cc2d73038777917d2.s3tc.ctex"]
+dest_files=["res://.godot/imported/rain_camera_big.png-e8ba6c16c876f25cc2d73038777917d2.s3tc.ctex", "res://.godot/imported/rain_camera_big.png-e8ba6c16c876f25cc2d73038777917d2.etc2.ctex"]
 
 [params]
 

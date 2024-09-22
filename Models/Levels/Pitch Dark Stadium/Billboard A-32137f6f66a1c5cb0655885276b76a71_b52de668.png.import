@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cig6sdk5da8nf"
 path.s3tc="res://.godot/imported/Billboard A-32137f6f66a1c5cb0655885276b76a71_b52de668.png-c98b836aa37bf432fcee84083808559c.s3tc.ctex"
+path.etc2="res://.godot/imported/Billboard A-32137f6f66a1c5cb0655885276b76a71_b52de668.png-c98b836aa37bf432fcee84083808559c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Levels/Pitch Dark Stadium/Billboard A-32137f6f66a1c5cb0655885276b76a71_b52de668.png"
-dest_files=["res://.godot/imported/Billboard A-32137f6f66a1c5cb0655885276b76a71_b52de668.png-c98b836aa37bf432fcee84083808559c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Billboard A-32137f6f66a1c5cb0655885276b76a71_b52de668.png-c98b836aa37bf432fcee84083808559c.s3tc.ctex", "res://.godot/imported/Billboard A-32137f6f66a1c5cb0655885276b76a71_b52de668.png-c98b836aa37bf432fcee84083808559c.etc2.ctex"]
 
 [params]
 

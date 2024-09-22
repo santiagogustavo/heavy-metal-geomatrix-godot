@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8ri44ctrutsv"
 path.s3tc="res://.godot/imported/f3337a7_spec.png-68179519478f865ab82332ea49d8b237.s3tc.ctex"
+path.etc2="res://.godot/imported/f3337a7_spec.png-68179519478f865ab82332ea49d8b237.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Weapons/Ray Sword/f3337a7_spec.png"
-dest_files=["res://.godot/imported/f3337a7_spec.png-68179519478f865ab82332ea49d8b237.s3tc.ctex"]
+dest_files=["res://.godot/imported/f3337a7_spec.png-68179519478f865ab82332ea49d8b237.s3tc.ctex", "res://.godot/imported/f3337a7_spec.png-68179519478f865ab82332ea49d8b237.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpyeufsl1dwwb"
 path.s3tc="res://.godot/imported/P1 Select-362605577a70c6da6c1f82862dcc1946_cf2cf27.png-9b7cb3821e5c02599b4f2fbdb4601803.s3tc.ctex"
+path.etc2="res://.godot/imported/P1 Select-362605577a70c6da6c1f82862dcc1946_cf2cf27.png-9b7cb3821e5c02599b4f2fbdb4601803.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/P1 Select-362605577a70c6da6c1f82862dcc1946_cf2cf27.png"
-dest_files=["res://.godot/imported/P1 Select-362605577a70c6da6c1f82862dcc1946_cf2cf27.png-9b7cb3821e5c02599b4f2fbdb4601803.s3tc.ctex"]
+dest_files=["res://.godot/imported/P1 Select-362605577a70c6da6c1f82862dcc1946_cf2cf27.png-9b7cb3821e5c02599b4f2fbdb4601803.s3tc.ctex", "res://.godot/imported/P1 Select-362605577a70c6da6c1f82862dcc1946_cf2cf27.png-9b7cb3821e5c02599b4f2fbdb4601803.etc2.ctex"]
 
 [params]
 

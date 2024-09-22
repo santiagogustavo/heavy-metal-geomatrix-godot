@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bf6l4txk0ewo0"
 path.s3tc="res://.godot/imported/Jetpack_5c8e64d8.png-f795ab9e3181d095b4154a94a3b7f361.s3tc.ctex"
+path.etc2="res://.godot/imported/Jetpack_5c8e64d8.png-f795ab9e3181d095b4154a94a3b7f361.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Pickups/Jetpack_5c8e64d8.png"
-dest_files=["res://.godot/imported/Jetpack_5c8e64d8.png-f795ab9e3181d095b4154a94a3b7f361.s3tc.ctex"]
+dest_files=["res://.godot/imported/Jetpack_5c8e64d8.png-f795ab9e3181d095b4154a94a3b7f361.s3tc.ctex", "res://.godot/imported/Jetpack_5c8e64d8.png-f795ab9e3181d095b4154a94a3b7f361.etc2.ctex"]
 
 [params]
 

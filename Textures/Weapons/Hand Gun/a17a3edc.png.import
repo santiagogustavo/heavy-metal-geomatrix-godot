@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cypd7txc0kjeu"
 path.s3tc="res://.godot/imported/a17a3edc.png-0ed2c3d6f60987bfccd6498bc3366df6.s3tc.ctex"
+path.etc2="res://.godot/imported/a17a3edc.png-0ed2c3d6f60987bfccd6498bc3366df6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Weapons/Hand Gun/a17a3edc.png"
-dest_files=["res://.godot/imported/a17a3edc.png-0ed2c3d6f60987bfccd6498bc3366df6.s3tc.ctex"]
+dest_files=["res://.godot/imported/a17a3edc.png-0ed2c3d6f60987bfccd6498bc3366df6.s3tc.ctex", "res://.godot/imported/a17a3edc.png-0ed2c3d6f60987bfccd6498bc3366df6.etc2.ctex"]
 
 [params]
 

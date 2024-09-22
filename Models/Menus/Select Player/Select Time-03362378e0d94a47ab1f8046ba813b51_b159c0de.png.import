@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctt6k7i1aeqh8"
 path.s3tc="res://.godot/imported/Select Time-03362378e0d94a47ab1f8046ba813b51_b159c0de.png-96caa914e153166953e3a808bf705feb.s3tc.ctex"
+path.etc2="res://.godot/imported/Select Time-03362378e0d94a47ab1f8046ba813b51_b159c0de.png-96caa914e153166953e3a808bf705feb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Menus/Select Player/Select Time-03362378e0d94a47ab1f8046ba813b51_b159c0de.png"
-dest_files=["res://.godot/imported/Select Time-03362378e0d94a47ab1f8046ba813b51_b159c0de.png-96caa914e153166953e3a808bf705feb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Select Time-03362378e0d94a47ab1f8046ba813b51_b159c0de.png-96caa914e153166953e3a808bf705feb.s3tc.ctex", "res://.godot/imported/Select Time-03362378e0d94a47ab1f8046ba813b51_b159c0de.png-96caa914e153166953e3a808bf705feb.etc2.ctex"]
 
 [params]
 

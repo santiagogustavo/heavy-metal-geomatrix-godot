@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bexfhet0dlk1d"
 path.s3tc="res://.godot/imported/Base R_af4cf111_R.png-5306532a03713c7c543747caa5807faa.s3tc.ctex"
+path.etc2="res://.godot/imported/Base R_af4cf111_R.png-5306532a03713c7c543747caa5807faa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Pickups/Bases/Base R_af4cf111_R.png"
-dest_files=["res://.godot/imported/Base R_af4cf111_R.png-5306532a03713c7c543747caa5807faa.s3tc.ctex"]
+dest_files=["res://.godot/imported/Base R_af4cf111_R.png-5306532a03713c7c543747caa5807faa.s3tc.ctex", "res://.godot/imported/Base R_af4cf111_R.png-5306532a03713c7c543747caa5807faa.etc2.ctex"]
 
 [params]
 

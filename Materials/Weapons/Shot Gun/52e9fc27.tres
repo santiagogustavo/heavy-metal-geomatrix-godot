@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://uok6hk08hw3w"]
+
+[ext_resource type="Texture2D" uid="uid://pqg0tcl06f2n" path="res://Textures/Weapons/Shot Gun/52e9fc27.png" id="1_f6boo"]
+[ext_resource type="Texture2D" uid="uid://cu4tuw7ysavt5" path="res://Textures/Weapons/Shot Gun/52e9fc27_spec.png" id="2_e8fn1"]
+
+[resource]
+albedo_texture = ExtResource("1_f6boo")
+ao_enabled = true
+ao_texture = ExtResource("2_e8fn1")

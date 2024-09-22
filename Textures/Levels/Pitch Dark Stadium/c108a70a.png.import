@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqql310mkga61"
 path.s3tc="res://.godot/imported/c108a70a.png-b5f3452c4ebec3b25980a4a1900a714b.s3tc.ctex"
+path.etc2="res://.godot/imported/c108a70a.png-b5f3452c4ebec3b25980a4a1900a714b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Levels/Pitch Dark Stadium/c108a70a.png"
-dest_files=["res://.godot/imported/c108a70a.png-b5f3452c4ebec3b25980a4a1900a714b.s3tc.ctex"]
+dest_files=["res://.godot/imported/c108a70a.png-b5f3452c4ebec3b25980a4a1900a714b.s3tc.ctex", "res://.godot/imported/c108a70a.png-b5f3452c4ebec3b25980a4a1900a714b.etc2.ctex"]
 
 [params]
 

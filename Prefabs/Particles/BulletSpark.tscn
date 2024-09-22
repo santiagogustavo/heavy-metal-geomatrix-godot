@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cnpyrs6ijr5fd" path="res://Prefabs/Particles/HitSpark.tscn" id="1_m836g"]
 
 [node name="BulletSpark" type="Node3D"]
+top_level = true
 
 [node name="RaySpark" parent="." instance=ExtResource("1_m836g")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.1)
-amount = 25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+amount = 5
+lifetime = 0.5
