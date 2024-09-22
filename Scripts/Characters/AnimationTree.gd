@@ -10,6 +10,7 @@ var equip: Definitions.EquipType = Definitions.EquipType.Body
 
 var is_dashing: bool = false
 var is_jumping: bool = false
+var is_double_jumping: bool = false
 var is_on_floor: bool = true
 var is_aiming: bool = false
 var is_shooting: bool = false
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 	update_combo_animation()
 	update_fire_rate()
 	update_pickup()
+	update_double_jump()
 
 func update_pickup() -> void:
 	if is_picking_up:
@@ -55,6 +57,10 @@ func update_combo_animation() -> void:
 		is_attack_combo = false
 	
 	last_combo_animation = current_node
+
+func update_double_jump() -> void:
+	if is_double_jumping:
+		set("parameters/Lower Body/Double Jump/TimeSeek/seek_request", 0.0)
 
 func get_current_upper_body_animation() -> StringName:
 	return upper_body_state_machine.get_current_node()

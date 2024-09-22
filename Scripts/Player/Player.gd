@@ -204,6 +204,7 @@ func set_animator_variables():
 	animation_tree.look = input_look
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
+	animation_tree.is_double_jumping = is_double_jumping && inventory_manager.jetpack_has_fuel
 	animation_tree.is_aiming = is_aiming
 	animation_tree.is_gun_shooting = inventory_manager.is_gun_shooting
 	animation_tree.is_shooting = is_shooting

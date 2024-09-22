@@ -24,7 +24,7 @@ item = ExtResource("2_4neja")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Jetpack/Armature" index="0"]
-bones/0/scale = Vector3(1.24227, 1.24227, 1)
+bones/0/scale = Vector3(1.05883, 1.05883, 1)
 
 [node name="object_0_001" parent="Jetpack/Armature/Skeleton3D" index="0"]
 cast_shadow = 0
