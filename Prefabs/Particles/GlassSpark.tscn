@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://yq546o3af326"]
+
+[ext_resource type="Script" path="res://Prefabs/Utils/QueueFreeTimeout.gd" id="1_g5i2p"]
+[ext_resource type="Texture2D" uid="uid://bi76wvceoqb0l" path="res://Textures/Particles/glass_shatter.png" id="2_4i8ou"]
+
+[sub_resource type="Curve" id="Curve_komyk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_0mx1g"]
+curve = SubResource("Curve_komyk")
+
+[sub_resource type="Curve" id="Curve_6ynpq"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 216), 0.0, 0.0, 0, 0, Vector2(1, -144), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_bu1jd"]
+curve = SubResource("Curve_6ynpq")
+
+[sub_resource type="Curve" id="Curve_n1b8t"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_1wvdb"]
+curve = SubResource("Curve_n1b8t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8uax0"]
+particle_flag_align_y = true
+angle_min = -90.0
+angle_max = 90.0
+angle_curve = SubResource("CurveTexture_bu1jd")
+direction = Vector3(0, 0, -1)
+spread = 30.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_1wvdb")
+alpha_curve = SubResource("CurveTexture_0mx1g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cgia"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_4i8ou")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_civum"]
+material = SubResource("StandardMaterial3D_0cgia")
+size = Vector2(0.5, 0.5)
+
+[node name="GlassSpark" type="Node3D"]
+script = ExtResource("1_g5i2p")
+timeout = 0.3
+
+[node name="RaySpark" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 2
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8uax0")
+draw_pass_1 = SubResource("QuadMesh_civum")

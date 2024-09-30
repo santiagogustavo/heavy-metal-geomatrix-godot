@@ -1,22 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmq6da7dayio0"]
+[gd_scene load_steps=9 format=3 uid="uid://dmq6da7dayio0"]
 
-[ext_resource type="Texture2D" uid="uid://c1040jkf8xlwv" path="res://Textures/Particles/Bullet Hole.png" id="1_ay44e"]
-[ext_resource type="Texture2D" uid="uid://dpr3qcuokl8r5" path="res://Textures/Particles/Bullet Hole nrm.png" id="2_mmown"]
+[ext_resource type="Texture2D" uid="uid://c1040jkf8xlwv" path="res://Textures/Decals/bullet_hole.png" id="1_ay44e"]
+[ext_resource type="Script" path="res://Scripts/Decals/DecalController.gd" id="1_tbass"]
 [ext_resource type="AudioStream" uid="uid://1ctwiqskxayt" path="res://Sound/Weapons/Common/Bullet Hit 1.wav" id="3_7f6m7"]
+[ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="3_ms2ul"]
 [ext_resource type="AudioStream" uid="uid://c5sl1oaowhx4m" path="res://Sound/Weapons/Common/Bullet Hit 2.wav" id="4_i0qa6"]
 [ext_resource type="AudioStream" uid="uid://cut5s6chdhiqh" path="res://Sound/Weapons/Common/Bullet Hit 3.wav" id="5_26lcb"]
 [ext_resource type="AudioStream" uid="uid://cfajww0ysqvm8" path="res://Sound/Weapons/Common/Bullet Hit 4.wav" id="6_exh6t"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abkvh"]
-transparency = 1
-cull_mode = 1
-albedo_texture = ExtResource("1_ay44e")
-normal_enabled = true
-normal_texture = ExtResource("2_mmown")
-
-[sub_resource type="QuadMesh" id="QuadMesh_c4150"]
-material = SubResource("StandardMaterial3D_abkvh")
-size = Vector2(0.2, 0.2)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6o1ag"]
 streams_count = 4
@@ -25,13 +15,23 @@ stream_1/stream = ExtResource("4_i0qa6")
 stream_2/stream = ExtResource("5_26lcb")
 stream_3/stream = ExtResource("6_exh6t")
 
-[node name="BulletDecal" type="Node3D"]
+[node name="BulletDecal" type="Node3D" node_paths=PackedStringArray("particles")]
 top_level = true
+script = ExtResource("1_tbass")
+particles = [NodePath("BulletSpark/RaySpark")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+size = Vector3(0.2, 0.1, 0.2)
+texture_albedo = ExtResource("1_ay44e")
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="BulletSpark" parent="." instance=ExtResource("3_ms2ul")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
-cast_shadow = 0
-mesh = SubResource("QuadMesh_c4150")
+
+[node name="RaySpark" parent="BulletSpark" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_6o1ag")
@@ -39,5 +39,7 @@ volume_db = -25.0
 max_db = 0.0
 pitch_scale = 0.64
 autoplay = true
-bus = &"Reverb"
+bus = &"Effects"
 attenuation_filter_db = 0.0
+
+[editable path="BulletSpark"]

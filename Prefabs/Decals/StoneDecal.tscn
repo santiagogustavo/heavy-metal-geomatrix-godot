@@ -1,0 +1,91 @@
+[gd_scene load_steps=16 format=3 uid="uid://diilg16diw1j4"]
+
+[ext_resource type="AudioStream" uid="uid://cacg1klxqject" path="res://Sound/Weapons/Common/Stone Hit 1.wav" id="1_2i1yv"]
+[ext_resource type="Texture2D" uid="uid://cv4464k6i533j" path="res://Textures/Decals/stone_hit.png" id="1_3wqng"]
+[ext_resource type="Script" path="res://Scripts/Decals/DecalController.gd" id="1_fbugl"]
+[ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="2_4e051"]
+[ext_resource type="AudioStream" uid="uid://jpqyw2as3wg" path="res://Sound/Weapons/Common/Stone Hit 2.wav" id="2_w6b7h"]
+[ext_resource type="AudioStream" uid="uid://t4jwatlom6l2" path="res://Sound/Weapons/Common/Stone Hit 3.wav" id="3_e2jw0"]
+[ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="3_w0u5m"]
+
+[sub_resource type="Curve" id="Curve_5vl8u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ghej"]
+curve = SubResource("Curve_5vl8u")
+
+[sub_resource type="Curve" id="Curve_jjhe0"]
+_data = [Vector2(0, 0.5), 0.0, 0.5, 0, 1, Vector2(1, 1), 0.5, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_7mywb"]
+curve = SubResource("Curve_jjhe0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a48g5"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+angle_min = -60.0
+angle_max = 60.0
+direction = Vector3(0, 0, -1)
+spread = 30.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_7mywb")
+color = Color(0.68, 0.55488, 0.3672, 1)
+alpha_curve = SubResource("CurveTexture_2ghej")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8ooe"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.470588)
+albedo_texture = ExtResource("3_w0u5m")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_x16we"]
+material = SubResource("StandardMaterial3D_b8ooe")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0h3bh"]
+streams_count = 3
+stream_0/stream = ExtResource("1_2i1yv")
+stream_1/stream = ExtResource("2_w6b7h")
+stream_2/stream = ExtResource("3_e2jw0")
+
+[node name="StoneDecal" type="Node3D" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_fbugl")
+particles = [NodePath("BulletSpark/RaySpark")]
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+size = Vector3(0.2, 0.1, 0.2)
+texture_albedo = ExtResource("1_3wqng")
+upper_fade = 9.01716e-05
+lower_fade = 1e-05
+
+[node name="BulletSpark" parent="." instance=ExtResource("2_4e051")]
+
+[node name="RaySpark" parent="BulletSpark" index="0"]
+process_material = SubResource("ParticleProcessMaterial_a48g5")
+draw_pass_1 = SubResource("QuadMesh_x16we")
+timeout = 0.5
+
+[node name="OmniLight3D" parent="BulletSpark/RaySpark" index="0"]
+visible = false
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_0h3bh")
+max_db = 4.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[editable path="BulletSpark"]
+[editable path="BulletSpark/RaySpark"]

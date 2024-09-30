@@ -1,10 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://byafmx5elekej"]
+[gd_scene load_steps=34 format=3 uid="uid://byafmx5elekej"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/MotionBlur.gd" id="1_d58io"]
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain.gd" id="1_psrnk"]
 [ext_resource type="Texture2D" uid="uid://b5g3eif2k2s6r" path="res://Textures/Particles/Rain/rain_camera_small_medium.png" id="2_on5pt"]
 [ext_resource type="Shader" path="res://Materials/UI/Rain.gdshader" id="4_3ivn6"]
+[ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraSnow.gd" id="6_53sd6"]
 [ext_resource type="Shader" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
+[ext_resource type="Texture2D" uid="uid://cwwbkn824wase" path="res://Textures/Particles/Snow/camera_snow_1.png" id="6_oyy1f"]
+[ext_resource type="Texture2D" uid="uid://cmgjjhaxp46h1" path="res://Textures/Particles/Snow/camera_snow_4.png" id="8_8nf21"]
 
 [sub_resource type="Gradient" id="Gradient_3amfu"]
 offsets = PackedFloat32Array(0.436364, 0.698182, 1)
@@ -106,6 +109,46 @@ turbulence_influence_over_life = SubResource("CurveTexture_hglk0")
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_87sf8"]
 gradient = SubResource("Gradient_ltn3y")
 
+[sub_resource type="Curve" id="Curve_d2sl7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_vqebf"]
+curve = SubResource("Curve_d2sl7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_73ef5"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 400, 1)
+angle_min = -30.0
+angle_max = 30.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 15.0
+color = Color(1, 1, 1, 0.0588235)
+alpha_curve = SubResource("CurveTexture_vqebf")
+
+[sub_resource type="Curve" id="Curve_kgp5m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_h8yyj"]
+curve = SubResource("Curve_kgp5m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8knii"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 400, 1)
+angle_min = -60.0
+angle_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 5.0
+color = Color(1, 1, 1, 0.258824)
+alpha_curve = SubResource("CurveTexture_h8yyj")
+
 [node name="CameraEffects3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
@@ -167,3 +210,28 @@ randomness = 1.0
 local_coords = true
 trail_enabled = true
 trail_lifetime = 1.0
+
+[node name="CameraSnow" type="Node3D" parent="."]
+script = ExtResource("6_53sd6")
+
+[node name="Control" type="Control" parent="CameraSnow"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Particles1" type="GPUParticles2D" parent="CameraSnow/Control"]
+position = Vector2(600, 325)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_73ef5")
+texture = ExtResource("6_oyy1f")
+lifetime = 5.0
+
+[node name="Particles2" type="GPUParticles2D" parent="CameraSnow/Control"]
+position = Vector2(600, 325)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_8knii")
+texture = ExtResource("8_8nf21")
+lifetime = 3.0

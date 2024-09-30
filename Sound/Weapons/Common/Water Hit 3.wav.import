@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bs8vivssl8vv4"
+path="res://.godot/imported/Water Hit 3.wav-4d15c6789a67a8b0e911a97212bb4b8e.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Common/Water Hit 3.wav"
+dest_files=["res://.godot/imported/Water Hit 3.wav-4d15c6789a67a8b0e911a97212bb4b8e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

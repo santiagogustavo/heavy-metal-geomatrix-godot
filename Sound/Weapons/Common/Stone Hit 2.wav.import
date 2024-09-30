@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jpqyw2as3wg"
+path="res://.godot/imported/Stone Hit 2.wav-36321335b24541126ead9e447d37ba5f.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Common/Stone Hit 2.wav"
+dest_files=["res://.godot/imported/Stone Hit 2.wav-36321335b24541126ead9e447d37ba5f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://coyixyoikh0ww"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_6xthm"]
+
+[node name="LevelConfig" type="Node3D"]
+script = ExtResource("1_6xthm")

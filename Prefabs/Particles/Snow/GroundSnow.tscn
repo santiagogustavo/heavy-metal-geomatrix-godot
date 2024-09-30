@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://befau3i2w2xwj"]
+
+[ext_resource type="Texture2D" uid="uid://dby0717jg2tos" path="res://Textures/Particles/Snow/camera_snow_2.png" id="1_jd61g"]
+
+[sub_resource type="Curve" id="Curve_aujxg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.992126, 0.000223041), -3.03628, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_antrm"]
+curve = SubResource("Curve_aujxg")
+
+[sub_resource type="Curve" id="Curve_vu2nm"]
+_data = [Vector2(0, 0.8), 0.0, 0.2, 0, 1, Vector2(1, 1), 0.2, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_cb3yr"]
+curve = SubResource("Curve_vu2nm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8wvtd"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 0, 10)
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_cb3yr")
+alpha_curve = SubResource("CurveTexture_antrm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrvrq"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_jd61g")
+
+[sub_resource type="QuadMesh" id="QuadMesh_758ky"]
+material = SubResource("StandardMaterial3D_qrvrq")
+size = Vector2(2, 2)
+orientation = 1
+
+[node name="GroundSnow" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+amount = 150
+lifetime = 2.0
+preprocess = 1.0
+visibility_aabb = AABB(-10, 0, -10, 20, 0.1, 20)
+process_material = SubResource("ParticleProcessMaterial_8wvtd")
+draw_pass_1 = SubResource("QuadMesh_758ky")

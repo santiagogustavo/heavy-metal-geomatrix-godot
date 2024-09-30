@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctnkeysy3gr0b"
+path="res://.godot/imported/Glass Hit 1.wav-0321060a8034a4f8b8e021537da71e25.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Common/Glass Hit 1.wav"
+dest_files=["res://.godot/imported/Glass Hit 1.wav-0321060a8034a4f8b8e021537da71e25.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

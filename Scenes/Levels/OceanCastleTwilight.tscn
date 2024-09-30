@@ -1,7 +1,7 @@
 [gd_scene load_steps=51 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
-[ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_wcve2"]
+[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_tcn3d"]
 [ext_resource type="Texture2D" uid="uid://24rcfmn5xmcj" path="res://Textures/Skyboxes/Twilight Cloudy.png" id="2_p2odm"]
 [ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_1hprl"]
 [ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="3_qj2i6"]
@@ -248,8 +248,7 @@ size = Vector3(15, 0, 20)
 
 [node name="Ocean Castle Twilight" type="Node3D"]
 
-[node name="LevelConfig" type="Node3D" parent="."]
-script = ExtResource("1_wcve2")
+[node name="LevelConfig" parent="." instance=ExtResource("1_tcn3d")]
 level_name = "Ocean Castle Twilight"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

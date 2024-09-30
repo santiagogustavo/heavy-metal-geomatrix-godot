@@ -6,6 +6,7 @@ class_name LevelConfig
 
 @export_subgroup("Environment")
 @export var is_rainy: bool = false
+@export var is_snowy: bool = false
 
 func _ready():
 	GameManager.lock_cursor()

@@ -1,32 +1,32 @@
-[gd_scene load_steps=40 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=42 format=3 uid="uid://b5wu7c7eewugs"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_d7yff"]
-[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_duxkp"]
-[ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="3_hqawh"]
-[ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="3_ydoo2"]
-[ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="4_weequ"]
-[ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="5_3lnoh"]
-[ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="6_5jbeo"]
-[ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="7_nvg67"]
-[ext_resource type="Texture2D" uid="uid://djdwcspbmak5r" path="res://Textures/Levels/5a480546_nrm.png" id="8_e1rhi"]
-[ext_resource type="Texture2D" uid="uid://yhc2736083x" path="res://Textures/Levels/5a480546_spec.png" id="9_81n0c"]
-[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="10_12fmy"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort.gdshader" id="11_gcapk"]
-[ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="12_dp443"]
-[ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="13_hu3jd"]
-[ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="14_tgsiy"]
-[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="15_sduvl"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="16_xk5mc"]
-[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="17_30tnt"]
-[ext_resource type="AudioStream" uid="uid://17xy5t8bj071" path="res://Music/Anders - Insanity Control.mp3" id="17_ni7qc"]
-[ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="18_2efy7"]
-[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="18_jr7x8"]
-[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="20_xun26"]
-[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="22_bqmq8"]
-[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_ikh5l"]
+[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lhsfh"]
+[ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
+[ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_m5gjv"]
+[ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="4_tyato"]
+[ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="5_obby4"]
+[ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="6_lid83"]
+[ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="7_yuttg"]
+[ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="8_hapiw"]
+[ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="9_ds7yn"]
+[ext_resource type="Texture2D" uid="uid://djdwcspbmak5r" path="res://Textures/Levels/5a480546_nrm.png" id="10_kuhwj"]
+[ext_resource type="Texture2D" uid="uid://yhc2736083x" path="res://Textures/Levels/5a480546_spec.png" id="11_uk7c0"]
+[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="12_rucj7"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort.gdshader" id="13_hmcjl"]
+[ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="14_jk7h2"]
+[ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="15_yy7dp"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="16_sdprx"]
+[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="17_l0s6t"]
+[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="18_b712g"]
+[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="19_6bd6u"]
+[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="20_fr0k5"]
+[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="21_xdkx4"]
+[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_4s6i1"]
+[ext_resource type="AudioStream" uid="uid://17xy5t8bj071" path="res://Music/Anders - Insanity Control.mp3" id="23_20kha"]
+[ext_resource type="Script" path="res://Scripts/Sound/BGMManager.gd" id="24_rx7hp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
-panorama = ExtResource("3_ydoo2")
+panorama = ExtResource("2_pg3qa")
 
 [sub_resource type="Sky" id="Sky_epnlb"]
 sky_material = SubResource("PanoramaSkyMaterial_6eb3a")
@@ -38,20 +38,20 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1635"]
 cull_mode = 2
-albedo_texture = ExtResource("4_weequ")
+albedo_texture = ExtResource("6_lid83")
 ao_enabled = true
-ao_texture = ExtResource("5_3lnoh")
+ao_texture = ExtResource("7_yuttg")
 uv1_scale = Vector3(5, 5, 5)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_wgvrk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_lwwtc"]
+size = Vector2(40, 40)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75qwo"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
-backface_collision = true
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mviyq"]
+data = PackedVector3Array(20, 0, 20, -20, 0, 20, 20, 0, -20, -20, 0, 20, -20, 0, -20, 20, 0, -20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqyya"]
 render_priority = 0
-shader = ExtResource("6_5jbeo")
+shader = ExtResource("8_hapiw")
 shader_parameter/Color = Color(1, 1, 1, 1)
 shader_parameter/Panning = Vector2(0, 0.05)
 shader_parameter/distortion_speed = Vector2(0.1, 0.1)
@@ -63,18 +63,24 @@ shader_parameter/Roughness = 0.0
 shader_parameter/Specular = 0.505
 shader_parameter/Occlusion_Intensity = 1.0
 shader_parameter/normal_intensity = 1.0
-shader_parameter/Albedo = ExtResource("7_nvg67")
-shader_parameter/Occlusion = ExtResource("9_81n0c")
-shader_parameter/Normal_Map = ExtResource("8_e1rhi")
+shader_parameter/Albedo = ExtResource("9_ds7yn")
+shader_parameter/Occlusion = ExtResource("11_uk7c0")
+shader_parameter/Normal_Map = ExtResource("10_kuhwj")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kayqk"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_mq3id"]
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6ruon"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rk80p"]
 render_priority = 0
-shader = ExtResource("11_gcapk")
+shader = ExtResource("13_hmcjl")
 shader_parameter/distortion_size = 0.22
-shader_parameter/normal_map = ExtResource("12_dp443")
+shader_parameter/normal_map = ExtResource("14_jk7h2")
 
 [sub_resource type="BoxMesh" id="BoxMesh_rg8kh"]
-material = SubResource("ShaderMaterial_kayqk")
+material = SubResource("ShaderMaterial_rk80p")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l6fwg"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -98,48 +104,45 @@ size = Vector3(40, 0, 40)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jmt0g"]
 size = Vector3(100, 0, 100)
 
-[node name="Playground" type="Node3D"]
+[node name="Playground1" type="Node3D"]
 
-[node name="LevelConfig" type="Node3D" parent="."]
-script = ExtResource("1_d7yff")
-level_name = "Playground"
+[node name="LevelConfig" parent="." instance=ExtResource("1_lhsfh")]
+level_name = "Playground1"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_obdgp")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.517071, -0.622551, -0.587425, 0.695129, -0.0950213, 0.712578, -0.499434, -0.776789, 0.38362, -0.844049, 11.9817, 3.06261)
-shadow_enabled = true
-script = ExtResource("3_duxkp")
+[node name="Sun" parent="." instance=ExtResource("3_m5gjv")]
+light_energy = 0.6
 
-[node name="UI" parent="." instance=ExtResource("3_hqawh")]
+[node name="UI" parent="." instance=ExtResource("4_tyato")]
 
-[node name="Player" parent="." instance=ExtResource("14_tgsiy")]
+[node name="Player" parent="." instance=ExtResource("5_obby4")]
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
-transform = Transform3D(20, 6.03282e-15, -3.47356e-07, 0, 20, 3.47356e-07, 3.47356e-07, -3.47356e-07, 20, 0, 0, 2.38419e-07)
+transform = Transform3D(1, 3.0164e-16, -1.73678e-08, 0, 1, 1.73678e-08, 1.73678e-08, -1.73678e-08, 1, 0, 0, 2.38419e-07)
 material_override = SubResource("StandardMaterial3D_w1635")
-mesh = SubResource("PlaneMesh_wgvrk")
+mesh = SubResource("PlaneMesh_lwwtc")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
-collision_layer = 4
+collision_layer = 1028
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_75qwo")
+shape = SubResource("ConcavePolygonShape3D_mviyq")
 
 [node name="Water" type="MeshInstance3D" parent="Level Geometry"]
-transform = Transform3D(50, 4.52461e-14, -1.73678e-06, 1.5082e-14, 50, 1.73678e-06, 1.73678e-06, -1.73678e-06, 50, 0, -8, 0)
+transform = Transform3D(1, 9.04922e-16, -3.47356e-08, 3.0164e-16, 1, 3.47356e-08, 3.47356e-08, -3.47356e-08, 1, 0, -8, 0)
 material_override = SubResource("ShaderMaterial_aqyya")
-mesh = SubResource("PlaneMesh_wgvrk")
+mesh = SubResource("PlaneMesh_mq3id")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Water"]
-collision_layer = 4
+collision_layer = 516
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Water/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_75qwo")
+shape = SubResource("ConcavePolygonShape3D_6ruon")
 
 [node name="ReflectionProbe2" type="ReflectionProbe" parent="Level Geometry/Water"]
 transform = Transform3D(0.02, 6.0328e-18, 6.94712e-10, 1.80984e-17, 0.02, -6.94712e-10, -6.94712e-10, 6.94712e-10, 0.02, 0, 0.22, 7.21775e-09)
@@ -152,7 +155,7 @@ light_energy = 12.144
 shadow_enabled = true
 omni_range = 10.0
 
-[node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("10_12fmy")]
+[node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("12_rucj7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.469, 0.34235, -16.0485)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry"]
@@ -160,7 +163,7 @@ transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 
 mesh = SubResource("BoxMesh_rg8kh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D2"]
-collision_layer = 4
+collision_layer = 260
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_l6fwg")
@@ -179,11 +182,11 @@ shape = SubResource("ConcavePolygonShape3D_ni3jg")
 transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
 size = Vector3(100, 20, 100)
 
-[node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("13_hu3jd")]
+[node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("15_yy7dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("15_sduvl")]
-pickups_to_spawn = Array[PackedScene]([ExtResource("16_xk5mc"), ExtResource("17_30tnt"), ExtResource("18_jr7x8"), ExtResource("22_bqmq8"), ExtResource("20_xun26")])
+[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("16_sdprx")]
+pickups_to_spawn = Array[PackedScene]([ExtResource("17_l0s6t"), ExtResource("18_b712g"), ExtResource("19_6bd6u"), ExtResource("20_fr0k5"), ExtResource("21_xdkx4")])
 collision_shapes = [NodePath("Area3D/CollisionShape3D"), NodePath("Area3D/CollisionShape3D2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
@@ -193,16 +196,16 @@ shape = SubResource("BoxShape3D_xwkx1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
 shape = SubResource("BoxShape3D_jmt0g")
 
-[node name="World Boundaries" parent="." instance=ExtResource("22_ikh5l")]
+[node name="World Boundaries" parent="." instance=ExtResource("22_4s6i1")]
 
 [node name="Anders - Insanity Control" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("17_ni7qc")
+stream = ExtResource("23_20kha")
 autoplay = true
 bus = &"Game"
-script = ExtResource("18_2efy7")
+script = ExtResource("24_rx7hp")
 
-[node name="HandGunPickup" parent="." instance=ExtResource("22_bqmq8")]
+[node name="HandGunPickup" parent="." instance=ExtResource("20_fr0k5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
 
 [editable path="Spawner"]

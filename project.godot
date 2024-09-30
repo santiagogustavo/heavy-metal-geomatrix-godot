@@ -157,12 +157,20 @@ ui_start={
 
 [layer_names]
 
+3d_render/layer_2="Layer 2"
+3d_render/layer_11="Layer 11"
+3d_render/layer_12="Layer 12"
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Pickup"
 3d_physics/layer_3="Level Geometry"
 3d_physics/layer_4="Blade"
 3d_physics/layer_5="World Boundary"
 3d_physics/layer_6="Invisible Wall"
+3d_physics/layer_7="Layer 7"
+3d_physics/layer_9="Glass"
+3d_physics/layer_10="Water"
+3d_physics/layer_11="Stone"
+3d_physics/layer_12="Dirt"
 
 [rendering]
 

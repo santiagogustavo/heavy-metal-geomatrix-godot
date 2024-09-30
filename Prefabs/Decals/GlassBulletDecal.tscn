@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnnx1ffnlvlgc"]
+
+[ext_resource type="Script" path="res://Scripts/Decals/DecalController.gd" id="1_w1osi"]
+[ext_resource type="Texture2D" uid="uid://b3ykscn6pnb3i" path="res://Textures/Decals/glass_hit.png" id="2_kq7du"]
+[ext_resource type="PackedScene" uid="uid://yq546o3af326" path="res://Prefabs/Particles/GlassSpark.tscn" id="3_anarw"]
+[ext_resource type="AudioStream" uid="uid://ctnkeysy3gr0b" path="res://Sound/Weapons/Common/Glass Hit 1.wav" id="4_p74aj"]
+[ext_resource type="AudioStream" uid="uid://b1633ppt0vkgr" path="res://Sound/Weapons/Common/Glass Hit 2.wav" id="5_xhivx"]
+[ext_resource type="AudioStream" uid="uid://blwkebyt1la6w" path="res://Sound/Weapons/Common/Glass Hit 3.wav" id="6_bjh7x"]
+[ext_resource type="AudioStream" uid="uid://di8u8yfyqnbeu" path="res://Sound/Weapons/Common/Glass Hit 4.wav" id="7_eex3j"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d3blk"]
+streams_count = 4
+stream_0/stream = ExtResource("4_p74aj")
+stream_1/stream = ExtResource("5_xhivx")
+stream_2/stream = ExtResource("6_bjh7x")
+stream_3/stream = ExtResource("7_eex3j")
+
+[node name="GlassBulletDecal" type="Node3D" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_w1osi")
+particles = [NodePath("GlassSpark/RaySpark")]
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+size = Vector3(0.3, 0.1, 0.3)
+texture_albedo = ExtResource("2_kq7du")
+upper_fade = 1e-05
+lower_fade = 6.83374e-05
+
+[node name="GlassSpark" parent="." instance=ExtResource("3_anarw")]
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_d3blk")
+volume_db = -10.0
+max_db = 0.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[editable path="GlassSpark"]

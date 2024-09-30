@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1040jkf8xlwv"
-path.s3tc="res://.godot/imported/Bullet Hole.png-f69cf3535577fbd4f3506dc0d1d75708.s3tc.ctex"
-path.etc2="res://.godot/imported/Bullet Hole.png-f69cf3535577fbd4f3506dc0d1d75708.etc2.ctex"
+uid="uid://cqf2gcmsoidhv"
+path.s3tc="res://.godot/imported/camera_snow_3.png-225d9f1a456534f09b6ccf1b3e4d6f74.s3tc.ctex"
+path.etc2="res://.godot/imported/camera_snow_3.png-225d9f1a456534f09b6ccf1b3e4d6f74.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Particles/Bullet Hole.png"
-dest_files=["res://.godot/imported/Bullet Hole.png-f69cf3535577fbd4f3506dc0d1d75708.s3tc.ctex", "res://.godot/imported/Bullet Hole.png-f69cf3535577fbd4f3506dc0d1d75708.etc2.ctex"]
+source_file="res://Textures/Particles/Snow/camera_snow_3.png"
+dest_files=["res://.godot/imported/camera_snow_3.png-225d9f1a456534f09b6ccf1b3e4d6f74.s3tc.ctex", "res://.godot/imported/camera_snow_3.png-225d9f1a456534f09b6ccf1b3e4d6f74.etc2.ctex"]
 
 [params]
 

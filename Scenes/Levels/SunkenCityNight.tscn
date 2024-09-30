@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=3 uid="uid://cfdmaidpgq6oq"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/LevelConfig.gd" id="1_ju2fq"]
+[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_v8yub"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_x780f"]
 [ext_resource type="PackedScene" uid="uid://nkwpbcej5qsd" path="res://Models/Levels/Sunken City Night/Sunken City Night.glb" id="2_ejg02"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="3_337c6"]
@@ -128,8 +128,7 @@ size = Vector3(0.318848, 22.8315, 20.9529)
 
 [node name="SunkenCityNight" type="Node3D"]
 
-[node name="LevelConfig" type="Node3D" parent="."]
-script = ExtResource("1_ju2fq")
+[node name="LevelConfig" parent="." instance=ExtResource("1_v8yub")]
 level_name = "Sunken City Night"
 is_rainy = true
 
