@@ -43,6 +43,12 @@ hit_sfx = ExtResource("3_njj2e")
 
 [node name="Killer Sword" parent="." instance=ExtResource("1_vi24m")]
 
+[node name="object_0" parent="Killer Sword" index="0"]
+layers = 8
+
+[node name="object_1" parent="Killer Sword" index="1"]
+layers = 8
+
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(-1, -5.0139e-16, -8.74228e-08, -7.40049e-09, 0.605795, 0.0846517, 8.7109e-08, 0.0514663, -0.996411, -1.86215e-09, 0.740487, 0.0556854)
 amount = 30
@@ -71,3 +77,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160548, -0.0676142)
 target_position = Vector3(0, 1.2, 0)
 collision_mask = 4
 debug_shape_thickness = 5
+
+[editable path="Killer Sword"]

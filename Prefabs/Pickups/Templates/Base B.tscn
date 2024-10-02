@@ -158,13 +158,15 @@ cap_bottom = false
 [node name="Base B" instance=ExtResource("1_awi47")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0.999913, 0, 0.0132207)
-bones/1/rotation = Quaternion(0, -0.0278192, 0, 0.999613)
+bones/0/rotation = Quaternion(0, 0.958344, 0, 0.285617)
+bones/1/rotation = Quaternion(0, -0.646404, 0, 0.762995)
 
 [node name="object_0" parent="Armature/Skeleton3D" index="0"]
+layers = 2
 cast_shadow = 0
 
 [node name="object_0_001" parent="Armature/Skeleton3D" index="1"]
+layers = 2
 cast_shadow = 0
 
 [node name="IdleTree" type="AnimationTree" parent="." index="2"]
@@ -190,11 +192,13 @@ light_color = Color(0, 0.356863, 1, 1)
 
 [node name="Inner Ring" type="MeshInstance3D" parent="." index="6"]
 transform = Transform3D(2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+layers = 2
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_ejmdf")
 
 [node name="Outer Ring" type="MeshInstance3D" parent="." index="7"]
 transform = Transform3D(4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0)
+layers = 2
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_30pj2")
 

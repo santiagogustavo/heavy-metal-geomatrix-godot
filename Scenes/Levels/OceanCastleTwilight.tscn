@@ -573,6 +573,7 @@ shape = SubResource("BoxShape3D_fndbu")
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5.5, -1)
 size = Vector3(86, 31, 88)
+cull_mask = 1048561
 
 [node name="Invisible Walls" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.12044, 0)

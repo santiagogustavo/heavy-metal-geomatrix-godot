@@ -41,15 +41,18 @@ item = ExtResource("2_7b0pg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Ray Sword/Armature" index="0"]
-bones/0/scale = Vector3(1.16058, 1.16058, 1)
+bones/0/scale = Vector3(1.18227, 1.18227, 1)
 
 [node name="object_0_001" parent="Ray Sword/Armature/Skeleton3D" index="0"]
+layers = 2
 cast_shadow = 0
 
 [node name="object_0_003" parent="Ray Sword" index="1"]
+layers = 2
 cast_shadow = 0
 
 [node name="object_0" parent="Ray Sword" index="2"]
+layers = 2
 cast_shadow = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ray Sword" index="3"]

@@ -191,6 +191,12 @@ bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.0415587, 0, 0, 0.999136)
 bones/2/scale = Vector3(1, 1, 1)
 
+[node name="Hammer" parent="Shot Gun/Armature/Skeleton3D" index="0"]
+layers = 8
+
+[node name="Shot Gun" parent="Shot Gun/Armature/Skeleton3D" index="1"]
+layers = 8
+
 [node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Shot Gun"]
 libraries = {
 "": SubResource("AnimationLibrary_4yr6l")
@@ -239,9 +245,9 @@ light_energy = 0.0
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113081, -0.911205)
 stream = ExtResource("6_wmxgr")
-volume_db = -20.0
+volume_db = -15.0
 max_db = 0.0
-pitch_scale = 0.75
+stream_paused = true
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 

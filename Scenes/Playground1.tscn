@@ -181,6 +181,7 @@ shape = SubResource("ConcavePolygonShape3D_ni3jg")
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/MeshInstance3D3"]
 transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
 size = Vector3(100, 20, 100)
+cull_mask = 1048561
 
 [node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("15_yy7dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)

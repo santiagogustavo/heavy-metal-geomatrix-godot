@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://byafmx5elekej"]
+[gd_scene load_steps=38 format=3 uid="uid://byafmx5elekej"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/MotionBlur.gd" id="1_d58io"]
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain.gd" id="1_psrnk"]
 [ext_resource type="Texture2D" uid="uid://b5g3eif2k2s6r" path="res://Textures/Particles/Rain/rain_camera_small_medium.png" id="2_on5pt"]
 [ext_resource type="Shader" path="res://Materials/UI/Rain.gdshader" id="4_3ivn6"]
+[ext_resource type="Texture2D" uid="uid://qgknikcuc3sk" path="res://Textures/Particles/Rain/camera_rain_1.png" id="6_47yx6"]
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraSnow.gd" id="6_53sd6"]
 [ext_resource type="Shader" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
 [ext_resource type="Texture2D" uid="uid://cwwbkn824wase" path="res://Textures/Particles/Snow/camera_snow_1.png" id="6_oyy1f"]
@@ -25,6 +26,28 @@ shader_parameter/blur_center = Vector2(0.5, 0.5)
 shader_parameter/blur_power = 0.01
 shader_parameter/sampling_count = 10
 shader_parameter/mask = SubResource("GradientTexture2D_8hx76")
+
+[sub_resource type="Curve" id="Curve_41kfn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_x07kw"]
+curve = SubResource("Curve_41kfn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k85gp"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 400, 1)
+angle_min = -30.0
+angle_max = 30.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 10.0
+color = Color(0.85, 0.925, 1, 0.0784314)
+alpha_curve = SubResource("CurveTexture_x07kw")
 
 [sub_resource type="Gradient" id="Gradient_58gwp"]
 offsets = PackedFloat32Array(0, 0.814815, 1)
@@ -186,6 +209,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RainDripsBG" type="GPUParticles2D" parent="CameraRain/Control"]
+position = Vector2(24, 1)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_k85gp")
+texture = ExtResource("6_47yx6")
+lifetime = 5.0
 
 [node name="RainDrips" type="GPUParticles2D" parent="CameraRain/Control"]
 material = SubResource("ShaderMaterial_jg7g8")

@@ -157,7 +157,10 @@ ui_start={
 
 [layer_names]
 
-3d_render/layer_2="Layer 2"
+3d_render/layer_1="General"
+3d_render/layer_2="Pickups"
+3d_render/layer_3="Players"
+3d_render/layer_4="Weapons"
 3d_render/layer_11="Layer 11"
 3d_render/layer_12="Layer 12"
 3d_physics/layer_1="Player"

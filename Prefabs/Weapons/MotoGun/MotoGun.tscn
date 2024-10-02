@@ -421,8 +421,17 @@ eject_hole = NodePath("EjectHole")
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(9.20212e-05, 0.00943504, -0.0172132)
+bones/1/position = Vector3(0.00014109, 0.00961629, -0.0172007)
 bones/2/position = Vector3(0, 0.01, 0.00158699)
+
+[node name="object_0" parent="Moto Gun/Armature/Skeleton3D" index="0"]
+layers = 8
+
+[node name="object_1" parent="Moto Gun/Armature/Skeleton3D" index="1"]
+layers = 8
+
+[node name="object_1_001" parent="Moto Gun/Armature/Skeleton3D" index="2"]
+layers = 8
 
 [node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Moto Gun"]
 libraries = {
@@ -494,7 +503,7 @@ light_energy = 0.0
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
 stream = ExtResource("5_p3ww2")
-volume_db = -20.0
+volume_db = -16.0
 max_db = 0.0
 pitch_scale = 0.64
 bus = &"Reverb"

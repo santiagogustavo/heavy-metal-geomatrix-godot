@@ -31,6 +31,7 @@ process_material = SubResource("ParticleProcessMaterial_sigh4")
 draw_pass_1 = SubResource("QuadMesh_vnxkf")
 script = ExtResource("2_tr6r1")
 timeout = 0.1
+timeout_light = 0.1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(1, 0.886275, 0.392157, 1)

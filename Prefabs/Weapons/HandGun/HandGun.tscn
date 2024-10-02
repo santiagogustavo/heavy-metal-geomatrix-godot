@@ -209,6 +209,12 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 bones/0/rotation = Quaternion(-0.0553004, 1.19027e-07, -6.59232e-09, 0.99847)
 bones/1/rotation = Quaternion(-0.666921, -4.76792e-15, -1.59007e-07, 0.745128)
 
+[node name="object_2_001" parent="Hand Gun/Armature/Skeleton3D" index="0"]
+layers = 8
+
+[node name="object_7" parent="Hand Gun/Armature/Skeleton3D" index="1"]
+layers = 8
+
 [node name="Bullet" parent="Hand Gun" index="1"]
 visible = false
 
@@ -250,7 +256,7 @@ light_energy = 0.0
 stream = ExtResource("7_mi2mh")
 volume_db = -20.0
 max_db = 0.0
-pitch_scale = 0.85
+pitch_scale = 0.75
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 

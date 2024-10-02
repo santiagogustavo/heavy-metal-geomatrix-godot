@@ -76,13 +76,11 @@ lower_fade = 1e-05
 process_material = SubResource("ParticleProcessMaterial_a48g5")
 draw_pass_1 = SubResource("QuadMesh_x16we")
 timeout = 0.5
-
-[node name="OmniLight3D" parent="BulletSpark/RaySpark" index="0"]
-visible = false
+timeout_light = 0.2
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_0h3bh")
-max_db = 4.0
+max_db = 2.0
 autoplay = true
 bus = &"Effects"
 attenuation_filter_db = 0.0
