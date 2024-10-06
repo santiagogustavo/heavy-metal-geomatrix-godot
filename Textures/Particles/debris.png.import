@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxa1tcgelr650"
-path.s3tc="res://.godot/imported/dust_1.png-e37359df09981492d41f84aa8e3d04f1.s3tc.ctex"
-path.etc2="res://.godot/imported/dust_1.png-e37359df09981492d41f84aa8e3d04f1.etc2.ctex"
+uid="uid://ch2fh1pf6b018"
+path.s3tc="res://.godot/imported/debris.png-9a5d25056fcf1010ff255f817d75d9bb.s3tc.ctex"
+path.etc2="res://.godot/imported/debris.png-9a5d25056fcf1010ff255f817d75d9bb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Particles/dust_1.png"
-dest_files=["res://.godot/imported/dust_1.png-e37359df09981492d41f84aa8e3d04f1.s3tc.ctex", "res://.godot/imported/dust_1.png-e37359df09981492d41f84aa8e3d04f1.etc2.ctex"]
+source_file="res://Textures/Particles/debris.png"
+dest_files=["res://.godot/imported/debris.png-9a5d25056fcf1010ff255f817d75d9bb.s3tc.ctex", "res://.godot/imported/debris.png-9a5d25056fcf1010ff255f817d75d9bb.etc2.ctex"]
 
 [params]
 

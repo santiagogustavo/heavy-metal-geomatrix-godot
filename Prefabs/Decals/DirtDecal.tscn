@@ -60,6 +60,7 @@ stream_1/stream = ExtResource("6_4fh2e")
 stream_2/stream = ExtResource("7_3rakl")
 
 [node name="DirtDecal" type="Node3D" node_paths=PackedStringArray("particles")]
+top_level = true
 script = ExtResource("1_42kpc")
 particles = [NodePath("BulletSpark/RaySpark")]
 

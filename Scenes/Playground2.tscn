@@ -120,21 +120,21 @@ bus = &"Game"
 script = ExtResource("18_60q8y")
 
 [node name="HandGunPickup" parent="." instance=ExtResource("10_ii6pf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+transform = Transform3D(0.559104, 0, 0, 0, 0.559104, 0, 0, 0, 0.559104, 0, 0, -3)
 
 [node name="MotoGunPickup" parent="." instance=ExtResource("11_q2jjr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+transform = Transform3D(0.559104, 0, 0, 0, 0.559104, 0, 0, 0, 0.559104, 3, 0, -3)
 
 [node name="ShotGunPickup" parent="." instance=ExtResource("19_xpdlw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+transform = Transform3D(0.559104, 0, 0, 0, 0.559104, 0, 0, 0, 0.559104, -3, 0, -3)
 
 [node name="KillerSwordPickup" parent="." instance=ExtResource("9_f62up")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(0.559104, 0, 0, 0, 0.559104, 0, 0, 0, 0.559104, -4, 0, 0)
 
 [node name="RaySwordPickup" parent="." instance=ExtResource("8_5qf7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+transform = Transform3D(0.559104, 0, 0, 0, 0.559104, 0, 0, 0, 0.559104, -4, 0, 3)
 
 [node name="JetpackPickup" parent="." instance=ExtResource("7_hmeq5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+transform = Transform3D(0.559104, 0, 0, 0, 0.559104, 0, 0, 0, 0.559104, 0, 0, 6)
 
 [editable path="Spawner"]

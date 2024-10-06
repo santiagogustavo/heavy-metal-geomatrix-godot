@@ -126,6 +126,7 @@ stream_1/stream = ExtResource("2_dihug")
 stream_2/stream = ExtResource("3_0li0r")
 
 [node name="WaterDecal" type="Node3D" node_paths=PackedStringArray("particles")]
+top_level = true
 script = ExtResource("1_tj6xb")
 particles = [NodePath("Splash")]
 
