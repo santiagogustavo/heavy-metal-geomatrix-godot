@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://dnjrhfjta5ceq"]
+
+[ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Common/Bullet.tscn" id="1_fse2v"]
+[ext_resource type="Texture2D" uid="uid://c66vsa3g10pl" path="res://Textures/Particles/d5erpy4-052f7cf7-2e32-4a20-9f08-7a7f98ee0075.png" id="2_2hm7n"]
+
+[sub_resource type="Curve" id="Curve_b2dhr"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_hqihk"]
+curve = SubResource("Curve_b2dhr")
+
+[sub_resource type="Gradient" id="Gradient_b2yb1"]
+colors = PackedColorArray(0, 0.0499997, 1, 1, 0, 1, 0.933333, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_csf36"]
+gradient = SubResource("Gradient_b2yb1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vatsa"]
+angle_min = -90.0
+angle_max = 90.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_csf36")
+alpha_curve = SubResource("CurveTexture_hqihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvw6y"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_2hm7n")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_p3str"]
+material = SubResource("StandardMaterial3D_pvw6y")
+size = Vector2(0.15, 0.15)
+
+[sub_resource type="Gradient" id="Gradient_v2x56"]
+colors = PackedColorArray(0, 0.531848, 0.953007, 1, 0, 0.796978, 0.93929, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4ea8w"]
+gradient = SubResource("Gradient_v2x56")
+
+[node name="Bullet" instance=ExtResource("1_fse2v")]
+speed = 25.0
+
+[node name="Bullet" parent="Mesh" index="0"]
+visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh" index="2"]
+amount = 2
+lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_vatsa")
+draw_pass_1 = SubResource("QuadMesh_p3str")
+
+[node name="GPUTrail3D" parent="." index="2"]
+color_ramp = SubResource("GradientTexture1D_4ea8w")
+
+[editable path="Mesh"]

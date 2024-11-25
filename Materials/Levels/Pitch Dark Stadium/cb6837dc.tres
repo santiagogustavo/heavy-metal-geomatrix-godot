@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://co3gv12g51mcd"]
+
+[ext_resource type="Texture2D" uid="uid://c8oqdr46nk2ru" path="res://Textures/Levels/Pitch Dark Stadium/cb6837dc.png" id="1_ltut6"]
+[ext_resource type="Texture2D" uid="uid://0nmpoydq7tcc" path="res://Textures/Levels/Pitch Dark Stadium/cb6837dc_spec.png" id="2_dx07y"]
+
+[resource]
+albedo_texture = ExtResource("1_ltut6")
+ao_enabled = true
+ao_texture = ExtResource("2_dx07y")

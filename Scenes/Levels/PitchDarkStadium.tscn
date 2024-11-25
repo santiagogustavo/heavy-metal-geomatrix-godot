@@ -1,0 +1,174 @@
+[gd_scene load_steps=18 format=3 uid="uid://bpxpio7ixipg6"]
+
+[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_3fnt3"]
+[ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb" id="1_e6pgn"]
+[ext_resource type="Texture2D" uid="uid://cwe67c5gjbitq" path="res://Textures/Skyboxes/Night Moony.png" id="2_caq5r"]
+[ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
+[ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/Pitch Dark Stadium/9939eb6_emit.tres" id="4_t2tlk"]
+[ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="6_qyxnj"]
+[ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="7_4t0ls"]
+[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="8_j5vkf"]
+[ext_resource type="PackedScene" uid="uid://d2pc4utlvhahx" path="res://Prefabs/Levels/InvisibleWalls.tscn" id="9_hnk50"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25dxq"]
+panorama = ExtResource("2_caq5r")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_ygp6j"]
+sky_material = SubResource("PanoramaSkyMaterial_25dxq")
+
+[sub_resource type="Environment" id="Environment_h4pe8"]
+background_mode = 2
+sky = SubResource("Sky_ygp6j")
+
+[sub_resource type="Curve" id="Curve_4jmxy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_wpslr"]
+curve = SubResource("Curve_4jmxy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ox1s1"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 20)
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_wpslr")
+turbulence_noise_scale = 1.0
+collision_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_adxuw"]
+size = Vector3(0.5, 20, 35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtulh"]
+size = Vector3(0.5, 20, 25)
+
+[node name="PitchDarkStadium" type="Node3D"]
+
+[node name="LevelConfig" parent="." instance=ExtResource("1_3fnt3")]
+level_name = "Pitch Dark Stadium"
+is_snowy = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4pe8")
+
+[node name="Sun" parent="." instance=ExtResource("2_fhn3g")]
+transform = Transform3D(0.866025, 0.353553, -0.353554, 6.91564e-09, 0.707107, 0.707107, 0.5, -0.612372, 0.612373, -25, 44, 53)
+light_energy = 0.0
+
+[node name="LevelGeometry" type="Node3D" parent="."]
+
+[node name="Pitch Dark Stadium" parent="LevelGeometry" instance=ExtResource("1_e6pgn")]
+
+[node name="object_46" parent="LevelGeometry/Pitch Dark Stadium" index="45"]
+surface_material_override/0 = ExtResource("4_t2tlk")
+
+[node name="Particles" type="Node3D" parent="LevelGeometry"]
+
+[node name="Snowfall" parent="LevelGeometry/Particles" instance=ExtResource("6_qyxnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.235, 2)
+amount = 300
+visibility_aabb = AABB(-20, 0.5, -20, 40, -20, 40)
+process_material = SubResource("ParticleProcessMaterial_ox1s1")
+
+[node name="GroundSnow" parent="LevelGeometry/Particles" instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.669362, 0, 0, 0, 1, 0, 0, 0, 0.880154, -5.59989, 2.00921, -6.50754)
+amount = 100
+
+[node name="GroundSnow2" parent="LevelGeometry/Particles" instance=ExtResource("7_4t0ls")]
+transform = Transform3D(1.20503, 0, 0, 0, 1, 0, 0, 0, 0.736085, -0.479127, 3.52978, 10.8536)
+amount = 100
+
+[node name="GroundSnow3" parent="LevelGeometry/Particles" instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.451703, 0, 0, 0, 1, 0, 0, 0, 0.393507, 7.12067, 3.52978, -0.399942)
+amount = 25
+
+[node name="GroundSnow6" parent="LevelGeometry/Particles" instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.162691, 0, 0, 0, 1, 0, 0, 0, 0.537221, 4.13343, 3.52978, -10.2807)
+amount = 15
+
+[node name="GroundSnow4" parent="LevelGeometry/Particles" instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.237893, 0, 0, 0, 1, 0, 0, 0, 0.501588, 9.25003, 5.01455, -10.32)
+amount = 25
+
+[node name="GroundSnow5" parent="LevelGeometry/Particles" instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.219884, 0, 0, 0, 1, 0, 0, 0, 0.514581, -10.589, 5.51915, 13.5227)
+amount = 25
+
+[node name="Lighting" type="Node3D" parent="LevelGeometry"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-2.87868e-08, 0.258819, -0.965926, -7.71341e-09, 0.965926, 0.258819, 1, 1.49012e-08, -2.58095e-08, -154.563, 75.5, 45.0198)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-2.87868e-08, 0.258819, -0.965926, -7.71341e-09, 0.965926, 0.258819, 1, 1.49012e-08, -2.58095e-08, -154.563, 75.5, -34.9802)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-0.337227, 0.243658, -0.909345, -1.10534e-08, 0.965926, 0.258819, 0.941423, 0.0872807, -0.325736, -148.518, 75.5, -107.381)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-0.745918, 0.172383, -0.643343, -1.60785e-08, 0.965926, 0.258819, 0.666038, 0.193058, -0.720501, -108.952, 75.4159, -169.537)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-0.961713, 0.0709318, -0.264722, 4.96129e-09, 0.965926, 0.258819, 0.27406, 0.248909, -0.928943, -40.6156, 75.4159, -208.648)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-0.966658, -0.0662759, 0.247345, 1.28042e-08, 0.965926, 0.258819, -0.25607, 0.25019, -0.93372, 39.1103, 75.4159, -208.648)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-0.71685, -0.180456, 0.67347, 8.9885e-09, 0.965926, 0.258819, -0.697228, 0.185534, -0.692424, 108.092, 75.4159, -169.43)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="World Boundaries" parent="." instance=ExtResource("8_j5vkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.29899, 0)
+
+[node name="InvisibleWalls" parent="." instance=ExtResource("9_hnk50")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0497, 12.0601, 1.45032)
+shape = SubResource("BoxShape3D_adxuw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0266, 12.0601, 1.45032)
+shape = SubResource("BoxShape3D_adxuw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.505583, 12.0601, -16.0735)
+shape = SubResource("BoxShape3D_jtulh")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.505583, 12.0601, 19.0672)
+shape = SubResource("BoxShape3D_jtulh")
+
+[editable path="LevelGeometry/Pitch Dark Stadium"]

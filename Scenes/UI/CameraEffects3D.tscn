@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://byafmx5elekej"]
+[gd_scene load_steps=47 format=3 uid="uid://byafmx5elekej"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/MotionBlur.gd" id="1_d58io"]
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain.gd" id="1_psrnk"]
@@ -9,6 +9,9 @@
 [ext_resource type="Shader" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
 [ext_resource type="Texture2D" uid="uid://cwwbkn824wase" path="res://Textures/Particles/Snow/camera_snow_1.png" id="6_oyy1f"]
 [ext_resource type="Texture2D" uid="uid://cmgjjhaxp46h1" path="res://Textures/Particles/Snow/camera_snow_4.png" id="8_8nf21"]
+[ext_resource type="Texture2D" uid="uid://memgia12ldws" path="res://Textures/Particles/Rain/droplets_1.png" id="10_ll7gg"]
+[ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain2d.gd" id="10_loo2t"]
+[ext_resource type="Texture2D" uid="uid://b86vmtyanjnla" path="res://Textures/Particles/Rain/droplets_3.png" id="11_iphpw"]
 
 [sub_resource type="Gradient" id="Gradient_3amfu"]
 offsets = PackedFloat32Array(0.436364, 0.698182, 1)
@@ -172,6 +175,44 @@ scale_max = 5.0
 color = Color(1, 1, 1, 0.258824)
 alpha_curve = SubResource("CurveTexture_h8yyj")
 
+[sub_resource type="Curve" id="Curve_2nvy3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jnkm7"]
+curve = SubResource("Curve_2nvy3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvhp4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 400, 1)
+angle_min = -90.0
+angle_max = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 5.0
+color = Color(1, 1, 1, 0.0392157)
+alpha_curve = SubResource("CurveTexture_jnkm7")
+
+[sub_resource type="Curve" id="Curve_x8bkn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u3loa"]
+curve = SubResource("Curve_x8bkn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ckrj"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 400, 1)
+angle_min = -90.0
+angle_max = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.0
+color = Color(1, 1, 1, 0.0784314)
+alpha_curve = SubResource("CurveTexture_u3loa")
+
 [node name="CameraEffects3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
@@ -201,6 +242,7 @@ effect_enabled = true
 minimum_camera_rotation = 20
 
 [node name="Control" type="Control" parent="CameraRain"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -243,6 +285,7 @@ trail_lifetime = 1.0
 
 [node name="CameraSnow" type="Node3D" parent="."]
 script = ExtResource("6_53sd6")
+minimum_camera_rotation = 30
 
 [node name="Control" type="Control" parent="CameraSnow"]
 layout_mode = 3
@@ -254,6 +297,7 @@ grow_vertical = 2
 
 [node name="Particles1" type="GPUParticles2D" parent="CameraSnow/Control"]
 position = Vector2(600, 325)
+emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_73ef5")
 texture = ExtResource("6_oyy1f")
@@ -261,7 +305,40 @@ lifetime = 5.0
 
 [node name="Particles2" type="GPUParticles2D" parent="CameraSnow/Control"]
 position = Vector2(600, 325)
+emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_8knii")
 texture = ExtResource("8_8nf21")
 lifetime = 3.0
+
+[node name="CameraRain2d" type="Node3D" parent="."]
+script = ExtResource("10_loo2t")
+minimum_camera_rotation = 30
+
+[node name="Control" type="Control" parent="CameraRain2d"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Droplets1" type="GPUParticles2D" parent="CameraRain2d/Control"]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_gvhp4")
+texture = ExtResource("10_ll7gg")
+lifetime = 0.3
+
+[node name="Droplets2" type="GPUParticles2D" parent="CameraRain2d/Control"]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_6ckrj")
+texture = ExtResource("11_iphpw")
+lifetime = 0.5

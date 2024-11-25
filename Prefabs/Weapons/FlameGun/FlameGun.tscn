@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbfmrky7xobod"]
+
+[ext_resource type="PackedScene" uid="uid://c10u54kbc48we" path="res://Models/Weapons/Flame Gun.glb" id="1_itxgw"]
+
+[node name="FlameGun" type="Node3D"]
+
+[node name="Flame Gun" parent="." instance=ExtResource("1_itxgw")]
+
+[editable path="Flame Gun"]

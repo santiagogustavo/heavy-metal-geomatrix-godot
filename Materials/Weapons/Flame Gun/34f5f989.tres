@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ko3adj3o1fuo"]
+
+[ext_resource type="Texture2D" uid="uid://dm87w0ijvmw8s" path="res://Textures/Weapons/Flame Gun/34f5f989.png" id="1_4l2fm"]
+[ext_resource type="Texture2D" uid="uid://c4nihn2em5oge" path="res://Textures/Weapons/Flame Gun/34f5f989_spec.png" id="2_be1s6"]
+
+[resource]
+albedo_texture = ExtResource("1_4l2fm")
+ao_enabled = true
+ao_texture = ExtResource("2_be1s6")

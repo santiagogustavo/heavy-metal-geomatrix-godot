@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c4rm7uj5pxp6a"]
+
+[ext_resource type="Texture2D" uid="uid://dkjk0wa7tsu1t" path="res://Textures/Weapons/Sniper Rifle/3c848fd8.png" id="1_38usx"]
+[ext_resource type="Texture2D" uid="uid://6srbclr24nv6" path="res://Textures/Weapons/Sniper Rifle/3c848fd8_spec.png" id="2_o6ug4"]
+
+[resource]
+albedo_texture = ExtResource("1_38usx")
+ao_enabled = true
+ao_texture = ExtResource("2_o6ug4")

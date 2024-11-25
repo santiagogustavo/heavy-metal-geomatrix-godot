@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bn5x32y6vig6w"]
+
+[ext_resource type="Texture2D" uid="uid://ca86n1t6wbqy4" path="res://Textures/Weapons/Laser Rifle/b7e174df.png" id="1_pbasm"]
+[ext_resource type="Texture2D" uid="uid://dw16nj5f8muim" path="res://Textures/Weapons/Laser Rifle/b7e174df_spec.png" id="2_jm2qn"]
+
+[resource]
+albedo_texture = ExtResource("1_pbasm")
+ao_enabled = true
+ao_texture = ExtResource("2_jm2qn")

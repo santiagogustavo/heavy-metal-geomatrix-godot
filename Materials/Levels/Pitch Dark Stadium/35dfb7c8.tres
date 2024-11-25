@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cknw0avjoyyor"]
+
+[ext_resource type="Texture2D" uid="uid://dyj2rqrlxn0se" path="res://Textures/Levels/Pitch Dark Stadium/35dfb7c8.png" id="1_lwgc6"]
+[ext_resource type="Texture2D" uid="uid://dd0io78c1vrt5" path="res://Textures/Levels/Pitch Dark Stadium/35dfb7c8_spec.png" id="2_jujn4"]
+
+[resource]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_lwgc6")
+ao_enabled = true
+ao_texture = ExtResource("2_jujn4")

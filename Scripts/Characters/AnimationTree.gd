@@ -15,7 +15,7 @@ var is_on_floor: bool = true
 var is_aiming: bool = false
 var is_shooting: bool = false
 var is_gun_shooting: bool = false
-var is_bursting: bool = false
+var is_holding_weapon: bool = false
 var is_attacking: bool = false
 var is_attack_combo: bool = false
 var is_picking_up: bool = false
@@ -43,8 +43,6 @@ func update_pickup() -> void:
 
 func update_fire_rate() -> void:
 	if is_gun_shooting:
-		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
-	if is_bursting:
 		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 
 func update_combo_input() -> void:
@@ -116,7 +114,7 @@ func update_upper_body(delta: float) -> void:
 	# CONDITIONS #
 	set("parameters/Upper Body/conditions/equip", equip)
 	set("parameters/Upper Body/conditions/is_aiming", is_aiming)
-	set("parameters/Upper Body/conditions/is_shooting", is_gun_shooting)
+	set("parameters/Upper Body/conditions/is_shooting", is_shooting)
 	set("parameters/Upper Body/conditions/is_attacking", is_attacking || is_attack_combo)
 	set("parameters/Upper Body/conditions/is_dropping", is_dropping)
 	

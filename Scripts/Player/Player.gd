@@ -9,7 +9,6 @@ class_name Player
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
-@onready var camera_collider = $CameraPivot/CameraCollider
 @onready var camera_target_raycast = $CameraPivot/TargetRaycast
 
 @onready var character_controller = $CharacterController
@@ -52,7 +51,7 @@ func _input(event):
 		new_rotation.x += deg_to_rad(-event.relative.y) * InputSettingsManager.mouse_vertical_sensitivity
 		input_look.x = event.relative.x / 20
 
-func _process(_delta):
+func _process(delta: float):
 	if GameManager.is_game_paused:
 		return
 	
@@ -72,7 +71,6 @@ func _process(_delta):
 	update_attack()
 	update_pickup()
 	update_camera_clamp()
-	update_camera_collision()
 	update_camera_target()
 	clear_frame_variables()
 
@@ -114,16 +112,6 @@ func update_look_and_aim():
 
 func update_camera_clamp():
 	new_rotation.x = clamp(new_rotation.x, -deg_to_rad(LOOK_CLAMP), deg_to_rad(LOOK_CLAMP))
-
-func update_camera_collision():
-	if camera_collider.is_colliding():
-		camera.global_transform.origin = lerp(
-			camera.global_transform.origin,
-			camera_collider.get_collision_point(),
-			0.1
-		)
-	else:
-		camera.global_transform.origin = camera_collider.global_transform.origin
 
 func update_camera_target():
 	if camera_target_raycast.is_colliding():
@@ -201,14 +189,14 @@ func set_animator_variables():
 		animation_tree.is_shooting_locked = inventory_manager.right_hand_instance.is_shooting_locked
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.direction = input_direction
-	animation_tree.look = input_look
+	animation_tree.look = Vector2(0, input_look.y)
 	animation_tree.is_dashing = is_dashing
 	animation_tree.is_jumping = is_jumping
 	animation_tree.is_double_jumping = is_double_jumping && inventory_manager.jetpack_has_fuel
 	animation_tree.is_aiming = is_aiming
 	animation_tree.is_gun_shooting = inventory_manager.is_gun_shooting
+	animation_tree.is_holding_weapon = inventory_manager.is_holding_weapon
 	animation_tree.is_shooting = is_shooting
-	animation_tree.is_bursting = inventory_manager.is_gun_bursting
 	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_attacking = is_attacking
 	animation_tree.is_picking_up = is_picking_up

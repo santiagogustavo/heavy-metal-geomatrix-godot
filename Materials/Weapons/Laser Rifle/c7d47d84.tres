@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://diaf2s62h42xh"]
+
+[ext_resource type="Texture2D" uid="uid://dmqg8fea8xwin" path="res://Textures/Weapons/Laser Rifle/c7d47d84.png" id="1_hyby6"]
+[ext_resource type="Texture2D" uid="uid://cv5lgkxecpfbu" path="res://Textures/Weapons/Laser Rifle/c7d47d84_spec.png" id="2_ygxh1"]
+[ext_resource type="Texture2D" uid="uid://cc8meabawl5tn" path="res://Textures/Weapons/Laser Rifle/c7d47d84_emm.png" id="3_bfeau"]
+
+[resource]
+albedo_texture = ExtResource("1_hyby6")
+emission_enabled = true
+emission_energy_multiplier = 0.0884057
+emission_texture = ExtResource("3_bfeau")
+ao_enabled = true
+ao_texture = ExtResource("2_ygxh1")
+backlight = Color(1, 1, 1, 1)
+backlight_texture = ExtResource("3_bfeau")

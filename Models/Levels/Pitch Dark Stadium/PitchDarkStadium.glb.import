@@ -1,0 +1,139 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bx6x38rwt2ym5"
+path="res://.godot/imported/PitchDarkStadium.glb-b981b35c0874f12fee4aa93d6e5e5cde.scn"
+
+[deps]
+
+source_file="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb"
+dest_files=["res://.godot/imported/PitchDarkStadium.glb-b981b35c0874f12fee4aa93d6e5e5cde.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"1a188e5": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/1a188e5.tres"
+},
+"22325d12": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/22325d12.tres"
+},
+"35dfb7c8": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/35dfb7c8.tres"
+},
+"3d771c6a": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/3d771c6a.tres"
+},
+"4251cd45": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/4251cd45.tres"
+},
+"477a8a5d": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/477a8a5d.tres"
+},
+"4a749d8d": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/4a749d8d.tres"
+},
+"50af3ca5": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/50af3ca5.tres"
+},
+"55902218": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/55902218.tres"
+},
+"5e3000c2": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/5e3000c2.tres"
+},
+"7b60f3f8": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/7b60f3f8.tres"
+},
+"8c11667a": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/8c11667a.tres"
+},
+"8d161025": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/8d161025.tres"
+},
+"8e45c46f": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/8e45c46f.tres"
+},
+"9939eb6": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/9939eb6.tres"
+},
+"a5d3c258": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/a5d3c258.tres"
+},
+"a8de1a7d": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/a8de1a7d.tres"
+},
+"ae11273d": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/ae11273d.tres"
+},
+"b033cc37": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/b033cc37.tres"
+},
+"b1eef7e9": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/b1eef7e9.tres"
+},
+"c108a70a": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/c108a70a.tres"
+},
+"cb6837dc": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/cb6837dc.tres"
+},
+"e0895b0": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/e0895b0.tres"
+},
+"e44c0540": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/e44c0540.tres"
+},
+"e6756422": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/e6756422.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

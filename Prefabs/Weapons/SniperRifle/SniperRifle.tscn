@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cti1ekhybelqv"]
+
+[ext_resource type="PackedScene" uid="uid://d1vviwsawunyr" path="res://Models/Weapons/Sniper Rifle.glb" id="1_4pa16"]
+
+[node name="SniperRifle" type="Node3D"]
+
+[node name="Sniper Rifle" parent="." instance=ExtResource("1_4pa16")]
+
+[editable path="Sniper Rifle"]

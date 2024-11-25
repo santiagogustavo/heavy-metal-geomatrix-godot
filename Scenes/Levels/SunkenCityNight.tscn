@@ -145,9 +145,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_vlpe4")
 
 [node name="Raindrops" parent="Level Geometry/Rain" instance=ExtResource("8_wsk8x")]
 transform = Transform3D(2.49343, 0, 0, 0, 1, 0, 0, 0, 2.77783, -23.9892, 36.6784, -23.696)
-amount = 800
+amount = 1000
 lifetime = 2.0
 preprocess = 2.0
+speed_scale = 1.5
 visibility_aabb = AABB(-10, -36.6917, -10, 20, 33.6712, 20)
 
 [node name="Ripple" parent="Level Geometry/Rain" instance=ExtResource("9_5fhfi")]

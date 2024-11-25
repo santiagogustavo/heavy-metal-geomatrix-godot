@@ -128,7 +128,7 @@ animation = &"Shoot"
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_hfi10"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lhv35"]
-graph_offset = Vector2(-311, 40)
+graph_offset = Vector2(-225, 33)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_tne18")
 nodes/Animation/position = Vector2(-200, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0xu2e")
@@ -155,7 +155,7 @@ advance_expression = "!is_shooting"
 states/Idle/node = SubResource("AnimationNodeAnimation_3wj4m")
 states/Idle/position = Vector2(380, 100)
 states/Shoot/node = SubResource("AnimationNodeBlendTree_lhv35")
-states/Shoot/position = Vector2(380, -5)
+states/Shoot/position = Vector2(379.938, -5.5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_armo7"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7")]
 graph_offset = Vector2(-92, -60)
 
