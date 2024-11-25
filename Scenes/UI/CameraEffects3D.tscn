@@ -1,10 +1,6 @@
-[gd_scene load_steps=47 format=3 uid="uid://byafmx5elekej"]
+[gd_scene load_steps=24 format=3 uid="uid://byafmx5elekej"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/MotionBlur.gd" id="1_d58io"]
-[ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain.gd" id="1_psrnk"]
-[ext_resource type="Texture2D" uid="uid://b5g3eif2k2s6r" path="res://Textures/Particles/Rain/rain_camera_small_medium.png" id="2_on5pt"]
-[ext_resource type="Shader" path="res://Materials/UI/Rain.gdshader" id="4_3ivn6"]
-[ext_resource type="Texture2D" uid="uid://qgknikcuc3sk" path="res://Textures/Particles/Rain/camera_rain_1.png" id="6_47yx6"]
 [ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraSnow.gd" id="6_53sd6"]
 [ext_resource type="Shader" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
 [ext_resource type="Texture2D" uid="uid://cwwbkn824wase" path="res://Textures/Particles/Snow/camera_snow_1.png" id="6_oyy1f"]
@@ -29,111 +25,6 @@ shader_parameter/blur_center = Vector2(0.5, 0.5)
 shader_parameter/blur_power = 0.01
 shader_parameter/sampling_count = 10
 shader_parameter/mask = SubResource("GradientTexture2D_8hx76")
-
-[sub_resource type="Curve" id="Curve_41kfn"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-metadata/_snap_enabled = true
-
-[sub_resource type="CurveTexture" id="CurveTexture_x07kw"]
-curve = SubResource("Curve_41kfn")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k85gp"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(800, 400, 1)
-angle_min = -30.0
-angle_max = 30.0
-direction = Vector3(0, 1, 0)
-spread = 10.0
-gravity = Vector3(0, 0, 0)
-scale_min = 10.0
-scale_max = 10.0
-color = Color(0.85, 0.925, 1, 0.0784314)
-alpha_curve = SubResource("CurveTexture_x07kw")
-
-[sub_resource type="Gradient" id="Gradient_58gwp"]
-offsets = PackedFloat32Array(0, 0.814815, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_psaub"]
-gradient = SubResource("Gradient_58gwp")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.8, 0.2)
-metadata/_snap_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jg7g8"]
-shader = ExtResource("4_3ivn6")
-shader_parameter/distortion_size = 0.5
-shader_parameter/mask = SubResource("GradientTexture2D_psaub")
-shader_parameter/normal_map = ExtResource("2_on5pt")
-
-[sub_resource type="Gradient" id="Gradient_jidq3"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynsu8"]
-gradient = SubResource("Gradient_jidq3")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d6d6x"]
-lifetime_randomness = 0.5
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(900, 400, 1)
-gravity = Vector3(0, 0, 0)
-scale_min = 0.1
-scale_max = 0.4
-color_ramp = SubResource("GradientTexture1D_ynsu8")
-
-[sub_resource type="Gradient" id="Gradient_ltn3y"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_h51im"]
-gradient = SubResource("Gradient_ltn3y")
-
-[sub_resource type="Gradient" id="Gradient_l0fw3"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_udqmn"]
-gradient = SubResource("Gradient_l0fw3")
-
-[sub_resource type="Curve" id="Curve_gsba0"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7, 0.5), 0.0, 0.0, 0, 0, Vector2(0.9, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-metadata/_snap_enabled = true
-
-[sub_resource type="CurveTexture" id="CurveTexture_vicpc"]
-curve = SubResource("Curve_gsba0")
-
-[sub_resource type="Curve" id="Curve_nxaif"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
-point_count = 2
-metadata/_snap_enabled = true
-
-[sub_resource type="CurveTexture" id="CurveTexture_hglk0"]
-curve = SubResource("Curve_nxaif")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ic2by"]
-lifetime_randomness = 0.5
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -100, 0)
-emission_shape = 3
-emission_box_extents = Vector3(800, 400, 1)
-direction = Vector3(0, 1, 0)
-spread = 5.0
-initial_velocity_min = 50.0
-initial_velocity_max = 300.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.4
-scale_max = 0.6
-scale_curve = SubResource("CurveTexture_vicpc")
-color_ramp = SubResource("GradientTexture1D_udqmn")
-turbulence_enabled = true
-turbulence_noise_strength = 0.1
-turbulence_influence_over_life = SubResource("CurveTexture_hglk0")
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_87sf8"]
-gradient = SubResource("Gradient_ltn3y")
 
 [sub_resource type="Curve" id="Curve_d2sl7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -235,53 +126,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="CameraRain" type="Node3D" parent="."]
-script = ExtResource("1_psrnk")
-effect_enabled = true
-minimum_camera_rotation = 20
-
-[node name="Control" type="Control" parent="CameraRain"]
-visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RainDripsBG" type="GPUParticles2D" parent="CameraRain/Control"]
-position = Vector2(24, 1)
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_k85gp")
-texture = ExtResource("6_47yx6")
-lifetime = 5.0
-
-[node name="RainDrips" type="GPUParticles2D" parent="CameraRain/Control"]
-material = SubResource("ShaderMaterial_jg7g8")
-position = Vector2(-20, -20)
-emitting = false
-amount = 125
-process_material = SubResource("ParticleProcessMaterial_d6d6x")
-texture = SubResource("GradientTexture2D_h51im")
-lifetime = 3.0
-randomness = 1.0
-local_coords = true
-
-[node name="RainDrops" type="GPUParticles2D" parent="CameraRain/Control"]
-material = SubResource("ShaderMaterial_jg7g8")
-position = Vector2(-20, -20)
-emitting = false
-amount = 50
-process_material = SubResource("ParticleProcessMaterial_ic2by")
-texture = SubResource("GradientTexture2D_87sf8")
-lifetime = 3.0
-randomness = 1.0
-local_coords = true
-trail_enabled = true
-trail_lifetime = 1.0
 
 [node name="CameraSnow" type="Node3D" parent="."]
 script = ExtResource("6_53sd6")

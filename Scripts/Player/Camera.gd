@@ -1,11 +1,13 @@
 extends Camera3D
 
 
-@export var aim_fov_change = -15 
-@export var dash_fov_change = 10
+@export var aim_fov_change: int = -15 
+@export var dash_fov_change: int = 10
+@export var target_point: Vector3
 
 @onready var camera_effects = $CameraEffects3D
 @onready var motion_blur = $CameraEffects3D/MotionBlur
+@onready var camera_target_raycast = $'../TargetRaycast'
 @onready var camera_collider: RayCast3D = $'../CameraCollider'
 
 var has_jetpack = false
@@ -14,29 +16,29 @@ var is_aiming = false
 
 var original_fov
 
-func _ready():
+func _ready() -> void:
 	original_fov = fov
 	load_level_configs()
 
-func _process(delta: float):
+func _process(delta: float) -> void:
 	load_settings()
 	update_fov()
 	update_motion_blur()
 	update_camera_collision(delta)
+	update_camera_target()
 
-func load_settings():
+func load_settings() -> void:
 	original_fov = GameplaySettingsManager.fov
 
 func load_level_configs():
-	camera_effects.get_node("CameraRain").effect_enabled = GameManager.current_level_config.is_rainy
 	camera_effects.get_node("CameraRain2d").effect_enabled = GameManager.current_level_config.is_rainy
 	camera_effects.get_node("CameraSnow").effect_enabled = GameManager.current_level_config.is_snowy
 	
-func update_motion_blur():
+func update_motion_blur() -> void:
 	motion_blur.is_dashing = is_dashing
 	motion_blur.has_jetpack = has_jetpack
 	
-func update_fov():
+func update_fov() -> void:
 	var current_fov = original_fov
 	
 	if is_aiming:
@@ -46,7 +48,7 @@ func update_fov():
 	
 	fov = lerp(fov, current_fov, 0.1)
 
-func update_camera_collision(delta: float):
+func update_camera_collision(delta: float) -> void:
 	if camera_collider.is_colliding():
 		global_transform.origin = lerp(
 			global_transform.origin,
@@ -55,3 +57,8 @@ func update_camera_collision(delta: float):
 		)
 	else:
 		global_transform.origin = camera_collider.global_transform.origin
+
+func update_camera_target() -> void:
+	if camera_target_raycast.is_colliding():
+		var point = camera_target_raycast.get_collision_point()
+		target_point = point

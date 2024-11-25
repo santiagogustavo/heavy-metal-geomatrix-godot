@@ -9,7 +9,6 @@ class_name Player
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
-@onready var camera_target_raycast = $CameraPivot/TargetRaycast
 
 @onready var character_controller = $CharacterController
 @onready var animation_tree = $CharacterController/AnimationTree
@@ -71,7 +70,6 @@ func _process(delta: float):
 	update_attack()
 	update_pickup()
 	update_camera_clamp()
-	update_camera_target()
 	clear_frame_variables()
 
 func _exit_tree():
@@ -112,11 +110,6 @@ func update_look_and_aim():
 
 func update_camera_clamp():
 	new_rotation.x = clamp(new_rotation.x, -deg_to_rad(LOOK_CLAMP), deg_to_rad(LOOK_CLAMP))
-
-func update_camera_target():
-	if camera_target_raycast.is_colliding():
-		var point = camera_target_raycast.get_collision_point()
-		shoot_target = point
 
 func update_rotation_smoothing():
 	if InputSettingsManager.look_smoothing_enabled:
@@ -173,6 +166,7 @@ func set_camera_variables():
 	camera.has_jetpack = inventory_manager.has_jetpack and inventory_manager.jetpack_has_fuel
 	camera.is_dashing = is_dashing
 	camera.is_aiming = is_aiming
+	shoot_target = camera.target_point
 	
 func set_sound_variables():
 	sound_tree.is_walking = is_walking
