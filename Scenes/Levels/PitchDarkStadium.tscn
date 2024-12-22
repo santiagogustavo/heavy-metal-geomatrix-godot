@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpxpio7ixipg6"]
+[gd_scene load_steps=22 format=3 uid="uid://bpxpio7ixipg6"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_3fnt3"]
 [ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb" id="1_e6pgn"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="7_4t0ls"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="8_j5vkf"]
 [ext_resource type="PackedScene" uid="uid://d2pc4utlvhahx" path="res://Prefabs/Levels/InvisibleWalls.tscn" id="9_hnk50"]
+[ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="10_lxpmu"]
+[ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="10_n5qmj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25dxq"]
 panorama = ExtResource("2_caq5r")
@@ -41,6 +43,12 @@ alpha_curve = SubResource("CurveTexture_wpslr")
 turbulence_noise_scale = 1.0
 collision_mode = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4sgj5"]
+size = Vector3(5.57141, 1.46051, 10.9276)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcx7d"]
+size = Vector3(9.70172, 1.52454, 34.887)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_adxuw"]
 size = Vector3(0.5, 20, 35)
 
@@ -59,6 +67,8 @@ environment = SubResource("Environment_h4pe8")
 [node name="Sun" parent="." instance=ExtResource("2_fhn3g")]
 transform = Transform3D(0.866025, 0.353553, -0.353554, 6.91564e-09, 0.707107, 0.707107, 0.5, -0.612372, 0.612373, -25, 44, 53)
 light_energy = 0.0
+
+[node name="UI" parent="." instance=ExtResource("10_n5qmj")]
 
 [node name="LevelGeometry" type="Node3D" parent="."]
 
@@ -99,56 +109,67 @@ amount = 25
 transform = Transform3D(0.219884, 0, 0, 0, 1, 0, 0, 0, 0.514581, -10.589, 5.51915, 13.5227)
 amount = 25
 
-[node name="Lighting" type="Node3D" parent="LevelGeometry"]
+[node name="ShadowLighting" type="Node3D" parent="LevelGeometry"]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+[node name="SpotLight3D" type="SpotLight3D" parent="LevelGeometry/ShadowLighting"]
 transform = Transform3D(-2.87868e-08, 0.258819, -0.965926, -7.71341e-09, 0.965926, 0.258819, 1, 1.49012e-08, -2.58095e-08, -154.563, 75.5, 45.0198)
 light_energy = 40.0
 shadow_enabled = true
 spot_range = 300.0
 spot_angle = 80.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="LevelGeometry/Lighting"]
-transform = Transform3D(-2.87868e-08, 0.258819, -0.965926, -7.71341e-09, 0.965926, 0.258819, 1, 1.49012e-08, -2.58095e-08, -154.563, 75.5, -34.9802)
-light_energy = 40.0
-shadow_enabled = true
-spot_range = 300.0
-spot_angle = 80.0
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="LevelGeometry/Lighting"]
-transform = Transform3D(-0.337227, 0.243658, -0.909345, -1.10534e-08, 0.965926, 0.258819, 0.941423, 0.0872807, -0.325736, -148.518, 75.5, -107.381)
-light_energy = 40.0
-shadow_enabled = true
-spot_range = 300.0
-spot_angle = 80.0
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="LevelGeometry/ShadowLighting"]
 transform = Transform3D(-0.745918, 0.172383, -0.643343, -1.60785e-08, 0.965926, 0.258819, 0.666038, 0.193058, -0.720501, -108.952, 75.4159, -169.537)
 light_energy = 40.0
 shadow_enabled = true
 spot_range = 300.0
 spot_angle = 80.0
 
+[node name="SpotLight3D7" type="SpotLight3D" parent="LevelGeometry/ShadowLighting"]
+transform = Transform3D(-0.71685, -0.180456, 0.67347, 8.9885e-09, 0.965926, 0.258819, -0.697228, 0.185534, -0.692424, 108.092, 75.4159, -169.43)
+light_energy = 40.0
+shadow_enabled = true
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="Lighting" type="Node3D" parent="LevelGeometry"]
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-2.87868e-08, 0.258819, -0.965926, -7.71341e-09, 0.965926, 0.258819, 1, 1.49012e-08, -2.58095e-08, -154.563, 75.5, -34.9802)
+light_energy = 40.0
+spot_range = 300.0
+spot_angle = 80.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="LevelGeometry/Lighting"]
+transform = Transform3D(-0.337227, 0.243658, -0.909345, -1.10534e-08, 0.965926, 0.258819, 0.941423, 0.0872807, -0.325736, -148.518, 75.5, -107.381)
+light_energy = 40.0
+spot_range = 300.0
+spot_angle = 80.0
+
 [node name="SpotLight3D5" type="SpotLight3D" parent="LevelGeometry/Lighting"]
 transform = Transform3D(-0.961713, 0.0709318, -0.264722, 4.96129e-09, 0.965926, 0.258819, 0.27406, 0.248909, -0.928943, -40.6156, 75.4159, -208.648)
 light_energy = 40.0
-shadow_enabled = true
 spot_range = 300.0
 spot_angle = 80.0
 
 [node name="SpotLight3D6" type="SpotLight3D" parent="LevelGeometry/Lighting"]
 transform = Transform3D(-0.966658, -0.0662759, 0.247345, 1.28042e-08, 0.965926, 0.258819, -0.25607, 0.25019, -0.93372, 39.1103, 75.4159, -208.648)
 light_energy = 40.0
-shadow_enabled = true
 spot_range = 300.0
 spot_angle = 80.0
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="LevelGeometry/Lighting"]
-transform = Transform3D(-0.71685, -0.180456, 0.67347, 8.9885e-09, 0.965926, 0.258819, -0.697228, 0.185534, -0.692424, 108.092, 75.4159, -169.43)
-light_energy = 40.0
-shadow_enabled = true
-spot_range = 300.0
-spot_angle = 80.0
+[node name="Collisions" type="Node3D" parent="LevelGeometry"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Collisions"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D"]
+transform = Transform3D(0.999636, 0.0269795, 0, -0.0269795, 0.999636, 0, 0, 0, 1, 9.10732, 4.26629, -10.5043)
+shape = SubResource("BoxShape3D_4sgj5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88103, 2.76825, 1.48088)
+shape = SubResource("BoxShape3D_lcx7d")
 
 [node name="World Boundaries" parent="." instance=ExtResource("8_j5vkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.29899, 0)
@@ -170,5 +191,8 @@ shape = SubResource("BoxShape3D_jtulh")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="InvisibleWalls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.505583, 12.0601, 19.0672)
 shape = SubResource("BoxShape3D_jtulh")
+
+[node name="Player" parent="." instance=ExtResource("10_lxpmu")]
+transform = Transform3D(-0.606821, 0, 0.794838, 0, 1, 0, -0.794838, 0, -0.606821, 9.02798, 4.99909, -13.4007)
 
 [editable path="LevelGeometry/Pitch Dark Stadium"]

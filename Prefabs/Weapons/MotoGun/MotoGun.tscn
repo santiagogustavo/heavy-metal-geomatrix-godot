@@ -408,6 +408,7 @@ size = Vector2(0.5, 0.5)
 
 [node name="MotoGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_imp6h")
+item_name = "Moto Gun"
 bullets = 44
 fire_rate = 1.0
 burst_count = 4
@@ -421,7 +422,7 @@ eject_hole = NodePath("EjectHole")
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(-0.000254038, 0.00938101, -0.0172)
+bones/1/position = Vector3(-0.000274402, 0.00896966, -0.0172379)
 bones/2/position = Vector3(0, 0.01, 0.00158699)
 
 [node name="object_0" parent="Moto Gun/Armature/Skeleton3D" index="0"]

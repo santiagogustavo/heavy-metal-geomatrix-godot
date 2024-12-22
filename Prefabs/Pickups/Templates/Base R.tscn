@@ -202,9 +202,9 @@ cap_bottom = false
 [node name="Base R" instance=ExtResource("1_gdlfn")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0.156054, 0, 0.987749)
+bones/0/rotation = Quaternion(0, 0.718809, 0, 0.695208)
 bones/1/position = Vector3(0, 0.2, 0)
-bones/1/rotation = Quaternion(0, -0.978905, 0, 0.204316)
+bones/1/rotation = Quaternion(0, -0.698419, 0, 0.71569)
 
 [node name="object_0" parent="Armature/Skeleton3D" index="0"]
 layers = 2

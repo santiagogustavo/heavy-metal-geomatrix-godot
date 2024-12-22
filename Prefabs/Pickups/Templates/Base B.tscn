@@ -158,8 +158,8 @@ cap_bottom = false
 [node name="Base B" instance=ExtResource("1_awi47")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0.958344, 0, 0.285617)
-bones/1/rotation = Quaternion(0, -0.646404, 0, 0.762995)
+bones/0/rotation = Quaternion(0, 0.250496, 0, 0.968118)
+bones/1/rotation = Quaternion(0, 0.572147, 0, 0.820151)
 
 [node name="object_0" parent="Armature/Skeleton3D" index="0"]
 layers = 2

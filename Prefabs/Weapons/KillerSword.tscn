@@ -38,6 +38,7 @@ size = Vector3(0.1, 1.2, 0.3)
 
 [node name="KillerSword" type="Node3D"]
 script = ExtResource("1_3jf6o")
+item_name = "Killer Sword"
 hit_particle = ExtResource("2_yh655")
 hit_sfx = ExtResource("3_njj2e")
 

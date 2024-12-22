@@ -28,6 +28,7 @@ InputSettingsManager="*res://Scripts/Managers/InputSettingsManager.gd"
 GameplaySettingsManager="*res://Scripts/Managers/GameplaySettingsManager.gd"
 SettingsManager="*res://Scripts/Managers/SettingsManager.gd"
 GameManager="*res://Scripts/Managers/GameManager.gd"
+MatchManager="*res://Scripts/Managers/MatchManager.gd"
 
 [display]
 

@@ -1,12 +1,12 @@
 extends Control
 
-@onready var condition_bar = $ConditionBar
+@onready var label = $Label
 
 func _process(_delta):
-	if GameManager.get_player_one():
-		visible = GameManager.get_player_one().inventory_manager.has_melee
-		if visible:
-			var health = GameManager.get_player_one().inventory_manager.melee_health / 100
-			condition_bar.material.set_shader_parameter("Progress", health)
-	else:
+	var player: Player = GameManager.get_player_one()
+	if !player or player == null:
 		visible = false
+		pass
+	visible = player.inventory_manager.has_melee
+	if visible:
+		label.text = player.inventory_manager.right_hand_item_name

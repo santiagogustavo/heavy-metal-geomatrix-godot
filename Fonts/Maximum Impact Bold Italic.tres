@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://brlyr5corwi28"]
+
+[ext_resource type="FontFile" uid="uid://bl6uguby0mxhy" path="res://Fonts/Maximum Impact.ttf" id="1_tgff2"]
+
+[resource]
+base_font = ExtResource("1_tgff2")
+variation_embolden = 0.85
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cfdmaidpgq6oq"]
+[gd_scene load_steps=38 format=3 uid="uid://cfdmaidpgq6oq"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_v8yub"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_x780f"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="14_mbsx2"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="15_5qahw"]
 [ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="16_284yf"]
+[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="16_kqeaa"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -83,6 +84,8 @@ transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("12_te444")
 billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = -8.199
 
 [sub_resource type="QuadMesh" id="QuadMesh_kfi7b"]
 material = SubResource("StandardMaterial3D_rys5s")
@@ -240,7 +243,7 @@ spot_angle = 30.18
 mesh = SubResource("QuadMesh_kfi7b")
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("13_28rel")]
-pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_284yf")])
+pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_kqeaa"), ExtResource("16_284yf")])
 collision_shapes = [NodePath("Area3D/CollisionShape3D")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]

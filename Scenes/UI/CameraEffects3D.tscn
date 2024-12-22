@@ -129,7 +129,6 @@ grow_vertical = 2
 
 [node name="CameraSnow" type="Node3D" parent="."]
 script = ExtResource("6_53sd6")
-minimum_camera_rotation = 30
 
 [node name="Control" type="Control" parent="CameraSnow"]
 layout_mode = 3
@@ -157,7 +156,6 @@ lifetime = 3.0
 
 [node name="CameraRain2d" type="Node3D" parent="."]
 script = ExtResource("10_loo2t")
-minimum_camera_rotation = 30
 
 [node name="Control" type="Control" parent="CameraRain2d"]
 layout_mode = 3

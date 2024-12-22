@@ -39,7 +39,7 @@ equip_type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Flame Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.09132, 1.09132, 1)
+bones/0/scale = Vector3(1.11923, 1.11923, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Flame Gun" index="3"]
 libraries = {

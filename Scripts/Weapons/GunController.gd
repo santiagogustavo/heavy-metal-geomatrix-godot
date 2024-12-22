@@ -5,6 +5,7 @@ signal gun_shot
 signal drop
 
 @export_subgroup("Properties")
+@export var item_name: String
 @export var bullets: int
 @export var fire_rate: float
 @export var burst_count: int

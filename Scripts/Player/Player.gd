@@ -2,20 +2,22 @@ extends CharacterBody3D
 class_name Player
 
 @export_subgroup("Properties")
-@export var health = 100
+@export_range(0, 100) var health: int = 100
 
 @export_subgroup("Controls")
-@export var LOOK_CLAMP = 60
+@export_range(45, 90) var LOOK_CLAMP: int = 60
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
 
-@onready var character_controller = $CharacterController
+@onready var character_controller: CharacterController = $CharacterController
 @onready var animation_tree = $CharacterController/AnimationTree
 @onready var sound_tree = $CharacterController/SoundAnimationTree
 @onready var sound_attack_tree = $CharacterController/SoundAttackTree
 @onready var dash_particle = $Dash
 @onready var inventory_manager: InventoryManager = $InventoryManager
+
+var player_name: String
 
 var is_walking = false
 var is_dashing = false
@@ -55,6 +57,7 @@ func _process(delta: float):
 		return
 	
 	# VARIABLES AND MOTION
+	update_variables()
 	set_sound_variables()
 	set_animator_variables()
 	set_camera_variables()
@@ -77,7 +80,10 @@ func _exit_tree():
 
 func dash_stop():
 	is_dashing = false
-	
+
+func update_variables():
+	player_name = character_controller.character_name
+
 func update_dash():
 	if dash_particle:
 		dash_particle.emitting = is_dashing

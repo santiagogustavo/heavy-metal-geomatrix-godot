@@ -1,6 +1,9 @@
 extends Node3D
 class_name SwordController
 
+@export_subgroup("Properties")
+@export var item_name: String
+
 @export var hit_particle: PackedScene
 @export var hit_sfx: PackedScene
 @export var is_attacking = false

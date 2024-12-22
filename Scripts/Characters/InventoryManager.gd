@@ -21,6 +21,7 @@ var is_holding_weapon: bool = false
 @export var body_instance: Node3D = null
 @export var right_hand_instance: Node3D = null
 @export var equip_type: Definitions.EquipType = Definitions.EquipType.Body
+var right_hand_item_name: String = ''
 
 @onready var character_controller: CharacterController = $"../CharacterController"
 @onready var body_slot: BoneAttachment3D = character_controller.body_slot
@@ -35,7 +36,7 @@ func _ready() -> void:
 	holster_timer.connect("timeout", _on_holster_timeout)
 	add_child(holster_timer)
 
-func _process(_delta):
+func _process(_delta) -> void:
 	update_variables()
 
 func update_variables():
@@ -46,6 +47,7 @@ func update_variables():
 		has_jetpack = false
 	
 	if right_hand_instance != null:
+		right_hand_item_name = right_hand_instance.item_name
 		is_gun_shooting = false
 		has_gun = right_hand_instance is GunController
 		ammo = right_hand_instance.bullets if right_hand_instance is GunController else 0

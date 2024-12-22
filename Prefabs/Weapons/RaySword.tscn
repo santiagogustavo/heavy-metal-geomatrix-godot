@@ -95,6 +95,7 @@ size = Vector3(0.1, 1.3, 0.05)
 
 [node name="RaySword" type="Node3D"]
 script = ExtResource("1_qluvp")
+item_name = "Ray Sword"
 hit_particle = ExtResource("2_h757w")
 hit_sfx = ExtResource("3_0b0dq")
 

@@ -170,8 +170,8 @@ size = Vector2(0.75, 0.75)
 
 [node name="ShotGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_vrd27")
+item_name = "Shot Gun"
 bullets = 24
-bullets_per_shot = 4
 fire_rate = 0.6
 spray_amount = 3.0
 bullet = ExtResource("2_mk67q")
@@ -247,7 +247,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113081, -0.911205)
 stream = ExtResource("6_wmxgr")
 volume_db = -15.0
 max_db = 0.0
-stream_paused = true
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 

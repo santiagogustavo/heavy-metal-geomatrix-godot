@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvtxwn4al7j5j"
+path="res://.godot/imported/warning.wav-1f9d47551ede97c9b361007f05e94858.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Laser Rifle/warning.wav"
+dest_files=["res://.godot/imported/warning.wav-1f9d47551ede97c9b361007f05e94858.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

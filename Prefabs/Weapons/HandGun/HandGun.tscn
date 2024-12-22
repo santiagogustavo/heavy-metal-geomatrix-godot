@@ -194,6 +194,7 @@ size = Vector2(0.75, 0.75)
 
 [node name="HandGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_mw4kj")
+item_name = "Hand Gun"
 bullets = 8
 fire_rate = 0.3
 bullet = ExtResource("2_y54om")

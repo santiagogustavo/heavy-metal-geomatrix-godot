@@ -303,6 +303,7 @@ material = SubResource("StandardMaterial3D_q12wm")
 [node name="LaserRifle" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("1_hjaw0")
+item_name = "Laser Rifle"
 bullets = 16
 fire_rate = 0.5
 bullet = ExtResource("2_gw1da")
