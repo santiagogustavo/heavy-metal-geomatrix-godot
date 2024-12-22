@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name DebugMenuManager
 
 # Text display and input
 @onready var messages: RichTextLabel = $Container/Console/Messages
@@ -15,14 +16,18 @@ extends CanvasLayer
 @onready var commands: DebugCommands = DebugCommands.new()
 var expression: Expression = Expression.new()
 
+# Constants
+var MAX_CARET_COLUMN = 100000
+
 var history: Array[String] = []
 var history_index: int = -1
 
-var is_menu_open: bool = false
+static var is_menu_open: bool = false
 
 func _ready() -> void:
+	commands._get_autocomplete_info()
 	visible = is_menu_open
-	
+
 func _process(_delta: float) -> void:
 	var toggle: bool = Input.is_action_just_pressed("dev_console_toggle")
 	if toggle:
@@ -34,23 +39,37 @@ func _process(_delta: float) -> void:
 	var enter: bool = Input.is_action_just_pressed("dev_console_enter")
 	var prev: bool = Input.is_action_just_pressed("dev_console_prev")
 	var next: bool = Input.is_action_just_pressed("dev_console_next")
+	var autocomplete: bool = Input.is_action_just_pressed("dev_console_autocomplete")
+	
 	if close:
 		toggle_menu()
-	if enter:
-		history.push_front(line_edit.text)
-		run_command(line_edit.text)
-		history_index = -1
-		line_edit.text = ''
+	elif enter:
+		on_submit()
+	elif autocomplete:
+		on_autocomplete()
 	elif prev or next:
-		if history.size() == 0:
-			return
-		if prev:
-			history_index -= 1
-		elif next:
-			history_index += 1
-		history_index = clamp(history_index, 0, history.size() - 1)
-		line_edit.text = history[history_index]
-		line_edit.caret_column = 100000
+		on_navigate(prev)
+
+func on_submit() -> void:
+	history.push_front(line_edit.text)
+	run_command(line_edit.text)
+	history_index = -1
+	line_edit.text = ''
+
+func on_autocomplete() -> void:
+	line_edit.text = commands._get_autocomplete_match(line_edit.text)
+	line_edit.caret_column = MAX_CARET_COLUMN
+
+func on_navigate(prev: bool) -> void:
+	if history.size() == 0:
+		return
+	if prev:
+		history_index -= 1
+	else:
+		history_index += 1
+	history_index = clamp(history_index, 0, history.size() - 1)
+	line_edit.text = history[history_index]
+	line_edit.caret_column = MAX_CARET_COLUMN
 
 func run_command(command: String) -> void:
 	messages.append_text("[b]> " + command + "[/b]\n")
@@ -59,23 +78,26 @@ func run_command(command: String) -> void:
 		print_error(expression.get_error_text())
 	else:
 		var result = expression.execute([], commands)
-		if result != null:
-			print_success(result)
-		elif expression.has_execute_failed():
+		if not expression.has_execute_failed():
+			if result:
+				print_success(result)
+			else:
+				print_success()
+		else:
 			print_error(expression.get_error_text())
 	messages.append_text("\n")
 
-func print_success(message) -> void:
+func print_success(message = '') -> void:
 	sfx_confirm.play()
-	messages.append_text("[color=green]OK: [/color]" + str(message))
+	messages.append_text("[color=green]OK! [/color]" + str(message))
 
-func print_warning(message) -> void:
+func print_warning(message = '') -> void:
 	sfx_warning.play()
-	messages.append_text("[color=yellow]Warning: [/color]" + str(message))
+	messages.append_text("[color=yellow]Warning! [/color]" + str(message))
 
-func print_error(message) -> void:
+func print_error(message = '') -> void:
 	sfx_error.play()
-	messages.append_text("[color=red]Error: [/color]" + str(message))
+	messages.append_text("[color=red]Error! [/color]" + str(message))
 
 func toggle_menu() -> void:
 	is_menu_open = !is_menu_open

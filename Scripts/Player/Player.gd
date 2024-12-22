@@ -3,6 +3,7 @@ class_name Player
 
 @export_subgroup("Properties")
 @export_range(0, 100) var health: int = 100
+@export var selected_skin: int = 1
 
 @export_subgroup("Controls")
 @export_range(45, 90) var LOOK_CLAMP: int = 60
@@ -10,7 +11,7 @@ class_name Player
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
 
-@onready var character_controller: CharacterController = $CharacterController
+@onready var character: CharacterController = $CharacterController
 @onready var animation_tree = $CharacterController/AnimationTree
 @onready var sound_tree = $CharacterController/SoundAnimationTree
 @onready var sound_attack_tree = $CharacterController/SoundAttackTree
@@ -44,6 +45,8 @@ func _ready():
 
 func _physics_process(delta):
 	compute_gravity(delta)
+	if GameManager.is_game_paused || DebugMenuManager.is_menu_open:
+		return
 	compute_movement()
 
 func _input(event):
@@ -53,17 +56,15 @@ func _input(event):
 		input_look.x = event.relative.x / 20
 
 func _process(delta: float):
-	if GameManager.is_game_paused:
-		return
-	
 	# VARIABLES AND MOTION
 	update_variables()
 	set_sound_variables()
 	set_animator_variables()
 	set_camera_variables()
 	set_inventory_items_variables()
-	update_rotation_smoothing()
-	move_and_slide()
+	
+	if GameManager.is_game_paused || DebugMenuManager.is_menu_open:
+		return
 	
 	# COMPUTE FOR NEXT FRAME
 	compute_look_stick()
@@ -73,7 +74,9 @@ func _process(delta: float):
 	update_attack()
 	update_pickup()
 	update_camera_clamp()
+	update_rotation_smoothing()
 	clear_frame_variables()
+	move_and_slide()
 
 func _exit_tree():
 	GameManager.remove_player(get_rid())
@@ -82,7 +85,8 @@ func dash_stop():
 	is_dashing = false
 
 func update_variables():
-	player_name = character_controller.character_name
+	player_name = character.character_name
+	character.current_skin = clamp(selected_skin, 0, character.skins.size() - 1)
 
 func update_dash():
 	if dash_particle:
@@ -136,11 +140,11 @@ func compute_movement():
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	
-	var current_speed = character_controller.speed
+	var current_speed = character.speed
 	if is_dashing and (!inventory_manager.has_jetpack or !inventory_manager.jetpack_has_fuel):
-		current_speed = character_controller.dashing_speed
+		current_speed = character.dashing_speed
 	elif is_dashing and inventory_manager.has_jetpack and inventory_manager.jetpack_has_fuel:
-		current_speed = character_controller.jetpack_dashing_speed
+		current_speed = character.jetpack_dashing_speed
 	
 	if direction.length():
 		is_walking = true
@@ -152,18 +156,18 @@ func compute_movement():
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 func compute_gravity(delta):
-	velocity.y -= character_controller.weight * gravity * delta
+	velocity.y -= character.weight * gravity * delta
 	if is_on_floor():
 		is_jumping = false
 
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			is_jumping = true
-			velocity.y = character_controller.jump_height
+			velocity.y = character.jump_height
 		elif inventory_manager.has_jetpack:
 			is_double_jumping = true
 			if inventory_manager.jetpack_has_fuel:
-				velocity.y = character_controller.jump_height
+				velocity.y = character.jump_height
 
 func clear_frame_variables():
 	is_double_jumping = false

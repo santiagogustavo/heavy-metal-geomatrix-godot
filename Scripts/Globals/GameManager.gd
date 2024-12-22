@@ -15,7 +15,11 @@ func _init():
 	#lock_cursor()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("pause") and current_scene_type == Definitions.SceneType.LocalGame:
+	if (
+		Input.is_action_just_pressed("pause")
+		and not DebugMenuManager.is_menu_open
+		and current_scene_type == Definitions.SceneType.LocalGame
+	):
 		toggle_pause_game()
 
 func lock_cursor():

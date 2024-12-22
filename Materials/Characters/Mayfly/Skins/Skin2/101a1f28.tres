@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://u8eyc1tl0kje"]
+
+[ext_resource type="Texture2D" uid="uid://de81emvfexr5l" path="res://Textures/Characters/Mayfly/Skins/Skin 2/101a1f28.png" id="1_boo4o"]
+
+[resource]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_boo4o")

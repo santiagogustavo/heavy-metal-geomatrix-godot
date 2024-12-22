@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://w7lym5chsiit"]
+
+[ext_resource type="Texture2D" uid="uid://b8l1eae1xm5r6" path="res://Textures/Characters/Mayfly/Skins/Skin 2/67076af9.png" id="1_tpagi"]
+
+[resource]
+albedo_texture = ExtResource("1_tpagi")

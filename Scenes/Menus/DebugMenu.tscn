@@ -102,6 +102,7 @@ scroll_following = true
 [node name="Input" type="LineEdit" parent="Container/Console"]
 layout_mode = 2
 caret_blink = true
+caret_force_displayed = true
 
 [node name="SFX" type="Control" parent="."]
 layout_mode = 3
