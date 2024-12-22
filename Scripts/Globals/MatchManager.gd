@@ -8,9 +8,9 @@ extends Node
 @onready var current_time: int = 0
 
 # Internals
-var timer: Timer
-var round_has_started: bool
-var round_has_ended: bool
+var timer: Timer = Timer.new()
+var round_has_started: bool = false
+var round_has_ended: bool = false
 
 func _process(delta: float) -> void:
 	current_time = timer.time_left

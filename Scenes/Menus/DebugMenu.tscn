@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=3 uid="uid://dn7eqrtucu38n"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/DebugMenu/DebugMenuManager.gd" id="1_h0n8i"]
+[ext_resource type="FontVariation" uid="uid://u352bvk5yi5u" path="res://Fonts/Basilea Bold.tres" id="2_4nml7"]
+[ext_resource type="AudioStream" uid="uid://nnuxjtsyae7a" path="res://Sound/Menus/Debug/SELECT.wav" id="3_e1b4v"]
+[ext_resource type="AudioStream" uid="uid://bqheh7vb8m6lj" path="res://Sound/Menus/Debug/BACK.wav" id="3_ochqa"]
+[ext_resource type="AudioStream" uid="uid://dukpy1kqpc5k1" path="res://Sound/Menus/Debug/CONFIRMATION.wav" id="4_ugrho"]
+[ext_resource type="AudioStream" uid="uid://dk3op0b8y2k5h" path="res://Sound/Menus/Debug/DISC_CHECK.wav" id="6_52qcx"]
+[ext_resource type="AudioStream" uid="uid://co62yt65fwcmv" path="res://Sound/Menus/Debug/VMU_CONFIG.wav" id="7_yraxq"]
+
+[sub_resource type="Gradient" id="Gradient_ykydt"]
+colors = PackedColorArray(0.2769, 0.414048, 0.71, 0.784314, 0.6497, 0.78587, 0.89, 0.784314)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_51rrb"]
+gradient = SubResource("Gradient_ykydt")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_ej0pf"]
+font_color = Color(0.929412, 0.529412, 0.176471, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qsry8"]
+font = ExtResource("2_4nml7")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j1xd3"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="DebugMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_h0n8i")
+
+[node name="Container" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 366.0
+
+[node name="Background" type="TextureRect" parent="Container"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_51rrb")
+
+[node name="Console" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Container" type="Control" parent="Container/Console"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Container/Console/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Status" type="MarginContainer" parent="Container/Console/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/Console/Container/Status"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Logo" type="Label" parent="Container/Console/Container/Status/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "UwU"
+label_settings = SubResource("LabelSettings_ej0pf")
+
+[node name="Label" type="Label" parent="Container/Console/Container/Status/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Dreamconsole"
+label_settings = SubResource("LabelSettings_qsry8")
+
+[node name="Info" type="Label" parent="Container/Console/Container/Status"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Hello!"
+label_settings = SubResource("LabelSettings_j1xd3")
+
+[node name="Messages" type="RichTextLabel" parent="Container/Console"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[color=c21560]Happy hacking![/color]
+-----------------------
+"
+scroll_following = true
+
+[node name="Input" type="LineEdit" parent="Container/Console"]
+layout_mode = 2
+caret_blink = true
+
+[node name="SFX" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Close" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("3_ochqa")
+
+[node name="Open" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("4_ugrho")
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("3_e1b4v")
+
+[node name="Error" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("6_52qcx")
+
+[node name="Warning" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("7_yraxq")

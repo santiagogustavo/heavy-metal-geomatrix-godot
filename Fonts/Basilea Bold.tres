@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://u352bvk5yi5u"]
+
+[ext_resource type="FontFile" uid="uid://cp6bx4bc22jiq" path="res://Fonts/Basilea Regular.ttf" id="1_16bin"]
+
+[resource]
+base_font = ExtResource("1_16bin")
+variation_embolden = 1.0
