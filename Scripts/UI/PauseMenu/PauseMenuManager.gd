@@ -23,6 +23,9 @@ func _ready():
 	GameManager.connect("pause", open_menu)
 	GameManager.connect("resume", close_menu)
 
+func _process(_delta: float) -> void:
+	set_process_unhandled_input(!DebugMenuManager.is_menu_open and is_menu_open)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		GameManager.resume_game()

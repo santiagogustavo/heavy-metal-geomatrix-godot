@@ -1,6 +1,9 @@
 extends CanvasLayer
 class_name DebugMenuManager
 
+signal open
+signal close
+
 # Stats overlay
 @onready var stats_overlay: Container = $StatsOverlay
 
@@ -35,27 +38,23 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	stats_overlay.visible = commands.is_stats_overlay_open
-	
-	var toggle: bool = Input.is_action_just_pressed("dev_console_toggle")
-	if toggle:
+	set_process_input(is_menu_open)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
 		toggle_menu()
-		return
-	if !is_menu_open:
-		return
-	var close: bool = Input.is_action_just_pressed("ui_cancel")
-	var enter: bool = Input.is_action_just_pressed("dev_console_enter")
-	var prev: bool = Input.is_action_just_pressed("dev_console_prev")
-	var next: bool = Input.is_action_just_pressed("dev_console_next")
-	var autocomplete: bool = Input.is_action_just_pressed("dev_console_autocomplete")
-	
-	if close:
-		toggle_menu()
-	elif enter:
+	if event.is_action_pressed("dev_console_enter"):
 		on_submit()
-	elif autocomplete:
+	if event.is_action_pressed("dev_console_autocomplete"):
 		on_autocomplete()
-	elif prev or next:
-		on_navigate(prev)
+	if event.is_action_pressed("dev_console_next"):
+		on_navigate(false)
+	if event.is_action_pressed("dev_console_prev"):
+		on_navigate(true)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("dev_console_toggle"):
+		toggle_menu()
 
 func on_submit() -> void:
 	history.push_front(line_edit.text)
@@ -114,8 +113,10 @@ func toggle_menu() -> void:
 	is_menu_open = !is_menu_open
 	console_container.visible = is_menu_open
 	if is_menu_open:
+		open.emit()
 		sfx_open.play()
 		line_edit.grab_focus()
 		line_edit.text = ''
 	else:
+		close.emit()
 		sfx_close.play()

@@ -12,14 +12,16 @@ var selected_option_name = ''
 var selected_option_description = ''
 var selected_with_close = false
 
-var is_input_enabled = false
 var is_menu_open = false
 var selected = false
+
+func _init() -> void:
+	disable_input()
 
 func _ready():
 	GameManager.unlock_cursor()
 	GameManager.current_scene_type = Definitions.SceneType.MainMenu
-	animation_player.current_animation = 'Idle'
+	animation_player.play('Idle')
 	
 	var index = 0
 	for option in options:
@@ -29,22 +31,24 @@ func _ready():
 		index += 1
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_start") and !is_menu_open and is_input_enabled:
-		is_menu_open = true
-		animation_player.current_animation = "PressedStart"
-		select_first_option()
-	elif Input.is_action_just_pressed("ui_cancel") and is_menu_open and is_input_enabled:
-		is_menu_open = false
-		animation_player.current_animation = "Idle"
 	if is_menu_open:
 		update_description_label()
 		update_options_slide()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_start") and !is_menu_open:
+		is_menu_open = true
+		animation_player.play("PressedStart")
+		select_first_option()
+	elif event.is_action_pressed("ui_cancel") and is_menu_open:
+		is_menu_open = false
+		animation_player.play("Idle")
+
 func enable_input():
-	is_input_enabled = true
+	set_process_input(true)
 
 func disable_input():
-	is_input_enabled = false
+	set_process_input(false)
 
 func update_options_slide():
 	var index = 0;
