@@ -1,54 +1,57 @@
 extends Node
 
-var sun: DirectionalLight3D
+signal pause
+signal resume
 
 var current_level_config: LevelConfig = LevelConfig.new()
 var current_scene_type: Definitions.SceneType = Definitions.SceneType.Intro
 
-var engine_version = Engine.get_version_info().string
-var is_game_paused = false
+var engine_version: String = Engine.get_version_info().string
 
+# Gameplay variables
+var is_game_paused: bool = false
+var current_match: MatchManager
 var players: Array[Player] = []
 
-func _init():
+func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	#lock_cursor()
 
-func _process(_delta):
-	if (
-		Input.is_action_just_pressed("pause")
-		and not DebugMenuManager.is_menu_open
-		and current_scene_type == Definitions.SceneType.LocalGame
-	):
-		toggle_pause_game()
+func create_match(new_match: MatchManager) -> void:
+	current_match = new_match
+	get_tree().root.add_child.call_deferred(current_match)
 
-func lock_cursor():
+func end_match() -> void:
+	get_tree().root.remove_child.call_deferred(current_match)
+	current_match.queue_free()
+	current_match = null
+
+func lock_cursor() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-func unlock_cursor():
+func unlock_cursor() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-func resume_game():
+func resume_game() -> void:
+	if !is_game_paused:
+		return
 	is_game_paused = false
 	lock_cursor()
 	get_tree().paused = false
+	resume.emit()
 
-func pause_game():
+func pause_game() -> void:
+	if is_game_paused:
+		return
 	is_game_paused = true
 	unlock_cursor()
 	get_tree().paused = true
+	pause.emit()
 
-func toggle_pause_game():
+func toggle_pause_game() -> void:
 	if get_tree().paused:
 		resume_game()
 	else:
 		pause_game()
-
-func set_sun(new_sun: DirectionalLight3D):
-	sun = new_sun
-
-func remove_sun():
-	sun = null
 
 func get_player_one() -> Player:
 	return players[0] if players.size() > 0 else null
@@ -56,7 +59,7 @@ func get_player_one() -> Player:
 func add_player(player: Player):
 	players.append(player)
 
-func remove_player(rid: RID):
+func remove_player(rid: RID) -> void:
 	var pop_index = -1
 	for i in range(players.size()):
 		if players[i].get_rid() == rid:

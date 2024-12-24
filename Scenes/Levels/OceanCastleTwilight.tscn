@@ -1,9 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=52 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_tcn3d"]
 [ext_resource type="Texture2D" uid="uid://24rcfmn5xmcj" path="res://Textures/Skyboxes/Twilight Cloudy.png" id="2_p2odm"]
-[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_1hprl"]
 [ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="3_qj2i6"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="4_xw4kr"]
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="5_g0vas"]
@@ -267,7 +266,6 @@ transform = Transform3D(-0.517081, 0.0541335, -0.854223, -0.292522, 0.926731, 0.
 shadow_enabled = true
 shadow_bias = 0.02
 shadow_reverse_cull_face = true
-script = ExtResource("3_1hprl")
 
 [node name="UI" parent="." instance=ExtResource("3_qj2i6")]
 

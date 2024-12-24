@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=59 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Squish Y.gdshader" id="1_k0nky"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Ammo.gd" id="20_c6iue"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Melee.gd" id="21_agdla"]
 [ext_resource type="Texture2D" uid="uid://bt7vtikx87pgx" path="res://Textures/UI/HUD/New/weapon_divider.png" id="22_nu1bm"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD/Scoreboard.gd" id="24_cqqf3"]
 [ext_resource type="Texture2D" uid="uid://dcakxbma523me" path="res://Textures/UI/HUD/New/warning_box.png" id="24_g3fjk"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Warning.gd" id="24_tuivd"]
 [ext_resource type="Texture2D" uid="uid://bg06f4lkvh5cg" path="res://Textures/UI/HUD/New/scoreboard_divider.png" id="24_ukxoo"]
@@ -627,6 +628,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
+script = ExtResource("24_cqqf3")
 
 [node name="Timer" type="VBoxContainer" parent="Container/Control/Scoreboard"]
 layout_mode = 1

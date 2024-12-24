@@ -10,5 +10,6 @@ class_name LevelConfig
 
 func _ready():
 	GameManager.lock_cursor()
-	GameManager.current_scene_type = Definitions.SceneType.LocalGame
 	GameManager.current_level_config = self
+	if !GameManager.current_match:
+		GameManager.create_match(MatchManager.new())

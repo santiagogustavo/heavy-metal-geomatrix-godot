@@ -39,29 +39,36 @@ var shoot_target = Vector3.ZERO
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 const dash_duration = 1
 
-func _ready():
+func _ready() -> void:
 	GameManager.add_player(self)
 	move_and_slide()
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	compute_gravity(delta)
 	if GameManager.is_game_paused || DebugMenuManager.is_menu_open:
+		input_direction = Vector2.ZERO
+		velocity.x = 0
+		velocity.z = 0
 		return
 	compute_movement()
 
 func _input(event):
+	if GameManager.is_game_paused || DebugMenuManager.is_menu_open:
+		return
 	if event is InputEventMouseMotion:
 		new_rotation.y += deg_to_rad(-event.relative.x) * InputSettingsManager.mouse_horizontal_sensitivity
 		new_rotation.x += deg_to_rad(-event.relative.y) * InputSettingsManager.mouse_vertical_sensitivity
 		input_look.x = event.relative.x / 20
 
-func _process(delta: float):
+func _process(_delta: float):
 	# VARIABLES AND MOTION
 	update_variables()
 	set_sound_variables()
 	set_animator_variables()
 	set_camera_variables()
 	set_inventory_items_variables()
+	clear_frame_variables()
+	move_and_slide()
 	
 	if GameManager.is_game_paused || DebugMenuManager.is_menu_open:
 		return
@@ -75,8 +82,6 @@ func _process(delta: float):
 	update_pickup()
 	update_camera_clamp()
 	update_rotation_smoothing()
-	clear_frame_variables()
-	move_and_slide()
 
 func _exit_tree():
 	GameManager.remove_player(get_rid())
@@ -154,12 +159,7 @@ func compute_movement():
 		is_walking = false
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
-
-func compute_gravity(delta):
-	velocity.y -= character.weight * gravity * delta
-	if is_on_floor():
-		is_jumping = false
-
+	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			is_jumping = true
@@ -168,6 +168,11 @@ func compute_gravity(delta):
 			is_double_jumping = true
 			if inventory_manager.jetpack_has_fuel:
 				velocity.y = character.jump_height
+
+func compute_gravity(delta):
+	velocity.y -= character.weight * gravity * delta
+	if is_on_floor():
+		is_jumping = false
 
 func clear_frame_variables():
 	is_double_jumping = false

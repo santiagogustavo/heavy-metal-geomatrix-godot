@@ -1,4 +1,7 @@
 extends Node
+class_name MatchManager
+
+signal paused
 
 @export_subgroup("Round Settings")
 @export_range(1, 5) var rounds: int = 2
@@ -7,22 +10,46 @@ extends Node
 @onready var current_round: int = 0
 @onready var current_time: int = 0
 
+# Definitions
+enum RoundStatus {
+	Idle,
+	Started,
+	Ended,
+}
+
 # Internals
 var timer: Timer = Timer.new()
-var round_has_started: bool = false
-var round_has_ended: bool = false
+var round_status: RoundStatus = RoundStatus.Idle
 
-func _process(delta: float) -> void:
-	current_time = timer.time_left
+func _init() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	timer.connect("timeout", end_round)
+
+func _ready() -> void:
+	GameManager.current_scene_type = Definitions.SceneType.MatchStarted
+	GameManager.connect("pause", func (): set_process_unhandled_input(false))
+	GameManager.connect("resume", func (): set_process_unhandled_input(true))
+	get_tree().root.add_child.call_deferred(timer)
+
+func _process(_delta: float) -> void:
+	current_time = ceili(timer.time_left)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		GameManager.pause_game()
 
 # Round management
-func start_round() -> void:
+func start_round() -> bool:
+	if round_status == RoundStatus.Started:
+		return false
 	current_round += 1
+	round_status = RoundStatus.Started
 	timer.start(time)
-	round_has_started = true
-	round_has_ended = false
+	return true
 
-func end_round() -> void:
+func end_round() -> bool:
+	if round_status != RoundStatus.Started:
+		return false
 	timer.stop()
-	round_has_started = false
-	round_has_ended = true
+	round_status = RoundStatus.Ended
+	return true

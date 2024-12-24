@@ -577,9 +577,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Logo"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_q5m1p")
-}
 tree_root = SubResource("AnimationNodeStateMachine_uabnh")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -593,6 +590,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Press Start"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -618,9 +616,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Press Start"]
-libraries = {
-"": SubResource("AnimationLibrary_oyxqu")
-}
 tree_root = SubResource("AnimationNodeStateMachine_r45pc")
 anim_player = NodePath("../AnimationPlayer")
 

@@ -1,7 +1,11 @@
 extends CanvasLayer
 class_name DebugMenuManager
 
+# Stats overlay
+@onready var stats_overlay: Container = $StatsOverlay
+
 # Text display and input
+@onready var console_container: Container = $Container
 @onready var messages: RichTextLabel = $Container/Console/Messages
 @onready var line_edit: LineEdit = $Container/Console/Input
 
@@ -26,9 +30,12 @@ static var is_menu_open: bool = false
 
 func _ready() -> void:
 	commands._get_autocomplete_info()
-	visible = is_menu_open
+	commands.connect("clear_console", on_clear)
+	console_container.visible = is_menu_open
 
 func _process(_delta: float) -> void:
+	stats_overlay.visible = commands.is_stats_overlay_open
+	
 	var toggle: bool = Input.is_action_just_pressed("dev_console_toggle")
 	if toggle:
 		toggle_menu()
@@ -55,6 +62,10 @@ func on_submit() -> void:
 	run_command(line_edit.text)
 	history_index = -1
 	line_edit.text = ''
+	
+func on_clear() -> void:
+	history = []
+	messages.clear()
 
 func on_autocomplete() -> void:
 	line_edit.text = commands._get_autocomplete_match(line_edit.text)
@@ -82,7 +93,7 @@ func run_command(command: String) -> void:
 			if result:
 				print_success(result)
 			else:
-				print_success()
+				sfx_confirm.play()
 		else:
 			print_error(expression.get_error_text())
 	messages.append_text("\n")
@@ -101,7 +112,7 @@ func print_error(message = '') -> void:
 
 func toggle_menu() -> void:
 	is_menu_open = !is_menu_open
-	visible = is_menu_open
+	console_container.visible = is_menu_open
 	if is_menu_open:
 		sfx_open.play()
 		line_edit.grab_focus()

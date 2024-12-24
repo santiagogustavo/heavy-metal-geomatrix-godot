@@ -3,7 +3,7 @@ extends Control
 @onready var name_label: Label = $PlayerName
 @onready var health_bar: ColorRect = $HealthBar
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var player: Player = GameManager.get_player_one()
 	if !player or player == null:
 		visible = false

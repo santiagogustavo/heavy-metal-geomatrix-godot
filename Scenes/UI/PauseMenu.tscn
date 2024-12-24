@@ -1,20 +1,39 @@
-[gd_scene load_steps=17 format=3 uid="uid://djao4jgemsc0"]
+[gd_scene load_steps=22 format=3 uid="uid://djao4jgemsc0"]
 
-[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_14uh4"]
-[ext_resource type="Texture2D" uid="uid://coc5bni6fs6ub" path="res://Textures/UI/Menus/Pause Menu/36303815_R1.png" id="3_2blfx"]
-[ext_resource type="Texture2D" uid="uid://d3qhb6cdwpkq2" path="res://Textures/UI/Menus/Pause Menu/1p.png" id="4_hwcto"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Panel.gd" id="4_pay3k"]
-[ext_resource type="Texture2D" uid="uid://br5qgfapdetmw" path="res://Textures/UI/Menus/Pause Menu/continue.png" id="4_v001x"]
-[ext_resource type="Texture2D" uid="uid://ite6tp8d1wev" path="res://Textures/UI/Menus/Pause Menu/character_change.png" id="5_bhu21"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Continue.gd" id="6_fwu7w"]
-[ext_resource type="Texture2D" uid="uid://npmi0abk0pf2" path="res://Textures/UI/Menus/Pause Menu/options.png" id="6_qwnrg"]
-[ext_resource type="Texture2D" uid="uid://c881e7280g4gv" path="res://Textures/UI/Menus/Pause Menu/exit.png" id="7_1cvxh"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Character Change.gd" id="7_a0u3f"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Options.gd" id="9_s581u"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/Exit.gd" id="11_3m3t1"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/PauseMenuManager.gd" id="1_14uh4"]
+[ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="2_pxpvk"]
+[ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="2_yn0ir"]
+[ext_resource type="Texture2D" uid="uid://rmxp2qxw6t4k" path="res://Textures/UI/Menus/Pause Menu/decoration.png" id="3_binch"]
+[ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="4_g42m2"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/ButtonResume.gd" id="5_1g2l3"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/ButtonOptions.gd" id="7_5wxh1"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/ButtonExit.gd" id="8_hawb2"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/MatchInfoLabel.gd" id="8_wdjjr"]
+[ext_resource type="AudioStream" uid="uid://dbyq16y3ws57u" path="res://Sound/UI/PauseMenu/750432__rescopicsound__ui-alert-menu-modern-interface-pop-up-small.mp3" id="11_fcmb8"]
+[ext_resource type="AudioStream" uid="uid://dfxb40vgqo23d" path="res://Sound/UI/PauseMenu/750430__rescopicsound__ui-alert-menu-modern-interface-deny-small.mp3" id="12_w08al"]
+[ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="13_2hjct"]
 [ext_resource type="PackedScene" uid="uid://bgn8aq1m4p0rb" path="res://Scenes/Menus/OptionsMenu.tscn" id="13_queq0"]
+[ext_resource type="AudioStream" uid="uid://bi4qp1mpysiku" path="res://Sound/UI/PauseMenu/750434__rescopicsound__ui-click-menu-modern-interface-select-medium.mp3" id="14_bx17c"]
 
-[sub_resource type="Animation" id="Animation_bf8ru"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fk4s"]
+shader = ExtResource("2_pxpvk")
+shader_parameter/Color = null
+shader_parameter/Scale = 500.0
+shader_parameter/Color_Weight = 0.5
+shader_parameter/Opacity = 0.223
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu8wp"]
+font = ExtResource("2_yn0ir")
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgbn7"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nfhi7"]
+font = ExtResource("4_g42m2")
+font_size = 18
+
+[sub_resource type="Animation" id="Animation_q8yxh"]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -27,11 +46,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.53, 0), Vector2(0.53, 0.53)]
+"values": [Vector2(1, 0), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_3xfog"]
-resource_name = "Reset"
+[sub_resource type="Animation" id="Animation_fhtwi"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,18 +61,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.53, 0)]
+"values": [Vector2(1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghj2q"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_30blp"]
 _data = {
-"Open": SubResource("Animation_bf8ru"),
-"Reset": SubResource("Animation_3xfog")
+"Open": SubResource("Animation_q8yxh"),
+"RESET": SubResource("Animation_fhtwi")
 }
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("panel_buttons")]
 process_mode = 3
 script = ExtResource("1_14uh4")
+panel_buttons = [NodePath("Control/Panel/Decoration/Buttons/Resume/Resume"), NodePath("Control/Panel/Decoration/Buttons/Options/Options"), NodePath("Control/Panel/Decoration/Buttons/Exit/Exit")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -62,6 +82,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Static" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_7fk4s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
 
 [node name="BG" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -72,86 +102,163 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="Panel" type="TextureRect" parent="Control"]
+[node name="Panel" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 324)
+
+[node name="Decoration" type="TextureRect" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -168.0
-offset_right = 250.0
-offset_bottom = 168.0
+offset_left = -235.5
+offset_top = -119.0
+offset_right = 235.5
+offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.53, 0.53)
-pivot_offset = Vector2(250, 168)
-texture = ExtResource("3_2blfx")
+texture = ExtResource("3_binch")
 expand_mode = 1
-script = ExtResource("4_pay3k")
 
-[node name="1P" type="TextureRect" parent="Control/Panel"]
-layout_mode = 2
-offset_left = 142.453
-offset_top = 1.96225
-offset_right = 228.453
-offset_bottom = 87.9622
-scale = Vector2(0.57257, 0.57257)
-texture = ExtResource("4_hwcto")
+[node name="Label" type="Label" parent="Control/Panel/Decoration"]
+layout_mode = 0
+offset_left = 259.5
+offset_top = -30.0
+offset_right = 429.5
+offset_bottom = 1.0
+text = "Game Paused"
+label_settings = SubResource("LabelSettings_uu8wp")
+uppercase = true
 
-[node name="Buttons" type="VBoxContainer" parent="Control/Panel"]
+[node name="Buttons" type="VBoxContainer" parent="Control/Panel/Decoration"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -348.0
-offset_top = -212.5
-offset_right = 348.0
-offset_bottom = 212.5
+offset_left = -54.5
+offset_top = -83.0
+offset_right = 99.5
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.527266, 0.527266)
-pivot_offset = Vector2(348, 212)
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 0
+
+[node name="Resume" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons"]
+layout_mode = 2
+alignment = 2
+
+[node name="Resume" type="Button" parent="Control/Panel/Decoration/Buttons/Resume"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_fonts/font = ExtResource("4_g42m2")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
+keep_pressed_outside = true
+text = "RESUME GAME"
+flat = true
+script = ExtResource("5_1g2l3")
+
+[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Resume"]
+layout_mode = 2
+
+[node name="Options" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons"]
+layout_mode = 2
+alignment = 2
+
+[node name="Options" type="Button" parent="Control/Panel/Decoration/Buttons/Options"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_fonts/font = ExtResource("4_g42m2")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
+keep_pressed_outside = true
+text = "OPTIONS"
+flat = true
+script = ExtResource("7_5wxh1")
+
+[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Options"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Exit" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons"]
+layout_mode = 2
+alignment = 2
+
+[node name="Exit" type="Button" parent="Control/Panel/Decoration/Buttons/Exit"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_fonts/font = ExtResource("4_g42m2")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
+keep_pressed_outside = true
+text = "EXIT"
+flat = true
+script = ExtResource("8_hawb2")
+
+[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Exit"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Info" type="HBoxContainer" parent="Control/Panel/Decoration"]
+custom_minimum_size = Vector2(354, 0)
+layout_mode = 0
+offset_left = 39.5
+offset_top = 191.0
+offset_right = 393.5
+offset_bottom = 215.0
 alignment = 1
 
-[node name="Continue" type="TextureButton" parent="Control/Panel/Buttons"]
+[node name="ModeInfo" type="Label" parent="Control/Panel/Decoration/Info"]
 layout_mode = 2
-action_mode = 0
-texture_normal = ExtResource("4_v001x")
-stretch_mode = 3
-script = ExtResource("6_fwu7w")
+text = "Arcade Mode"
+label_settings = SubResource("LabelSettings_nfhi7")
 
-[node name="CharacterChange" type="TextureButton" parent="Control/Panel/Buttons"]
+[node name="MatchInfo" type="Label" parent="Control/Panel/Decoration/Info"]
 layout_mode = 2
-action_mode = 0
-texture_normal = ExtResource("5_bhu21")
-stretch_mode = 3
-script = ExtResource("7_a0u3f")
-
-[node name="Options" type="TextureButton" parent="Control/Panel/Buttons"]
-layout_mode = 2
-action_mode = 0
-texture_normal = ExtResource("6_qwnrg")
-stretch_mode = 3
-script = ExtResource("9_s581u")
-
-[node name="Exit" type="TextureButton" parent="Control/Panel/Buttons"]
-layout_mode = 2
-action_mode = 0
-texture_normal = ExtResource("7_1cvxh")
-stretch_mode = 3
-script = ExtResource("11_3m3t1")
-redirect_to_scene = "res://Scenes/MainMenu.tscn"
+size_flags_horizontal = 3
+text = "2 Wins - 60s"
+label_settings = SubResource("LabelSettings_nfhi7")
+horizontal_alignment = 2
+script = ExtResource("8_wdjjr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Panel"]
 libraries = {
-"": SubResource("AnimationLibrary_ghj2q")
+"": SubResource("AnimationLibrary_30blp")
 }
 
 [node name="OptionsMenu" parent="." instance=ExtResource("13_queq0")]
+visible = false
+
+[node name="SFX" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Open" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("11_fcmb8")
+bus = &"UI"
+
+[node name="Close" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("12_w08al")
+bus = &"UI"
+
+[node name="Entered" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("13_2hjct")
+bus = &"UI"
+
+[node name="Selected" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("14_bx17c")
+bus = &"UI"

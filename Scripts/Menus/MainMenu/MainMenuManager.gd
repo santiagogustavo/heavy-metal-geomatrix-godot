@@ -18,7 +18,7 @@ var selected = false
 
 func _ready():
 	GameManager.unlock_cursor()
-	GameManager.current_scene_type = Definitions.SceneType.Menu
+	GameManager.current_scene_type = Definitions.SceneType.MainMenu
 	animation_player.current_animation = 'Idle'
 	
 	var index = 0

@@ -10,8 +10,14 @@ enum EquipType {
 
 enum SceneType {
 	Intro,
-	Menu,
-	LocalGame
+	Attract,
+	MainMenu,
+	PlayerSelection,
+	LevelSelection,
+	Versus,
+	CharacterTaunt,
+	RoundAnnouncement,
+	MatchStarted
 }
 
 enum SurfaceType {
