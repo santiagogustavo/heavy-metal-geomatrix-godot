@@ -6,6 +6,9 @@ class_name JetpackController
 @export var is_dashing: bool = false
 @export var is_double_jumping: bool = false
 
+var fuel_cost_dash = 15
+var fuel_cost_jump = 20
+
 @onready var jet_lights: Array[OmniLight3D] = [
 	$L/JetLight,
 	$R/JetLight
@@ -29,10 +32,10 @@ class_name JetpackController
 
 var double_jumped = false
 
-func _ready():
+func _ready() -> void:
 	play_jet_beam()
 
-func _process(delta):
+func _process(delta: float) -> void:
 	spend_fuel(delta)
 	randomize_lights_energy()
 	enable_or_disable_indicator()
@@ -43,33 +46,33 @@ func _process(delta):
 		get_tree().create_timer(0.1).connect("timeout", _on_double_jump_timeout)
 		play_jet_beam()
 
-func _on_double_jump_timeout():
+func _on_double_jump_timeout() -> void:
 	double_jumped = false
 
-func randomize_lights_energy():
+func randomize_lights_energy() -> void:
 	for light in jet_lights:
 		light.light_energy = randf_range(0.01, 0.3)
 
-func enable_or_disable_indicator():
+func enable_or_disable_indicator() -> void:
 	empty_indicator.visible = fuel <= 0
 
-func enable_or_disable_lights():
+func enable_or_disable_lights() -> void:
 	for light in jet_lights:
 		light.visible = fuel > 0 and (is_dashing or double_jumped)
 
-func spend_fuel(delta):
+func spend_fuel(delta) -> void:
 	if fuel <= 0:
 		return
 	if is_dashing:
-		fuel -= 15 * delta
+		fuel -= fuel_cost_dash * delta
 	if is_double_jumping:
-		fuel -= 20
+		fuel -= fuel_cost_jump
 
-func play_jet_smoke():
+func play_jet_smoke() -> void:
 	for particle in jet_smoke:
 		particle.emitting = true
 
-func play_jet_beam():
+func play_jet_beam() -> void:
 	if fuel <= 0:
 		smoke_sfx.playing = true
 		play_jet_smoke()
@@ -79,7 +82,7 @@ func play_jet_beam():
 	for particle in jet_beam:
 		particle.emitting = true
 
-func play_jet_stream():
+func play_jet_stream() -> void:
 	if fuel <= 0:
 		if is_dashing and !smoke_sfx.playing:
 			smoke_sfx.playing = true

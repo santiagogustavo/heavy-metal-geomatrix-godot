@@ -1,4 +1,5 @@
 extends Node3D
+class_name PickupController
 
 @export_subgroup("Configs")
 @export var timeout: float = 5
@@ -52,7 +53,7 @@ func _on_area_3d_body_exited(_body: Node3D):
 		collider = null
 
 func detect_player_pickup():
-	if collider && collider.is_picking_up:
+	if collider && collider.player_input.is_picking_up:
 		pickup_item()
 
 func pickup_item():

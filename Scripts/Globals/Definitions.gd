@@ -1,5 +1,11 @@
 extends Node
 
+enum PlayerType {
+	Player1,
+	Player2,
+	Bot,
+}
+
 enum EquipType {
 	Body,
 	WeaponSingle,
@@ -28,3 +34,5 @@ enum SurfaceType {
 	Stone = 4 + 1024,
 	Dirt = 4 + 2048
 }
+
+var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

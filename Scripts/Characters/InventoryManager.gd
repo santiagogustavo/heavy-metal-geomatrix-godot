@@ -4,9 +4,11 @@ class_name InventoryManager
 signal right_hand_pickup
 signal body_pickup
 
-var has_jetpack = false
-var jetpack_fuel = 0.0
-var jetpack_has_fuel = false
+# Shortcuts
+var has_jetpack: bool = false
+var jetpack_fuel: float = 0.0
+var jetpack_has_fuel: bool = false
+var jetpack_can_jump: bool = false
 
 var has_gun = false
 var ammo_total = 0
@@ -40,9 +42,10 @@ func _process(_delta) -> void:
 	update_variables()
 
 func update_variables():
-	if body_instance != null:
+	if body_instance != null and body_instance is JetpackController:
 		jetpack_fuel = body_instance.fuel
 		jetpack_has_fuel = body_instance.fuel > 0
+		jetpack_can_jump = body_instance.fuel - body_instance.fuel_cost_jump > 0
 	else:
 		has_jetpack = false
 	

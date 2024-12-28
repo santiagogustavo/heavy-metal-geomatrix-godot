@@ -28,7 +28,7 @@ func change_player_skin(skin: int) -> void:
 	var player = GameManager.get_player_one()
 	player.selected_skin = clamp(skin, 0, player.character.skins.size() - 1)
 
-func toggle_stats_overlay() -> void:
+func show_stats() -> void:
 	is_stats_overlay_open = !is_stats_overlay_open
 
 func start_round() -> String:

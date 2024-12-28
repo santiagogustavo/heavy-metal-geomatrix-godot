@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 
 func update_pickup() -> void:
 	if is_picking_up:
-		upper_body_state_machine.travel("Pickup")
+		upper_body_state_machine.travel("Pickup", true)
 
 func update_fire_rate() -> void:
 	if is_gun_shooting:
