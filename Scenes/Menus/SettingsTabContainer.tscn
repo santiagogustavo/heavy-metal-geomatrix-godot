@@ -1,8 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=26 format=3 uid="uid://ckmlfl5g8p20j"]
 
+[ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/SettingsTabController.gd" id="1_ryf32"]
+[ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="1_vbs2d"]
 [ext_resource type="PackedScene" uid="uid://vus2orvm6aam" path="res://Scenes/Menus/OptionsMenu/WindowModeButton.tscn" id="2_3fvw6"]
 [ext_resource type="PackedScene" uid="uid://848adl403xtl" path="res://Scenes/Menus/OptionsMenu/ResolutionModeButton.tscn" id="3_imv6s"]
+[ext_resource type="Texture2D" uid="uid://ck4rlupn3w6g5" path="res://Textures/UI/Menus/Options Menu/tab_focus.png" id="3_oy27y"]
 [ext_resource type="PackedScene" uid="uid://dk1oahwurq31k" path="res://Scenes/Menus/OptionsMenu/CategorySeparator.tscn" id="4_rb5w8"]
 [ext_resource type="PackedScene" uid="uid://chkuo5br2qn7m" path="res://Scenes/Menus/OptionsMenu/Controls/LookSmoothingButton.tscn" id="5_shsid"]
 [ext_resource type="PackedScene" uid="uid://xixis7sqo151" path="res://Scenes/Menus/OptionsMenu/Controls/LookSmoothingSlider.tscn" id="6_4u23p"]
@@ -16,6 +20,32 @@
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairColorSlider.gd" id="13_rsdcg"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairStyleSlider.gd" id="14_he2h0"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairScaleSlider.gd" id="14_hv86s"]
+[ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="19_83r31"]
+[ext_resource type="AudioStream" uid="uid://bi4qp1mpysiku" path="res://Sound/UI/PauseMenu/750434__rescopicsound__ui-click-menu-modern-interface-select-medium.mp3" id="20_pce0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tyo3"]
+content_margin_left = 8.0
+content_margin_top = 16.0
+content_margin_right = 8.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1tnm"]
+content_margin_left = 8.0
+content_margin_top = 0.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_qbj4w")
+texture_margin_bottom = 6.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xbud"]
+content_margin_left = 8.0
+content_margin_top = 0.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("3_oy27y")
+texture_margin_bottom = 6.0
+draw_center = false
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3
@@ -24,271 +54,350 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ryf32")
+
+[node name="TabBar" type="TabBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 28.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 0.490196)
+theme_override_colors/font_hovered_color = Color(0.694118, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_fonts/font = ExtResource("1_vbs2d")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4tyo3")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_4tyo3")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_a1tnm")
+theme_override_styles/tab_focus = SubResource("StyleBoxTexture_1xbud")
+current_tab = 0
+tab_count = 4
+tab_0/title = "SOUND"
+tab_1/title = "GRAPHICS"
+tab_2/title = "CONTROLS"
+tab_3/title = "GAMEPLAY"
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = -100.0
-offset_bottom = -100.0
-grow_horizontal = 2
-grow_vertical = 2
-tab_alignment = 1
-current_tab = 0
-
-[node name="Sound" type="TabBar" parent="TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 63.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 0.490196)
+theme_override_colors/font_hovered_color = Color(0.694118, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_fonts/font = ExtResource("1_vbs2d")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_4tyo3")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_a1tnm")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_4tyo3")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4tyo3")
+current_tab = 0
+tabs_visible = false
+
+[node name="Sound" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
+metadata/_tab_index = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound"]
 layout_mode = 2
+follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
 
-[node name="MasterVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="MasterVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="UIVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="UIVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 
-[node name="MusicVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="MusicVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="EffectsVolume" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="EffectsVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Effects"
 
-[node name="Graphics" type="TabBar" parent="TabContainer"]
+[node name="Graphics" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
+metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Graphics/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Graphics"]
 layout_mode = 2
+follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="WindowModeButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_3fvw6")]
+[node name="WindowModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("2_3fvw6")]
 layout_mode = 2
 
-[node name="ResolutionModeButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_imv6s")]
+[node name="ResolutionModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("3_imv6s")]
 layout_mode = 2
 
-[node name="Controls" type="TabBar" parent="TabContainer"]
+[node name="Controls" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
+metadata/_tab_index = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls"]
 layout_mode = 2
+follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="AimingLabel" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
-layout_mode = 2
-label_text = "Aiming"
-
-[node name="LookSmoothingButton" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("5_shsid")]
+[node name="AimingLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
-[node name="LookSmoothingSlider" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("6_4u23p")]
+[node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/AimingLabel" index="0"]
+text = "Aiming"
+
+[node name="LookSmoothingButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("5_shsid")]
 layout_mode = 2
 
-[node name="MouseLabel" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
-layout_mode = 2
-theme_override_constants/margin_top = 24
-label_text = "Mouse"
-
-[node name="MouseHorizontalSlider" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("7_4f7kh")]
+[node name="LookSmoothingSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("6_4u23p")]
 layout_mode = 2
 
-[node name="MouseVerticalSlider" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("8_ge777")]
+[node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/LookSmoothingSlider/CustomSlider10" index="0"]
+min_value = 0.05
+max_value = 0.5
+step = 0.05
+value = 0.2
+
+[node name="MouseLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
-[node name="ControllerLabel" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
-layout_mode = 2
-theme_override_constants/margin_top = 24
-label_text = "Controller"
+[node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseLabel" index="0"]
+text = "Mouse"
 
-[node name="StickHorizontalSensitivity" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_8hf25")]
+[node name="MouseHorizontalSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("7_4f7kh")]
 layout_mode = 2
 
-[node name="StickVerticalSensitivity" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_07rme")]
+[node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseHorizontalSlider/CustomSlider10" index="0"]
+min_value = 0.01
+max_value = 0.5
+step = 0.01
+value = 0.2
+
+[node name="MouseVerticalSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("8_ge777")]
 layout_mode = 2
 
-[node name="Gameplay" type="TabBar" parent="TabContainer"]
+[node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseVerticalSlider/CustomSlider10" index="0"]
+min_value = 0.01
+max_value = 0.5
+step = 0.01
+value = 0.2
+
+[node name="ControllerLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+layout_mode = 2
+
+[node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/ControllerLabel" index="0"]
+text = "Controller"
+
+[node name="StickHorizontalSensitivity" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("9_8hf25")]
+layout_mode = 2
+
+[node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/StickHorizontalSensitivity/CustomSlider10" index="0"]
+min_value = 0.5
+max_value = 2.0
+step = 0.25
+
+[node name="StickVerticalSensitivity" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("10_07rme")]
+layout_mode = 2
+
+[node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/StickVerticalSensitivity/CustomSlider10" index="0"]
+min_value = 0.5
+max_value = 2.0
+step = 0.25
+
+[node name="Gameplay" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Gameplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
+metadata/_tab_index = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Gameplay/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Gameplay"]
 layout_mode = 2
+follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="FeelLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="FeelLabel" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
-label_text = "Look and Feel"
 
-[node name="FOV" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FeelLabel" index="0"]
+text = "Look and Feel"
+
+[node name="FOV" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("12_fjwlq")
 
-[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV/HBoxContainer" index="0"]
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FOV" index="0"]
 text = "FOV"
 
-[node name="HSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV/HBoxContainer" index="2"]
-min_value = 50.0
-max_value = 70.0
-step = 1.0
-value = 60.0
+[node name="HSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FOV/CustomSlider10" index="0"]
+min_value = 45.0
+max_value = 80.0
+step = 5.0
+value = 70.0
 
-[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV/HBoxContainer" index="4"]
-text = "60
-"
-
-[node name="CrosshairLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
-layout_mode = 2
-label_text = "Crosshair"
-
-[node name="Preview" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="CrosshairLabel" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
-[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="0"]
-text = "Preview"
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/CrosshairLabel" index="0"]
+text = "Crosshair"
 
-[node name="Crosshair" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="2" instance=ExtResource("13_cerdy")]
+[node name="Preview" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview" index="0"]
+visible = false
+
+[node name="CustomSlider10" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview" index="1"]
+visible = false
+
+[node name="Crosshair" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview" instance=ExtResource("13_cerdy")]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 4
+flip_h = true
 
-[node name="HSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="3"]
-visible = false
-
-[node name="VSeparator2" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="4"]
-visible = false
-
-[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview/HBoxContainer" index="5"]
-visible = false
-
-[node name="StyleSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="StyleSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("14_he2h0")
 
-[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="0"]
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/StyleSlider" index="0"]
 text = "Style
 "
 
-[node name="HSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="2"]
+[node name="CustomSlider10" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/StyleSlider" index="1"]
+custom_minimum_size = Vector2(192, 24)
+
+[node name="HSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/StyleSlider/CustomSlider10" index="0"]
+custom_minimum_size = Vector2(192, 24)
+offset_left = -93.0
+offset_right = 99.0
 max_value = 7.0
 step = 1.0
-value = 2.0
+value = 1.0
 
-[node name="VSeparator2" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="3"]
-visible = false
-
-[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider/HBoxContainer" index="4"]
-visible = false
-
-[node name="ScaleSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="ScaleSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("14_hv86s")
 
-[node name="Label" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider/HBoxContainer" index="0"]
-text = "Size
-"
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/ScaleSlider" index="0"]
+text = "Scale"
 
-[node name="VSeparator2" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider/HBoxContainer" index="3"]
-visible = false
-
-[node name="NumLabel" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider/HBoxContainer" index="4"]
-visible = false
-
-[node name="RColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="RColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "R"
 
-[node name="GColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/RColorSlider" index="0"]
+text = "Crosshair R"
+
+[node name="GColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "G"
 
-[node name="BColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/GColorSlider" index="0"]
+text = "Crosshair G"
+
+[node name="BColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "B"
 
-[node name="AColorSlider" parent="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/BColorSlider" index="0"]
+text = "Crosshair B
+"
+
+[node name="AColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "A"
 
-[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/FOV"]
-[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/Preview"]
-[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/StyleSlider"]
-[editable path="TabContainer/Gameplay/MarginContainer/ScrollContainer/VBoxContainer/ScaleSlider"]
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/AColorSlider" index="0"]
+text = "Crosshair A
+"
+
+[node name="SFX" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Entered" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("19_83r31")
+bus = &"UI"
+
+[node name="Selected" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("20_pce0q")
+bus = &"UI"
+
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/AimingLabel"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/LookSmoothingSlider"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/LookSmoothingSlider/CustomSlider10"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseLabel"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseHorizontalSlider"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseHorizontalSlider/CustomSlider10"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseVerticalSlider"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseVerticalSlider/CustomSlider10"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/ControllerLabel"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/StickHorizontalSensitivity"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/StickHorizontalSensitivity/CustomSlider10"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/StickVerticalSensitivity"]
+[editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/StickVerticalSensitivity/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FeelLabel"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FOV"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FOV/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/CrosshairLabel"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/StyleSlider"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/StyleSlider/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/ScaleSlider"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/RColorSlider"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/RColorSlider/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/GColorSlider"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/GColorSlider/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/BColorSlider"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/BColorSlider/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/AColorSlider"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/AColorSlider/CustomSlider10"]

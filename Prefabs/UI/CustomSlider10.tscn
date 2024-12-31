@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://51l123v4aoic"]
+
+[ext_resource type="Shader" path="res://Materials/Shaders/Skew.gdshader" id="1_hr013"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kdabm"]
+shader = ExtResource("1_hr013")
+shader_parameter/skew_x = 0.3
+shader_parameter/skew_y = 0.0
+
+[sub_resource type="Gradient" id="Gradient_5oqp3"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.833333)
+colors = PackedColorArray(1, 1, 1, 0.490196, 0, 0, 0, 0.490196)
+metadata/_snap_enabled = true
+metadata/_snap_count = 24
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ee1el"]
+gradient = SubResource("Gradient_5oqp3")
+width = 24
+height = 24
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mymde"]
+size = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_gec05"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.69, 1, 1, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 24
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k2nks"]
+gradient = SubResource("Gradient_gec05")
+width = 8
+height = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqyh1"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.490196)
+expand_margin_left = 4.0
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="Gradient" id="Gradient_acw04"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.833333)
+colors = PackedColorArray(1, 0.847059, 0.294118, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 24
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_10x2n"]
+gradient = SubResource("Gradient_acw04")
+width = 24
+height = 24
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ui28b"]
+texture = SubResource("GradientTexture2D_10x2n")
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+
+[node name="CustomSlider10" type="TextureRect"]
+material = SubResource("ShaderMaterial_kdabm")
+custom_minimum_size = Vector2(240, 24)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_ee1el")
+stretch_mode = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+material = SubResource("ShaderMaterial_kdabm")
+custom_minimum_size = Vector2(240, 24)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -22.0
+offset_right = 123.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 1
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_mymde")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_k2nks")
+theme_override_icons/grabber_disabled = SubResource("PlaceholderTexture2D_mymde")
+theme_override_styles/slider = SubResource("StyleBoxFlat_yqyh1")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_ui28b")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_ui28b")
+max_value = 1.0
+step = 0.1
+value = 0.5

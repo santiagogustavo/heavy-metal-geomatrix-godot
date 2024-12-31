@@ -1,6 +1,6 @@
-extends Control
+extends HBoxContainer
 
-@onready var slider = $HBoxContainer/HSlider
+@onready var slider = $CustomSlider10/HSlider
 
 func _ready():
 	slider.value = InputSettingsManager.mouse_vertical_sensitivity

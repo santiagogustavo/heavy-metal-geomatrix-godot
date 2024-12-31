@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://ct1o5l7sw2hmv"]
+
+[ext_resource type="FontFile" uid="uid://bl6uguby0mxhy" path="res://Fonts/Maximum Impact.ttf" id="1_51sku"]
+
+[resource]
+base_font = ExtResource("1_51sku")
+variation_embolden = 0.85

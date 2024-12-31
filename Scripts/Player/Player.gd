@@ -56,6 +56,14 @@ func _process(_delta: float) -> void:
 func _exit_tree() -> void:
 	GameManager.remove_player(get_rid())
 
+func heal_player(amount: int) -> void:
+	health += amount
+	health = clamp(health, 0, 100)
+
+func damage_player(amount: int) -> void:
+	health -= amount
+	health = clamp(health, 0, 100)
+
 func update_internals() -> void:
 	rotation = player_input.rotation
 	player_name = character.character_name

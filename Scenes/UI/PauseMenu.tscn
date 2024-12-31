@@ -158,8 +158,9 @@ alignment = 2
 
 [node name="Resume" type="Button" parent="Control/Panel/Decoration/Buttons/Resume"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_colors/font_hover_color = Color(0.86, 1, 0.960333, 1)
+theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("4_g42m2")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
@@ -177,8 +178,9 @@ alignment = 2
 
 [node name="Options" type="Button" parent="Control/Panel/Decoration/Buttons/Options"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_colors/font_hover_color = Color(0.86, 1, 0.960333, 1)
+theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("4_g42m2")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
@@ -197,8 +199,9 @@ alignment = 2
 
 [node name="Exit" type="Button" parent="Control/Panel/Decoration/Buttons/Exit"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_colors/font_hover_color = Color(0.86, 1, 0.960333, 1)
+theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("4_g42m2")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")

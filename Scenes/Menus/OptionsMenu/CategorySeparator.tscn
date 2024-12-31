@@ -1,24 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk1oahwurq31k"]
+[gd_scene load_steps=3 format=3 uid="uid://dk1oahwurq31k"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CategorySeparator.gd" id="1_ybvi6"]
+[ext_resource type="LabelSettings" uid="uid://dv3pthlr4vs0e" path="res://Prefabs/UI/OptionsLabelHeader.tres" id="2_56w20"]
+[ext_resource type="Texture2D" uid="uid://babuaihhif8kf" path="res://Textures/UI/Menus/Options Menu/divider.png" id="2_d8piv"]
 
-[node name="CategorySeparator" type="MarginContainer"]
+[node name="CategorySeparator" type="VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 70.0
 grow_horizontal = 2
-script = ExtResource("1_ybvi6")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "LABEL TEXT"
+label_settings = ExtResource("2_56w20")
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="Divider" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
-size_flags_vertical = 4
+texture = ExtResource("2_d8piv")
+expand_mode = 1

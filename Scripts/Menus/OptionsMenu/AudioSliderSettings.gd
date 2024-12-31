@@ -1,9 +1,8 @@
+extends HBoxContainer
 class_name AudioSliderSettings
-extends Control
 
-@onready var name_label = $HBoxContainer/AudioNameLabel as Label
-@onready var slider = $HBoxContainer/HSlider as HSlider
-@onready var num_label = $HBoxContainer/AudioNumLabel as Label
+@onready var name_label = $AudioNameLabel as Label
+@onready var slider = $CustomSlider10/HSlider as HSlider
 
 @export_enum("Master", "UI", "Music", "Effects") var bus_name: String
 
@@ -18,16 +17,11 @@ func _ready():
 func set_name_label_text() -> void:
 	name_label.text = str(bus_name) + " Volume"
 
-func set_num_label_text() -> void:
-	num_label.text = str(slider.value * 10)
-
 func set_slider_value() -> void:
 	slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
-	set_num_label_text()
 
 func get_bus_index_from_name() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
 
 func on_value_changed(value: float) -> void:
 	AudioSettingsManager.set_volume_index(bus_index, value)
-	set_num_label_text()

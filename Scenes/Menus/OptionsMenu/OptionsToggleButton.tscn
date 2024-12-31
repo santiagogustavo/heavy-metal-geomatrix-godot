@@ -1,29 +1,57 @@
-[gd_scene format=3 uid="uid://bljpytl0oq7sy"]
+[gd_scene load_steps=8 format=3 uid="uid://bljpytl0oq7sy"]
 
-[node name="OptionsToggleButton" type="Control"]
+[ext_resource type="LabelSettings" uid="uid://cjv85p6brrrwo" path="res://Prefabs/UI/OptionsLabelSettings.tres" id="1_44ogg"]
+[ext_resource type="Texture2D" uid="uid://on7031dmh46o" path="res://Textures/UI/Menus/Options Menu/toggle_checked.png" id="2_3wv0d"]
+[ext_resource type="Texture2D" uid="uid://2jm115t2emnd" path="res://Textures/UI/Menus/Options Menu/toggle_unchecked.png" id="3_3760m"]
+[ext_resource type="AudioStream" uid="uid://5sr3ir531hjv" path="res://Sound/UI/PauseMenu/750435__rescopicsound__ui-click-menu-modern-interface-select-small-01.mp3" id="4_moyjq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r3yb"]
+draw_center = false
+skew = Vector2(0.55, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.690196, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3eh4"]
+draw_center = false
+skew = Vector2(0.55, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.690196, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4h2ew"]
+
+[node name="OptionsToggleButton" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
-layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 160
-
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Label"
+label_settings = ExtResource("1_44ogg")
 
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+[node name="Button" type="CheckButton" parent="."]
 layout_mode = 2
-
-[node name="Button" type="CheckButton" parent="HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_3r3yb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t3eh4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4h2ew")
+theme_override_icons/checked = ExtResource("2_3wv0d")
+theme_override_icons/unchecked = ExtResource("3_3760m")
 action_mode = 0
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_moyjq")
+bus = &"UI"

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dv3pthlr4vs0e"]
+
+[ext_resource type="FontVariation" uid="uid://ct1o5l7sw2hmv" path="res://Fonts/Maximum Impact Bold.tres" id="1_xx7ay"]
+
+[resource]
+font = ExtResource("1_xx7ay")
+font_size = 28

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cjv85p6brrrwo"]
+
+[ext_resource type="FontFile" uid="uid://bl6uguby0mxhy" path="res://Fonts/Maximum Impact.ttf" id="1_50efi"]
+
+[resource]
+font = ExtResource("1_50efi")
+font_size = 24

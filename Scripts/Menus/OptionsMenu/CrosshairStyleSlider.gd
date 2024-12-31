@@ -1,6 +1,6 @@
 extends Control
 
-@onready var slider = $HBoxContainer/HSlider
+@onready var slider = $CustomSlider10/HSlider
 
 func _ready():
 	slider.value = GameplaySettingsManager.crosshair_style

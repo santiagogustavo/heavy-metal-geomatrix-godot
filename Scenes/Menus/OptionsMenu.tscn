@@ -1,11 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgn8aq1m4p0rb"]
+[gd_scene load_steps=11 format=3 uid="uid://bgn8aq1m4p0rb"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/OptionsMenuManager.gd" id="1_g87nk"]
 [ext_resource type="PackedScene" uid="uid://ckmlfl5g8p20j" path="res://Scenes/Menus/SettingsTabContainer.tscn" id="2_gknca"]
+[ext_resource type="Texture2D" uid="uid://bwxcnluxv0a35" path="res://Textures/UI/Menus/Options Menu/decoration.png" id="3_u7d0s"]
+[ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="4_fqhev"]
+[ext_resource type="AudioStream" uid="uid://dbyq16y3ws57u" path="res://Sound/UI/PauseMenu/750432__rescopicsound__ui-alert-menu-modern-interface-pop-up-small.mp3" id="5_nn7mr"]
+[ext_resource type="AudioStream" uid="uid://dfxb40vgqo23d" path="res://Sound/UI/PauseMenu/750430__rescopicsound__ui-alert-menu-modern-interface-deny-small.mp3" id="6_qncka"]
 
-[sub_resource type="SystemFont" id="SystemFont_nnegq"]
-font_names = PackedStringArray("Impact")
-subpixel_positioning = 0
+[sub_resource type="LabelSettings" id="LabelSettings_4nfbe"]
+font = ExtResource("4_fqhev")
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_i14eo"]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/Open:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f4v6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/Open:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyek6"]
+_data = {
+"Open": SubResource("Animation_i14eo"),
+"RESET": SubResource("Animation_f4v6y")
+}
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -14,39 +79,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(576, 324)
 script = ExtResource("1_g87nk")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Decoration" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -243.5
+offset_right = 492.0
+offset_bottom = 243.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
+texture = ExtResource("3_u7d0s")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = -48
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = SubResource("SystemFont_nnegq")
-theme_override_font_sizes/font_size = 32
+[node name="Label" type="Label" parent="Decoration"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 9.0
+offset_right = 975.0
+offset_bottom = 64.0
 text = "Options"
+label_settings = SubResource("LabelSettings_4nfbe")
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
+uppercase = true
 
-[node name="SettingsTabContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_gknca")]
-layout_mode = 2
+[node name="SettingsTabContainer" parent="." instance=ExtResource("2_gknca")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -467.0
+offset_top = -233.0
+offset_right = 478.0
+offset_bottom = 216.0
 size_flags_vertical = 3
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-text = "Exit"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dyek6")
+}
+
+[node name="SFX" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Open" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("5_nn7mr")
+bus = &"UI"
+
+[node name="Close" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("6_qncka")
+bus = &"UI"

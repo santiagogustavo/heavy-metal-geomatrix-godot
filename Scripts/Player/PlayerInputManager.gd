@@ -72,8 +72,7 @@ func compute_movement() -> void:
 	update_dash()
 
 func compute_look_stick() -> void:
-	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down")
-	look_dir = look_dir.normalized()
+	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down", 0.2)
 	input_look.x = look_dir.x * 0.6
 	new_rotation.y += deg_to_rad(-look_dir.x) * InputSettingsManager.stick_horizontal_sensitivity
 	new_rotation.x += deg_to_rad(-look_dir.y) * InputSettingsManager.stick_vertical_sensitivity
