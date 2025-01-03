@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5ll1664nxhu"
+path="res://.godot/imported/750442__rescopicsound__ui-movement-menu-modern-interface-window-open-small.mp3-ce71ca2ecfc1158dda488918ff804696.mp3str"
+
+[deps]
+
+source_file="res://Sound/Menus/Main Menu/750442__rescopicsound__ui-movement-menu-modern-interface-window-open-small.mp3"
+dest_files=["res://.godot/imported/750442__rescopicsound__ui-movement-menu-modern-interface-window-open-small.mp3-ce71ca2ecfc1158dda488918ff804696.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

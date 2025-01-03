@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq7v5t3i8dxaa"]
+[gd_scene load_steps=4 format=3 uid="uid://cq7v5t3i8dxaa"]
 
 [ext_resource type="PackedScene" uid="uid://51l123v4aoic" path="res://Prefabs/UI/CustomSlider10.tscn" id="1_g54br"]
 [ext_resource type="LabelSettings" uid="uid://cjv85p6brrrwo" path="res://Prefabs/UI/OptionsLabelSettings.tres" id="1_ql2v1"]
+[ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="3_ubjuy"]
 
 [node name="OptionsSlider" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
@@ -22,3 +23,7 @@ label_settings = ExtResource("1_ql2v1")
 
 [node name="CustomSlider10" parent="." instance=ExtResource("1_g54br")]
 layout_mode = 2
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ubjuy")
+bus = &"UI"

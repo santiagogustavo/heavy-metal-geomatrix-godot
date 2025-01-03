@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://f8e31181q5h6"]
+
+[ext_resource type="FontFile" uid="uid://b5gmgkqqs4yp" path="res://Fonts/Perfect Futures Italic.ttf" id="1_kt47i"]
+
+[resource]
+font = ExtResource("1_kt47i")
+font_size = 37

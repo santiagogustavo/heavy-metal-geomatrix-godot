@@ -2,8 +2,8 @@ extends TextureButton
 
 @export_file var redirect_to_scene: String
 
-var description = 'The original arcade version.'
-var close_on_select = true
+var description: String = 'Fight to the top against skilled opponents'
+var close_on_select: bool = true
 
 func _on_button_down():
 	await get_tree().create_timer(1).timeout

@@ -207,6 +207,6 @@ bus = &"Game"
 script = ExtResource("24_rx7hp")
 
 [node name="HandGunPickup" parent="." instance=ExtResource("20_fr0k5")]
-transform = Transform3D(0.805491, 0, 0, 0, 0.805491, 0, 0, 0, 0.805491, 1, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
 
 [editable path="Spawner"]

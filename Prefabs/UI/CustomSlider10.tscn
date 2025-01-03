@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://51l123v4aoic"]
+[gd_scene load_steps=16 format=3 uid="uid://51l123v4aoic"]
 
 [ext_resource type="Shader" path="res://Materials/Shaders/Skew.gdshader" id="1_hr013"]
+[ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="2_aaiwo"]
+[ext_resource type="Script" path="res://Scripts/UI/CustomSlider.gd" id="2_g3vow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kdabm"]
 shader = ExtResource("1_hr013")
@@ -64,6 +66,16 @@ expand_margin_top = 8.0
 expand_margin_bottom = 8.0
 axis_stretch_horizontal = 1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rcjt5"]
+shader = ExtResource("1_hr013")
+shader_parameter/skew_x = 0.3
+shader_parameter/skew_y = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7s2f"]
+font = ExtResource("2_aaiwo")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
 [node name="CustomSlider10" type="TextureRect"]
 material = SubResource("ShaderMaterial_kdabm")
 custom_minimum_size = Vector2(240, 24)
@@ -71,6 +83,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("GradientTexture2D_ee1el")
 stretch_mode = 1
+script = ExtResource("2_g3vow")
 
 [node name="HSlider" type="HSlider" parent="."]
 material = SubResource("ShaderMaterial_kdabm")
@@ -99,3 +112,22 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_ui28
 max_value = 1.0
 step = 0.1
 value = 0.5
+
+[node name="OffIndicator" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_rcjt5")
+layout_mode = 0
+offset_left = -69.0
+offset_right = -21.0
+offset_bottom = 24.0
+color = Color(1, 0.486275, 0.462745, 1)
+
+[node name="Label" type="Label" parent="OffIndicator"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 35.0
+offset_bottom = 24.0
+text = "OFF"
+label_settings = SubResource("LabelSettings_a7s2f")
+horizontal_alignment = 1
+vertical_alignment = 1

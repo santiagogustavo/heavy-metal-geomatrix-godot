@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnv8ddt8n6yac"
+path="res://.godot/imported/750438__rescopicsound__ui-designed-hit-modern-interface-impact-sweetener-02.mp3-df4547f1806d403c806e715043c97109.mp3str"
+
+[deps]
+
+source_file="res://Sound/Menus/Main Menu/750438__rescopicsound__ui-designed-hit-modern-interface-impact-sweetener-02.mp3"
+dest_files=["res://.godot/imported/750438__rescopicsound__ui-designed-hit-modern-interface-impact-sweetener-02.mp3-df4547f1806d403c806e715043c97109.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

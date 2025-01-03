@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cr7xxraylldic"
+path="res://.godot/imported/Startup 2.wav-42397237b7aec5ab375ca89097d7e308.sample"
+
+[deps]
+
+source_file="res://Sound/Menus/Main Menu/Startup 2.wav"
+dest_files=["res://.godot/imported/Startup 2.wav-42397237b7aec5ab375ca89097d7e308.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -6,7 +6,6 @@ extends Control
 @onready var select_sfx: AudioStreamPlayer2D = $SFX/Selected
 
 func _ready() -> void:
-	tab_bar.grab_focus()
 	tab_bar.connect("tab_hovered", func (_any): hover_sfx.play())
 	tab_bar.connect("tab_selected", tab_selected)
 

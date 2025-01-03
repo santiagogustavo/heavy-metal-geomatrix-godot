@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dw5x8rge42xdm"
+path="res://.godot/imported/749813__rescopicsound__ui-beep-menu-positive.mp3-8cbaf9128f692ed00b8a84503e4c8a54.mp3str"
+
+[deps]
+
+source_file="res://Sound/Menus/Main Menu/749813__rescopicsound__ui-beep-menu-positive.mp3"
+dest_files=["res://.godot/imported/749813__rescopicsound__ui-beep-menu-positive.mp3-8cbaf9128f692ed00b8a84503e4c8a54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

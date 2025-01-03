@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6w5wfuqaneav"]
+[gd_scene load_steps=6 format=3 uid="uid://c6w5wfuqaneav"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/AudioSliderSettings.gd" id="1_gvv23"]
 [ext_resource type="LabelSettings" uid="uid://cjv85p6brrrwo" path="res://Prefabs/UI/OptionsLabelSettings.tres" id="2_pm856"]
 [ext_resource type="PackedScene" uid="uid://51l123v4aoic" path="res://Prefabs/UI/CustomSlider10.tscn" id="3_hyddg"]
+[ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="4_6pvho"]
+[ext_resource type="AudioStream" uid="uid://biophphlmvbhd" path="res://Sound/UI/PauseMenu/750436__rescopicsound__ui-click-menu-modern-interface-select-small-02.mp3" id="5_ww1en"]
 
 [node name="AudioSliderSettings" type="HBoxContainer"]
 anchors_preset = 15
@@ -29,3 +31,11 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="FocusSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6pvho")
+bus = &"UI"
+
+[node name="ChangeSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ww1en")
+bus = &"UI"
