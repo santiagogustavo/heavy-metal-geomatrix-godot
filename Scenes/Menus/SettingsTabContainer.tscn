@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=27 format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="11_7172o"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/FovSlider.gd" id="12_fjwlq"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="13_cerdy"]
+[ext_resource type="PackedScene" uid="uid://c0f7b66n3wqqq" path="res://Scenes/Menus/OptionsMenu/Controls/ControllerVibrationButton.tscn" id="13_m37qm"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairColorSlider.gd" id="13_rsdcg"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairStyleSlider.gd" id="14_he2h0"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/CrosshairScaleSlider.gd" id="14_hv86s"]
@@ -147,7 +148,8 @@ follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
 
 [node name="WindowModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("2_3fvw6")]
 layout_mode = 2
@@ -220,6 +222,9 @@ layout_mode = 2
 
 [node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/ControllerLabel" index="0"]
 text = "Controller"
+
+[node name="OptionsToggleButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("13_m37qm")]
+layout_mode = 2
 
 [node name="StickHorizontalSensitivity" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("9_8hf25")]
 layout_mode = 2

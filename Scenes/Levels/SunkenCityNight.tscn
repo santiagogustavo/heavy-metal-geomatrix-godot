@@ -305,7 +305,7 @@ material = SubResource("ShaderMaterial_f40a8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7744, 6.8224, -20.8766)
 
 [node name="MotoGunPickup" parent="." instance=ExtResource("15_5qahw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 8.53885, -24)
+transform = Transform3D(0.447687, 0, 0, 0, 0.447687, 0, 0, 0, 0.447687, -23, 8.53885, -24)
 
 [node name="OST" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3

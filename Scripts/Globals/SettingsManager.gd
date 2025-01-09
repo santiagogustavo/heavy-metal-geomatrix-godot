@@ -42,6 +42,7 @@ func load_input_settings():
 	InputSettingsManager.set_look_smoothing_intensity(file.get_value("input", "look_smoothing_intensity", InputSettingsManager.look_smoothing_intensity))
 	InputSettingsManager.set_mouse_horizontal_sensitivity(file.get_value("input", "mouse_horizontal_sensitivity", InputSettingsManager.mouse_horizontal_sensitivity))
 	InputSettingsManager.set_mouse_vertical_sensitivity(file.get_value("input", "mouse_vertical_sensitivity", InputSettingsManager.mouse_vertical_sensitivity))
+	InputSettingsManager.set_vibration_enabled(file.get_value("input", "vibration_enabled", InputSettingsManager.vibration_enabled))
 	InputSettingsManager.set_stick_horizontal_sensitivity(file.get_value("input", "stick_horizontal_sensitivity", InputSettingsManager.stick_horizontal_sensitivity))
 	InputSettingsManager.set_stick_vertical_sensitivity(file.get_value("input", "stick_vertical_sensitivity", InputSettingsManager.stick_vertical_sensitivity))
 
@@ -70,6 +71,7 @@ func save_input_settings():
 	file.set_value("input", "look_smoothing_intensity", InputSettingsManager.look_smoothing_intensity)
 	file.set_value("input", "mouse_horizontal_sensitivity", InputSettingsManager.mouse_horizontal_sensitivity)
 	file.set_value("input", "mouse_vertical_sensitivity", InputSettingsManager.mouse_vertical_sensitivity)
+	file.set_value("input", "vibration_enabled", InputSettingsManager.vibration_enabled)
 	file.set_value("input", "stick_horizontal_sensitivity", InputSettingsManager.stick_horizontal_sensitivity)
 	file.set_value("input", "stick_vertical_sensitivity", InputSettingsManager.stick_vertical_sensitivity)
 	

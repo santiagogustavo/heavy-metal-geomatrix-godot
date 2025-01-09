@@ -1,5 +1,7 @@
 extends Control
 class_name OptionsMenuManager
+
+signal open
 signal close
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -13,7 +15,7 @@ static var is_menu_open: bool = false
 
 func _process(_delta: float) -> void:
 	visible = is_menu_open
-	set_process_input(!DebugMenuManager.is_menu_open)
+	set_process_input(!DebugMenuManager.is_menu_open and is_menu_open)
 	if !visible:
 		has_played_animation = false
 		if !has_closed_menu:

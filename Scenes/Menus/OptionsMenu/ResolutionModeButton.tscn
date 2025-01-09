@@ -6,5 +6,5 @@
 [node name="ResolutionModeButton" instance=ExtResource("1_cl4d2")]
 script = ExtResource("2_45eny")
 
-[node name="Label" parent="HBoxContainer" index="0"]
+[node name="Label" parent="." index="0"]
 text = "Resolution Mode"

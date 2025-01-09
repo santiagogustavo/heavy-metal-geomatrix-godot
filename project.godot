@@ -27,6 +27,7 @@ VideoSettingsManager="*res://Scripts/Globals/VideoSettingsManager.gd"
 InputSettingsManager="*res://Scripts/Globals/InputSettingsManager.gd"
 GameplaySettingsManager="*res://Scripts/Globals/GameplaySettingsManager.gd"
 SettingsManager="*res://Scripts/Globals/SettingsManager.gd"
+InputManager="*res://Scripts/Globals/InputManager.gd"
 GameManager="*res://Scripts/Globals/GameManager.gd"
 DebugMenu="*res://Scenes/Menus/DebugMenu.tscn"
 

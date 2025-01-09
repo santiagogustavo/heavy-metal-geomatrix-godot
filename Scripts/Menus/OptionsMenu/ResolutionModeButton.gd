@@ -1,6 +1,6 @@
-extends Control
+extends HBoxContainer
 
-@onready var option_button = $HBoxContainer/OptionButton as OptionButton
+@onready var option_button = $OptionButton as OptionButton
 
 var RESOLUTION_DICTIONARY: Dictionary = {
 	"640x480": Vector2i(640, 480),

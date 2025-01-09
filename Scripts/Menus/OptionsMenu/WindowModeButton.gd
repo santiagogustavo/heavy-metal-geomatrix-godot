@@ -1,6 +1,6 @@
-extends Control
+extends HBoxContainer
 
-@onready var option_button = $HBoxContainer/OptionButton as OptionButton
+@onready var option_button = $OptionButton as OptionButton
 
 const WINDOW_MODES: Array[String] = [
 	"Fullscreen",
