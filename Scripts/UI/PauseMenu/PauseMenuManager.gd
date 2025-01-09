@@ -19,6 +19,7 @@ static var is_menu_open: bool = false
 func _ready():
 	panel.scale = Vector2(1, 0)
 	close_menu(false)
+	bind_hover()
 	bind_options_menu()
 	bind_buttons_sfx()
 	GameManager.connect("pause", open_menu)
@@ -30,6 +31,10 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		GameManager.resume_game()
+
+func bind_hover():
+	for button: Button in panel_buttons:
+		button.connect("mouse_entered", func (): button.grab_focus())
 
 func bind_options_menu():
 	options_menu.connect("close", focus_first_button)

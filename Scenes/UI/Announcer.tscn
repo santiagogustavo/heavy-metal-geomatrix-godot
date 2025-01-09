@@ -1,0 +1,828 @@
+[gd_scene load_steps=40 format=3 uid="uid://cujclmubc4tw8"]
+
+[ext_resource type="Script" path="res://Scripts/UI/AnnouncerManager.gd" id="1_f8iuw"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Invert Color.gdshader" id="1_ntqyd"]
+[ext_resource type="Texture2D" uid="uid://bjt66bbusina8" path="res://Textures/UI/Announcer/rounds.png" id="2_g4kls"]
+[ext_resource type="Texture2D" uid="uid://dibhirt5dmj" path="res://Textures/UI/Announcer/fight.png" id="3_3nwvb"]
+[ext_resource type="Script" path="res://Scripts/UI/AnnouncerRoundsManager.gd" id="3_y83dk"]
+[ext_resource type="Texture2D" uid="uid://cdwhggn640vec" path="res://Textures/UI/Announcer/ko.png" id="5_hn2l4"]
+[ext_resource type="Texture2D" uid="uid://cv248r467v68a" path="res://Textures/UI/Announcer/time_up.png" id="6_t4ray"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ea8xd"]
+shader = ExtResource("1_ntqyd")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbu55"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(508, 16, 360, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojlcv"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(920, 16, 436, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oysrg"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(16, 168, 112, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu47b"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(144, 168, 144, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1350k"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(308, 164, 132, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x16j5"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(460, 164, 144, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo276"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(620, 164, 140, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b06ya"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(780, 164, 136, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cchxb"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(932, 164, 136, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mqoc"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(1084, 164, 136, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sslqf"]
+atlas = ExtResource("2_g4kls")
+region = Rect2(1236, 164, 140, 184)
+
+[sub_resource type="Animation" id="Animation_i3qmq"]
+resource_name = "AnnounceFight"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fight:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fight:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_axfe1"]
+resource_name = "AnnounceKO"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KO:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KO:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KO:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_s6lca"]
+resource_name = "AnnounceRound"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rounds:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(291.154, -44.3674), Vector2(467.497, -44.3936), Vector2(483.049, -44.4605), Vector2(497.563, -44.5229)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rounds:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rounds:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kyvgq"]
+resource_name = "AnnounceTimeUp"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TimeUp:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TimeUp:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimeUp:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_eks6r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rounds:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(410.359, -43.9485)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rounds:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fight:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fight:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fight:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rounds:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("KO:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KO:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("KO:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TimeUp:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TimeUp:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TimeUp:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmwol"]
+_data = {
+"AnnounceFight": SubResource("Animation_i3qmq"),
+"AnnounceKO": SubResource("Animation_axfe1"),
+"AnnounceRound": SubResource("Animation_s6lca"),
+"AnnounceTimeUp": SubResource("Animation_kyvgq"),
+"RESET": SubResource("Animation_eks6r")
+}
+
+[sub_resource type="Animation" id="Animation_14y8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"RESET"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lv687"]
+resource_name = "RoundEndKO"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"AnnounceKO"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_lumxi"]
+resource_name = "RoundEndTimeUp"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"AnnounceTimeUp"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qgnan"]
+resource_name = "RoundStart"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"AnnounceRound", &"AnnounceFight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_start_signal"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2s5q1"]
+_data = {
+"RESET": SubResource("Animation_14y8c"),
+"RoundEndKO": SubResource("Animation_lv687"),
+"RoundEndTimeUp": SubResource("Animation_lumxi"),
+"RoundStart": SubResource("Animation_qgnan")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_38fri"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p7m0s"]
+animation = &"RoundEndKO"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_duiue"]
+animation = &"RoundEndTimeUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0mrlv"]
+animation = &"RoundStart"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nl7rk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_shv7y"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lae3b"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hlc60"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4ddyb"]
+states/RESET/node = SubResource("AnimationNodeAnimation_38fri")
+states/RESET/position = Vector2(517.56, 99.8125)
+states/RoundEndKO/node = SubResource("AnimationNodeAnimation_p7m0s")
+states/RoundEndKO/position = Vector2(516.532, -72.255)
+states/RoundEndTimeUp/node = SubResource("AnimationNodeAnimation_duiue")
+states/RoundEndTimeUp/position = Vector2(749.447, -71.9589)
+states/RoundStart/node = SubResource("AnimationNodeAnimation_0mrlv")
+states/RoundStart/position = Vector2(279.12, -73.0445)
+states/Start/position = Vector2(200, 99.9062)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_nl7rk"), "RoundStart", "RESET", SubResource("AnimationNodeStateMachineTransition_shv7y"), "RoundEndKO", "RESET", SubResource("AnimationNodeStateMachineTransition_lae3b"), "RoundEndTimeUp", "RESET", SubResource("AnimationNodeStateMachineTransition_hlc60")]
+graph_offset = Vector2(-123.053, -108.57)
+
+[node name="Announcer" type="CanvasLayer"]
+layer = 10
+visible = false
+script = ExtResource("1_f8iuw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Invert" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_ea8xd")
+custom_minimum_size = Vector2(1152, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -603.0
+offset_top = 106.0
+offset_right = 597.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0622698
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(600, 32)
+
+[node name="Rounds" type="HBoxContainer" parent="Control/Invert" node_paths=PackedStringArray("numbers", "final")]
+visible = false
+layout_mode = 0
+offset_left = 410.359
+offset_top = -43.9485
+offset_right = 889.359
+offset_bottom = 56.0515
+script = ExtResource("3_y83dk")
+numbers = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("8"), NodePath("9")]
+final = NodePath("Final")
+
+[node name="Final" type="TextureRect" parent="Control/Invert/Rounds"]
+custom_minimum_size = Vector2(275, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_jbu55")
+expand_mode = 1
+
+[node name="Round" type="TextureRect" parent="Control/Invert/Rounds"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_ojlcv")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_oysrg")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_uu47b")
+expand_mode = 1
+
+[node name="3" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_1350k")
+expand_mode = 1
+
+[node name="4" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_x16j5")
+expand_mode = 1
+
+[node name="5" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_fo276")
+expand_mode = 1
+
+[node name="6" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_b06ya")
+expand_mode = 1
+
+[node name="7" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_cchxb")
+expand_mode = 1
+
+[node name="8" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_2mqoc")
+expand_mode = 1
+
+[node name="9" type="TextureRect" parent="Control/Invert/Rounds"]
+visible = false
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_sslqf")
+expand_mode = 1
+
+[node name="Fight" type="TextureRect" parent="Control/Invert"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -70.0
+offset_right = 164.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(164, 70)
+texture = ExtResource("3_3nwvb")
+expand_mode = 1
+
+[node name="KO" type="TextureRect" parent="Control/Invert"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -116.0
+offset_right = 131.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(109, 146)
+texture = ExtResource("5_hn2l4")
+expand_mode = 1
+
+[node name="TimeUp" type="TextureRect" parent="Control/Invert"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -67.0
+offset_right = 213.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(213, 67)
+texture = ExtResource("6_t4ray")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Invert"]
+libraries = {
+"": SubResource("AnimationLibrary_qmwol")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_2s5q1")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Control"]
+tree_root = SubResource("AnimationNodeStateMachine_4ddyb")
+anim_player = NodePath("../AnimationPlayer")

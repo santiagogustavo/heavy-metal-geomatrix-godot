@@ -15,6 +15,7 @@ enum EquipType {
 }
 
 enum SceneType {
+	Loading,
 	Intro,
 	Attract,
 	MainMenu,
@@ -33,6 +34,11 @@ enum SurfaceType {
 	Water = 4 + 512,
 	Stone = 4 + 1024,
 	Dirt = 4 + 2048
+}
+
+const Scenes: Dictionary = {
+	"Loading": "res://Scenes/LoadingScreen.tscn",
+	"Intro": "res://Scenes/Intro.tscn",
 }
 
 var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

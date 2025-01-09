@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnpyrs6ijr5fd"]
 
 [ext_resource type="Material" uid="uid://cfcvl447wxcut" path="res://Materials/Particles/Spark.tres" id="1_gd3ys"]
-[ext_resource type="Script" path="res://Prefabs/Utils/QueueFreeTimeout.gd" id="2_tr6r1"]
+[ext_resource type="Script" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="2_tr6r1"]
 [ext_resource type="Script" path="res://Scripts/Lights/FlickeringLight.gd" id="3_ucwh6"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sigh4"]
@@ -31,7 +31,6 @@ process_material = SubResource("ParticleProcessMaterial_sigh4")
 draw_pass_1 = SubResource("QuadMesh_vnxkf")
 script = ExtResource("2_tr6r1")
 timeout = 0.1
-timeout_light = 0.1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(1, 0.886275, 0.392157, 1)

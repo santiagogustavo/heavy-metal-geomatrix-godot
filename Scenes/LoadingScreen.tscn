@@ -1,0 +1,207 @@
+[gd_scene load_steps=17 format=3 uid="uid://dykoq75ft18o1"]
+
+[ext_resource type="Texture2D" uid="uid://3ktp2urmbjum" path="res://Textures/Menus/logo_flat_small.png" id="1_myq6l"]
+[ext_resource type="Script" path="res://Scripts/Scenes/LoadingManager.gd" id="1_y5dpv"]
+[ext_resource type="FontFile" uid="uid://2x43qqo5f7ft" path="res://Fonts/Headshop.ttf" id="2_fgwot"]
+
+[sub_resource type="Animation" id="Animation_6o2yl"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1.25, 1.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.633333, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.196078), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ew1ro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.196078)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bck0w"]
+_data = {
+"Idle": SubResource("Animation_6o2yl"),
+"RESET": SubResource("Animation_ew1ro")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_koscj"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1uqbe"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qilad"]
+states/Idle/node = SubResource("AnimationNodeAnimation_koscj")
+states/Idle/position = Vector2(476.5, 98.25)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1uqbe")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1b3bh"]
+font = ExtResource("2_fgwot")
+font_size = 59
+
+[sub_resource type="Animation" id="Animation_qs8aj"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Now Loading", "Now Loading.", "Now Loading..", "Now Loading..."]
+}
+
+[sub_resource type="Animation" id="Animation_a7j07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Now Loading..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qij2g"]
+_data = {
+"Idle": SubResource("Animation_qs8aj"),
+"RESET": SubResource("Animation_a7j07")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qrpta"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k5f11"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8vsa4"]
+states/Idle/node = SubResource("AnimationNodeAnimation_qrpta")
+states/Idle/position = Vector2(440, 100.75)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_k5f11")]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+layer = 127
+script = ExtResource("1_y5dpv")
+
+[node name="CompilerParent" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -200.0
+offset_right = -40.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_myq6l")
+expand_mode = 1
+
+[node name="Shadow" type="TextureRect" parent="ColorRect/Logo"]
+modulate = Color(1, 1, 1, 0.196078)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -152.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(112, 76)
+texture = ExtResource("1_myq6l")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_bck0w")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="ColorRect/Logo"]
+tree_root = SubResource("AnimationNodeStateMachine_qilad")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = -144.0
+offset_right = 374.0
+offset_bottom = -81.0
+grow_vertical = 0
+text = "Now Loading..."
+label_settings = SubResource("LabelSettings_1b3bh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_qij2g")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="ColorRect/Label"]
+tree_root = SubResource("AnimationNodeStateMachine_8vsa4")
+anim_player = NodePath("../AnimationPlayer")

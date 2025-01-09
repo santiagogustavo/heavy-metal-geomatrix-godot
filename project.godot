@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Heavy Metal Geomatrix"
-run/main_scene="res://Scenes/Intro.tscn"
+config/name="Battle Arena Geomatrix"
+run/main_scene="res://Scenes/LoadingScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.png"
 

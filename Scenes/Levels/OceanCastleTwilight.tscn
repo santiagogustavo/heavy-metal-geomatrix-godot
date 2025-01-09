@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=58 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_tcn3d"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0plmj1r7g8v0" path="res://Prefabs/Levels/Ocean Castle Twilight/Flag.tscn" id="11_38psi"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="11_gh28t"]
 [ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="12_5adl6"]
-[ext_resource type="AudioStream" uid="uid://cg8wt5w2o7mp5" path="res://Sound/Levels/Ocean Castle Twilight/waves.wav" id="12_rttfk"]
+[ext_resource type="AudioStream" uid="uid://cg8wt5w2o7mp5" path="res://Sound/Levels/OceanCastleTwilight/waves.wav" id="12_rttfk"]
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="13_5jmdf"]
 [ext_resource type="Script" path="res://Scripts/Levels/InvisibleWall.gd" id="14_6n51p"]
 [ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="14_7te7v"]
@@ -21,6 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_7xh2r"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="16_utl88"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="17_27cky"]
+[ext_resource type="AudioStream" uid="uid://p6kh6ir5bhe8" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst1.mp3" id="22_xln1j"]
+[ext_resource type="AudioStream" uid="uid://cjw7awchh87gv" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst2.mp3" id="23_braie"]
+[ext_resource type="AudioStream" uid="uid://co88rxe270cqj" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst3.mp3" id="24_vr1wd"]
+[ext_resource type="AudioStream" uid="uid://crlksg8qn273" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst4.mp3" id="25_nm6hr"]
+[ext_resource type="AudioStream" uid="uid://d26wqq6m3ifj3" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst5.mp3" id="26_j32no"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gvb5h"]
 panorama = ExtResource("2_p2odm")
@@ -252,6 +257,14 @@ shader_parameter/pos6 = Vector3(10000, 10000, 10000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e54qi"]
 size = Vector3(15, 0, 20)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7odcm"]
+streams_count = 5
+stream_0/stream = ExtResource("22_xln1j")
+stream_1/stream = ExtResource("23_braie")
+stream_2/stream = ExtResource("24_vr1wd")
+stream_3/stream = ExtResource("25_nm6hr")
+stream_4/stream = ExtResource("26_j32no")
 
 [node name="Ocean Castle Twilight" type="Node3D"]
 
@@ -641,6 +654,12 @@ shape = SubResource("BoxShape3D_e54qi")
 
 [node name="MotoGunPickup" parent="." instance=ExtResource("16_utl88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.675186, 3.30761, -2.08632)
+
+[node name="OST" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_7odcm")
+autoplay = true
+bus = &"Music"
 
 [editable path="Level Geometry/Ocean Castle Twilight"]
 [editable path="Spawner"]

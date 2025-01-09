@@ -36,7 +36,11 @@ func _init(player_type: Player.PlayerType):
 	type = player_type
 
 func _process(_delta: float) -> void:
-	set_process_input(!PauseMenuManager.is_menu_open and !DebugMenuManager.is_menu_open)
+	set_process_input(
+		!PauseMenuManager.is_menu_open
+		and !DebugMenuManager.is_menu_open
+		and !GameManager.current_match.is_player_input_locked
+	)
 	update_look_and_aim()
 	_processed_input()
 	
@@ -51,7 +55,8 @@ func _processed_input() -> void:
 		input_direction = Vector2.ZERO
 
 func _physics_process(_delta: float) -> void:
-	_physics_processed_input()
+	if is_processing_input():
+		_physics_processed_input()
 
 func _physics_processed_input() -> void:
 	compute_jump()

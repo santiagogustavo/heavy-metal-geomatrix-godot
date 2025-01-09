@@ -34,3 +34,4 @@ func add_resolution_mode_items() -> void:
 
 func on_resolution_mode_selected(index: int) -> void:
 	VideoSettingsManager.set_window_size(RESOLUTION_DICTIONARY.values()[index])
+	VideoSettingsManager.center_window()

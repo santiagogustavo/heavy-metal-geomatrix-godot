@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://0pfhle8odb23"]
 
 [ext_resource type="AudioStream" uid="uid://co2w483nywhna" path="res://Sound/Sword Hit Electric.wav" id="1_4utyn"]
-[ext_resource type="Script" path="res://Prefabs/Utils/QueueFreeTimeout.gd" id="2_ndp4i"]
+[ext_resource type="Script" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="2_ndp4i"]
 
 [node name="RayHit" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_4utyn")

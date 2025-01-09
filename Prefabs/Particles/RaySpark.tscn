@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cfcvl447wxcut" path="res://Materials/Particles/Spark.tres" id="1_imsem"]
 [ext_resource type="Script" path="res://Scripts/Lights/FlickeringLight.gd" id="2_0p8hu"]
-[ext_resource type="Script" path="res://Prefabs/Utils/QueueFreeTimeout.gd" id="2_oib8f"]
+[ext_resource type="Script" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="2_oib8f"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n7gqy"]
 particle_flag_align_y = true

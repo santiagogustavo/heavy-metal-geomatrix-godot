@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cpf3eubmomcnn"]
+[gd_scene load_steps=81 format=3 uid="uid://cpf3eubmomcnn"]
 
 [ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="1_6nodx"]
 [ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="6_kwx8k"]
@@ -18,8 +18,11 @@
 [ext_resource type="AudioStream" uid="uid://dnv8ddt8n6yac" path="res://Sound/Menus/Main Menu/750438__rescopicsound__ui-designed-hit-modern-interface-impact-sweetener-02.mp3" id="22_erlg1"]
 [ext_resource type="LabelSettings" uid="uid://f8e31181q5h6" path="res://Prefabs/Menus/MenuTitleLabelSettings.tres" id="23_25555"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="24_e5pxh"]
+[ext_resource type="AudioStream" uid="uid://cmhe8yp60kbth" path="res://Music/MainMenu/MainMenuOst1.mp3" id="24_rhnf5"]
+[ext_resource type="AudioStream" uid="uid://drw4voa3oibu8" path="res://Music/MainMenu/MainMenuOst2.mp3" id="25_frs1i"]
 [ext_resource type="FontFile" uid="uid://bl6uguby0mxhy" path="res://Fonts/Maximum Impact.ttf" id="25_mrw8j"]
 [ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="25_pigul"]
+[ext_resource type="AudioStream" uid="uid://bxnnieh7klpco" path="res://Music/MainMenu/MainMenuOst3.mp3" id="26_5yl72"]
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenu/Buttons/Arcade.gd" id="26_y5fpb"]
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenu/Buttons/Options.gd" id="27_en1de"]
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenu/Buttons/Exit.gd" id="28_typom"]
@@ -87,7 +90,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("..:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -99,7 +102,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("..:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -114,7 +117,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("..:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -126,7 +129,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("..:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -679,6 +682,12 @@ states/Start/position = Vector2(4, 97.125)
 transitions = ["Start", "FadeIn", SubResource("AnimationNodeStateMachineTransition_yhcma"), "FadeIn", "RESET", SubResource("AnimationNodeStateMachineTransition_t7k17"), "Glitch", "RESET", SubResource("AnimationNodeStateMachineTransition_aemyw"), "RESET", "FadeOut", SubResource("AnimationNodeStateMachineTransition_yuo8f")]
 graph_offset = Vector2(-14, -96)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2ynpi"]
+streams_count = 3
+stream_0/stream = ExtResource("24_rhnf5")
+stream_1/stream = ExtResource("25_frs1i")
+stream_2/stream = ExtResource("26_5yl72")
+
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("options", "cursor_sfx", "select1_sfx", "select2_sfx", "description_label")]
 layout_mode = 3
 anchors_preset = 15
@@ -703,9 +712,18 @@ grow_vertical = 2
 texture = ExtResource("18_xlly3")
 expand_mode = 2
 
-[node name="Fire" type="GPUParticles2D" parent="."]
+[node name="FireContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Fire" type="GPUParticles2D" parent="FireContainer"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(606, 688)
 amount = 2500
 process_material = SubResource("ParticleProcessMaterial_2up6b")
 texture = ExtResource("6_kwx8k")
@@ -714,7 +732,17 @@ preprocess = 12.0
 randomness = 1.0
 local_coords = true
 
-[node name="Logo" type="TextureRect" parent="."]
+[node name="LogoContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="LogoContainer"]
 material = SubResource("ShaderMaterial_mtjij")
 layout_mode = 1
 anchors_preset = 8
@@ -723,16 +751,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -325.0
-offset_top = -264.0
+offset_top = -252.0
 offset_right = 325.0
-offset_bottom = 166.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(325, 215)
 texture = ExtResource("19_yd0un")
 expand_mode = 1
 
-[node name="Fill" type="TextureRect" parent="Logo"]
+[node name="Fill" type="TextureRect" parent="LogoContainer/Logo"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -748,12 +776,14 @@ grow_vertical = 2
 texture = ExtResource("20_1u3u5")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LogoContainer"]
+root_node = NodePath("../Logo")
 libraries = {
 "": SubResource("AnimationLibrary_kuo4l")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Logo"]
+[node name="AnimationTree" type="AnimationTree" parent="LogoContainer"]
+root_node = NodePath("../Logo")
 tree_root = SubResource("AnimationNodeStateMachine_lxwk5")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -847,10 +877,13 @@ text = "Main Menu"
 label_settings = ExtResource("23_25555")
 
 [node name="ModeExplanation" type="VBoxContainer" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control"]
-layout_mode = 2
-offset_top = 461.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
 offset_right = 471.0
-offset_bottom = 520.0
+grow_vertical = 0
 pivot_offset = Vector2(0, 59)
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -1000,6 +1033,7 @@ bus = &"Main Menu"
 
 [node name="Select1" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("22_erlg1")
+volume_db = -10.0
 bus = &"Main Menu"
 
 [node name="Select2" type="AudioStreamPlayer" parent="SFX"]
@@ -1017,3 +1051,9 @@ callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_rrknu")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/selected = false
+
+[node name="OST" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_2ynpi")
+autoplay = true
+bus = &"Music"

@@ -112,6 +112,7 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_ui28
 max_value = 1.0
 step = 0.1
 value = 0.5
+scrollable = false
 
 [node name="OffIndicator" type="ColorRect" parent="."]
 visible = false

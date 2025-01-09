@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://cwyymwlj666vt"]
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://cwyymwlj666vt"]
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_lme2u"]
 resource_name = "Amplify"
@@ -17,6 +17,10 @@ wet = 0.25
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cxl52"]
 resource_name = "Reverb"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_e2wiu"]
+resource_name = "Compressor"
+gain = 3.0
 
 [resource]
 bus/1/name = &"UI"
@@ -65,6 +69,8 @@ bus/7/mute = false
 bus/7/bypass_fx = false
 bus/7/volume_db = 0.0
 bus/7/send = &"Master"
+bus/7/effect/0/effect = SubResource("AudioEffectCompressor_e2wiu")
+bus/7/effect/0/enabled = true
 bus/8/name = &"Menus"
 bus/8/solo = false
 bus/8/mute = false

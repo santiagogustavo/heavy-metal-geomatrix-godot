@@ -67,7 +67,8 @@ func on_clear() -> void:
 	messages.clear()
 
 func on_autocomplete() -> void:
-	line_edit.text = commands._get_autocomplete_match(line_edit.text) + "()"
+	var autocomplete_match = commands._get_autocomplete_match(line_edit.text)
+	line_edit.text = autocomplete_match + ("()" if autocomplete_match != line_edit.text else "")
 	line_edit.caret_column = MAX_CARET_COLUMN
 
 func on_navigate(prev: bool) -> void:

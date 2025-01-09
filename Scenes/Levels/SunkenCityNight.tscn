@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cfdmaidpgq6oq"]
+[gd_scene load_steps=46 format=3 uid="uid://cfdmaidpgq6oq"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_v8yub"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_x780f"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="9_5fhfi"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="12_0w60c"]
 [ext_resource type="Script" path="res://Scripts/Levels/InvisibleWall.gd" id="12_d067t"]
+[ext_resource type="AudioStream" uid="uid://cpv53h1eynfwq" path="res://Sound/Levels/SunkenCityNight/rain_loop.wav" id="12_i5l5g"]
 [ext_resource type="Texture2D" uid="uid://c2axca041ro8" path="res://Textures/Lens Flares/flare1.png" id="12_te444"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="13_28rel"]
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="14_itd51"]
@@ -20,6 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="15_5qahw"]
 [ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="16_284yf"]
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="16_kqeaa"]
+[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="19_4j3hn"]
+[ext_resource type="AudioStream" uid="uid://isrukokcyqys" path="res://Music/SunkenCityNight/SunkenCityNightOst1.mp3" id="22_2go6x"]
+[ext_resource type="AudioStream" uid="uid://c7d4hjvtwq004" path="res://Music/SunkenCityNight/SunkenCityNightOst2.mp3" id="23_qfqmc"]
+[ext_resource type="AudioStream" uid="uid://bxdcda0l5k8rf" path="res://Music/SunkenCityNight/SunkenCityNightOst3.mp3" id="24_y4q1x"]
+[ext_resource type="AudioStream" uid="uid://m7w5l1kyndam" path="res://Music/SunkenCityNight/SunkenCityNightOst4.mp3" id="25_hbknm"]
+[ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -118,6 +125,14 @@ shader_parameter/pos6 = Vector3(10000, 10000, 10000)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0yu5d"]
 size = Vector3(0.318848, 22.8315, 20.9529)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rq1vi"]
+streams_count = 5
+stream_0/stream = ExtResource("22_2go6x")
+stream_1/stream = ExtResource("23_qfqmc")
+stream_2/stream = ExtResource("24_y4q1x")
+stream_3/stream = ExtResource("25_hbknm")
+stream_4/stream = ExtResource("26_jeo0a")
+
 [node name="SunkenCityNight" type="Node3D"]
 
 [node name="LevelConfig" parent="." instance=ExtResource("1_v8yub")]
@@ -173,6 +188,14 @@ transform = Transform3D(0.729337, 0, 0, 0, 0.892042, 0.122394, 0, -0.451952, 0.2
 transform = Transform3D(0.235914, 0, 0, 0, 1, 0, 0, 0, 0.46534, -22.5417, 10.5327, -32.0201)
 amount = 50
 visibility_aabb = AABB(-9.50156, 0, -10, 19.0031, 0.1, 20)
+
+[node name="Audios" type="Node3D" parent="Level Geometry"]
+
+[node name="Rain" type="AudioStreamPlayer2D" parent="Level Geometry/Audios"]
+stream = ExtResource("12_i5l5g")
+volume_db = -10.0
+autoplay = true
+bus = &"Effects"
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78129, 26.0579, -18.2193)
@@ -243,7 +266,7 @@ spot_angle = 30.18
 mesh = SubResource("QuadMesh_kfi7b")
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("13_28rel")]
-pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_kqeaa"), ExtResource("16_284yf")])
+pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_kqeaa"), ExtResource("16_284yf"), ExtResource("19_4j3hn")])
 collision_shapes = [NodePath("Area3D/CollisionShape3D")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
@@ -283,6 +306,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7744, 6.8224, -20.8766)
 
 [node name="MotoGunPickup" parent="." instance=ExtResource("15_5qahw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 8.53885, -24)
+
+[node name="OST" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_rq1vi")
+autoplay = true
+bus = &"Music"
 
 [editable path="Level Geometry/Sunken City Night"]
 [editable path="Spawner"]

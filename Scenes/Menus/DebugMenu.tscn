@@ -64,8 +64,11 @@ size_flags_horizontal = 8
 text = "000"
 
 [node name="Container" type="MarginContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 366.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 405.0
+grow_horizontal = 2
+size_flags_horizontal = 3
 
 [node name="Background" type="TextureRect" parent="Container"]
 layout_mode = 2

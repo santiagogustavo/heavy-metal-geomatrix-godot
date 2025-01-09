@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c0plmj1r7g8v0"]
 
 [ext_resource type="PackedScene" uid="uid://s7dgwgwfh3rv" path="res://Models/Levels/Ocean Castle Twilight/Flag.glb" id="1_1g6v5"]
-[ext_resource type="AudioStream" uid="uid://bsawjudu1arfh" path="res://Sound/Levels/Ocean Castle Twilight/flapping.wav" id="2_bpyei"]
+[ext_resource type="AudioStream" uid="uid://bsawjudu1arfh" path="res://Sound/Levels/OceanCastleTwilight/flapping.wav" id="2_bpyei"]
 
 [sub_resource type="Animation" id="Animation_05w6y"]
 resource_name = "Key_001Action"
