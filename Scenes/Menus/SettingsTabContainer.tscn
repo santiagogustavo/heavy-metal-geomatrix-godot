@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=29 format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://xixis7sqo151" path="res://Scenes/Menus/OptionsMenu/Controls/LookSmoothingSlider.tscn" id="6_4u23p"]
 [ext_resource type="PackedScene" uid="uid://nlkur7rpmjtc" path="res://Scenes/Menus/OptionsMenu/Controls/MouseHorizontalSlider.tscn" id="7_4f7kh"]
 [ext_resource type="PackedScene" uid="uid://it3yom2h6orw" path="res://Scenes/Menus/OptionsMenu/Controls/MouseVerticalSlider.tscn" id="8_ge777"]
+[ext_resource type="PackedScene" uid="uid://bvmbb5gxvicqp" path="res://Scenes/Menus/OptionsMenu/Controls/BloomButton.tscn" id="9_03lvh"]
 [ext_resource type="PackedScene" uid="uid://c4ra6c5mj8rk7" path="res://Scenes/Menus/OptionsMenu/Controls/StickHorizontalSensitivity.tscn" id="9_8hf25"]
 [ext_resource type="PackedScene" uid="uid://brw3vc6j0hkoj" path="res://Scenes/Menus/OptionsMenu/Controls/StickVerticalSensitivity.tscn" id="10_07rme"]
+[ext_resource type="PackedScene" uid="uid://bg1d1pm7nf4xt" path="res://Scenes/Menus/OptionsMenu/Controls/BloomIntensitySlider.tscn" id="10_6407g"]
 [ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="11_7172o"]
 [ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/FovSlider.gd" id="12_fjwlq"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="13_cerdy"]
@@ -151,10 +153,28 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 32
 
+[node name="DisplayLabel" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+layout_mode = 2
+
+[node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/DisplayLabel" index="0"]
+text = "Display"
+
 [node name="WindowModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("2_3fvw6")]
 layout_mode = 2
 
 [node name="ResolutionModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("3_imv6s")]
+layout_mode = 2
+
+[node name="PostProcessingLabel" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+layout_mode = 2
+
+[node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/PostProcessingLabel" index="0"]
+text = "Post Processing"
+
+[node name="BloomToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
+layout_mode = 2
+
+[node name="BloomIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("10_6407g")]
 layout_mode = 2
 
 [node name="Controls" type="MarginContainer" parent="TabContainer"]
@@ -376,6 +396,8 @@ bus = &"UI"
 stream = ExtResource("20_pce0q")
 bus = &"UI"
 
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/DisplayLabel"]
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/PostProcessingLabel"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/AimingLabel"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/LookSmoothingSlider"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/LookSmoothingSlider/CustomSlider10"]

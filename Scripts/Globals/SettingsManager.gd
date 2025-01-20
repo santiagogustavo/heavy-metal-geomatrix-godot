@@ -36,6 +36,8 @@ func load_video_settings():
 			file.get_value("video", "viewport_height", VideoSettingsManager.viewport_height),
 		)
 	)
+	VideoSettingsManager.set_bloom_enabled(file.get_value("video", "bloom_enabled", VideoSettingsManager.bloom_enabled))
+	VideoSettingsManager.set_bloom_intensity(file.get_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity))
 
 func load_input_settings():
 	InputSettingsManager.set_look_smoothing_enabled(file.get_value("input", "look_smoothing_enabled", InputSettingsManager.look_smoothing_enabled))
@@ -65,6 +67,8 @@ func save_video_settings():
 	file.set_value("video", "window_mode", VideoSettingsManager.window_mode)
 	file.set_value("video", "viewport_width", VideoSettingsManager.viewport_width)
 	file.set_value("video", "viewport_height", VideoSettingsManager.viewport_height)
+	file.set_value("video", "bloom_enabled", VideoSettingsManager.bloom_enabled)
+	file.set_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity)
 	
 func save_input_settings():
 	file.set_value("input", "look_smoothing_enabled", InputSettingsManager.look_smoothing_enabled)

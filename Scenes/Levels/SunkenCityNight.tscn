@@ -36,9 +36,15 @@ sky_material = SubResource("PanoramaSkyMaterial_nxkqp")
 
 [sub_resource type="Environment" id="Environment_pkx01"]
 background_mode = 2
-background_energy_multiplier = 0.3
+background_energy_multiplier = 0.2
 sky = SubResource("Sky_wea2t")
 sky_rotation = Vector3(0, 0.872665, 0)
+fog_enabled = true
+fog_light_color = Color(0.0666667, 0.0862745, 0.247059, 1)
+fog_density = 0.003
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.0126
+volumetric_fog_albedo = Color(0.57, 0.684667, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vlpe4"]
 render_priority = 0
@@ -46,7 +52,7 @@ shader = ExtResource("3_337c6")
 shader_parameter/Color = Color(1, 1, 1, 1)
 shader_parameter/Panning = Vector2(-0.1, 0)
 shader_parameter/distortion_speed = Vector2(0, 0.1)
-shader_parameter/distortion_scale = 0.25
+shader_parameter/distortion_scale = 1.0
 shader_parameter/distortion_intensity = 0.05
 shader_parameter/Tiling = Vector2(1.5, 1.5)
 shader_parameter/Metallic = 0.164
@@ -305,7 +311,7 @@ material = SubResource("ShaderMaterial_f40a8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7744, 6.8224, -20.8766)
 
 [node name="MotoGunPickup" parent="." instance=ExtResource("15_5qahw")]
-transform = Transform3D(0.447687, 0, 0, 0, 0.447687, 0, 0, 0, 0.447687, -23, 8.53885, -24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 8.53885, -24)
 
 [node name="OST" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3

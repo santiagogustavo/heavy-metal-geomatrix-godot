@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=59 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_tcn3d"]
 [ext_resource type="Texture2D" uid="uid://24rcfmn5xmcj" path="res://Textures/Skyboxes/Twilight Cloudy.png" id="2_p2odm"]
+[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_m0b06"]
 [ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="3_qj2i6"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="4_xw4kr"]
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="5_g0vas"]
@@ -38,11 +39,13 @@ background_mode = 2
 sky = SubResource("Sky_57a52")
 sky_rotation = Vector3(0, -2.90423, 0)
 glow_enabled = true
-fog_light_color = Color(1, 0.490196, 0, 1)
-fog_light_energy = 0.5
-fog_sun_scatter = 0.2
-fog_density = 0.001
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 0.392157, 0, 1)
+fog_density = 0.5311
 fog_sky_affect = 0.0
+fog_depth_curve = 1.7411
+fog_depth_end = 200.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(1, 0.392157, 0, 1)
@@ -270,15 +273,17 @@ stream_4/stream = ExtResource("26_j32no")
 
 [node name="LevelConfig" parent="." instance=ExtResource("1_tcn3d")]
 level_name = "Ocean Castle Twilight"
+is_sunny = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q5l4r")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.517081, 0.0541335, -0.854223, -0.292522, 0.926731, 0.235799, 0.804399, 0.371806, -0.463359, -15.0005, 5.98375, -6.01507)
+transform = Transform3D(-0.485451, 0.186119, -0.854223, -0.042699, 0.970863, 0.235799, 0.87322, 0.150943, -0.46336, -101.001, 19.9837, -50.0151)
 shadow_enabled = true
 shadow_bias = 0.02
 shadow_reverse_cull_face = true
+script = ExtResource("3_m0b06")
 
 [node name="UI" parent="." instance=ExtResource("3_qj2i6")]
 

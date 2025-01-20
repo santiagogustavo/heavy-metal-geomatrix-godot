@@ -619,7 +619,7 @@ advance_mode = 2
 states/RESET/node = SubResource("AnimationNodeAnimation_38fri")
 states/RESET/position = Vector2(517.56, 99.8125)
 states/RoundEndKO/node = SubResource("AnimationNodeAnimation_p7m0s")
-states/RoundEndKO/position = Vector2(516.532, -72.255)
+states/RoundEndKO/position = Vector2(517.296, -72.1069)
 states/RoundEndTimeUp/node = SubResource("AnimationNodeAnimation_duiue")
 states/RoundEndTimeUp/position = Vector2(749.447, -71.9589)
 states/RoundStart/node = SubResource("AnimationNodeAnimation_0mrlv")
@@ -643,7 +643,7 @@ grow_vertical = 2
 
 [node name="Invert" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_ea8xd")
-custom_minimum_size = Vector2(1152, 64)
+custom_minimum_size = Vector2(1300, 64)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

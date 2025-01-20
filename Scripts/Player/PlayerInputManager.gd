@@ -39,9 +39,8 @@ func _process(_delta: float) -> void:
 	set_process_input(
 		!PauseMenuManager.is_menu_open
 		and !DebugMenuManager.is_menu_open
-		and !GameManager.current_match.is_player_input_locked
+		and (GameManager.current_match and !GameManager.current_match.is_player_input_locked)
 	)
-	update_look_and_aim()
 	_processed_input()
 	
 func _processed_input() -> void:
@@ -51,8 +50,11 @@ func _processed_input() -> void:
 		compute_movement()
 		compute_shoot_and_attack()
 		update_pickup()
+		update_look_and_aim()
 	else:
 		input_direction = Vector2.ZERO
+		direction = Vector3.ZERO
+		is_walking = false
 
 func _physics_process(_delta: float) -> void:
 	if is_processing_input():

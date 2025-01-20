@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://boaaou7717pbq" path="res://Textures/Levels/Pitch Dark Stadium/8e45c46f.png" id="1_re67c"]
 
 [resource]
-transparency = 3
-alpha_hash_scale = 1.0
+transparency = 2
+alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
+cull_mode = 2
 albedo_texture = ExtResource("1_re67c")
+metallic_specular = 0.0

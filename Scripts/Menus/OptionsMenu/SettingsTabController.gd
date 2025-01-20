@@ -8,6 +8,7 @@ extends Control
 func _ready() -> void:
 	tab_bar.connect("tab_hovered", func (_any): hover_sfx.play())
 	tab_bar.connect("tab_selected", tab_selected)
+	tab_bar.current_tab = tab_container.current_tab
 
 func tab_selected(current_tab: int) -> void:
 	select_sfx.play()

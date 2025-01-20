@@ -7,6 +7,9 @@ var window_mode: DisplayServer.WindowMode = 1
 var viewport_width: int = DisplayServer.window_get_size().x
 var viewport_height: int = DisplayServer.window_get_size().y
 
+var bloom_enabled: bool = true
+var bloom_intensity: float = 0.25
+
 func center_window():
 	var screen_center = DisplayServer.screen_get_size() / 2
 	var window_size = get_window().get_size_with_decorations()
@@ -42,3 +45,9 @@ func set_window_mode(index: int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 	refresh_window()
+
+func set_bloom_enabled(enabled: bool) -> void:
+	bloom_enabled = enabled
+
+func set_bloom_intensity(intensity: float) -> void:
+	bloom_intensity = intensity
