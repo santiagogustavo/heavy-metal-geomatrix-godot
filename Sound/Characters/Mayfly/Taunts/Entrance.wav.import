@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://caqbht7qwhd8r"
-path="res://.godot/imported/Start.wav-f7481fa2ef5a7c3c72bcf19ab5f2d5ee.sample"
+path="res://.godot/imported/Entrance.wav-b9d7c8528f9b6c52b13454f597b14bff.sample"
 
 [deps]
 
-source_file="res://Sound/Characters/Mayfly/Taunts/Start.wav"
-dest_files=["res://.godot/imported/Start.wav-f7481fa2ef5a7c3c72bcf19ab5f2d5ee.sample"]
+source_file="res://Sound/Characters/Mayfly/Taunts/Entrance.wav"
+dest_files=["res://.godot/imported/Entrance.wav-b9d7c8528f9b6c52b13454f597b14bff.sample"]
 
 [params]
 

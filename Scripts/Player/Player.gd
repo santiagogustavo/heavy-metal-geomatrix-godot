@@ -20,8 +20,6 @@ enum PlayerType {
 
 @onready var character: CharacterController = $CharacterController
 @onready var animation_tree = $CharacterController/AnimationTree
-@onready var sound_tree = $CharacterController/SoundAnimationTree
-@onready var sound_attack_tree = $CharacterController/SoundAttackTree
 @onready var dash = $Dash
 @onready var inventory_manager: InventoryManager = $InventoryManager
 
@@ -47,7 +45,6 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	update_internals()
 	update_externals()
-	set_sound_variables()
 	set_animator_variables()
 	set_camera_variables()
 	set_inventory_items_variables()
@@ -108,16 +105,6 @@ func set_camera_variables() -> void:
 	camera.is_dashing = player_input.is_dashing
 	camera.is_aiming = player_input.is_aiming
 	shoot_target = camera.target_point
-	
-func set_sound_variables() -> void:
-	sound_tree.is_walking = player_input.is_walking
-	sound_tree.is_jumping = player_input.is_jumping || player_input.is_double_jumping
-	sound_tree.is_dashing = player_input.is_dashing
-	sound_tree.is_picking_up = player_input.is_picking_up
-	sound_tree.is_on_floor = is_on_floor()
-	sound_attack_tree.equip_type = inventory_manager.equip_type
-	sound_attack_tree.is_current_node_attacking = animation_tree.is_current_node_attacking()
-	sound_attack_tree.current_animation = animation_tree.get_current_upper_body_animation()
 
 func set_animator_variables() -> void:
 	if inventory_manager.right_hand_instance != null and inventory_manager.right_hand_instance is GunController:
@@ -125,6 +112,7 @@ func set_animator_variables() -> void:
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.direction = player_input.input_direction
 	animation_tree.look = Vector2(0, player_input.input_look.y)
+	animation_tree.is_walking = player_input.is_walking
 	animation_tree.is_dashing = player_input.is_dashing
 	animation_tree.is_jumping = player_input.is_jumping
 	animation_tree.is_double_jumping = player_input.is_double_jumping

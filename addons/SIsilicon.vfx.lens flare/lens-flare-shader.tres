@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://by00g8m68yc55"]
 
 [ext_resource type="Texture2D" uid="uid://cttvpeo7w72p" path="res://addons/SIsilicon.vfx.lens flare/lens-dirt-default.jpeg" id="1_i2kpg"]
-[ext_resource type="Shader" path="res://addons/SIsilicon.vfx.lens flare/lens_flare.gdshader" id="1_sned2"]
+[ext_resource type="Shader" uid="uid://dxq21t8i8r36o" path="res://addons/SIsilicon.vfx.lens flare/lens_flare.gdshader" id="1_sned2"]
 
 [sub_resource type="Gradient" id="Gradient_kktcp"]
 colors = PackedColorArray(1, 0.909209, 0.467832, 1, 1, 0.342403, 0.851428, 1)

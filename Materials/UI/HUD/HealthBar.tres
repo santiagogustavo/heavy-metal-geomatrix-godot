@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" load_steps=26 format=3 uid="uid://cddl3bdm4dln6"]
 
 [ext_resource type="Texture2D" uid="uid://cavmhrqs2g8xs" path="res://Textures/UI/Masks/player_health.png" id="1_fxwts"]
-[ext_resource type="Script" path="res://addons/shaderV/rgba/noise/fractal/generic2d_fractal.gd" id="1_jkhrk"]
+[ext_resource type="Script" uid="uid://b3sv17gtm1tbo" path="res://addons/shaderV/rgba/noise/fractal/generic2d_fractal.gd" id="1_jkhrk"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_i2xki"]
 input_name = "uv"

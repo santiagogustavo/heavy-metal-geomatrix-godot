@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=21 format=3 uid="uid://bw8b8jh86f3he"]
 
-[ext_resource type="Script" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="1_7kbu4"]
+[ext_resource type="Script" uid="uid://cuwtkklmjd0w1" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="1_7kbu4"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_wnj0y"]
 output_port_for_preview = 0

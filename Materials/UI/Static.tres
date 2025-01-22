@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://csjnnlyg70rjj"]
 
-[ext_resource type="Script" path="res://addons/shaderV/uv/rotate.gd" id="1_d4wbw"]
-[ext_resource type="Script" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="2_so6xy"]
+[ext_resource type="Script" uid="uid://beoarykdprfb2" path="res://addons/shaderV/uv/rotate.gd" id="1_d4wbw"]
+[ext_resource type="Script" uid="uid://cuwtkklmjd0w1" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="2_so6xy"]
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_plssw"]
 output_port_for_preview = 0

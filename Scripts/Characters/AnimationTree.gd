@@ -1,5 +1,7 @@
 extends AnimationTree
 
+@onready var walk_sfx: AudioStreamPlayer3D = get_parent().get_node('SFX/Walk')
+
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
 var last_combo_animation: StringName
 
@@ -8,6 +10,7 @@ var look: Vector2 = Vector2.ZERO
 
 var equip: Definitions.EquipType = Definitions.EquipType.Body
 
+var is_walking: bool = false
 var is_dashing: bool = false
 var is_jumping: bool = false
 var is_double_jumping: bool = false
@@ -36,6 +39,10 @@ func _process(delta: float) -> void:
 	update_fire_rate()
 	update_pickup()
 	update_double_jump()
+
+func play_walk_sound_if_walking() -> void:
+	if is_walking:
+		walk_sfx.playing = true
 
 func update_pickup() -> void:
 	if is_picking_up:

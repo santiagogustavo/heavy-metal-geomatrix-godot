@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=43 format=3 uid="uid://dkjcr2ocolsln"]
 
-[ext_resource type="Script" path="res://addons/shaderV/rgba/noise/fractal/simplex4d_fractal.gd" id="1_u6rvw"]
+[ext_resource type="Script" uid="uid://bim5y7kbxc1wx" path="res://addons/shaderV/rgba/noise/fractal/simplex4d_fractal.gd" id="1_u6rvw"]
 
 [sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_mcgoa"]
 constant = Vector3(1, 1, 0)
