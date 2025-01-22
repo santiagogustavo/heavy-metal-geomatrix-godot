@@ -25,10 +25,9 @@ var is_holding_weapon: bool = false
 @export var equip_type: Definitions.EquipType = Definitions.EquipType.Body
 var right_hand_item_name: String = ''
 
-@onready var character_controller: CharacterController = $"../CharacterController"
+var character_controller: CharacterController
 @onready var body_slot: BoneAttachment3D = character_controller.body_slot
 @onready var right_hand_slot: BoneAttachment3D = character_controller.right_hand_slot
-
 @onready var holster_timer: Timer = Timer.new()
 
 var is_gun_shooting: bool = false

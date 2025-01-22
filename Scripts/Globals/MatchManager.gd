@@ -1,6 +1,8 @@
 extends Node
 class_name MatchManager
 
+signal started
+
 @export_subgroup("Round Settings")
 @export_range(1, 5) var rounds: int = 2
 @export_range(30, 99) var time: int = 60
@@ -32,10 +34,11 @@ func _ready() -> void:
 	get_tree().root.add_child.call_deferred(announcer)
 	get_tree().root.add_child.call_deferred(timer)
 	announcer.connect("start", start_round_logic)
+	started.emit()
 
 func _process(_delta: float) -> void:
 	current_time = ceili(timer.time_left)
-	set_process_unhandled_input(!DebugMenuManager.is_menu_open)
+	set_process_unhandled_input(!DebugMenuManager.is_menu_open and !PauseMenuManager.is_menu_open)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):

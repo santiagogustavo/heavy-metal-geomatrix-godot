@@ -41,4 +41,8 @@ const Scenes: Dictionary = {
 	"Intro": "res://Scenes/Intro.tscn",
 }
 
+const Characters: Dictionary = {
+	"Mayfly": "res://Prefabs/Characters/Mayfly.tscn"
+}
+
 var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

@@ -3,6 +3,8 @@ class_name LevelConfig
 
 @export_subgroup("Properties")
 @export var level_name: String = ""
+@export var spawn_points: Array[Node3D]
+@export var randomize_spawn: bool = false
 
 @export_subgroup("Environment")
 @export var is_sunny: bool = false

@@ -10,6 +10,7 @@ enum PlayerType {
 @export_subgroup("Properties")
 @export var player_name: String
 @export_range(0, 100) var health: int = 100
+@export var selected_character: String = "Mayfly"
 @export var selected_skin: int = 1
 
 @export_subgroup("Controls")
@@ -17,16 +18,18 @@ enum PlayerType {
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera: PlayerCamera = $CameraPivot/Camera
-
-@onready var character: CharacterController = $CharacterController
-@onready var animation_tree: PlayerAnimationTree = character.animation_tree
 @onready var dash: GPUParticles3D = $Dash
-@onready var inventory_manager: InventoryManager = $InventoryManager
+
+# Instances
+var character: CharacterController
+var animation_tree: PlayerAnimationTree
+var inventory_manager: InventoryManager
 
 var is_pickup_collided: bool = false
 var shoot_target: Vector3 = Vector3.ZERO
 
-@onready var player_input: PlayerInputManager
+var player_input: PlayerInputManager
+var player_ui: Node2D
 
 var collided_pickup: PickupController
 
@@ -34,8 +37,18 @@ func _ready() -> void:
 	match player_type:
 		_:
 			player_input = PlayerInputManager.new(player_type)
+			player_ui = load("res://Prefabs/Player/UI.tscn").instantiate()
 	player_input.camera_pivot = camera_pivot
+	player_input.new_rotation = rotation
 	add_child(player_input)
+	character = load(Definitions.Characters[selected_character]).instantiate()
+	add_child(character)
+	animation_tree = character.animation_tree
+	inventory_manager = load("res://Prefabs/Player/InventoryManager.tscn").instantiate()
+	inventory_manager.character_controller = character
+	add_child(inventory_manager)
+	if player_ui:
+		get_tree().root.add_child.call_deferred(player_ui)
 	GameManager.add_player(self)
 
 func _physics_process(delta: float) -> void:
@@ -52,6 +65,10 @@ func _process(_delta: float) -> void:
 
 func _exit_tree() -> void:
 	GameManager.remove_player(get_rid())
+	if player_ui:
+		player_ui.queue_free()
+	if player_input:
+		player_input.queue_free()
 
 func heal_player(amount: int) -> void:
 	health += amount

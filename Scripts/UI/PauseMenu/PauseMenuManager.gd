@@ -49,18 +49,18 @@ func focus_first_button() -> void:
 	panel_buttons[0].grab_focus()
 
 func open_menu(play_sfx: bool = true):
+	set_process_unhandled_input(true)
 	if play_sfx:
 		open.play()
-	set_process_unhandled_input(true)
 	is_menu_open = true
 	control.show()
 	focus_first_button()
 	panel_animator.play("Open")
 
 func close_menu(play_sfx: bool = true):
+	set_process_unhandled_input(false)
 	if play_sfx:
 		close.play()
-	set_process_unhandled_input(false)
 	is_menu_open = false
 	control.hide()
 

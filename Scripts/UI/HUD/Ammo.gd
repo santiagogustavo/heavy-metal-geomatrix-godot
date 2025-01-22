@@ -9,7 +9,7 @@ func _process(_delta):
 	var player: Player = GameManager.get_player_one()
 	if !player or player == null:
 		visible = false
-		pass
+		return
 	visible = player.inventory_manager.has_gun
 	if visible:
 		update_labels(player)

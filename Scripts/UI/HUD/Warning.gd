@@ -10,7 +10,7 @@ func _process(_delta: float) -> void:
 	var player: Player = GameManager.get_player_one()
 	if !player or player == null:
 		visible = false
-		pass
+		return
 	visible = true
 	update_glitch(player.health)
 	if player.health <= 20 and !has_played_animation:

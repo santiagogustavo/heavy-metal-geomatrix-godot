@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bskt672q08ljw"]
+[gd_scene load_steps=7 format=3 uid="uid://bskt672q08ljw"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_s5b7i"]
 [ext_resource type="PackedScene" uid="uid://de4uiy610h5pr" path="res://Prefabs/Particles/Dash Trail/Dash Trail.tscn" id="2_3ycw1"]
-[ext_resource type="PackedScene" uid="uid://up8ndl5jvgkt" path="res://Prefabs/Characters/Mayfly.tscn" id="3_4h517"]
-[ext_resource type="Script" path="res://Scripts/Player/InventoryManager.gd" id="3_7o3tn"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera.gd" id="4_4tl4x"]
 [ext_resource type="Script" uid="uid://bhba7etdaeq0k" path="res://Scripts/Player/PlayerDashController.gd" id="5_1f0ha"]
 [ext_resource type="PackedScene" uid="uid://byafmx5elekej" path="res://Scenes/UI/CameraEffects3D.tscn" id="5_qnlfa"]
@@ -16,12 +14,6 @@ height = 1.8
 collision_mask = 55
 script = ExtResource("1_s5b7i")
 health = 50
-
-[node name="CharacterController" parent="." instance=ExtResource("3_4h517")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="InventoryManager" type="Node3D" parent="."]
-script = ExtResource("3_7o3tn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

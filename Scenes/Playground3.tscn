@@ -1,16 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://bnidl6p4mravx"]
+[gd_scene load_steps=23 format=3 uid="uid://bnidl6p4mravx"]
 
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="1_56f3u"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_pawks"]
 [ext_resource type="Texture2D" uid="uid://cwe67c5gjbitq" path="res://Textures/Skyboxes/Night Moony.png" id="2_3ymf7"]
+[ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_k7xfn"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_lt8du"]
 [ext_resource type="Texture2D" uid="uid://b4vhqhgq02hpx" path="res://Textures/Levels/Pitch Dark Stadium/f9d1ef50.png" id="3_owe1r"]
-[ext_resource type="PackedScene" uid="uid://dt7s0sinwmj72" path="res://Prefabs/Player/UI.tscn" id="4_8rrix"]
 [ext_resource type="Texture2D" uid="uid://df7hdss4piap6" path="res://Textures/Levels/Pitch Dark Stadium/f9d1ef50_spec.png" id="4_vs6mt"]
-[ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/Player.tscn" id="8_ngxm6"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="8_tslua"]
 [ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="9_vp1oc"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Bump Distort.gdshader" id="9_xra83"]
+[ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="9_xra83"]
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="10_ei662"]
 [ext_resource type="PackedScene" uid="uid://cv3ji7o4nkmac" path="res://Prefabs/Pickups/LaserRiflePickup.tscn" id="13_hpotp"]
 
@@ -56,9 +55,15 @@ backface_collision = true
 
 [node name="Playground3" type="Node3D"]
 
-[node name="LevelConfig" parent="." instance=ExtResource("1_pawks")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_pawks")]
 level_name = "Playground3"
+spawn_points = [NodePath("../Spawn Points/SpawnPoint")]
 is_snowy = true
+
+[node name="Spawn Points" type="Node3D" parent="."]
+
+[node name="SpawnPoint" parent="Spawn Points" instance=ExtResource("2_k7xfn")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_boljn")
@@ -66,10 +71,6 @@ environment = SubResource("Environment_boljn")
 [node name="Sun" parent="." instance=ExtResource("2_lt8du")]
 transform = Transform3D(0.183013, -0.885646, 0.426777, -0.707107, 0.183013, 0.683013, -0.683013, -0.426777, -0.592752, -11, 22, 17)
 light_energy = 0.5
-
-[node name="UI" parent="." instance=ExtResource("4_8rrix")]
-
-[node name="Player" parent="." instance=ExtResource("8_ngxm6")]
 
 [node name="Level Geometry" type="Node3D" parent="."]
 

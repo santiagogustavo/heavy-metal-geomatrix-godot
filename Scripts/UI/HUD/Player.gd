@@ -7,7 +7,7 @@ func _process(_delta: float) -> void:
 	var player: Player = GameManager.get_player_one()
 	if !player or player == null:
 		visible = false
-		pass
+		return
 	visible = true
 	name_label.text = player.player_name
 	var health_percentage = player.health / 100.0
