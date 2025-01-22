@@ -1,4 +1,5 @@
 extends AnimationTree
+class_name PlayerAnimationTree
 
 @onready var walk_sfx: AudioStreamPlayer3D = get_parent().get_node('SFX/Walk')
 
@@ -72,35 +73,17 @@ func get_current_upper_body_animation() -> StringName:
 
 func is_current_node_shooting() -> bool:
 	var current_node: StringName = upper_body_state_machine.get_current_node()
-	return current_node in [
-		'Shoot - Weapon Single',
-		'Shoot - Weapon Double'
-	]
+	return current_node.to_lower().contains('shoot')
 
 func is_current_node_attacking() -> bool:
 	var current_node: StringName = upper_body_state_machine.get_current_node()
-	return current_node in [
-		'Attack - Punch 1',
-		'Attack - Punch 2',
-		'Attack - Punch 3',
-		'Attack - Punch 4',
-		'Attack - Melee Light 1',
-		'Attack - Melee Light 2',
-		'Attack - Melee Light 3',
-		'Attack - Melee Light 4',
-		'Attack - Melee Heavy 1',
-		'Attack - Melee Heavy 2',
-		'Attack - Melee Heavy 3',
-		'Attack - Melee Heavy 4'
-	]
+	return current_node.to_lower().contains('attack')
 
 func is_current_node_last_combo() -> bool:
+	var regex = RegEx.new()
+	regex.compile('attack[\\s\\S]*4')
 	var current_node: StringName = upper_body_state_machine.get_current_node()
-	return current_node in [
-		'Attack - Punch 4',
-		'Attack - Melee Light 4',
-		'Attack - Melee Heavy 4'
-	]
+	return !!regex.search(current_node.to_lower())
 
 func update_lower_body(delta: float) -> void:
 	# CONDITIONS #

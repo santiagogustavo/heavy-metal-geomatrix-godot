@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_s5b7i"]
 [ext_resource type="PackedScene" uid="uid://de4uiy610h5pr" path="res://Prefabs/Particles/Dash Trail/Dash Trail.tscn" id="2_3ycw1"]
 [ext_resource type="PackedScene" uid="uid://up8ndl5jvgkt" path="res://Prefabs/Characters/Mayfly.tscn" id="3_4h517"]
-[ext_resource type="Script" uid="uid://cbhhidxn2yiw4" path="res://Scripts/Characters/InventoryManager.gd" id="3_7o3tn"]
-[ext_resource type="Script" uid="uid://1nt0xbi8yyu7" path="res://Scripts/Player/Camera.gd" id="4_4tl4x"]
+[ext_resource type="Script" path="res://Scripts/Player/InventoryManager.gd" id="3_7o3tn"]
+[ext_resource type="Script" path="res://Scripts/Player/Camera.gd" id="4_4tl4x"]
 [ext_resource type="Script" uid="uid://bhba7etdaeq0k" path="res://Scripts/Player/PlayerDashController.gd" id="5_1f0ha"]
 [ext_resource type="PackedScene" uid="uid://byafmx5elekej" path="res://Scenes/UI/CameraEffects3D.tscn" id="5_qnlfa"]
 

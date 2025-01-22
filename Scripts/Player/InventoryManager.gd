@@ -10,12 +10,12 @@ var jetpack_fuel: float = 0.0
 var jetpack_has_fuel: bool = false
 var jetpack_can_jump: bool = false
 
-var has_gun = false
-var ammo_total = 0
-var ammo = 0
+var has_gun: bool = false
+var ammo_total: int = 0
+var ammo: int = 0
 
-var has_melee = false
-var melee_health = 0.0
+var has_melee: bool = false
+var melee_health: float = 0.0
 
 var holster_timeout: float = 3.0
 var is_holding_weapon: bool = false
@@ -31,8 +31,8 @@ var right_hand_item_name: String = ''
 
 @onready var holster_timer: Timer = Timer.new()
 
-var is_gun_shooting = false
-var is_dropping = false
+var is_gun_shooting: bool = false
+var is_dropping: bool = false
 
 func _ready() -> void:
 	holster_timer.connect("timeout", _on_holster_timeout)

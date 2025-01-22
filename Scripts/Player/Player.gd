@@ -15,16 +15,16 @@ enum PlayerType {
 @export_subgroup("Controls")
 @export var player_type: PlayerType = PlayerType.Player1
 
-@onready var camera_pivot = $CameraPivot
-@onready var camera = $CameraPivot/Camera
+@onready var camera_pivot: Node3D = $CameraPivot
+@onready var camera: PlayerCamera = $CameraPivot/Camera
 
 @onready var character: CharacterController = $CharacterController
-@onready var animation_tree = $CharacterController/AnimationTree
-@onready var dash = $Dash
+@onready var animation_tree: PlayerAnimationTree = character.animation_tree
+@onready var dash: GPUParticles3D = $Dash
 @onready var inventory_manager: InventoryManager = $InventoryManager
 
-var is_pickup_collided = false
-var shoot_target = Vector3.ZERO
+var is_pickup_collided: bool = false
+var shoot_target: Vector3 = Vector3.ZERO
 
 @onready var player_input: PlayerInputManager
 

@@ -1,5 +1,5 @@
 extends Camera3D
-
+class_name PlayerCamera
 
 @export var aim_fov_change: int = -15 
 @export var dash_fov_change: int = 10

@@ -23,6 +23,7 @@ class_name CharacterController
 @export var right_hand_slot: BoneAttachment3D
 
 # Internals
+@onready var animation_tree: PlayerAnimationTree = $AnimationTree
 var current_skin: int = default_skin
 
 func _process(_delta: float) -> void:
