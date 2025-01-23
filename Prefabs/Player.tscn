@@ -11,13 +11,17 @@ radius = 0.3
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 55
+collision_mask = 3895
 script = ExtResource("1_s5b7i")
 health = 50
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_t21dw")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_mask = 3876
 
 [node name="Dash" parent="." instance=ExtResource("2_3ycw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853793, 0)

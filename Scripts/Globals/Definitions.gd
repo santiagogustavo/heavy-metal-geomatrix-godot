@@ -30,10 +30,14 @@ enum SceneType {
 enum SurfaceType {
 	LevelGeometry = 4,
 	WorldBoundary = 16,
+	InvisibleWall = 32,
 	Glass = 4 + 256,
 	Water = 4 + 512,
 	Stone = 4 + 1024,
-	Dirt = 4 + 2048
+	Dirt = 4 + 2048,
+	InvisibleWater = 32 + 512,
+	InvisibleStone = 32 + 1024,
+	InvisibleDirt = 32 + 2048
 }
 
 const Scenes: Dictionary = {

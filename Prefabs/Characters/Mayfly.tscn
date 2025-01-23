@@ -1,11 +1,9 @@
-[gd_scene load_steps=402 format=4 uid="uid://up8ndl5jvgkt"]
+[gd_scene load_steps=417 format=4 uid="uid://up8ndl5jvgkt"]
 
 [ext_resource type="PackedScene" uid="uid://bu2ontvhx7wrb" path="res://Models/Characters/Mayfly/Mayfly.glb" id="1_cyxfh"]
 [ext_resource type="Script" path="res://Scripts/Characters/AnimationTree.gd" id="2_5ab2o"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterController.gd" id="2_dvgvp"]
 [ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="3_acref"]
-[ext_resource type="AudioStream" uid="uid://bhhxa2te238dq" path="res://Sound/Characters/Common/Walk 1.wav" id="3_o6qel"]
-[ext_resource type="AudioStream" uid="uid://dl1hfingloqq2" path="res://Sound/Characters/Common/Walk 2.wav" id="4_8hxiw"]
 [ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="4_vu0fd"]
 [ext_resource type="AudioStream" uid="uid://yk2ao02e632c" path="res://Sound/Characters/Common/Jump.wav" id="5_hbrif"]
 [ext_resource type="Material" uid="uid://cgrkf6o8vg40a" path="res://Materials/Characters/Mayfly/Skins/Default/e391c87b.tres" id="5_ygvl7"]
@@ -131,6 +129,19 @@
 [ext_resource type="Animation" uid="uid://pqimki1m56ig" path="res://Animations/Characters/Mayfly/6 - Drop - Melee Light.res" id="114_7srqo"]
 [ext_resource type="Animation" uid="uid://weg81yuodu2q" path="res://Animations/Characters/Mayfly/6 - Drop - Weapon Double.res" id="115_bxgug"]
 [ext_resource type="Animation" uid="uid://dkqf6l0gffs43" path="res://Animations/Characters/Mayfly/6 - Drop - Weapon Single.res" id="116_elvyw"]
+[ext_resource type="AudioStream" uid="uid://c6fdnuma7csop" path="res://Sound/Characters/Common/Walk/Default1.wav" id="120_o2bf2"]
+[ext_resource type="AudioStream" uid="uid://johmg2thrx0n" path="res://Sound/Characters/Common/Walk/Default2.wav" id="121_qght7"]
+[ext_resource type="AudioStream" uid="uid://dixbb7ggps4s0" path="res://Sound/Characters/Common/Walk/Default3.wav" id="122_ln77e"]
+[ext_resource type="AudioStream" uid="uid://doa1rnje0k4ym" path="res://Sound/Characters/Common/Walk/Water1.wav" id="122_x484m"]
+[ext_resource type="AudioStream" uid="uid://udniviygvtdi" path="res://Sound/Characters/Common/Walk/Default4.wav" id="123_3j6ln"]
+[ext_resource type="AudioStream" uid="uid://byt5n7uinfftv" path="res://Sound/Characters/Common/Walk/Grass1.wav" id="124_117p6"]
+[ext_resource type="AudioStream" uid="uid://cr5m0xgud3gg4" path="res://Sound/Characters/Common/Walk/Grass2.wav" id="125_lhrl8"]
+[ext_resource type="AudioStream" uid="uid://cv6vylahb3vqd" path="res://Sound/Characters/Common/Walk/Grass3.wav" id="126_pxv2b"]
+[ext_resource type="AudioStream" uid="uid://dhexf8s57pexg" path="res://Sound/Characters/Common/Walk/Grass4.wav" id="127_kfuiw"]
+[ext_resource type="AudioStream" uid="uid://pqnxikvuyeen" path="res://Sound/Characters/Common/Walk/Stone1.wav" id="129_8f71m"]
+[ext_resource type="AudioStream" uid="uid://cstfxjx8xhnvo" path="res://Sound/Characters/Common/Walk/Stone2.wav" id="130_6jyjv"]
+[ext_resource type="AudioStream" uid="uid://dkasko6ejyut5" path="res://Sound/Characters/Common/Walk/Stone3.wav" id="131_ibxsv"]
+[ext_resource type="AudioStream" uid="uid://d2ir0uox4fyvp" path="res://Sound/Characters/Common/Walk/Stone4.wav" id="132_7qglv"]
 [ext_resource type="AnimationLibrary" uid="uid://drm1ym07vxfhk" path="res://Animations/Characters/Mayfly/Taunts/Taunts.res" id="149_afwlp"]
 [ext_resource type="AudioStream" uid="uid://caqbht7qwhd8r" path="res://Sound/Characters/Mayfly/Taunts/Entrance.wav" id="150_hjuvk"]
 [ext_resource type="AudioStream" uid="uid://dur2jfph1faay" path="res://Sound/Characters/Mayfly/Taunts/Win.wav" id="151_wf7mp"]
@@ -1572,9 +1583,35 @@ _data = {
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pmirb"]
 playback_mode = 1
-streams_count = 2
-stream_0/stream = ExtResource("3_o6qel")
-stream_1/stream = ExtResource("4_8hxiw")
+random_pitch = 1.2
+streams_count = 4
+stream_0/stream = ExtResource("120_o2bf2")
+stream_1/stream = ExtResource("121_qght7")
+stream_2/stream = ExtResource("122_ln77e")
+stream_3/stream = ExtResource("123_3j6ln")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rehgc"]
+playback_mode = 1
+random_pitch = 1.2
+streams_count = 4
+stream_0/stream = ExtResource("124_117p6")
+stream_1/stream = ExtResource("125_lhrl8")
+stream_2/stream = ExtResource("126_pxv2b")
+stream_3/stream = ExtResource("127_kfuiw")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1kfs8"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("122_x484m")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k7dku"]
+playback_mode = 1
+random_pitch = 1.2
+streams_count = 4
+stream_0/stream = ExtResource("129_8f71m")
+stream_1/stream = ExtResource("130_6jyjv")
+stream_2/stream = ExtResource("131_ibxsv")
+stream_3/stream = ExtResource("132_7qglv")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gvv5l"]
 streams_count = 3
@@ -1874,6 +1911,7 @@ xfade_curve = SubResource("Curve_f1nyk")
 reset = false
 switch_mode = 2
 advance_mode = 2
+advance_expression = "!is_jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rpode"]
 advance_mode = 2
@@ -1915,6 +1953,10 @@ advance_expression = "!is_on_floor"
 advance_mode = 2
 advance_expression = "is_on_floor"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k765a"]
+advance_mode = 2
+advance_expression = "is_jumping"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7op5x"]
 "states/Dash Loop/node" = SubResource("AnimationNodeBlendTree_cubfd")
 "states/Dash Loop/position" = Vector2(502.625, 372)
@@ -1932,8 +1974,8 @@ states/Land/node = SubResource("AnimationNodeBlendTree_m2q8j")
 states/Land/position = Vector2(652, -103.625)
 states/Walk/node = SubResource("AnimationNodeBlendTree_34ed1")
 states/Walk/position = Vector2(366, 100)
-transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_tqjij"), "Walk", "Dash Start", SubResource("AnimationNodeStateMachineTransition_n8fmi"), "Dash Start", "Dash Loop", SubResource("AnimationNodeStateMachineTransition_v5u1q"), "Dash Loop", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_wuuwg"), "Dash Start", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_736w8"), "Dash Stop", "Walk", SubResource("AnimationNodeStateMachineTransition_rfqys"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_pg6u1"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_n43x8"), "Land", "Walk", SubResource("AnimationNodeStateMachineTransition_ik7w8"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_rpode"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_y120s"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_dxhkg"), "Dash Loop", "Jump", SubResource("AnimationNodeStateMachineTransition_2g13o"), "Jump", "Double Jump", SubResource("AnimationNodeStateMachineTransition_1bxuv"), "Fall", "Double Jump", SubResource("AnimationNodeStateMachineTransition_apmyj"), "Double Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_kgbrc"), "Double Jump", "Land", SubResource("AnimationNodeStateMachineTransition_52ovb")]
-graph_offset = Vector2(57.53, -364.378)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_tqjij"), "Walk", "Dash Start", SubResource("AnimationNodeStateMachineTransition_n8fmi"), "Dash Start", "Dash Loop", SubResource("AnimationNodeStateMachineTransition_v5u1q"), "Dash Loop", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_wuuwg"), "Dash Start", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_736w8"), "Dash Stop", "Walk", SubResource("AnimationNodeStateMachineTransition_rfqys"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_pg6u1"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_n43x8"), "Land", "Walk", SubResource("AnimationNodeStateMachineTransition_ik7w8"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_rpode"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_y120s"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_dxhkg"), "Dash Loop", "Jump", SubResource("AnimationNodeStateMachineTransition_2g13o"), "Jump", "Double Jump", SubResource("AnimationNodeStateMachineTransition_1bxuv"), "Fall", "Double Jump", SubResource("AnimationNodeStateMachineTransition_apmyj"), "Double Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_kgbrc"), "Double Jump", "Land", SubResource("AnimationNodeStateMachineTransition_52ovb"), "Land", "Jump", SubResource("AnimationNodeStateMachineTransition_k765a")]
+graph_offset = Vector2(61.53, -228.378)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yquos"]
 animation = &"Taunts/Entrance"
@@ -2838,7 +2880,7 @@ transitions = ["Start", "Look - Empty", SubResource("AnimationNodeStateMachineTr
 graph_offset = Vector2(359.5, 653)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_kut72"]
-graph_offset = Vector2(-444, 38)
+graph_offset = Vector2(-583, 239.5)
 nodes/Blend/node = SubResource("AnimationNodeBlend2_bsv2t")
 nodes/Blend/position = Vector2(80, 160)
 nodes/Gameplay/node = SubResource("AnimationNodeBlend2_4874o")
@@ -2870,20 +2912,20 @@ bones/2/position = Vector3(0.24132, 0.114338, 0.15053)
 bones/2/rotation = Quaternion(0.877691, -0.0360352, 0.0668425, 0.473173)
 bones/3/position = Vector3(-0.0236415, 1.4761, 0.707735)
 bones/3/rotation = Quaternion(0.707107, -1.37679e-07, -1.37679e-07, 0.707107)
-bones/4/position = Vector3(2.20996e-16, 0.87539, -0.0745371)
+bones/4/position = Vector3(2.20996e-16, 0.854567, -0.0745371)
 bones/4/rotation = Quaternion(0, -0.365154, 0, 0.930947)
 bones/5/position = Vector3(-1.91572e-09, -1.45715e-08, 1.03642e-08)
 bones/5/rotation = Quaternion(0.151144, 0.159373, -0.0245526, 0.975271)
 bones/6/rotation = Quaternion(-0.121255, -0.168692, 0.0933067, 0.973722)
 bones/7/position = Vector3(0.0761895, 0.0237471, 0.0274088)
-bones/7/rotation = Quaternion(0.826085, 0.145396, -0.336818, 0.427782)
-bones/8/rotation = Quaternion(0.417249, 1.05179e-08, 4.13575e-07, 0.908792)
+bones/7/rotation = Quaternion(0.812722, 0.15742, -0.332822, 0.451588)
+bones/8/rotation = Quaternion(0.463024, 2.4188e-08, 4.60271e-07, 0.886346)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.538627, 0.17807, 0.165195, 0.806773)
-bones/10/rotation = Quaternion(0.912873, -0.135368, 0.184591, 0.338031)
-bones/11/rotation = Quaternion(0.448708, 2.71758e-09, 2.35321e-07, 0.893678)
+bones/9/rotation = Quaternion(-0.555287, 0.181665, 0.163567, 0.794921)
+bones/10/rotation = Quaternion(0.903422, -0.143543, 0.183275, 0.360047)
+bones/11/rotation = Quaternion(0.491593, -3.94565e-09, 2.70112e-07, 0.870825)
 bones/11/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(-0.669235, -0.170171, -0.169628, 0.703131)
+bones/12/rotation = Quaternion(-0.685074, -0.175666, -0.169412, 0.686378)
 bones/13/position = Vector3(6.19581e-10, 0.281348, 0.0565469)
 bones/13/rotation = Quaternion(-0.707107, -8.42937e-08, 8.42937e-08, 0.707107)
 bones/13/scale = Vector3(1, 1, 1)
@@ -2924,21 +2966,21 @@ bones/33/position = Vector3(-0.199665, 0.114338, -0.236088)
 bones/33/rotation = Quaternion(0.863059, -0.093279, 0.173023, 0.465285)
 
 [node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="0"]
-transform = Transform3D(-0.929045, -0.241796, 0.280019, 0.368359, -0.675047, 0.639237, 0.0344607, 0.697027, 0.716216, -0.0270639, 1.30377, 0.0217682)
+transform = Transform3D(-0.929169, -0.241568, 0.279803, 0.368011, -0.675807, 0.638634, 0.0348192, 0.69637, 0.716838, -0.0270639, 1.28383, 0.0217682)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("3_acref")
 properties = SubResource("Resource_3nc00")
 
 [node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.0358111, -0.676773, -0.73532, -0.368358, -0.675046, 0.639237, -0.928994, 0.293753, -0.225121, -0.093792, 1.30377, -0.0400965)
+transform = Transform3D(-0.0354628, -0.676134, -0.735924, -0.368011, -0.675806, 0.638634, -0.929145, 0.293476, -0.224859, -0.093792, 1.28383, -0.0400965)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("3_acref")
 properties = SubResource("Resource_3nc00")
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.733325, 0.679878, -2.9641e-07, 2.38418e-07, 1.78814e-07, 1, 0.679878, -0.733325, -3.09666e-08, -0.038445, 1.15674, -0.0330699)
+transform = Transform3D(0.733325, 0.679878, -2.9641e-07, 2.38418e-07, 1.78814e-07, 1, 0.679878, -0.733325, -3.09666e-08, -0.038445, 1.13592, -0.0330699)
 bone_name = "CoreIK"
 bone_idx = 13
 
@@ -2946,7 +2988,7 @@ bone_idx = 13
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
 
 [node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="3"]
-transform = Transform3D(-0.981107, -0.0298178, 0.191153, 0.19345, -0.163341, 0.967417, 0.00237694, 0.986119, 0.166023, -0.289731, 1.14428, -0.0761778)
+transform = Transform3D(-0.981107, -0.0298178, 0.191153, 0.19345, -0.163341, 0.967417, 0.00237694, 0.986119, 0.166023, -0.289731, 1.12346, -0.0761778)
 bone_name = "Hand.R"
 bone_idx = 26
 
@@ -3032,11 +3074,31 @@ max_db = 0.0
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="Walk" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="WalkDefault" type="AudioStreamPlayer3D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_pmirb")
-volume_db = -15.0
+volume_db = -18.0
 max_db = 0.0
-pitch_scale = 0.64
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="WalkDirt" type="AudioStreamPlayer3D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_rehgc")
+volume_db = -20.0
+max_db = 0.0
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="WalkWater" type="AudioStreamPlayer3D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_1kfs8")
+volume_db = -22.0
+max_db = 0.0
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[node name="WalkStone" type="AudioStreamPlayer3D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_k7dku")
+volume_db = -12.0
+max_db = 0.0
 bus = &"Effects"
 attenuation_filter_db = 0.0
 

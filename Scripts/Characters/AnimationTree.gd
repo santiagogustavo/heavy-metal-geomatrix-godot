@@ -1,7 +1,10 @@
 extends AnimationTree
 class_name PlayerAnimationTree
 
-@onready var walk_sfx: AudioStreamPlayer3D = get_parent().get_node('SFX/Walk')
+@onready var walk_dirt_sfx: AudioStreamPlayer3D = get_parent().get_node('SFX/WalkDirt')
+@onready var walk_stone_sfx: AudioStreamPlayer3D = get_parent().get_node('SFX/WalkStone')
+@onready var walk_water_sfx: AudioStreamPlayer3D = get_parent().get_node('SFX/WalkWater')
+@onready var walk_default_sfx: AudioStreamPlayer3D = get_parent().get_node('SFX/WalkDefault')
 
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
 var last_combo_animation: StringName
@@ -10,6 +13,7 @@ var direction: Vector2 = Vector2.ZERO
 var look: Vector2 = Vector2.ZERO
 
 var equip: Definitions.EquipType = Definitions.EquipType.Body
+var current_collision_surface: Definitions.SurfaceType = Definitions.SurfaceType.LevelGeometry
 
 var is_walking: bool = false
 var is_dashing: bool = false
@@ -42,8 +46,23 @@ func _process(delta: float) -> void:
 	update_double_jump()
 
 func play_walk_sound_if_walking() -> void:
-	if is_walking:
-		walk_sfx.playing = true
+	if !is_walking:
+		return
+	play_surface_walk_sound()
+
+func play_surface_walk_sound() -> void:
+	match current_collision_surface:
+		Definitions.SurfaceType.Dirt, Definitions.SurfaceType.InvisibleDirt:
+			walk_dirt_sfx.playing = true
+			pass
+		Definitions.SurfaceType.Stone, Definitions.SurfaceType.InvisibleStone:
+			walk_stone_sfx.playing = true
+			pass
+		Definitions.SurfaceType.Water, Definitions.SurfaceType.InvisibleWater:
+			walk_water_sfx.playing = true
+			pass
+		_:
+			walk_default_sfx.playing = true
 
 func update_pickup() -> void:
 	if is_picking_up:

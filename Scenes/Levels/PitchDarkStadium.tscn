@@ -284,6 +284,6 @@ shape = SubResource("BoxShape3D_jtulh")
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_ov48a")
 autoplay = true
-bus = &"Music"
+bus = &"Game"
 
 [editable path="LevelGeometry/Pitch Dark Stadium"]

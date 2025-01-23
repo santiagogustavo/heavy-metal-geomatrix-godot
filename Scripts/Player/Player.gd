@@ -19,6 +19,7 @@ enum PlayerType {
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera: PlayerCamera = $CameraPivot/Camera
 @onready var dash: GPUParticles3D = $Dash
+@onready var raycast: RayCast3D = $RayCast3D
 
 # Instances
 var character: CharacterController
@@ -54,6 +55,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	compute_gravity(delta)
 	compute_movement()
+	if raycast.is_colliding():
+		collide(raycast.get_collider())
 
 func _process(_delta: float) -> void:
 	update_internals()
@@ -69,6 +72,9 @@ func _exit_tree() -> void:
 		player_ui.queue_free()
 	if player_input:
 		player_input.queue_free()
+
+func collide(collision: StaticBody3D):
+	animation_tree.current_collision_surface = collision.collision_layer
 
 func heal_player(amount: int) -> void:
 	health += amount

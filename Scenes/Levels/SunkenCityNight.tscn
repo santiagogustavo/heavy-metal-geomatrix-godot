@@ -320,7 +320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 8.53885, -24)
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_rq1vi")
 autoplay = true
-bus = &"Music"
+bus = &"Game"
 
 [editable path="Level Geometry/Sunken City Night"]
 [editable path="Spawner"]

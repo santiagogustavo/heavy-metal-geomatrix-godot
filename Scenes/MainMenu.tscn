@@ -1070,4 +1070,4 @@ parameters/conditions/selected = false
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_2ynpi")
 autoplay = true
-bus = &"Music"
+bus = &"Menus"
