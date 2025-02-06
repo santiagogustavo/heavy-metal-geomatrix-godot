@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://csbiy2u2aafyp"]
+
+[ext_resource type="ArrayMesh" uid="uid://bg2vnsb73c8uj" path="res://Models/Characters/Kassey/Skins/Mesh.res" id="1_cssd2"]
+
+[node name="Default" type="MeshInstance3D"]
+layers = 4
+mesh = ExtResource("1_cssd2")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3cmmrs2i1iwx"]
+
+[ext_resource type="PackedScene" uid="uid://mfit0jyuixrv" path="res://Prefabs/Characters/Slash/Base.tscn" id="1_3hy15"]
+[ext_resource type="PackedScene" uid="uid://c4pmv7hn2c26i" path="res://Prefabs/Characters/Common/GameplayAnimationTree.tscn" id="2_oeekc"]
+
+[node name="Slash" instance=ExtResource("1_3hy15")]
+animation_tree_reference = ExtResource("2_oeekc")
+
+[node name="BoobJiggle_L" parent="Model/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.69761, 0.417837, 0.582024, 0.24436, -0.624882, 0.741493, 0.673519, 0.659496, 0.333821, 0.0550911, 1.21118, 0.104117)
+
+[node name="BoobJiggle_R" parent="Model/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.599269, -0.166677, -0.783004, -0.464572, -0.724138, 0.509704, -0.651958, 0.669211, 0.35652, -0.0346066, 1.19595, 0.105609)
+
+[editable path="Model"]

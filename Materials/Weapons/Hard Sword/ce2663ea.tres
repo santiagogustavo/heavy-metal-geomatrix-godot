@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://wkmfb21tqqok"]
+
+[ext_resource type="Texture2D" uid="uid://be602pm0vu1cg" path="res://Textures/Weapons/Hard Sword/ce2663ea.png" id="1_7dxcr"]
+[ext_resource type="Texture2D" uid="uid://chxdegpvo74o" path="res://Textures/Weapons/Hard Sword/ce2663ea_spec.png" id="2_3elrk"]
+
+[resource]
+albedo_texture = ExtResource("1_7dxcr")
+ao_enabled = true
+ao_texture = ExtResource("2_3elrk")

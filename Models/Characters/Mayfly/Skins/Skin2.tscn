@@ -1,0 +1,17 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxt1kjkfh8sfq"]
+
+[ext_resource type="PackedScene" uid="uid://dv3vruxl2ka7g" path="res://Models/Characters/Mayfly/Skins/Default.tscn" id="1_1xthh"]
+[ext_resource type="Material" uid="uid://ipc745rn2nae" path="res://Materials/Characters/Mayfly/Skins/Skin2/c5c3676c.tres" id="7_6lywa"]
+[ext_resource type="Material" uid="uid://bwpsumt1xh5qu" path="res://Materials/Characters/Mayfly/Skins/Skin2/a9f51894.tres" id="8_8owty"]
+[ext_resource type="Material" uid="uid://u8eyc1tl0kje" path="res://Materials/Characters/Mayfly/Skins/Skin2/101a1f28.tres" id="9_xjrfg"]
+[ext_resource type="Material" uid="uid://b171j6ddxdhog" path="res://Materials/Characters/Mayfly/Skins/Skin2/6a5a945a.tres" id="10_3ow4y"]
+[ext_resource type="Material" uid="uid://w7lym5chsiit" path="res://Materials/Characters/Mayfly/Skins/Skin2/67076af9.tres" id="11_vtsep"]
+[ext_resource type="Material" uid="uid://tdjivpqw4l7a" path="res://Materials/Characters/Mayfly/Skins/Skin2/dca3a4fe.tres" id="12_fswnq"]
+
+[node name="Skin2" instance=ExtResource("1_1xthh")]
+surface_material_override/0 = ExtResource("7_6lywa")
+surface_material_override/1 = ExtResource("8_8owty")
+surface_material_override/2 = ExtResource("9_xjrfg")
+surface_material_override/3 = ExtResource("10_3ow4y")
+surface_material_override/4 = ExtResource("11_vtsep")
+surface_material_override/5 = ExtResource("12_fswnq")

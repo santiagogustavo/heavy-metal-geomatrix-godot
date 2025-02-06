@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dlxrfvcvos53u"]
+
+[ext_resource type="FontFile" uid="uid://dbekbfxdw886e" path="res://Fonts/Valorax.otf" id="1_ywady"]
+
+[resource]
+base_font = ExtResource("1_ywady")
+variation_embolden = 2.0

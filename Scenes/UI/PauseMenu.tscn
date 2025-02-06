@@ -5,10 +5,10 @@
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="2_yn0ir"]
 [ext_resource type="Texture2D" uid="uid://rmxp2qxw6t4k" path="res://Textures/UI/Menus/Pause Menu/decoration.png" id="3_binch"]
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="4_g42m2"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/ButtonResume.gd" id="5_1g2l3"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/ButtonOptions.gd" id="7_5wxh1"]
+[ext_resource type="Script" uid="uid://brshwipln3iac" path="res://Scripts/UI/PauseMenu/ButtonResume.gd" id="5_1g2l3"]
+[ext_resource type="Script" uid="uid://54ftr5uv0bml" path="res://Scripts/UI/PauseMenu/ButtonOptions.gd" id="7_5wxh1"]
 [ext_resource type="Script" path="res://Scripts/UI/PauseMenu/ButtonExit.gd" id="8_hawb2"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/MatchInfoLabel.gd" id="8_wdjjr"]
+[ext_resource type="Script" uid="uid://3u3w0nor6bb2" path="res://Scripts/UI/PauseMenu/MatchInfoLabel.gd" id="8_wdjjr"]
 [ext_resource type="AudioStream" uid="uid://dbyq16y3ws57u" path="res://Sound/UI/PauseMenu/750432__rescopicsound__ui-alert-menu-modern-interface-pop-up-small.mp3" id="11_fcmb8"]
 [ext_resource type="AudioStream" uid="uid://dfxb40vgqo23d" path="res://Sound/UI/PauseMenu/750430__rescopicsound__ui-alert-menu-modern-interface-deny-small.mp3" id="12_w08al"]
 [ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="13_2hjct"]
@@ -163,7 +163,7 @@ theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("4_g42m2")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
 keep_pressed_outside = true
 text = "RESUME GAME"
@@ -183,7 +183,7 @@ theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("4_g42m2")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
 keep_pressed_outside = true
 text = "OPTIONS"
@@ -204,7 +204,7 @@ theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("4_g42m2")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
 keep_pressed_outside = true
 text = "EXIT"

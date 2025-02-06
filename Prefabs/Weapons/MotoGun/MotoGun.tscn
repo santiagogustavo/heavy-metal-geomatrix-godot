@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://7xmuvkjde0ri" path="res://Models/Weapons/Moto Gun.glb" id="1_b0xym"]
 [ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_imp6h"]
 [ext_resource type="PackedScene" uid="uid://ssac5qbrc5v6" path="res://Prefabs/Weapons/MotoGun/Bullet.tscn" id="2_5sidx"]
-[ext_resource type="Script" path="res://Scripts/Weapons/GunAnimationTree.gd" id="2_fdte5"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="2_fdte5"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_r4mkb"]
 [ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="3_ws2xp"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="4_nd3bl"]
@@ -422,8 +422,8 @@ eject_hole = NodePath("EjectHole")
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(-0.000274402, 0.00896966, -0.0172379)
-bones/2/position = Vector3(0, 0.01, 0.00158699)
+bones/1/position = Vector3(0.000472488, 0.00863331, -0.0172)
+bones/2/position = Vector3(0, 0.01, 0.0004)
 
 [node name="object_0" parent="Moto Gun/Armature/Skeleton3D" index="0"]
 layers = 8
@@ -471,6 +471,7 @@ draw_pass_1 = SubResource("QuadMesh_n1467")
 
 [node name="SmokeL" type="GPUParticles3D" parent="."]
 transform = Transform3D(-0.717573, 0.277028, -0.639019, 0.463262, 0.874949, -0.140901, 0.520075, -0.39714, -0.756176, -0.482, 0.349, -0.305)
+emitting = false
 amount = 5
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_h2qjb")
@@ -478,6 +479,7 @@ draw_pass_1 = SubResource("QuadMesh_ofont")
 
 [node name="SmokeR" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.697317, -0.314907, -0.643881, 0.512496, 0.847077, 0.140742, 0.501096, -0.428128, 0.75207, 0.481962, 0.348832, -0.305018)
+emitting = false
 amount = 5
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_h2qjb")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnwwwjk7llw03"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/TauntAnimationTree.gd" id="1_83u3g"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sm45f"]
+animation = &"Taunts/Entrance"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_2cj6x"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ejp6a"]
+graph_offset = Vector2(-293, 52)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_sm45f")
+nodes/Animation/position = Vector2(-150, 130)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_2cj6x")
+nodes/TimeScale/position = Vector2(101.2, 184.25)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wtnkg"]
+animation = &"Taunts/Lose"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ccg6q"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mop0a"]
+graph_offset = Vector2(-403, 17)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_wtnkg")
+nodes/Animation/position = Vector2(-140, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ccg6q")
+nodes/TimeScale/position = Vector2(100, 120)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yg71f"]
+animation = &"Taunts/Player Select Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_85fey"]
+animation = &"Taunts/Win"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ykuss"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wiqwl"]
+graph_offset = Vector2(-239, 47)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_85fey")
+nodes/Animation/position = Vector2(-153.45, 154)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ykuss")
+nodes/TimeScale/position = Vector2(100, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_upanr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8os1k"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"entrance"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jgyev"]
+states/Entrance/node = SubResource("AnimationNodeBlendTree_ejp6a")
+states/Entrance/position = Vector2(281.5, -80.4375)
+states/Lose/node = SubResource("AnimationNodeBlendTree_mop0a")
+states/Lose/position = Vector2(483.844, 0)
+"states/Player Select Idle/node" = SubResource("AnimationNodeAnimation_yg71f")
+"states/Player Select Idle/position" = Vector2(484, 100.125)
+states/Win/node = SubResource("AnimationNodeBlendTree_wiqwl")
+states/Win/position = Vector2(483.688, -80.375)
+transitions = ["Start", "Player Select Idle", SubResource("AnimationNodeStateMachineTransition_upanr"), "Player Select Idle", "Entrance", SubResource("AnimationNodeStateMachineTransition_8os1k")]
+graph_offset = Vector2(102, -80)
+
+[node name="AnimationTree" type="AnimationTree"]
+root_node = NodePath("../Model")
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_jgyev")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/conditions/entrance = false
+parameters/Entrance/TimeScale/scale = 1.2
+parameters/Lose/TimeScale/scale = 2.75
+parameters/Win/TimeScale/scale = 0.95
+script = ExtResource("1_83u3g")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dh5kh8x4jwl62"
+path="res://.godot/imported/Pickup 1.wav-db2a34e5fe3dd89d8ad81276398c568a.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Kassey/Pickup/Pickup 1.wav"
+dest_files=["res://.godot/imported/Pickup 1.wav-db2a34e5fe3dd89d8ad81276398c568a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

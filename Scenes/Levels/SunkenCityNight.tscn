@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://cfdmaidpgq6oq"]
+[gd_scene load_steps=78 format=3 uid="uid://cfdmaidpgq6oq"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_v8yub"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_x780f"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_arequ"]
 [ext_resource type="PackedScene" uid="uid://nkwpbcej5qsd" path="res://Models/Levels/Sunken City Night/Sunken City Night.glb" id="2_ejg02"]
+[ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="2_jhuxj"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="3_337c6"]
 [ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="4_6k4rg"]
 [ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="5_c85kp"]
@@ -15,15 +16,27 @@
 [ext_resource type="AudioStream" uid="uid://cpv53h1eynfwq" path="res://Sound/Levels/SunkenCityNight/rain_loop.wav" id="12_i5l5g"]
 [ext_resource type="Texture2D" uid="uid://c2axca041ro8" path="res://Textures/Lens Flares/flare1.png" id="12_te444"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="13_28rel"]
+[ext_resource type="Texture2D" uid="uid://bgidypo45slaj" path="res://Textures/Levels/Sunken City Night/neon_sign_1_scaffold.png" id="14_8c3ea"]
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="14_itd51"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="14_mbsx2"]
+[ext_resource type="Texture2D" uid="uid://bjydtbiwp7bm" path="res://Textures/Levels/Sunken City Night/neon_sign_1.png" id="14_u3hmv"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="15_5qahw"]
+[ext_resource type="Texture2D" uid="uid://bkiirw4mcsqoy" path="res://Textures/Levels/Sunken City Night/neon_sign_1_emm.png" id="15_js3wv"]
 [ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="16_284yf"]
 [ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="16_kqeaa"]
+[ext_resource type="Texture2D" uid="uid://cuelhlxjlmxtq" path="res://Textures/Levels/Sunken City Night/neon_sign_3.png" id="17_yyijs"]
+[ext_resource type="Texture2D" uid="uid://j5mqtnau4otl" path="res://Textures/Levels/Sunken City Night/neon_sign_2.png" id="18_gppi3"]
 [ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="19_4j3hn"]
+[ext_resource type="Texture2D" uid="uid://cv3wy4a10swgm" path="res://Textures/Levels/Sunken City Night/neon_sign_2_emm.png" id="19_tje26"]
+[ext_resource type="Texture2D" uid="uid://cf7vxkny4oigw" path="res://Textures/Levels/Sunken City Night/scaffold.png" id="20_pjyb5"]
+[ext_resource type="Texture2D" uid="uid://dbb6w4lrnl6lq" path="res://Textures/Levels/Sunken City Night/neon_sign_4.png" id="21_4yqmx"]
 [ext_resource type="AudioStream" uid="uid://isrukokcyqys" path="res://Music/SunkenCityNight/SunkenCityNightOst1.mp3" id="22_2go6x"]
+[ext_resource type="Texture2D" uid="uid://hycwwu4qihhb" path="res://Textures/Levels/Sunken City Night/neon_sign_4_emm.png" id="22_7niyf"]
+[ext_resource type="Texture2D" uid="uid://h3ll8kw65on7" path="res://Textures/Levels/Sunken City Night/neon_sign_6.jpg" id="23_6r3uq"]
 [ext_resource type="AudioStream" uid="uid://c7d4hjvtwq004" path="res://Music/SunkenCityNight/SunkenCityNightOst2.mp3" id="23_qfqmc"]
+[ext_resource type="Shader" path="res://Materials/Shaders/3dGlitch.gdshader" id="24_gl3ra"]
 [ext_resource type="AudioStream" uid="uid://bxdcda0l5k8rf" path="res://Music/SunkenCityNight/SunkenCityNightOst3.mp3" id="24_y4q1x"]
+[ext_resource type="Texture2D" uid="uid://ci4wiams1s2og" path="res://Textures/Levels/Sunken City Night/neon_sign_5.jpg" id="25_53wty"]
 [ext_resource type="AudioStream" uid="uid://m7w5l1kyndam" path="res://Music/SunkenCityNight/SunkenCityNightOst4.mp3" id="25_hbknm"]
 [ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
 
@@ -103,6 +116,134 @@ grow_amount = -8.199
 material = SubResource("StandardMaterial3D_rys5s")
 size = Vector2(5, 5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4736"]
+transparency = 4
+albedo_texture = ExtResource("14_8c3ea")
+emission_texture = ExtResource("15_js3wv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6p6bx"]
+material = SubResource("StandardMaterial3D_v4736")
+size = Vector2(20, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4cqd"]
+transparency = 4
+albedo_texture = ExtResource("14_u3hmv")
+emission_enabled = true
+emission_texture = ExtResource("15_js3wv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gqv5h"]
+material = SubResource("StandardMaterial3D_l4cqd")
+size = Vector2(20, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq2ra"]
+transparency = 4
+albedo_texture = ExtResource("17_yyijs")
+emission_enabled = true
+emission_texture = ExtResource("17_yyijs")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a7mi7"]
+material = SubResource("StandardMaterial3D_eq2ra")
+size = Vector2(10, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnt1d"]
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("18_gppi3")
+emission_enabled = true
+emission_texture = ExtResource("19_tje26")
+ao_texture = ExtResource("19_tje26")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a2ifl"]
+material = SubResource("StandardMaterial3D_tnt1d")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6m3x"]
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("20_pjyb5")
+emission_texture = ExtResource("19_tje26")
+ao_texture = ExtResource("19_tje26")
+
+[sub_resource type="QuadMesh" id="QuadMesh_emisd"]
+material = SubResource("StandardMaterial3D_s6m3x")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7kij"]
+transparency = 4
+albedo_texture = ExtResource("21_4yqmx")
+emission_enabled = true
+emission_texture = ExtResource("22_7niyf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_y6s1b"]
+material = SubResource("StandardMaterial3D_v7kij")
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7smu5"]
+render_priority = 0
+shader = ExtResource("24_gl3ra")
+shader_parameter/shake_power = 0.5
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.5
+shader_parameter/emit = true
+shader_parameter/main_tex = ExtResource("25_53wty")
+shader_parameter/emission_tex = ExtResource("23_6r3uq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_q1cbc"]
+material = SubResource("ShaderMaterial_7smu5")
+size = Vector2(10, 10)
+
+[sub_resource type="Animation" id="Animation_gxg6k"]
+resource_name = "Idle"
+length = 20.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.909317, -2.08043, -0.507891), Vector3(-0.909317, -2.08043, -0.507891), Vector3(-0.909317, -0.647517, -0.507891), Vector3(-0.909317, -0.647517, -0.507891), Vector3(-0.909317, -2.08043, -0.507891)]
+}
+
+[sub_resource type="Animation" id="Animation_3h3ak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.910028, -1.62107, -0.50784)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3b7db"]
+_data = {
+"Idle": SubResource("Animation_gxg6k"),
+"RESET": SubResource("Animation_3h3ak")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyscj"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pv550"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jknrq"]
+states/Idle/node = SubResource("AnimationNodeAnimation_jyscj")
+states/Idle/position = Vector2(495, 94)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_pv550")]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8uua"]
 size = Vector3(14, 0, 18)
 
@@ -140,10 +281,15 @@ stream_4/stream = ExtResource("26_jeo0a")
 
 [node name="SunkenCityNight" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_v8yub")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "snapshot_camera") instance=ExtResource("1_v8yub")]
 level_name = "Sunken City Night"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
+randomize_spawn = true
 is_rainy = true
+snapshot_camera = NodePath("../SnapshotCamera")
+
+[node name="SnapshotCamera" parent="." instance=ExtResource("2_jhuxj")]
+transform = Transform3D(-0.258819, -0.314475, -0.913301, 0, 0.945519, -0.325568, 0.965926, -0.0842632, -0.244718, -20.03, 11.16, -33.74)
 
 [node name="Spawn Points" type="Node3D" parent="."]
 
@@ -264,15 +410,78 @@ shape = SubResource("ConcavePolygonShape3D_humt8")
 [node name="Lights" type="Node3D" parent="Level Geometry"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Level Geometry"]
-transform = Transform3D(-0.91799, -0.387672, -0.0836909, -0.298448, 0.53627, 0.789521, -0.261194, 0.74975, -0.607991, -32.2591, 36.3951, -55.7242)
+transform = Transform3D(-0.91799, -0.387672, -0.0836909, -0.298448, 0.53627, 0.789521, -0.261194, 0.74975, -0.607991, -32.1587, 35.8691, -56.4211)
 light_color = Color(1, 0.992157, 0.811765, 1)
 light_energy = 20.0
 shadow_enabled = true
 spot_range = 100.0
 spot_angle = 30.18
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/SpotLight3D"]
+[node name="Flare" type="MeshInstance3D" parent="Level Geometry/SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, -0.266492, 7.45058e-09)
 mesh = SubResource("QuadMesh_kfi7b")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level Geometry"]
+transform = Transform3D(-0.427362, 0.664572, -0.612948, -0.298448, 0.53627, 0.789521, 0.853399, 0.520345, -0.0308412, -1.7016, 35.8691, -72.8256)
+light_color = Color(1, 0.992157, 0.811765, 1)
+light_energy = 20.0
+shadow_enabled = true
+spot_range = 100.0
+spot_angle = 30.18
+
+[node name="Flare" type="MeshInstance3D" parent="Level Geometry/SpotLight3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, -0.266492, 7.45058e-09)
+mesh = SubResource("QuadMesh_kfi7b")
+
+[node name="NeonSign1" type="Node3D" parent="Level Geometry"]
+transform = Transform3D(1.64848, 0, 0.477465, 0, 1.87614, 0, -0.895794, 0, 0.87865, -16.8765, 39.0877, -67.273)
+
+[node name="Scaffold" type="MeshInstance3D" parent="Level Geometry/NeonSign1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.178689)
+mesh = SubResource("QuadMesh_6p6bx")
+skeleton = NodePath("../..")
+
+[node name="Neon" type="MeshInstance3D" parent="Level Geometry/NeonSign1"]
+mesh = SubResource("QuadMesh_gqv5h")
+skeleton = NodePath("../..")
+
+[node name="NeonSign2" type="Node3D" parent="Level Geometry"]
+transform = Transform3D(0.230854, 0.0818496, -0.997458, -2.69551, 2.12922, -0.0380094, 2.1207, 2.69743, 0.0602693, 63.9947, 31.7505, 75.9597)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign2"]
+mesh = SubResource("QuadMesh_a7mi7")
+
+[node name="NeonSign3" type="Node3D" parent="Level Geometry"]
+transform = Transform3D(1.93971, 0.567005, -0.514946, -0.151809, 2.21523, 0.335991, 1.33124, -0.573552, 0.788632, 89.2698, 30.237, -84.0089)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.184408)
+mesh = SubResource("QuadMesh_a2ifl")
+
+[node name="Scaffold" type="MeshInstance3D" parent="Level Geometry/NeonSign3"]
+mesh = SubResource("QuadMesh_emisd")
+
+[node name="NeonSign4" type="Node3D" parent="Level Geometry"]
+transform = Transform3D(-0.706408, 0.0312115, 1.63706, -0.0814544, 1.04115, -0.0766893, -2.06758, -0.0516808, -0.556297, -150.411, 18.8155, -43.2351)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign4"]
+mesh = SubResource("QuadMesh_y6s1b")
+
+[node name="NeonSign5" type="Node3D" parent="Level Geometry"]
+transform = Transform3D(0.514199, -0.00671499, -0.982039, 0.0119726, 7.2716, -0.000386486, 3.34024, -0.0250304, 0.151177, 173.731, 68.9362, 77.1949)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign5"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_q1cbc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level Geometry"]
+libraries = {
+"": SubResource("AnimationLibrary_3b7db")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Level Geometry"]
+tree_root = SubResource("AnimationNodeStateMachine_jknrq")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("13_28rel")]
 pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_kqeaa"), ExtResource("16_284yf"), ExtResource("19_4j3hn")])

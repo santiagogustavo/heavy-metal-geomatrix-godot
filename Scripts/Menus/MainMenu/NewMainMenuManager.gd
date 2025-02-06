@@ -28,7 +28,7 @@ func _ready() -> void:
 		option.connect("focus_entered", func ():
 			cursor_sfx.play()
 			description_label.text = option.description
-			InputManager.vibrate_controller(0, 0.5, 0, 0.1)
+			InputManager.vibrate_controller(0, 1.0, 0, 0.1)
 		)
 		option.connect("button_down", func ():
 			if selected:
@@ -36,11 +36,11 @@ func _ready() -> void:
 			selected = option.close_on_select
 			if selected:
 				select1_sfx.play()
-				InputManager.vibrate_controller(0, 0, 1, 0.5)
+				InputManager.vibrate_controller(0, 1.0, 1.0, 0.3)
 				connect("finished", option.on_menu_selected)
 			else:
 				select2_sfx.play()
-				InputManager.vibrate_controller(0, 0, 1, 0.1)
+				InputManager.vibrate_controller(0, 1.0, 0.0, 0.3)
 				option.on_menu_selected()
 		)
 		option.connect("mouse_entered", func (): option.grab_focus())

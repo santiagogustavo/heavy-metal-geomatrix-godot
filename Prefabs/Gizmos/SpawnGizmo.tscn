@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://btc7adytiw7hd"]
+
+[ext_resource type="Texture2D" uid="uid://dlj41w6qnkdjk" path="res://Textures/Utils/position-marker.png" id="1_6hxky"]
+[ext_resource type="Script" path="res://Scripts/Gizmos/GizmoController.gd" id="2_g5tc4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lvdj"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 1, 0.8, 1)
+albedo_texture = ExtResource("1_6hxky")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_xqai5"]
+material = SubResource("StandardMaterial3D_0lvdj")
+size = Vector2(2, 2)
+
+[node name="SpawnGizmo" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+layers = 32
+mesh = SubResource("QuadMesh_xqai5")
+script = ExtResource("2_g5tc4")

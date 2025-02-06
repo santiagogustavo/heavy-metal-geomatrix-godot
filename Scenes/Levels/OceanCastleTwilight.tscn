@@ -1,10 +1,11 @@
-[gd_scene load_steps=58 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=59 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="1_shppn"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_tcn3d"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_bxirk"]
 [ext_resource type="Texture2D" uid="uid://24rcfmn5xmcj" path="res://Textures/Skyboxes/Twilight Cloudy.png" id="2_p2odm"]
-[ext_resource type="Script" uid="uid://cqve5bpmljhwj" path="res://Scripts/Levels/Sun.gd" id="3_m0b06"]
+[ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="2_ua1bw"]
+[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="3_m0b06"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="4_xw4kr"]
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="5_g0vas"]
 [ext_resource type="Texture2D" uid="uid://djdwcspbmak5r" path="res://Textures/Levels/5a480546_nrm.png" id="6_1xlmj"]
@@ -270,11 +271,15 @@ stream_4/stream = ExtResource("26_j32no")
 
 [node name="Ocean Castle Twilight" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_tcn3d")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "snapshot_camera") instance=ExtResource("1_tcn3d")]
 level_name = "Ocean Castle Twilight"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 randomize_spawn = true
 is_sunny = true
+snapshot_camera = NodePath("../SnapshotCamera")
+
+[node name="SnapshotCamera" parent="." instance=ExtResource("2_ua1bw")]
+transform = Transform3D(-0.71934, 0.0846576, 0.689481, 0, 0.992546, -0.121869, -0.694658, -0.0876655, -0.713978, -12.8, 1.13, -8.98)
 
 [node name="Spawn Points" type="Node3D" parent="."]
 

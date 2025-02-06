@@ -1,6 +1,7 @@
 extends Node
 class_name MatchManager
 
+signal round_start
 signal started
 
 @export_subgroup("Round Settings")
@@ -57,6 +58,7 @@ func start_round() -> bool:
 	current_round += 1
 	is_final_round = current_round == (rounds * 2) - 1
 	is_player_input_locked = true
+	round_start.emit()
 	announcer.announce_round()
 	announcer.rounds_manager.current_round = current_round
 	announcer.rounds_manager.is_final = is_final_round
@@ -76,4 +78,5 @@ func end_round(timeout: bool = false) -> bool:
 		announcer.end_round_ko()
 	timer.stop()
 	round_status = RoundStatus.Ended
+	is_player_input_locked = true
 	return true

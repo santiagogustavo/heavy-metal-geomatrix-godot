@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://gf5ykakjbxfc"]
+
+[ext_resource type="PackedScene" uid="uid://dfansvoctxs5e" path="res://Prefabs/Characters/Kassey/Base.tscn" id="1_l8cbs"]
+[ext_resource type="PackedScene" uid="uid://c4pmv7hn2c26i" path="res://Prefabs/Characters/Common/GameplayAnimationTree.tscn" id="2_ee4ut"]
+
+[node name="Kassey" instance=ExtResource("1_l8cbs")]
+animation_tree_reference = ExtResource("2_ee4ut")
+
+[node name="Model" parent="." index="0"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
+
+[node name="BoobJiggle_L" parent="Model/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.929088, -0.241716, 0.279944, 0.368742, -0.546604, 0.751834, -0.0287119, 0.801747, 0.596974, -0.0271146, 1.26934, -0.0969088)
+
+[node name="BoobJiggle_R" parent="Model/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.0356885, -0.676548, -0.735533, -0.521266, -0.615348, 0.591293, -0.852647, 0.404511, -0.330701, -0.0938427, 1.25879, -0.157867)
+
+[node name="Body Slot" parent="Model/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.733326, 0.679878, -1.42371e-07, 0.115934, -0.125048, 0.985354, 0.66992, -0.722585, -0.170522, -0.040062, 1.13138, -0.12704)
+
+[node name="Right Hand Slot" parent="Model/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-0.981107, -0.0298186, 0.191155, 0.191024, 0.00720751, 0.981559, -0.0306464, 0.99953, -0.00137523, -0.289781, 1.09842, -0.166731)
+
+[editable path="Model"]
+[editable path="SFX/Common"]

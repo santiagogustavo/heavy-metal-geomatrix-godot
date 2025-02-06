@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgn8aq1m4p0rb" path="res://Scenes/Menus/OptionsMenu.tscn" id="17_r8y2w"]
 [ext_resource type="AudioStream" uid="uid://cr7xxraylldic" path="res://Sound/Menus/Main Menu/Startup 2.wav" id="17_yhrry"]
 [ext_resource type="AudioStream" uid="uid://dw5x8rge42xdm" path="res://Sound/Menus/Main Menu/749813__rescopicsound__ui-beep-menu-positive.mp3" id="18_eu1qu"]
-[ext_resource type="Script" uid="uid://c5mjpc204vldo" path="res://Scripts/Menus/MainMenu/NewMainMenuManager.gd" id="18_ps836"]
+[ext_resource type="Script" path="res://Scripts/Menus/MainMenu/NewMainMenuManager.gd" id="18_ps836"]
 [ext_resource type="Texture2D" uid="uid://bnwqpqsjpyuvc" path="res://Textures/Menus/Main Menu/bg.png" id="18_xlly3"]
 [ext_resource type="AudioStream" uid="uid://dsiaxr6jkj4bh" path="res://Sound/Menus/Main Menu/Cursor.wav" id="19_shsqe"]
 [ext_resource type="Texture2D" uid="uid://cxsl4j0ejtuqb" path="res://Textures/Menus/Main Menu/hex_grid.png" id="19_swgpn"]
@@ -23,7 +23,7 @@
 [ext_resource type="FontFile" uid="uid://bl6uguby0mxhy" path="res://Fonts/Maximum Impact.ttf" id="25_mrw8j"]
 [ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="25_pigul"]
 [ext_resource type="AudioStream" uid="uid://bxnnieh7klpco" path="res://Music/MainMenu/MainMenuOst3.mp3" id="26_5yl72"]
-[ext_resource type="Script" uid="uid://dl6rssawfd18" path="res://Scripts/Menus/MainMenu/Buttons/Arcade.gd" id="26_y5fpb"]
+[ext_resource type="Script" path="res://Scripts/Menus/MainMenu/Buttons/Arcade.gd" id="26_y5fpb"]
 [ext_resource type="Script" uid="uid://c2l0s0nnyal6f" path="res://Scripts/Menus/MainMenu/Buttons/Options.gd" id="27_en1de"]
 [ext_resource type="Script" uid="uid://gll2f8uqj56a" path="res://Scripts/Menus/MainMenu/Buttons/Exit.gd" id="28_typom"]
 
@@ -945,7 +945,7 @@ text = "ARCADE"
 alignment = 2
 clip_text = true
 script = ExtResource("26_y5fpb")
-redirect_to_scene = "res://Scenes/Levels/OceanCastleTwilight.tscn"
+redirect_to_scene = "res://Scenes/SelectPlayer.tscn"
 
 [node name="Options" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options"]
 layout_mode = 2

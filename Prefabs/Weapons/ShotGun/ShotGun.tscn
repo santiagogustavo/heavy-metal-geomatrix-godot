@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://br0xhibke7lcl" path="res://Prefabs/Weapons/ShotGun/Bullet.tscn" id="2_mk67q"]
 [ext_resource type="PackedScene" uid="uid://dnplldo5ba11p" path="res://Prefabs/Weapons/ShotGun/EjectingBrass.tscn" id="3_6lnp6"]
 [ext_resource type="PackedScene" uid="uid://cs067lroymjko" path="res://Models/Weapons/Shot Gun.glb" id="3_px2s6"]
-[ext_resource type="Script" path="res://Scripts/Weapons/GunAnimationTree.gd" id="4_cqhnr"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="4_cqhnr"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_r7n12"]
 [ext_resource type="AudioStream" uid="uid://beriiufu35fwu" path="res://Sound/Weapons/Shot Gun/Shot Gun Shoot.wav" id="6_wmxgr"]
 
@@ -86,7 +86,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
+"args": [true],
 "method": &"_shoot"
 }]
 }

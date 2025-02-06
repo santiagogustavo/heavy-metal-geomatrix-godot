@@ -28,6 +28,7 @@ enum SceneType {
 }
 
 enum SurfaceType {
+	Player = 1,
 	LevelGeometry = 4,
 	WorldBoundary = 16,
 	InvisibleWall = 32,
@@ -40,13 +41,54 @@ enum SurfaceType {
 	InvisibleDirt = 32 + 2048
 }
 
+enum Teams {
+	Stompers,
+	Elite,
+	Metalheads,
+	Agents
+}
+
+enum Characters {
+	Mayfly,
+	Slash,
+	Kassey,
+	Di,
+	Dummy,
+}
+
+const TeamNames: Dictionary = {
+	Teams.Stompers: "818 Stompers",
+	Teams.Elite: "911 Elite",
+	Teams.Metalheads: "707 Metalheads",
+	Teams.Agents: "323 Agents"
+}
+
+const CharacterNames: Dictionary = {
+	Characters.Mayfly: "Mayfly",
+	Characters.Slash: "Slash",
+	Characters.Kassey: "Kassey",
+	Characters.Di: "Di",
+	Characters.Dummy: "Dummy"
+}
+
 const Scenes: Dictionary = {
 	"Loading": "res://Scenes/LoadingScreen.tscn",
 	"Intro": "res://Scenes/Intro.tscn",
 }
 
-const Characters: Dictionary = {
-	"Mayfly": "res://Prefabs/Characters/Mayfly.tscn"
+const Selects: Dictionary = {
+	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Select.tscn",
+	Characters.Slash: "res://Prefabs/Characters/Slash/Select.tscn",
+	Characters.Kassey: "res://Prefabs/Characters/Kassey/Select.tscn",
+	Characters.Di: "res://Prefabs/Characters/Di/Select.tscn"
+}
+
+const Players: Dictionary = {
+	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Player.tscn",
+	Characters.Slash: "res://Prefabs/Characters/Slash/Player.tscn",
+	Characters.Kassey: "res://Prefabs/Characters/Kassey/Player.tscn",
+	Characters.Di: "res://Prefabs/Characters/Di/Player.tscn",
+	Characters.Dummy: "res://Prefabs/Characters/Dummy/Player.tscn"
 }
 
 var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

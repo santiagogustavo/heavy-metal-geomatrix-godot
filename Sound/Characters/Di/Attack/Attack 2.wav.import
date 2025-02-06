@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfnotbt72sadj"
+path="res://.godot/imported/Attack 2.wav-b5ef9637b438330261c24e2a3f34b58d.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Di/Attack/Attack 2.wav"
+dest_files=["res://.godot/imported/Attack 2.wav-b5ef9637b438330261c24e2a3f34b58d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

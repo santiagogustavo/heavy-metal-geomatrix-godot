@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnpyrs6ijr5fd"]
 
 [ext_resource type="Material" uid="uid://cfcvl447wxcut" path="res://Materials/Particles/Spark.tres" id="1_gd3ys"]
-[ext_resource type="Script" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="2_tr6r1"]
-[ext_resource type="Script" path="res://Scripts/Lights/FlickeringLight.gd" id="3_ucwh6"]
+[ext_resource type="Script" uid="uid://8dfbh1na7qeh" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="2_tr6r1"]
+[ext_resource type="Script" uid="uid://hywqchyqup6p" path="res://Scripts/Lights/FlickeringLight.gd" id="3_ucwh6"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sigh4"]
 lifetime_randomness = 1.0

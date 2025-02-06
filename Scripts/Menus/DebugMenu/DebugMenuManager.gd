@@ -20,7 +20,7 @@ signal close
 @onready var sfx_warning: AudioStreamPlayer2D = $SFX/Warning
 
 # Internals
-@onready var commands: DebugCommands = DebugCommands.new()
+@onready var commands: DebugCommands = DebugCommands.new(get_tree())
 var expression: Expression = Expression.new()
 
 # Constants

@@ -1,15 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://2dqf8eoucva7"]
+[gd_scene load_steps=19 format=3 uid="uid://2dqf8eoucva7"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
 [ext_resource type="PackedScene" uid="uid://dmq6da7dayio0" path="res://Prefabs/Decals/BulletDecal.tscn" id="3_8h365"]
-[ext_resource type="Shader" path="res://addons/gputrail/shaders/trail.gdshader" id="4_0llqw"]
+[ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="4_0llqw"]
 [ext_resource type="PackedScene" uid="uid://06cs7q5vcdgy" path="res://Models/Weapons/Bullet.glb" id="4_7ms7h"]
 [ext_resource type="PackedScene" uid="uid://dgddu6k2xp1wg" path="res://Prefabs/Decals/WaterDecal.tscn" id="4_b4od8"]
 [ext_resource type="PackedScene" uid="uid://dnnx1ffnlvlgc" path="res://Prefabs/Decals/GlassBulletDecal.tscn" id="4_kmkyj"]
 [ext_resource type="PackedScene" uid="uid://diilg16diw1j4" path="res://Prefabs/Decals/StoneDecal.tscn" id="5_ef3j6"]
 [ext_resource type="PackedScene" uid="uid://bt3hwntnjft6f" path="res://Prefabs/Decals/DirtDecal.tscn" id="6_e6q5k"]
-[ext_resource type="Script" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
-[ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
+[ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
+[ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="7_yh4oq"]
+[ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="10_rkhkj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1hjxn"]
@@ -52,6 +53,7 @@ glass_decal = ExtResource("4_kmkyj")
 water_decal = ExtResource("4_b4od8")
 stone_decal = ExtResource("5_ef3j6")
 dirt_decal = ExtResource("6_e6q5k")
+blood_decal = ExtResource("7_yh4oq")
 
 [node name="Mesh" parent="." instance=ExtResource("4_7ms7h")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

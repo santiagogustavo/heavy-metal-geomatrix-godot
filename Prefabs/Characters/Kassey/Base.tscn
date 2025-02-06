@@ -1,0 +1,436 @@
+[gd_scene load_steps=58 format=3 uid="uid://dfansvoctxs5e"]
+
+[ext_resource type="PackedScene" uid="uid://d3tvi3t4nmjo7" path="res://Models/Characters/Kassey/Kassey.glb" id="1_1w1qp"]
+[ext_resource type="Script" path="res://Scripts/Characters/CharacterController.gd" id="1_j5lmb"]
+[ext_resource type="Script" path="res://Scripts/Characters/CharacterSFXController.gd" id="2_e62qw"]
+[ext_resource type="Texture2D" uid="uid://1l7e5shnrg6q" path="res://Textures/Characters/Kassey/Cards/2564cccd.png" id="2_gu0ub"]
+[ext_resource type="PackedScene" uid="uid://csbiy2u2aafyp" path="res://Models/Characters/Kassey/Skins/Default.tscn" id="2_tkdiu"]
+[ext_resource type="AnimationLibrary" uid="uid://cw7xekn5vprdi" path="res://Animations/Characters/Kassey/Taunts/Taunts.res" id="2_y6a8p"]
+[ext_resource type="PackedScene" uid="uid://bjk3xicq535kw" path="res://Models/Characters/Kassey/Skins/Skin1.tscn" id="3_8tnxv"]
+[ext_resource type="Texture2D" uid="uid://bc2dnikq5olds" path="res://Textures/Characters/Kassey/Cards/4a771680.png" id="3_qklw6"]
+[ext_resource type="PackedScene" uid="uid://5ib8p2xbev1r" path="res://Models/Characters/Kassey/Skins/Skin2.tscn" id="4_al6k4"]
+[ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="5_0hxec"]
+[ext_resource type="PackedScene" uid="uid://c7tl40tfwplaa" path="res://Models/Characters/Kassey/Skins/Skin3.tscn" id="5_yhhg2"]
+[ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="6_7s2fl"]
+[ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="6_hcat4"]
+[ext_resource type="Animation" uid="uid://ow2amuv4xtta" path="res://Animations/Characters/Kassey/2 - Run Forward.res" id="7_dxdc2"]
+[ext_resource type="Animation" uid="uid://f1jifu8aab5h" path="res://Animations/Characters/Kassey/1 - Idle.res" id="7_nwlio"]
+[ext_resource type="Animation" uid="uid://ctg4eoesxbwb7" path="res://Animations/Characters/Kassey/2 - Run Backward.res" id="8_1voyq"]
+[ext_resource type="Animation" uid="uid://dyjsmoo43lbms" path="res://Animations/Characters/Kassey/2 - Run Backward Left.res" id="9_uan3y"]
+[ext_resource type="Animation" uid="uid://cxe1077yfiyta" path="res://Animations/Characters/Kassey/2 - Run Backward Right.res" id="10_pk5kr"]
+[ext_resource type="AudioStream" uid="uid://batjkus31e212" path="res://Sound/Characters/Kassey/Taunts/Entrance.wav" id="11_g4l87"]
+[ext_resource type="Animation" uid="uid://dapu6v32qfi1h" path="res://Animations/Characters/Kassey/2 - Run Forward Left.res" id="12_7y8i6"]
+[ext_resource type="AudioStream" uid="uid://fqg2klfuq0bi" path="res://Sound/Characters/Kassey/Taunts/Win.wav" id="12_jf87h"]
+[ext_resource type="AudioStream" uid="uid://c24r331n1v8ts" path="res://Sound/Characters/Kassey/Taunts/Lose.wav" id="13_elvcm"]
+[ext_resource type="Animation" uid="uid://dd63opmy8s17f" path="res://Animations/Characters/Kassey/2 - Run Forward Right.res" id="13_kex8j"]
+[ext_resource type="Animation" uid="uid://65rn8fywuy8n" path="res://Animations/Characters/Kassey/2 - Run Left.res" id="14_0d4t2"]
+[ext_resource type="Animation" uid="uid://dqpsyf5tq5nf3" path="res://Animations/Characters/Kassey/2 - Run Right.res" id="15_3psjx"]
+[ext_resource type="Animation" uid="uid://ctokx20bqpkym" path="res://Animations/Characters/Kassey/3 - Dash Loop - Backward.res" id="16_c3dkl"]
+[ext_resource type="Animation" uid="uid://dvtl3igdq3k78" path="res://Animations/Characters/Kassey/3 - Dash Loop - Forward.res" id="17_5hbrv"]
+[ext_resource type="Animation" uid="uid://df3042861flvi" path="res://Animations/Characters/Kassey/3 - Dash Loop - Left.res" id="18_k0ral"]
+[ext_resource type="Animation" uid="uid://bw5tv8j3057p7" path="res://Animations/Characters/Kassey/3 - Dash Loop - Right.res" id="19_qip65"]
+[ext_resource type="Animation" uid="uid://bvj2syadd0i7l" path="res://Animations/Characters/Kassey/3 - Dash Start - Backward.res" id="20_qs1tx"]
+[ext_resource type="Animation" uid="uid://cq28pumpf3fkb" path="res://Animations/Characters/Kassey/3 - Dash Start - Forward.res" id="21_yofnx"]
+[ext_resource type="Animation" uid="uid://db6u00qibiwfu" path="res://Animations/Characters/Kassey/3 - Dash Start - Left.res" id="22_b6md2"]
+[ext_resource type="Animation" uid="uid://b10flb0ed6v4l" path="res://Animations/Characters/Kassey/3 - Dash Start - Right.res" id="23_y5ncl"]
+[ext_resource type="Animation" uid="uid://co8cv8kuy8o7h" path="res://Animations/Characters/Kassey/3 - Dash Stop - Backward.res" id="24_uvho0"]
+[ext_resource type="Animation" uid="uid://bnec324v3y1wf" path="res://Animations/Characters/Kassey/3 - Dash Stop - Forward.res" id="25_4i0cb"]
+[ext_resource type="Animation" uid="uid://d3o38adaus85u" path="res://Animations/Characters/Kassey/3 - Dash Stop - Left.res" id="26_xdtuw"]
+[ext_resource type="Animation" uid="uid://do0kdebc1uas1" path="res://Animations/Characters/Kassey/3 - Dash Stop - Right.res" id="27_55tk6"]
+[ext_resource type="Animation" uid="uid://dymhcjmqoxxau" path="res://Animations/Characters/Kassey/3 - Jump Double.res" id="28_7osiw"]
+[ext_resource type="Animation" uid="uid://bfftp1iaktvcd" path="res://Animations/Characters/Kassey/3 - Jump Fall.res" id="29_yc0an"]
+[ext_resource type="Animation" uid="uid://lw1n6bx18vj1" path="res://Animations/Characters/Kassey/3 - Jump Land.res" id="30_pp7hl"]
+[ext_resource type="Animation" uid="uid://dmhbfxlu3popp" path="res://Animations/Characters/Kassey/3 - Jump Start.res" id="31_11ayr"]
+[ext_resource type="AnimationLibrary" uid="uid://2d0l4u4ivfp" path="res://Animations/Characters/Kassey/Upper Body.res" id="33_4w230"]
+[ext_resource type="AudioStream" uid="uid://dh5kh8x4jwl62" path="res://Sound/Characters/Kassey/Pickup/Pickup 1.wav" id="43_856tj"]
+[ext_resource type="AudioStream" uid="uid://dbdrtg62q8kno" path="res://Sound/Characters/Kassey/Pickup/Pickup 2.wav" id="44_5xacv"]
+[ext_resource type="AudioStream" uid="uid://u5josehujxkb" path="res://Sound/Characters/Kassey/Pickup/Pickup 3.wav" id="45_jg3l4"]
+[ext_resource type="AudioStream" uid="uid://dbsf178jclsuu" path="res://Sound/Characters/Kassey/Attack/Attack 1.wav" id="46_gkxgm"]
+[ext_resource type="AudioStream" uid="uid://kxw5dp02j86o" path="res://Sound/Characters/Kassey/Attack/Attack 2.wav" id="47_1ael4"]
+[ext_resource type="AudioStream" uid="uid://iuhploaf8bx4" path="res://Sound/Characters/Kassey/Attack/Attack 3.wav" id="48_kjlt8"]
+[ext_resource type="AudioStream" uid="uid://cqdmw6sgdbhou" path="res://Sound/Characters/Kassey/Specials/Special 1.wav" id="49_tvohs"]
+[ext_resource type="AudioStream" uid="uid://b8coxs1hsf0cp" path="res://Sound/Characters/Kassey/Specials/Special 2.wav" id="50_ds2fd"]
+[ext_resource type="AudioStream" uid="uid://bhjhus7dgkh8w" path="res://Sound/Characters/Kassey/Specials/Special 3.wav" id="51_jsy6k"]
+
+[sub_resource type="Resource" id="Resource_ed6cv"]
+script = ExtResource("6_hcat4")
+mode = 0
+stiffness = 0.2
+damping = 0.5
+gravity = Vector3(0, 0, 0)
+length = 0.2
+max_distance = 0.1
+max_degrees = 60.0
+
+[sub_resource type="Animation" id="Animation_6obus"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SFX/Taunts/Entrance:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/Common/Dash:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Common/Dash Loop:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SFX/Common/Jump:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../SFX/Pickup:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../SFX/Attack:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SFX/Special 3:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SFX/Special 1:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vf15v"]
+_data = {
+"RESET": SubResource("Animation_6obus")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ps8d4"]
+_data = {
+"Dash Loop - Backward": ExtResource("16_c3dkl"),
+"Dash Loop - Forward": ExtResource("17_5hbrv"),
+"Dash Loop - Left": ExtResource("18_k0ral"),
+"Dash Loop - Right": ExtResource("19_qip65"),
+"Dash Start - Backward": ExtResource("20_qs1tx"),
+"Dash Start - Forward": ExtResource("21_yofnx"),
+"Dash Start - Left": ExtResource("22_b6md2"),
+"Dash Start - Right": ExtResource("23_y5ncl"),
+"Dash Stop - Backward": ExtResource("24_uvho0"),
+"Dash Stop - Forward": ExtResource("25_4i0cb"),
+"Dash Stop - Left": ExtResource("26_xdtuw"),
+"Dash Stop - Right": ExtResource("27_55tk6"),
+"Idle": ExtResource("7_nwlio"),
+"Jump Double": ExtResource("28_7osiw"),
+"Jump Fall": ExtResource("29_yc0an"),
+"Jump Land": ExtResource("30_pp7hl"),
+"Jump Start": ExtResource("31_11ayr"),
+"Run Backward": ExtResource("8_1voyq"),
+"Run Backward Left": ExtResource("9_uan3y"),
+"Run Backward Right": ExtResource("10_pk5kr"),
+"Run Forward": ExtResource("7_dxdc2"),
+"Run Forward Left": ExtResource("12_7y8i6"),
+"Run Forward Right": ExtResource("13_kex8j"),
+"Run Left": ExtResource("14_0d4t2"),
+"Run Right": ExtResource("15_3psjx")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_22er0"]
+streams_count = 3
+stream_0/stream = ExtResource("43_856tj")
+stream_1/stream = ExtResource("44_5xacv")
+stream_2/stream = ExtResource("45_jg3l4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5eyhp"]
+streams_count = 3
+stream_0/stream = ExtResource("46_gkxgm")
+stream_1/stream = ExtResource("47_1ael4")
+stream_2/stream = ExtResource("48_kjlt8")
+
+[node name="Kassey" type="Node3D" node_paths=PackedStringArray("skins", "sfx_controller", "body_slot", "right_hand_slot")]
+script = ExtResource("1_j5lmb")
+character = 2
+character_team = 1
+avatar_big = ExtResource("2_gu0ub")
+avatar_small = ExtResource("3_qklw6")
+skins = [NodePath("Model/Default"), NodePath("Model/Skin1"), NodePath("Model/Skin2"), NodePath("Model/Skin3")]
+stat_speed = 3
+sfx_controller = NodePath("SFX")
+body_slot = NodePath("Model/Armature/Skeleton3D/Body Slot")
+right_hand_slot = NodePath("Model/Armature/Skeleton3D/Right Hand Slot")
+
+[node name="Model" parent="." instance=ExtResource("1_1w1qp")]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/0/position = Vector3(0.787353, 1.45311, -0.692334)
+bones/0/rotation = Quaternion(-0.49735, 0.502636, -0.502636, 0.49735)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/position = Vector3(0.411363, 0.424236, 0.755394)
+bones/1/rotation = Quaternion(0.707107, 5.33851e-08, 5.33851e-08, 0.707107)
+bones/2/position = Vector3(0.274872, 0.114338, 0.15053)
+bones/2/rotation = Quaternion(0.877691, -0.0360352, 0.0668425, 0.473173)
+bones/3/position = Vector3(-0.0236415, 1.52026, 0.707735)
+bones/3/rotation = Quaternion(0.707107, -1.37679e-07, -1.37679e-07, 0.707107)
+bones/4/position = Vector3(2.20996e-16, 0.856654, -0.0745371)
+bones/4/rotation = Quaternion(0, -0.365154, 0, 0.930947)
+bones/5/position = Vector3(-1.32062e-10, -8.72509e-08, -1.28409e-08)
+bones/5/rotation = Quaternion(0.151144, 0.159373, -0.0245526, 0.975271)
+bones/6/rotation = Quaternion(-0.121161, -0.170738, 0.0789147, 0.974649)
+bones/7/rotation = Quaternion(0.842045, 0.1254, -0.335073, 0.403685)
+bones/7/scale = Vector3(1, 1, 0.999998)
+bones/8/rotation = Quaternion(0.401974, 0.00192156, -0.0342364, 0.915009)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.55602, 0.168088, 0.184103, 0.792902)
+bones/10/rotation = Quaternion(0.929071, -0.0516949, 0.172636, 0.323036)
+bones/10/scale = Vector3(1, 1, 0.999998)
+bones/11/rotation = Quaternion(0.406892, 0.00390234, 0.161557, 0.899068)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.670643, -0.122667, -0.242604, 0.690169)
+bones/13/position = Vector3(-5.51465e-09, 0.320216, 0.0589253)
+bones/13/rotation = Quaternion(-0.707107, -8.42937e-08, 8.42937e-08, 0.707107)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/position = Vector3(7.96975e-05, 6.16553e-05, -0.000838062)
+bones/14/rotation = Quaternion(0.638855, -9.2359e-15, -1.52315e-07, 0.769327)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.0951552, 0.0290153, -0.0167178, 0.994899)
+bones/16/rotation = Quaternion(0.653206, 0.260378, -0.256482, 0.663131)
+bones/17/position = Vector3(0.0416225, 0.165994, 0.01044)
+bones/17/rotation = Quaternion(0.0362363, 0.0904032, -0.704227, 0.703263)
+bones/18/rotation = Quaternion(0.0890972, 0.0658057, -0.393235, 0.912742)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(0.510004, 2.65019e-06, 0.0767795, 0.856738)
+bones/20/rotation = Quaternion(0.158872, -0.188285, -0.0827338, 0.965641)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-2.42121e-08, 4.53267e-08, 0.707107, 0.707107)
+bones/22/position = Vector3(0.236932, -0.269743, 0.255313)
+bones/22/rotation = Quaternion(0.221455, -0.635344, -0.730224, 0.118613)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/position = Vector3(-0.0423809, 0.176915, 0.0112561)
+bones/23/rotation = Quaternion(0.12244, 0.000981201, 0.700687, 0.702884)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/rotation = Quaternion(-0.135806, -0.214594, 0.460186, 0.850726)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(0.847394, -1.56532e-06, -0.127573, 0.515411)
+bones/26/rotation = Quaternion(0.0337314, 0.249821, 0.222152, 0.94186)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-2.9334e-08, -3.8924e-08, -0.707107, 0.707107)
+bones/28/position = Vector3(-0.119178, -0.202827, 0.124282)
+bones/28/rotation = Quaternion(0.269123, 0.63617, 0.713061, -0.120016)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/rotation = Quaternion(0.413318, 0.325254, 0.850361, -0.0162362)
+bones/29/scale = Vector3(1, 1, 1)
+bones/30/rotation = Quaternion(-0.413318, 0.325254, 0.850362, 0.0162362)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/position = Vector3(-0.122186, 1.15035, -0.677365)
+bones/31/rotation = Quaternion(0.49735, 0.502636, -0.502636, -0.49735)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/position = Vector3(-0.746356, 0.711275, 0.466946)
+bones/32/rotation = Quaternion(0.707107, -5.33851e-08, -5.33851e-08, 0.707107)
+bones/33/position = Vector3(-0.233216, 0.114338, -0.236088)
+bones/33/rotation = Quaternion(0.863059, -0.093279, 0.173023, 0.465285)
+
+[node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.929089, -0.241715, 0.279942, 0.368236, -0.675315, 0.639025, 0.0345872, 0.696796, 0.716436, -0.0271164, 1.31089, 0.0217476)
+bone_name = "Boob.L"
+bone_idx = 29
+script = ExtResource("5_0hxec")
+properties = SubResource("Resource_ed6cv")
+
+[node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.0356879, -0.676548, -0.735534, -0.368236, -0.675315, 0.639025, -0.929047, 0.293655, -0.225029, -0.0938446, 1.31089, -0.0401172)
+bone_name = "Boob.R"
+bone_idx = 30
+script = ExtResource("5_0hxec")
+properties = SubResource("Resource_ed6cv")
+
+[node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.733325, 0.679878, -2.9641e-07, 2.38419e-07, 1.78814e-07, 1, 0.679878, -0.733325, -3.09666e-08, -0.040062, 1.17687, -0.0313257)
+bone_name = "CoreIK"
+bone_idx = 13
+
+[node name="Offset" type="Node3D" parent="Model/Armature/Skeleton3D/Body Slot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
+
+[node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-0.981107, -0.0298181, 0.191153, 0.193451, -0.163341, 0.967417, 0.00237675, 0.986119, 0.166024, -0.289783, 1.15438, -0.0761984)
+bone_name = "Hand.R"
+bone_idx = 26
+
+[node name="Offset" type="Node3D" parent="Model/Armature/Skeleton3D/Right Hand Slot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.020712, 0.037022, 2.10941e-09)
+
+[node name="object_0" parent="Model/Armature/Skeleton3D" index="4"]
+visible = false
+
+[node name="AnimationPlayer" parent="Model" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_vf15v"),
+"Lower Body": SubResource("AnimationLibrary_ps8d4"),
+"Taunts": ExtResource("2_y6a8p"),
+"Upper Body": ExtResource("33_4w230")
+}
+
+[node name="Default" parent="Model" instance=ExtResource("2_tkdiu")]
+skeleton = NodePath("../Armature/Skeleton3D")
+
+[node name="Skin1" parent="Model" instance=ExtResource("3_8tnxv")]
+visible = false
+skeleton = NodePath("../Armature/Skeleton3D")
+
+[node name="Skin2" parent="Model" instance=ExtResource("4_al6k4")]
+visible = false
+skeleton = NodePath("../Armature/Skeleton3D")
+
+[node name="Skin3" parent="Model" instance=ExtResource("5_yhhg2")]
+visible = false
+skeleton = NodePath("../Armature/Skeleton3D")
+
+[node name="SFX" type="Node3D" parent="."]
+process_mode = 3
+script = ExtResource("2_e62qw")
+
+[node name="Taunts" type="Node3D" parent="SFX"]
+
+[node name="Entrance" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+stream = ExtResource("11_g4l87")
+volume_db = -15.0
+max_db = 0.0
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[node name="Win" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+stream = ExtResource("12_jf87h")
+volume_db = -15.0
+max_db = 0.0
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[node name="Lose" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+stream = ExtResource("13_elvcm")
+volume_db = -15.0
+max_db = 0.0
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[node name="Common" parent="SFX" instance=ExtResource("6_7s2fl")]
+
+[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
+stream = SubResource("AudioStreamRandomizer_22er0")
+volume_db = -10.0
+max_db = 0.0
+pitch_scale = 0.64
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[node name="Attack" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
+stream = SubResource("AudioStreamRandomizer_5eyhp")
+volume_db = -10.0
+max_db = 0.0
+pitch_scale = 0.64
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
+stream = ExtResource("49_tvohs")
+volume_db = -10.0
+max_db = 0.0
+pitch_scale = 0.64
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
+stream = ExtResource("50_ds2fd")
+volume_db = -10.0
+max_db = 0.0
+pitch_scale = 0.64
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
+stream = ExtResource("51_jsy6k")
+volume_db = -10.0
+max_db = 0.0
+pitch_scale = 0.64
+bus = &"Characters"
+attenuation_filter_db = 0.0
+
+[editable path="Model"]
+[editable path="SFX/Common"]

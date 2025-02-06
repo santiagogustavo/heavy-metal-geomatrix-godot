@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://d3shw40exsq0i"]
+
+[ext_resource type="Texture2D" uid="uid://cbwr7a8muct7k" path="res://Textures/Characters/Slash/Skins/B/22d056e4.png" id="1_e7acc"]
+[ext_resource type="Texture2D" uid="uid://c0dv83hiuk8jy" path="res://Textures/Characters/Slash/22d056e4_spec.png" id="2_m4rwx"]
+
+[resource]
+albedo_texture = ExtResource("1_e7acc")
+ao_enabled = true
+ao_texture = ExtResource("2_m4rwx")

@@ -23,6 +23,8 @@ var can_pickup: bool = false
 var camera_pivot: Node3D
 
 # Internals
+var process_input: bool = true
+
 var direction: Vector3 = Vector3.ZERO
 var input_direction: Vector2 = Vector2.ZERO
 var input_look: Vector2 = Vector2.ZERO
@@ -37,20 +39,22 @@ func _init(player_type: Player.PlayerType):
 
 func _process(_delta: float) -> void:
 	set_process_input(
-		!PauseMenuManager.is_menu_open
+		process_input
+		and !PauseMenuManager.is_menu_open
 		and !DebugMenuManager.is_menu_open
 		and (GameManager.current_match and !GameManager.current_match.is_player_input_locked)
 	)
 	_processed_input()
 	
 func _processed_input() -> void:
+	update_look_and_aim()
 	if is_processing_input():
 		is_aiming = Input.is_action_pressed("aim")
 		compute_look_stick()
 		compute_movement()
 		compute_shoot_and_attack()
-		update_pickup()
-		update_look_and_aim()
+		compute_pickup()
+		
 	else:
 		input_direction = Vector2.ZERO
 		direction = Vector3.ZERO
@@ -87,6 +91,8 @@ func compute_look_stick() -> void:
 func compute_jump() -> void:
 	is_jumping = Input.is_action_just_pressed("jump") and is_on_floor
 	is_double_jumping = Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump
+	if is_double_jumping:
+		InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)
 
 func compute_shoot_and_attack() -> void:
 	is_shooting = Input.is_action_pressed("shoot")
@@ -124,5 +130,5 @@ func update_dash() -> void:
 		is_dashing = true
 		get_tree().create_timer(dash_duration).timeout.connect(func (): is_dashing = false)
 
-func update_pickup():
+func compute_pickup():
 	is_picking_up = Input.is_action_just_pressed("pickup") and can_pickup

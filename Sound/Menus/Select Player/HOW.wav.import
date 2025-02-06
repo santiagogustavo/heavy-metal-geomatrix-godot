@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnmq4q0yh1j78"
+path="res://.godot/imported/HOW.wav-a9648f1c496c598df64d9f0ac7ab4aca.sample"
+
+[deps]
+
+source_file="res://Sound/Menus/Select Player/HOW.wav"
+dest_files=["res://.godot/imported/HOW.wav-a9648f1c496c598df64d9f0ac7ab4aca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

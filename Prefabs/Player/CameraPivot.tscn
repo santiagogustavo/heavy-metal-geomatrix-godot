@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctjquqvu41h4e"]
+
+[ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="1_dvd4r"]
+[ext_resource type="PackedScene" uid="uid://byafmx5elekej" path="res://Scenes/UI/CameraEffects3D.tscn" id="2_3ca88"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhbf6"]
+albedo_color = Color(1, 0, 1, 1)
+emission_enabled = true
+emission = Color(1, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a2iv3"]
+material = SubResource("StandardMaterial3D_qhbf6")
+radius = 0.1
+height = 0.2
+
+[node name="CameraPivot" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2)
+current = true
+fov = 60.0
+near = 0.5
+script = ExtResource("1_dvd4r")
+
+[node name="CameraEffects3D" parent="Camera" instance=ExtResource("2_3ca88")]
+
+[node name="DebugCollisionPoint" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.25, 0)
+visible = false
+mesh = SubResource("SphereMesh_a2iv3")
+skeleton = NodePath("../..")
+
+[node name="CameraCollider" type="RayCast3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.25, 1.75)
+target_position = Vector3(0, 0, 1.5)
+collision_mask = 4
+
+[node name="TargetRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+target_position = Vector3(0, 0, -1000)
+collision_mask = 21
+debug_shape_custom_color = Color(0.941176, 1, 0, 1)
+debug_shape_thickness = 1

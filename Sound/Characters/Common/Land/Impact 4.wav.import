@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcmyi4tkp85sr"
+path="res://.godot/imported/Impact 4.wav-489717453b343ed31353198eef0e289c.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Common/Land/Impact 4.wav"
+dest_files=["res://.godot/imported/Impact 4.wav-489717453b343ed31353198eef0e289c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

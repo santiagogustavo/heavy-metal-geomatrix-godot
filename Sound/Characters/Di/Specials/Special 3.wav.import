@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mp6i1ksly1sg"
+path="res://.godot/imported/Special 3.wav-1ef226263b24301c80403d7bb8a38429.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Di/Specials/Special 3.wav"
+dest_files=["res://.godot/imported/Special 3.wav-1ef226263b24301c80403d7bb8a38429.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

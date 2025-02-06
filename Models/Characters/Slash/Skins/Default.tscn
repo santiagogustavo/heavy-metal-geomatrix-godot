@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqjr87ej8gq1o"]
+
+[ext_resource type="ArrayMesh" uid="uid://be72q3c4piudx" path="res://Models/Characters/Slash/Skins/Mesh.res" id="1_x0qe4"]
+
+[node name="Default" type="MeshInstance3D"]
+layers = 4
+mesh = ExtResource("1_x0qe4")
+skeleton = NodePath("../Armature/Skeleton3D")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv3vruxl2ka7g"]
+
+[ext_resource type="ArrayMesh" uid="uid://c8xt40buwkbkg" path="res://Models/Characters/Mayfly/Skins/Mesh.res" id="1_gm8lp"]
+
+[node name="Default" type="MeshInstance3D"]
+layers = 4
+mesh = ExtResource("1_gm8lp")

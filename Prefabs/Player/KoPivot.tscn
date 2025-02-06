@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://bon0nixv0qsv6"]
+
+[ext_resource type="Script" path="res://Scripts/Player/KOCameraController.gd" id="1_pkdyt"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Invert Color.gdshader" id="2_o64g1"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Tilt Shift.gdshader" id="3_0ully"]
+[ext_resource type="PackedScene" uid="uid://ybnlc81pj2o3" path="res://Prefabs/Gizmos/CameraGizmo.tscn" id="4_xxfh0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrx0v"]
+shader = ExtResource("2_o64g1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtk1u"]
+shader = ExtResource("3_0ully")
+shader_parameter/limit = 0.5
+shader_parameter/blur = 1.609
+
+[sub_resource type="Animation" id="Animation_fwdtg"]
+resource_name = "Play"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/Invert:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_4s8h6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/Invert:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qe5df"]
+_data = {
+"KO": SubResource("Animation_fwdtg"),
+"RESET": SubResource("Animation_4s8h6")
+}
+
+[node name="KOPivot" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42165, 0)
+script = ExtResource("1_pkdyt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Invert" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
+material = SubResource("ShaderMaterial_jrx0v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TiltShift" type="ColorRect" parent="CanvasLayer/Control"]
+material = SubResource("ShaderMaterial_rtk1u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraGizmo" parent="." instance=ExtResource("4_xxfh0")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 5.96046e-08, 2.70349e-08, 0.89122, 0.453571, -5.31209e-08, 0.453571, -0.89122, 0, 0.85, -2)
+fov = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qe5df")
+}

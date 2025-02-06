@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkllxpibgfyik"]
+
+[ext_resource type="PackedScene" uid="uid://mfit0jyuixrv" path="res://Prefabs/Characters/Slash/Base.tscn" id="1_hnwsj"]
+[ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="2_eb4cx"]
+
+[node name="Slash" instance=ExtResource("1_hnwsj")]
+custom_animation_tree_reference = ExtResource("2_eb4cx")
+
+[editable path="Model"]

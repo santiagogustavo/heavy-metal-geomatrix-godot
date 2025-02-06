@@ -9,6 +9,7 @@ extends RigidBody3D
 @export var water_decal: PackedScene
 @export var stone_decal: PackedScene
 @export var dirt_decal: PackedScene
+@export var blood_decal: PackedScene
 
 func _physics_process(delta: float):
 	var collision: KinematicCollision3D = move_and_collide(transform.basis * Vector3(0, 0, -1) * speed * delta)
@@ -17,7 +18,9 @@ func _physics_process(delta: float):
 
 func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vector3, type: int):
 	var decal_instance: Node3D
-	if type == Definitions.SurfaceType.Glass:
+	if type == Definitions.SurfaceType.Player:
+		decal_instance = blood_decal.instantiate()
+	elif type == Definitions.SurfaceType.Glass:
 		decal_instance = glass_decal.instantiate()
 	elif type == Definitions.SurfaceType.Water:
 		decal_instance = water_decal.instantiate()

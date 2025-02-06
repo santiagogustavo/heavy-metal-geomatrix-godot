@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmprtuf5511xj"]
+
+[ext_resource type="PackedScene" uid="uid://h4bah7ckpry1" path="res://Prefabs/Gizmos/MapGizmo.tscn" id="1_7uixu"]
+
+[node name="SnapshotCamera" type="Camera3D"]
+cull_mask = 17
+
+[node name="Gizmo" parent="." instance=ExtResource("1_7uixu")]

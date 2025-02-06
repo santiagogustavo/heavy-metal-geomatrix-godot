@@ -20,6 +20,7 @@ gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
 color_ramp = SubResource("GradientTexture1D_ovg18")
 collision_mode = 2
+collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdmue"]
 transparency = 1
@@ -37,6 +38,7 @@ size = Vector2(5, 5)
 
 [node name="Raindrops" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+layers = 64
 cast_shadow = 0
 extra_cull_margin = 10.0
 amount = 50

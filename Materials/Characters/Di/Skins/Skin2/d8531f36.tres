@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bne04uyhqy2s2"]
+
+[ext_resource type="Texture2D" uid="uid://b0ej4sils3npo" path="res://Textures/Characters/Di/Skins/Skin2/d8531f36.png" id="1_jana4"]
+[ext_resource type="Texture2D" uid="uid://cor7iwby0to5f" path="res://Textures/Characters/Di/e50b3e8a_spec.png" id="2_uv1lj"]
+
+[resource]
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_jana4")
+ao_enabled = true
+ao_texture = ExtResource("2_uv1lj")

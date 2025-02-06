@@ -7,8 +7,11 @@ static var finished_precompiling: bool = false
 
 const PRECOMPILE_LIST: String = "res://Configs/precompile_list.config"
 var files_to_compile: Array[String] = []
-var compiled_material_paths: Array[String] = []
-var compiled_particles_paths: Array[String] = []
+static var compiled_material_paths: Array[String] = []
+static var compiled_particles_paths: Array[String] = []
+
+var to_compile_count: int = 0
+var compiled_count: int = 0
 
 func _ready() -> void:
 	GameManager.current_scene_type = Definitions.SceneType.Loading
@@ -21,6 +24,7 @@ func _ready() -> void:
 	ResourceLoader.load_threaded_request(next_scene)
 
 func _process(_delta: float) -> void:
+	finished_precompiling = compiled_count == to_compile_count
 	var progress: ResourceLoader.ThreadLoadStatus = ResourceLoader.load_threaded_get_status(next_scene)
 	if progress == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED and finished_precompiling:
 		var packed_scene: PackedScene = ResourceLoader.load_threaded_get(next_scene)
@@ -41,39 +45,47 @@ func compileScannedFiles() -> void:
 	finished_precompiling = true
 
 func compileFile(path: String) -> void:
-	#print_debug("[PRECOMPILER] Processing \"" + path + "\"...")
-	var scene: Node = (ResourceLoader.load(path) as PackedScene).instantiate()
-	
-	if scene is GPUParticles3D:
-		compileMaterialParticle(scene, path)
-	elif scene is MeshInstance3D:
-		compileMaterialMesh(scene, path)
+	print_debug("[PRECOMPILER] Processing \"" + path + "\"...")
+	var resource: Resource = ResourceLoader.load(path)
+	if !resource or !resource.has_method("instantiate"):
+		return
+	var node = resource.instantiate()
 
-	var children: Array[Node] = scene.get_children(true)
+	if node is GPUParticles3D:
+		compileMaterialParticle(node, path)
+	elif node is MeshInstance3D:
+		compileMaterialMesh(node, path)
+
+	var children: Array[Node] = node.get_children(true)
 	for child: Node in children:
 		#print_debug("[PRECOMPILER] Processing child \"" + child.name + "\"...")
 		if child is GPUParticles3D:
+			to_compile_count += 1
 			compileMaterialParticle(child, path)
 		elif child is MeshInstance3D:
+			to_compile_count += 1
 			compileMaterialMesh(child, child.name)
-	scene.queue_free()
+	node.queue_free()
 
 func compileMaterialMesh(instance: MeshInstance3D, path: String) -> void:
 	if compiled_material_paths.has(path):
+		to_compile_count -= 1
 		print_debug("[PRECOMPILER] Found \"" + path + "\" in cache. Skipping...")
 		return
-	#print_debug("[PRECOMPILER] Inserting \"" + path + "\" into cache...")
+	print_debug("[PRECOMPILER] Inserting \"" + path + "\" into cache...")
 	var compiled = MeshInstance3D.new()
 	compiled.mesh = instance.mesh
 	compiler_parent.add_child(compiled)
 	compiled_material_paths.append(path)
 	get_tree().create_timer(0.5).connect("timeout", func ():
-		if compiled:
-			compiled.queue_free()
+		print_debug("[PRECOMPILER] Compiled \"" + path + "\".")
+		compiled_count += 1
+		compiled.queue_free()
 	)
 
 func compileMaterialParticle(particle: GPUParticles3D, path: String) -> void:
 	if compiled_particles_paths.has(path):
+		to_compile_count -= 1
 		print_debug("[PRECOMPILER] Found \"" + path + "\" in cache. Skipping...")
 		return
 	print_debug("[PRECOMPILER] Inserting \"" + path + "\" into cache...")
@@ -86,12 +98,12 @@ func compileMaterialParticle(particle: GPUParticles3D, path: String) -> void:
 	compiler_parent.add_child(compiled)
 	compiled_particles_paths.append(path)
 	get_tree().create_timer(0.5).connect("timeout", func ():
-		if compiled:
-			compiled.queue_free()
+		print_debug("[PRECOMPILER] Compiled \"" + path + "\".")
+		compiled_count += 1
+		compiled.queue_free()
 	)
 
 static func parseScenePathsToCompile() -> void:
-	var scenePathList: Array[String] = []
 	var regexPattern: String = "(sub_resource|ext_resource) type=\"(ParticleProcessMaterial|ShaderMaterial|CanvasItemMaterial|Material)\""
 	var regex: RegEx = RegEx.create_from_string(regexPattern)
 	var fileList: Array[String] = []

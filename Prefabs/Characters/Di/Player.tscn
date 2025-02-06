@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c12r4vpc8ka4g"]
+
+[ext_resource type="PackedScene" uid="uid://ccry22wstybxj" path="res://Prefabs/Characters/Di/Base.tscn" id="1_xj8mn"]
+[ext_resource type="PackedScene" uid="uid://c4pmv7hn2c26i" path="res://Prefabs/Characters/Common/GameplayAnimationTree.tscn" id="2_5g1s6"]
+
+[node name="Di" instance=ExtResource("1_xj8mn")]
+animation_tree_reference = ExtResource("2_5g1s6")
+
+[editable path="Model"]
+[editable path="SFX/Common"]

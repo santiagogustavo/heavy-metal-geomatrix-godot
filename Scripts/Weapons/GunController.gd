@@ -78,11 +78,16 @@ func instantiate_brass(newPosition: Vector3, newBasis: Basis) -> Node3D:
 	get_tree().root.add_child(brass_instance)
 	return brass_instance
 
-func _shoot() -> void:
+func _shoot(hard: bool = false) -> void:
 	if bullets == 0:
 		return
 	gun_shot.emit()
-	bullets -= bullets_per_shot
+	if !hard:
+		vibrate_soft()
+	else:
+		vibrate_hard()
+	if !DebugCommands.full_ammo:
+		bullets -= bullets_per_shot
 	for bullet_hole in bullet_holes:
 		var bullet_instance: Node3D = instantiate_bullet(bullet_hole.global_position, bullet_hole.global_transform.basis)
 		TransformUtils.safe_look_at(bullet_instance, target_point)
@@ -91,3 +96,9 @@ func _shoot() -> void:
 		bullet_instance.rotate_z(deg_to_rad(randf_range(-spray_amount, spray_amount)))
 	if ejecting_brass:
 		instantiate_brass(eject_hole.global_position, eject_hole.global_transform.basis)
+
+func vibrate_soft() -> void:
+	InputManager.vibrate_controller(0, 1.0, 0.0, 0.1)
+
+func vibrate_hard() -> void:
+	InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)

@@ -4,6 +4,8 @@ class_name InventoryManager
 signal right_hand_pickup
 signal body_pickup
 
+signal gun_shoot
+
 # Shortcuts
 var has_jetpack: bool = false
 var jetpack_fuel: float = 0.0
@@ -91,6 +93,7 @@ func drop_right_hand_item():
 	equip_type = Definitions.EquipType.Body
 
 func _on_gun_shot():
+	gun_shoot.emit()
 	is_gun_shooting = true
 	is_holding_weapon = true
 	holster_timer.stop()

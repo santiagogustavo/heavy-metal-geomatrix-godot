@@ -9,6 +9,8 @@ func _process(_delta: float) -> void:
 	if !GameManager.current_level_config or !GameManager.current_level_config.is_sunny:
 		return
 	var camera: Camera3D = get_viewport().get_camera_3d()
+	if !camera:
+		return
 	effective_sun_direction = global_transform.basis.z * maxf(camera.near, 1.0)
 	effective_sun_direction += camera.global_transform.origin
 	is_sun_visible = not camera.is_position_behind(effective_sun_direction)

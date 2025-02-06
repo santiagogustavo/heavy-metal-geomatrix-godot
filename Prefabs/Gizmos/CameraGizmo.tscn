@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ybnlc81pj2o3"]
+
+[ext_resource type="Texture2D" uid="uid://cb7it1kh1b30u" path="res://Textures/Utils/photo-camera.png" id="1_whnrw"]
+[ext_resource type="Script" path="res://Scripts/Gizmos/GizmoController.gd" id="2_o5uu5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r06v"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.633333, 0, 1)
+albedo_texture = ExtResource("1_whnrw")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_2cbmf"]
+material = SubResource("StandardMaterial3D_8r06v")
+
+[node name="CameraGizmo" type="MeshInstance3D"]
+layers = 32
+mesh = SubResource("QuadMesh_2cbmf")
+script = ExtResource("2_o5uu5")

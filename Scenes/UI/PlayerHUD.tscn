@@ -1,12 +1,8 @@
-[gd_scene load_steps=59 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=52 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Squish Y.gdshader" id="1_k0nky"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2efbf"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/HudViewport.gd" id="2_os422"]
-[ext_resource type="Texture2D" uid="uid://bcuru11gjis05" path="res://Textures/UI/Masks/player_avatar.png" id="4_4xvm0"]
-[ext_resource type="Texture2D" uid="uid://cvjyfg08t0s6a" path="res://Textures/Characters/Mayfly/Cards/e7b43538.png" id="5_t312a"]
-[ext_resource type="Texture2D" uid="uid://dx4b8ctf1m11j" path="res://Textures/UI/b2fa8e8c_R1.png" id="6_71pp5"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="7_nt7e2"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Player.gd" id="8_5ig34"]
 [ext_resource type="Texture2D" uid="uid://dwjcsemw1xwdy" path="res://Textures/UI/HUD/New/player_health_bar_mask_bar.png" id="8_flou3"]
@@ -25,7 +21,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Ammo.gd" id="20_c6iue"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Melee.gd" id="21_agdla"]
 [ext_resource type="Texture2D" uid="uid://bt7vtikx87pgx" path="res://Textures/UI/HUD/New/weapon_divider.png" id="22_nu1bm"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Scoreboard.gd" id="24_cqqf3"]
+[ext_resource type="Script" uid="uid://dvd7rus6meoi5" path="res://Scripts/UI/HUD/Scoreboard.gd" id="24_cqqf3"]
 [ext_resource type="Texture2D" uid="uid://dcakxbma523me" path="res://Textures/UI/HUD/New/warning_box.png" id="24_g3fjk"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Warning.gd" id="24_tuivd"]
 [ext_resource type="Texture2D" uid="uid://bg06f4lkvh5cg" path="res://Textures/UI/HUD/New/scoreboard_divider.png" id="24_ukxoo"]
@@ -33,20 +29,6 @@
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="25_xpoe2"]
 [ext_resource type="AudioStream" uid="uid://b5533tkw2f3jv" path="res://Sound/UI/HUD/warning.wav" id="26_7rq6n"]
 [ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="29_dm27j"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxa2b"]
-shader = ExtResource("1_h7o1f")
-shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
-shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
-shader_parameter/tiling = Vector2(3, 0.3)
-shader_parameter/wave_speed = Vector2(-0.1, 5)
-shader_parameter/Flip = null
-shader_parameter/Progress = 0.5
-shader_parameter/Alpha_Mask = ExtResource("8_flou3")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gla7n"]
-shader = ExtResource("2_2efbf")
-shader_parameter/Mask = ExtResource("4_4xvm0")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iknaq"]
 shader = ExtResource("2_2efbf")
@@ -61,6 +43,16 @@ font = ExtResource("11_da2ak")
 font_size = 20
 shadow_color = Color(0, 0, 0, 0.490196)
 shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxa2b"]
+shader = ExtResource("1_h7o1f")
+shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
+shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
+shader_parameter/tiling = Vector2(3, 0.3)
+shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Flip = null
+shader_parameter/Progress = 0.5
+shader_parameter/Alpha_Mask = ExtResource("8_flou3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eu110"]
 shader = ExtResource("17_vnujt")
@@ -308,66 +300,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehfxt"]
-shader = ExtResource("1_k0nky")
-shader_parameter/uv_mode = false
-shader_parameter/y_factor = 1.0
-shader_parameter/bulge = -0.15
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_nxnmn"]
-viewport_path = NodePath("UI Viewport")
-
 [node name="PlayerHUD" type="CanvasLayer"]
 process_mode = 3
-
-[node name="PlayerLegacy" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-
-[node name="HealthBar" type="ColorRect" parent="PlayerLegacy"]
-material = SubResource("ShaderMaterial_bxa2b")
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 110.0
-offset_top = -87.9999
-offset_right = 150.0
-offset_bottom = -47.9999
-grow_vertical = 2
-scale = Vector2(8.09454, 0.513157)
-
-[node name="Avatar" type="TextureRect" parent="PlayerLegacy"]
-material = SubResource("ShaderMaterial_gla7n")
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 57.0
-offset_top = -111.0
-offset_right = 121.0
-offset_bottom = -47.0
-grow_vertical = 2
-scale = Vector2(0.764392, 0.764392)
-texture = ExtResource("5_t312a")
-
-[node name="Decoration" type="TextureRect" parent="PlayerLegacy"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -157.0
-offset_right = 1431.0
-offset_bottom = 216.0
-grow_vertical = 0
-scale = Vector2(0.308, 0.308)
-texture = ExtResource("6_71pp5")
+script = ExtResource("1_nerrs")
 
 [node name="Container" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -743,23 +678,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_k61jy")
-
-[node name="ViewportRect" type="TextureRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_ehfxt")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("ViewportTexture_nxnmn")
-expand_mode = 1
-
-[node name="UI Viewport" type="SubViewport" parent="."]
-disable_3d = true
-transparent_bg = true
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-script = ExtResource("2_os422")

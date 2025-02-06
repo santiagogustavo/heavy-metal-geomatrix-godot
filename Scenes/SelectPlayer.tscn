@@ -1,0 +1,676 @@
+[gd_scene load_steps=45 format=3 uid="uid://drns658eovibc"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/SelectPlayer/SelectPlayerController.gd" id="1_c107j"]
+[ext_resource type="Material" uid="uid://bl4gl2wdbx05f" path="res://Materials/Menus/Select Player/bf365546.tres" id="1_vupum"]
+[ext_resource type="Texture2D" uid="uid://kt4d7n8f6ld" path="res://Textures/Icons/Teams/818stompers.png" id="2_hhg02"]
+[ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="2_y0rff"]
+[ext_resource type="Texture2D" uid="uid://dqx07g2rrmws" path="res://Textures/Icons/Teams/911elite.png" id="3_nm2xl"]
+[ext_resource type="Texture2D" uid="uid://cxsl4j0ejtuqb" path="res://Textures/Menus/Main Menu/hex_grid.png" id="3_xtnxi"]
+[ext_resource type="LabelSettings" uid="uid://f8e31181q5h6" path="res://Prefabs/Menus/MenuTitleLabelSettings.tres" id="4_agtup"]
+[ext_resource type="Texture2D" uid="uid://8tnm5dy7wkwm" path="res://Textures/Icons/Teams/707metalheads.png" id="4_km34c"]
+[ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="5_a01v7"]
+[ext_resource type="PackedScene" uid="uid://csiacq2gsocyl" path="res://Models/Menus/Select Player/Tunnel.glb" id="5_ecqj0"]
+[ext_resource type="PackedScene" uid="uid://c40ij0jj6lb38" path="res://Textures/Icons/AvatarCard.tscn" id="5_km5t0"]
+[ext_resource type="Texture2D" uid="uid://yb7xidhwoo1n" path="res://Textures/Icons/Teams/323agents.png" id="6_2w7o8"]
+[ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="7_8r23u"]
+[ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="7_mkvtd"]
+[ext_resource type="FontVariation" uid="uid://dlxrfvcvos53u" path="res://Fonts/Valorax Bold.tres" id="8_uc2iq"]
+[ext_resource type="AudioStream" uid="uid://bm5apxkvpbcwi" path="res://Sound/Menus/Select Player/Intro.wav" id="14_0hce8"]
+[ext_resource type="AudioStream" uid="uid://dr05o3kkxhe02" path="res://Music/SelectPlayer/SelectPlayerOst1.mp3" id="15_qlg06"]
+[ext_resource type="AudioStream" uid="uid://d11lpsogmqpj" path="res://Sound/Menus/Select Player/Cursor.wav" id="15_uygjb"]
+[ext_resource type="AudioStream" uid="uid://benm8gdx2t3ly" path="res://Sound/Menus/Select Player/Select.wav" id="16_k1njm"]
+[ext_resource type="PackedScene" uid="uid://c8jb2dol0b2vj" path="res://Prefabs/Characters/Mayfly/Select.tscn" id="17_bk0fd"]
+[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="21_ha3xj"]
+
+[sub_resource type="Environment" id="Environment_6hd2o"]
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.1
+glow_mix = 0.33
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_mode = 1
+fog_light_color = Color(0, 0.069, 0.18, 1)
+fog_density = 1.174
+fog_depth_begin = 0.0
+fog_depth_end = 300.9
+volumetric_fog_density = 0.01
+volumetric_fog_length = 41.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ypora"]
+material = ExtResource("1_vupum")
+radius = 500.0
+height = 1000.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_brymh"]
+viewport_path = NodePath("TunnelViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7psxi"]
+shader = ExtResource("2_y0rff")
+shader_parameter/Bubble_Color = Color(0.34, 1, 0.582, 1)
+shader_parameter/Speed = 0.1
+shader_parameter/Size = 10.0
+shader_parameter/BG_Color = Color(0, 0.840667, 0.97, 1)
+shader_parameter/Mask = ExtResource("3_xtnxi")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oc4ha"]
+viewport_path = NodePath("PlayerViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4y3u4"]
+shader = ExtResource("7_8r23u")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_xgq5a"]
+font = ExtResource("5_a01v7")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_tg767"]
+font = ExtResource("7_mkvtd")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_aa4dx"]
+font = ExtResource("7_mkvtd")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyn6c"]
+font = ExtResource("8_uc2iq")
+font_size = 24
+font_color = Color(1, 0.847059, 0.294118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4kny"]
+font = ExtResource("7_mkvtd")
+font_size = 24
+font_color = Color(0, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_yj1yl"]
+resource_name = "FadeIn"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glitch:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cb3an"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glitch:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_et6t4"]
+_data = {
+"FadeIn": SubResource("Animation_yj1yl"),
+"RESET": SubResource("Animation_cb3an")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ge601"]
+animation = &"FadeIn"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_47y7g"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_myy3w"]
+states/FadeIn/node = SubResource("AnimationNodeAnimation_ge601")
+states/FadeIn/position = Vector2(458.5, 99)
+transitions = ["Start", "FadeIn", SubResource("AnimationNodeStateMachineTransition_47y7g")]
+
+[sub_resource type="Animation" id="Animation_eioya"]
+resource_name = "Idle"
+length = 100.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 50, 100),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319), Vector3(0, 0, 12.5664)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 100),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fi66b"]
+resource_name = "RESET"
+length = 100.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y516w"]
+_data = {
+"Idle": SubResource("Animation_eioya"),
+"RESET": SubResource("Animation_fi66b")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_orith"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cjkb3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_udew1"]
+states/Idle/node = SubResource("AnimationNodeAnimation_orith")
+states/Idle/position = Vector2(455, 101)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cjkb3")]
+
+[node name="SelectPlayer" type="Node3D" node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "cursor_sfx", "select_sfx")]
+script = ExtResource("1_c107j")
+redirect_to_scene = "res://Scenes/Levels/SunkenCityNight.tscn"
+avatar_cards = [NodePath("Control/MarginContainer/Control/Characters/Slash"), NodePath("Control/MarginContainer/Control/Characters/Kassey"), NodePath("Control/MarginContainer/Control/Characters/Di"), NodePath("Control/MarginContainer/Control/Characters/Mayfly")]
+team_icons = Array[Texture2D]([ExtResource("2_hhg02"), ExtResource("3_nm2xl"), ExtResource("4_km34c"), ExtResource("6_2w7o8")])
+character_name_label = NodePath("Control/MarginContainer/Control/Info/Character/Name")
+team_icon = NodePath("Control/MarginContainer/Control/Info/Character/Team/Icon")
+team_name_label = NodePath("Control/MarginContainer/Control/Info/Character/Team/Name")
+stat_speed_label = NodePath("Control/MarginContainer/Control/Info/Stats/Speed/Value")
+stat_power_label = NodePath("Control/MarginContainer/Control/Info/Stats/Power/Value")
+stat_vitality_label = NodePath("Control/MarginContainer/Control/Info/Stats/Vitality/Value")
+cursor_sfx = NodePath("Control/Cursor")
+select_sfx = NodePath("Control/Select")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6hd2o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ypora")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tunnel" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_brymh")
+expand_mode = 1
+
+[node name="Hex" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_7psxi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -134.0
+offset_right = -581.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 393)
+texture = ExtResource("3_xtnxi")
+expand_mode = 1
+
+[node name="Player" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_oc4ha")
+expand_mode = 1
+
+[node name="Glitch" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_4y3u4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 64
+
+[node name="Control" type="Control" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control"]
+layout_mode = 2
+offset_right = 183.0
+offset_bottom = 55.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Select Player"
+label_settings = ExtResource("4_agtup")
+
+[node name="Characters" type="GridContainer" parent="Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -142.0
+offset_right = 112.0
+offset_bottom = 198.0
+grow_vertical = 2
+theme_override_constants/h_separation = -31
+theme_override_constants/v_separation = -4
+
+[node name="Slash" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Mayfly")
+focus_neighbor_bottom = NodePath("../Kassey")
+character = 1
+
+[node name="Kassey" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Slash")
+focus_neighbor_bottom = NodePath("../Di")
+character = 2
+
+[node name="Di" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Kassey")
+focus_neighbor_bottom = NodePath("../Mayfly")
+character = 3
+
+[node name="Mayfly" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Di")
+focus_neighbor_bottom = NodePath("../Slash")
+
+[node name="Info" type="VBoxContainer" parent="Control/MarginContainer/Control"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Character" type="VBoxContainer" parent="Control/MarginContainer/Control/Info"]
+layout_mode = 2
+theme_override_constants/separation = -12
+
+[node name="Name" type="Label" parent="Control/MarginContainer/Control/Info/Character"]
+layout_mode = 2
+text = "Mayfly"
+label_settings = SubResource("LabelSettings_xgq5a")
+uppercase = true
+
+[node name="Team" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Character"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Control/MarginContainer/Control/Info/Character/Team"]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_2w7o8")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Control/MarginContainer/Control/Info/Character/Team"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "323 Agents"
+label_settings = SubResource("LabelSettings_tg767")
+vertical_alignment = 1
+uppercase = true
+
+[node name="Stats" type="VBoxContainer" parent="Control/MarginContainer/Control/Info"]
+layout_mode = 2
+
+[node name="Speed" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed"
+label_settings = SubResource("LabelSettings_aa4dx")
+uppercase = true
+
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Speed"]
+layout_mode = 2
+text = "////"
+label_settings = SubResource("LabelSettings_wyn6c")
+
+[node name="Power" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Power"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power"
+label_settings = SubResource("LabelSettings_aa4dx")
+uppercase = true
+
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Power"]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_wyn6c")
+
+[node name="Vitality" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Vitality"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vitality"
+label_settings = SubResource("LabelSettings_aa4dx")
+uppercase = true
+
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Vitality"]
+layout_mode = 2
+text = "//"
+label_settings = SubResource("LabelSettings_wyn6c")
+
+[node name="Loadout" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Loadout"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loadout"
+label_settings = SubResource("LabelSettings_aa4dx")
+uppercase = true
+
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Loadout"]
+layout_mode = 2
+text = "Sniper Rifle"
+label_settings = SubResource("LabelSettings_r4kny")
+
+[node name="Fade" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Intro" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("14_0hce8")
+autoplay = true
+bus = &"UI"
+
+[node name="OST" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("15_qlg06")
+autoplay = true
+bus = &"Menus"
+
+[node name="Cursor" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("15_uygjb")
+bus = &"UI"
+
+[node name="Select" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("16_k1njm")
+bus = &"UI"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_et6t4")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Control"]
+tree_root = SubResource("AnimationNodeStateMachine_myy3w")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Tunnel" parent="." instance=ExtResource("5_ecqj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="object_0" parent="Tunnel" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -46.8)
+cast_shadow = 0
+
+[node name="CharacterContainer" type="Node3D" parent="."]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, -13, 154.86)
+
+[node name="Mayfly" parent="CharacterContainer" instance=ExtResource("17_bk0fd")]
+visible = false
+stat_speed = 1
+
+[node name="Skeleton3D" parent="CharacterContainer/Mayfly/Model/Armature" index="0"]
+bones/1/position = Vector3(0.361605, 0.522708, 0.867471)
+bones/2/position = Vector3(0.119121, 0.136733, 0.550628)
+bones/2/rotation = Quaternion(0.70236, -0.0118866, -0.0257829, 0.711256)
+bones/4/position = Vector3(-0.0688209, 0.926074, 0.0516747)
+bones/4/rotation = Quaternion(-0.0218474, -0.200707, -0.0543417, 0.977899)
+bones/5/position = Vector3(1.66893e-08, 8.28205e-08, 1.92689e-08)
+bones/5/rotation = Quaternion(0.155778, 0.00666944, 0.00939144, 0.987725)
+bones/6/position = Vector3(4.57471e-15, 0.163084, -3.83636e-08)
+bones/6/rotation = Quaternion(-0.12482, 0.00815424, 0.0159533, 0.992018)
+bones/7/position = Vector3(0.0761895, 0.023747, 0.0274086)
+bones/7/rotation = Quaternion(0.943296, 0.0504353, 0.136888, 0.298179)
+bones/7/scale = Vector3(1, 1, 0.999999)
+bones/8/position = Vector3(3.21591e-08, 0.432196, -1.24194e-08)
+bones/8/rotation = Quaternion(0.483301, 0.0338074, -0.0951531, 0.869611)
+bones/9/position = Vector3(2.03494e-08, 0.463275, -1.03666e-08)
+bones/9/rotation = Quaternion(-0.392939, -0.076031, 0.0382383, 0.915618)
+bones/10/position = Vector3(-0.0761895, 0.0237471, 0.0274086)
+bones/10/rotation = Quaternion(0.983239, 0.0673979, -0.083393, 0.147459)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(2.53924e-09, 0.432196, -5.44985e-08)
+bones/11/rotation = Quaternion(0.121674, -0.0535145, -0.0203545, 0.990917)
+bones/12/position = Vector3(1.07197e-08, 0.463274, -1.33697e-08)
+bones/12/rotation = Quaternion(-0.547071, 0.00635659, 0.0671151, 0.834367)
+bones/13/position = Vector3(7.15255e-09, 0.281348, 0.0565469)
+bones/13/rotation = Quaternion(-0.707107, -8.48699e-08, 8.04247e-08, 0.707107)
+bones/14/position = Vector3(-1.43051e-08, 2.76146e-08, 9.72887e-08)
+bones/14/rotation = Quaternion(0.661928, -0.014916, 0.0585684, 0.747127)
+bones/15/position = Vector3(-2.04806e-09, 0.213222, 0.00640975)
+bones/15/rotation = Quaternion(0.213785, -0.0232166, 0.169367, 0.961806)
+bones/16/position = Vector3(4.76833e-09, 0.0906347, 5.37748e-09)
+bones/16/rotation = Quaternion(0.736779, 0.0839178, -0.00176341, 0.670904)
+bones/17/position = Vector3(0.0416225, 0.176188, 0.00464889)
+bones/17/rotation = Quaternion(0.00794001, 0.00756567, -0.706931, 0.707198)
+bones/18/position = Vector3(-6.90615e-08, 0.0729111, -2.48782e-08)
+bones/18/rotation = Quaternion(0.0207735, 0.0112953, -0.70685, 0.706968)
+bones/19/position = Vector3(9.51459e-10, 0.271612, -5.76759e-08)
+bones/19/rotation = Quaternion(0.140545, 0.226273, -0.122612, 0.956041)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/position = Vector3(3.32855e-09, 0.242325, 2.20782e-08)
+bones/20/rotation = Quaternion(0.150521, 0.219334, 0.292267, 0.918595)
+bones/21/rotation = Quaternion(-1.64021e-07, -1.41543e-07, 0.707107, 0.707107)
+bones/22/rotation = Quaternion(0.221455, -0.635343, -0.730224, 0.118613)
+bones/23/position = Vector3(-0.0416225, 0.176188, 0.00464888)
+bones/23/rotation = Quaternion(0.0303174, -0.0284271, 0.708385, 0.704602)
+bones/24/position = Vector3(-1.81227e-07, 0.0729111, 9.89894e-09)
+bones/24/rotation = Quaternion(0.130279, -0.067646, 0.682817, 0.71569)
+bones/25/position = Vector3(-4.25895e-08, 0.271611, 2.38496e-08)
+bones/25/rotation = Quaternion(0.326187, -0.307935, 0.101099, 0.888008)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/position = Vector3(1.2865e-08, 0.242325, 2.58784e-08)
+bones/26/rotation = Quaternion(0.172233, -0.295746, 0.0225016, 0.939342)
+bones/27/rotation = Quaternion(-1.87726e-07, 1.03022e-07, -0.707107, 0.707107)
+bones/29/position = Vector3(0.0454969, 0.143764, 0.0513107)
+bones/29/rotation = Quaternion(0.413613, 0.349315, 0.840764, -0.00447066)
+bones/29/scale = Vector3(1, 1, 1)
+bones/32/position = Vector3(-0.120453, 0.618273, 0.792688)
+bones/33/position = Vector3(-0.107451, 0.348126, 0.0976814)
+bones/33/rotation = Quaternion(0.88687, -0.000193988, 0.0089088, 0.461934)
+
+[node name="BoobJiggle_L" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.829177, 0.0459377, 0.557095, 0.404569, -0.638404, 0.6548, 0.385732, 0.768329, 0.510766, -0.023251, 1.35972, 0.135833)
+
+[node name="BoobJiggle_R" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.413792, -0.514278, -0.751195, -0.401894, -0.637199, 0.657616, -0.816858, 0.574017, 0.0569826, -0.10922, 1.35991, 0.106014)
+
+[node name="Body Slot" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.913527, 0.390168, 0.115051, -0.0975113, -0.0645426, 0.993139, 0.394917, -0.918479, -0.0209157, -0.0585142, 1.20914, 0.0977273)
+
+[node name="Right Hand Slot" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-0.396756, 0.544363, 0.739089, 0.592496, -0.463104, 0.659153, 0.701094, 0.699431, -0.138794, -0.112979, 0.948884, 0.241789)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterContainer"]
+transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 1.13687e-13, 0.0588192, -1.26593)
+layers = 4
+light_color = Color(0, 0.416667, 1, 1)
+light_energy = 15.0
+spot_range = 50.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CharacterContainer"]
+transform = Transform3D(1, 0, 0, 0, -0.866026, 0.5, 0, -0.5, -0.866026, 1.13687e-13, 1.85882, -1.26593)
+layers = 4
+light_energy = 7.5
+spot_range = 50.0
+
+[node name="TunnelViewport" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+script = ExtResource("21_ha3xj")
+
+[node name="TunnelCamera" type="Camera3D" parent="TunnelViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.63)
+cull_mask = 1048571
+fov = 90.0
+
+[node name="PlayerViewport" type="SubViewport" parent="."]
+transparent_bg = true
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+script = ExtResource("21_ha3xj")
+
+[node name="PlayerCamera" type="Camera3D" parent="PlayerViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.63)
+cull_mask = 4
+fov = 40.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="PlayerViewport"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, -13, 154.86)
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Tunnel")
+libraries = {
+"": SubResource("AnimationLibrary_y516w")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Tunnel")
+tree_root = SubResource("AnimationNodeStateMachine_udew1")
+anim_player = NodePath("../AnimationPlayer")
+
+[editable path="Tunnel"]
+[editable path="CharacterContainer/Mayfly"]
+[editable path="CharacterContainer/Mayfly/Model"]

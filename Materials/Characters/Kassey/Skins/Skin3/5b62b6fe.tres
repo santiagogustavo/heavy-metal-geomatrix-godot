@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cj58748vej4kc"]
+
+[ext_resource type="Texture2D" uid="uid://cnqcx30wbn7es" path="res://Textures/Characters/Kassey/Skins/C/5b62b6fe.png" id="1_65b1u"]
+[ext_resource type="Texture2D" uid="uid://dn0tfjitwif82" path="res://Textures/Characters/Kassey/Skins/Default/de008fba_spec.png" id="2_nl48x"]
+
+[resource]
+albedo_texture = ExtResource("1_65b1u")
+ao_enabled = true
+ao_texture = ExtResource("2_nl48x")

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bl4gl2wdbx05f"]
+
+[ext_resource type="Texture2D" uid="uid://dkhqjy48d5rgn" path="res://Textures/Menus/Select Player/bf365546.png" id="1_tah5i"]
+
+[resource]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.47, 0.47, 0.47, 1)
+albedo_texture = ExtResource("1_tah5i")
+uv1_scale = Vector3(10, 10, 10)

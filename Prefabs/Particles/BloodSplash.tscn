@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkofnli8fa3t"]
+
+[ext_resource type="Shader" uid="uid://kdd8x0hvs753" path="res://Materials/Particles/BloodSplatter.tres" id="1_afwoa"]
+
+[sub_resource type="Curve" id="Curve_vcehc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4fitv"]
+curve = SubResource("Curve_vcehc")
+
+[sub_resource type="Curve" id="Curve_ljhso"]
+_data = [Vector2(0, 0.7), 0.0, 2.63725, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_6l04e"]
+curve = SubResource("Curve_ljhso")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xekv8"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_6l04e")
+alpha_curve = SubResource("CurveTexture_4fitv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_etlt8"]
+render_priority = 0
+shader = ExtResource("1_afwoa")
+
+[sub_resource type="QuadMesh" id="QuadMesh_11w72"]
+material = SubResource("ShaderMaterial_etlt8")
+orientation = 1
+
+[node name="BloodSplash" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+cast_shadow = 0
+extra_cull_margin = 100.0
+emitting = false
+amount = 100
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_xekv8")
+draw_pass_1 = SubResource("QuadMesh_11w72")

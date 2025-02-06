@@ -1,7 +1,6 @@
 extends Control
 class_name OptionsMenuManager
 
-signal open
 signal close
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

@@ -1,6 +1,9 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dv0x5pra6oop"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dv0x5pra6oop"]
 
 [ext_resource type="Texture2D" uid="uid://c8ulv6b63qmtl" path="res://Textures/Characters/Mayfly/Skins/Skin 3/89a1d76c.png" id="1_548pj"]
+[ext_resource type="Texture2D" uid="uid://ea8ymbi1wded" path="res://Textures/Characters/Mayfly/13f49f7c_spec.png" id="2_r6805"]
 
 [resource]
 albedo_texture = ExtResource("1_548pj")
+ao_enabled = true
+ao_texture = ExtResource("2_r6805")

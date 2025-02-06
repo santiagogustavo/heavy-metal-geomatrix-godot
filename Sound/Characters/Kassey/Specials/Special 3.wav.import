@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhjhus7dgkh8w"
+path="res://.godot/imported/Special 3.wav-4b88708d473753519bb33d028fb2520e.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Kassey/Specials/Special 3.wav"
+dest_files=["res://.godot/imported/Special 3.wav-4b88708d473753519bb33d028fb2520e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
