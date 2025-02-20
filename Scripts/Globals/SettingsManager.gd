@@ -16,11 +16,14 @@ func _ready():
 		save_settings()
 
 func save_settings():
+	SavingOverlay.is_saving = true
 	save_audio_settings()
 	save_video_settings()
 	save_input_settings()
 	save_gameplay_settings()
 	save_settings_file()
+	await get_tree().create_timer(0.1).timeout
+	SavingOverlay.is_saving = false
 
 func load_audio_settings():
 	AudioSettingsManager.set_volume("Master", file.get_value("audio", "master_volume", AudioSettingsManager.volumes["Master"]))

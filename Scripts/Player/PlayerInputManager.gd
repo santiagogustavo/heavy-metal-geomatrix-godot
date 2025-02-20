@@ -1,6 +1,8 @@
 extends Node3D
 class_name PlayerInputManager
 
+signal lock_on
+
 var type: Player.PlayerType
 
 @export_subgroup("Controls")
@@ -21,6 +23,9 @@ var is_on_floor: bool = true
 var can_double_jump: bool = false
 var can_pickup: bool = false
 var camera_pivot: Node3D
+
+# Externals
+var is_locked_on: bool = false
 
 # Internals
 var process_input: bool = true
@@ -54,8 +59,11 @@ func _processed_input() -> void:
 		compute_movement()
 		compute_shoot_and_attack()
 		compute_pickup()
-		
+		compute_lock_on()
 	else:
+		is_shooting = false
+		is_attacking = false
+		is_aiming = false
 		input_direction = Vector2.ZERO
 		direction = Vector3.ZERO
 		is_walking = false
@@ -68,7 +76,7 @@ func _physics_processed_input() -> void:
 	compute_jump()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !is_locked_on:
 		new_rotation.y += deg_to_rad(-event.relative.x) * InputSettingsManager.mouse_horizontal_sensitivity
 		new_rotation.x += deg_to_rad(-event.relative.y) * InputSettingsManager.mouse_vertical_sensitivity
 		input_look.x = event.relative.x / 20
@@ -83,6 +91,8 @@ func compute_movement() -> void:
 	update_dash()
 
 func compute_look_stick() -> void:
+	if is_locked_on:
+		return
 	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down", 0.2)
 	input_look.x = look_dir.x * 0.6
 	new_rotation.y += deg_to_rad(-look_dir.x) * InputSettingsManager.stick_horizontal_sensitivity
@@ -91,12 +101,14 @@ func compute_look_stick() -> void:
 func compute_jump() -> void:
 	is_jumping = Input.is_action_just_pressed("jump") and is_on_floor
 	is_double_jumping = Input.is_action_just_pressed("jump") and !is_on_floor and can_double_jump
-	if is_double_jumping:
-		InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)
 
 func compute_shoot_and_attack() -> void:
 	is_shooting = Input.is_action_pressed("shoot")
 	is_attacking = Input.is_action_just_pressed("shoot")
+
+func compute_lock_on() -> void:
+	if Input.is_action_just_pressed("lock_on"):
+		lock_on.emit()
 
 func update_look_and_aim() -> void:
 	input_look.y = -rad_to_deg(camera_pivot.rotation.x) / 90

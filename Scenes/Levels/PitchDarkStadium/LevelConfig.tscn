@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://byxmrc7x2jx7m"]
+
+[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_8qje7"]
+[ext_resource type="Texture2D" uid="uid://ck3nfobqxvs0c" path="res://Textures/Levels/Splashes/PitchDarkStadium.png" id="2_2ioa2"]
+
+[node name="LevelConfig" instance=ExtResource("1_8qje7")]
+level_name = "Pitch Dark Stadium"
+splash = ExtResource("2_2ioa2")
+randomize_spawn = true
+is_snowy = true

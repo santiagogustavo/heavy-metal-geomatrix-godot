@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkt3ivhkt5nvf"]
+
+[ext_resource type="Shader" path="res://Materials/Shaders/Procedural Cyclic Slash.gdshader" id="1_3it5h"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x0hq0"]
+noise_type = 2
+fractal_gain = 4.0
+cellular_distance_function = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h4wd1"]
+height = 128
+seamless = true
+noise = SubResource("FastNoiseLite_x0hq0")
+
+[sub_resource type="Gradient" id="Gradient_jcn58"]
+offsets = PackedFloat32Array(0, 0.1, 0.2)
+colors = PackedColorArray(0.74902, 0.25098, 0.74902, 1, 0, 0.501961, 0.501961, 1, 0.678431, 0.847059, 0.901961, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nkxj2"]
+gradient = SubResource("Gradient_jcn58")
+
+[sub_resource type="Gradient" id="Gradient_g28jl"]
+offsets = PackedFloat32Array(0.567134, 0.587174, 0.613226)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8r3fj"]
+gradient = SubResource("Gradient_g28jl")
+
+[sub_resource type="Gradient" id="Gradient_atjjw"]
+offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8)
+colors = PackedColorArray(1, 1, 1, 1, 0.498039, 0.498039, 0.498039, 1, 0, 0, 0, 1, 0.498039, 0.498039, 0.498039, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mi5le"]
+gradient = SubResource("Gradient_atjjw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h104l"]
+render_priority = 0
+shader = ExtResource("1_3it5h")
+shader_parameter/progress = 0.0
+shader_parameter/derive_progress = -1.0
+shader_parameter/ease_progress = 0.0
+shader_parameter/time_scale = 1.0
+shader_parameter/anim_rot_amt = 1.0
+shader_parameter/zoom = 0.6
+shader_parameter/rotate_all = 286.0
+shader_parameter/base_noise = SubResource("NoiseTexture2D_h4wd1")
+shader_parameter/width_gradient_mask = SubResource("GradientTexture1D_mi5le")
+shader_parameter/highlight = SubResource("GradientTexture1D_8r3fj")
+shader_parameter/emission_strength = 1.0
+shader_parameter/mix_strength = 1.0
+shader_parameter/color_lookup = SubResource("GradientTexture1D_nkxj2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4sbvg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_h104l")
+mesh = SubResource("QuadMesh_4sbvg")

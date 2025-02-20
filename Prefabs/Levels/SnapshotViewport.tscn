@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://co47xvwdgttyr"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="1_1y3xa"]
+[ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="2_1m6b7"]
+
+[node name="SnapshotViewport" type="SubViewport"]
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+script = ExtResource("1_1y3xa")
+
+[node name="SnapshotCamera" parent="." instance=ExtResource("2_1m6b7")]
+transform = Transform3D(-0.71934, 0.0846576, 0.68948, 0, 0.992546, -0.121869, -0.694658, -0.0876656, -0.713978, -12.8, 1.13, -8.98)
+cull_mask = 81

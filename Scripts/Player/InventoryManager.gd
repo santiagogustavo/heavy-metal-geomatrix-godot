@@ -6,6 +6,8 @@ signal body_pickup
 
 signal gun_shoot
 
+var player_rid: RID
+
 # Shortcuts
 var has_jetpack: bool = false
 var jetpack_fuel: float = 0.0
@@ -46,7 +48,8 @@ func update_variables():
 	if body_instance != null and body_instance is JetpackController:
 		jetpack_fuel = body_instance.fuel
 		jetpack_has_fuel = body_instance.fuel > 0
-		jetpack_can_jump = body_instance.fuel - body_instance.fuel_cost_jump > 0
+		#jetpack_can_jump = body_instance.fuel - body_instance.fuel_cost_jump > 0
+		jetpack_can_jump = body_instance.fuel > 0
 	else:
 		has_jetpack = false
 	
@@ -72,6 +75,7 @@ func clear_and_instantiate_body_item(item: PackedScene):
 	if body_instance:
 		body_instance.queue_free()
 	body_instance = item.instantiate()
+	body_instance.player_rid = player_rid
 	body_slot.get_node("Offset").add_child(body_instance)
 	body_pickup.emit()
 	if body_instance.name == 'Jetpack':
@@ -81,6 +85,7 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 	if right_hand_instance != null:
 		right_hand_instance.queue_free()
 	right_hand_instance = item.instantiate()
+	right_hand_instance.player_rid = player_rid
 	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
 	right_hand_pickup.emit()
 	if right_hand_instance is GunController:

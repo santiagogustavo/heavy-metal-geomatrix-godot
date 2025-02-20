@@ -1,0 +1,259 @@
+[gd_scene load_steps=23 format=3 uid="uid://s1mrd8xtfv28"]
+
+[ext_resource type="Script" path="res://Scripts/UI/SavingOverlayManager.gd" id="1_gmi7h"]
+[ext_resource type="Texture2D" uid="uid://yl2ocy60oyx2" path="res://Textures/Utils/scroll-quill.png" id="2_nknqt"]
+
+[sub_resource type="Gradient" id="Gradient_14nad"]
+offsets = PackedFloat32Array(0, 0.628774)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6qdty"]
+gradient = SubResource("Gradient_14nad")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_kqydi"]
+resource_name = "Idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2eyve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a3j8u"]
+_data = {
+"Idle": SubResource("Animation_kqydi"),
+"RESET": SubResource("Animation_2eyve")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph4af"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfnsk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k7x8f"]
+states/Idle/node = SubResource("AnimationNodeAnimation_ph4af")
+states/Idle/position = Vector2(426, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_bfnsk")]
+
+[sub_resource type="Animation" id="Animation_6jeos"]
+resource_name = "FadeIn"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4gc06"]
+resource_name = "FadeOut"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_drtfy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdttn"]
+_data = {
+"FadeIn": SubResource("Animation_6jeos"),
+"FadeOut": SubResource("Animation_4gc06"),
+"RESET": SubResource("Animation_drtfy")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2sj5p"]
+animation = &"FadeIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yuopp"]
+animation = &"FadeOut"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wt2rk"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87exf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_60vwr"]
+advance_mode = 2
+advance_condition = &"is_saving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6jpaq"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"saved"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bahst"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jxf6o"]
+states/FadeIn/node = SubResource("AnimationNodeAnimation_2sj5p")
+states/FadeIn/position = Vector2(341, -34.9375)
+states/FadeOut/node = SubResource("AnimationNodeAnimation_yuopp")
+states/FadeOut/position = Vector2(608, -34.875)
+states/RESET/node = SubResource("AnimationNodeAnimation_wt2rk")
+states/RESET/position = Vector2(489, 101.25)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_87exf"), "RESET", "FadeIn", SubResource("AnimationNodeStateMachineTransition_60vwr"), "FadeIn", "FadeOut", SubResource("AnimationNodeStateMachineTransition_6jpaq"), "FadeOut", "RESET", SubResource("AnimationNodeStateMachineTransition_bahst")]
+graph_offset = Vector2(114, -116)
+
+[node name="SavingOverlay" type="CanvasLayer"]
+layer = 127
+visible = false
+script = ExtResource("1_gmi7h")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_6qdty")
+
+[node name="TextureRect" type="TextureRect" parent="Control/BG"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("2_nknqt")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/BG"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_a3j8u")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Control/BG"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_k7x8f")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_xdttn")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Control"]
+tree_root = SubResource("AnimationNodeStateMachine_jxf6o")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_saving = false
+parameters/conditions/saved = false

@@ -17,6 +17,7 @@ signal selected
 @export var stat_vitality_label: Label
 
 @export_subgroup("SFX")
+@export var ost: AudioStreamPlayer2D
 @export var cursor_sfx: AudioStreamPlayer2D
 @export var select_sfx: AudioStreamPlayer2D
 
@@ -29,6 +30,8 @@ var is_selected: bool = false
 var focused_first: bool = false
 
 func _ready() -> void:
+	SceneManager.persist_node(ost)
+	ost.playing = true
 	if !avatar_cards or !avatar_cards.size():
 		return
 	for avatar in avatar_cards:
@@ -77,11 +80,13 @@ func select_player(avatar: AvatarCard) -> void:
 	var instance: Player = load("res://Prefabs/Player1.tscn").instantiate()
 	instance.selected_character = avatar.character
 	instance.selected_skin = avatar.select.current_skin
-	GameManager.add_player(instance)
+	GameManager.create_team()
+	GameManager.add_player(instance, 0)
+	var debug = DebugCommands.new(get_tree())
+	debug.add_bot()
 	await avatar.select.animation_tree.animation_finished
 	await get_tree().create_timer(0.5).timeout
-	LoadingManager.next_scene = redirect_to_scene
-	get_tree().change_scene_to_file(Definitions.Scenes.Loading)
+	SceneManager.load_scene_file(redirect_to_scene)
 
 func focus_on_first():
 	focused_first = true

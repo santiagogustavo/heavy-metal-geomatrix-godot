@@ -133,7 +133,13 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 layer = 127
 script = ExtResource("1_y5dpv")
 
-[node name="CompilerParent" type="Node" parent="."]
+[node name="CompilerParent" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CompilerParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CompilerParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

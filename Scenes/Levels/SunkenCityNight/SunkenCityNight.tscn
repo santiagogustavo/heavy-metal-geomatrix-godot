@@ -1,18 +1,18 @@
-[gd_scene load_steps=78 format=3 uid="uid://cfdmaidpgq6oq"]
+[gd_scene load_steps=79 format=3 uid="uid://cfdmaidpgq6oq"]
 
-[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_v8yub"]
+[ext_resource type="PackedScene" uid="uid://dpe8wv78aa5vo" path="res://Scenes/Levels/SunkenCityNight/LevelConfig.tscn" id="1_irl40"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_x780f"]
+[ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_1r2ip"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_arequ"]
 [ext_resource type="PackedScene" uid="uid://nkwpbcej5qsd" path="res://Models/Levels/Sunken City Night/Sunken City Night.glb" id="2_ejg02"]
-[ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="2_jhuxj"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="3_337c6"]
+[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_cpffb"]
 [ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="4_6k4rg"]
+[ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_ccf1j"]
 [ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="5_c85kp"]
 [ext_resource type="Texture2D" uid="uid://bkta1him3xg1t" path="res://Textures/Levels/1da126ac_spec.png" id="6_8dwq3"]
 [ext_resource type="PackedScene" uid="uid://1lkvm44wjt4x" path="res://Prefabs/Particles/Rain/Raindrops.tscn" id="8_wsk8x"]
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="9_5fhfi"]
-[ext_resource type="Shader" uid="uid://drumoc366nx1j" path="res://Materials/Shaders/Wall Shield.gdshader" id="12_0w60c"]
-[ext_resource type="Script" uid="uid://dh81khdr2l20o" path="res://Scripts/Levels/InvisibleWall.gd" id="12_d067t"]
 [ext_resource type="AudioStream" uid="uid://cpv53h1eynfwq" path="res://Sound/Levels/SunkenCityNight/rain_loop.wav" id="12_i5l5g"]
 [ext_resource type="Texture2D" uid="uid://c2axca041ro8" path="res://Textures/Lens Flares/flare1.png" id="12_te444"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="13_28rel"]
@@ -39,6 +39,10 @@
 [ext_resource type="Texture2D" uid="uid://ci4wiams1s2og" path="res://Textures/Levels/Sunken City Night/neon_sign_5.jpg" id="25_53wty"]
 [ext_resource type="AudioStream" uid="uid://m7w5l1kyndam" path="res://Music/SunkenCityNight/SunkenCityNightOst4.mp3" id="25_hbknm"]
 [ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
+[ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_18o3v"]
+viewport_path = NodePath("SnapshotViewport")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -250,24 +254,6 @@ size = Vector3(14, 0, 18)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rdg16"]
 size = Vector3(0.318848, 22.8315, 31.0303)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f40a8"]
-render_priority = 0
-shader = ExtResource("12_0w60c")
-shader_parameter/scale = 200.0
-shader_parameter/line_thickness = 0.06
-shader_parameter/line_speed = 0.5
-shader_parameter/ripple_speed = 1.564
-shader_parameter/line_color = Color(0.2, 1, 1, 1)
-shader_parameter/ripple_color = Color(0.6, 0.7, 1, 0.7)
-shader_parameter/surface_color = Color(0.01, 0.18, 0.7, 0.4)
-shader_parameter/sphere_size = 2.0
-shader_parameter/pos1 = Vector3(0, 0, 0)
-shader_parameter/pos2 = Vector3(10000, 10000, 10000)
-shader_parameter/pos3 = Vector3(10000, 10000, 10000)
-shader_parameter/pos4 = Vector3(10000, 10000, 10000)
-shader_parameter/pos5 = Vector3(10000, 10000, 10000)
-shader_parameter/pos6 = Vector3(10000, 10000, 10000)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_0yu5d"]
 size = Vector3(0.318848, 22.8315, 20.9529)
 
@@ -281,15 +267,24 @@ stream_4/stream = ExtResource("26_jeo0a")
 
 [node name="SunkenCityNight" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "snapshot_camera") instance=ExtResource("1_v8yub")]
-level_name = "Sunken City Night"
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "snapshot_camera", "splash_animation_tree") instance=ExtResource("1_irl40")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
-randomize_spawn = true
-is_rainy = true
-snapshot_camera = NodePath("../SnapshotCamera")
+snapshot_camera = NodePath("../SnapshotViewport/SnapshotCamera")
+splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
-[node name="SnapshotCamera" parent="." instance=ExtResource("2_jhuxj")]
-transform = Transform3D(-0.258819, -0.314475, -0.913301, 0, 0.945519, -0.325568, 0.965926, -0.0842632, -0.244718, -20.03, 11.16, -33.74)
+[node name="SplashLayer" parent="." instance=ExtResource("2_1r2ip")]
+
+[node name="Viewport" parent="SplashLayer/Splash" index="0"]
+texture = SubResource("ViewportTexture_18o3v")
+
+[node name="SnapshotViewport" type="SubViewport" parent="."]
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+script = ExtResource("3_cpffb")
+
+[node name="SnapshotCamera" parent="SnapshotViewport" instance=ExtResource("4_ccf1j")]
+transform = Transform3D(-0.258819, -0.314475, -0.9133, 0, 0.945518, -0.325568, 0.965926, -0.0842632, -0.244718, -20.03, 11.16, -33.74)
+cull_mask = 81
 
 [node name="Spawn Points" type="Node3D" parent="."]
 
@@ -483,6 +478,30 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_jknrq")
 anim_player = NodePath("../AnimationPlayer")
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0275, 8.75516, -12.8594)
+size = Vector3(15.1618, 4.48334, 7.29187)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0279, 7.48626, -28.6275)
+size = Vector3(15.1609, 2.05893, 24.2561)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 0.893646, 0.448773, 0, -0.448773, 0.893646, -24.0338, 8.71362, -18.487)
+size = Vector3(15.1491, 2.27849, 5.6476)
+
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8205, 5.46661, -24.9828)
+size = Vector3(3.34791, 2.05893, 31.5455)
+
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.177, 5.46661, -24.9828)
+size = Vector3(3.12561, 2.05893, 31.5455)
+
+[node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="Level Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4997, 9.47559, -31.9959)
+size = Vector3(4.99236, 2.03744, 10.0238)
+
 [node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("13_28rel")]
 pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_kqeaa"), ExtResource("16_284yf"), ExtResource("19_4j3hn")])
 collision_shapes = [NodePath("Area3D/CollisionShape3D")]
@@ -495,29 +514,21 @@ shape = SubResource("BoxShape3D_m8uua")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8619, 4.12044, -25.0382)
 collision_layer = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Invisible Walls"]
+[node name="CollisionShape3D5" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7371, 13.7986, 0.0586987)
 shape = SubResource("BoxShape3D_rdg16")
-script = ExtResource("12_d067t")
-material = SubResource("ShaderMaterial_f40a8")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Invisible Walls"]
+[node name="CollisionShape3D6" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5111, 13.7986, 0.0586987)
 shape = SubResource("BoxShape3D_rdg16")
-script = ExtResource("12_d067t")
-material = SubResource("ShaderMaterial_f40a8")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Invisible Walls"]
+[node name="CollisionShape3D7" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.114452, 13.7986, -15.6081)
 shape = SubResource("BoxShape3D_0yu5d")
-script = ExtResource("12_d067t")
-material = SubResource("ShaderMaterial_f40a8")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Invisible Walls"]
+[node name="CollisionShape3D8" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.114452, 13.7986, 15.691)
 shape = SubResource("BoxShape3D_0yu5d")
-script = ExtResource("12_d067t")
-material = SubResource("ShaderMaterial_f40a8")
 
 [node name="World Boundaries" parent="." instance=ExtResource("14_mbsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7744, 6.8224, -20.8766)
@@ -531,5 +542,6 @@ stream = SubResource("AudioStreamRandomizer_rq1vi")
 autoplay = true
 bus = &"Game"
 
+[editable path="SplashLayer"]
 [editable path="Level Geometry/Sunken City Night"]
 [editable path="Spawner"]

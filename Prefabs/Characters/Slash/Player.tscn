@@ -7,9 +7,16 @@
 animation_tree_reference = ExtResource("2_oeekc")
 
 [node name="BoobJiggle_L" parent="Model/Armature/Skeleton3D" index="0"]
-transform = Transform3D(-0.69761, 0.417837, 0.582024, 0.24436, -0.624882, 0.741493, 0.673519, 0.659496, 0.333821, 0.0550911, 1.21118, 0.104117)
+transform = Transform3D(-0.194804, 0.654568, 0.730474, 0.0122674, -0.743057, 0.669116, 0.980765, 0.139307, 0.136721, 0.102715, 1.18767, 0.136352)
 
 [node name="BoobJiggle_R" parent="Model/Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.599269, -0.166677, -0.783004, -0.464572, -0.724138, 0.509704, -0.651958, 0.669211, 0.35652, -0.0346066, 1.19595, 0.105609)
+transform = Transform3D(-0.894495, 0.16361, -0.416066, -0.321314, -0.882351, 0.343822, -0.310863, 0.441235, 0.841829, 0.0273746, 1.1663, 0.182685)
+
+[node name="Body Slot" parent="Model/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.953043, -0.27918, 0.117335, -0.0810267, 0.138252, 0.987077, -0.291794, -0.950234, 0.109139, 0.0538574, 1.04649, 0.0811235)
+
+[node name="Right Hand Slot" parent="Model/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.185787, 0.932235, -0.310517, 0.36315, 0.228499, 0.903278, 0.91302, -0.280581, -0.296089, 0.221123, 1.03177, 0.357691)
 
 [editable path="Model"]
+[editable path="SFX/Common"]

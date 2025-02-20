@@ -28,7 +28,7 @@ layers = 2
 cast_shadow = 0
 
 [node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
-bones/0/scale = Vector3(1.09337, 1.09337, 1)
+bones/0/scale = Vector3(1.17614, 1.17614, 1)
 
 [node name="object_0_002" parent="Hand Gun/Armature/Skeleton3D" index="0"]
 layers = 2

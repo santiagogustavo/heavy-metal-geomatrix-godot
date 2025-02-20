@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsq011hun8pqa"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/InvisibleWall.gd" id="1_esp4l"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="2_yxgfx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dxjn8"]
+render_priority = 0
+shader = ExtResource("2_yxgfx")
+shader_parameter/scale = 200.0
+shader_parameter/line_thickness = 0.06
+shader_parameter/line_animation = false
+shader_parameter/line_speed = 0.5
+shader_parameter/ripple_speed = 1.564
+shader_parameter/alpha = 0.2
+shader_parameter/line_color = Color(0.2, 0.346667, 1, 1)
+shader_parameter/ripple_color = Color(0.6, 0.7, 1, 0.588235)
+shader_parameter/surface_color = Color(0.2, 0.346667, 1, 0.411765)
+shader_parameter/sphere_size = 2.0
+shader_parameter/pos1 = Vector3(0, 0, 0)
+shader_parameter/pos2 = Vector3(10000, 10000, 10000)
+shader_parameter/pos3 = Vector3(10000, 10000, 10000)
+shader_parameter/pos4 = Vector3(10000, 10000, 10000)
+shader_parameter/pos5 = Vector3(10000, 10000, 10000)
+shader_parameter/pos6 = Vector3(10000, 10000, 10000)
+
+[node name="CollisionShape3D" type="CollisionShape3D"]
+script = ExtResource("1_esp4l")
+material = SubResource("ShaderMaterial_dxjn8")

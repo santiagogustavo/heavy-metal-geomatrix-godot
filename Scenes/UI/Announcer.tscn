@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cujclmubc4tw8"]
+[gd_scene load_steps=104 format=3 uid="uid://cujclmubc4tw8"]
 
 [ext_resource type="Script" path="res://Scripts/UI/AnnouncerManager.gd" id="1_f8iuw"]
 [ext_resource type="Shader" path="res://Materials/Shaders/Invert Color.gdshader" id="1_ntqyd"]
@@ -9,9 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cv248r467v68a" path="res://Textures/UI/Announcer/time_up.png" id="6_t4ray"]
 [ext_resource type="AudioStream" uid="uid://wlgnpptjjwyf" path="res://Sound/UI/Announcer/Deathmatch.wav" id="8_id04x"]
 [ext_resource type="Script" path="res://Scripts/UI/Announcer/SFXManager.gd" id="8_nqcur"]
+[ext_resource type="Texture2D" uid="uid://ih2kw2feoyp5" path="res://Textures/UI/Announcer/win.png" id="8_u0381"]
 [ext_resource type="AudioStream" uid="uid://cs4wpb8ayhtus" path="res://Sound/UI/Announcer/1.wav" id="9_01urx"]
+[ext_resource type="Shader" path="res://Materials/Shaders/HighlightCanvasItem.gdshader" id="9_sbkir"]
+[ext_resource type="Texture2D" uid="uid://dhnnea6lcggbl" path="res://Textures/UI/Announcer/lose.png" id="10_6jhej"]
 [ext_resource type="AudioStream" uid="uid://c5ok5v65y68mk" path="res://Sound/UI/Announcer/2.wav" id="10_12373"]
 [ext_resource type="AudioStream" uid="uid://bi7hn0o21jacn" path="res://Sound/UI/Announcer/3.wav" id="11_6elo8"]
+[ext_resource type="Texture2D" uid="uid://cdmagaoch5ryx" path="res://Textures/UI/Announcer/draw.png" id="11_8gq5w"]
 [ext_resource type="AudioStream" uid="uid://cs3sn2y28b4gr" path="res://Sound/UI/Announcer/4.wav" id="12_8o85n"]
 [ext_resource type="AudioStream" uid="uid://bff4hdqwclojk" path="res://Sound/UI/Announcer/5.wav" id="13_jsrvp"]
 [ext_resource type="AudioStream" uid="uid://caed1qm4qqctw" path="res://Sound/UI/Announcer/6.wav" id="14_bsf0y"]
@@ -32,6 +36,10 @@
 [ext_resource type="AudioStream" uid="uid://c2piuygx6gi5v" path="res://Sound/UI/Announcer/Impact 2.wav" id="29_5ixdn"]
 [ext_resource type="AudioStream" uid="uid://c3ttijne5d6yh" path="res://Sound/UI/Announcer/Impact 3.wav" id="30_oj1ee"]
 [ext_resource type="AudioStream" uid="uid://jan65eeqop6j" path="res://Sound/UI/Announcer/Impact 4.wav" id="31_ujeqr"]
+[ext_resource type="AudioStream" uid="uid://bb7e0bu07hjr" path="res://Sound/UI/Announcer/Win.wav" id="37_vkcow"]
+[ext_resource type="AudioStream" uid="uid://c1wshfu5cc2q1" path="res://Sound/UI/Announcer/Lose.wav" id="38_4ybgt"]
+[ext_resource type="AudioStream" uid="uid://cpfjdqu1gxue5" path="res://Sound/UI/Announcer/Draw.wav" id="38_dj37f"]
+[ext_resource type="AudioStream" uid="uid://0mt20150vkix" path="res://Sound/UI/Announcer/Excessive.wav" id="39_uxhiq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ea8xd"]
 shader = ExtResource("1_ntqyd")
@@ -480,6 +488,437 @@ _data = {
 "RESET": SubResource("Animation_eks6r")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhslj"]
+atlas = ExtResource("8_u0381")
+region = Rect2(0, 32, 416, 180)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lwje"]
+shader = ExtResource("9_sbkir")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 1.5
+shader_parameter/highlight_speed = 6.0
+shader_parameter/highlight_width = 15.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12pa6"]
+atlas = ExtResource("8_u0381")
+region = Rect2(40, 220, 332, 72)
+
+[sub_resource type="Animation" id="Animation_tm8mu"]
+resource_name = "AnnounceDraw"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Draw:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Draw:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Draw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(419.647, -46.564), Vector2(511.994, -46.564), Vector2(534.084, -46.564), Vector2(556.084, -46.564)]
+}
+
+[sub_resource type="Animation" id="Animation_f56qt"]
+resource_name = "AnnounceLose"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lose:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lose:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lose:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(419.647, -46.564), Vector2(511.994, -46.564), Vector2(534.084, -46.564), Vector2(556.084, -46.564)]
+}
+
+[sub_resource type="Animation" id="Animation_gy4q4"]
+resource_name = "AnnounceWin"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Win:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Win:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Win:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(419.647, -25.529), Vector2(511.994, -25.3017), Vector2(534.084, -25.1607), Vector2(556.084, -25.161)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Win/Excessive:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6jmyj"]
+resource_name = "AnnounceWinExcessive"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Win:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Win:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Win:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(419.647, -25.529), Vector2(511.994, -25.3017), Vector2(534.084, -25.1607), Vector2(556.084, -25.161)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Win/Excessive:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Win/Excessive:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Win/Excessive:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tpyme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Win:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Win:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Win:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(419.647, -25.529)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Win/Excessive:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Win/Excessive:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Win/Excessive:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Lose:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Lose:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Lose:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(419.647, -46.564)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Draw:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Draw:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Draw:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(419.647, -46.564)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckwxw"]
+_data = {
+"AnnounceDraw": SubResource("Animation_tm8mu"),
+"AnnounceLose": SubResource("Animation_f56qt"),
+"AnnounceWin": SubResource("Animation_gy4q4"),
+"AnnounceWinExcessive": SubResource("Animation_6jmyj"),
+"RESET": SubResource("Animation_tpyme")
+}
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o43nb"]
 streams_count = 3
 stream_0/stream = ExtResource("19_bayhn")
@@ -530,6 +969,147 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Invert2/AnimationPlayer:current_animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"clear_animator_variables"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX/Win:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX/Excessive:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SFX/Lose:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX/Impact:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SFX/Draw:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0r0g0"]
+resource_name = "RoundEndDraw"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert2/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"AnnounceDraw"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/Draw:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_ready_to_start_signal"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_lv687"]
@@ -601,9 +1181,64 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ops2a"]
+resource_name = "RoundEndLose"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert2/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"AnnounceLose"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/Lose:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_ready_to_start_signal"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_lumxi"]
 resource_name = "RoundEndTimeUp"
-length = 1.1
+length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -627,6 +1262,140 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/Impact:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hyck8"]
+resource_name = "RoundEndWin"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert2/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"AnnounceWin"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/Win:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_ready_to_start_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_s42d6"]
+resource_name = "RoundEndWinExcessive"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Invert2/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"AnnounceWinExcessive"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/Win:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/Excessive:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_ready_to_start_signal"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_qgnan"]
@@ -718,19 +1487,35 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2s5q1"]
 _data = {
 "RESET": SubResource("Animation_14y8c"),
+"RoundEndDraw": SubResource("Animation_0r0g0"),
 "RoundEndKO": SubResource("Animation_lv687"),
+"RoundEndLose": SubResource("Animation_ops2a"),
 "RoundEndTimeUp": SubResource("Animation_lumxi"),
+"RoundEndWin": SubResource("Animation_hyck8"),
+"RoundEndWinExcessive": SubResource("Animation_s42d6"),
 "RoundStart": SubResource("Animation_qgnan")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_38fri"]
 animation = &"RESET"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p5dek"]
+animation = &"RoundEndDraw"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p7m0s"]
 animation = &"RoundEndKO"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4deip"]
+animation = &"RoundEndLose"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_duiue"]
 animation = &"RoundEndTimeUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_othir"]
+animation = &"RoundEndWin"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ce2ho"]
+animation = &"RoundEndWinExcessive"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0mrlv"]
 animation = &"RoundStart"
@@ -742,26 +1527,83 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lae3b"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ff6uy"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"win"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6hufd"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hlc60"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4aakv"]
 switch_mode = 2
 advance_mode = 2
+advance_condition = &"win_excessive"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gf4y3"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"lose"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e6qvy"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"draw"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8eayg"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jh26b"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yy8rm"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nncch"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"win"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ivcy7"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"win_excessive"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nue8q"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"lose"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v3c0f"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"draw"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4ddyb"]
+states/End/position = Vector2(1199, 81)
 states/RESET/node = SubResource("AnimationNodeAnimation_38fri")
 states/RESET/position = Vector2(517.56, 99.8125)
+states/RoundEndDraw/node = SubResource("AnimationNodeAnimation_p5dek")
+states/RoundEndDraw/position = Vector2(853.447, 36.43)
 states/RoundEndKO/node = SubResource("AnimationNodeAnimation_p7m0s")
-states/RoundEndKO/position = Vector2(517.296, -72.1069)
+states/RoundEndKO/position = Vector2(87.3372, -389.607)
+states/RoundEndLose/node = SubResource("AnimationNodeAnimation_4deip")
+states/RoundEndLose/position = Vector2(851.447, -72.5757)
 states/RoundEndTimeUp/node = SubResource("AnimationNodeAnimation_duiue")
-states/RoundEndTimeUp/position = Vector2(749.447, -71.9589)
+states/RoundEndTimeUp/position = Vector2(88.8674, -170.959)
+states/RoundEndWin/node = SubResource("AnimationNodeAnimation_othir")
+states/RoundEndWin/position = Vector2(835.447, -311.576)
+states/RoundEndWinExcessive/node = SubResource("AnimationNodeAnimation_ce2ho")
+states/RoundEndWinExcessive/position = Vector2(867.947, -189.57)
 states/RoundStart/node = SubResource("AnimationNodeAnimation_0mrlv")
-states/RoundStart/position = Vector2(279.12, -73.0445)
+states/RoundStart/position = Vector2(88.1023, -11.0445)
 states/Start/position = Vector2(200, 99.9062)
-transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_nl7rk"), "RoundStart", "RESET", SubResource("AnimationNodeStateMachineTransition_shv7y"), "RoundEndKO", "RESET", SubResource("AnimationNodeStateMachineTransition_lae3b"), "RoundEndTimeUp", "RESET", SubResource("AnimationNodeStateMachineTransition_hlc60")]
-graph_offset = Vector2(-123.053, -108.57)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_nl7rk"), "RoundStart", "RESET", SubResource("AnimationNodeStateMachineTransition_shv7y"), "RoundEndKO", "RoundEndWin", SubResource("AnimationNodeStateMachineTransition_ff6uy"), "RoundEndWin", "RESET", SubResource("AnimationNodeStateMachineTransition_6hufd"), "RoundEndKO", "RoundEndWinExcessive", SubResource("AnimationNodeStateMachineTransition_4aakv"), "RoundEndKO", "RoundEndLose", SubResource("AnimationNodeStateMachineTransition_gf4y3"), "RoundEndKO", "RoundEndDraw", SubResource("AnimationNodeStateMachineTransition_e6qvy"), "RoundEndWinExcessive", "RESET", SubResource("AnimationNodeStateMachineTransition_8eayg"), "RoundEndLose", "RESET", SubResource("AnimationNodeStateMachineTransition_jh26b"), "RoundEndDraw", "RESET", SubResource("AnimationNodeStateMachineTransition_yy8rm"), "RoundEndTimeUp", "RoundEndWin", SubResource("AnimationNodeStateMachineTransition_nncch"), "RoundEndTimeUp", "RoundEndWinExcessive", SubResource("AnimationNodeStateMachineTransition_ivcy7"), "RoundEndTimeUp", "RoundEndLose", SubResource("AnimationNodeStateMachineTransition_nue8q"), "RoundEndTimeUp", "RoundEndDraw", SubResource("AnimationNodeStateMachineTransition_v3c0f")]
+graph_offset = Vector2(-237.053, -404.57)
 
 [node name="Announcer" type="CanvasLayer"]
 layer = 10
@@ -953,6 +1795,90 @@ libraries = {
 "": SubResource("AnimationLibrary_qmwol")
 }
 
+[node name="Invert2" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_ea8xd")
+custom_minimum_size = Vector2(1300, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = 5.0
+offset_right = 650.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0842772
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(0, 32)
+
+[node name="Win" type="TextureRect" parent="Control/Invert2"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.353
+offset_top = -57.529
+offset_right = 17.6467
+offset_bottom = 57.471
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_qhslj")
+expand_mode = 1
+
+[node name="Excessive" type="TextureRect" parent="Control/Invert2/Win"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_2lwje")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -22.0
+offset_right = 100.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 22)
+texture = SubResource("AtlasTexture_12pa6")
+expand_mode = 1
+
+[node name="Lose" type="TextureRect" parent="Control/Invert2"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 419.647
+offset_top = -46.564
+offset_right = 729.647
+offset_bottom = 118.436
+texture = ExtResource("10_6jhej")
+expand_mode = 1
+
+[node name="Draw" type="TextureRect" parent="Control/Invert2"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 419.647
+offset_top = -46.564
+offset_right = 729.647
+offset_bottom = 118.436
+texture = ExtResource("11_8gq5w")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Invert2"]
+libraries = {
+"": SubResource("AnimationLibrary_ckwxw")
+}
+
 [node name="SFX" type="Node2D" parent="Control"]
 script = ExtResource("8_nqcur")
 
@@ -1018,6 +1944,23 @@ bus = &"Announcer"
 stream = SubResource("AudioStreamRandomizer_hktbt")
 bus = &"UI Reverb"
 
+[node name="Win" type="AudioStreamPlayer2D" parent="Control/SFX"]
+stream = ExtResource("37_vkcow")
+bus = &"UI Reverb"
+
+[node name="Draw" type="AudioStreamPlayer2D" parent="Control/SFX"]
+stream = ExtResource("38_dj37f")
+bus = &"UI Reverb"
+
+[node name="Lose" type="AudioStreamPlayer2D" parent="Control/SFX"]
+stream = ExtResource("38_4ybgt")
+bus = &"UI Reverb"
+
+[node name="Excessive" type="AudioStreamPlayer2D" parent="Control/SFX"]
+stream = ExtResource("39_uxhiq")
+volume_db = -5.0
+bus = &"UI Reverb"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 libraries = {
 "": SubResource("AnimationLibrary_2s5q1")
@@ -1027,3 +1970,7 @@ libraries = {
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_4ddyb")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/draw = false
+parameters/conditions/lose = false
+parameters/conditions/win = false
+parameters/conditions/win_excessive = false

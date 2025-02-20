@@ -10,9 +10,11 @@ render_mode depth_draw_never, unshaded;
 
 uniform float scale = 15.0;
 uniform float line_thickness = 0.02;
+uniform bool line_animation = true;
 uniform float line_speed = 0.5;
 uniform float ripple_speed = 1.564;
 
+uniform float alpha : hint_range(0.0, 1.0, 0.1) = 1.0;
 uniform vec4 line_color : source_color = vec4( 0.2, 1.0, 1.0, 1.0 );
 uniform vec4 ripple_color : source_color = vec4( 0.6, 0.7, 1.0, 0.7 );
 uniform vec4 surface_color : source_color = vec4( 0.01, 0.18, 0.7, 0.4 );
@@ -48,6 +50,9 @@ void fragment( )
 
 	// ライン色計算
 	vec3 final_line_color = clamp( line_color.rgb + ( fract( length( UV * scale * 0.5 ) + TIME * line_speed ) * 2.0 - 1.0 ), vec3( 0.0 ), vec3( 1.0 ) );
+	if (!line_animation) {
+		final_line_color = clamp( line_color.rgb , vec3( 0.0 ), vec3( 1.0 ) );
+	}
 
 	// 波紋計算
 	float ripple = float( abs( hex - mod( -TIME * ripple_speed, 1.0 ) ) * 5.0 < 0.2 );
@@ -78,5 +83,5 @@ void fragment( )
 	)))));
 
 	ALBEDO = final.rgb;
-	ALPHA = clamp( final.a * sphere_size - min_dist, 0.0, 1.0 );
+	ALPHA = clamp( final.a * sphere_size - min_dist, 0.0, 1.0 ) * alpha;
 }

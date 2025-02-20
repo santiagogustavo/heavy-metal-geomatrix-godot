@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://ctwxapo2m61ry"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://ctwxapo2m61ry"]
 
 [ext_resource type="Texture2D" uid="uid://cavmhrqs2g8xs" path="res://Textures/UI/Masks/player_health.png" id="2_0hkvf"]
 
@@ -40,6 +40,14 @@ texture = ExtResource("2_0hkvf")
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_m6dem"]
 operator = 2
 
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_vf1fu"]
+parameter_name = "Flip"
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_7hqca"]
+
+[sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_ioj3j"]
+function = 2
+
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_ngkwc"]
 default_input_values = [0, Quaternion(0, 0, 0, 0)]
 op_type = 2
@@ -49,6 +57,7 @@ code = "shader_type canvas_item;
 render_mode blend_mix;
 
 uniform sampler2D Alpha_Mask;
+uniform bool Flip;
 uniform float Progress : hint_range(0, 1) = 1;
 
 
@@ -77,6 +86,10 @@ void fragment() {
 	float n_out4p3 = n_out3p0.w;
 
 
+// BooleanParameter:31
+	bool n_out31p0 = Flip;
+
+
 // Input:21
 	vec2 n_out21p0 = UV;
 
@@ -91,12 +104,21 @@ void fragment() {
 	float n_out24p0 = Progress;
 
 
+// Compare:33
+	bool n_out33p0 = n_out22p0 > n_out24p0;
+
+
 // Compare:23
 	bool n_out23p0 = n_out22p0 <= n_out24p0;
 
 
+	float n_out32p0;
+// Switch:32
+	n_out32p0 = mix((n_out23p0 ? 1.0 : 0.0), (n_out33p0 ? 1.0 : 0.0), float(n_out31p0));
+
+
 // VectorOp:27
-	vec4 n_out27p0 = vec4(n_out4p3) * vec4(n_out23p0 ? 1.0 : 0.0);
+	vec4 n_out27p0 = vec4(n_out4p3) * vec4(n_out32p0);
 
 
 // FloatOp:30
@@ -113,26 +135,32 @@ mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(880, 40)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_rxlk3")
-nodes/fragment/3/position = Vector2(-740, 40)
+nodes/fragment/3/position = Vector2(-1340, -100)
 nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_ngkwc")
-nodes/fragment/4/position = Vector2(-420, 20)
+nodes/fragment/4/position = Vector2(-640, 40)
 nodes/fragment/20/node = SubResource("VisualShaderNodeTexture2DParameter_5fx8n")
-nodes/fragment/20/position = Vector2(-1100, 40)
+nodes/fragment/20/position = Vector2(-2260, -360)
 nodes/fragment/21/node = SubResource("VisualShaderNodeInput_18m2v")
-nodes/fragment/21/position = Vector2(-1120, 360)
+nodes/fragment/21/position = Vector2(-2240, 500)
 nodes/fragment/22/node = SubResource("VisualShaderNodeVectorDecompose_onqwu")
-nodes/fragment/22/position = Vector2(-700, 460)
+nodes/fragment/22/position = Vector2(-1360, 560)
 nodes/fragment/23/node = SubResource("VisualShaderNodeCompare_v466n")
-nodes/fragment/23/position = Vector2(-340, 580)
+nodes/fragment/23/position = Vector2(-860, 780)
 nodes/fragment/24/node = SubResource("VisualShaderNodeFloatParameter_oycgv")
-nodes/fragment/24/position = Vector2(-800, 660)
+nodes/fragment/24/position = Vector2(-2300, 1280)
 nodes/fragment/27/node = SubResource("VisualShaderNodeVectorOp_8qddb")
-nodes/fragment/27/position = Vector2(80, 100)
+nodes/fragment/27/position = Vector2(140, 620)
 nodes/fragment/28/node = SubResource("VisualShaderNodeInput_rbd5c")
-nodes/fragment/28/position = Vector2(-880, -260)
+nodes/fragment/28/position = Vector2(-1360, -520)
 nodes/fragment/29/node = SubResource("VisualShaderNodeVectorDecompose_oy5yr")
-nodes/fragment/29/position = Vector2(-460, -260)
+nodes/fragment/29/position = Vector2(-400, -620)
 nodes/fragment/30/node = SubResource("VisualShaderNodeFloatOp_m6dem")
 nodes/fragment/30/position = Vector2(360, -100)
-nodes/fragment/connections = PackedInt32Array(20, 0, 3, 2, 3, 0, 4, 0, 21, 0, 22, 0, 22, 0, 23, 0, 24, 0, 23, 1, 4, 3, 27, 0, 23, 0, 27, 1, 28, 0, 29, 0, 29, 3, 30, 0, 27, 0, 30, 1, 30, 0, 0, 1)
+nodes/fragment/31/node = SubResource("VisualShaderNodeBooleanParameter_vf1fu")
+nodes/fragment/31/position = Vector2(-1420, 1680)
+nodes/fragment/32/node = SubResource("VisualShaderNodeSwitch_7hqca")
+nodes/fragment/32/position = Vector2(-360, 920)
+nodes/fragment/33/node = SubResource("VisualShaderNodeCompare_ioj3j")
+nodes/fragment/33/position = Vector2(-860, 1180)
+nodes/fragment/connections = PackedInt32Array(20, 0, 3, 2, 3, 0, 4, 0, 21, 0, 22, 0, 22, 0, 23, 0, 24, 0, 23, 1, 4, 3, 27, 0, 28, 0, 29, 0, 29, 3, 30, 0, 27, 0, 30, 1, 30, 0, 0, 1, 32, 0, 27, 1, 31, 0, 32, 0, 23, 0, 32, 2, 33, 0, 32, 1, 22, 0, 33, 0, 24, 0, 33, 1)
 metadata/_edit_res_path = "res://Materials/UI/HUD/HealthBar.tres"

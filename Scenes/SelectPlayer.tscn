@@ -260,9 +260,9 @@ states/Idle/node = SubResource("AnimationNodeAnimation_orith")
 states/Idle/position = Vector2(455, 101)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cjkb3")]
 
-[node name="SelectPlayer" type="Node3D" node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "cursor_sfx", "select_sfx")]
+[node name="SelectPlayer" type="Node3D" node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "ost", "cursor_sfx", "select_sfx")]
 script = ExtResource("1_c107j")
-redirect_to_scene = "res://Scenes/Levels/SunkenCityNight.tscn"
+redirect_to_scene = "res://Scenes/SelectArena.tscn"
 avatar_cards = [NodePath("Control/MarginContainer/Control/Characters/Slash"), NodePath("Control/MarginContainer/Control/Characters/Kassey"), NodePath("Control/MarginContainer/Control/Characters/Di"), NodePath("Control/MarginContainer/Control/Characters/Mayfly")]
 team_icons = Array[Texture2D]([ExtResource("2_hhg02"), ExtResource("3_nm2xl"), ExtResource("4_km34c"), ExtResource("6_2w7o8")])
 character_name_label = NodePath("Control/MarginContainer/Control/Info/Character/Name")
@@ -271,6 +271,7 @@ team_name_label = NodePath("Control/MarginContainer/Control/Info/Character/Team/
 stat_speed_label = NodePath("Control/MarginContainer/Control/Info/Stats/Speed/Value")
 stat_power_label = NodePath("Control/MarginContainer/Control/Info/Stats/Power/Value")
 stat_vitality_label = NodePath("Control/MarginContainer/Control/Info/Stats/Vitality/Value")
+ost = NodePath("Control/OST")
 cursor_sfx = NodePath("Control/Cursor")
 select_sfx = NodePath("Control/Select")
 

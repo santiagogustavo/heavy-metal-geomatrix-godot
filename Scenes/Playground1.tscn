@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=40 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lhsfh"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="20_fr0k5"]
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="21_xdkx4"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_4s6i1"]
+[ext_resource type="PackedScene" uid="uid://bkt3ivhkt5nvf" path="res://Prefabs/node_3d.tscn" id="22_s37v4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("2_pg3qa")
@@ -214,5 +215,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.735458, 0.964555, -10.8468
 
 [node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="."]
 size = Vector3(40, 0.1, 40)
+
+[node name="Node3D" parent="." instance=ExtResource("22_s37v4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26639, 1.26391, -0.533026)
 
 [editable path="Spawner"]

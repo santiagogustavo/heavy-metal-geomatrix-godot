@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpvrx20vfamv5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b550n"]
+viewport_path = NodePath("SnapshotViewport")
+
+[sub_resource type="Animation" id="Animation_ybpgk"]
+resource_name = "FadeOut"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Splash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_k0ppl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Splash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpmxr"]
+_data = {
+"FadeOut": SubResource("Animation_ybpgk"),
+"RESET": SubResource("Animation_k0ppl")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k28uw"]
+animation = &"FadeOut"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fagsd"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qlekk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4w1e2"]
+advance_mode = 2
+advance_condition = &"fade_out"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ljg7u"]
+states/FadeOut/node = SubResource("AnimationNodeAnimation_k28uw")
+states/FadeOut/position = Vector2(499, -46.5)
+states/RESET/node = SubResource("AnimationNodeAnimation_fagsd")
+states/RESET/position = Vector2(499, 99.5)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_qlekk"), "RESET", "FadeOut", SubResource("AnimationNodeStateMachineTransition_4w1e2")]
+graph_offset = Vector2(28, -84)
+
+[node name="SplashLayer" type="CanvasLayer"]
+layer = 3
+
+[node name="Splash" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Viewport" type="TextureRect" parent="Splash"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b550n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lpmxr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ljg7u")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/fade_out = false

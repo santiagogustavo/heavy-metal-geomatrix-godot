@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ds8i2exuwegk4"]
+[gd_scene load_steps=16 format=3 uid="uid://ds8i2exuwegk4"]
 
 [ext_resource type="Script" path="res://Scripts/UI/HUD/VersusCard.gd" id="1_3fhsn"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_hhyiy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dr8q6hmwuv0f5" path="res://Textures/UI/HUD/New/vs_health_bar_mask_avatar.png" id="5_le80q"]
 [ext_resource type="Texture2D" uid="uid://dlsyrn6e2r4da" path="res://Textures/Characters/Slash/Cards/68aa414a.png" id="6_e51y2"]
 [ext_resource type="FontFile" uid="uid://b5gmgkqqs4yp" path="res://Fonts/Perfect Futures Italic.ttf" id="7_0adok"]
+[ext_resource type="Shader" uid="uid://ctwxapo2m61ry" path="res://Materials/UI/HUD/ProgressMask.tres" id="8_4200w"]
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="8_tj5vc"]
 [ext_resource type="Texture2D" uid="uid://oaky5lkouy4d" path="res://Textures/UI/HUD/New/vs_health_bar.png" id="9_psvmx"]
 
@@ -24,7 +25,15 @@ font_size = 14
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qv5rt"]
+resource_local_to_scene = true
+shader = ExtResource("8_4200w")
+shader_parameter/Flip = true
+shader_parameter/Progress = 0.5
+shader_parameter/Alpha_Mask = ExtResource("3_6a304")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkacn"]
+resource_local_to_scene = true
 shader = ExtResource("8_tj5vc")
 shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
 shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
@@ -71,6 +80,15 @@ offset_bottom = 26.0
 text = "Slash"
 label_settings = SubResource("LabelSettings_d8ain")
 horizontal_alignment = 2
+
+[node name="HealthBarShadow" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qv5rt")
+layout_mode = 0
+offset_left = 6.0
+offset_top = 28.0
+offset_right = 188.0
+offset_bottom = 41.0
+color = Color(1, 0.25098, 0.25098, 1)
 
 [node name="HealthBar" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_vkacn")

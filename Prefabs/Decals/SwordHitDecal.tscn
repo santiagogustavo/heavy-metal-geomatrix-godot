@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfvw3jc7xr3vp"]
+
+[ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="1_28s7m"]
+[ext_resource type="Script" uid="uid://bxm84flfx3acr" path="res://Scripts/Decals/DecalController.gd" id="1_im75x"]
+[ext_resource type="AudioStream" uid="uid://rdqqa6t1gy78" path="res://Sound/Sword Hit.wav" id="2_8ekai"]
+
+[node name="SwordHitDecal" type="Node3D" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_im75x")
+particles = [NodePath("BulletSpark/RaySpark")]
+
+[node name="BulletSpark" parent="." instance=ExtResource("1_28s7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+
+[node name="RaySpark" parent="BulletSpark" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+amount = 15
+timeout = 0.2
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_8ekai")
+volume_db = -20.0
+pitch_scale = 0.64
+autoplay = true
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[editable path="BulletSpark"]

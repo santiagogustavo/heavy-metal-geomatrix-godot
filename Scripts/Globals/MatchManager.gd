@@ -2,10 +2,11 @@ extends Node
 class_name MatchManager
 
 signal round_start
+signal round_end
 signal started
 
 @export_subgroup("Round Settings")
-@export_range(1, 5) var rounds: int = 2
+@export_range(1, 9) var rounds: int = 2
 @export_range(30, 99) var time: int = 60
 
 @onready var current_round: int = 0
@@ -35,6 +36,7 @@ func _ready() -> void:
 	get_tree().root.add_child.call_deferred(announcer)
 	get_tree().root.add_child.call_deferred(timer)
 	announcer.connect("start", start_round_logic)
+	announcer.connect("ready_to_start", start_round)
 	started.emit()
 
 func _process(_delta: float) -> void:
@@ -68,6 +70,8 @@ func start_round_logic() -> void:
 	round_status = RoundStatus.Started
 	is_player_input_locked = false
 	timer.start(time)
+	if time == 99:
+		timer.paused = true
 
 func end_round(timeout: bool = false) -> bool:
 	if !can_end_round():
@@ -76,7 +80,12 @@ func end_round(timeout: bool = false) -> bool:
 		announcer.end_round_time_up()
 	else:
 		announcer.end_round_ko()
+	round_end.emit()
 	timer.stop()
 	round_status = RoundStatus.Ended
 	is_player_input_locked = true
+	announcer.win = GameManager.is_player_one_win()
+	announcer.win_excessive = GameManager.is_player_one_win_excessive()
+	announcer.lose = GameManager.is_player_one_lose()
+	announcer.draw = GameManager.is_match_a_draw()
 	return true

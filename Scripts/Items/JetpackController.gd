@@ -6,6 +6,8 @@ class_name JetpackController
 @export var is_dashing: bool = false
 @export var is_double_jumping: bool = false
 
+var player_rid: RID
+
 var fuel_cost_dash = 15
 var fuel_cost_jump = 20
 
@@ -44,7 +46,7 @@ func _process(delta: float) -> void:
 	if is_double_jumping:
 		double_jumped = true
 		get_tree().create_timer(0.1).connect("timeout", _on_double_jump_timeout)
-		play_jet_beam()
+		play_jet_beam(true)
 
 func _on_double_jump_timeout() -> void:
 	double_jumped = false
@@ -72,12 +74,12 @@ func play_jet_smoke() -> void:
 	for particle in jet_smoke:
 		particle.emitting = true
 
-func play_jet_beam() -> void:
-	if fuel <= 0:
+func play_jet_beam(force_beam: bool = false) -> void:
+	if fuel <= 0 and !force_beam:
 		smoke_sfx.playing = true
 		play_jet_smoke()
 		return
-
+	InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)
 	beam_sfx.playing = true
 	for particle in jet_beam:
 		particle.emitting = true
@@ -89,6 +91,8 @@ func play_jet_stream() -> void:
 			play_jet_smoke()
 
 	var is_emitting = is_dashing and fuel > 0
+	if is_emitting:
+		InputManager.vibrate_controller(0, 0.0, 0.5, 0.2)
 	if loop_sfx.playing != is_emitting:
 		loop_sfx.playing = is_emitting
 	for particle in jet_stream:

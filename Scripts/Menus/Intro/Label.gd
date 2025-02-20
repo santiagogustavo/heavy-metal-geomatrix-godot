@@ -1,4 +1,4 @@
 extends Label
 
-func _process(delta):
+func _ready() -> void:
 	text = GameManager.engine_version

@@ -357,21 +357,21 @@ bones/33/position = Vector3(-0.199665, 0.307998, -0.236088)
 bones/33/rotation = Quaternion(0.863059, -0.093279, 0.173023, 0.465285)
 
 [node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="0"]
-transform = Transform3D(-0.681942, 0.210392, 0.700493, -0.112857, -0.976533, 0.183432, 0.722646, 0.0460341, 0.689683, 0.0349591, 1.23247, 0.148046)
+transform = Transform3D(-0.681942, 0.210392, 0.700493, -0.112858, -0.976533, 0.183432, 0.722646, 0.0460336, 0.689683, 0.034959, 1.23247, 0.148046)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("5_8w6jy")
 properties = SubResource("Resource_gxjwx")
 
 [node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.628374, -0.380178, -0.678683, 0.229, -0.924186, 0.305678, -0.743441, 0.0366616, 0.667796, -0.0556681, 1.2405, 0.146608)
+transform = Transform3D(-0.628374, -0.380178, -0.678683, 0.229, -0.924186, 0.305677, -0.743441, 0.0366613, 0.667796, -0.0556683, 1.2405, 0.146608)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("5_8w6jy")
 properties = SubResource("Resource_gxjwx")
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.99597, 0.0712734, 0.0544352, -0.0882794, 0.672158, 0.735126, 0.0158059, -0.736969, 0.675742, -0.0148364, 1.16657, 0.038869)
+transform = Transform3D(0.99597, 0.0712731, 0.0544349, -0.0882791, 0.672158, 0.735126, 0.0158059, -0.736969, 0.675741, -0.0148365, 1.16657, 0.0388691)
 bone_name = "CoreIK"
 bone_idx = 13
 
@@ -379,7 +379,7 @@ bone_idx = 13
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
 
 [node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.153761, 0.107004, 0.982297, 0.0838805, 0.989117, -0.120877, -0.984541, 0.100982, 0.143113, -0.102974, 1.22245, 0.624897)
+transform = Transform3D(0.153762, 0.107003, 0.982297, 0.0838813, 0.989117, -0.120876, -0.984541, 0.100983, 0.143113, -0.102974, 1.22245, 0.624897)
 bone_name = "Hand.R"
 bone_idx = 26
 

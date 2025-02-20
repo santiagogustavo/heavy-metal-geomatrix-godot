@@ -10,6 +10,10 @@ var viewport_height: int = DisplayServer.window_get_size().y
 var bloom_enabled: bool = true
 var bloom_intensity: float = 0.25
 
+func _init() -> void:
+	if OS.has_feature("editor"):
+		ProjectSettings.set("display/window/stretch/mode", "viewport")
+
 func center_window():
 	var screen_center = DisplayServer.screen_get_size() / 2
 	var window_size = get_window().get_size_with_decorations()

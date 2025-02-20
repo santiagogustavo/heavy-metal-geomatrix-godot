@@ -2,6 +2,7 @@ extends RigidBody3D
 
 @export_subgroup("Properties")
 @export var speed: float = 50.0
+@export var damage: int = 5
 
 @export_subgroup("Instances")
 @export var generic_decal: PackedScene
@@ -37,6 +38,8 @@ func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vect
 func collide(collision: KinematicCollision3D):
 	var collider: CollisionObject3D = collision.get_collider()
 	# if collider is world boundary
+	if collider.collision_layer == Definitions.SurfaceType.Player:
+		(collider as Player).damage_player(damage)
 	if collider.collision_layer == Definitions.SurfaceType.WorldBoundary:
 		queue_free()
 	else:

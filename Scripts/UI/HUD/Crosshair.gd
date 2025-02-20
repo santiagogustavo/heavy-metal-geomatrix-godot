@@ -3,6 +3,8 @@ extends TextureRect
 @export var sprites: Array[Texture2D]
 
 func _process(_delta: float) -> void:
+	if GameManager.get_player_one():
+		visible = !GameManager.get_player_one().is_locked_on
 	modulate = Color(
 		GameplaySettingsManager.crosshair_color_r,
 		GameplaySettingsManager.crosshair_color_g,

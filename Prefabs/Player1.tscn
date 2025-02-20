@@ -1,9 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://burc0d1n3hdks"]
+[gd_scene load_steps=8 format=3 uid="uid://burc0d1n3hdks"]
 
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/GenericPlayer.tscn" id="1_6vg86"]
 [ext_resource type="PackedScene" uid="uid://ctjquqvu41h4e" path="res://Prefabs/Player/CameraPivot.tscn" id="2_b8oq1"]
 [ext_resource type="PackedScene" uid="uid://bon0nixv0qsv6" path="res://Prefabs/Player/KoPivot.tscn" id="3_iim1m"]
 [ext_resource type="PackedScene" uid="uid://b1mhophsi8fwq" path="res://Prefabs/Player/RoundPivot.tscn" id="4_bh2q1"]
+
+[sub_resource type="Gradient" id="Gradient_wjqau"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.198276, 0.431034, 0.987069, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.991281, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hbext"]
+gradient = SubResource("Gradient_wjqau")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2xsp"]
+resource_local_to_scene = true
+emission_shape = 3
+emission_box_extents = Vector3(0.3, 0.5, 0.6)
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+color_ramp = SubResource("GradientTexture1D_hbext")
+turbulence_noise_scale = 0.0
 
 [node name="Player1" node_paths=PackedStringArray("camera_pivot", "camera", "ko_pivot", "round_pivot") instance=ExtResource("1_6vg86")]
 camera_pivot = NodePath("CameraPivot")
@@ -11,9 +32,13 @@ camera = NodePath("CameraPivot/Camera")
 ko_pivot = NodePath("KOPivot")
 round_pivot = NodePath("RoundPivot")
 
+[node name="Dash" parent="." index="3"]
+process_material = SubResource("ParticleProcessMaterial_f2xsp")
+
 [node name="CameraPivot" parent="." index="4" instance=ExtResource("2_b8oq1")]
 
 [node name="KOPivot" parent="." index="5" instance=ExtResource("3_iim1m")]
+top_level = true
 
 [node name="RoundPivot" parent="." index="6" instance=ExtResource("4_bh2q1")]
 

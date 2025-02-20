@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://q4a4g1pb87og"]
+
+[ext_resource type="Script" uid="uid://bxm84flfx3acr" path="res://Scripts/Decals/DecalController.gd" id="1_mpmm6"]
+[ext_resource type="PackedScene" uid="uid://cokc4rj1u2ass" path="res://Prefabs/Particles/RaySpark.tscn" id="2_h0vci"]
+[ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="2_v570t"]
+[ext_resource type="AudioStream" uid="uid://co2w483nywhna" path="res://Sound/Sword Hit Electric.wav" id="3_2ynbi"]
+
+[node name="SwordHitElectricDecal" type="Node3D" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_mpmm6")
+particles = [NodePath("BulletSpark/BulletSpark")]
+
+[node name="BulletSpark" parent="." instance=ExtResource("2_v570t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+
+[node name="BulletSpark" parent="BulletSpark" instance=ExtResource("2_h0vci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+amount = 15
+lifetime = 0.5
+explosiveness = 1.0
+randomness = 1.0
+timeout = 0.2
+
+[node name="RaySpark" parent="BulletSpark" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+amount = 15
+timeout = 0.2
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_2ynbi")
+volume_db = -20.0
+pitch_scale = 0.64
+autoplay = true
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[editable path="BulletSpark"]

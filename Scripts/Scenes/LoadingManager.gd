@@ -3,10 +3,9 @@ class_name LoadingManager
 
 static var next_scene: String = Definitions.Scenes.Intro
 static var finished_precompiling: bool = false
-@onready var compiler_parent: Node = $CompilerParent
+@onready var compiler_parent: Node3D = $CompilerParent
 
-const PRECOMPILE_LIST: String = "res://Configs/precompile_list.config"
-var files_to_compile: Array[String] = []
+static var files_to_compile: Array[String] = []
 static var compiled_material_paths: Array[String] = []
 static var compiled_particles_paths: Array[String] = []
 
@@ -16,10 +15,8 @@ var compiled_count: int = 0
 func _ready() -> void:
 	GameManager.current_scene_type = Definitions.SceneType.Loading
 	await get_tree().create_timer(1).timeout
-	if OS.is_debug_build():
-		parseScenePathsToCompile()
 	if !finished_precompiling:
-		scanFilesToCompile()
+		parseScenePathsToCompile()
 		compileScannedFiles()
 	ResourceLoader.load_threaded_request(next_scene)
 
@@ -29,14 +26,6 @@ func _process(_delta: float) -> void:
 	if progress == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED and finished_precompiling:
 		var packed_scene: PackedScene = ResourceLoader.load_threaded_get(next_scene)
 		get_tree().change_scene_to_packed(packed_scene)
-
-func scanFilesToCompile() -> void:
-	var file: FileAccess = FileAccess.open(PRECOMPILE_LIST, FileAccess.ModeFlags.READ)
-	
-	var path: String = file.get_line()
-	while path and path != "":
-		files_to_compile.append(path)
-		path = file.get_line()
 
 func compileScannedFiles() -> void:
 	for path: String in files_to_compile:
@@ -104,22 +93,25 @@ func compileMaterialParticle(particle: GPUParticles3D, path: String) -> void:
 	)
 
 static func parseScenePathsToCompile() -> void:
-	var regexPattern: String = "(sub_resource|ext_resource) type=\"(ParticleProcessMaterial|ShaderMaterial|CanvasItemMaterial|Material)\""
+	var regexPattern: String = "(sub_resource|ext_resource|gd_resource) type=\"(ParticleProcessMaterial|ShaderMaterial|StandardMaterial3D|GPUParticles3D|CanvasItemMaterial|Material)\""
 	var regex: RegEx = RegEx.create_from_string(regexPattern)
+	var regexExtensionsPattern: String = ".(tscn|tres|gdshader)"
+	var regexExtensions: RegEx = RegEx.create_from_string(regexExtensionsPattern)
 	var fileList: Array[String] = []
+	FileSystem.forFilesInDirectory("res://Materials", Callable(func (_pass, filepath: String) -> void: fileList.append(filepath)), true)
+	FileSystem.forFilesInDirectory("res://Models", Callable(func (_pass, filepath: String) -> void: fileList.append(filepath)), true)
 	FileSystem.forFilesInDirectory("res://Prefabs", Callable(func (_pass, filepath: String) -> void: fileList.append(filepath)), true)
 	FileSystem.forFilesInDirectory("res://Scenes", Callable(func (_pass, filepath: String) -> void: fileList.append(filepath)), true)
 	
 	var instantiationList: Array[String] = []
 	for filePath: String in fileList:
+		var extensionSearch = regexExtensions.search(filePath)
 		var file = FileAccess.open(filePath, FileAccess.ModeFlags.READ)
-		if !file or filePath.contains(".tmp"):
+		if !file or !extensionSearch:
 			continue
 		var text: String = file.get_as_text()
 		var result: RegExMatch = regex.search(text)
 		if result:
 			instantiationList.append(filePath)
-	
-	var saveFile: FileAccess = FileAccess.open(PRECOMPILE_LIST, FileAccess.ModeFlags.WRITE)
 	for scenePath: String in instantiationList:
-		saveFile.store_line(scenePath)
+		files_to_compile.append(scenePath)

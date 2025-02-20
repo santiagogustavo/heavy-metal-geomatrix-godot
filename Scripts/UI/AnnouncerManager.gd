@@ -2,10 +2,31 @@ extends CanvasLayer
 class_name AnnouncerManager
 
 signal start
+signal ready_to_start
 
 @onready var animation_tree: AnimationTree = $Control/AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 @onready var rounds_manager: AnnouncerRoundsManager = $Control/Invert/Rounds
+
+var win: bool = false
+var win_excessive: bool = false
+var lose: bool = false
+var draw: bool = false
+
+func _init() -> void:
+	process_mode = PROCESS_MODE_ALWAYS
+
+func _process(_delta: float) -> void:
+	animation_tree.set("parameters/conditions/win", win)
+	animation_tree.set("parameters/conditions/win_excessive", win_excessive)
+	animation_tree.set("parameters/conditions/lose", lose)
+	animation_tree.set("parameters/conditions/draw", draw)
+
+func clear_animator_variables() -> void:
+	win = false
+	win_excessive = false
+	lose = false
+	draw = false
 
 func announce_round() -> void:
 	state_machine.travel("RoundStart", true)
@@ -13,6 +34,9 @@ func announce_round() -> void:
 func emit_start_signal() -> void:
 	start.emit()
 	switch_to_player_camera()
+
+func emit_ready_to_start_signal() -> void:
+	ready_to_start.emit()
 
 func end_round_ko() -> void:
 	state_machine.travel("RoundEndKO", true)

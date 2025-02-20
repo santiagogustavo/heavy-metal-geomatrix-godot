@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpe8wv78aa5vo"]
+
+[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_fhtlm"]
+[ext_resource type="Texture2D" uid="uid://d4ku83ihnt3es" path="res://Textures/Levels/Splashes/SunkenCityNight.png" id="2_by67h"]
+
+[node name="LevelConfig" instance=ExtResource("1_fhtlm")]
+level_name = "Sunken City Night"
+splash = ExtResource("2_by67h")
+randomize_spawn = true
+is_rainy = true

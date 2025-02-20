@@ -23,6 +23,8 @@ signal drop
 
 @onready var bullets_per_shot: int = bullet_holes.size()
 
+var player_rid: RID
+
 var is_shooting: bool = false
 var is_shooting_locked: bool = false
 var is_bursting: bool = false

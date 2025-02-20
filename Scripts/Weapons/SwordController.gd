@@ -3,14 +3,17 @@ class_name SwordController
 
 @export_subgroup("Properties")
 @export var item_name: String
+@export var damage: int
 
-@export var hit_particle: PackedScene
-@export var hit_sfx: PackedScene
+@export var hit_general_particle: PackedScene
+@export var hit_player_particle: PackedScene
 @export var is_attacking = false
 @export var health = 100.0
 
 @onready var trail = $GPUTrail3D
-@onready var raycast: RayCast3D = $StaticBody3D/RayCast3D
+@onready var raycast: RayCast3D = $RayCast3D
+
+var player_rid: RID
 
 var has_collided = false
 
@@ -19,28 +22,26 @@ func _process(_delta):
 	trail.set_process(is_attacking)
 	trail.visible = is_attacking
 
-func instantiate_sfx(point: Vector3):
-	var sfx_instance = hit_sfx.instantiate()
-	raycast.get_collider().add_child(sfx_instance)
-	sfx_instance.global_transform.origin = point
-
-func instantiate_hit(point: Vector3, normal: Vector3):
-	var hit_instance = hit_particle.instantiate()
+func instantiate_hit(point: Vector3, normal: Vector3, type: int):
+	var hit_instance
+	if type == Definitions.SurfaceType.Player:
+		hit_instance = hit_player_particle.instantiate()
+	else:
+		hit_instance = hit_general_particle.instantiate()
 	get_tree().root.add_child(hit_instance)
-	
 	hit_instance.global_transform.origin = point
 	TransformUtils.safe_look_at(hit_instance, point + normal)
-	hit_instance.emitting = true
 
 func detect_raycast_collision():
 	if is_attacking and raycast.is_colliding():
+		var collider: CollisionObject3D = raycast.get_collider()
+		if collider.get_rid() == player_rid or has_collided:
+			return
 		var point = raycast.get_collision_point()
 		var normal = raycast.get_collision_normal()
-		
-		if !has_collided:
-			instantiate_sfx(point)
-		
-		instantiate_hit(point, normal)
+		instantiate_hit(point, normal, collider.collision_layer)
+		if collider.collision_layer == Definitions.SurfaceType.Player:
+			(collider as Player).damage_player(damage)
 		has_collided = true
 	else:
 		has_collided = false

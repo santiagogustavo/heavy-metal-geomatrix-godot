@@ -1,11 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://bpxpio7ixipg6"]
+[gd_scene load_steps=37 format=3 uid="uid://bpxpio7ixipg6"]
 
-[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_3fnt3"]
+[ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_8fted"]
 [ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb" id="1_e6pgn"]
+[ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_7jn1i"]
 [ext_resource type="Texture2D" uid="uid://cwe67c5gjbitq" path="res://Textures/Skyboxes/Night Moony.png" id="2_caq5r"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_enk1q"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
+[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
 [ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/Pitch Dark Stadium/9939eb6_emit.tres" id="4_t2tlk"]
+[ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_tqjn4"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="6_qyxnj"]
 [ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="7_4t0ls"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="8_j5vkf"]
@@ -13,8 +16,12 @@
 [ext_resource type="AudioStream" uid="uid://l86jwrpnijve" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst1.mp3" id="12_amb02"]
 [ext_resource type="AudioStream" uid="uid://b80lbhjnp7oom" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst2.mp3" id="13_6pnrr"]
 [ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]
+[ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_hifk7"]
 [ext_resource type="AudioStream" uid="uid://dbjtrx1brw8ue" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst4.mp3" id="15_d40he"]
 [ext_resource type="AudioStream" uid="uid://dtxpgwc7umcfc" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst5.mp3" id="16_0hywk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hsj7j"]
+viewport_path = NodePath("SnapshotViewport")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25dxq"]
 panorama = ExtResource("2_caq5r")
@@ -27,6 +34,7 @@ sky_material = SubResource("PanoramaSkyMaterial_25dxq")
 background_mode = 2
 sky = SubResource("Sky_ygp6j")
 glow_enabled = true
+glow_bloom = 1.0
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.0392157, 0.0588235, 0.0745098, 1)
@@ -96,10 +104,28 @@ stream_4/stream = ExtResource("16_0hywk")
 
 [node name="PitchDarkStadium" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_3fnt3")]
-level_name = "Pitch Dark Stadium"
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "snapshot_camera", "splash_animation_tree") instance=ExtResource("1_8fted")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
-is_snowy = true
+snapshot_camera = NodePath("../SnapshotViewport/SnapshotCamera")
+splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
+
+[node name="SplashLayer" parent="." instance=ExtResource("2_7jn1i")]
+
+[node name="Viewport" parent="SplashLayer/Splash" index="0"]
+texture = SubResource("ViewportTexture_hsj7j")
+metadata/_edit_use_anchors_ = true
+
+[node name="SnapshotViewport" type="SubViewport" parent="."]
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+script = ExtResource("3_8d4wu")
+
+[node name="SnapshotCamera" parent="SnapshotViewport" instance=ExtResource("4_tqjn4")]
+transform = Transform3D(-0.766044, 0.261445, 0.587216, 0, 0.913545, -0.406736, -0.642788, -0.311578, -0.699816, 1.88, 3.76, 13.83)
+cull_mask = 81
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4pe8")
 
 [node name="Spawn Points" type="Node3D" parent="."]
 
@@ -108,9 +134,6 @@ transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 9.82351,
 
 [node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("2_enk1q")]
 transform = Transform3D(0.847567, 0, -0.530689, 0, 1, 0, 0.530689, 0, 0.847567, -5.56463, 3.50397, 16.8942)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h4pe8")
 
 [node name="Sun" parent="." instance=ExtResource("2_fhn3g")]
 transform = Transform3D(0.993395, 0.0336558, -0.1097, -3.72529e-09, 0.956019, 0.293306, 0.114746, -0.291369, 0.949704, -32.4805, 35.8746, 80.1979)
@@ -264,19 +287,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.29899, 0)
 
 [node name="InvisibleWalls" parent="." instance=ExtResource("9_hnk50")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="CollisionShape3D5" parent="InvisibleWalls" instance=ExtResource("14_hifk7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0497, 12.0601, 1.45032)
 shape = SubResource("BoxShape3D_adxuw")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="CollisionShape3D6" parent="InvisibleWalls" instance=ExtResource("14_hifk7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0266, 12.0601, 1.45032)
 shape = SubResource("BoxShape3D_adxuw")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="CollisionShape3D7" parent="InvisibleWalls" instance=ExtResource("14_hifk7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.505583, 12.0601, -16.0735)
 shape = SubResource("BoxShape3D_jtulh")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="CollisionShape3D8" parent="InvisibleWalls" instance=ExtResource("14_hifk7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.505583, 12.0601, 19.0672)
 shape = SubResource("BoxShape3D_jtulh")
 
@@ -286,4 +309,5 @@ stream = SubResource("AudioStreamRandomizer_ov48a")
 autoplay = true
 bus = &"Game"
 
+[editable path="SplashLayer"]
 [editable path="LevelGeometry/Pitch Dark Stadium"]

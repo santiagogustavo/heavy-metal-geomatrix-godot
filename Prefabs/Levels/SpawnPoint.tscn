@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn50xulvhibl6"]
+[gd_scene load_steps=3 format=3 uid="uid://dn50xulvhibl6"]
 
+[ext_resource type="Script" path="res://Scripts/Levels/SpawnPoint.gd" id="1_6yktk"]
 [ext_resource type="PackedScene" uid="uid://btc7adytiw7hd" path="res://Prefabs/Gizmos/SpawnGizmo.tscn" id="2_oiq5w"]
 
 [node name="SpawnPoint" type="Node3D"]
+script = ExtResource("1_6yktk")
 
 [node name="SpawnGizmo" parent="." instance=ExtResource("2_oiq5w")]

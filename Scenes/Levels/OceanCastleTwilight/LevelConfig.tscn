@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpg1ylex7b80a"]
+
+[ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_vdlra"]
+[ext_resource type="Texture2D" uid="uid://dvevyincv5dvp" path="res://Textures/Levels/Splashes/OceanCastleTwilight.png" id="2_gw4f3"]
+
+[node name="LevelConfig" instance=ExtResource("1_vdlra")]
+level_name = "Ocean Castle Twilight"
+splash = ExtResource("2_gw4f3")
+is_sunny = true

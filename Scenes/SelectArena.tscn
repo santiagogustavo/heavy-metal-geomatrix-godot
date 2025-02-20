@@ -1,0 +1,420 @@
+[gd_scene load_steps=29 format=3 uid="uid://dlvc611iva5t4"]
+
+[ext_resource type="Texture2D" uid="uid://d4ku83ihnt3es" path="res://Textures/Levels/Splashes/SunkenCityNight.png" id="1_u6rq8"]
+[ext_resource type="Script" path="res://Scripts/Menus/SelectArena/SelectArenaController.gd" id="1_vbm06"]
+[ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="2_3n5g2"]
+[ext_resource type="Texture2D" uid="uid://cxsl4j0ejtuqb" path="res://Textures/Menus/Main Menu/hex_grid.png" id="3_vhpfo"]
+[ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="4_mtpou"]
+[ext_resource type="LabelSettings" uid="uid://f8e31181q5h6" path="res://Prefabs/Menus/MenuTitleLabelSettings.tres" id="5_bvgc2"]
+[ext_resource type="PackedScene" uid="uid://d2umli7j8x75g" path="res://Prefabs/Menus/SelectArena/ArenaCard.tscn" id="6_sag7c"]
+[ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="6_uq448"]
+[ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="7_8jlpj"]
+[ext_resource type="Texture2D" uid="uid://yb7xidhwoo1n" path="res://Textures/Icons/Teams/323agents.png" id="7_l4e4u"]
+[ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="8_6d35h"]
+[ext_resource type="PackedScene" uid="uid://dpe8wv78aa5vo" path="res://Scenes/Levels/SunkenCityNight/LevelConfig.tscn" id="8_s2v62"]
+[ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="9_23gch"]
+[ext_resource type="PackedScene" uid="uid://pd3t1l7dajxr" path="res://Prefabs/UI/Button.tscn" id="11_02yic"]
+[ext_resource type="AudioStream" uid="uid://d11lpsogmqpj" path="res://Sound/Menus/Select Player/Cursor.wav" id="14_vtt43"]
+[ext_resource type="AudioStream" uid="uid://benm8gdx2t3ly" path="res://Sound/Menus/Select Player/Select.wav" id="15_rkq55"]
+[ext_resource type="Script" path="res://Scripts/Menus/SelectArena/RulesMenuController.gd" id="15_siq4g"]
+
+[sub_resource type="Gradient" id="Gradient_3jlm4"]
+colors = PackedColorArray(0, 0, 0, 0.784314, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nyndw"]
+gradient = SubResource("Gradient_3jlm4")
+fill_to = Vector2(0.4, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wm7rb"]
+shader = ExtResource("2_3n5g2")
+shader_parameter/Bubble_Color = Color(0, 0.483333, 1, 1)
+shader_parameter/Speed = 0.1
+shader_parameter/Size = 10.0
+shader_parameter/BG_Color = Color(0.55, 0, 1, 1)
+shader_parameter/Mask = ExtResource("3_vhpfo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4t6y"]
+shader = ExtResource("4_mtpou")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5f0k"]
+font = ExtResource("6_uq448")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8dsv"]
+font = ExtResource("8_6d35h")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_73mve"]
+font = ExtResource("8_6d35h")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5j16"]
+font = ExtResource("8_6d35h")
+font_size = 24
+font_color = Color(0, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_ieuvc"]
+resource_name = "Glitch"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glitch:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_mvu6a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glitch:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_novgl"]
+_data = {
+"Glitch": SubResource("Animation_ieuvc"),
+"RESET": SubResource("Animation_mvu6a")
+}
+
+[node name="SelectArena" type="Control" node_paths=PackedStringArray("arena_cards", "arena_splash", "arena_name_label", "weather_label", "rules_rounds_label", "rules_time_label", "open_rules_menu_button", "cursor_sfx", "select_sfx")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vbm06")
+arena_cards = [NodePath("MarginContainer/Control/Arenas/Ocean"), NodePath("MarginContainer/Control/Arenas/Sunken"), NodePath("MarginContainer/Control/Arenas/Pitch")]
+arena_splash = NodePath("Splash")
+arena_name_label = NodePath("MarginContainer/Control/Info/Arena/Name")
+weather_label = NodePath("MarginContainer/Control/Info/Rules/Weather/Value")
+rules_rounds_label = NodePath("MarginContainer/Control/Info/Rules/Rounds/Value")
+rules_time_label = NodePath("MarginContainer/Control/Info/Rules/Time/Value")
+open_rules_menu_button = NodePath("MarginContainer/Control/Button")
+cursor_sfx = NodePath("Cursor")
+select_sfx = NodePath("Select")
+
+[node name="Splash" type="TextureRect" parent="."]
+modulate = Color(0.64, 0.64, 0.64, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u6rq8")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Gradient" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_nyndw")
+
+[node name="Hex" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_wm7rb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -134.0
+offset_right = -581.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 393)
+texture = ExtResource("3_vhpfo")
+expand_mode = 1
+
+[node name="Glitch" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_p4t6y")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 64
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+layout_mode = 2
+offset_right = 183.0
+offset_bottom = 55.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Select Arena"
+label_settings = ExtResource("5_bvgc2")
+
+[node name="Arenas" type="GridContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -128.0
+offset_right = 250.0
+offset_bottom = 128.0
+grow_vertical = 2
+theme_override_constants/h_separation = -31
+theme_override_constants/v_separation = -4
+
+[node name="Ocean" parent="MarginContainer/Control/Arenas" instance=ExtResource("6_sag7c")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Button")
+focus_neighbor_bottom = NodePath("../Sunken")
+arena_card = ExtResource("7_8jlpj")
+arena_scene = "res://Scenes/Levels/OceanCastleTwilight/OceanCastleTwilight.tscn"
+
+[node name="Sunken" parent="MarginContainer/Control/Arenas" instance=ExtResource("6_sag7c")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Ocean")
+focus_neighbor_bottom = NodePath("../Pitch")
+arena_card = ExtResource("8_s2v62")
+arena_scene = "res://Scenes/Levels/SunkenCityNight/SunkenCityNight.tscn"
+
+[node name="Pitch" parent="MarginContainer/Control/Arenas" instance=ExtResource("6_sag7c")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Sunken")
+focus_neighbor_bottom = NodePath("../../Button")
+arena_card = ExtResource("9_23gch")
+arena_scene = "res://Scenes/Levels/PitchDarkStadium/PitchDarkStadium.tscn"
+
+[node name="Button" parent="MarginContainer/Control" instance=ExtResource("11_02yic")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = -32.0
+offset_right = 190.0
+offset_bottom = -1.0
+text = "CHANGE RULES"
+
+[node name="Info" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -84.0
+offset_bottom = 84.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Arena" type="VBoxContainer" parent="MarginContainer/Control/Info"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = -12
+
+[node name="Name" type="Label" parent="MarginContainer/Control/Info/Arena"]
+layout_mode = 2
+text = "SUNKEN CITY NIGHT"
+label_settings = SubResource("LabelSettings_k5f0k")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Team" type="HBoxContainer" parent="MarginContainer/Control/Info/Arena"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Control/Info/Arena/Team"]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_l4e4u")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="MarginContainer/Control/Info/Arena/Team"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "323 Agents"
+label_settings = SubResource("LabelSettings_a8dsv")
+vertical_alignment = 1
+uppercase = true
+
+[node name="Rules" type="VBoxContainer" parent="MarginContainer/Control/Info"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Weather" type="HBoxContainer" parent="MarginContainer/Control/Info/Rules"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Info/Rules/Weather"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weather"
+label_settings = SubResource("LabelSettings_73mve")
+uppercase = true
+
+[node name="Value" type="Label" parent="MarginContainer/Control/Info/Rules/Weather"]
+layout_mode = 2
+text = "Rainy"
+label_settings = SubResource("LabelSettings_j5j16")
+uppercase = true
+
+[node name="Rounds" type="HBoxContainer" parent="MarginContainer/Control/Info/Rules"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Info/Rules/Rounds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rounds"
+label_settings = SubResource("LabelSettings_73mve")
+uppercase = true
+
+[node name="Value" type="Label" parent="MarginContainer/Control/Info/Rules/Rounds"]
+layout_mode = 2
+text = "2"
+label_settings = SubResource("LabelSettings_j5j16")
+uppercase = true
+
+[node name="Time" type="HBoxContainer" parent="MarginContainer/Control/Info/Rules"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Info/Rules/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time"
+label_settings = SubResource("LabelSettings_73mve")
+uppercase = true
+
+[node name="Value" type="Label" parent="MarginContainer/Control/Info/Rules/Time"]
+layout_mode = 2
+text = "60"
+label_settings = SubResource("LabelSettings_j5j16")
+uppercase = true
+
+[node name="RulesMenu" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource("15_siq4g")
+
+[node name="Control" type="Control" parent="RulesMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="RulesMenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RulesMenu/Control"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RoundsSelect" type="HBoxContainer" parent="RulesMenu/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RulesMenu/Control/VBoxContainer/RoundsSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ROUNDS"
+
+[node name="OptionButton" type="OptionButton" parent="RulesMenu/Control/VBoxContainer/RoundsSelect"]
+layout_mode = 2
+selected = 1
+item_count = 5
+popup/item_0/text = "1"
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+popup/item_4/text = "5"
+popup/item_4/id = 4
+
+[node name="TimeSelect" type="HBoxContainer" parent="RulesMenu/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RulesMenu/Control/VBoxContainer/TimeSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TIME"
+
+[node name="OptionButton" type="OptionButton" parent="RulesMenu/Control/VBoxContainer/TimeSelect"]
+layout_mode = 2
+selected = 1
+item_count = 4
+popup/item_0/text = "30"
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "90"
+popup/item_2/id = 2
+popup/item_3/text = "99"
+popup/item_3/id = 3
+
+[node name="Cursor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_vtt43")
+bus = &"UI"
+
+[node name="Select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_rkq55")
+bus = &"UI"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_novgl")
+}

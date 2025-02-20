@@ -1,10 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dyxq3lfyh46m2"]
+[gd_scene load_steps=28 format=3 uid="uid://dyxq3lfyh46m2"]
 
 [ext_resource type="PackedScene" uid="uid://ddcr0ywp6fpmh" path="res://Models/Weapons/Ray Sword.glb" id="1_jfy31"]
-[ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_qluvp"]
+[ext_resource type="Script" path="res://Scripts/Weapons/SwordController.gd" id="1_qluvp"]
 [ext_resource type="Texture2D" uid="uid://f2jsbbuvqxbh" path="res://Textures/Weapons/Ray Sword/3d89ecc3_beam.png" id="2_ahi84"]
-[ext_resource type="PackedScene" uid="uid://cokc4rj1u2ass" path="res://Prefabs/Particles/RaySpark.tscn" id="2_h757w"]
-[ext_resource type="PackedScene" uid="uid://0pfhle8odb23" path="res://Prefabs/Sounds/RayHit.tscn" id="3_0b0dq"]
+[ext_resource type="PackedScene" uid="uid://q4a4g1pb87og" path="res://Prefabs/Decals/SwordHitElectricDecal.tscn" id="2_isi4i"]
+[ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_sekuh"]
 [ext_resource type="Texture2D" uid="uid://bhudqhirmgvh2" path="res://Textures/Particles/sparks_1.png" id="3_y5sag"]
 [ext_resource type="Script" uid="uid://hywqchyqup6p" path="res://Scripts/Lights/FlickeringLight.gd" id="4_7yc0k"]
 [ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="4_j333q"]
@@ -90,14 +90,12 @@ shader_parameter/curve = ExtResource("7_libxb")
 [sub_resource type="QuadMesh" id="QuadMesh_xyyg3"]
 material = SubResource("ShaderMaterial_d2q0u")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qj37j"]
-size = Vector3(0.1, 1.3, 0.05)
-
 [node name="RaySword" type="Node3D"]
 script = ExtResource("1_qluvp")
 item_name = "Ray Sword"
-hit_particle = ExtResource("2_h757w")
-hit_sfx = ExtResource("3_0b0dq")
+damage = 10
+hit_general_particle = ExtResource("2_isi4i")
+hit_player_particle = ExtResource("3_sekuh")
 
 [node name="Ray Sword" parent="." instance=ExtResource("1_jfy31")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -156,17 +154,9 @@ omni_range = 3.0
 script = ExtResource("4_7yc0k")
 max_light_range = 0.5
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02344, -0.111532)
-shape = SubResource("BoxShape3D_qj37j")
-
-[node name="RayCast3D" type="RayCast3D" parent="StaticBody3D"]
+[node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.368159, -0.111073)
 target_position = Vector3(0, 1.3, 0)
-collision_mask = 4
+collision_mask = 5
 
 [editable path="Ray Sword"]

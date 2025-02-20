@@ -27,6 +27,7 @@ general/2d_panning_strength=0.0
 [autoload]
 
 Definitions="*res://Scripts/Globals/Definitions.gd"
+SceneManager="*res://Scripts/Globals/SceneManager.gd"
 AudioSettingsManager="*res://Scripts/Globals/AudioSettingsManager.gd"
 VideoSettingsManager="*res://Scripts/Globals/VideoSettingsManager.gd"
 InputSettingsManager="*res://Scripts/Globals/InputSettingsManager.gd"
@@ -35,12 +36,14 @@ SettingsManager="*res://Scripts/Globals/SettingsManager.gd"
 InputManager="*res://Scripts/Globals/InputManager.gd"
 MusicManager="*res://Scripts/Globals/MusicManager.gd"
 GameManager="*res://Scripts/Globals/GameManager.gd"
+SavingOverlay="*res://Scenes/UI/SavingOverlay.tscn"
+LoadingOverlay="*res://Scenes/UI/LoadingOverlay.tscn"
 DebugMenu="*res://Scenes/Menus/DebugMenu.tscn"
 
 [display]
 
 window/size/resizable=false
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://Textures/UI/cursor_small.png"
 
@@ -193,6 +196,12 @@ ui_change_skin={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+lock_on={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 
