@@ -37,9 +37,11 @@ process_material = SubResource("ParticleProcessMaterial_f2xsp")
 
 [node name="CameraPivot" parent="." index="4" instance=ExtResource("2_b8oq1")]
 
-[node name="KOPivot" parent="." index="5" instance=ExtResource("3_iim1m")]
+[node name="AimAssist" type="RayCast3D" parent="." index="5"]
+
+[node name="KOPivot" parent="." index="6" instance=ExtResource("3_iim1m")]
 top_level = true
 
-[node name="RoundPivot" parent="." index="6" instance=ExtResource("4_bh2q1")]
+[node name="RoundPivot" parent="." index="7" instance=ExtResource("4_bh2q1")]
 
 [editable path="CameraPivot"]

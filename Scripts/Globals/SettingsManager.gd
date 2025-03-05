@@ -30,6 +30,7 @@ func load_audio_settings():
 	AudioSettingsManager.set_volume("UI", file.get_value("audio", "ui_volume", AudioSettingsManager.volumes["UI"]))
 	AudioSettingsManager.set_volume("Music", file.get_value("audio", "music_volume", AudioSettingsManager.volumes["Music"]))
 	AudioSettingsManager.set_volume("Effects", file.get_value("audio", "sfx_volume", AudioSettingsManager.volumes["Effects"]))
+	AudioSettingsManager.set_volume("Announcer", file.get_value("audio", "announcer_volume", AudioSettingsManager.volumes["Announcer"]))
 
 func load_video_settings():
 	VideoSettingsManager.set_window_mode(file.get_value("video", "window_mode", VideoSettingsManager.window_mode))
@@ -43,6 +44,7 @@ func load_video_settings():
 	VideoSettingsManager.set_bloom_intensity(file.get_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity))
 
 func load_input_settings():
+	InputSettingsManager.set_aim_assist_enabled(file.get_value("input", "aim_assist_enabled", InputSettingsManager.aim_assist_enabled))
 	InputSettingsManager.set_look_smoothing_enabled(file.get_value("input", "look_smoothing_enabled", InputSettingsManager.look_smoothing_enabled))
 	InputSettingsManager.set_look_smoothing_intensity(file.get_value("input", "look_smoothing_intensity", InputSettingsManager.look_smoothing_intensity))
 	InputSettingsManager.set_mouse_horizontal_sensitivity(file.get_value("input", "mouse_horizontal_sensitivity", InputSettingsManager.mouse_horizontal_sensitivity))
@@ -65,6 +67,7 @@ func save_audio_settings():
 	file.set_value("audio", "ui_volume", AudioSettingsManager.volumes["UI"])
 	file.set_value("audio", "music_volume", AudioSettingsManager.volumes["Music"])
 	file.set_value("audio", "sfx_volume", AudioSettingsManager.volumes["Effects"])
+	file.set_value("audio", "announcer_volume", AudioSettingsManager.volumes["Announcer"])
 
 func save_video_settings():
 	file.set_value("video", "window_mode", VideoSettingsManager.window_mode)
@@ -74,6 +77,7 @@ func save_video_settings():
 	file.set_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity)
 	
 func save_input_settings():
+	file.set_value("input", "aim_assist_enabled", InputSettingsManager.aim_assist_enabled)
 	file.set_value("input", "look_smoothing_enabled", InputSettingsManager.look_smoothing_enabled)
 	file.set_value("input", "look_smoothing_intensity", InputSettingsManager.look_smoothing_intensity)
 	file.set_value("input", "mouse_horizontal_sensitivity", InputSettingsManager.mouse_horizontal_sensitivity)

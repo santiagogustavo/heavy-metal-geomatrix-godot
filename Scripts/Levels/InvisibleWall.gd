@@ -15,7 +15,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var index = 1
-	for player in GameManager.players:
-		if player.is_inside_tree() and index <= 6:
-			material.set("shader_parameter/pos" + str(index), player.global_position)
-		index += 1
+	for team: Team in GameManager.teams:
+		for player: Player in team.players:
+			if player.is_inside_tree() and index <= 6:
+				material.set("shader_parameter/pos" + str(index), player.global_position)
+			index += 1

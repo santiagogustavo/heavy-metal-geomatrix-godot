@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://drns658eovibc"]
+[gd_scene load_steps=48 format=3 uid="uid://drns658eovibc"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/SelectPlayer/SelectPlayerController.gd" id="1_c107j"]
 [ext_resource type="Material" uid="uid://bl4gl2wdbx05f" path="res://Materials/Menus/Select Player/bf365546.tres" id="1_vupum"]
@@ -21,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://benm8gdx2t3ly" path="res://Sound/Menus/Select Player/Select.wav" id="16_k1njm"]
 [ext_resource type="PackedScene" uid="uid://c8jb2dol0b2vj" path="res://Prefabs/Characters/Mayfly/Select.tscn" id="17_bk0fd"]
 [ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="21_ha3xj"]
+[ext_resource type="AnimationLibrary" uid="uid://dpicnwsmaujai" path="res://Animations/Characters/Mayfly/Lower Body.res" id="21_owdib"]
+[ext_resource type="AnimationLibrary" uid="uid://drm1ym07vxfhk" path="res://Animations/Characters/Mayfly/Taunts/Taunts.res" id="22_vtme5"]
+[ext_resource type="AnimationLibrary" uid="uid://dw5lxh8qnt6xn" path="res://Animations/Characters/Mayfly/Upper Body.res" id="23_dpa7a"]
 
 [sub_resource type="Environment" id="Environment_6hd2o"]
 glow_enabled = true
@@ -260,7 +263,7 @@ states/Idle/node = SubResource("AnimationNodeAnimation_orith")
 states/Idle/position = Vector2(455, 101)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cjkb3")]
 
-[node name="SelectPlayer" type="Node3D" node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "ost", "cursor_sfx", "select_sfx")]
+[node name="SelectPlayer" type="Node3D" node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "loadout_label", "ost", "cursor_sfx", "select_sfx")]
 script = ExtResource("1_c107j")
 redirect_to_scene = "res://Scenes/SelectArena.tscn"
 avatar_cards = [NodePath("Control/MarginContainer/Control/Characters/Slash"), NodePath("Control/MarginContainer/Control/Characters/Kassey"), NodePath("Control/MarginContainer/Control/Characters/Di"), NodePath("Control/MarginContainer/Control/Characters/Mayfly")]
@@ -271,6 +274,7 @@ team_name_label = NodePath("Control/MarginContainer/Control/Info/Character/Team/
 stat_speed_label = NodePath("Control/MarginContainer/Control/Info/Stats/Speed/Value")
 stat_power_label = NodePath("Control/MarginContainer/Control/Info/Stats/Power/Value")
 stat_vitality_label = NodePath("Control/MarginContainer/Control/Info/Stats/Vitality/Value")
+loadout_label = NodePath("Control/MarginContainer/Control/Info/Stats/Loadout/Value")
 ost = NodePath("Control/OST")
 cursor_sfx = NodePath("Control/Cursor")
 select_sfx = NodePath("Control/Select")
@@ -551,6 +555,8 @@ transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 
 [node name="Mayfly" parent="CharacterContainer" instance=ExtResource("17_bk0fd")]
 visible = false
 stat_speed = 1
+initial_loadout = null
+initial_loadout_slot = 0
 
 [node name="Skeleton3D" parent="CharacterContainer/Mayfly/Model/Armature" index="0"]
 bones/1/position = Vector3(0.361605, 0.522708, 0.867471)
@@ -594,7 +600,6 @@ bones/19/scale = Vector3(1, 1, 1)
 bones/20/position = Vector3(3.32855e-09, 0.242325, 2.20782e-08)
 bones/20/rotation = Quaternion(0.150521, 0.219334, 0.292267, 0.918595)
 bones/21/rotation = Quaternion(-1.64021e-07, -1.41543e-07, 0.707107, 0.707107)
-bones/22/rotation = Quaternion(0.221455, -0.635343, -0.730224, 0.118613)
 bones/23/position = Vector3(-0.0416225, 0.176188, 0.00464888)
 bones/23/rotation = Quaternion(0.0303174, -0.0284271, 0.708385, 0.704602)
 bones/24/position = Vector3(-1.81227e-07, 0.0729111, 9.89894e-09)
@@ -608,6 +613,8 @@ bones/27/rotation = Quaternion(-1.87726e-07, 1.03022e-07, -0.707107, 0.707107)
 bones/29/position = Vector3(0.0454969, 0.143764, 0.0513107)
 bones/29/rotation = Quaternion(0.413613, 0.349315, 0.840764, -0.00447066)
 bones/29/scale = Vector3(1, 1, 1)
+bones/30/position = Vector3(-0.0454969, 0.143765, 0.0513107)
+bones/30/rotation = Quaternion(-0.413613, 0.349315, 0.840764, 0.00447042)
 bones/32/position = Vector3(-0.120453, 0.618273, 0.792688)
 bones/33/position = Vector3(-0.107451, 0.348126, 0.0976814)
 bones/33/rotation = Quaternion(0.88687, -0.000193988, 0.0089088, 0.461934)
@@ -623,6 +630,13 @@ transform = Transform3D(0.913527, 0.390168, 0.115051, -0.0975113, -0.0645426, 0.
 
 [node name="Right Hand Slot" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D" index="3"]
 transform = Transform3D(-0.396756, 0.544363, 0.739089, 0.592496, -0.463104, 0.659153, 0.701094, 0.699431, -0.138794, -0.112979, 0.948884, 0.241789)
+
+[node name="AnimationPlayer" parent="CharacterContainer/Mayfly/Model" index="1"]
+libraries = {
+"Lower Body": ExtResource("21_owdib"),
+"Taunts": ExtResource("22_vtme5"),
+"Upper Body": ExtResource("23_dpa7a")
+}
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 1.13687e-13, 0.0588192, -1.26593)

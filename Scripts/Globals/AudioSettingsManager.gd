@@ -5,8 +5,8 @@ var volumes: Dictionary = {
 	"UI": 1,
 	"Music": 1,
 	"Effects": 1,
+	"Announcer": 1,
 }
-
 
 func set_volume_index(bus_index: int, volume: float) -> void:
 	volumes[AudioServer.get_bus_name(bus_index)] = volume

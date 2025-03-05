@@ -1,9 +1,416 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbfmrky7xobod"]
+[gd_scene load_steps=31 format=3 uid="uid://bbfmrky7xobod"]
 
+[ext_resource type="Script" path="res://Scripts/Weapons/EnergyGunController.gd" id="1_i2vrb"]
 [ext_resource type="PackedScene" uid="uid://c10u54kbc48we" path="res://Models/Weapons/Flame Gun.glb" id="1_itxgw"]
+[ext_resource type="PackedScene" uid="uid://dbrwdyjtj7ipr" path="res://Prefabs/Decals/BurnDecal.tscn" id="2_psgu7"]
+[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/Weapons/FlameGun/Flame.tscn" id="2_r6w7y"]
+[ext_resource type="Script" uid="uid://hywqchyqup6p" path="res://Scripts/Lights/FlickeringLight.gd" id="3_lu5al"]
+[ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="3_q1a8e"]
+[ext_resource type="AudioStream" uid="uid://4fiilu762n34" path="res://Sound/Weapons/Flame Gun/fire_start.wav" id="5_cqmtl"]
+[ext_resource type="AudioStream" uid="uid://vbw7rs4r7whe" path="res://Sound/Weapons/Flame Gun/fire_loop.wav" id="6_ibm82"]
+[ext_resource type="AudioStream" uid="uid://cjid2hqowd8r2" path="res://Sound/Weapons/Flame Gun/fire_stop.wav" id="7_5dabp"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="8_dfsoj"]
 
-[node name="FlameGun" type="Node3D"]
+[sub_resource type="Gradient" id="Gradient_25svv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c81qw"]
+gradient = SubResource("Gradient_25svv")
+
+[sub_resource type="Curve" id="Curve_edjx7"]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_jeqdk"]
+curve = SubResource("Curve_edjx7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pv34c"]
+angle_min = -90.0
+angle_max = 90.0
+spread = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 9.8, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_jeqdk")
+color = Color(0.29, 0.29, 0.29, 1)
+color_ramp = SubResource("GradientTexture1D_c81qw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh71l"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_q1a8e")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_k6dci"]
+material = SubResource("StandardMaterial3D_fh71l")
+
+[sub_resource type="Animation" id="Animation_6k7b2"]
+resource_name = "Idle"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/FireLoop:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BaseLight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wtw86"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/FireStart:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/FireLoop:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SFX/FireStop:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BaseLight:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_krowr"]
+resource_name = "Shoot"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/FireStart:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/FireLoop:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BaseLight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5sgr6"]
+resource_name = "StopShoot"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flame:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Smoke:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX/FireLoop:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/FireStop:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BaseLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtt22"]
+_data = {
+"Idle": SubResource("Animation_6k7b2"),
+"RESET": SubResource("Animation_wtw86"),
+"Shoot": SubResource("Animation_krowr"),
+"StopShoot": SubResource("Animation_5sgr6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ng6kt"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y4yqn"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2607l"]
+animation = &"StopShoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fvyod"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a58px"]
+advance_mode = 2
+advance_condition = &"is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4e7b5"]
+advance_mode = 2
+advance_expression = "!is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qpbxp"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vjkyk"]
+states/Idle/node = SubResource("AnimationNodeAnimation_ng6kt")
+states/Idle/position = Vector2(442, 100.5)
+states/Shoot/node = SubResource("AnimationNodeAnimation_y4yqn")
+states/Shoot/position = Vector2(442, -52)
+states/StopShoot/node = SubResource("AnimationNodeAnimation_2607l")
+states/StopShoot/position = Vector2(662, -15.5)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fvyod"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_a58px"), "Shoot", "StopShoot", SubResource("AnimationNodeStateMachineTransition_4e7b5"), "StopShoot", "Idle", SubResource("AnimationNodeStateMachineTransition_qpbxp")]
+graph_offset = Vector2(-92, -94)
+
+[node name="FlameGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "beam", "raycast")]
+script = ExtResource("1_i2vrb")
+item_name = "Flame Gun"
+spend_amount = 20.0
+damage = 50
+animation_tree = NodePath("AnimationTree")
+beam = NodePath("Flame")
+raycast = NodePath("RayCast3D")
+hit_decal = ExtResource("2_psgu7")
 
 [node name="Flame Gun" parent="." instance=ExtResource("1_itxgw")]
+
+[node name="BaseLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00270765, -0.918352)
+visible = false
+light_color = Color(1, 0.75, 0, 1)
+light_energy = 0.5
+omni_range = 3.0
+script = ExtResource("3_lu5al")
+max_light_range = 0.5
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83176)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 3333
+
+[node name="Flame" parent="." instance=ExtResource("2_r6w7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.877798)
+emitting = false
+visibility_aabb = AABB(-2, -2, -4.5, 4, 4, 6.33333)
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.00342714, 0.000118643, -0.844176)
+emitting = false
+amount = 5
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pv34c")
+draw_pass_1 = SubResource("QuadMesh_k6dci")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="FireStart" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.847462)
+stream = ExtResource("5_cqmtl")
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="FireLoop" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.847462)
+stream = ExtResource("6_ibm82")
+volume_db = -15.0
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="FireStop" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.847462)
+stream = ExtResource("7_5dabp")
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jtt22")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_vjkyk")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_shooting = false
+script = ExtResource("8_dfsoj")
 
 [editable path="Flame Gun"]

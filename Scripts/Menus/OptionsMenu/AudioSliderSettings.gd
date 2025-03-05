@@ -7,7 +7,7 @@ class_name AudioSliderSettings
 @onready var focus_sfx: AudioStreamPlayer2D = $FocusSfx
 @onready var change_sfx: AudioStreamPlayer2D = $ChangeSfx
 
-@export_enum("Master", "UI", "Music", "Effects") var bus_name: String
+@export_enum("Master", "UI", "Music", "Effects", "Announcer") var bus_name: String
 
 var bus_index: int = 0
 

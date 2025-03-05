@@ -1,9 +1,563 @@
-[gd_scene load_steps=2 format=3 uid="uid://cti1ekhybelqv"]
+[gd_scene load_steps=41 format=3 uid="uid://cti1ekhybelqv"]
 
 [ext_resource type="PackedScene" uid="uid://d1vviwsawunyr" path="res://Models/Weapons/Sniper Rifle.glb" id="1_4pa16"]
+[ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_hcmus"]
+[ext_resource type="PackedScene" uid="uid://dmqfvx1rknxho" path="res://Prefabs/Weapons/SniperRifle/Bullet.tscn" id="2_7uppe"]
+[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_dm8cq"]
+[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_0n4ku"]
+[ext_resource type="AudioStream" uid="uid://cqhrb6pgu8pag" path="res://Sound/Weapons/Sniper Rifle/shoot.wav" id="6_xf045"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="7_4jhhc"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Sniper Rifle/ScopeController.gd" id="8_48sey"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Screen Blur Masked.gdshader" id="8_sa1p5"]
+[ext_resource type="Texture2D" uid="uid://pah0ictfips6" path="res://Textures/Weapons/Sniper Rifle/scope_overlay.png" id="10_yj7a0"]
+[ext_resource type="Texture2D" uid="uid://dnx40rey8qhhk" path="res://Textures/Weapons/Sniper Rifle/scope_no_outline.png" id="12_2e7gy"]
+[ext_resource type="Texture2D" uid="uid://cskmxsk66hd01" path="res://Textures/Weapons/Sniper Rifle/scope_outline.png" id="13_kph15"]
 
-[node name="SniperRifle" type="Node3D"]
+[sub_resource type="Gradient" id="Gradient_s4lqj"]
+offsets = PackedFloat32Array(0, 0.984791)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jrkse"]
+gradient = SubResource("Gradient_s4lqj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dpvyy"]
+particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 0, -1)
+spread = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+color_ramp = SubResource("GradientTexture1D_jrkse")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofxjw"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_0n4ku")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_t4dpe"]
+material = SubResource("StandardMaterial3D_ofxjw")
+size = Vector2(0.75, 0.75)
+
+[sub_resource type="Animation" id="Animation_mum7l"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_6je63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sniper Rifle/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletHole/Muzzle Flash:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BulletHole/Muzzle Light:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BulletHole/SFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ehfe0"]
+resource_name = "Shoot"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sniper Rifle/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletHole/Muzzle Flash:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BulletHole/Muzzle Light:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"_shoot"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BulletHole/SFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vj7e"]
+_data = {
+"Idle": SubResource("Animation_mum7l"),
+"RESET": SubResource("Animation_6je63"),
+"Shoot": SubResource("Animation_ehfe0")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3vt6q"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kjjr0"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e2686"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pyaun"]
+advance_mode = 2
+advance_condition = &"is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghc52"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!is_shooting"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cah7w"]
+states/Idle/node = SubResource("AnimationNodeAnimation_3vt6q")
+states/Idle/position = Vector2(424.5, 101.75)
+states/Shoot/node = SubResource("AnimationNodeAnimation_kjjr0")
+states/Shoot/position = Vector2(424.5, -30)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_e2686"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_pyaun"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_ghc52")]
+graph_offset = Vector2(-32, -46)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46puh"]
+shader = ExtResource("8_sa1p5")
+shader_parameter/blur_amount = 3.0
+shader_parameter/mix_amount = null
+shader_parameter/color_over = null
+shader_parameter/mask = ExtResource("10_yj7a0")
+
+[sub_resource type="Animation" id="Animation_4trv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ScopeOutline:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/ScopeOutline:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Scope:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Blur:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/ScopeOutline:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s064s"]
+resource_name = "ZoomIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ScopeOutline:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.5),
+"transitions": PackedFloat32Array(1, 0.307786, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/ScopeOutline:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.5),
+"transitions": PackedFloat32Array(1, 0.353553, 1),
+"update": 0,
+"values": [1.5708, 1.39626, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Scope:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Blur:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/ScopeOutline:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qjbhd"]
+resource_name = "ZoomOut"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ScopeOutline:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/ScopeOutline:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Scope:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Blur:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/ScopeOutline:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j6rv"]
+_data = {
+"RESET": SubResource("Animation_4trv8"),
+"ZoomIn": SubResource("Animation_s064s"),
+"ZoomOut": SubResource("Animation_qjbhd")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gtkxu"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7yso"]
+animation = &"ZoomIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x042u"]
+animation = &"ZoomOut"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vl1us"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8puqx"]
+advance_mode = 2
+advance_condition = &"is_aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pdyc1"]
+advance_mode = 2
+advance_condition = &"is_not_aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qcdvr"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5fa1h"]
+states/RESET/node = SubResource("AnimationNodeAnimation_gtkxu")
+states/RESET/position = Vector2(446.25, 100.125)
+states/ZoomIn/node = SubResource("AnimationNodeAnimation_h7yso")
+states/ZoomIn/position = Vector2(446.5, -63.5)
+states/ZoomOut/node = SubResource("AnimationNodeAnimation_x042u")
+states/ZoomOut/position = Vector2(614, -6.5)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_vl1us"), "RESET", "ZoomIn", SubResource("AnimationNodeStateMachineTransition_8puqx"), "ZoomIn", "ZoomOut", SubResource("AnimationNodeStateMachineTransition_pdyc1"), "ZoomOut", "RESET", SubResource("AnimationNodeStateMachineTransition_qcdvr")]
+graph_offset = Vector2(-172, -100)
+
+[node name="SniperRifle" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
+script = ExtResource("1_hcmus")
+item_name = "Sniper Rifle"
+bullets = 4
+fire_rate = 2.0
+zoom_factor = 3.0
+bullet = ExtResource("2_7uppe")
+ejecting_brass = ExtResource("3_dm8cq")
+animation_tree = NodePath("AnimationTree")
+bullet_holes = [NodePath("BulletHole")]
+eject_hole = NodePath("EjectHole")
 
 [node name="Sniper Rifle" parent="." instance=ExtResource("1_4pa16")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="BulletHole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224411, -0.898884)
+
+[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.000235036, 0.000154138)
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_dpvyy")
+draw_pass_1 = SubResource("QuadMesh_t4dpe")
+
+[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00157207, -0.0459177)
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 0.0
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
+stream = ExtResource("6_xf045")
+max_db = 0.0
+pitch_scale = 0.75
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[node name="EjectHole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229593, 0.122277)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3vj7e")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_cah7w")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_shooting = false
+script = ExtResource("7_4jhhc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+script = ExtResource("8_48sey")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_46puh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scope" type="TextureRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -664.875
+offset_right = 664.875
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_2e7gy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ScopeOutline" type="TextureRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -664.875
+offset_right = 664.875
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(665, 324)
+texture = ExtResource("13_kph15")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_8j6rv")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer"]
+tree_root = SubResource("AnimationNodeStateMachine_5fa1h")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_aiming = false
+parameters/conditions/is_not_aiming = false
 
 [editable path="Sniper Rifle"]

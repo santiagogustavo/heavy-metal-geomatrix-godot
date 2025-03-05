@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqhrb6pgu8pag"
+path="res://.godot/imported/shoot.wav-7d38032a5c4b7d7ea2ce7c71d46c817a.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Sniper Rifle/shoot.wav"
+dest_files=["res://.godot/imported/shoot.wav-7d38032a5c4b7d7ea2ce7c71d46c817a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

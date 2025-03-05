@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4fiilu762n34"
+path="res://.godot/imported/fire_start.wav-1bf49bd8964d0085806741239ceb8dc3.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Flame Gun/fire_start.wav"
+dest_files=["res://.godot/imported/fire_start.wav-1bf49bd8964d0085806741239ceb8dc3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

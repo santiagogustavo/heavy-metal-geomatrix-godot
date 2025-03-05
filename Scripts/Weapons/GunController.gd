@@ -11,6 +11,8 @@ signal drop
 @export var burst_count: int
 @export var burst_rate: float
 @export var spray_amount: float
+@export var zoom_factor: float = 1.0
+@export var infinite_ammo: bool = false
 
 @export_subgroup("Instances")
 @export var bullet: PackedScene
@@ -25,17 +27,17 @@ signal drop
 
 var player_rid: RID
 
-var is_shooting: bool = false
+@export var is_shooting: bool = false
 var is_shooting_locked: bool = false
 var is_bursting: bool = false
 
 var can_shoot: bool = false
 var current_burst_count: int = 0
 
-var target_point: Vector3 = Vector3.ZERO
+@onready var target_point: Vector3 = Vector3.FORWARD * transform.basis * 100
 var is_dropping: bool = false
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	if is_dropping:
 		return
 	if bullets <= 0:
@@ -88,7 +90,7 @@ func _shoot(hard: bool = false) -> void:
 		vibrate_soft()
 	else:
 		vibrate_hard()
-	if !DebugCommands.full_ammo:
+	if !DebugCommands.full_ammo and !infinite_ammo:
 		bullets -= bullets_per_shot
 	for bullet_hole in bullet_holes:
 		var bullet_instance: Node3D = instantiate_bullet(bullet_hole.global_position, bullet_hole.global_transform.basis)

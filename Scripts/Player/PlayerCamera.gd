@@ -42,9 +42,13 @@ func update_motion_blur() -> void:
 	
 func update_fov() -> void:
 	var current_fov = original_fov
+	var relative_aim_fov = aim_fov_change
+	
+	if GameManager.get_player_one():
+		relative_aim_fov *= GameManager.get_player_one().inventory_manager.zoom_factor
 	
 	if is_aiming:
-		current_fov += aim_fov_change
+		current_fov += relative_aim_fov
 	elif is_dashing:
 		current_fov += dash_fov_change
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=57 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
@@ -21,6 +21,7 @@
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="19_kvrfk"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Ammo.gd" id="20_c6iue"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/Melee.gd" id="21_agdla"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD/Energy.gd" id="22_iklc2"]
 [ext_resource type="Texture2D" uid="uid://bt7vtikx87pgx" path="res://Textures/UI/HUD/New/weapon_divider.png" id="22_nu1bm"]
 [ext_resource type="Script" uid="uid://dvd7rus6meoi5" path="res://Scripts/UI/HUD/Scoreboard.gd" id="24_cqqf3"]
 [ext_resource type="Texture2D" uid="uid://dcakxbma523me" path="res://Textures/UI/HUD/New/warning_box.png" id="24_g3fjk"]
@@ -65,7 +66,7 @@ shader_parameter/Alpha_Mask = ExtResource("8_flou3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eu110"]
 shader = ExtResource("17_vnujt")
-shader_parameter/Flip = null
+shader_parameter/Flip = false
 shader_parameter/Progress = 1.0
 shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 
@@ -83,6 +84,24 @@ shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 font = ExtResource("19_kvrfk")
 shadow_color = Color(0, 0, 0, 0.490196)
 shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81voo"]
+resource_local_to_scene = true
+shader = ExtResource("17_vnujt")
+shader_parameter/Flip = false
+shader_parameter/Progress = 1.0
+shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53mmv"]
+resource_local_to_scene = true
+shader = ExtResource("1_h7o1f")
+shader_parameter/wave_color = Color(0.63, 0.45843, 0.0882, 1)
+shader_parameter/noise_color = Color(0.8, 0.68, 0, 1)
+shader_parameter/tiling = Vector2(3, 0.3)
+shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Flip = false
+shader_parameter/Progress = 1.0
+shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ibaa"]
 font = ExtResource("19_kvrfk")
@@ -485,6 +504,97 @@ offset_bottom = 54.0
 text = "JETPACK FUEL"
 label_settings = SubResource("LabelSettings_wm351")
 vertical_alignment = 1
+
+[node name="Energy" type="Control" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -93.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("22_iklc2")
+
+[node name="Background" type="TextureRect" parent="Container/Control/Energy"]
+material = SubResource("ShaderMaterial_iknaq")
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -47.0
+offset_right = 3.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("11_2lcjo")
+expand_mode = 1
+flip_h = true
+
+[node name="FuelBarShadow" type="ColorRect" parent="Container/Control/Energy"]
+material = SubResource("ShaderMaterial_81voo")
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -48.0
+offset_right = 197.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+
+[node name="FuelBar" type="ColorRect" parent="Container/Control/Energy"]
+material = SubResource("ShaderMaterial_53mmv")
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -48.0
+offset_right = 197.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+
+[node name="Decoration" type="TextureRect" parent="Container/Control/Energy"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -51.0
+offset_right = 13.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("18_rgfee")
+expand_mode = 1
+flip_h = true
+
+[node name="Label" type="Label" parent="Container/Control/Energy"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 73.0
+offset_right = 141.0
+offset_bottom = 96.0
+text = "Flame Gun"
+label_settings = SubResource("LabelSettings_4ibaa")
+horizontal_alignment = 2
+uppercase = true
 
 [node name="Ammo" type="Control" parent="Container/Control"]
 layout_mode = 1

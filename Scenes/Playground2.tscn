@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=28 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lgjqh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://1lkvm44wjt4x" path="res://Prefabs/Particles/Rain/Raindrops.tscn" id="14_c7o2r"]
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="15_rbg34"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_yijig"]
+[ext_resource type="PackedScene" uid="uid://cyeky57kf6wjh" path="res://Prefabs/Pickups/FlameGunPickup.tscn" id="17_qx33q"]
+[ext_resource type="PackedScene" uid="uid://c2ybff6j05cq4" path="res://Prefabs/Pickups/SniperRiflePickup.tscn" id="18_13jos"]
 [ext_resource type="PackedScene" uid="uid://hasw7ncxhjoy" path="res://Prefabs/Pickups/ShotGunPickup.tscn" id="19_xpdlw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
@@ -134,5 +136,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
 
 [node name="JetpackPickup" parent="." instance=ExtResource("7_hmeq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="FlameGunPickup" parent="." instance=ExtResource("17_qx33q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6)
+
+[node name="SniperRiflePickup" parent="." instance=ExtResource("18_13jos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
 
 [editable path="Spawner"]

@@ -13,8 +13,9 @@ signal selected
 @export var team_icon: TextureRect
 @export var team_name_label: Label
 @export var stat_speed_label: Label
-@export var stat_power_label: Label
+@export var 	stat_power_label: Label
 @export var stat_vitality_label: Label
+@export var loadout_label: Label
 
 @export_subgroup("SFX")
 @export var ost: AudioStreamPlayer2D
@@ -53,6 +54,8 @@ func _ready() -> void:
 			update_stat_speed_label(avatar.select.stat_speed)
 			update_stat_power_label(avatar.select.stat_power)
 			update_stat_vitality_label(avatar.select.stat_vitality)
+			if avatar.select.initial_loadout:
+				update_loadout_label(avatar.select.initial_loadout)
 		)
 		avatar.button_down.connect(func ():
 			if is_selected:
@@ -125,3 +128,8 @@ func update_stat_power_label(power: int) -> void:
 
 func update_stat_vitality_label(vitality: int) -> void:
 	stat_vitality_label.text = "/".repeat(vitality)
+
+func update_loadout_label(loadout: PackedScene) -> void:
+	var instance = loadout.instantiate()
+	if "item_name" in instance:
+		loadout_label.text = instance.item_name

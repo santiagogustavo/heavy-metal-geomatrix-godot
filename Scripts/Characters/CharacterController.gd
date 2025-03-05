@@ -31,6 +31,10 @@ class_name CharacterController
 @export var body_slot: BoneAttachment3D
 @export var right_hand_slot: BoneAttachment3D
 
+@export_subgroup("Loadout")
+@export var initial_loadout: PackedScene
+@export var initial_loadout_slot: Definitions.EquipType
+
 # Internals
 @onready var character_name: String = Definitions.CharacterNames[character]
 @onready var team_name: String = Definitions.TeamNames[character_team]
@@ -41,14 +45,14 @@ var current_skin: int = default_skin
 func _ready() -> void:
 	if animation_tree_reference:
 		animation_tree = animation_tree_reference.instantiate() as PlayerAnimationTree
-		add_child(animation_tree)
 	elif custom_animation_tree_reference:
 		animation_tree = custom_animation_tree_reference.instantiate() as AnimationTree
+	if animation_tree != null:
 		add_child(animation_tree)
+		animation_tree.anim_player = NodePath('./Model/AnimationPlayer')
 
 func _process(_delta: float) -> void:
 	show_current_skin()
-	jiggle_bones_control()
 
 func show_current_skin() -> void:
 	var index: int = 0
@@ -59,7 +63,7 @@ func show_current_skin() -> void:
 			skin.visible = false
 		index += 1
 
-func jiggle_bones_control() -> void:
+func set_jiggle_bones_enabled(jiggle_enabled: bool) -> void:
 	for bone: WiggleBone in jiggle_bones:
-		if bone.enabled != jiggle_physics_enabled:
-			bone.enabled = jiggle_physics_enabled
+		bone.set_enabled(jiggle_enabled)
+		bone._should_reset = !jiggle_enabled

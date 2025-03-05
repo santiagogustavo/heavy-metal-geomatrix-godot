@@ -1,0 +1,70 @@
+[gd_scene load_steps=16 format=3 uid="uid://c4wyss068ducy"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/SwordController.gd" id="1_exw1l"]
+[ext_resource type="PackedScene" uid="uid://bf5nixetmlasw" path="res://Models/Weapons/Hard Sword.glb" id="1_ofe1k"]
+[ext_resource type="PackedScene" uid="uid://cfvw3jc7xr3vp" path="res://Prefabs/Decals/SwordHitDecal.tscn" id="2_egqlw"]
+[ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="2_mruyh"]
+[ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_cpri6"]
+[ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_j3tmt"]
+[ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="4_42fw5"]
+[ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="5_nqugp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npwpc"]
+shader = ExtResource("2_mruyh")
+
+[sub_resource type="Gradient" id="Gradient_6s3xd"]
+colors = PackedColorArray(1, 1, 1, 0.392157, 0, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e1eue"]
+gradient = SubResource("Gradient_6s3xd")
+
+[sub_resource type="Curve" id="Curve_scpbx"]
+_data = [Vector2(0, 1), 0.0, -0.5, 0, 1, Vector2(1, 0.5), -0.5, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_dmkoi"]
+curve = SubResource("Curve_scpbx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wljdo"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_j3tmt")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+shader_parameter/tex = ExtResource("4_42fw5")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_e1eue")
+shader_parameter/curve = SubResource("CurveTexture_dmkoi")
+
+[sub_resource type="QuadMesh" id="QuadMesh_adhuj"]
+material = SubResource("ShaderMaterial_wljdo")
+
+[node name="HardSword" type="Node3D"]
+script = ExtResource("1_exw1l")
+item_name = "Hard Sword"
+damage = 10
+hit_general_particle = ExtResource("2_egqlw")
+hit_player_particle = ExtResource("3_cpri6")
+
+[node name="Hard Sword" parent="." instance=ExtResource("1_ofe1k")]
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.954, 0, 1.4405e-07, 0, 0.58, 0, -1.4405e-07, 0, -0.954, -1.86215e-09, 0.740487, -0.00545657)
+amount = 30
+lifetime = 30.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_npwpc")
+draw_pass_1 = SubResource("QuadMesh_adhuj")
+script = ExtResource("5_nqugp")
+length = 30
+texture = ExtResource("4_42fw5")
+color_ramp = SubResource("GradientTexture1D_e1eue")
+curve = SubResource("CurveTexture_dmkoi")
+_defaults_have_been_set = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160548, -0.00359857)
+target_position = Vector3(0, 1.15, 0)
+collision_mask = 5
+debug_shape_thickness = 5

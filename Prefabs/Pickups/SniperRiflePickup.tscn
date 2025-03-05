@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2ybff6j05cq4"]
+[gd_scene load_steps=9 format=3 uid="uid://c2ybff6j05cq4"]
 
 [ext_resource type="PackedScene" uid="uid://cea3karygo70v" path="res://Prefabs/Pickups/Templates/PickupB.tscn" id="1_gk4tv"]
 [ext_resource type="PackedScene" uid="uid://b5ddwtoh753qr" path="res://Models/Pickups/Sniper Rifle.glb" id="2_5km8x"]
+[ext_resource type="PackedScene" uid="uid://cti1ekhybelqv" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="2_lynrv"]
 
 [sub_resource type="Animation" id="Animation_b2lmd"]
 resource_name = "Idle"
@@ -34,12 +35,13 @@ graph_offset = Vector2(-23, -72)
 
 [node name="SniperRiflePickup" instance=ExtResource("1_gk4tv")]
 equip_type = 1
+item = ExtResource("2_lynrv")
 
 [node name="Sniper Rifle" parent="." index="1" instance=ExtResource("2_5km8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Skeleton3D" parent="Sniper Rifle/Armature" index="0"]
-bones/0/scale = Vector3(1.11734, 1.11734, 1)
+bones/0/scale = Vector3(1.15785, 1.15785, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sniper Rifle" index="3"]
 libraries = {

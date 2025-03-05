@@ -59,8 +59,11 @@ func _ready() -> void:
 		PlayerType.Player1:
 			initial_camera_pivot_rotation = camera_pivot.rotation
 			player_input = PlayerInputManager.new(player_type)
+			player_input.player = self
 			player_input.camera_pivot = camera_pivot
 			player_input.lock_on.connect(lock_on_to_next_target)
+			player_input.target_raycast = camera.camera_target_raycast
+			player_input.aim_assist_raycast = get_node('AimAssist')
 			add_child(player_input)
 			player_ui = load("res://Prefabs/Player/UI.tscn").instantiate()
 			get_tree().root.add_child.call_deferred(player_ui)
@@ -74,10 +77,13 @@ func _ready() -> void:
 		sfx_controller = character.sfx_controller
 	if character.animation_tree:
 		animation_tree = character.animation_tree
+		player_killed.connect(func (): animation_tree.play_ko_state())
 	inventory_manager = load("res://Prefabs/Player/InventoryManager.tscn").instantiate()
 	inventory_manager.player_rid = get_rid()
 	inventory_manager.character_controller = character
 	add_child(inventory_manager)
+	if character.initial_loadout:
+		inventory_manager.pick_up_item(character.initial_loadout_slot, character.initial_loadout)
 	reset_player_to_spawn()
 	player_ready.emit()
 
@@ -121,6 +127,8 @@ func reset_player_to_spawn() -> void:
 		rotation = spawn_point.global_rotation
 	if player_input:
 		player_input.new_rotation = rotation
+	if animation_tree:
+		animation_tree.reset_player()
 
 func collide(collision: StaticBody3D):
 	if sfx_controller:
@@ -148,6 +156,10 @@ func update_externals() -> void:
 	player_input.is_locked_on = is_locked_on
 	if player_input.is_locked_on:
 		var target_position = GameManager.get_enemies()[lock_on_target].global_position + Vector3(0, 1.0, 0)
+		#var initial_rotation: Vector3 = rotation
+		#look_at(target_position)
+		#rotation.x = initial_rotation.x
+		#rotation.z = initial_rotation.z
 		camera_pivot.look_at(target_position)
 		player_input.new_rotation = camera_pivot.global_rotation
 	player_input.is_on_floor = is_on_floor()
@@ -228,7 +240,11 @@ func set_animator_variables() -> void:
 	animation_tree.is_on_floor = is_on_floor()
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping
-	animation_tree.is_gun_shooting = inventory_manager.is_gun_shooting
+	animation_tree.is_gun_shooting = (
+		inventory_manager.is_gun_shooting
+		if inventory_manager.right_hand_instance is GunController
+		else player_input and player_input.is_shooting
+	)
 	animation_tree.is_holding_weapon = inventory_manager.is_holding_weapon
 
 func set_inventory_items_variables() -> void:
@@ -238,6 +254,9 @@ func set_inventory_items_variables() -> void:
 	if inventory_manager.right_hand_instance != null and player_input:
 		if inventory_manager.right_hand_instance is SwordController and animation_tree:
 			inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
-		if inventory_manager.right_hand_instance is GunController:
+		if (
+			inventory_manager.right_hand_instance is GunController
+			or inventory_manager.right_hand_instance is EnergyGunController
+		):
 			inventory_manager.right_hand_instance.is_shooting = player_input.is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

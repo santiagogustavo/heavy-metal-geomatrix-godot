@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://di062cjwjx8x1" path="res://Prefabs/Weapons/HandGun/Bullet.tscn" id="2_y54om"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_68f05"]
 [ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="4_7qq3n"]
-[ext_resource type="Script" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_dnrwh"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_dnrwh"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="6_q0g1c"]
 [ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="7_mi2mh"]
 
@@ -163,7 +163,7 @@ graph_offset = Vector2(-92, -60)
 offsets = PackedFloat32Array(0, 0.984791)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jrkse"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6v3gg"]
 gradient = SubResource("Gradient_ds7hw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8kahf"]
@@ -174,9 +174,9 @@ direction = Vector3(0, 0, -1)
 spread = 1.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
-color_ramp = SubResource("GradientTexture1D_jrkse")
+color_ramp = SubResource("GradientTexture1D_6v3gg")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofxjw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yexw8"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
@@ -189,7 +189,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_mmxmh"]
-material = SubResource("StandardMaterial3D_ofxjw")
+material = SubResource("StandardMaterial3D_yexw8")
 size = Vector2(0.75, 0.75)
 
 [node name="HandGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]

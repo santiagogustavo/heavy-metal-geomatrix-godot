@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=43 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lhsfh"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="9_ds7yn"]
 [ext_resource type="Texture2D" uid="uid://djdwcspbmak5r" path="res://Textures/Levels/5a480546_nrm.png" id="10_kuhwj"]
 [ext_resource type="Texture2D" uid="uid://yhc2736083x" path="res://Textures/Levels/5a480546_spec.png" id="11_uk7c0"]
-[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/gpu_particles_3d.tscn" id="12_rucj7"]
+[ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/Weapons/FlameGun/Flame.tscn" id="12_rucj7"]
 [ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="13_hmcjl"]
 [ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="14_jk7h2"]
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="15_yy7dp"]
@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="21_xdkx4"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_4s6i1"]
 [ext_resource type="PackedScene" uid="uid://bkt3ivhkt5nvf" path="res://Prefabs/node_3d.tscn" id="22_s37v4"]
+[ext_resource type="PackedScene" uid="uid://cyeky57kf6wjh" path="res://Prefabs/Pickups/FlameGunPickup.tscn" id="23_scgfw"]
+[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_uu1cf"]
+[ext_resource type="PackedScene" uid="uid://bspygcpipf0yv" path="res://Prefabs/Pickups/HardSwordPickup.tscn" id="25_jpqiw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("2_pg3qa")
@@ -162,7 +165,7 @@ shadow_enabled = true
 omni_range = 10.0
 
 [node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("12_rucj7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.469, 0.34235, -16.0485)
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -12.469, 0.34235, -16.0485)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry"]
 transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 10.8627)
@@ -218,5 +221,16 @@ size = Vector3(40, 0.1, 40)
 
 [node name="Node3D" parent="." instance=ExtResource("22_s37v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26639, 1.26391, -0.533026)
+
+[node name="FlameGunPickup" parent="." instance=ExtResource("23_scgfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23545, -4.14134e-07, -2.98111)
+
+[node name="HandGun" parent="." instance=ExtResource("24_uu1cf")]
+transform = Transform3D(-1, -1.73372e-09, -7.43702e-08, -2.85606e-10, 0.999004, 0.0446133, 1.49012e-07, 0.0446133, -0.999004, -1, 2.24906, -10)
+infinite_ammo = true
+is_shooting = true
+
+[node name="HardSwordPickup" parent="." instance=ExtResource("25_jpqiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.21853, -6.17944e-08, -3.55798)
 
 [editable path="Spawner"]

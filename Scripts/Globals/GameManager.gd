@@ -27,11 +27,11 @@ func spawn_players() -> void:
 func reset_players_to_spawn_points():
 	for team: Team in teams:
 		for player: Player in team.players:
-			player.character.jiggle_physics_enabled = false
-			player.reset_player_to_spawn()
+			player.character.set_jiggle_bones_enabled(false)
 			player.heal_player(100)
-			await get_tree().create_timer(1.0).timeout
-			player.character.jiggle_physics_enabled = true
+			player.reset_player_to_spawn()
+			await get_tree().create_timer(0.5).timeout
+			player.character.set_jiggle_bones_enabled(true)
 
 func create_match(new_match: MatchManager) -> void:
 	current_match = new_match
@@ -43,6 +43,7 @@ func end_match() -> void:
 	get_tree().root.remove_child.call_deferred(current_match)
 	current_match.queue_free()
 	current_match = null
+	current_level_config = null
 
 func create_team() -> int:
 	var new_team = Team.new()
@@ -83,7 +84,7 @@ func resume_game() -> void:
 func pause_game() -> void:
 	if is_game_paused:
 		return
-	if !current_match or current_match.round_status == MatchManager.RoundStatus.Idle:
+	if !current_match or current_match.round_status != MatchManager.RoundStatus.Started:
 		return
 	is_game_paused = true
 	unlock_cursor()

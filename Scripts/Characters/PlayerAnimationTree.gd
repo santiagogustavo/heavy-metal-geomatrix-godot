@@ -23,6 +23,9 @@ var is_picking_up: bool = false
 var is_dropping: bool = false
 var is_shooting_locked: bool = false
 
+var ko_anim: int = -1
+var has_reset_player: bool = false
+
 const lower_blend_tree_lerp: float = 15
 const upper_blend_tree_lerp: float = 20
 
@@ -38,11 +41,21 @@ func _process(delta: float) -> void:
 	update_pickup()
 	update_double_jump()
 
-func switch_to_taunt() -> void:
+func switch_to_reaction() -> void:
+	has_reset_player = false
 	set("parameters/Gameplay/blend_amount", 0.0)
 
 func switch_to_gameplay() -> void:
 	set("parameters/Gameplay/blend_amount", 1.0)
+
+func reset_player() -> void:
+	ko_anim = -1
+	switch_to_gameplay()
+	has_reset_player = true
+
+func play_ko_state() -> void:
+	ko_anim = randi_range(1, 2)
+	switch_to_reaction()
 
 func update_pickup() -> void:
 	if is_picking_up:

@@ -17,8 +17,6 @@ class_name LevelConfig
 @export var snapshot_camera: Camera3D
 @export var splash_animation_tree: AnimationTree
 
-var player_scene: PackedScene = load("res://Prefabs/Player1.tscn")
-
 func _ready() -> void:
 	GameManager.lock_cursor()
 	GameManager.current_level_config = self
@@ -55,7 +53,7 @@ func on_player_added(player: Player, team: Team) -> void:
 		team.spawn_player(player, get_available_spawn_point())
 
 func create_player_one() -> void:
-	var player_instance: Player = player_scene.instantiate()
+	var player_instance: Player = load("res://Prefabs/Player1.tscn").instantiate()
 	player_instance.player_type = Player.PlayerType.Player1
 	player_instance.selected_character = Definitions.Characters.Slash
 	var team_index: int = GameManager.create_team()

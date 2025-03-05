@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bspygcpipf0yv"]
+
+[ext_resource type="PackedScene" uid="uid://dfporqfmvgom6" path="res://Prefabs/Pickups/Templates/PickupR.tscn" id="1_3hvt8"]
+[ext_resource type="PackedScene" uid="uid://c4kdc7llpnyw3" path="res://Models/Pickups/Hard Sword.glb" id="2_rbp1p"]
+[ext_resource type="PackedScene" uid="uid://c4wyss068ducy" path="res://Prefabs/Weapons/HardSword.tscn" id="2_vv6wi"]
+
+[sub_resource type="Animation" id="Animation_jyi7t"]
+resource_name = "Idle"
+length = 0.416667
+loop_mode = 1
+tracks/0/type = "scale_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Border")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.0333333, 1, 1, 1, 1, 0.0666667, 1, 1.01667, 1.01667, 1, 0.416667, 1, 1.25, 1.25, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gxx5"]
+_data = {
+"Idle": SubResource("Animation_jyi7t")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5vjb0"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0bec"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xss1l"]
+states/Idle/node = SubResource("AnimationNodeAnimation_5vjb0")
+states/Idle/position = Vector2(445, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_y0bec")]
+graph_offset = Vector2(-23, -72)
+
+[node name="HardSwordPickup" instance=ExtResource("1_3hvt8")]
+equip_type = 3
+item = ExtResource("2_vv6wi")
+
+[node name="Hard Sword" parent="." index="0" instance=ExtResource("2_rbp1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Skeleton3D" parent="Hard Sword/Armature" index="0"]
+bones/0/scale = Vector3(1.16366, 1.16366, 1)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Hard Sword" index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_3gxx5")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Hard Sword" index="5"]
+tree_root = SubResource("AnimationNodeStateMachine_xss1l")
+anim_player = NodePath("../AnimationPlayer2")
+
+[editable path="Hard Sword"]

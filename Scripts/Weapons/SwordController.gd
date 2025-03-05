@@ -29,6 +29,7 @@ func instantiate_hit(point: Vector3, normal: Vector3, type: int):
 	else:
 		hit_instance = hit_general_particle.instantiate()
 	get_tree().root.add_child(hit_instance)
+	vibrate_hard()
 	hit_instance.global_transform.origin = point
 	TransformUtils.safe_look_at(hit_instance, point + normal)
 
@@ -45,3 +46,6 @@ func detect_raycast_collision():
 		has_collided = true
 	else:
 		has_collided = false
+
+func vibrate_hard() -> void:
+	InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)
