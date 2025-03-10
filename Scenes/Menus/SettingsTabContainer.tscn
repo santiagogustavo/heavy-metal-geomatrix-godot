@@ -101,11 +101,10 @@ theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_4tyo3")
 theme_override_styles/tab_selected = SubResource("StyleBoxTexture_a1tnm")
 theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_4tyo3")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4tyo3")
-current_tab = 2
+current_tab = 0
 tabs_visible = false
 
 [node name="Sound" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -185,6 +184,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Controls" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24

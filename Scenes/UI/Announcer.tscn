@@ -1848,6 +1848,7 @@ offset_right = 100.0
 offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 pivot_offset = Vector2(100, 22)
 texture = SubResource("AtlasTexture_12pa6")
 expand_mode = 1

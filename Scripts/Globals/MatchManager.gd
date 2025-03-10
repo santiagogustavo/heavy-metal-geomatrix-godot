@@ -4,6 +4,7 @@ class_name MatchManager
 signal round_start
 signal round_end
 signal started
+signal ended
 
 @export_subgroup("Round Settings")
 @export_range(1, 9) var rounds: int = 2
@@ -36,7 +37,12 @@ func _ready() -> void:
 	get_tree().root.add_child.call_deferred(announcer)
 	get_tree().root.add_child.call_deferred(timer)
 	announcer.connect("start", start_round_logic)
-	announcer.connect("ready_to_start", start_round)
+	announcer.connect("ready_to_start", func(): 
+		if is_final_round:
+			finish_and_show_results()
+		else:
+			start_round()
+	)
 	started.emit()
 
 func _process(_delta: float) -> void:
@@ -47,6 +53,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		GameManager.pause_game()
 
+func finish_and_show_results():
+	var redirect_to_scene = "res://Scenes/MainMenu.tscn"
+	SceneManager.load_scene_file(redirect_to_scene)
+
 # Round management
 func can_start_round() -> bool:
 	return round_status != RoundStatus.Started
@@ -56,6 +66,7 @@ func can_end_round() -> bool:
 
 func start_round() -> bool:
 	if !can_start_round() or is_final_round:
+		
 		return false
 	current_round += 1
 	is_final_round = current_round == (rounds * 2) - 1
