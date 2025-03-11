@@ -1,7 +1,7 @@
 [gd_scene load_steps=49 format=3 uid="uid://ca42hevpjgitj"]
 
 [ext_resource type="PackedScene" uid="uid://7xmuvkjde0ri" path="res://Models/Weapons/Moto Gun.glb" id="1_b0xym"]
-[ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_imp6h"]
+[ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_imp6h"]
 [ext_resource type="PackedScene" uid="uid://ssac5qbrc5v6" path="res://Prefabs/Weapons/MotoGun/Bullet.tscn" id="2_5sidx"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="2_fdte5"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_r4mkb"]
@@ -196,8 +196,8 @@ tracks/10/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0mab"]
 _data = {
-"Idle": SubResource("Animation_yeigw"),
-"Shoot": SubResource("Animation_mnxn4")
+&"Idle": SubResource("Animation_yeigw"),
+&"Shoot": SubResource("Animation_mnxn4")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wj4m"]

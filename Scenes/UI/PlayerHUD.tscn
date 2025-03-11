@@ -1,10 +1,10 @@
 [gd_scene load_steps=57 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
+[ext_resource type="Script" uid="uid://bgpkvkcv1uk0" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2efbf"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="7_nt7e2"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Player.gd" id="8_5ig34"]
+[ext_resource type="Script" uid="uid://dfd5k8mgf2wtg" path="res://Scripts/UI/HUD/Player.gd" id="8_5ig34"]
 [ext_resource type="Texture2D" uid="uid://dwjcsemw1xwdy" path="res://Textures/UI/HUD/New/player_health_bar_mask_bar.png" id="8_flou3"]
 [ext_resource type="Texture2D" uid="uid://delaoxbtyokwb" path="res://Textures/UI/HUD/New/jetpack_fuel_bar_mask.png" id="8_yjlvy"]
 [ext_resource type="Texture2D" uid="uid://cbfcwlbkf8b7n" path="res://Textures/UI/HUD/New/player_health_bar_mask_avatar.png" id="10_61mf5"]
@@ -12,25 +12,25 @@
 [ext_resource type="FontFile" uid="uid://b5gmgkqqs4yp" path="res://Fonts/Perfect Futures Italic.ttf" id="11_da2ak"]
 [ext_resource type="Texture2D" uid="uid://cdb17vbu6c3kc" path="res://Textures/UI/HUD/New/player_health_bar.png" id="12_34r24"]
 [ext_resource type="Texture2D" uid="uid://b0g1xv1gbqo2t" path="res://Textures/Characters/Mayfly/Cards/6c34b3ba.png" id="12_tjik2"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/VersusCardsController.gd" id="12_y0lsx"]
+[ext_resource type="Script" uid="uid://bg75qdlhge7u5" path="res://Scripts/UI/HUD/VersusCardsController.gd" id="12_y0lsx"]
 [ext_resource type="PackedScene" uid="uid://ds8i2exuwegk4" path="res://Prefabs/UI/VersusCard.tscn" id="14_3o7sl"]
 [ext_resource type="Texture2D" uid="uid://bhgtb3nef8el1" path="res://Textures/Characters/Di/Cards/ddb26342.png" id="15_1kw6d"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Jetpack.gd" id="17_kcelk"]
+[ext_resource type="Script" uid="uid://ds7b5mg8vfxsc" path="res://Scripts/UI/HUD/Jetpack.gd" id="17_kcelk"]
 [ext_resource type="Shader" uid="uid://ctwxapo2m61ry" path="res://Materials/UI/HUD/ProgressMask.tres" id="17_vnujt"]
 [ext_resource type="Texture2D" uid="uid://b4cowmetjtjpx" path="res://Textures/UI/HUD/New/jetpack_fuel_bar.png" id="18_rgfee"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="19_kvrfk"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Ammo.gd" id="20_c6iue"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Melee.gd" id="21_agdla"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Energy.gd" id="22_iklc2"]
+[ext_resource type="Script" uid="uid://croi07w0xqqmf" path="res://Scripts/UI/HUD/Ammo.gd" id="20_c6iue"]
+[ext_resource type="Script" uid="uid://c2if277t6hygp" path="res://Scripts/UI/HUD/Melee.gd" id="21_agdla"]
+[ext_resource type="Script" uid="uid://bv6i04p2e258e" path="res://Scripts/UI/HUD/Energy.gd" id="22_iklc2"]
 [ext_resource type="Texture2D" uid="uid://bt7vtikx87pgx" path="res://Textures/UI/HUD/New/weapon_divider.png" id="22_nu1bm"]
 [ext_resource type="Script" uid="uid://dvd7rus6meoi5" path="res://Scripts/UI/HUD/Scoreboard.gd" id="24_cqqf3"]
 [ext_resource type="Texture2D" uid="uid://dcakxbma523me" path="res://Textures/UI/HUD/New/warning_box.png" id="24_g3fjk"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Warning.gd" id="24_tuivd"]
+[ext_resource type="Script" uid="uid://j0yuutbfg7k7" path="res://Scripts/UI/HUD/Warning.gd" id="24_tuivd"]
 [ext_resource type="Texture2D" uid="uid://bg06f4lkvh5cg" path="res://Textures/UI/HUD/New/scoreboard_divider.png" id="24_ukxoo"]
 [ext_resource type="FontFile" uid="uid://ts7ng2j12tka" path="res://Fonts/Neotriad.otf" id="25_drqlr"]
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="25_xpoe2"]
 [ext_resource type="AudioStream" uid="uid://b5533tkw2f3jv" path="res://Sound/UI/HUD/warning.wav" id="26_7rq6n"]
-[ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="29_dm27j"]
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="29_dm27j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iknaq"]
 shader = ExtResource("2_2efbf")
@@ -49,9 +49,9 @@ shadow_offset = Vector2(-2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gcgwj"]
 resource_local_to_scene = true
 shader = ExtResource("17_vnujt")
-shader_parameter/Flip = null
-shader_parameter/Progress = 0.5
 shader_parameter/Alpha_Mask = ExtResource("8_flou3")
+shader_parameter/Flip = false
+shader_parameter/Progress = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bxa2b"]
 resource_local_to_scene = true
@@ -60,15 +60,15 @@ shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
 shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
 shader_parameter/tiling = Vector2(3, 0.3)
 shader_parameter/wave_speed = Vector2(-0.1, 5)
-shader_parameter/Flip = null
-shader_parameter/Progress = 0.5
 shader_parameter/Alpha_Mask = ExtResource("8_flou3")
+shader_parameter/Flip = false
+shader_parameter/Progress = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eu110"]
 shader = ExtResource("17_vnujt")
+shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 shader_parameter/Flip = false
 shader_parameter/Progress = 1.0
-shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5a7ao"]
 shader = ExtResource("1_h7o1f")
@@ -76,9 +76,9 @@ shader_parameter/wave_color = Color(0.0705882, 0.501961, 0.415686, 1)
 shader_parameter/noise_color = Color(0.113725, 0.8, 0.662745, 1)
 shader_parameter/tiling = Vector2(3, 0.3)
 shader_parameter/wave_speed = Vector2(-0.1, 5)
-shader_parameter/Flip = null
-shader_parameter/Progress = 1.0
 shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
+shader_parameter/Flip = false
+shader_parameter/Progress = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_wm351"]
 font = ExtResource("19_kvrfk")
@@ -88,9 +88,9 @@ shadow_offset = Vector2(-2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81voo"]
 resource_local_to_scene = true
 shader = ExtResource("17_vnujt")
+shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 shader_parameter/Flip = false
 shader_parameter/Progress = 1.0
-shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53mmv"]
 resource_local_to_scene = true
@@ -99,9 +99,9 @@ shader_parameter/wave_color = Color(0.63, 0.45843, 0.0882, 1)
 shader_parameter/noise_color = Color(0.8, 0.68, 0, 1)
 shader_parameter/tiling = Vector2(3, 0.3)
 shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 shader_parameter/Flip = false
 shader_parameter/Progress = 1.0
-shader_parameter/Alpha_Mask = ExtResource("8_yjlvy")
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ibaa"]
 font = ExtResource("19_kvrfk")
@@ -156,8 +156,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jjk7r"]
 _data = {
-"RESET": SubResource("Animation_l8jti"),
-"Shoot": SubResource("Animation_tjbno")
+&"RESET": SubResource("Animation_l8jti"),
+&"Shoot": SubResource("Animation_tjbno")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_lnars"]
@@ -307,8 +307,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xswkj"]
 _data = {
-"Idle": SubResource("Animation_wghaw"),
-"RESET": SubResource("Animation_vqud6")
+&"Idle": SubResource("Animation_wghaw"),
+&"RESET": SubResource("Animation_vqud6")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_su5mw"]

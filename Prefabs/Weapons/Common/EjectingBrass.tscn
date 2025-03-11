@@ -89,8 +89,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6anb"]
 _data = {
-"RESET": SubResource("Animation_tbpj8"),
-"default": SubResource("Animation_vmkpf")
+&"RESET": SubResource("Animation_tbpj8"),
+&"default": SubResource("Animation_vmkpf")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vmnjm"]
@@ -117,9 +117,10 @@ draw_pass_1 = SubResource("ArrayMesh_lbd24")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j6anb")
+&"": SubResource("AnimationLibrary_j6anb")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_hwhvj")
 anim_player = NodePath("../AnimationPlayer")

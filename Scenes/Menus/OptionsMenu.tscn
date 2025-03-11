@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bgn8aq1m4p0rb"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/OptionsMenuManager.gd" id="1_g87nk"]
+[ext_resource type="Script" uid="uid://dfapx23aqs1tm" path="res://Scripts/Menus/OptionsMenu/OptionsMenuManager.gd" id="1_g87nk"]
 [ext_resource type="PackedScene" uid="uid://ckmlfl5g8p20j" path="res://Scenes/Menus/SettingsTabContainer.tscn" id="2_gknca"]
 [ext_resource type="Texture2D" uid="uid://bwxcnluxv0a35" path="res://Textures/UI/Menus/Options Menu/decoration.png" id="3_u7d0s"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="4_fqhev"]
@@ -68,8 +68,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dyek6"]
 _data = {
-"Open": SubResource("Animation_i14eo"),
-"RESET": SubResource("Animation_f4v6y")
+&"Open": SubResource("Animation_i14eo"),
+&"RESET": SubResource("Animation_f4v6y")
 }
 
 [node name="OptionsMenu" type="Control"]

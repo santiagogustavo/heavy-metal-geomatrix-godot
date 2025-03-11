@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cnwwwjk7llw03"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/TauntAnimationTree.gd" id="1_83u3g"]
+[ext_resource type="Script" uid="uid://cob6v8g2y7650" path="res://Scripts/Characters/TauntAnimationTree.gd" id="1_83u3g"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sm45f"]
 animation = &"Taunts/Entrance"

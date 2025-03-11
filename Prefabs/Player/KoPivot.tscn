@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://bon0nixv0qsv6"]
 
-[ext_resource type="Script" path="res://Scripts/Player/KOCameraController.gd" id="1_pkdyt"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Invert Color.gdshader" id="2_o64g1"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Tilt Shift.gdshader" id="3_0ully"]
+[ext_resource type="Script" uid="uid://cvjaxxriis8rs" path="res://Scripts/Player/KOCameraController.gd" id="1_pkdyt"]
+[ext_resource type="Shader" uid="uid://cpbf40viiiqlf" path="res://Materials/Shaders/Invert Color.gdshader" id="2_o64g1"]
+[ext_resource type="Shader" uid="uid://il5v8dfs65yw" path="res://Materials/Shaders/Tilt Shift.gdshader" id="3_0ully"]
 [ext_resource type="PackedScene" uid="uid://ybnlc81pj2o3" path="res://Prefabs/Gizmos/CameraGizmo.tscn" id="4_xxfh0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jrx0v"]
@@ -21,8 +21,8 @@ metadata/_snap_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtk1u"]
 shader = ExtResource("3_0ully")
-shader_parameter/blur = 1.609
 shader_parameter/mask = SubResource("GradientTexture2D_cbx13")
+shader_parameter/blur = 1.609
 
 [sub_resource type="Animation" id="Animation_fwdtg"]
 resource_name = "Play"
@@ -106,8 +106,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qe5df"]
 _data = {
-"KO": SubResource("Animation_fwdtg"),
-"RESET": SubResource("Animation_4s8h6")
+&"KO": SubResource("Animation_fwdtg"),
+&"RESET": SubResource("Animation_4s8h6")
 }
 
 [node name="KOPivot" type="Marker3D"]
@@ -152,5 +152,5 @@ fov = 50.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qe5df")
+&"": SubResource("AnimationLibrary_qe5df")
 }

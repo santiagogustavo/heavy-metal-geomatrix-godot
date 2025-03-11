@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dbrwdyjtj7ipr"]
 
-[ext_resource type="Script" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="1_551j4"]
+[ext_resource type="Script" uid="uid://8dfbh1na7qeh" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="1_551j4"]
 [ext_resource type="Texture2D" uid="uid://csn3yiy2jvwce" path="res://Textures/Decals/burn_mark.png" id="1_w6fqy"]
-[ext_resource type="Script" path="res://Scripts/Decals/DecalRandomizer.gd" id="3_0f6r7"]
+[ext_resource type="Script" uid="uid://ctakc5waetkpu" path="res://Scripts/Decals/DecalRandomizer.gd" id="3_0f6r7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4u06n"]
 
@@ -64,8 +64,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6v536"]
 _data = {
-"Burn": SubResource("Animation_t4en4"),
-"RESET": SubResource("Animation_mrnpk")
+&"Burn": SubResource("Animation_t4en4"),
+&"RESET": SubResource("Animation_mrnpk")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wa28u"]

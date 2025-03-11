@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://yq546o3af326"]
 
-[ext_resource type="Script" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="1_g5i2p"]
+[ext_resource type="Script" uid="uid://8dfbh1na7qeh" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="1_g5i2p"]
 [ext_resource type="Texture2D" uid="uid://bi76wvceoqb0l" path="res://Textures/Particles/glass_shatter.png" id="2_4i8ou"]
 
 [sub_resource type="Curve" id="Curve_komyk"]
@@ -12,8 +12,7 @@ metadata/_snap_enabled = true
 curve = SubResource("Curve_komyk")
 
 [sub_resource type="Curve" id="Curve_6ynpq"]
-min_value = -360.0
-max_value = 360.0
+_limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, 216), 0.0, 0.0, 0, 0, Vector2(1, -144), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true

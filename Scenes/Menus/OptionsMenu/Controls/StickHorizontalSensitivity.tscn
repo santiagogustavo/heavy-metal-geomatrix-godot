@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4ra6c5mj8rk7"]
 
 [ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="1_pkamn"]
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/StickHorizontalSensitivity.gd" id="2_wy7wa"]
+[ext_resource type="Script" uid="uid://dg1gdr2ont4el" path="res://Scripts/Menus/OptionsMenu/StickHorizontalSensitivity.gd" id="2_wy7wa"]
 
 [node name="StickHorizontalSensitivity" instance=ExtResource("1_pkamn")]
 script = ExtResource("2_wy7wa")

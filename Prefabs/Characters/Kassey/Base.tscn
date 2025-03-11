@@ -1,8 +1,8 @@
 [gd_scene load_steps=64 format=3 uid="uid://dfansvoctxs5e"]
 
 [ext_resource type="PackedScene" uid="uid://d3tvi3t4nmjo7" path="res://Models/Characters/Kassey/Kassey.glb" id="1_1w1qp"]
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterController.gd" id="1_j5lmb"]
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterSFXController.gd" id="2_e62qw"]
+[ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_j5lmb"]
+[ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="2_e62qw"]
 [ext_resource type="Texture2D" uid="uid://1l7e5shnrg6q" path="res://Textures/Characters/Kassey/Cards/2564cccd.png" id="2_gu0ub"]
 [ext_resource type="PackedScene" uid="uid://csbiy2u2aafyp" path="res://Models/Characters/Kassey/Skins/Default.tscn" id="2_tkdiu"]
 [ext_resource type="AnimationLibrary" uid="uid://cw7xekn5vprdi" path="res://Animations/Characters/Kassey/Taunts/Taunts.res" id="2_y6a8p"]
@@ -180,36 +180,36 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vf15v"]
 _data = {
-"RESET": SubResource("Animation_6obus")
+&"RESET": SubResource("Animation_6obus")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ps8d4"]
 _data = {
-"Dash Loop - Backward": ExtResource("16_c3dkl"),
-"Dash Loop - Forward": ExtResource("17_5hbrv"),
-"Dash Loop - Left": ExtResource("18_k0ral"),
-"Dash Loop - Right": ExtResource("19_qip65"),
-"Dash Start - Backward": ExtResource("20_qs1tx"),
-"Dash Start - Forward": ExtResource("21_yofnx"),
-"Dash Start - Left": ExtResource("22_b6md2"),
-"Dash Start - Right": ExtResource("23_y5ncl"),
-"Dash Stop - Backward": ExtResource("24_uvho0"),
-"Dash Stop - Forward": ExtResource("25_4i0cb"),
-"Dash Stop - Left": ExtResource("26_xdtuw"),
-"Dash Stop - Right": ExtResource("27_55tk6"),
-"Idle": ExtResource("7_nwlio"),
-"Jump Double": ExtResource("28_7osiw"),
-"Jump Fall": ExtResource("29_yc0an"),
-"Jump Land": ExtResource("30_pp7hl"),
-"Jump Start": ExtResource("31_11ayr"),
-"Run Backward": ExtResource("8_1voyq"),
-"Run Backward Left": ExtResource("9_uan3y"),
-"Run Backward Right": ExtResource("10_pk5kr"),
-"Run Forward": ExtResource("7_dxdc2"),
-"Run Forward Left": ExtResource("12_7y8i6"),
-"Run Forward Right": ExtResource("13_kex8j"),
-"Run Left": ExtResource("14_0d4t2"),
-"Run Right": ExtResource("15_3psjx")
+&"Dash Loop - Backward": ExtResource("16_c3dkl"),
+&"Dash Loop - Forward": ExtResource("17_5hbrv"),
+&"Dash Loop - Left": ExtResource("18_k0ral"),
+&"Dash Loop - Right": ExtResource("19_qip65"),
+&"Dash Start - Backward": ExtResource("20_qs1tx"),
+&"Dash Start - Forward": ExtResource("21_yofnx"),
+&"Dash Start - Left": ExtResource("22_b6md2"),
+&"Dash Start - Right": ExtResource("23_y5ncl"),
+&"Dash Stop - Backward": ExtResource("24_uvho0"),
+&"Dash Stop - Forward": ExtResource("25_4i0cb"),
+&"Dash Stop - Left": ExtResource("26_xdtuw"),
+&"Dash Stop - Right": ExtResource("27_55tk6"),
+&"Idle": ExtResource("7_nwlio"),
+&"Jump Double": ExtResource("28_7osiw"),
+&"Jump Fall": ExtResource("29_yc0an"),
+&"Jump Land": ExtResource("30_pp7hl"),
+&"Jump Start": ExtResource("31_11ayr"),
+&"Run Backward": ExtResource("8_1voyq"),
+&"Run Backward Left": ExtResource("9_uan3y"),
+&"Run Backward Right": ExtResource("10_pk5kr"),
+&"Run Forward": ExtResource("7_dxdc2"),
+&"Run Forward Left": ExtResource("12_7y8i6"),
+&"Run Forward Right": ExtResource("13_kex8j"),
+&"Run Left": ExtResource("14_0d4t2"),
+&"Run Right": ExtResource("15_3psjx")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pjypn"]

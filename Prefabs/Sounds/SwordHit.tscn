@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wrnxy6t8mqtk"]
 
 [ext_resource type="AudioStream" uid="uid://rdqqa6t1gy78" path="res://Sound/Sword Hit.wav" id="1_dnua4"]
-[ext_resource type="Script" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="2_721ao"]
+[ext_resource type="Script" uid="uid://8dfbh1na7qeh" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="2_721ao"]
 
 [node name="SwordHit" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_dnua4")

@@ -106,7 +106,7 @@ uniform vec2 tiling = vec2(1.000000, 1.000000);
 uniform vec2 wave_speed = vec2(0.000000, 0.500000);
 uniform sampler2D Alpha_Mask;
 uniform bool Flip;
-uniform float Progress : hint_range(0, 1) = 1;
+uniform float Progress : hint_range(0.0, 1.0) = 1.0;
 
 
 // FractalGenericNoise2D

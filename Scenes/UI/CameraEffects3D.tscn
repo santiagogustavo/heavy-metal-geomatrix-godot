@@ -7,12 +7,12 @@
 [ext_resource type="Shader" uid="uid://l2kuumwvekgq" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
 [ext_resource type="Texture2D" uid="uid://cwwbkn824wase" path="res://Textures/Particles/Snow/camera_snow_1.png" id="6_oyy1f"]
 [ext_resource type="Texture2D" uid="uid://cmgjjhaxp46h1" path="res://Textures/Particles/Snow/camera_snow_4.png" id="8_8nf21"]
-[ext_resource type="Shader" path="res://Materials/Shaders/LensFlare.gdshader" id="9_mr5ej"]
+[ext_resource type="Shader" uid="uid://d4h23bdkl46lp" path="res://Materials/Shaders/LensFlare.gdshader" id="9_mr5ej"]
 [ext_resource type="Texture2D" uid="uid://memgia12ldws" path="res://Textures/Particles/Rain/droplets_1.png" id="10_ll7gg"]
-[ext_resource type="Script" path="res://Scripts/UI/CameraEffects/CameraRain2d.gd" id="10_loo2t"]
-[ext_resource type="Script" path="res://Scripts/UI/CameraEffects/Flare.gd" id="11_2xx53"]
+[ext_resource type="Script" uid="uid://bb7w0rmbs5bll" path="res://Scripts/UI/CameraEffects/CameraRain2d.gd" id="10_loo2t"]
+[ext_resource type="Script" uid="uid://djg50v52sxxhv" path="res://Scripts/UI/CameraEffects/Flare.gd" id="11_2xx53"]
 [ext_resource type="Texture2D" uid="uid://b86vmtyanjnla" path="res://Textures/Particles/Rain/droplets_3.png" id="11_iphpw"]
-[ext_resource type="Shader" path="res://Materials/Shaders/ScreenFlare.gdshader" id="11_qjisr"]
+[ext_resource type="Shader" uid="uid://cofsodcyh5rwv" path="res://Materials/Shaders/ScreenFlare.gdshader" id="11_qjisr"]
 
 [sub_resource type="Gradient" id="Gradient_3amfu"]
 offsets = PackedFloat32Array(0.436364, 0.698182, 1)
@@ -86,9 +86,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u25cr"]
 _data = {
-"FadeIn": SubResource("Animation_1v2fl"),
-"FadeOut": SubResource("Animation_ty11r"),
-"RESET": SubResource("Animation_r0mro")
+&"FadeIn": SubResource("Animation_1v2fl"),
+&"FadeOut": SubResource("Animation_ty11r"),
+&"RESET": SubResource("Animation_r0mro")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wibjv"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://dgddu6k2xp1wg"]
 
 [ext_resource type="AudioStream" uid="uid://dkblght6cm87f" path="res://Sound/Weapons/Common/Water Hit 1.wav" id="1_gfqgf"]
-[ext_resource type="Script" path="res://Scripts/Decals/DecalController.gd" id="1_tj6xb"]
+[ext_resource type="Script" uid="uid://bxm84flfx3acr" path="res://Scripts/Decals/DecalController.gd" id="1_tj6xb"]
 [ext_resource type="Texture2D" uid="uid://c0e1cukmqytv0" path="res://Textures/Particles/Rain/ripple_1.png" id="2_0jxjn"]
 [ext_resource type="AudioStream" uid="uid://83p5lqb0f5ln" path="res://Sound/Weapons/Common/Water Hit 2.wav" id="2_dihug"]
 [ext_resource type="AudioStream" uid="uid://bs8vivssl8vv4" path="res://Sound/Weapons/Common/Water Hit 3.wav" id="3_0li0r"]
@@ -55,8 +55,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jr0p8"]
 _data = {
-"RESET": SubResource("Animation_27pb4"),
-"Ripple": SubResource("Animation_da4ip")
+&"RESET": SubResource("Animation_27pb4"),
+&"Ripple": SubResource("Animation_da4ip")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5bj76"]

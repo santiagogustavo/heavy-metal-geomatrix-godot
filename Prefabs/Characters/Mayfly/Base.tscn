@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://bkwdwyqoe03bk"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterController.gd" id="1_geluh"]
+[ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_geluh"]
 [ext_resource type="PackedScene" uid="uid://bu2ontvhx7wrb" path="res://Models/Characters/Mayfly/Mayfly.glb" id="1_mpnic"]
 [ext_resource type="Texture2D" uid="uid://b0g1xv1gbqo2t" path="res://Textures/Characters/Mayfly/Cards/6c34b3ba.png" id="2_140x5"]
 [ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="2_kol3l"]
@@ -22,7 +22,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://dw5lxh8qnt6xn" path="res://Animations/Characters/Mayfly/Upper Body.res" id="36_qmhki"]
 [ext_resource type="AudioStream" uid="uid://dheiicvawvtyy" path="res://Sound/Characters/Mayfly/Taunts/Lose.wav" id="36_y66dw"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="37_tjk6p"]
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterSFXController.gd" id="38_7d80l"]
+[ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="38_7d80l"]
 [ext_resource type="AudioStream" uid="uid://dunkyet5380ap" path="res://Sound/Characters/Mayfly/Pickup/Pickup 1.wav" id="38_p2jwr"]
 [ext_resource type="AudioStream" uid="uid://cd5rtf68q1psx" path="res://Sound/Characters/Mayfly/Pickup/Pickup 2.wav" id="39_jid4l"]
 [ext_resource type="AudioStream" uid="uid://cabr1pk1akabc" path="res://Sound/Characters/Mayfly/Pickup/Pickup 3.wav" id="40_armp0"]
@@ -60,7 +60,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_loyf2"]
 _data = {
-"RESET": SubResource("Animation_xk0gi")
+&"RESET": SubResource("Animation_xk0gi")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_71xsd"]

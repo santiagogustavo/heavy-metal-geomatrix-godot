@@ -177,17 +177,17 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 uniform vec4 Color : source_color;
 uniform vec2 Panning = vec2(0.000000, 0.000000);
 uniform vec2 distortion_speed;
-uniform float distortion_scale : hint_range(0, 10) = 5;
-uniform float distortion_intensity : hint_range(0, 1) = 0.5;
+uniform float distortion_scale : hint_range(0.0, 10.0) = 5.0;
+uniform float distortion_intensity : hint_range(0.0, 1.0) = 0.5;
 uniform vec2 Tiling = vec2(1.000000, 1.000000);
 uniform sampler2D Albedo : source_color;
-uniform float Metallic : hint_range(0, 1) = 0;
-uniform float Roughness : hint_range(0, 1) = 1;
-uniform float Specular : hint_range(0, 1) = 0;
+uniform float Metallic : hint_range(0.0, 1.0) = 0.0;
+uniform float Roughness : hint_range(0.0, 1.0) = 1.0;
+uniform float Specular : hint_range(0.0, 1.0) = 0.0;
 uniform sampler2D Occlusion : source_color;
-uniform float Occlusion_Intensity : hint_range(0, 1) = 1;
+uniform float Occlusion_Intensity : hint_range(0.0, 1.0) = 1.0;
 uniform sampler2D Normal_Map : hint_normal;
-uniform float normal_intensity : hint_range(0, 1) = 1;
+uniform float normal_intensity : hint_range(0.0, 1.0) = 1.0;
 
 
 // FractalSimplexNoise4D

@@ -40,6 +40,7 @@ func load_video_settings():
 			file.get_value("video", "viewport_height", VideoSettingsManager.viewport_height),
 		)
 	)
+	VideoSettingsManager.set_rendering_scale(file.get_value("video", "rendering_scale", VideoSettingsManager.rendering_scale))
 	VideoSettingsManager.set_bloom_enabled(file.get_value("video", "bloom_enabled", VideoSettingsManager.bloom_enabled))
 	VideoSettingsManager.set_bloom_intensity(file.get_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity))
 
@@ -73,6 +74,7 @@ func save_video_settings():
 	file.set_value("video", "window_mode", VideoSettingsManager.window_mode)
 	file.set_value("video", "viewport_width", VideoSettingsManager.viewport_width)
 	file.set_value("video", "viewport_height", VideoSettingsManager.viewport_height)
+	file.set_value("video", "rendering_scale", VideoSettingsManager.rendering_scale)
 	file.set_value("video", "bloom_enabled", VideoSettingsManager.bloom_enabled)
 	file.set_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity)
 	

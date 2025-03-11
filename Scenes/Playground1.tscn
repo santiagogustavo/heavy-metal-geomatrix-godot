@@ -59,14 +59,14 @@ shader_parameter/distortion_speed = Vector2(0.1, 0.1)
 shader_parameter/distortion_scale = 1.0
 shader_parameter/distortion_intensity = 0.02
 shader_parameter/Tiling = Vector2(5, 5)
+shader_parameter/Albedo = ExtResource("9_ds7yn")
 shader_parameter/Metallic = 0.19
 shader_parameter/Roughness = 0.0
 shader_parameter/Specular = 0.505
-shader_parameter/Occlusion_Intensity = 1.0
-shader_parameter/normal_intensity = 1.0
-shader_parameter/Albedo = ExtResource("9_ds7yn")
 shader_parameter/Occlusion = ExtResource("11_uk7c0")
+shader_parameter/Occlusion_Intensity = 1.0
 shader_parameter/Normal_Map = ExtResource("10_kuhwj")
+shader_parameter/normal_intensity = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mq3id"]
 size = Vector2(100, 100)

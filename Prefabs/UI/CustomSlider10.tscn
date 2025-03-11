@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://51l123v4aoic"]
 
-[ext_resource type="Shader" path="res://Materials/Shaders/Skew.gdshader" id="1_hr013"]
+[ext_resource type="Shader" uid="uid://dmuoj36w2v5t8" path="res://Materials/Shaders/Skew.gdshader" id="1_hr013"]
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="2_aaiwo"]
-[ext_resource type="Script" path="res://Scripts/UI/CustomSlider.gd" id="2_g3vow"]
+[ext_resource type="Script" uid="uid://dfrq81eqsu4x7" path="res://Scripts/UI/CustomSlider.gd" id="2_g3vow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kdabm"]
 shader = ExtResource("1_hr013")

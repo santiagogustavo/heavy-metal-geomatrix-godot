@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://ds8i2exuwegk4"]
 
-[ext_resource type="Script" path="res://Scripts/UI/HUD/VersusCard.gd" id="1_3fhsn"]
+[ext_resource type="Script" uid="uid://66nu406mdhvw" path="res://Scripts/UI/HUD/VersusCard.gd" id="1_3fhsn"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_hhyiy"]
 [ext_resource type="Texture2D" uid="uid://c3lfwvu5u4e25" path="res://Textures/UI/HUD/New/vs_health_bar_mask_bar.png" id="3_6a304"]
 [ext_resource type="Texture2D" uid="uid://ptp35yt7fh3d" path="res://Textures/UI/HUD/grid.png" id="4_575kb"]
@@ -28,9 +28,9 @@ shadow_offset = Vector2(2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qv5rt"]
 resource_local_to_scene = true
 shader = ExtResource("8_4200w")
+shader_parameter/Alpha_Mask = ExtResource("3_6a304")
 shader_parameter/Flip = true
 shader_parameter/Progress = 0.5
-shader_parameter/Alpha_Mask = ExtResource("3_6a304")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkacn"]
 resource_local_to_scene = true
@@ -39,9 +39,9 @@ shader_parameter/wave_color = Color(0.117647, 0.231373, 1, 1)
 shader_parameter/noise_color = Color(0.709804, 0.823529, 1, 1)
 shader_parameter/tiling = Vector2(3, 0.3)
 shader_parameter/wave_speed = Vector2(-0.1, 5)
+shader_parameter/Alpha_Mask = ExtResource("3_6a304")
 shader_parameter/Flip = true
 shader_parameter/Progress = 0.5
-shader_parameter/Alpha_Mask = ExtResource("3_6a304")
 
 [node name="VersusCard" type="Control"]
 custom_minimum_size = Vector2(240, 60)

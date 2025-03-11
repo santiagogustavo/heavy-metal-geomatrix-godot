@@ -1,17 +1,17 @@
 [gd_scene load_steps=104 format=3 uid="uid://cujclmubc4tw8"]
 
-[ext_resource type="Script" path="res://Scripts/UI/AnnouncerManager.gd" id="1_f8iuw"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Invert Color.gdshader" id="1_ntqyd"]
+[ext_resource type="Script" uid="uid://cpuwyxo4gxphh" path="res://Scripts/UI/AnnouncerManager.gd" id="1_f8iuw"]
+[ext_resource type="Shader" uid="uid://cpbf40viiiqlf" path="res://Materials/Shaders/Invert Color.gdshader" id="1_ntqyd"]
 [ext_resource type="Texture2D" uid="uid://bjt66bbusina8" path="res://Textures/UI/Announcer/rounds.png" id="2_g4kls"]
 [ext_resource type="Texture2D" uid="uid://dibhirt5dmj" path="res://Textures/UI/Announcer/fight.png" id="3_3nwvb"]
 [ext_resource type="Script" uid="uid://cepg3x1h3fd1" path="res://Scripts/UI/AnnouncerRoundsManager.gd" id="3_y83dk"]
 [ext_resource type="Texture2D" uid="uid://cdwhggn640vec" path="res://Textures/UI/Announcer/ko.png" id="5_hn2l4"]
 [ext_resource type="Texture2D" uid="uid://cv248r467v68a" path="res://Textures/UI/Announcer/time_up.png" id="6_t4ray"]
 [ext_resource type="AudioStream" uid="uid://wlgnpptjjwyf" path="res://Sound/UI/Announcer/Deathmatch.wav" id="8_id04x"]
-[ext_resource type="Script" path="res://Scripts/UI/Announcer/SFXManager.gd" id="8_nqcur"]
+[ext_resource type="Script" uid="uid://bfkrutst8bgo8" path="res://Scripts/UI/Announcer/SFXManager.gd" id="8_nqcur"]
 [ext_resource type="Texture2D" uid="uid://ih2kw2feoyp5" path="res://Textures/UI/Announcer/win.png" id="8_u0381"]
 [ext_resource type="AudioStream" uid="uid://cs4wpb8ayhtus" path="res://Sound/UI/Announcer/1.wav" id="9_01urx"]
-[ext_resource type="Shader" path="res://Materials/Shaders/HighlightCanvasItem.gdshader" id="9_sbkir"]
+[ext_resource type="Shader" uid="uid://gdlh4qyvc0b3" path="res://Materials/Shaders/HighlightCanvasItem.gdshader" id="9_sbkir"]
 [ext_resource type="Texture2D" uid="uid://dhnnea6lcggbl" path="res://Textures/UI/Announcer/lose.png" id="10_6jhej"]
 [ext_resource type="AudioStream" uid="uid://c5ok5v65y68mk" path="res://Sound/UI/Announcer/2.wav" id="10_12373"]
 [ext_resource type="AudioStream" uid="uid://bi7hn0o21jacn" path="res://Sound/UI/Announcer/3.wav" id="11_6elo8"]
@@ -481,11 +481,11 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmwol"]
 _data = {
-"AnnounceFight": SubResource("Animation_i3qmq"),
-"AnnounceKO": SubResource("Animation_axfe1"),
-"AnnounceRound": SubResource("Animation_s6lca"),
-"AnnounceTimeUp": SubResource("Animation_kyvgq"),
-"RESET": SubResource("Animation_eks6r")
+&"AnnounceFight": SubResource("Animation_i3qmq"),
+&"AnnounceKO": SubResource("Animation_axfe1"),
+&"AnnounceRound": SubResource("Animation_s6lca"),
+&"AnnounceTimeUp": SubResource("Animation_kyvgq"),
+&"RESET": SubResource("Animation_eks6r")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhslj"]
@@ -912,11 +912,11 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ckwxw"]
 _data = {
-"AnnounceDraw": SubResource("Animation_tm8mu"),
-"AnnounceLose": SubResource("Animation_f56qt"),
-"AnnounceWin": SubResource("Animation_gy4q4"),
-"AnnounceWinExcessive": SubResource("Animation_6jmyj"),
-"RESET": SubResource("Animation_tpyme")
+&"AnnounceDraw": SubResource("Animation_tm8mu"),
+&"AnnounceLose": SubResource("Animation_f56qt"),
+&"AnnounceWin": SubResource("Animation_gy4q4"),
+&"AnnounceWinExcessive": SubResource("Animation_6jmyj"),
+&"RESET": SubResource("Animation_tpyme")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o43nb"]
@@ -1486,14 +1486,14 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2s5q1"]
 _data = {
-"RESET": SubResource("Animation_14y8c"),
-"RoundEndDraw": SubResource("Animation_0r0g0"),
-"RoundEndKO": SubResource("Animation_lv687"),
-"RoundEndLose": SubResource("Animation_ops2a"),
-"RoundEndTimeUp": SubResource("Animation_lumxi"),
-"RoundEndWin": SubResource("Animation_hyck8"),
-"RoundEndWinExcessive": SubResource("Animation_s42d6"),
-"RoundStart": SubResource("Animation_qgnan")
+&"RESET": SubResource("Animation_14y8c"),
+&"RoundEndDraw": SubResource("Animation_0r0g0"),
+&"RoundEndKO": SubResource("Animation_lv687"),
+&"RoundEndLose": SubResource("Animation_ops2a"),
+&"RoundEndTimeUp": SubResource("Animation_lumxi"),
+&"RoundEndWin": SubResource("Animation_hyck8"),
+&"RoundEndWinExcessive": SubResource("Animation_s42d6"),
+&"RoundStart": SubResource("Animation_qgnan")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_38fri"]

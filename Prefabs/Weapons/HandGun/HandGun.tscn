@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://d2eirpsbs2b4x"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_mw4kj"]
+[ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_mw4kj"]
 [ext_resource type="PackedScene" uid="uid://di062cjwjx8x1" path="res://Prefabs/Weapons/HandGun/Bullet.tscn" id="2_y54om"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_68f05"]
 [ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="4_7qq3n"]
@@ -112,9 +112,9 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_prc7n"]
 _data = {
-"Idle": SubResource("Animation_aauk2"),
-"RESET": SubResource("Animation_yefmb"),
-"Shoot": SubResource("Animation_u2ae3")
+&"Idle": SubResource("Animation_aauk2"),
+&"RESET": SubResource("Animation_yefmb"),
+&"Shoot": SubResource("Animation_u2ae3")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wj4m"]

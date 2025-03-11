@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://it3yom2h6orw"]
 
 [ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="1_enebc"]
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/MouseVerticalSlider.gd" id="2_8g332"]
+[ext_resource type="Script" uid="uid://eh0y8mqiq6y6" path="res://Scripts/Menus/OptionsMenu/MouseVerticalSlider.gd" id="2_8g332"]
 
 [node name="MouseVerticalSlider" instance=ExtResource("1_enebc")]
 script = ExtResource("2_8g332")

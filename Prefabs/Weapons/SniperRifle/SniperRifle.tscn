@@ -1,14 +1,14 @@
 [gd_scene load_steps=41 format=3 uid="uid://cti1ekhybelqv"]
 
 [ext_resource type="PackedScene" uid="uid://d1vviwsawunyr" path="res://Models/Weapons/Sniper Rifle.glb" id="1_4pa16"]
-[ext_resource type="Script" path="res://Scripts/Weapons/GunController.gd" id="1_hcmus"]
+[ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_hcmus"]
 [ext_resource type="PackedScene" uid="uid://dmqfvx1rknxho" path="res://Prefabs/Weapons/SniperRifle/Bullet.tscn" id="2_7uppe"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_dm8cq"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_0n4ku"]
 [ext_resource type="AudioStream" uid="uid://cqhrb6pgu8pag" path="res://Sound/Weapons/Sniper Rifle/shoot.wav" id="6_xf045"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="7_4jhhc"]
-[ext_resource type="Script" path="res://Scripts/Weapons/Sniper Rifle/ScopeController.gd" id="8_48sey"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Screen Blur Masked.gdshader" id="8_sa1p5"]
+[ext_resource type="Script" uid="uid://cchn7gyik5ond" path="res://Scripts/Weapons/Sniper Rifle/ScopeController.gd" id="8_48sey"]
+[ext_resource type="Shader" uid="uid://rto2wqt5pton" path="res://Materials/Shaders/Screen Blur Masked.gdshader" id="8_sa1p5"]
 [ext_resource type="Texture2D" uid="uid://pah0ictfips6" path="res://Textures/Weapons/Sniper Rifle/scope_overlay.png" id="10_yj7a0"]
 [ext_resource type="Texture2D" uid="uid://dnx40rey8qhhk" path="res://Textures/Weapons/Sniper Rifle/scope_no_outline.png" id="12_2e7gy"]
 [ext_resource type="Texture2D" uid="uid://cskmxsk66hd01" path="res://Textures/Weapons/Sniper Rifle/scope_outline.png" id="13_kph15"]
@@ -169,9 +169,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vj7e"]
 _data = {
-"Idle": SubResource("Animation_mum7l"),
-"RESET": SubResource("Animation_6je63"),
-"Shoot": SubResource("Animation_ehfe0")
+&"Idle": SubResource("Animation_mum7l"),
+&"RESET": SubResource("Animation_6je63"),
+&"Shoot": SubResource("Animation_ehfe0")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3vt6q"]
@@ -203,8 +203,8 @@ graph_offset = Vector2(-32, -46)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_46puh"]
 shader = ExtResource("8_sa1p5")
 shader_parameter/blur_amount = 3.0
-shader_parameter/mix_amount = null
-shader_parameter/color_over = null
+shader_parameter/mix_amount = 0.0
+shader_parameter/color_over = Color(0, 0, 0, 1)
 shader_parameter/mask = ExtResource("10_yj7a0")
 
 [sub_resource type="Animation" id="Animation_4trv8"]
@@ -399,9 +399,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8j6rv"]
 _data = {
-"RESET": SubResource("Animation_4trv8"),
-"ZoomIn": SubResource("Animation_s064s"),
-"ZoomOut": SubResource("Animation_qjbhd")
+&"RESET": SubResource("Animation_4trv8"),
+&"ZoomIn": SubResource("Animation_s064s"),
+&"ZoomOut": SubResource("Animation_qjbhd")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gtkxu"]

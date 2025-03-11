@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6w5wfuqaneav"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/AudioSliderSettings.gd" id="1_gvv23"]
+[ext_resource type="Script" uid="uid://c41bd31yyf4m0" path="res://Scripts/Menus/OptionsMenu/AudioSliderSettings.gd" id="1_gvv23"]
 [ext_resource type="LabelSettings" uid="uid://cjv85p6brrrwo" path="res://Prefabs/UI/OptionsLabelSettings.tres" id="2_pm856"]
 [ext_resource type="PackedScene" uid="uid://51l123v4aoic" path="res://Prefabs/UI/CustomSlider10.tscn" id="3_hyddg"]
 [ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="4_6pvho"]

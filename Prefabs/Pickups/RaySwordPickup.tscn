@@ -18,7 +18,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.0333333, 1, 1, 1, 1, 0.06666
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3gxx5"]
 _data = {
-"Idle": SubResource("Animation_jyi7t")
+&"Idle": SubResource("Animation_jyi7t")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5vjb0"]

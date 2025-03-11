@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://s1mrd8xtfv28"]
 
-[ext_resource type="Script" path="res://Scripts/UI/SavingOverlayManager.gd" id="1_gmi7h"]
+[ext_resource type="Script" uid="uid://cwnywhhr6dgwp" path="res://Scripts/UI/SavingOverlayManager.gd" id="1_gmi7h"]
 [ext_resource type="Texture2D" uid="uid://yl2ocy60oyx2" path="res://Textures/Utils/scroll-quill.png" id="2_nknqt"]
 
 [sub_resource type="Gradient" id="Gradient_14nad"]
@@ -50,8 +50,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a3j8u"]
 _data = {
-"Idle": SubResource("Animation_kqydi"),
-"RESET": SubResource("Animation_2eyve")
+&"Idle": SubResource("Animation_kqydi"),
+&"RESET": SubResource("Animation_2eyve")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph4af"]
@@ -152,9 +152,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xdttn"]
 _data = {
-"FadeIn": SubResource("Animation_6jeos"),
-"FadeOut": SubResource("Animation_4gc06"),
-"RESET": SubResource("Animation_drtfy")
+&"FadeIn": SubResource("Animation_6jeos"),
+&"FadeOut": SubResource("Animation_4gc06"),
+&"RESET": SubResource("Animation_drtfy")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2sj5p"]

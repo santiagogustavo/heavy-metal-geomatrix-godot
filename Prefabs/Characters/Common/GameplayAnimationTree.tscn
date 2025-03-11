@@ -1,6 +1,6 @@
 [gd_scene load_steps=247 format=3 uid="uid://c4pmv7hn2c26i"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/PlayerAnimationTree.gd" id="1_ekt5i"]
+[ext_resource type="Script" uid="uid://b85xe45mu5j01" path="res://Scripts/Characters/PlayerAnimationTree.gd" id="1_ekt5i"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bsv2t"]
 filter_enabled = true

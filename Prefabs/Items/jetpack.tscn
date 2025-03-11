@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://cy8lwontrbyhp"]
 
-[ext_resource type="Script" path="res://Scripts/Items/JetpackController.gd" id="1_06500"]
+[ext_resource type="Script" uid="uid://xnclxvs5yeh5" path="res://Scripts/Items/JetpackController.gd" id="1_06500"]
 [ext_resource type="PackedScene" uid="uid://yfmwmuu7yccd" path="res://Models/Items/Jetpack.glb" id="1_gojhc"]
 [ext_resource type="Material" uid="uid://d3u6rrjmll62h" path="res://Materials/Particles/Fire.tres" id="3_8lj7x"]
 [ext_resource type="AudioStream" uid="uid://cc2dcvyvhg6qh" path="res://Sound/Items/Jetpack/Beam.wav" id="3_b1kod"]
@@ -27,7 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6e6ux"]
 _data = {
-"Idle": SubResource("Animation_0grsm")
+&"Idle": SubResource("Animation_0grsm")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebwl5"]
@@ -69,8 +69,7 @@ material = ExtResource("3_8lj7x")
 size = Vector2(0.4, 0.4)
 
 [sub_resource type="Curve" id="Curve_o320o"]
-min_value = -360.0
-max_value = 360.0
+_limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -92,6 +91,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
 emission_ring_radius = 1.0
 emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 angle_min = -90.0
 angle_max = 90.0
 angle_curve = SubResource("CurveTexture_8kdu1")

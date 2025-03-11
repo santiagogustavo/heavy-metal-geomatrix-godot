@@ -87,7 +87,7 @@ render_mode blend_mix;
 
 uniform vec4 Bubble_Color : source_color = vec4(0.337255, 0.803922, 1.000000, 1.000000);
 uniform float Speed = 0.10000000149012;
-uniform float Size = 2;
+uniform float Size = 2.0;
 uniform vec4 BG_Color : source_color = vec4(0.000000, 0.533333, 0.968627, 1.000000);
 uniform sampler2D Mask;
 

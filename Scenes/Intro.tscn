@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://bs0s52dotm24h"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/Intro/IntroManager.gd" id="1_epn0t"]
+[ext_resource type="Script" uid="uid://dj57m5cemxy6n" path="res://Scripts/Menus/Intro/IntroManager.gd" id="1_epn0t"]
 [ext_resource type="Texture2D" uid="uid://dlnwwspceo1x0" path="res://Textures/Menus/Intro/godette.png" id="1_lavci"]
 [ext_resource type="Texture2D" uid="uid://crexqpvbohv74" path="res://Textures/Menus/Intro/logo_large_monochrome_dark.png" id="2_piprb"]
-[ext_resource type="Script" path="res://Scripts/Menus/Intro/Label.gd" id="3_h3k8y"]
+[ext_resource type="Script" uid="uid://dtgr0a1ld5rl7" path="res://Scripts/Menus/Intro/Label.gd" id="3_h3k8y"]
 [ext_resource type="Texture2D" uid="uid://bhvjn3mhseqbk" path="res://Textures/Menus/Intro/capcom_logo.png" id="5_8gr3n"]
 [ext_resource type="FontFile" uid="uid://dq0e75qk85kba" path="res://Fonts/Impact.ttf" id="5_u0p7l"]
 [ext_resource type="Texture2D" uid="uid://dp0v2qtkgtn" path="res://Textures/Menus/Intro/santiago.png" id="7_8avjc"]
@@ -79,8 +79,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0bgog"]
 _data = {
-"Idle": SubResource("Animation_c77mg"),
-"PopIn": SubResource("Animation_qgbs5")
+&"Idle": SubResource("Animation_c77mg"),
+&"PopIn": SubResource("Animation_qgbs5")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_7v2gf"]
@@ -157,8 +157,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jovel"]
 _data = {
-"Idle": SubResource("Animation_6bqde"),
-"PopIn": SubResource("Animation_ocoxt")
+&"Idle": SubResource("Animation_6bqde"),
+&"PopIn": SubResource("Animation_ocoxt")
 }
 
 [sub_resource type="Animation" id="Animation_3x521"]
@@ -379,12 +379,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oanq2"]
 _data = {
-"FadeInCapcom": SubResource("Animation_3x521"),
-"FadeInGodot": SubResource("Animation_x63eb"),
-"FadeInSantiago": SubResource("Animation_w6wuv"),
-"FadeOutCapcom": SubResource("Animation_ur6tm"),
-"FadeOutGodot": SubResource("Animation_lx4mi"),
-"FadeOutSantiago": SubResource("Animation_nubde")
+&"FadeInCapcom": SubResource("Animation_3x521"),
+&"FadeInGodot": SubResource("Animation_x63eb"),
+&"FadeInSantiago": SubResource("Animation_w6wuv"),
+&"FadeOutCapcom": SubResource("Animation_ur6tm"),
+&"FadeOutGodot": SubResource("Animation_lx4mi"),
+&"FadeOutSantiago": SubResource("Animation_nubde")
 }
 
 [node name="Intro" type="Control"]

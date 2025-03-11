@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://dyxq3lfyh46m2"]
 
 [ext_resource type="PackedScene" uid="uid://ddcr0ywp6fpmh" path="res://Models/Weapons/Ray Sword.glb" id="1_jfy31"]
-[ext_resource type="Script" path="res://Scripts/Weapons/SwordController.gd" id="1_qluvp"]
+[ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_qluvp"]
 [ext_resource type="Texture2D" uid="uid://f2jsbbuvqxbh" path="res://Textures/Weapons/Ray Sword/3d89ecc3_beam.png" id="2_ahi84"]
 [ext_resource type="PackedScene" uid="uid://q4a4g1pb87og" path="res://Prefabs/Decals/SwordHitElectricDecal.tscn" id="2_isi4i"]
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_sekuh"]
@@ -81,11 +81,11 @@ gradient = SubResource("Gradient_d18ky")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_1aidu")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
 shader_parameter/tex = ExtResource("8_k3qwy")
 shader_parameter/color_ramp = SubResource("GradientTexture1D_o2j70")
 shader_parameter/curve = ExtResource("7_libxb")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
 
 [sub_resource type="QuadMesh" id="QuadMesh_xyyg3"]
 material = SubResource("ShaderMaterial_d2q0u")

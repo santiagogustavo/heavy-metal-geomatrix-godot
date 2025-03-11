@@ -54,6 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameManager.pause_game()
 
 func finish_and_show_results():
+	ended.emit()
 	var redirect_to_scene = "res://Scenes/MainMenu.tscn"
 	SceneManager.load_scene_file(redirect_to_scene)
 

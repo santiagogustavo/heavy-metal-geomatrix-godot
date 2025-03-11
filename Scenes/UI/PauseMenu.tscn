@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://djao4jgemsc0"]
 
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/PauseMenuManager.gd" id="1_14uh4"]
+[ext_resource type="Script" uid="uid://qedi2a3by84t" path="res://Scripts/UI/PauseMenu/PauseMenuManager.gd" id="1_14uh4"]
 [ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="2_pxpvk"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="2_yn0ir"]
 [ext_resource type="Texture2D" uid="uid://rmxp2qxw6t4k" path="res://Textures/UI/Menus/Pause Menu/decoration.png" id="3_binch"]
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="4_g42m2"]
 [ext_resource type="Script" uid="uid://brshwipln3iac" path="res://Scripts/UI/PauseMenu/ButtonResume.gd" id="5_1g2l3"]
 [ext_resource type="Script" uid="uid://54ftr5uv0bml" path="res://Scripts/UI/PauseMenu/ButtonOptions.gd" id="7_5wxh1"]
-[ext_resource type="Script" path="res://Scripts/UI/PauseMenu/ButtonExit.gd" id="8_hawb2"]
+[ext_resource type="Script" uid="uid://cvlbc57ukbvty" path="res://Scripts/UI/PauseMenu/ButtonExit.gd" id="8_hawb2"]
 [ext_resource type="Script" uid="uid://3u3w0nor6bb2" path="res://Scripts/UI/PauseMenu/MatchInfoLabel.gd" id="8_wdjjr"]
 [ext_resource type="AudioStream" uid="uid://dbyq16y3ws57u" path="res://Sound/UI/PauseMenu/750432__rescopicsound__ui-alert-menu-modern-interface-pop-up-small.mp3" id="11_fcmb8"]
 [ext_resource type="AudioStream" uid="uid://dfxb40vgqo23d" path="res://Sound/UI/PauseMenu/750430__rescopicsound__ui-alert-menu-modern-interface-deny-small.mp3" id="12_w08al"]
@@ -17,7 +17,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7fk4s"]
 shader = ExtResource("2_pxpvk")
-shader_parameter/Color = null
+shader_parameter/Color = Color(0, 0, 0, 1)
 shader_parameter/Scale = 500.0
 shader_parameter/Color_Weight = 0.5
 shader_parameter/Opacity = 0.223
@@ -66,8 +66,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_30blp"]
 _data = {
-"Open": SubResource("Animation_q8yxh"),
-"RESET": SubResource("Animation_fhtwi")
+&"Open": SubResource("Animation_q8yxh"),
+&"RESET": SubResource("Animation_fhtwi")
 }
 
 [node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("panel_buttons")]

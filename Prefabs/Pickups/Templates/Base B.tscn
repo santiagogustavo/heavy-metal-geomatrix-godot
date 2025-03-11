@@ -89,9 +89,9 @@ tracks/1/keys = PackedFloat32Array(0, 1, 2, 0, 2, 0.1, 1, 1, 1.5, 1, 0.5, 1, 0, 
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yfkuc"]
 _data = {
-"Pickup": SubResource("Animation_p85n7"),
-"PopIn": SubResource("Animation_cq5vq"),
-"PopOut": SubResource("Animation_kp83m")
+&"Pickup": SubResource("Animation_p85n7"),
+&"PopIn": SubResource("Animation_cq5vq"),
+&"PopOut": SubResource("Animation_kp83m")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jdudd"]

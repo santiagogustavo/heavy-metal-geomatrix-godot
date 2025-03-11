@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cv0tt2a33vhav"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="1_bueju"]
+[ext_resource type="Script" uid="uid://cqve5bpmljhwj" path="res://Scripts/Levels/Sun.gd" id="1_bueju"]
 
 [node name="Sun" type="DirectionalLight3D"]
 transform = Transform3D(0.965926, 1.13133e-08, -0.258819, 0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, -11, 11, 0)

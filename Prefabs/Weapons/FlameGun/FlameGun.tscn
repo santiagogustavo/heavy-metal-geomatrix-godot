@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://bbfmrky7xobod"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/EnergyGunController.gd" id="1_i2vrb"]
+[ext_resource type="Script" uid="uid://snccbk1rl0xs" path="res://Scripts/Weapons/EnergyGunController.gd" id="1_i2vrb"]
 [ext_resource type="PackedScene" uid="uid://c10u54kbc48we" path="res://Models/Weapons/Flame Gun.glb" id="1_itxgw"]
 [ext_resource type="PackedScene" uid="uid://dbrwdyjtj7ipr" path="res://Prefabs/Decals/BurnDecal.tscn" id="2_psgu7"]
 [ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/Weapons/FlameGun/Flame.tscn" id="2_r6w7y"]
@@ -299,10 +299,10 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jtt22"]
 _data = {
-"Idle": SubResource("Animation_6k7b2"),
-"RESET": SubResource("Animation_wtw86"),
-"Shoot": SubResource("Animation_krowr"),
-"StopShoot": SubResource("Animation_5sgr6")
+&"Idle": SubResource("Animation_6k7b2"),
+&"RESET": SubResource("Animation_wtw86"),
+&"Shoot": SubResource("Animation_krowr"),
+&"StopShoot": SubResource("Animation_5sgr6")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ng6kt"]
@@ -403,7 +403,7 @@ attenuation_filter_db = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_jtt22")
+&"": SubResource("AnimationLibrary_jtt22")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

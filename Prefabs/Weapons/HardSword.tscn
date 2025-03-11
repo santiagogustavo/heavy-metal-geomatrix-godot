@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://c4wyss068ducy"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/SwordController.gd" id="1_exw1l"]
+[ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_exw1l"]
 [ext_resource type="PackedScene" uid="uid://bf5nixetmlasw" path="res://Models/Weapons/Hard Sword.glb" id="1_ofe1k"]
 [ext_resource type="PackedScene" uid="uid://cfvw3jc7xr3vp" path="res://Prefabs/Decals/SwordHitDecal.tscn" id="2_egqlw"]
 [ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="2_mruyh"]
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_cpri6"]
-[ext_resource type="Shader" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_j3tmt"]
+[ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_j3tmt"]
 [ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="4_42fw5"]
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="5_nqugp"]
 
@@ -30,11 +30,11 @@ curve = SubResource("Curve_scpbx")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_j3tmt")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
 shader_parameter/tex = ExtResource("4_42fw5")
 shader_parameter/color_ramp = SubResource("GradientTexture1D_e1eue")
 shader_parameter/curve = SubResource("CurveTexture_dmkoi")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
 
 [sub_resource type="QuadMesh" id="QuadMesh_adhuj"]
 material = SubResource("ShaderMaterial_wljdo")

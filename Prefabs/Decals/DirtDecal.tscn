@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bt3hwntnjft6f"]
 
-[ext_resource type="Script" path="res://Scripts/Decals/DecalController.gd" id="1_42kpc"]
+[ext_resource type="Script" uid="uid://bxm84flfx3acr" path="res://Scripts/Decals/DecalController.gd" id="1_42kpc"]
 [ext_resource type="Texture2D" uid="uid://m8ic651cfxbh" path="res://Textures/Decals/dirt_hit.png" id="2_6oeko"]
 [ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="3_6nv0v"]
 [ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="4_msnee"]

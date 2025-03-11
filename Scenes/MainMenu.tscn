@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgn8aq1m4p0rb" path="res://Scenes/Menus/OptionsMenu.tscn" id="17_r8y2w"]
 [ext_resource type="AudioStream" uid="uid://cr7xxraylldic" path="res://Sound/Menus/Main Menu/Startup 2.wav" id="17_yhrry"]
 [ext_resource type="AudioStream" uid="uid://dw5x8rge42xdm" path="res://Sound/Menus/Main Menu/749813__rescopicsound__ui-beep-menu-positive.mp3" id="18_eu1qu"]
-[ext_resource type="Script" path="res://Scripts/Menus/MainMenu/NewMainMenuManager.gd" id="18_ps836"]
+[ext_resource type="Script" uid="uid://c5mjpc204vldo" path="res://Scripts/Menus/MainMenu/NewMainMenuManager.gd" id="18_ps836"]
 [ext_resource type="Texture2D" uid="uid://bnwqpqsjpyuvc" path="res://Textures/Menus/Main Menu/bg.png" id="18_xlly3"]
 [ext_resource type="AudioStream" uid="uid://dsiaxr6jkj4bh" path="res://Sound/Menus/Main Menu/Cursor.wav" id="19_shsqe"]
 [ext_resource type="Texture2D" uid="uid://cxsl4j0ejtuqb" path="res://Textures/Menus/Main Menu/hex_grid.png" id="19_swgpn"]
@@ -21,9 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://cmhe8yp60kbth" path="res://Music/MainMenu/MainMenuOst1.mp3" id="24_rhnf5"]
 [ext_resource type="AudioStream" uid="uid://drw4voa3oibu8" path="res://Music/MainMenu/MainMenuOst2.mp3" id="25_frs1i"]
 [ext_resource type="FontFile" uid="uid://bl6uguby0mxhy" path="res://Fonts/Maximum Impact.ttf" id="25_mrw8j"]
-[ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="25_pigul"]
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="25_pigul"]
 [ext_resource type="AudioStream" uid="uid://bxnnieh7klpco" path="res://Music/MainMenu/MainMenuOst3.mp3" id="26_5yl72"]
-[ext_resource type="Script" path="res://Scripts/Menus/MainMenu/Buttons/Arcade.gd" id="26_y5fpb"]
+[ext_resource type="Script" uid="uid://dl6rssawfd18" path="res://Scripts/Menus/MainMenu/Buttons/Arcade.gd" id="26_y5fpb"]
 [ext_resource type="Script" uid="uid://c2l0s0nnyal6f" path="res://Scripts/Menus/MainMenu/Buttons/Options.gd" id="27_en1de"]
 [ext_resource type="Script" uid="uid://gll2f8uqj56a" path="res://Scripts/Menus/MainMenu/Buttons/Exit.gd" id="28_typom"]
 
@@ -141,8 +141,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kuo4l"]
 _data = {
-"Enter": SubResource("Animation_tjw0s"),
-"RESET": SubResource("Animation_nqip8")
+&"Enter": SubResource("Animation_tjw0s"),
+&"RESET": SubResource("Animation_nqip8")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1i6ug"]
@@ -197,8 +197,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rtj68"]
 _data = {
-"Idle": SubResource("Animation_t3tkn"),
-"RESET": SubResource("Animation_b3kqk")
+&"Idle": SubResource("Animation_t3tkn"),
+&"RESET": SubResource("Animation_b3kqk")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dl5yv"]
@@ -215,7 +215,7 @@ graph_offset = Vector2(-28, -16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_peag1"]
 shader = ExtResource("7_l0ua3")
-shader_parameter/Color = null
+shader_parameter/Color = Color(0, 0, 0, 1)
 shader_parameter/Scale = 500.0
 shader_parameter/Color_Weight = 0.1
 shader_parameter/Opacity = 0.75
@@ -425,8 +425,8 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8rab5"]
 _data = {
-"Enter": SubResource("Animation_t7r6j"),
-"RESET": SubResource("Animation_klur4")
+&"Enter": SubResource("Animation_t7r6j"),
+&"RESET": SubResource("Animation_klur4")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4lqss"]
@@ -649,10 +649,10 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6adix"]
 _data = {
-"FadeIn": SubResource("Animation_upxpx"),
-"FadeOut": SubResource("Animation_sqdgl"),
-"Glitch": SubResource("Animation_h002i"),
-"RESET": SubResource("Animation_h6t0h")
+&"FadeIn": SubResource("Animation_upxpx"),
+&"FadeOut": SubResource("Animation_sqdgl"),
+&"Glitch": SubResource("Animation_h002i"),
+&"RESET": SubResource("Animation_h6t0h")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gwwub"]
@@ -739,12 +739,12 @@ grow_vertical = 0
 [node name="Fire" type="GPUParticles2D" parent="FireContainer"]
 modulate = Color(1, 1, 1, 0.392157)
 amount = 2500
-process_material = SubResource("ParticleProcessMaterial_2up6b")
 texture = ExtResource("6_kwx8k")
 lifetime = 6.0
 preprocess = 12.0
 randomness = 1.0
 local_coords = true
+process_material = SubResource("ParticleProcessMaterial_2up6b")
 
 [node name="LogoContainer" type="Control" parent="."]
 layout_mode = 1
@@ -793,7 +793,7 @@ expand_mode = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LogoContainer"]
 root_node = NodePath("../Logo")
 libraries = {
-"": SubResource("AnimationLibrary_kuo4l")
+&"": SubResource("AnimationLibrary_kuo4l")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="LogoContainer"]
@@ -821,7 +821,7 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PressAnyButton"]
 libraries = {
-"": SubResource("AnimationLibrary_rtj68")
+&"": SubResource("AnimationLibrary_rtj68")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="PressAnyButton"]
@@ -933,8 +933,8 @@ alignment = 1
 [node name="Arcade" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("24_e5pxh")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
@@ -950,8 +950,8 @@ redirect_to_scene = "res://Scenes/SelectPlayer.tscn"
 [node name="Options" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("24_e5pxh")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
@@ -966,8 +966,8 @@ script = ExtResource("27_en1de")
 [node name="Exit" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("24_e5pxh")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
@@ -981,7 +981,7 @@ script = ExtResource("28_typom")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenuLayer/OptionsContainer"]
 libraries = {
-"": SubResource("AnimationLibrary_8rab5")
+&"": SubResource("AnimationLibrary_8rab5")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="MainMenuLayer/OptionsContainer"]
@@ -1057,7 +1057,7 @@ bus = &"Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6adix")
+&"": SubResource("AnimationLibrary_6adix")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

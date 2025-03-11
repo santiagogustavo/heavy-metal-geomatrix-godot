@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvmbb5gxvicqp"]
 
 [ext_resource type="PackedScene" uid="uid://bljpytl0oq7sy" path="res://Scenes/Menus/OptionsMenu/OptionsToggleButton.tscn" id="1_qrmjt"]
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/BloomButton.gd" id="2_1435c"]
+[ext_resource type="Script" uid="uid://d4cppmoqe02na" path="res://Scripts/Menus/OptionsMenu/BloomButton.gd" id="2_1435c"]
 
 [node name="OptionsToggleButton" instance=ExtResource("1_qrmjt")]
 script = ExtResource("2_1435c")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dvsspxf017kvk"]
 
 [ext_resource type="Texture2D" uid="uid://bytsf6y5mi0vy" path="res://Textures/Utils/ink-swirl.png" id="1_mppoc"]
-[ext_resource type="Script" path="res://Scripts/UI/LoadingOverlayManager.gd" id="1_v5vkg"]
+[ext_resource type="Script" uid="uid://bo7u8sn4jgvfo" path="res://Scripts/UI/LoadingOverlayManager.gd" id="1_v5vkg"]
 
 [sub_resource type="Gradient" id="Gradient_14nad"]
 offsets = PackedFloat32Array(0, 0.628774)
@@ -51,8 +51,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a3j8u"]
 _data = {
-"Idle": SubResource("Animation_kqydi"),
-"RESET": SubResource("Animation_2eyve")
+&"Idle": SubResource("Animation_kqydi"),
+&"RESET": SubResource("Animation_2eyve")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph4af"]
@@ -203,9 +203,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xdttn"]
 _data = {
-"FadeIn": SubResource("Animation_6jeos"),
-"FadeOut": SubResource("Animation_4gc06"),
-"RESET": SubResource("Animation_drtfy")
+&"FadeIn": SubResource("Animation_6jeos"),
+&"FadeOut": SubResource("Animation_4gc06"),
+&"RESET": SubResource("Animation_drtfy")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2sj5p"]

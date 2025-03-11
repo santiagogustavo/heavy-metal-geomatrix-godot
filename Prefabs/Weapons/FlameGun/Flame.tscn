@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="1_7vda6"]
 
 [sub_resource type="Curve" id="Curve_f4bgm"]
-min_value = -360.0
-max_value = 360.0
+_limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
 point_count = 2
 
@@ -12,8 +11,7 @@ point_count = 2
 curve = SubResource("Curve_f4bgm")
 
 [sub_resource type="Curve" id="Curve_5jprh"]
-min_value = -360.0
-max_value = 360.0
+_limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
 point_count = 2
 

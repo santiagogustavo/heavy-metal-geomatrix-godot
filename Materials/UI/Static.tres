@@ -54,9 +54,9 @@ code = "shader_type canvas_item;
 render_mode blend_mix;
 
 uniform vec4 Color : source_color;
-uniform float Scale : hint_range(0, 500) = 500;
-uniform float Color_Weight : hint_range(0, 1) = 0.5;
-uniform float Opacity : hint_range(0, 1) = 1;
+uniform float Scale : hint_range(0.0, 500.0) = 500.0;
+uniform float Color_Weight : hint_range(0.0, 1.0) = 0.5;
+uniform float Opacity : hint_range(0.0, 1.0) = 1.0;
 
 
 // RotateUV

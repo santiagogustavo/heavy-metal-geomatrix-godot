@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://2dqf8eoucva7"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
+[ext_resource type="Script" uid="uid://cybkhxuww1dsq" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
 [ext_resource type="PackedScene" uid="uid://dmq6da7dayio0" path="res://Prefabs/Decals/BulletDecal.tscn" id="3_8h365"]
 [ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="4_0llqw"]
 [ext_resource type="PackedScene" uid="uid://06cs7q5vcdgy" path="res://Models/Weapons/Bullet.glb" id="4_7ms7h"]
@@ -33,11 +33,11 @@ curve = SubResource("Curve_hhuuh")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_ma2x0")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
 shader_parameter/tex = ExtResource("10_rkhkj")
 shader_parameter/color_ramp = ExtResource("10_rkhkj")
 shader_parameter/curve = SubResource("CurveTexture_k2op2")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
 
 [sub_resource type="QuadMesh" id="QuadMesh_2gd2c"]
 material = SubResource("ShaderMaterial_bacuo")

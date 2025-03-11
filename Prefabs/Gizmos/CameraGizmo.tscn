@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ybnlc81pj2o3"]
 
 [ext_resource type="Texture2D" uid="uid://cb7it1kh1b30u" path="res://Textures/Utils/photo-camera.png" id="1_whnrw"]
-[ext_resource type="Script" path="res://Scripts/Gizmos/GizmoController.gd" id="2_o5uu5"]
+[ext_resource type="Script" uid="uid://c42gv1wwdutpd" path="res://Scripts/Gizmos/GizmoController.gd" id="2_o5uu5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r06v"]
 transparency = 1

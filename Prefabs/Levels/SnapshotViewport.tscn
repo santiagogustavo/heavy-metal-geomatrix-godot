@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://co47xvwdgttyr"]
 
-[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="1_1y3xa"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="1_1y3xa"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="2_1m6b7"]
 
 [node name="SnapshotViewport" type="SubViewport"]

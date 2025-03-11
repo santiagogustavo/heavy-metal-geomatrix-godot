@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsq011hun8pqa"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/InvisibleWall.gd" id="1_esp4l"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Wall Shield.gdshader" id="2_yxgfx"]
+[ext_resource type="Script" uid="uid://dh81khdr2l20o" path="res://Scripts/Levels/InvisibleWall.gd" id="1_esp4l"]
+[ext_resource type="Shader" uid="uid://drumoc366nx1j" path="res://Materials/Shaders/Wall Shield.gdshader" id="2_yxgfx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dxjn8"]
 render_priority = 0

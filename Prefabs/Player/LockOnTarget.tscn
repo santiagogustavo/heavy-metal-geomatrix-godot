@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cglrji4ptv28t"]
 
-[ext_resource type="Script" path="res://Scripts/Player/LockOnTargetController.gd" id="1_40tbk"]
+[ext_resource type="Script" uid="uid://bo5b0wltovt57" path="res://Scripts/Player/LockOnTargetController.gd" id="1_40tbk"]
 [ext_resource type="Texture2D" uid="uid://bgup7bmse8tfy" path="res://Textures/UI/locktarget.png" id="1_s4emi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcwse"]
@@ -49,8 +49,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hhg00"]
 _data = {
-"Idle": SubResource("Animation_cqj8v"),
-"RESET": SubResource("Animation_sa7ra")
+&"Idle": SubResource("Animation_cqj8v"),
+&"RESET": SubResource("Animation_sa7ra")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wicst"]

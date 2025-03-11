@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=32 format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
@@ -16,9 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://c4ra6c5mj8rk7" path="res://Scenes/Menus/OptionsMenu/Controls/StickHorizontalSensitivity.tscn" id="9_8hf25"]
 [ext_resource type="PackedScene" uid="uid://brw3vc6j0hkoj" path="res://Scenes/Menus/OptionsMenu/Controls/StickVerticalSensitivity.tscn" id="10_07rme"]
 [ext_resource type="PackedScene" uid="uid://bg1d1pm7nf4xt" path="res://Scenes/Menus/OptionsMenu/Controls/BloomIntensitySlider.tscn" id="10_6407g"]
+[ext_resource type="Script" uid="uid://c2ap36mps6kdn" path="res://Scripts/Menus/OptionsMenu/RenderScaleSlider.gd" id="10_jofee"]
 [ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="11_7172o"]
 [ext_resource type="PackedScene" uid="uid://bljpytl0oq7sy" path="res://Scenes/Menus/OptionsMenu/OptionsToggleButton.tscn" id="11_udgny"]
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/AimAssistButton.gd" id="12_1m567"]
+[ext_resource type="Script" uid="uid://dwtufgeul4xde" path="res://Scripts/Menus/OptionsMenu/AimAssistButton.gd" id="12_1m567"]
 [ext_resource type="Script" uid="uid://rwtaj1nebmyd" path="res://Scripts/Menus/OptionsMenu/FovSlider.gd" id="12_fjwlq"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="13_cerdy"]
 [ext_resource type="PackedScene" uid="uid://c0f7b66n3wqqq" path="res://Scenes/Menus/OptionsMenu/Controls/ControllerVibrationButton.tscn" id="13_m37qm"]
@@ -170,6 +171,16 @@ layout_mode = 2
 
 [node name="ResolutionModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("3_imv6s")]
 layout_mode = 2
+
+[node name="RenderScaleSlider" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+layout_mode = 2
+script = ExtResource("10_jofee")
+
+[node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider" index="0"]
+text = "Rendering Scale"
+
+[node name="HSlider" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider/CustomSlider10" index="0"]
+min_value = 0.1
 
 [node name="PostProcessingLabel" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
@@ -410,6 +421,8 @@ stream = ExtResource("20_pce0q")
 bus = &"UI"
 
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/DisplayLabel"]
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider"]
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider/CustomSlider10"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/PostProcessingLabel"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/AimingLabel"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/AimAssistButton"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bg1d1pm7nf4xt"]
 
 [ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="1_hmgtq"]
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/BloomIntensitySlider.gd" id="2_57dkb"]
+[ext_resource type="Script" uid="uid://cjoynnpc37mm8" path="res://Scripts/Menus/OptionsMenu/BloomIntensitySlider.gd" id="2_57dkb"]
 
 [node name="OptionsSlider" instance=ExtResource("1_hmgtq")]
 script = ExtResource("2_57dkb")

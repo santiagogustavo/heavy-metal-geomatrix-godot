@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dxvpad20l184n"]
 
 [ext_resource type="Texture2D" uid="uid://mk2ytmporgoa" path="res://Textures/UI/HUD/Crosshair/crosshair_1.png" id="1_3286d"]
-[ext_resource type="Script" path="res://Scripts/UI/HUD/Crosshair.gd" id="2_7c5x0"]
+[ext_resource type="Script" uid="uid://lf2wmyxfnh66" path="res://Scripts/UI/HUD/Crosshair.gd" id="2_7c5x0"]
 [ext_resource type="Texture2D" uid="uid://cp7b5hty1ewh6" path="res://Textures/UI/HUD/Crosshair/crosshair_2.png" id="3_71nql"]
 [ext_resource type="Texture2D" uid="uid://sol2ljjscaaq" path="res://Textures/UI/HUD/Crosshair/crosshair_3.png" id="4_5bne8"]
 [ext_resource type="Texture2D" uid="uid://d227qdomqfww" path="res://Textures/UI/HUD/Crosshair/crosshair_4.png" id="5_vhgfp"]

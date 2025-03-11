@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b1mhophsi8fwq"]
 
-[ext_resource type="Script" path="res://Scripts/Player/RoundCameraController.gd" id="1_32jy6"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Invert Color.gdshader" id="2_lmkaa"]
+[ext_resource type="Script" uid="uid://d2fwsrnvwkoul" path="res://Scripts/Player/RoundCameraController.gd" id="1_32jy6"]
+[ext_resource type="Shader" uid="uid://cpbf40viiiqlf" path="res://Materials/Shaders/Invert Color.gdshader" id="2_lmkaa"]
 [ext_resource type="PackedScene" uid="uid://ybnlc81pj2o3" path="res://Prefabs/Gizmos/CameraGizmo.tscn" id="3_ldk34"]
 [ext_resource type="Texture2D" uid="uid://cb7it1kh1b30u" path="res://Textures/Utils/photo-camera.png" id="4_5gotm"]
 [ext_resource type="PackedScene" uid="uid://bu2ontvhx7wrb" path="res://Models/Characters/Mayfly/Mayfly.glb" id="5_kq835"]
@@ -98,8 +98,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eghe4"]
 _data = {
-"Announce": SubResource("Animation_y7nge"),
-"RESET": SubResource("Animation_wx63i")
+&"Announce": SubResource("Animation_y7nge"),
+&"RESET": SubResource("Animation_wx63i")
 }
 
 [node name="RoundPivot" type="Marker3D"]

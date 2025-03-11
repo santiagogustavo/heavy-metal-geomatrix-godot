@@ -446,8 +446,8 @@ shader_parameter/angular_velocity_min = 0.0
 shader_parameter/angular_velocity_max = 0.0
 shader_parameter/orbit_velocity_min = 0.0
 shader_parameter/orbit_velocity_max = 0.0
-shader_parameter/radial_velocity_min = null
-shader_parameter/radial_velocity_max = null
+shader_parameter/radial_velocity_min = 0.0
+shader_parameter/radial_velocity_max = 0.0
 shader_parameter/linear_accel_min = 4.0
 shader_parameter/linear_accel_max = 4.0
 shader_parameter/radial_accel_min = 0.0
@@ -514,7 +514,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8cma6"]
 _data = {
-"RESET": SubResource("Animation_57by3")
+&"RESET": SubResource("Animation_57by3")
 }
 
 [node name="BloodDecal" type="Node3D"]

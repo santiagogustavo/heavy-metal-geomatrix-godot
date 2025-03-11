@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_4un3q"]
 [ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_tegcv"]
-[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_i8vr7"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_i8vr7"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_heanl"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="4_pck8h"]
 [ext_resource type="Texture2D" uid="uid://24rcfmn5xmcj" path="res://Textures/Skyboxes/Twilight Cloudy.png" id="5_38h01"]
-[ext_resource type="Script" path="res://Scripts/Levels/Sun.gd" id="6_2ee4r"]
+[ext_resource type="Script" uid="uid://cqve5bpmljhwj" path="res://Scripts/Levels/Sun.gd" id="6_2ee4r"]
 [ext_resource type="PackedScene" uid="uid://b1bxu46erkcdu" path="res://Models/Levels/Ocean Castle Twilight/Ocean Castle Twilight.glb" id="7_ycalw"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="8_5ngpf"]
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="9_qbrpm"]
@@ -68,14 +68,14 @@ shader_parameter/distortion_speed = Vector2(0, 0.1)
 shader_parameter/distortion_scale = 1.0
 shader_parameter/distortion_intensity = 0.1
 shader_parameter/Tiling = Vector2(1, 1)
+shader_parameter/Albedo = ExtResource("9_qbrpm")
 shader_parameter/Metallic = 0.25
 shader_parameter/Roughness = 0.078
 shader_parameter/Specular = 0.505
-shader_parameter/Occlusion_Intensity = 1.0
-shader_parameter/normal_intensity = 0.263
-shader_parameter/Albedo = ExtResource("9_qbrpm")
 shader_parameter/Occlusion = ExtResource("11_pk58m")
+shader_parameter/Occlusion_Intensity = 1.0
 shader_parameter/Normal_Map = ExtResource("10_y1cec")
+shader_parameter/normal_intensity = 0.263
 
 [sub_resource type="Gradient" id="Gradient_60yld"]
 offsets = PackedFloat32Array(0, 0.37276, 0.637993, 1)

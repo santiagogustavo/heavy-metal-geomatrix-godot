@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0f7b66n3wqqq"]
 
 [ext_resource type="PackedScene" uid="uid://bljpytl0oq7sy" path="res://Scenes/Menus/OptionsMenu/OptionsToggleButton.tscn" id="1_hf047"]
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/ControllerVibrationToggle.gd" id="2_0s4a7"]
+[ext_resource type="Script" uid="uid://fwr87q718wrw" path="res://Scripts/Menus/OptionsMenu/ControllerVibrationToggle.gd" id="2_0s4a7"]
 
 [node name="OptionsToggleButton" instance=ExtResource("1_hf047")]
 script = ExtResource("2_0s4a7")

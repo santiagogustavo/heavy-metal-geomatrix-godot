@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cf1bfsleugb3w"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/SwordController.gd" id="1_3jf6o"]
+[ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_3jf6o"]
 [ext_resource type="PackedScene" uid="uid://dru0a6nggo15i" path="res://Models/Weapons/Killer Sword.glb" id="1_vi24m"]
 [ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="2_oav5y"]
 [ext_resource type="PackedScene" uid="uid://cfvw3jc7xr3vp" path="res://Prefabs/Decals/SwordHitDecal.tscn" id="2_uwp03"]
@@ -24,11 +24,11 @@ gradient = SubResource("Gradient_awhhb")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_uxaca")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
 shader_parameter/tex = ExtResource("9_v8fy7")
 shader_parameter/color_ramp = SubResource("GradientTexture1D_annj2")
 shader_parameter/curve = ExtResource("5_hrv4q")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
 
 [sub_resource type="QuadMesh" id="QuadMesh_aif53"]
 material = SubResource("ShaderMaterial_luk4k")

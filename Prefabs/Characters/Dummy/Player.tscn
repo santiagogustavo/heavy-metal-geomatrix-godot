@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbll7hssyqmtv"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterController.gd" id="1_2hbwc"]
+[ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_2hbwc"]
 [ext_resource type="PackedScene" uid="uid://1e0e6737i8cu" path="res://Models/Characters/mitaside_dummy.glb" id="1_8it6j"]
 [ext_resource type="Texture2D" uid="uid://dkhqjy48d5rgn" path="res://Textures/Menus/Select Player/bf365546.png" id="2_hvn7n"]
 

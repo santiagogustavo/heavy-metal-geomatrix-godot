@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cwe67c5gjbitq" path="res://Textures/Skyboxes/Night Moony.png" id="2_caq5r"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_enk1q"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
-[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
 [ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/Pitch Dark Stadium/9939eb6_emit.tres" id="4_t2tlk"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_tqjn4"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="6_qyxnj"]

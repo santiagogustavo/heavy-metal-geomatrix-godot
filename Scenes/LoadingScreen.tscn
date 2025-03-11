@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dykoq75ft18o1"]
 
 [ext_resource type="Texture2D" uid="uid://3ktp2urmbjum" path="res://Textures/Menus/logo_flat_small.png" id="1_myq6l"]
-[ext_resource type="Script" path="res://Scripts/Scenes/LoadingManager.gd" id="1_y5dpv"]
+[ext_resource type="Script" uid="uid://dpgn8o54evrbb" path="res://Scripts/Scenes/LoadingManager.gd" id="1_y5dpv"]
 [ext_resource type="FontFile" uid="uid://2x43qqo5f7ft" path="res://Fonts/Headshop.ttf" id="2_fgwot"]
 
 [sub_resource type="Animation" id="Animation_6o2yl"]
@@ -61,8 +61,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bck0w"]
 _data = {
-"Idle": SubResource("Animation_6o2yl"),
-"RESET": SubResource("Animation_ew1ro")
+&"Idle": SubResource("Animation_6o2yl"),
+&"RESET": SubResource("Animation_ew1ro")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_koscj"]
@@ -114,8 +114,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qij2g"]
 _data = {
-"Idle": SubResource("Animation_qs8aj"),
-"RESET": SubResource("Animation_a7j07")
+&"Idle": SubResource("Animation_qs8aj"),
+&"RESET": SubResource("Animation_a7j07")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qrpta"]

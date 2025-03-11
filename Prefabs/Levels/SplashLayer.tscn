@@ -61,8 +61,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lpmxr"]
 _data = {
-"FadeOut": SubResource("Animation_ybpgk"),
-"RESET": SubResource("Animation_k0ppl")
+&"FadeOut": SubResource("Animation_ybpgk"),
+&"RESET": SubResource("Animation_k0ppl")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k28uw"]

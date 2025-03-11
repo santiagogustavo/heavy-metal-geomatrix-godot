@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://d2umli7j8x75g"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/SelectArena/ArenaCardController.gd" id="1_pxr7m"]
-[ext_resource type="Shader" path="res://Materials/Shaders/Sprite Cutout.gdshader" id="2_4x7h0"]
+[ext_resource type="Script" uid="uid://cso4ng7bpkuxt" path="res://Scripts/Menus/SelectArena/ArenaCardController.gd" id="1_pxr7m"]
+[ext_resource type="Shader" uid="uid://dwsg1rhd8i4h8" path="res://Materials/Shaders/Sprite Cutout.gdshader" id="2_4x7h0"]
 [ext_resource type="Texture2D" uid="uid://ca0lbetau3rud" path="res://Textures/Menus/Select Stage/stage_card_mask.png" id="3_5i0us"]
 [ext_resource type="Texture2D" uid="uid://d1f6at5moin5j" path="res://Textures/Menus/Select Stage/7dbfa667_bg.png" id="4_he308"]
 [ext_resource type="Texture2D" uid="uid://cmq1kyge0qfr6" path="res://Textures/Menus/Select Stage/stage_card_decoration.png" id="5_tftux"]
@@ -110,8 +110,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1beg3"]
 _data = {
-"Hover": SubResource("Animation_grtyy"),
-"RESET": SubResource("Animation_yyer3")
+&"Hover": SubResource("Animation_grtyy"),
+&"RESET": SubResource("Animation_yyer3")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4cb4l"]

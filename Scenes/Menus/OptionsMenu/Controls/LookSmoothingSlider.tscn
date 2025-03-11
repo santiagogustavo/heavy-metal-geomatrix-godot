@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xixis7sqo151"]
 
 [ext_resource type="PackedScene" uid="uid://cq7v5t3i8dxaa" path="res://Scenes/Menus/OptionsMenu/OptionsSlider.tscn" id="1_vsufx"]
-[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/LookSmoothingSlider.gd" id="2_nvt11"]
+[ext_resource type="Script" uid="uid://i25ds5bqit2s" path="res://Scripts/Menus/OptionsMenu/LookSmoothingSlider.gd" id="2_nvt11"]
 
 [node name="LookSmoothingSlider" instance=ExtResource("1_vsufx")]
 script = ExtResource("2_nvt11")

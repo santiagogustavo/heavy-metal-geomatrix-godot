@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://h4bah7ckpry1"]
 
 [ext_resource type="Texture2D" uid="uid://hq7xmf27bqn2" path="res://Textures/Utils/treasure-map.png" id="1_cjowh"]
-[ext_resource type="Script" path="res://Scripts/Gizmos/GizmoController.gd" id="2_f6d5b"]
+[ext_resource type="Script" uid="uid://c42gv1wwdutpd" path="res://Scripts/Gizmos/GizmoController.gd" id="2_f6d5b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqlw3"]
 transparency = 4

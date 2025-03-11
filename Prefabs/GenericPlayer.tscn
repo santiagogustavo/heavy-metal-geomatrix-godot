@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bskt672q08ljw"]
 
-[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_s5b7i"]
+[ext_resource type="Script" uid="uid://bl6buiuooradx" path="res://Scripts/Player/Player.gd" id="1_s5b7i"]
 [ext_resource type="PackedScene" uid="uid://de4uiy610h5pr" path="res://Prefabs/Particles/Dash Trail/Dash Trail.tscn" id="2_3ycw1"]
 [ext_resource type="PackedScene" uid="uid://bu2ontvhx7wrb" path="res://Models/Characters/Mayfly/Mayfly.glb" id="2_d43yv"]
 [ext_resource type="Script" uid="uid://bhba7etdaeq0k" path="res://Scripts/Player/PlayerDashController.gd" id="5_1f0ha"]

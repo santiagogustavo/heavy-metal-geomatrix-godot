@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://dn7eqrtucu38n"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/DebugMenu/DebugMenuManager.gd" id="1_h0n8i"]
+[ext_resource type="Script" uid="uid://e7jeuxe0veav" path="res://Scripts/Menus/DebugMenu/DebugMenuManager.gd" id="1_h0n8i"]
 [ext_resource type="FontVariation" uid="uid://u352bvk5yi5u" path="res://Fonts/Basilea Bold.tres" id="2_4nml7"]
-[ext_resource type="Script" path="res://Scripts/Menus/DebugMenu/FPSCounter.gd" id="2_e6dq1"]
+[ext_resource type="Script" uid="uid://c1kot3wn02rpv" path="res://Scripts/Menus/DebugMenu/FPSCounter.gd" id="2_e6dq1"]
 [ext_resource type="AudioStream" uid="uid://nnuxjtsyae7a" path="res://Sound/Menus/Debug/SELECT.wav" id="3_e1b4v"]
 [ext_resource type="AudioStream" uid="uid://bqheh7vb8m6lj" path="res://Sound/Menus/Debug/BACK.wav" id="3_ochqa"]
 [ext_resource type="AudioStream" uid="uid://dukpy1kqpc5k1" path="res://Sound/Menus/Debug/CONFIRMATION.wav" id="4_ugrho"]

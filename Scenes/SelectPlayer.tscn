@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://drns658eovibc"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/SelectPlayer/SelectPlayerController.gd" id="1_c107j"]
+[ext_resource type="Script" uid="uid://cmjg1uynvej02" path="res://Scripts/Menus/SelectPlayer/SelectPlayerController.gd" id="1_c107j"]
 [ext_resource type="Material" uid="uid://bl4gl2wdbx05f" path="res://Materials/Menus/Select Player/bf365546.tres" id="1_vupum"]
 [ext_resource type="Texture2D" uid="uid://kt4d7n8f6ld" path="res://Textures/Icons/Teams/818stompers.png" id="2_hhg02"]
 [ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="2_y0rff"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://csiacq2gsocyl" path="res://Models/Menus/Select Player/Tunnel.glb" id="5_ecqj0"]
 [ext_resource type="PackedScene" uid="uid://c40ij0jj6lb38" path="res://Textures/Icons/AvatarCard.tscn" id="5_km5t0"]
 [ext_resource type="Texture2D" uid="uid://yb7xidhwoo1n" path="res://Textures/Icons/Teams/323agents.png" id="6_2w7o8"]
-[ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="7_8r23u"]
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="7_8r23u"]
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="7_mkvtd"]
 [ext_resource type="FontVariation" uid="uid://dlxrfvcvos53u" path="res://Fonts/Valorax Bold.tres" id="8_uc2iq"]
 [ext_resource type="AudioStream" uid="uid://bm5apxkvpbcwi" path="res://Sound/Menus/Select Player/Intro.wav" id="14_0hce8"]
@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://d11lpsogmqpj" path="res://Sound/Menus/Select Player/Cursor.wav" id="15_uygjb"]
 [ext_resource type="AudioStream" uid="uid://benm8gdx2t3ly" path="res://Sound/Menus/Select Player/Select.wav" id="16_k1njm"]
 [ext_resource type="PackedScene" uid="uid://c8jb2dol0b2vj" path="res://Prefabs/Characters/Mayfly/Select.tscn" id="17_bk0fd"]
-[ext_resource type="Script" path="res://Scripts/Utils/ViewportResolutionController.gd" id="21_ha3xj"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="21_ha3xj"]
 [ext_resource type="AnimationLibrary" uid="uid://dpicnwsmaujai" path="res://Animations/Characters/Mayfly/Lower Body.res" id="21_owdib"]
 [ext_resource type="AnimationLibrary" uid="uid://drm1ym07vxfhk" path="res://Animations/Characters/Mayfly/Taunts/Taunts.res" id="22_vtme5"]
 [ext_resource type="AnimationLibrary" uid="uid://dw5lxh8qnt6xn" path="res://Animations/Characters/Mayfly/Upper Body.res" id="23_dpa7a"]
@@ -171,8 +171,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_et6t4"]
 _data = {
-"FadeIn": SubResource("Animation_yj1yl"),
-"RESET": SubResource("Animation_cb3an")
+&"FadeIn": SubResource("Animation_yj1yl"),
+&"RESET": SubResource("Animation_cb3an")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ge601"]
@@ -248,8 +248,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y516w"]
 _data = {
-"Idle": SubResource("Animation_eioya"),
-"RESET": SubResource("Animation_fi66b")
+&"Idle": SubResource("Animation_eioya"),
+&"RESET": SubResource("Animation_fi66b")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_orith"]
@@ -535,7 +535,7 @@ bus = &"UI"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 libraries = {
-"": SubResource("AnimationLibrary_et6t4")
+&"": SubResource("AnimationLibrary_et6t4")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Control"]
@@ -633,9 +633,9 @@ transform = Transform3D(-0.396756, 0.544363, 0.739089, 0.592496, -0.463104, 0.65
 
 [node name="AnimationPlayer" parent="CharacterContainer/Mayfly/Model" index="1"]
 libraries = {
-"Lower Body": ExtResource("21_owdib"),
-"Taunts": ExtResource("22_vtme5"),
-"Upper Body": ExtResource("23_dpa7a")
+&"Lower Body": ExtResource("21_owdib"),
+&"Taunts": ExtResource("22_vtme5"),
+&"Upper Body": ExtResource("23_dpa7a")
 }
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterContainer"]
@@ -678,7 +678,7 @@ current = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Tunnel")
 libraries = {
-"": SubResource("AnimationLibrary_y516w")
+&"": SubResource("AnimationLibrary_y516w")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

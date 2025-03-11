@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://cacg1klxqject" path="res://Sound/Weapons/Common/Stone Hit 1.wav" id="1_2i1yv"]
 [ext_resource type="Texture2D" uid="uid://cv4464k6i533j" path="res://Textures/Decals/stone_hit.png" id="1_3wqng"]
-[ext_resource type="Script" path="res://Scripts/Decals/DecalController.gd" id="1_fbugl"]
+[ext_resource type="Script" uid="uid://bxm84flfx3acr" path="res://Scripts/Decals/DecalController.gd" id="1_fbugl"]
 [ext_resource type="PackedScene" uid="uid://hgy5kkni0cpm" path="res://Prefabs/Particles/BulletSpark.tscn" id="2_4e051"]
 [ext_resource type="AudioStream" uid="uid://jpqyw2as3wg" path="res://Sound/Weapons/Common/Stone Hit 2.wav" id="2_w6b7h"]
 [ext_resource type="AudioStream" uid="uid://t4jwatlom6l2" path="res://Sound/Weapons/Common/Stone Hit 3.wav" id="3_e2jw0"]

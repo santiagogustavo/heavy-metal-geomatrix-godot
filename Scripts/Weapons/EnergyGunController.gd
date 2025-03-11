@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	detect_raycast_collision(delta)
 
-func instantiate_hit(point: Vector3, normal: Vector3, type: int):
+func instantiate_hit(point: Vector3, normal: Vector3, _type: int):
 	var hit_instance: Node3D
 	hit_instance = hit_decal.instantiate()
 	get_tree().root.add_child(hit_instance)

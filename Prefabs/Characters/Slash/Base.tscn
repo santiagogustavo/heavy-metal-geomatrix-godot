@@ -1,11 +1,11 @@
 [gd_scene load_steps=39 format=3 uid="uid://mfit0jyuixrv"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterController.gd" id="1_f8chv"]
+[ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_f8chv"]
 [ext_resource type="AnimationLibrary" uid="uid://dfawi7p2j8jjm" path="res://Animations/Characters/Slash/Taunts/Taunts.res" id="2_80p5x"]
 [ext_resource type="Texture2D" uid="uid://dormj0yhtc2hy" path="res://Textures/Characters/Slash/Cards/d3f8d987.png" id="2_hkt64"]
 [ext_resource type="Texture2D" uid="uid://dlsyrn6e2r4da" path="res://Textures/Characters/Slash/Cards/68aa414a.png" id="3_fqolc"]
 [ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="4_26i6c"]
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterSFXController.gd" id="4_xnrtt"]
+[ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="4_xnrtt"]
 [ext_resource type="PackedScene" uid="uid://by84tkb7bmudr" path="res://Models/Characters/Slash/Slash.glb" id="5_8ui2l"]
 [ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="5_hm872"]
 [ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="6_57uy4"]
@@ -60,7 +60,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_amjou"]
 _data = {
-"RESET": SubResource("Animation_cg0js")
+&"RESET": SubResource("Animation_cg0js")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wcxgy"]

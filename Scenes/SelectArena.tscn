@@ -1,10 +1,10 @@
 [gd_scene load_steps=29 format=3 uid="uid://dlvc611iva5t4"]
 
 [ext_resource type="Texture2D" uid="uid://d4ku83ihnt3es" path="res://Textures/Levels/Splashes/SunkenCityNight.png" id="1_u6rq8"]
-[ext_resource type="Script" path="res://Scripts/Menus/SelectArena/SelectArenaController.gd" id="1_vbm06"]
+[ext_resource type="Script" uid="uid://bf3pm7uppvlir" path="res://Scripts/Menus/SelectArena/SelectArenaController.gd" id="1_vbm06"]
 [ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="2_3n5g2"]
 [ext_resource type="Texture2D" uid="uid://cxsl4j0ejtuqb" path="res://Textures/Menus/Main Menu/hex_grid.png" id="3_vhpfo"]
-[ext_resource type="Shader" path="res://Materials/Shaders/GlitchEffect.gdshader" id="4_mtpou"]
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="4_mtpou"]
 [ext_resource type="LabelSettings" uid="uid://f8e31181q5h6" path="res://Prefabs/Menus/MenuTitleLabelSettings.tres" id="5_bvgc2"]
 [ext_resource type="PackedScene" uid="uid://d2umli7j8x75g" path="res://Prefabs/Menus/SelectArena/ArenaCard.tscn" id="6_sag7c"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="6_uq448"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://pd3t1l7dajxr" path="res://Prefabs/UI/Button.tscn" id="11_02yic"]
 [ext_resource type="AudioStream" uid="uid://d11lpsogmqpj" path="res://Sound/Menus/Select Player/Cursor.wav" id="14_vtt43"]
 [ext_resource type="AudioStream" uid="uid://benm8gdx2t3ly" path="res://Sound/Menus/Select Player/Select.wav" id="15_rkq55"]
-[ext_resource type="Script" path="res://Scripts/Menus/SelectArena/RulesMenuController.gd" id="15_siq4g"]
+[ext_resource type="Script" uid="uid://d4bah8gbh2202" path="res://Scripts/Menus/SelectArena/RulesMenuController.gd" id="15_siq4g"]
 
 [sub_resource type="Gradient" id="Gradient_3jlm4"]
 colors = PackedColorArray(0, 0, 0, 0.784314, 0, 0, 0, 0)
@@ -93,8 +93,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_novgl"]
 _data = {
-"Glitch": SubResource("Animation_ieuvc"),
-"RESET": SubResource("Animation_mvu6a")
+&"Glitch": SubResource("Animation_ieuvc"),
+&"RESET": SubResource("Animation_mvu6a")
 }
 
 [node name="SelectArena" type="Control" node_paths=PackedStringArray("arena_cards", "arena_splash", "arena_name_label", "weather_label", "rules_rounds_label", "rules_time_label", "open_rules_menu_button", "cursor_sfx", "select_sfx")]
@@ -377,6 +377,7 @@ layout_mode = 2
 selected = 1
 item_count = 5
 popup/item_0/text = "1"
+popup/item_0/id = 0
 popup/item_1/text = "2"
 popup/item_1/id = 1
 popup/item_2/text = "3"
@@ -399,6 +400,7 @@ layout_mode = 2
 selected = 1
 item_count = 4
 popup/item_0/text = "30"
+popup/item_0/id = 0
 popup/item_1/text = "60"
 popup/item_1/id = 1
 popup/item_2/text = "90"
@@ -416,5 +418,5 @@ bus = &"UI"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_novgl")
+&"": SubResource("AnimationLibrary_novgl")
 }
