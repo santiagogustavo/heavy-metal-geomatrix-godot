@@ -175,21 +175,21 @@ bones/33/position = Vector3(-0.199665, 0.125872, -0.236088)
 bones/33/rotation = Quaternion(0.863059, -0.093279, 0.173023, 0.465285)
 
 [node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="0"]
-transform = Transform3D(-0.929089, -0.241715, 0.279943, 0.368236, -0.675315, 0.639024, 0.0345876, 0.696795, 0.716436, -0.0270639, 1.16431, 0.0217682)
+transform = Transform3D(-0.929088, -0.241716, 0.279943, 0.368236, -0.675315, 0.639025, 0.034587, 0.696796, 0.716436, -0.027064, 1.16431, 0.0217683)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("5_hm872")
 properties = SubResource("Resource_c5sm1")
 
 [node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.0356876, -0.676547, -0.735534, -0.368236, -0.675315, 0.639024, -0.929047, 0.293655, -0.225029, -0.093792, 1.16431, -0.0400965)
+transform = Transform3D(-0.0356866, -0.676548, -0.735533, -0.368237, -0.675314, 0.639024, -0.929047, 0.293655, -0.22503, -0.0937921, 1.16431, -0.0400965)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("5_hm872")
 properties = SubResource("Resource_c5sm1")
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.733325, 0.679878, -2.9641e-07, 2.38419e-07, 1.78814e-07, 1, 0.679878, -0.733325, -3.09666e-08, -0.038445, 1.01624, -0.0330699)
+transform = Transform3D(0.733325, 0.679878, -1.74838e-07, 2.38419e-07, 0, 1, 0.679878, -0.733325, -1.62096e-07, -0.038445, 1.01624, -0.0330698)
 bone_name = "CoreIK"
 bone_idx = 13
 
@@ -197,7 +197,7 @@ bone_idx = 13
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
 
 [node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="3"]
-transform = Transform3D(-0.981107, -0.0298177, 0.191153, 0.193451, -0.163341, 0.967417, 0.00237685, 0.986119, 0.166024, -0.289731, 1.00378, -0.076178)
+transform = Transform3D(-0.981107, -0.0298181, 0.191155, 0.193452, -0.163341, 0.967417, 0.00237705, 0.986119, 0.166023, -0.289731, 1.00378, -0.0761781)
 bone_name = "Hand.R"
 bone_idx = 26
 
@@ -209,10 +209,10 @@ visible = false
 
 [node name="AnimationPlayer" parent="Model" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_amjou"),
-"Lower Body": ExtResource("7_n3yaf"),
-"Taunts": ExtResource("2_80p5x"),
-"Upper Body": ExtResource("9_xb46u")
+&"": SubResource("AnimationLibrary_amjou"),
+&"Lower Body": ExtResource("7_n3yaf"),
+&"Taunts": ExtResource("2_80p5x"),
+&"Upper Body": ExtResource("9_xb46u")
 }
 
 [node name="SFX" type="Node3D" parent="."]

@@ -64,7 +64,7 @@ vec3 Blur(vec2 uv, float d, int samples) {
 }
 
 void fragment() {
-    vec2 uv = UV;
+    vec2 uv = SCREEN_UV;
 
     float d=0.1-round(mod(TIME/3.0,1.0))*.1;;
     uv = jumpy(uv, mod(TIME * wiggle_speed, 7.0));

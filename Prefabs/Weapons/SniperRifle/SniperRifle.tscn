@@ -453,6 +453,9 @@ eject_hole = NodePath("EjectHole")
 [node name="Sniper Rifle" parent="." instance=ExtResource("1_4pa16")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
+[node name="object_1_001" parent="Sniper Rifle/Armature/Skeleton3D" index="0"]
+layers = 8
+
 [node name="BulletHole" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224411, -0.898884)
 
@@ -484,7 +487,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229593, 0.122277)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3vj7e")
+&"": SubResource("AnimationLibrary_3vj7e")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -551,7 +554,7 @@ stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
-"": SubResource("AnimationLibrary_8j6rv")
+&"": SubResource("AnimationLibrary_8j6rv")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="CanvasLayer"]

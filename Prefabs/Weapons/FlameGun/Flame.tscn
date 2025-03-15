@@ -20,7 +20,7 @@ curve = SubResource("Curve_5jprh")
 
 [sub_resource type="Gradient" id="Gradient_agse7"]
 offsets = PackedFloat32Array(0, 0.1, 0.8, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.566667, 0, 1, 0.45, 0.171525, 0.0945, 0.568627, 0, 0, 0, 0)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.305882, 0, 1, 0.45, 0.171525, 0.0945, 0.568627, 0, 0, 0, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_d540u"]

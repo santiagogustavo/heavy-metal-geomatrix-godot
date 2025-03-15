@@ -1,9 +1,9 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dfw6dl27kdifu"]
 
-[ext_resource type="Texture2D" uid="uid://c1w5e4hrxl2r2" path="res://Textures/Characters/Slash/22d056e4.png" id="1_8nk25"]
+[ext_resource type="Texture2D" uid="uid://cbk0f8r6hab4u" path="res://Textures/Characters/Slash/Skins/Default/22d056e4.png" id="1_mq03r"]
 [ext_resource type="Texture2D" uid="uid://c0dv83hiuk8jy" path="res://Textures/Characters/Slash/22d056e4_spec.png" id="2_8wkt1"]
 
 [resource]
-albedo_texture = ExtResource("1_8nk25")
+albedo_texture = ExtResource("1_mq03r")
 ao_enabled = true
 ao_texture = ExtResource("2_8wkt1")

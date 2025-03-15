@@ -47,6 +47,7 @@ func end_match() -> void:
 
 func create_team() -> int:
 	var new_team = Team.new()
+	new_team.name = "Team +" + str(teams.size())
 	new_team.killed.connect(func (last_killed_player: Player): team_was_killed(last_killed_player))
 	new_team.spawned_player.connect(func (player: Player): spawned_player.emit(player))
 	add_child(new_team)
@@ -104,11 +105,10 @@ func get_player_one() -> Player:
 			return team.players[index]
 	return null
 
-func get_enemies() -> Array[Player]:
-	var player_one_team: String = get_player_one().team.name
+func get_enemies(team_name: String) -> Array[Player]:
 	var enemies: Array[Player] = []
 	for team: Team in teams:
-		if team.name != player_one_team:
+		if team.name != team_name:
 			for player: Player in team.players:
 				enemies.append(player)
 	return enemies

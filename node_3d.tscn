@@ -1,0 +1,78 @@
+[gd_scene load_steps=15 format=3 uid="uid://dpqrsp63ylhf1"]
+
+[ext_resource type="Texture2D" uid="uid://d05qh8d2ite1s" path="res://Textures/Skyboxes/Day Cloudy.png" id="1_i5arm"]
+[ext_resource type="Script" uid="uid://cqve5bpmljhwj" path="res://Scripts/Levels/Sun.gd" id="1_jka67"]
+[ext_resource type="Texture2D" uid="uid://bt65tnwiuh5td" path="res://Textures/Levels/Ocean Castle Twilight/e109d152.png" id="1_r3fl7"]
+[ext_resource type="Texture2D" uid="uid://cuh5hqhhxmlga" path="res://Textures/Levels/Ocean Castle Twilight/e109d152_spec.png" id="2_jka67"]
+[ext_resource type="PackedScene" uid="uid://dfansvoctxs5e" path="res://Prefabs/Characters/Kassey/Base.tscn" id="3_i5arm"]
+[ext_resource type="Shader" uid="uid://b4o2fauv7bvey" path="res://Materials/Shaders/Thermal.gdshader" id="4_wc5p8"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wc5p8"]
+panorama = ExtResource("1_i5arm")
+
+[sub_resource type="Sky" id="Sky_jsk3o"]
+sky_material = SubResource("PanoramaSkyMaterial_wc5p8")
+
+[sub_resource type="Environment" id="Environment_4arys"]
+background_mode = 2
+sky = SubResource("Sky_jsk3o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsk3o"]
+albedo_texture = ExtResource("1_r3fl7")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_jka67")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4arys"]
+material = SubResource("StandardMaterial3D_jsk3o")
+size = Vector2(10, 10)
+orientation = 1
+
+[sub_resource type="Gradient" id="Gradient_i5arm"]
+offsets = PackedFloat32Array(0, 0.4, 0.8, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wc5p8"]
+gradient = SubResource("Gradient_i5arm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdqbm"]
+shader = ExtResource("4_wc5p8")
+shader_parameter/gradient = SubResource("GradientTexture1D_wc5p8")
+shader_parameter/use_screen_texture = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4arys")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+script = ExtResource("1_jka67")
+metadata/_custom_type_script = "uid://cqve5bpmljhwj"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_4arys")
+
+[node name="Kassey" parent="." instance=ExtResource("3_i5arm")]
+transform = Transform3D(-0.482963, 0, 0.12941, 0, 0.5, 0, -0.12941, 0, -0.482963, -0.0621726, 0, 1.13252)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.980955, -0.0664321, 0.182521, 0, 0.939693, 0.34202, -0.194234, -0.335506, 0.921796, 0.119486, 0.67634, 1.89542)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_cdqbm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -44,12 +44,15 @@ var shoot_target: Vector3 = Vector3.ZERO
 var player_input: PlayerInputManager
 var player_ui: Node2D
 
+var player_brain: PlayerBrain
+
 var collided_pickup: PickupController
 
 var is_locked_on: bool = false
 var lock_on_target: int = -1
 var lock_on_instance: Node3D
 var initial_camera_pivot_rotation: Vector3 = Vector3.ZERO
+var target_position: Vector3 = Vector3.ZERO
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
@@ -67,9 +70,9 @@ func _ready() -> void:
 			add_child(player_input)
 			player_ui = load("res://Prefabs/Player/UI.tscn").instantiate()
 			get_tree().root.add_child.call_deferred(player_ui)
-			pass
 		PlayerType.Bot:
-			pass
+			player_brain = PlayerBrain.new()
+			add_child(player_brain)
 	character = load(Definitions.Players[selected_character]).instantiate()
 	add_child(character)
 	player_name = character.character_name
@@ -96,6 +99,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	update_internals()
 	update_externals()
+	look_at_target_position()
 	set_animator_variables()
 	set_camera_variables()
 	set_inventory_items_variables()
@@ -106,20 +110,22 @@ func _exit_tree() -> void:
 		player_ui.queue_free()
 	if player_input:
 		player_input.queue_free()
+	if player_brain:
+		player_brain.queue_free()
 
 func lock_on_to_next_target() -> void:
 	if lock_on_instance:
 		lock_on_instance.queue_free()
 		lock_on_instance = null
-	if lock_on_target == GameManager.get_enemies().size() - 1:
+	if lock_on_target == GameManager.get_enemies(team.name).size() - 1:
 		lock_on_target = -1
 	else:
 		lock_on_target += 1
-		if GameManager.get_enemies()[lock_on_target].health == 0:
+		if GameManager.get_enemies(team.name)[lock_on_target].health == 0:
 			lock_on_to_next_target()
 		lock_on_instance = lock_on_prefab.instantiate()
 		lock_on_instance.position = Vector3(0, 1.0, 0)
-		GameManager.get_enemies()[lock_on_target].add_child(lock_on_instance)
+		GameManager.get_enemies(team.name)[lock_on_target].add_child(lock_on_instance)
 
 func reset_player_to_spawn() -> void:
 	if spawn_point:
@@ -127,6 +133,8 @@ func reset_player_to_spawn() -> void:
 		rotation = spawn_point.global_rotation
 	if player_input:
 		player_input.new_rotation = rotation
+	if player_brain:
+		player_brain.new_rotation = rotation
 	if animation_tree:
 		animation_tree.reset_player()
 
@@ -155,13 +163,7 @@ func update_externals() -> void:
 	is_locked_on = lock_on_target != -1
 	player_input.is_locked_on = is_locked_on
 	if player_input.is_locked_on:
-		var target_position = GameManager.get_enemies()[lock_on_target].global_position + Vector3(0, 1.0, 0)
-		#var initial_rotation: Vector3 = rotation
-		#look_at(target_position)
-		#rotation.x = initial_rotation.x
-		#rotation.z = initial_rotation.z
-		camera_pivot.look_at(target_position)
-		player_input.new_rotation = camera_pivot.global_rotation
+		target_position = GameManager.get_enemies(team.name)[lock_on_target].global_position + Vector3(0, 1.0, 0)
 	player_input.is_on_floor = is_on_floor()
 	player_input.can_double_jump = (
 		inventory_manager.has_jetpack
@@ -174,6 +176,18 @@ func update_externals() -> void:
 	dash.is_dashing = player_input.is_dashing
 	dash.input_direction = player_input.input_direction
 	dash.player_velocity = velocity
+
+func look_at_target_position() -> void:
+	#var initial_rotation: Vector3 = rotation
+	#look_at(target_position)
+	#rotation.x = initial_rotation.x
+	#rotation.z = initial_rotation.z
+	if player_input and player_input.is_locked_on:
+		camera_pivot.look_at(target_position)
+		player_input.new_rotation = camera_pivot.global_rotation
+	elif player_brain:
+		camera_pivot.look_at(target_position)
+		player_brain.new_rotation = camera_pivot.global_rotation
 
 func compute_movement() -> void:
 	var current_speed = character.speed
@@ -237,6 +251,9 @@ func set_animator_variables() -> void:
 		animation_tree.is_shooting = player_input.is_shooting
 		animation_tree.is_attacking = player_input.is_attacking
 		animation_tree.is_picking_up = player_input.is_picking_up
+	if player_brain:
+		animation_tree.direction = Vector2(player_brain.direction.x, player_brain.direction.z)
+		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6)
 	animation_tree.is_on_floor = is_on_floor()
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping

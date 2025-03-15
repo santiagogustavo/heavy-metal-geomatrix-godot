@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dqjcw70ma073f"]
+[gd_scene load_steps=59 format=3 uid="uid://dqjcw70ma073f"]
 
 [ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_hjaw0"]
 [ext_resource type="PackedScene" uid="uid://dnjrhfjta5ceq" path="res://Prefabs/Weapons/LaserRifle/Bullet.tscn" id="2_gw1da"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dgmp5n6ey6rir" path="res://Textures/Particles/fog_1.png" id="4_ied0j"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_216hm"]
 [ext_resource type="AudioStream" uid="uid://pvnpxiyie4nb" path="res://Sound/Weapons/Laser Rifle/Shoot.wav" id="6_wcl0o"]
+[ext_resource type="Script" uid="uid://b1r8ujjwdqjf3" path="res://Scripts/Weapons/LaserRifle/ThermalScopeController.gd" id="9_of5vx"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="9_p7tcm"]
+[ext_resource type="Shader" uid="uid://b4o2fauv7bvey" path="res://Materials/Shaders/Thermal.gdshader" id="12_6tac8"]
+[ext_resource type="Shader" uid="uid://6re56k5n6vww" path="res://Materials/Shaders/Night Vision.gdshader" id="12_peh57"]
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="14_6tac8"]
 
 [sub_resource type="Animation" id="Animation_4xas3"]
 resource_name = "Idle"
@@ -300,21 +305,222 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_uunqj"]
 material = SubResource("StandardMaterial3D_q12wm")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tac8"]
+shader = ExtResource("12_peh57")
+shader_parameter/luminance = Color(1, 1, 1, 1)
+shader_parameter/base_color = Color(0, 0.490196, 1, 1)
+shader_parameter/brightness = 1.5
+shader_parameter/noise_level = 0.2
+shader_parameter/vignette_level = 0.45
+shader_parameter/edge_x = 2.0
+shader_parameter/edge_y = 3.0
+shader_parameter/flickering_level = 0.1
+
+[sub_resource type="Gradient" id="Gradient_6tac8"]
+offsets = PackedFloat32Array(0, 0.4, 0.8, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0cqty"]
+gradient = SubResource("Gradient_6tac8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5us0"]
+shader = ExtResource("12_6tac8")
+shader_parameter/gradient = SubResource("GradientTexture1D_0cqty")
+shader_parameter/use_screen_texture = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gbhrc"]
+viewport_path = NodePath("ThermalScope/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cqty"]
+shader = ExtResource("14_6tac8")
+shader_parameter/shake_power = 0.2
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="Animation" id="Animation_peh57"]
+resource_name = "Disable"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Glitch/Control/Glitch:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Thermal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../NightVision/Control/NightVision:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_w5us0"]
+resource_name = "Enable"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Glitch/Control/Glitch:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Thermal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../NightVision/Control/NightVision:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_kvfqx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Glitch/Control/Glitch:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Thermal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../NightVision/Control/NightVision:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rpp61"]
+_data = {
+&"Disable": SubResource("Animation_peh57"),
+&"Enable": SubResource("Animation_w5us0"),
+&"RESET": SubResource("Animation_kvfqx")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_peh57"]
+animation = &"Disable"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6tac8"]
+animation = &"Enable"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0cqty"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w5us0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kvfqx"]
+advance_mode = 2
+advance_condition = &"is_aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rpp61"]
+advance_mode = 2
+advance_condition = &"is_not_aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d1umb"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ke7s5"]
+states/Disable/node = SubResource("AnimationNodeAnimation_peh57")
+states/Disable/position = Vector2(636, -33.875)
+states/Enable/node = SubResource("AnimationNodeAnimation_6tac8")
+states/Enable/position = Vector2(410, -34.5)
+states/RESET/node = SubResource("AnimationNodeAnimation_0cqty")
+states/RESET/position = Vector2(524.5, 101.75)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_w5us0"), "RESET", "Enable", SubResource("AnimationNodeStateMachineTransition_kvfqx"), "Enable", "Disable", SubResource("AnimationNodeStateMachineTransition_rpp61"), "Disable", "RESET", SubResource("AnimationNodeStateMachineTransition_d1umb")]
+graph_offset = Vector2(32, -128)
+
 [node name="LaserRifle" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("1_hjaw0")
 item_name = "Laser Rifle"
 bullets = 16
 fire_rate = 0.5
+zoom_factor = 1.5
 bullet = ExtResource("2_gw1da")
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole")]
 
 [node name="Laser Rifle" parent="." instance=ExtResource("3_wvedj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="object_0" parent="Laser Rifle" index="0"]
+layers = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h4uwj")
+&"": SubResource("AnimationLibrary_h4uwj")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -336,7 +542,7 @@ bus = &"Effects"
 attenuation_filter_db = 0.0
 
 [node name="BulletHole" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227895, -0.830574)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178358, -0.626534)
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="BulletHole"]
 emitting = false
@@ -373,5 +579,97 @@ max_db = 0.0
 pitch_scale = 0.75
 bus = &"Reverb"
 attenuation_filter_db = 0.0
+
+[node name="ThermalScope" type="Node3D" parent="." node_paths=PackedStringArray("scope_camera", "animation_tree")]
+script = ExtResource("9_of5vx")
+scope_camera = NodePath("SubViewport/Camera3D")
+animation_tree = NodePath("AnimationTree")
+
+[node name="SubViewport" type="SubViewport" parent="ThermalScope"]
+transparent_bg = true
+handle_input_locally = false
+debug_draw = 1
+script = ExtResource("9_p7tcm")
+
+[node name="Camera3D" type="Camera3D" parent="ThermalScope/SubViewport"]
+cull_mask = 12
+
+[node name="NightVision" type="CanvasLayer" parent="ThermalScope"]
+layer = 0
+
+[node name="Control" type="Control" parent="ThermalScope/NightVision"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NightVision" type="ColorRect" parent="ThermalScope/NightVision/Control"]
+visible = false
+material = SubResource("ShaderMaterial_6tac8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scope" type="CanvasLayer" parent="ThermalScope"]
+layer = 0
+
+[node name="Control" type="Control" parent="ThermalScope/Scope"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Thermal" type="TextureRect" parent="ThermalScope/Scope/Control"]
+visible = false
+material = SubResource("ShaderMaterial_w5us0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_gbhrc")
+expand_mode = 1
+
+[node name="Glitch" type="CanvasLayer" parent="ThermalScope"]
+layer = 0
+
+[node name="Control" type="Control" parent="ThermalScope/Glitch"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Glitch" type="ColorRect" parent="ThermalScope/Glitch/Control"]
+visible = false
+material = SubResource("ShaderMaterial_0cqty")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ThermalScope"]
+root_node = NodePath("../Scope")
+libraries = {
+&"": SubResource("AnimationLibrary_rpp61")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="ThermalScope"]
+root_node = NodePath("../Scope")
+tree_root = SubResource("AnimationNodeStateMachine_ke7s5")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_aiming = false
+parameters/conditions/is_not_aiming = false
 
 [editable path="Laser Rifle"]

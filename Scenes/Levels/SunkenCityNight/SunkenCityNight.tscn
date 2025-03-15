@@ -284,7 +284,7 @@ script = ExtResource("3_cpffb")
 
 [node name="SnapshotCamera" parent="SnapshotViewport" instance=ExtResource("4_ccf1j")]
 transform = Transform3D(-0.258819, -0.314475, -0.9133, 0, 0.945518, -0.325568, 0.965926, -0.0842632, -0.244718, -20.03, 11.16, -33.74)
-cull_mask = 81
+cull_mask = 209
 
 [node name="Spawn Points" type="Node3D" parent="."]
 
@@ -299,6 +299,7 @@ environment = SubResource("Environment_pkx01")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.788043, 0.295041, -0.540314, -2.43716e-09, 0.877674, 0.479259, 0.61562, -0.377676, 0.691645, -20.8277, 17.618, -26.1909)
+layers = 128
 light_energy = 0.1
 shadow_enabled = true
 

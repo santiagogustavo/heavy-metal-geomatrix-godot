@@ -351,6 +351,9 @@ hit_decal = ExtResource("2_psgu7")
 
 [node name="Flame Gun" parent="." instance=ExtResource("1_itxgw")]
 
+[node name="object_4" parent="Flame Gun" index="0"]
+layers = 8
+
 [node name="BaseLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00270765, -0.918352)
 visible = false

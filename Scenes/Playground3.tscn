@@ -57,13 +57,16 @@ backface_collision = true
 
 [node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_pawks")]
 level_name = "Playground3"
-spawn_points = [NodePath("../Spawn Points/SpawnPoint")]
+spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 is_snowy = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
 
 [node name="SpawnPoint" parent="Spawn Points" instance=ExtResource("2_k7xfn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("2_k7xfn")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 0, 6)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_boljn")
@@ -75,6 +78,7 @@ light_energy = 0.5
 [node name="Level Geometry" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
+layers = 16
 mesh = SubResource("BoxMesh_ekdnb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
@@ -93,6 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1.19209e-07, 3)
 
 [node name="GlassTest" type="MeshInstance3D" parent="Level Geometry"]
 transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 4.70097)
+layers = 16
 mesh = SubResource("BoxMesh_utk2p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/GlassTest"]

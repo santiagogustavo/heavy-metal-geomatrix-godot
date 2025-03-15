@@ -214,6 +214,7 @@ lock_on={
 3d_render/layer_5="Level Geometry"
 3d_render/layer_6="Gizmos"
 3d_render/layer_7="Weather"
+3d_render/layer_8="Lighting"
 3d_render/layer_11="Layer 11"
 3d_render/layer_12="Layer 12"
 3d_physics/layer_1="Player"

@@ -41,6 +41,7 @@ orientation = 1
 
 [node name="GroundSnow" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+layers = 64
 amount = 150
 lifetime = 2.0
 preprocess = 1.0

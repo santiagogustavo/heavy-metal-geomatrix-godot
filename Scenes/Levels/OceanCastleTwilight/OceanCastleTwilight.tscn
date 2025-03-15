@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=57 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_4un3q"]
 [ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_tegcv"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://co88rxe270cqj" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst3.mp3" id="25_2uk6u"]
 [ext_resource type="AudioStream" uid="uid://crlksg8qn273" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst4.mp3" id="26_wj5b2"]
 [ext_resource type="AudioStream" uid="uid://d26wqq6m3ifj3" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst5.mp3" id="27_ryyg3"]
+[ext_resource type="PackedScene" uid="uid://cv3ji7o4nkmac" path="res://Prefabs/Pickups/LaserRiflePickup.tscn" id="29_4dk0m"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lpthc"]
 viewport_path = NodePath("SnapshotViewport")
@@ -203,7 +204,7 @@ script = ExtResource("3_i8vr7")
 
 [node name="SnapshotCamera" parent="SnapshotViewport" instance=ExtResource("4_heanl")]
 transform = Transform3D(-0.71934, 0.0846576, 0.68948, 0, 0.992546, -0.121869, -0.694658, -0.0876656, -0.713978, -12.8, 1.13, -8.98)
-cull_mask = 81
+cull_mask = 209
 
 [node name="Spawn Points" type="Node3D" parent="."]
 
@@ -218,6 +219,7 @@ environment = SubResource("Environment_q5l4r")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.485451, 0.186119, -0.854223, -0.042699, 0.970863, 0.235799, 0.87322, 0.150943, -0.46336, -101.001, 19.9837, -50.0151)
+layers = 128
 shadow_enabled = true
 shadow_bias = 0.02
 shadow_reverse_cull_face = true
@@ -632,6 +634,9 @@ process_mode = 3
 stream = SubResource("AudioStreamRandomizer_7odcm")
 autoplay = true
 bus = &"Game"
+
+[node name="LaserRiflePickup" parent="." instance=ExtResource("29_4dk0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27795, 3.51582, 5.32736)
 
 [editable path="SplashLayer"]
 [editable path="Level Geometry/Ocean Castle Twilight"]
