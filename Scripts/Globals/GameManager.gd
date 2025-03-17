@@ -27,11 +27,9 @@ func spawn_players() -> void:
 func reset_players_to_spawn_points():
 	for team: Team in teams:
 		for player: Player in team.players:
-			player.character.set_jiggle_bones_enabled(false)
 			player.heal_player(100)
 			player.reset_player_to_spawn()
-			await get_tree().create_timer(0.5).timeout
-			player.character.set_jiggle_bones_enabled(true)
+			player.character.reset_jiggle_bones()
 
 func create_match(new_match: MatchManager) -> void:
 	current_match = new_match

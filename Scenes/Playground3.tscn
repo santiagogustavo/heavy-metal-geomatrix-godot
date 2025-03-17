@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bnidl6p4mravx"]
+[gd_scene load_steps=24 format=3 uid="uid://bnidl6p4mravx"]
 
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="1_56f3u"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_pawks"]
@@ -34,9 +34,6 @@ uv1_scale = Vector3(20, 12, 1)
 material = SubResource("StandardMaterial3D_v2xe6")
 size = Vector3(20, 0.05, 20)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dyrvp"]
-data = PackedVector3Array(-10, 0.025, 10, 10, 0.025, 10, -10, -0.025, 10, 10, 0.025, 10, 10, -0.025, 10, -10, -0.025, 10, 10, 0.025, -10, -10, 0.025, -10, 10, -0.025, -10, -10, 0.025, -10, -10, -0.025, -10, 10, -0.025, -10, 10, 0.025, 10, 10, 0.025, -10, 10, -0.025, 10, 10, 0.025, -10, 10, -0.025, -10, 10, -0.025, 10, -10, 0.025, -10, -10, 0.025, 10, -10, -0.025, -10, -10, 0.025, 10, -10, -0.025, 10, -10, -0.025, -10, 10, 0.025, 10, -10, 0.025, 10, 10, 0.025, -10, -10, 0.025, 10, -10, 0.025, -10, 10, 0.025, -10, -10, -0.025, 10, 10, -0.025, 10, -10, -0.025, -10, 10, -0.025, 10, 10, -0.025, -10, -10, -0.025, -10)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0jbh1"]
 load_path = "res://.godot/imported/frosted_glass.png-acd3ecf53d38c4b6237d2498b754fa76.s3tc.ctex"
 
@@ -48,6 +45,13 @@ shader_parameter/normal_map = SubResource("CompressedTexture2D_0jbh1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_utk2p"]
 material = SubResource("ShaderMaterial_g3ube")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_wnh1s"]
+vertices = PackedVector3Array(-9.5, 0.454216, 3.5, -2.5, 0.454216, 3.5, -2.25, 0.454216, 3, 0.5, 0.454216, -9.5, -9.5, 0.454216, -9.5, 0.5, 0.454216, 3, 1, 0.454216, 6, -0.75, 0.454216, 6.25, -0.75, 0.454216, 9.5, 9.5, 0.454216, 9.5, 1, 0.454216, 3.25, 9.5, 0.454216, -9.5, -2.5, 0.454216, 6, -9.5, 0.454216, 9.5, -1.5, 2.45422, 4, -1.5, 2.45422, 5.25, 0, 2.45422, 5.25, 0, 2.45422, 4, -1.25, 0.454216, 4.25, -1.25, 0.454216, 5, -0.25, 0.454216, 5, -0.25, 0.454216, 4.25)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(3, 11, 10), PackedInt32Array(10, 11, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(10, 5, 3), PackedInt32Array(12, 7, 8), PackedInt32Array(0, 1, 12), PackedInt32Array(8, 13, 12), PackedInt32Array(12, 13, 0), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(21, 20, 18), PackedInt32Array(18, 20, 19)]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dyrvp"]
+data = PackedVector3Array(-10, 0.025, 10, 10, 0.025, 10, -10, -0.025, 10, 10, 0.025, 10, 10, -0.025, 10, -10, -0.025, 10, 10, 0.025, -10, -10, 0.025, -10, 10, -0.025, -10, -10, 0.025, -10, -10, -0.025, -10, 10, -0.025, -10, 10, 0.025, 10, 10, 0.025, -10, 10, -0.025, 10, 10, 0.025, -10, 10, -0.025, -10, 10, -0.025, 10, -10, 0.025, -10, -10, 0.025, 10, -10, -0.025, -10, -10, 0.025, 10, -10, -0.025, 10, -10, -0.025, -10, 10, 0.025, 10, -10, 0.025, 10, 10, 0.025, -10, -10, 0.025, 10, -10, 0.025, -10, 10, 0.025, -10, -10, -0.025, 10, 10, -0.025, 10, -10, -0.025, -10, 10, -0.025, 10, 10, -0.025, -10, -10, -0.025, -10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rxerr"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -66,7 +70,7 @@ is_snowy = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("2_k7xfn")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 0, 6)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 5, 0, 6)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_boljn")
@@ -81,11 +85,10 @@ light_energy = 0.5
 layers = 16
 mesh = SubResource("BoxMesh_ekdnb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
-collision_layer = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_dyrvp")
+[node name="GlassTest" type="MeshInstance3D" parent="Level Geometry"]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 4.70097)
+layers = 16
+mesh = SubResource("BoxMesh_utk2p")
 
 [node name="Snowfall" parent="Level Geometry" instance=ExtResource("8_tslua")]
 
@@ -95,15 +98,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0571825, 0)
 [node name="HandgunPickup" parent="Level Geometry" instance=ExtResource("10_ei662")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1.19209e-07, 3)
 
-[node name="GlassTest" type="MeshInstance3D" parent="Level Geometry"]
-transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 4.70097)
-layers = 16
-mesh = SubResource("BoxMesh_utk2p")
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
+navigation_mesh = SubResource("NavigationMesh_wnh1s")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/GlassTest"]
+[node name="Collisions" type="Node3D" parent="Level Geometry/NavigationRegion3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Collisions"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Collisions/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dyrvp")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Collisions"]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 4.70097)
 collision_layer = 260
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/GlassTest/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Collisions/StaticBody3D2"]
 shape = SubResource("ConcavePolygonShape3D_rxerr")
 
 [node name="World Boundaries" parent="." instance=ExtResource("1_56f3u")]

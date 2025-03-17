@@ -66,5 +66,5 @@ _defaults_have_been_set = true
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160548, -0.00359857)
 target_position = Vector3(0, 1.15, 0)
-collision_mask = 5
+collision_mask = 68
 debug_shape_thickness = 5

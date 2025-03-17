@@ -366,7 +366,7 @@ max_light_range = 0.5
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83176)
 target_position = Vector3(0, 0, -2.5)
-collision_mask = 3333
+collision_mask = 68
 
 [node name="Flame" parent="." instance=ExtResource("2_r6w7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.877798)

@@ -44,7 +44,7 @@ material = SubResource("ShaderMaterial_bacuo")
 
 [node name="Bullet" type="RigidBody3D"]
 collision_layer = 8
-collision_mask = 21
+collision_mask = 84
 gravity_scale = 0.0
 script = ExtResource("1_rn5p5")
 speed = 150.0

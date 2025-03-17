@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ccry22wstybxj"]
+[gd_scene load_steps=41 format=3 uid="uid://ccry22wstybxj"]
 
 [ext_resource type="PackedScene" uid="uid://cont5l5c6d0ig" path="res://Models/Characters/Di/Di.glb" id="1_lan5e"]
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_xxywp"]
@@ -14,6 +14,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://pch4hmnax3x6" path="res://Animations/Characters/Di/Lower Body.res" id="7_sh0fi"]
 [ext_resource type="AudioStream" uid="uid://o2bkqgxtn8n" path="res://Sound/Characters/Di/Taunts/Entrance.wav" id="8_6bbiy"]
 [ext_resource type="PackedScene" uid="uid://b7radydo3li6r" path="res://Models/Characters/Di/Skins/Skin2.tscn" id="8_74yiy"]
+[ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="8_516h7"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="8_e8aq4"]
 [ext_resource type="AudioStream" uid="uid://srlaaa2tu160" path="res://Sound/Characters/Di/Taunts/Win.wav" id="9_3qc8s"]
 [ext_resource type="PackedScene" uid="uid://cvcq0427krdfb" path="res://Models/Characters/Di/Skins/Skin3.tscn" id="9_nc41o"]
@@ -283,7 +284,7 @@ stream_0/stream = ExtResource("21_0m75m")
 stream_1/stream = ExtResource("22_hccd4")
 stream_2/stream = ExtResource("23_bnul5")
 
-[node name="Di" type="Node3D" node_paths=PackedStringArray("skins", "sfx_controller", "body_slot", "right_hand_slot")]
+[node name="Di" type="Node3D" node_paths=PackedStringArray("skins", "hitboxes", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
 script = ExtResource("1_xxywp")
 character = 3
 character_team = 2
@@ -292,6 +293,8 @@ avatar_small = ExtResource("3_7p708")
 skins = [NodePath("Model/Default"), NodePath("Model/Skin1"), NodePath("Model/Skin2"), NodePath("Model/Skin3")]
 stat_speed = 3
 stat_power = 2
+hitboxes = [NodePath("Model/Armature/Skeleton3D/Hitboxes/Head/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HandR/Area3D")]
+jiggle_bones = [NodePath("Model/Armature/Skeleton3D/BoobJiggle_L"), NodePath("Model/Armature/Skeleton3D/BoobJiggle_R")]
 sfx_controller = NodePath("SFX")
 body_slot = NodePath("Model/Armature/Skeleton3D/Body Slot")
 right_hand_slot = NodePath("Model/Armature/Skeleton3D/Right Hand Slot")
@@ -386,7 +389,51 @@ bone_idx = 26
 [node name="Offset" type="Node3D" parent="Model/Armature/Skeleton3D/Right Hand Slot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00895185, 0.0500496, -3.59192e-07)
 
-[node name="Di" parent="Model/Armature/Skeleton3D" index="4"]
+[node name="Hitboxes" parent="Model/Armature/Skeleton3D" index="4" instance=ExtResource("8_516h7")]
+
+[node name="Head" parent="Model/Armature/Skeleton3D/Hitboxes" index="0"]
+transform = Transform3D(0.999925, -0.0122087, -0.00130588, -2.35438e-06, 0.106166, -0.994348, 0.0122785, 0.994273, 0.106158, -0.0168587, 1.41633, 0.146762)
+
+[node name="Torso" parent="Model/Armature/Skeleton3D/Hitboxes" index="1"]
+transform = Transform3D(0.900562, -0.039655, -0.432916, -0.0971406, 0.952295, -0.289304, 0.423736, 0.30259, 0.853749, -0.0311191, 1.02126, 0.0592065)
+
+[node name="HipL" parent="Model/Armature/Skeleton3D/Hitboxes" index="2"]
+transform = Transform3D(0.993945, 0.0959193, -0.0536078, 0.105686, -0.96804, 0.227438, -0.0300788, -0.231726, -0.972316, 0.0688998, 0.905944, 0.0390688)
+
+[node name="ShinL" parent="Model/Armature/Skeleton3D/Hitboxes" index="3"]
+transform = Transform3D(0.993945, -0.0187227, -0.108276, 0.105685, -0.106854, 0.988642, -0.0300798, -0.994098, -0.104228, 0.102525, 0.566591, -0.0421644)
+
+[node name="FootL" parent="Model/Armature/Skeleton3D/Hitboxes" index="4"]
+transform = Transform3D(0.989566, -0.0678544, -0.127102, 0.00124677, -0.878096, 0.478483, -0.144075, -0.473649, -0.868849, 0.0953459, 0.525619, -0.423341)
+
+[node name="HipR" parent="Model/Armature/Skeleton3D/Hitboxes" index="5"]
+transform = Transform3D(0.999084, -0.0427722, -0.00102334, -0.0289745, -0.65881, -0.751751, 0.0314799, 0.751092, -0.659446, -0.080308, 0.880199, 0.0219345)
+
+[node name="ShinR" parent="Model/Armature/Skeleton3D/Hitboxes" index="6"]
+transform = Transform3D(0.999084, -0.0229451, 0.0361114, -0.0289745, -0.983878, 0.176479, 0.0314798, -0.177364, -0.983642, -0.0953021, 0.649249, 0.285235)
+
+[node name="FootR" parent="Model/Armature/Skeleton3D/Hitboxes" index="7"]
+transform = Transform3D(1, -1.94646e-05, -3.09572e-05, -3.65223e-05, -0.54453, -0.838741, -5.40167e-07, 0.838741, -0.54453, -0.1041, 0.271991, 0.217227)
+
+[node name="BicepL" parent="Model/Armature/Skeleton3D/Hitboxes" index="8"]
+transform = Transform3D(-0.635496, 0.336078, -0.695123, -0.429691, -0.90194, -0.0432383, -0.641491, 0.27121, 0.717589, 0.0627952, 1.27199, 0.195117)
+
+[node name="TricepL" parent="Model/Armature/Skeleton3D/Hitboxes" index="9"]
+transform = Transform3D(-0.638224, -0.366565, -0.676979, -0.546672, -0.403366, 0.733788, -0.542051, 0.838407, 0.0570471, 0.154078, 1.02701, 0.268781)
+
+[node name="HandL" parent="Model/Armature/Skeleton3D/Hitboxes" index="10"]
+transform = Transform3D(-0.553821, -0.732499, -0.395889, -0.266282, -0.29468, 0.917746, -0.788908, 0.613685, -0.0318514, 0.0652502, 0.929267, 0.471948)
+
+[node name="BicepR" parent="Model/Armature/Skeleton3D/Hitboxes" index="11"]
+transform = Transform3D(-0.796477, -0.190961, -0.573724, 0.566656, -0.566834, -0.597997, -0.211012, -0.801394, 0.559679, -0.108749, 1.32188, 0.051063)
+
+[node name="TricepR" parent="Model/Armature/Skeleton3D/Hitboxes" index="12"]
+transform = Transform3D(-0.621395, -0.51639, 0.589245, 0.752046, -0.182164, 0.633437, -0.219761, 0.836754, 0.501545, -0.160617, 1.16792, -0.166605)
+
+[node name="HandR" parent="Model/Armature/Skeleton3D/Hitboxes" index="13"]
+transform = Transform3D(-0.976797, -0.0812687, 0.198147, 0.214149, -0.381995, 0.89901, 0.0026298, 0.920584, 0.390536, -0.285751, 1.12378, 0.0361618)
+
+[node name="Di" parent="Model/Armature/Skeleton3D" index="5"]
 visible = false
 layers = 4
 
@@ -510,4 +557,5 @@ bus = &"Characters"
 attenuation_filter_db = 0.0
 
 [editable path="Model"]
+[editable path="Model/Armature/Skeleton3D/Hitboxes"]
 [editable path="SFX/Common"]

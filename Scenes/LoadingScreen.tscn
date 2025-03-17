@@ -183,7 +183,7 @@ expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Logo"]
 libraries = {
-"": SubResource("AnimationLibrary_bck0w")
+&"": SubResource("AnimationLibrary_bck0w")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="ColorRect/Logo"]
@@ -205,7 +205,7 @@ label_settings = SubResource("LabelSettings_1b3bh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Label"]
 libraries = {
-"": SubResource("AnimationLibrary_qij2g")
+&"": SubResource("AnimationLibrary_qij2g")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="ColorRect/Label"]

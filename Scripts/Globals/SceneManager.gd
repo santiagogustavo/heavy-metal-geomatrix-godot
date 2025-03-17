@@ -23,9 +23,9 @@ func load_scene_file(file: String) -> void:
 	var thread_status: ResourceLoader.ThreadLoadStatus = ResourceLoader.load_threaded_get_status(file)
 	while thread_status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 		thread_status = ResourceLoader.load_threaded_get_status(file)
-	get_tree().create_timer(0.5).timeout.connect(func ():
-		if thread_status == ResourceLoader.THREAD_LOAD_LOADED:
+	if thread_status == ResourceLoader.THREAD_LOAD_LOADED:
+		get_tree().create_timer(0.5).timeout.connect(func ():
 			var scene = ResourceLoader.load_threaded_get(file)
 			get_tree().change_scene_to_packed(scene)
 			LoadingOverlay.is_loading = false
-	)
+		)

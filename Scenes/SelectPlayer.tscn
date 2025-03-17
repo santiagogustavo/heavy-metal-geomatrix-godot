@@ -552,9 +552,10 @@ cast_shadow = 0
 [node name="CharacterContainer" type="Node3D" parent="."]
 transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, -13, 154.86)
 
-[node name="Mayfly" parent="CharacterContainer" instance=ExtResource("17_bk0fd")]
+[node name="Mayfly" parent="CharacterContainer" node_paths=PackedStringArray("hitboxes") instance=ExtResource("17_bk0fd")]
 visible = false
 stat_speed = 1
+hitboxes = []
 initial_loadout = null
 initial_loadout_slot = 0
 

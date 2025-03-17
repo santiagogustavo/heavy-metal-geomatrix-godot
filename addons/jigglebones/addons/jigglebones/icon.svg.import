@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c76lu25r3ejn5"
-path="res://.godot/imported/icon.svg-7a5073a70683e8b3e7a4aed6cda0db45.ctex"
+path="res://.godot/imported/icon.svg-ad6a75b6c2299241b4e6031956947ed5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/jigglebones/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-7a5073a70683e8b3e7a4aed6cda0db45.ctex"]
+source_file="res://addons/jigglebones/addons/jigglebones/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-ad6a75b6c2299241b4e6031956947ed5.ctex"]
 
 [params]
 

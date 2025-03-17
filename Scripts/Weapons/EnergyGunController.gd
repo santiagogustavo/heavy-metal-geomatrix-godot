@@ -55,8 +55,8 @@ func detect_raycast_collision(delta: float):
 		var point = raycast.get_collision_point()
 		var normal = raycast.get_collision_normal()
 		instantiate_hit(point, normal, collider.collision_layer)
-		if collider.collision_layer == Definitions.SurfaceType.Player:
-			(collider as Player).damage_player(roundi(damage * delta))
+		if collider.collision_layer == Definitions.SurfaceType.Hitbox:
+			(collider as CharacterHitbox).damage_taken(damage * delta)
 
 func spend_fuel(delta: float) -> void:
 	if !DebugCommands.full_ammo:

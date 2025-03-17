@@ -19,7 +19,7 @@ func _physics_process(delta: float):
 
 func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vector3, type: int):
 	var decal_instance: Node3D
-	if type == Definitions.SurfaceType.Player:
+	if type == Definitions.SurfaceType.Hitbox:
 		decal_instance = blood_decal.instantiate()
 	elif type == Definitions.SurfaceType.Glass:
 		decal_instance = glass_decal.instantiate()
@@ -38,8 +38,8 @@ func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vect
 func collide(collision: KinematicCollision3D):
 	var collider: CollisionObject3D = collision.get_collider()
 	# if collider is world boundary
-	if collider.collision_layer == Definitions.SurfaceType.Player:
-		(collider as Player).damage_player(damage)
+	if collider.collision_layer == Definitions.SurfaceType.Hitbox:
+		(collider as CharacterHitbox).damage_taken(damage)
 	if collider.collision_layer == Definitions.SurfaceType.WorldBoundary:
 		queue_free()
 	else:

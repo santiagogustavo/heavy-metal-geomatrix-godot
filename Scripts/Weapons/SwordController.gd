@@ -24,7 +24,7 @@ func _process(_delta):
 
 func instantiate_hit(point: Vector3, normal: Vector3, type: int):
 	var hit_instance
-	if type == Definitions.SurfaceType.Player:
+	if type == Definitions.SurfaceType.Hitbox:
 		hit_instance = hit_player_particle.instantiate()
 	else:
 		hit_instance = hit_general_particle.instantiate()
@@ -41,8 +41,8 @@ func detect_raycast_collision():
 		var point = raycast.get_collision_point()
 		var normal = raycast.get_collision_normal()
 		instantiate_hit(point, normal, collider.collision_layer)
-		if collider.collision_layer == Definitions.SurfaceType.Player:
-			(collider as Player).damage_player(damage)
+		if collider.collision_layer == Definitions.SurfaceType.Hitbox:
+			(collider as CharacterHitbox).damage_taken(damage)
 		has_collided = true
 	else:
 		has_collided = false

@@ -1,6 +1,8 @@
 extends Node3D
 class_name CharacterController
 
+signal damage
+
 @export_subgroup("Properties")
 @export var character: Definitions.Characters
 @export var character_team: Definitions.Teams
@@ -22,6 +24,7 @@ class_name CharacterController
 @export var weight = 2.5
 
 @export_subgroup("References")
+@export var hitboxes: Array[CharacterHitbox]
 @export var jiggle_bones: Array[WiggleBone]
 @export var sfx_controller: CharacterSFXController
 @export var animation_tree_reference: PackedScene
@@ -50,6 +53,8 @@ func _ready() -> void:
 	if animation_tree != null:
 		add_child(animation_tree)
 		animation_tree.anim_player = NodePath('./Model/AnimationPlayer')
+	for hitbox in hitboxes:
+		hitbox.hit.connect(take_damage_from_hitbox)
 
 func _process(_delta: float) -> void:
 	show_current_skin()
@@ -63,7 +68,11 @@ func show_current_skin() -> void:
 			skin.visible = false
 		index += 1
 
-func set_jiggle_bones_enabled(jiggle_enabled: bool) -> void:
+func reset_jiggle_bones() -> void:
 	for bone: WiggleBone in jiggle_bones:
-		bone.set_enabled(jiggle_enabled)
-		bone._should_reset = !jiggle_enabled
+		bone.reset()
+
+func take_damage_from_hitbox(damage_taken: float, damage_factor: float) -> void:
+	var total_damage: int = roundi(damage_taken * damage_factor)
+	var is_critical: bool = damage_factor > 1
+	damage.emit(total_damage, is_critical)

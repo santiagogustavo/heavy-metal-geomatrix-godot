@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=30 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lgjqh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
@@ -36,12 +36,20 @@ size = Vector3(20, 0, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dr3vy"]
 size = Vector3(60, 0, 60)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_2od80"]
+vertices = PackedVector3Array(-9.5, 0.439581, -9.51498, -9.5, 0.439581, 9.48502, 9.5, 0.439581, 9.48502, 9.5, 0.439581, -9.51498)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
 [sub_resource type="BoxMesh" id="BoxMesh_qce16"]
 material = ExtResource("12_g4juo")
 size = Vector3(20, 0.05, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a64xa"]
 size = Vector3(20, 0.05, 20)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_3kfwb"]
+vertices = PackedVector3Array(-29.5, -5.525, -29.5, -29.5, -5.525, 29.5, 29.5, -5.525, 29.5, 29.5, -5.525, -29.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yubfn"]
 material = ExtResource("13_gddvk")
@@ -89,26 +97,56 @@ shape = SubResource("BoxShape3D_dr3vy")
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
+navigation_mesh = SubResource("NavigationMesh_2od80")
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+bidirectional = false
+start_position = Vector3(0.173601, 0.00141001, 0.0656214)
+end_position = Vector3(0.739449, -5.92153, 8.08533)
+
+[node name="NavigationLink3D2" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -0.0266852)
+bidirectional = false
+start_position = Vector3(0.173601, 0.00141001, 0.0656214)
+end_position = Vector3(0.739449, -5.92153, 8.08533)
+
+[node name="NavigationLink3D3" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.6426e-07, 0, -8.02668)
+bidirectional = false
+start_position = Vector3(0.173601, 0.00141001, 0.0656214)
+end_position = Vector3(0.739449, -5.92153, 8.08533)
+
+[node name="NavigationLink3D4" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8, 0, -0.0266841)
+bidirectional = false
+start_position = Vector3(0.173601, 0.00141001, 0.0656214)
+end_position = Vector3(0.739449, -5.92153, 8.08533)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44379e-06, -0.0354192, -0.0149821)
 mesh = SubResource("BoxMesh_qce16")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D"]
 collision_layer = 2052
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_a64xa")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry"]
+[node name="NavigationRegion3D2" type="NavigationRegion3D" parent="Level Geometry"]
+navigation_mesh = SubResource("NavigationMesh_3kfwb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 mesh = SubResource("BoxMesh_yubfn")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D2/MeshInstance3D2"]
 collision_layer = 1028
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D2/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_yfk20")
 
 [node name="Rain" type="Node3D" parent="Level Geometry"]

@@ -23,12 +23,19 @@ attractor_interaction_enabled = false
 color_ramp = SubResource("GradientTexture1D_hbext")
 turbulence_noise_scale = 0.0
 
-[node name="Bot" node_paths=PackedStringArray("camera_pivot") instance=ExtResource("1_vkv67")]
+[node name="Bot" node_paths=PackedStringArray("camera_pivot", "navigation_agent") instance=ExtResource("1_vkv67")]
+player_name = null
+health = null
+selected_character = null
+selected_skin = null
 player_type = 2
 camera_pivot = NodePath("LookPivot")
+navigation_agent = NodePath("NavigationAgent3D")
 
 [node name="Dash" parent="." index="3"]
 process_material = SubResource("ParticleProcessMaterial_sxw13")
 
 [node name="LookPivot" type="Marker3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
