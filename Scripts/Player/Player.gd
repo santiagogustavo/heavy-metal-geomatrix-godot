@@ -34,6 +34,7 @@ enum PlayerType {
 @onready var raycast: RayCast3D = $RayCast3D
 
 # Instances
+var brain: PlayerBrain
 var character: CharacterController
 var sfx_controller: CharacterSFXController
 var animation_tree: PlayerAnimationTree
@@ -49,6 +50,8 @@ var player_bot_ai: PlayerBotAI
 
 var collided_pickup: PickupController
 
+var current_speed: float = 0.0
+
 var is_locked_on: bool = false
 var lock_on_target: int = -1
 var lock_on_instance: Node3D
@@ -59,11 +62,12 @@ var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
 
 func _ready() -> void:
+	brain = PlayerBrain.new()
+	add_child(brain)
 	match player_type:
 		PlayerType.Player1:
 			initial_camera_pivot_rotation = camera_pivot.rotation
-			player_input = PlayerInputManager.new(player_type)
-			player_input.player = self
+			player_input = PlayerInputManager.new(self)
 			player_input.camera_pivot = camera_pivot
 			player_input.lock_on.connect(lock_on_to_next_target)
 			player_input.target_raycast = camera.camera_target_raycast
@@ -72,7 +76,7 @@ func _ready() -> void:
 			player_ui = load("res://Prefabs/Player/UI.tscn").instantiate()
 			get_tree().root.add_child.call_deferred(player_ui)
 		PlayerType.Bot:
-			player_bot_ai = PlayerBotAI.new()
+			player_bot_ai = PlayerBotAI.new(self)
 			add_child(player_bot_ai)
 	character = load(Definitions.Players[selected_character]).instantiate()
 	character.damage.connect(damage_player)
@@ -133,10 +137,8 @@ func reset_player_to_spawn() -> void:
 	if spawn_point:
 		position = spawn_point.global_position
 		rotation = spawn_point.global_rotation
-	if player_input:
-		player_input.new_rotation = rotation
+	brain.new_rotation = rotation
 	if player_bot_ai:
-		player_bot_ai.new_rotation = rotation
 		player_bot_ai.state = PlayerBotAI.AIState.Idle
 	if animation_tree:
 		animation_tree.reset_player()
@@ -161,23 +163,22 @@ func update_internals() -> void:
 	character.current_skin = clamp(selected_skin, 0, character.skins.size() - 1)
 
 func update_externals() -> void:
-	if !player_input:
-		return
-	is_locked_on = lock_on_target != -1
-	player_input.is_locked_on = is_locked_on
-	if player_input.is_locked_on:
-		target_position = GameManager.get_enemies(team.name)[lock_on_target].global_position + Vector3(0, 1.0, 0)
-	player_input.is_on_floor = is_on_floor()
-	player_input.can_double_jump = (
+	if player_input:
+		is_locked_on = lock_on_target != -1
+		player_input.is_locked_on = is_locked_on
+		if player_input.is_locked_on:
+			target_position = GameManager.get_enemies(team.name)[lock_on_target].global_position + Vector3(0, 1.0, 0)
+	brain.is_on_floor = is_on_floor()
+	brain.can_double_jump = (
 		inventory_manager.has_jetpack
 		and inventory_manager.jetpack_can_jump
 	)
-	player_input.can_pickup = (
+	brain.can_pickup = (
 		is_pickup_collided
-		and player_input.is_on_floor
+		and brain.is_on_floor
 	)
-	dash.is_dashing = player_input.is_dashing
-	dash.input_direction = player_input.input_direction
+	dash.is_dashing = brain.is_dashing
+	dash.input_direction = brain.input_direction
 	dash.player_velocity = velocity
 
 func look_at_target_position() -> void:
@@ -187,34 +188,30 @@ func look_at_target_position() -> void:
 	#rotation.z = initial_rotation.z
 	if player_input and player_input.is_locked_on:
 		camera_pivot.look_at(target_position)
-		player_input.new_rotation = camera_pivot.global_rotation
+		brain.new_rotation = camera_pivot.global_rotation
 
 func compute_movement() -> void:
-	var current_speed = character.speed
+	current_speed = character.speed
 	if (
-		player_input
-		and player_input.is_dashing
+		brain.is_dashing
 		and (!inventory_manager.has_jetpack or !inventory_manager.jetpack_has_fuel)
 	):
 		current_speed = character.dashing_speed
 	elif (
-		player_input
-		and player_input.is_dashing
+		brain.is_dashing
 		and inventory_manager.has_jetpack
 		and inventory_manager.jetpack_has_fuel
 	):
 		current_speed = character.jetpack_dashing_speed
 	
-	if player_input and player_input.is_walking:
-		velocity.x = player_input.direction.x * current_speed
-		velocity.z = player_input.direction.z * current_speed
+	if player_input and brain.is_walking:
+		velocity.x = brain.direction.x * current_speed
+		velocity.z = brain.direction.z * current_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.z = move_toward(velocity.z, 0, current_speed)
+		velocity.x = move_toward(brain.direction.x, 0, current_speed)
+		velocity.z = move_toward(brain.direction.z, 0, current_speed)
 	
-	if player_input and (player_input.is_jumping or player_input.is_double_jumping):
-		velocity.y = character.jump_height
-	if player_bot_ai and player_bot_ai.is_jumping:
+	if brain.is_jumping or brain.is_double_jumping:
 		velocity.y = character.jump_height
 
 func switch_to_player_camera() -> void:
@@ -233,8 +230,8 @@ func set_camera_variables() -> void:
 		shoot_target = player_bot_ai.target_position
 		return
 	camera.has_jetpack = inventory_manager.has_jetpack and inventory_manager.jetpack_has_fuel
-	camera.is_dashing = player_input.is_dashing
-	camera.is_aiming = player_input.is_aiming
+	camera.is_dashing = brain.is_dashing
+	camera.is_aiming = brain.is_aiming
 	shoot_target = camera.target_point
 
 func set_animator_variables() -> void:
@@ -242,40 +239,34 @@ func set_animator_variables() -> void:
 		return
 	if inventory_manager.right_hand_instance != null and inventory_manager.right_hand_instance is GunController:
 		animation_tree.is_shooting_locked = inventory_manager.right_hand_instance.is_shooting_locked
+	if sfx_controller:
+		sfx_controller.is_walking = brain.is_walking
+	animation_tree.is_dashing = brain.is_dashing
+	animation_tree.is_jumping = brain.is_jumping
+	animation_tree.is_double_jumping = brain.is_double_jumping
+	animation_tree.is_aiming = brain.is_aiming
+	animation_tree.is_shooting = brain.is_shooting
+	animation_tree.is_attacking = brain.is_attacking
+	animation_tree.is_picking_up = brain.is_picking_up
+	animation_tree.direction = brain.input_direction
 	if player_input:
-		if sfx_controller:
-			sfx_controller.is_walking = player_input.is_walking
-		animation_tree.direction = player_input.input_direction
 		animation_tree.look = Vector2(0, camera.global_rotation.x * -0.6)
-		animation_tree.is_dashing = player_input.is_dashing
-		animation_tree.is_jumping = player_input.is_jumping
-		animation_tree.is_double_jumping = player_input.is_double_jumping
-		animation_tree.is_aiming = player_input.is_aiming
-		animation_tree.is_shooting = player_input.is_shooting
-		animation_tree.is_attacking = player_input.is_attacking
-		animation_tree.is_picking_up = player_input.is_picking_up
 	if player_bot_ai:
-		animation_tree.is_jumping = player_bot_ai.is_jumping
-		animation_tree.is_shooting = player_bot_ai.is_shooting
-		animation_tree.direction = Vector2(player_bot_ai.direction.x, player_bot_ai.direction.z)
 		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6)
-	animation_tree.is_on_floor = is_on_floor()
+	animation_tree.is_on_floor = brain.is_on_floor
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_gun_shooting = (
 		inventory_manager.is_gun_shooting
 		if inventory_manager.right_hand_instance is GunController
-		else (
-			(player_input and player_input.is_shooting)
-			or (player_bot_ai and player_bot_ai.is_shooting)
-		)
+		else brain.is_shooting
 	)
 	animation_tree.is_holding_weapon = inventory_manager.is_holding_weapon
 
 func set_inventory_items_variables() -> void:
-	if inventory_manager.body_instance and player_input:
-		inventory_manager.body_instance.is_dashing = player_input.is_dashing
-		inventory_manager.body_instance.is_double_jumping = player_input.is_double_jumping
+	if inventory_manager.body_instance:
+		inventory_manager.body_instance.is_dashing = brain.is_dashing
+		inventory_manager.body_instance.is_double_jumping = brain.is_double_jumping
 	if inventory_manager.right_hand_instance != null:
 		if inventory_manager.right_hand_instance is SwordController and animation_tree:
 			inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
@@ -283,8 +274,5 @@ func set_inventory_items_variables() -> void:
 			inventory_manager.right_hand_instance is GunController
 			or inventory_manager.right_hand_instance is EnergyGunController
 		):
-			inventory_manager.right_hand_instance.is_shooting = (
-				(player_input and player_input.is_shooting)
-				or (player_bot_ai and player_bot_ai.is_shooting)
-			)
+			inventory_manager.right_hand_instance.is_shooting = brain.is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

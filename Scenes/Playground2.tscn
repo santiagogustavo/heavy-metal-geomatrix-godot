@@ -103,26 +103,26 @@ navigation_mesh = SubResource("NavigationMesh_2od80")
 [node name="NavigationLink3D" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 bidirectional = false
-start_position = Vector3(0.173601, 0.00141001, 0.0656214)
-end_position = Vector3(0.739449, -5.92153, 8.08533)
+start_position = Vector3(-0.0643117, 0, 1.73293)
+end_position = Vector3(0, -6, 6)
 
 [node name="NavigationLink3D2" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -0.0266852)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.7121, 0, -0.0266852)
 bidirectional = false
-start_position = Vector3(0.173601, 0.00141001, 0.0656214)
-end_position = Vector3(0.739449, -5.92153, 8.08533)
+start_position = Vector3(-0.0266852, 0, 1)
+end_position = Vector3(-0.0266855, -6, 5.2879)
 
 [node name="NavigationLink3D3" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.6426e-07, 0, -8.02668)
 bidirectional = false
-start_position = Vector3(0.173601, 0.00141001, 0.0656214)
-end_position = Vector3(0.739449, -5.92153, 8.08533)
+start_position = Vector3(-7.36773e-07, 0, 1.97332)
+end_position = Vector3(-1.08646e-06, -6, 5.97332)
 
 [node name="NavigationLink3D4" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8, 0, -0.0266841)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.68612, 0, -0.026684)
 bidirectional = false
-start_position = Vector3(0.173601, 0.00141001, 0.0656214)
-end_position = Vector3(0.739449, -5.92153, 8.08533)
+start_position = Vector3(0.026684, 0, 1)
+end_position = Vector3(0.0266833, -6, 5.31388)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44379e-06, -0.0354192, -0.0149821)

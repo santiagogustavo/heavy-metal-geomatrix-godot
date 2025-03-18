@@ -632,6 +632,48 @@ transform = Transform3D(0.913527, 0.390168, 0.115051, -0.0975113, -0.0645426, 0.
 [node name="Right Hand Slot" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D" index="3"]
 transform = Transform3D(-0.396756, 0.544363, 0.739089, 0.592496, -0.463104, 0.659153, 0.701094, 0.699431, -0.138794, -0.112979, 0.948884, 0.241789)
 
+[node name="Head" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="0"]
+transform = Transform3D(0.844608, -0.144547, 0.515504, 0.464326, -0.281578, -0.839711, 0.266532, 0.948589, -0.170706, -0.0833264, 1.50256, 0.078229)
+
+[node name="Torso" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="1"]
+transform = Transform3D(0.926206, 0.0410606, -0.374775, -0.0440394, 0.99903, 0.000616774, 0.374437, 0.0159336, 0.927115, -0.0730152, 1.08365, 0.093483)
+
+[node name="HipL" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="2"]
+transform = Transform3D(0.78655, -0.192414, 0.586784, 0.0404101, -0.932143, -0.359829, 0.616203, 0.306735, -0.725401, -0.0101042, 0.936369, 0.111394)
+
+[node name="ShinL" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="3"]
+transform = Transform3D(0.707592, 0.546286, 0.448201, 0.21764, -0.771941, 0.597277, 0.672269, -0.325081, -0.665113, -0.0932649, 0.533501, 0.243964)
+
+[node name="FootL" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="4"]
+transform = Transform3D(0.817171, 0.0436101, 0.574743, 0.17952, -0.966794, -0.181883, 0.547726, 0.251808, -0.797864, 0.159816, 0.17588, 0.0933609)
+
+[node name="HipR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="5"]
+transform = Transform3D(0.967788, 0.059643, 0.244598, 0.0735946, -0.996118, -0.0482939, 0.240768, 0.0647393, -0.968421, -0.150241, 0.948203, 0.0527334)
+
+[node name="ShinR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="6"]
+transform = Transform3D(0.982991, 0.143779, 0.114268, 0.121384, -0.975539, 0.183275, 0.137824, -0.166287, -0.976398, -0.124463, 0.517685, 0.0807133)
+
+[node name="FootR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="7"]
+transform = Transform3D(0.979555, -0.164727, 0.115484, 0.00240546, -0.564416, -0.825487, 0.201161, 0.808888, -0.55248, -0.0578543, 0.0657429, 0.00367641)
+
+[node name="BicepL" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="8"]
+transform = Transform3D(-0.929009, -0.058223, -0.365449, -0.00612062, -0.984993, 0.172487, -0.370008, 0.162479, 0.91471, 0.0589692, 1.38306, 0.109603)
+
+[node name="TricepL" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="9"]
+transform = Transform3D(-0.625292, -0.408991, -0.664633, 0.0823957, -0.881506, 0.464929, -0.776029, 0.235953, 0.584897, 0.0431551, 1.11553, 0.153732)
+
+[node name="HandL" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="10"]
+transform = Transform3D(-0.495576, -0.29513, -0.816886, -0.617577, -0.541591, 0.570331, -0.61074, 0.787133, 0.086134, -0.0559537, 0.901916, 0.21091)
+
+[node name="BicepR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="11"]
+transform = Transform3D(-0.994887, -0.0913362, -0.0431015, 0.0824328, -0.98094, 0.175959, -0.0583513, 0.171506, 0.983453, -0.157519, 1.38314, 0.0347395)
+
+[node name="TricepR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="12"]
+transform = Transform3D(-0.810337, 0.286178, 0.511327, 0.19388, -0.692529, 0.694848, 0.552959, 0.662197, 0.505698, -0.182327, 1.1167, 0.0813217)
+
+[node name="HandR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="13"]
+transform = Transform3D(-0.396756, 0.544363, 0.739089, 0.592496, -0.463104, 0.659153, 0.701094, 0.699431, -0.138794, -0.112979, 0.948884, 0.24179)
+
 [node name="AnimationPlayer" parent="CharacterContainer/Mayfly/Model" index="1"]
 libraries = {
 &"Lower Body": ExtResource("21_owdib"),
@@ -690,3 +732,4 @@ anim_player = NodePath("../AnimationPlayer")
 [editable path="Tunnel"]
 [editable path="CharacterContainer/Mayfly"]
 [editable path="CharacterContainer/Mayfly/Model"]
+[editable path="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes"]

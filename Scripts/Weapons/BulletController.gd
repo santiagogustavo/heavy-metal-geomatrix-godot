@@ -39,7 +39,7 @@ func collide(collision: KinematicCollision3D):
 	var collider: CollisionObject3D = collision.get_collider()
 	# if collider is world boundary
 	if collider.collision_layer == Definitions.SurfaceType.Hitbox:
-		(collider as CharacterHitbox).damage_taken(damage)
+		(collider as CharacterHitbox).damage_taken(damage, collision.get_position())
 	if collider.collision_layer == Definitions.SurfaceType.WorldBoundary:
 		queue_free()
 	else:

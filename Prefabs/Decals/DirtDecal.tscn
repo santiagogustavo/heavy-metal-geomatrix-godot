@@ -77,7 +77,6 @@ lower_fade = 1e-05
 process_material = SubResource("ParticleProcessMaterial_snun8")
 draw_pass_1 = SubResource("QuadMesh_ctcgh")
 timeout = 0.5
-timeout_light = 0.2
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_j5o7f")

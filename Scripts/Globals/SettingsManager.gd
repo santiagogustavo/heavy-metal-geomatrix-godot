@@ -56,6 +56,7 @@ func load_input_settings():
 
 func load_gameplay_settings():
 	GameplaySettingsManager.set_fov(file.get_value("gameplay", "fov", GameplaySettingsManager.fov))
+	GameplaySettingsManager.set_hitmarkers_enabled(file.get_value("gameplay", "hitmarkers_enabled", GameplaySettingsManager.hitmarkers_enabled))
 	GameplaySettingsManager.set_crosshair_style(file.get_value("gameplay", "crosshair_style", GameplaySettingsManager.crosshair_style))
 	GameplaySettingsManager.set_crosshair_scale(file.get_value("gameplay", "crosshair_scale", GameplaySettingsManager.crosshair_scale))
 	GameplaySettingsManager.set_crosshair_color_r(file.get_value("gameplay", "crosshair_color_r", GameplaySettingsManager.crosshair_color_r))
@@ -90,6 +91,7 @@ func save_input_settings():
 	
 func save_gameplay_settings():
 	file.set_value("gameplay", "fov", GameplaySettingsManager.fov)
+	file.set_value("gameplay", "hitmarkers_enabled", GameplaySettingsManager.hitmarkers_enabled)
 	file.set_value("gameplay", "crosshair_style", GameplaySettingsManager.crosshair_style)
 	file.set_value("gameplay", "crosshair_scale", GameplaySettingsManager.crosshair_scale)
 	file.set_value("gameplay", "crosshair_color_r", GameplaySettingsManager.crosshair_color_r)

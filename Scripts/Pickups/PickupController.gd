@@ -53,7 +53,7 @@ func _on_area_3d_body_exited(_body: Node3D):
 		collider = null
 
 func detect_player_pickup():
-	if collider and collider.player_input and collider.player_input.is_picking_up:
+	if collider and collider.player_input and collider.brain.is_picking_up:
 		pickup_item()
 
 func pickup_item():

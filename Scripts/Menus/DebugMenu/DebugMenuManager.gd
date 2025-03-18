@@ -61,6 +61,7 @@ func on_submit() -> void:
 	run_command(line_edit.text)
 	history_index = -1
 	line_edit.text = ''
+	line_edit.grab_focus()
 	
 func on_clear() -> void:
 	history = []

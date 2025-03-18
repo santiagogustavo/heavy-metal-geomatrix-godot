@@ -38,6 +38,8 @@ signal damage
 @export var initial_loadout: PackedScene
 @export var initial_loadout_slot: Definitions.EquipType
 
+@onready var hitmarker: PackedScene = load("res://Prefabs/Player/Hitmarker.tscn")
+
 # Internals
 @onready var character_name: String = Definitions.CharacterNames[character]
 @onready var team_name: String = Definitions.TeamNames[character_team]
@@ -72,7 +74,21 @@ func reset_jiggle_bones() -> void:
 	for bone: WiggleBone in jiggle_bones:
 		bone.reset()
 
-func take_damage_from_hitbox(damage_taken: float, damage_factor: float) -> void:
+func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vector3) -> void:
+	var hitmarker_instance: Hitmarker = hitmarker.instantiate()
+	hitmarker_instance.global_position = hit_position
+	hitmarker_instance.position.x += 0.5
+	hitmarker_instance.damage_taken = total_damage
+	hitmarker_instance.is_critical = is_critical
+	get_tree().root.add_child(hitmarker_instance)
+
+func take_damage_from_hitbox(
+	damage_taken: float,
+	damage_factor: float,
+	hit_position: Vector3
+) -> void:
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
 	damage.emit(total_damage, is_critical)
+	if GameplaySettingsManager.hitmarkers_enabled:
+		create_hitmarker(total_damage, is_critical, hit_position)

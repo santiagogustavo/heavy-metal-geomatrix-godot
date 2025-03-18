@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=33 format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://cct3ns241by6d" path="res://Scripts/Menus/OptionsMenu/CrosshairScaleSlider.gd" id="14_hv86s"]
 [ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="19_83r31"]
 [ext_resource type="AudioStream" uid="uid://bi4qp1mpysiku" path="res://Sound/UI/PauseMenu/750434__rescopicsound__ui-click-menu-modern-interface-select-medium.mp3" id="20_pce0q"]
+[ext_resource type="Script" uid="uid://dvo0f5vnk660t" path="res://Scripts/Menus/OptionsMenu/HitmarkersToggle.gd.gd" id="23_bq2jv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tyo3"]
 content_margin_left = 8.0
@@ -324,6 +325,13 @@ max_value = 80.0
 step = 5.0
 value = 70.0
 
+[node name="Hitmarkers" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_udgny")]
+layout_mode = 2
+script = ExtResource("23_bq2jv")
+
+[node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Hitmarkers" index="0"]
+text = "Hitmarkers"
+
 [node name="CrosshairLabel" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
@@ -441,6 +449,7 @@ bus = &"UI"
 [editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FeelLabel"]
 [editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FOV"]
 [editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FOV/CustomSlider10"]
+[editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Hitmarkers"]
 [editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/CrosshairLabel"]
 [editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview"]
 [editable path="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview/CustomSlider10"]

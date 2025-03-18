@@ -119,7 +119,6 @@ lower_fade = 1e-05
 process_material = SubResource("ParticleProcessMaterial_a48g5")
 draw_pass_1 = SubResource("QuadMesh_x16we")
 timeout = 0.5
-timeout_light = 0.2
 
 [node name="RaySpark2" parent="BulletSpark" instance=ExtResource("5_s8rcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
@@ -129,7 +128,6 @@ speed_scale = 1.5
 process_material = SubResource("ParticleProcessMaterial_6fip2")
 draw_pass_1 = SubResource("QuadMesh_kkjdk")
 timeout = 1.0
-timeout_light = 0.2
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_0h3bh")

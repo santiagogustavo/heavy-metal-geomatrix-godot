@@ -26,7 +26,7 @@ enum RoundStatus {
 var timer: Timer = Timer.new()
 var round_status: RoundStatus = RoundStatus.Idle
 var is_final_round: bool = false
-var is_player_input_locked: bool = false
+var is_player_input_locked: bool = true
 
 func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

@@ -25,6 +25,6 @@ func _process(_delta: float) -> void:
 		GameplaySettingsManager.crosshair_color_a,
 	)
 	scope_outline.pivot_offset = scope_outline.size / 2
-	var is_aiming: bool = player_one.player_input.is_aiming
+	var is_aiming: bool = player_one.brain.is_aiming
 	animation_tree.set("parameters/conditions/is_aiming", is_aiming)
 	animation_tree.set("parameters/conditions/is_not_aiming", !is_aiming)

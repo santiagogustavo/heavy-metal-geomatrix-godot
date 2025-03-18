@@ -549,15 +549,13 @@ navigation_mesh = SubResource("NavigationMesh_rvlpc")
 
 [node name="NavigationLink3D" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(1, -2.02363e-11, 0, -2.36014e-10, 1, -2.32831e-10, -1.16415e-10, -2.32831e-10, 1, -4.5012, 0.022757, -14.417)
-end_position = Vector3(2.72638, 1.47765, 1.90987)
-
-[node name="NavigationLink3D2" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
-transform = Transform3D(1, -2.01794e-11, -2.91038e-11, -3.52259e-10, 1, -4.65661e-10, -1.74623e-10, -2.32831e-10, 1, -4.499, 0.0156127, -9.37701)
-end_position = Vector3(2.63998, 1.44864, -1.07318)
+start_position = Vector3(0.312056, -0.00434895, 2.92692)
+end_position = Vector3(3.04888, 1.47603, 2.9423)
 
 [node name="NavigationLink3D3" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(0.999999, -2.00657e-11, -8.73115e-11, -5.84805e-10, 0.999999, -8.14907e-10, -2.91038e-10, -3.49246e-10, 0.999999, -14.4814, 0.00622247, 0.884825)
-end_position = Vector3(-2.08477, 1.4352, 3.26894)
+start_position = Vector3(0.0396204, -0.000792444, 0.51679)
+end_position = Vector3(-2.31336, 1.43566, 3.05939)
 
 [node name="NavigationLink3D4" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(0.999999, -2.00657e-11, -8.73115e-11, -7.0105e-10, 0.999999, -9.31323e-10, -3.49246e-10, -4.65661e-10, 0.999999, -8.12214, 0.00342767, 0.540245)
@@ -587,7 +585,6 @@ transform = Transform3D(1, -2.02363e-11, 0, -1.77977e-10, 1, -2.32831e-10, -5.82
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Level Geometry/Collisions"]
 transform = Transform3D(-1, -2.04068e-11, 0, 1.78147e-10, 1, -1.16415e-10, 2.91038e-11, -2.32831e-10, 1, 24, -3.72529e-09, 34)
-visible = false
 collision_layer = 1028
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D6"]
@@ -595,7 +592,6 @@ shape = SubResource("ConcavePolygonShape3D_xq4tu")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="Level Geometry/Collisions"]
 transform = Transform3D(-1, -2.04068e-11, 0, 1.78147e-10, 1, -1.16415e-10, 2.91038e-11, -2.32831e-10, 1, 24, -3.72529e-09, 34)
-visible = false
 collision_layer = 2052
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D7"]
@@ -603,7 +599,6 @@ shape = SubResource("ConcavePolygonShape3D_hgfn5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Collisions"]
 transform = Transform3D(-1, -2.02931e-11, -2.91038e-11, 3.52486e-10, 1, -5.82077e-10, 8.73115e-11, -1.16415e-10, 1, 24, -1.49012e-08, 34)
-visible = false
 collision_layer = 516
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D"]

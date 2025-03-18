@@ -55,7 +55,7 @@ func get_team_health() -> int:
 	var team_health: int = 0
 	for player: Player in players:
 		team_health += player.health
-	return team_health / players.size()
+	return roundi(float(team_health) / float(players.size()))
 
 func is_health_equal_for_players() -> bool:
 	var current_health: int = players[0].health
