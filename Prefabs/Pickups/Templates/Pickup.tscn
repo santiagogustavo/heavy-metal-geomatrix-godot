@@ -12,7 +12,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 0, 1, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 0.01, 1, 0.01)
 
 [sub_resource type="Animation" id="Animation_a6jyh"]
 resource_name = "PopIn"
@@ -24,7 +24,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 1, 1, 1)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.01, 0.01, 0.01, 0.3, 1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_i4nkf"]
 resource_name = "PopOut"
@@ -36,7 +36,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 0.01, 0.01, 0.01)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0qng4"]
 _data = {
@@ -89,7 +89,7 @@ script = ExtResource("1_4ljyt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0qng4")
+&"": SubResource("AnimationLibrary_0qng4")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

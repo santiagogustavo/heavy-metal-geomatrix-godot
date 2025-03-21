@@ -552,10 +552,11 @@ cast_shadow = 0
 [node name="CharacterContainer" type="Node3D" parent="."]
 transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, -13, 154.86)
 
-[node name="Mayfly" parent="CharacterContainer" node_paths=PackedStringArray("hitboxes") instance=ExtResource("17_bk0fd")]
+[node name="Mayfly" parent="CharacterContainer" node_paths=PackedStringArray("hitboxes", "fists") instance=ExtResource("17_bk0fd")]
 visible = false
 stat_speed = 1
 hitboxes = []
+fists = [null, null]
 initial_loadout = null
 initial_loadout_slot = 0
 
@@ -574,6 +575,7 @@ bones/7/rotation = Quaternion(0.943296, 0.0504353, 0.136888, 0.298179)
 bones/7/scale = Vector3(1, 1, 0.999999)
 bones/8/position = Vector3(3.21591e-08, 0.432196, -1.24194e-08)
 bones/8/rotation = Quaternion(0.483301, 0.0338074, -0.0951531, 0.869611)
+bones/8/scale = Vector3(1, 1, 1)
 bones/9/position = Vector3(2.03494e-08, 0.463275, -1.03666e-08)
 bones/9/rotation = Quaternion(-0.392939, -0.076031, 0.0382383, 0.915618)
 bones/10/position = Vector3(-0.0761895, 0.0237471, 0.0274086)
@@ -581,41 +583,49 @@ bones/10/rotation = Quaternion(0.983239, 0.0673979, -0.083393, 0.147459)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(2.53924e-09, 0.432196, -5.44985e-08)
 bones/11/rotation = Quaternion(0.121674, -0.0535145, -0.0203545, 0.990917)
+bones/11/scale = Vector3(1, 1, 1)
 bones/12/position = Vector3(1.07197e-08, 0.463274, -1.33697e-08)
 bones/12/rotation = Quaternion(-0.547071, 0.00635659, 0.0671151, 0.834367)
 bones/13/position = Vector3(7.15255e-09, 0.281348, 0.0565469)
 bones/13/rotation = Quaternion(-0.707107, -8.48699e-08, 8.04247e-08, 0.707107)
+bones/13/scale = Vector3(1, 1, 1)
 bones/14/position = Vector3(-1.43051e-08, 2.76146e-08, 9.72887e-08)
 bones/14/rotation = Quaternion(0.661928, -0.014916, 0.0585684, 0.747127)
 bones/15/position = Vector3(-2.04806e-09, 0.213222, 0.00640975)
 bones/15/rotation = Quaternion(0.213785, -0.0232166, 0.169367, 0.961806)
+bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(4.76833e-09, 0.0906347, 5.37748e-09)
 bones/16/rotation = Quaternion(0.736779, 0.0839178, -0.00176341, 0.670904)
 bones/17/position = Vector3(0.0416225, 0.176188, 0.00464889)
 bones/17/rotation = Quaternion(0.00794001, 0.00756567, -0.706931, 0.707198)
 bones/18/position = Vector3(-6.90615e-08, 0.0729111, -2.48782e-08)
 bones/18/rotation = Quaternion(0.0207735, 0.0112953, -0.70685, 0.706968)
+bones/18/scale = Vector3(1, 1, 1)
 bones/19/position = Vector3(9.51459e-10, 0.271612, -5.76759e-08)
 bones/19/rotation = Quaternion(0.140545, 0.226273, -0.122612, 0.956041)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/position = Vector3(3.32855e-09, 0.242325, 2.20782e-08)
 bones/20/rotation = Quaternion(0.150521, 0.219334, 0.292267, 0.918595)
+bones/20/scale = Vector3(1, 1, 1)
 bones/21/rotation = Quaternion(-1.64021e-07, -1.41543e-07, 0.707107, 0.707107)
 bones/23/position = Vector3(-0.0416225, 0.176188, 0.00464888)
 bones/23/rotation = Quaternion(0.0303174, -0.0284271, 0.708385, 0.704602)
 bones/24/position = Vector3(-1.81227e-07, 0.0729111, 9.89894e-09)
 bones/24/rotation = Quaternion(0.130279, -0.067646, 0.682817, 0.71569)
+bones/24/scale = Vector3(1, 1, 1)
 bones/25/position = Vector3(-4.25895e-08, 0.271611, 2.38496e-08)
 bones/25/rotation = Quaternion(0.326187, -0.307935, 0.101099, 0.888008)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/position = Vector3(1.2865e-08, 0.242325, 2.58784e-08)
 bones/26/rotation = Quaternion(0.172233, -0.295746, 0.0225016, 0.939342)
+bones/26/scale = Vector3(1, 1, 1)
 bones/27/rotation = Quaternion(-1.87726e-07, 1.03022e-07, -0.707107, 0.707107)
 bones/29/position = Vector3(0.0454969, 0.143764, 0.0513107)
 bones/29/rotation = Quaternion(0.413613, 0.349315, 0.840764, -0.00447066)
 bones/29/scale = Vector3(1, 1, 1)
 bones/30/position = Vector3(-0.0454969, 0.143765, 0.0513107)
 bones/30/rotation = Quaternion(-0.413613, 0.349315, 0.840764, 0.00447042)
+bones/30/scale = Vector3(1, 1, 1)
 bones/32/position = Vector3(-0.120453, 0.618273, 0.792688)
 bones/33/position = Vector3(-0.107451, 0.348126, 0.0976814)
 bones/33/rotation = Quaternion(0.88687, -0.000193988, 0.0089088, 0.461934)
@@ -672,6 +682,12 @@ transform = Transform3D(-0.994887, -0.0913362, -0.0431015, 0.0824328, -0.98094, 
 transform = Transform3D(-0.810337, 0.286178, 0.511327, 0.19388, -0.692529, 0.694848, 0.552959, 0.662197, 0.505698, -0.182327, 1.1167, 0.0813217)
 
 [node name="HandR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes" index="13"]
+transform = Transform3D(-0.396756, 0.544363, 0.739089, 0.592496, -0.463104, 0.659153, 0.701094, 0.699431, -0.138794, -0.112979, 0.948884, 0.24179)
+
+[node name="HandL" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Fists" index="0"]
+transform = Transform3D(-0.495576, -0.29513, -0.816886, -0.617577, -0.541591, 0.570331, -0.61074, 0.787133, 0.086134, -0.0559537, 0.901916, 0.21091)
+
+[node name="HandR" parent="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Fists" index="1"]
 transform = Transform3D(-0.396756, 0.544363, 0.739089, 0.592496, -0.463104, 0.659153, 0.701094, 0.699431, -0.138794, -0.112979, 0.948884, 0.24179)
 
 [node name="AnimationPlayer" parent="CharacterContainer/Mayfly/Model" index="1"]
@@ -733,3 +749,4 @@ anim_player = NodePath("../AnimationPlayer")
 [editable path="CharacterContainer/Mayfly"]
 [editable path="CharacterContainer/Mayfly/Model"]
 [editable path="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Hitboxes"]
+[editable path="CharacterContainer/Mayfly/Model/Armature/Skeleton3D/Fists"]

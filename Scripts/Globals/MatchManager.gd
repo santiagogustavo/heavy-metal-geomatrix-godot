@@ -67,7 +67,6 @@ func can_end_round() -> bool:
 
 func start_round() -> bool:
 	if !can_start_round() or is_final_round:
-		
 		return false
 	current_round += 1
 	is_final_round = current_round == (rounds * 2) - 1

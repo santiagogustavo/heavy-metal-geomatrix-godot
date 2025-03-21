@@ -27,6 +27,7 @@ var melee_health: float = 0.0
 
 var holster_timeout: float = 3.0
 var is_holding_weapon: bool = false
+var weapon_range: float = Definitions.WeaponRange.Min
 
 @export var body_instance: Node3D = null
 @export var right_hand_instance: Node3D = null
@@ -98,17 +99,22 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
 	right_hand_pickup.emit()
 	if right_hand_instance is GunController:
+		weapon_range = right_hand_instance.weapon_range
 		ammo_total = right_hand_instance.bullets
 		right_hand_instance.connect("gun_shot", _on_gun_shot)
 		right_hand_instance.connect("drop", _on_item_drop)
 	if right_hand_instance is EnergyGunController:
+		weapon_range = right_hand_instance.weapon_range
 		right_hand_instance.connect("gun_shot", _on_gun_shot)
 		right_hand_instance.connect("drop", _on_item_drop)
+	if right_hand_instance is SwordController:
+		weapon_range = right_hand_instance.weapon_range
 
 func drop_right_hand_item():
 	has_gun = false
 	has_energy_gun = false
 	has_melee = false
+	weapon_range = Definitions.WeaponRange.Min
 	right_hand_instance.queue_free()
 	right_hand_instance = null
 	equip_type = Definitions.EquipType.Body

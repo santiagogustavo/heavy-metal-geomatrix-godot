@@ -33,6 +33,8 @@ func load_settings() -> void:
 	debug_collision_point.visible = DebugCommands.target_point_visible
 
 func load_level_configs():
+	if !GameManager.current_level_config:
+		return
 	camera_effects.get_node("CameraRain2d").effect_enabled = GameManager.current_level_config.is_rainy
 	camera_effects.get_node("CameraSnow").effect_enabled = GameManager.current_level_config.is_snowy
 	

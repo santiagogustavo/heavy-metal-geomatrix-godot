@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=42 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lhsfh"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
@@ -36,6 +36,10 @@ sky_material = SubResource("PanoramaSkyMaterial_6eb3a")
 background_mode = 2
 sky = SubResource("Sky_epnlb")
 glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_nhjaw"]
+vertices = PackedVector3Array(-49.5, -7.5, -49.5, -49.5, -7.5, 49.5, 49.5, -7.5, 49.5, 49.5, -7.5, -49.5, -0.75, 0.499998, 19.5, -0.75, 0.499998, 12.5, -2.5, 0.499998, 12.25, -19.5, 0.499998, 19.5, -2.5, 0.499998, -12.25, -0.75, 0.499998, -12.5, -0.75, 0.499998, -19.5, -19.5, 0.499998, -19.5, -2.5, 0.499998, -9.5, -2.5, 0.499998, 9.5, -0.75, 0.499998, 9.25, -0.75, 0.499998, -9.25, 1, 0.499998, 12.25, 19.5, 0.499998, 19.5, 1, 0.499998, -12.25, 19.5, 0.499998, -19.5, 1, 0.499998, -9.5, 1, 0.499998, 9.5, -1.5, 2.5, -11.5, -1.5, 2.5, -10.25, 0, 2.5, -10.25, 0, 2.5, -11.5, -1.25, 0.499998, -11.25, -1.25, 0.499998, -10.5, -0.25, 0.499998, -10.5, -0.25, 0.499998, -11.25, -1.5, 2.5, 10.25, -1.5, 2.5, 11.5, 0, 2.5, 11.5, 0, 2.5, 10.25, -1.25, 0.499998, 10.5, -1.25, 0.499998, 11.25, -0.25, 0.499998, 11.25, -0.25, 0.499998, 10.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 12), PackedInt32Array(13, 6, 7), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 12), PackedInt32Array(13, 7, 12), PackedInt32Array(12, 7, 11), PackedInt32Array(5, 16, 4), PackedInt32Array(4, 16, 17), PackedInt32Array(9, 10, 18), PackedInt32Array(18, 10, 19), PackedInt32Array(15, 20, 14), PackedInt32Array(14, 20, 21), PackedInt32Array(20, 19, 21), PackedInt32Array(21, 19, 17), PackedInt32Array(20, 18, 19), PackedInt32Array(17, 16, 21), PackedInt32Array(25, 24, 22), PackedInt32Array(22, 24, 23), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(37, 36, 34), PackedInt32Array(34, 36, 35)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1635"]
 cull_mode = 2
@@ -99,17 +103,12 @@ material = SubResource("StandardMaterial3D_12ns8")
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 backface_collision = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xwkx1"]
-size = Vector3(40, 0, 40)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jmt0g"]
-size = Vector3(100, 0, 100)
-
 [node name="Playground1" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_lhsfh")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_lhsfh")]
 level_name = "Playground1"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
+pickup_spawner = NodePath("../Spawner")
 is_sunny = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
@@ -128,34 +127,67 @@ light_energy = 0.4
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
+navigation_mesh = SubResource("NavigationMesh_nhjaw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(1, 3.0164e-16, -1.73678e-08, 0, 1, 1.73678e-08, 1.73678e-08, -1.73678e-08, 1, 0, 0, 2.38419e-07)
 layers = 16
 material_override = SubResource("StandardMaterial3D_w1635")
 mesh = SubResource("PlaneMesh_lwwtc")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D"]
 collision_layer = 1028
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mviyq")
 
-[node name="Water" type="MeshInstance3D" parent="Level Geometry"]
+[node name="Water" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(1, 9.04922e-16, -3.47356e-08, 3.0164e-16, 1, 3.47356e-08, 3.47356e-08, -3.47356e-08, 1, 0, -8, 0)
 layers = 16
 material_override = SubResource("ShaderMaterial_aqyya")
 mesh = SubResource("PlaneMesh_mq3id")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Water"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Water"]
 collision_layer = 516
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Water/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Water/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6ruon")
 
-[node name="ReflectionProbe2" type="ReflectionProbe" parent="Level Geometry/Water"]
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="Level Geometry/NavigationRegion3D/Water"]
 transform = Transform3D(0.02, 6.0328e-18, 6.94712e-10, 1.80984e-17, 0.02, -6.94712e-10, -6.94712e-10, 6.94712e-10, 0.02, 0, 0.22, 7.21775e-09)
 size = Vector3(100, 20, 100)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 10.8627)
+layers = 16
+mesh = SubResource("BoxMesh_rg8kh")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2"]
+collision_layer = 260
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_l6fwg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, -10.8579)
+layers = 16
+mesh = SubResource("BoxMesh_i1mvp")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ni3jg")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3"]
+transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
+size = Vector3(100, 20, 100)
+cull_mask = 1048560
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8776, 5.33969, -0.274099)
@@ -167,46 +199,12 @@ omni_range = 10.0
 [node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("12_rucj7")]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -12.469, 0.34235, -16.0485)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry"]
-transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 10.8627)
-layers = 16
-mesh = SubResource("BoxMesh_rg8kh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D2"]
-collision_layer = 260
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_l6fwg")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Level Geometry"]
-transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, -10.8579)
-layers = 16
-mesh = SubResource("BoxMesh_i1mvp")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/MeshInstance3D3"]
-collision_layer = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/MeshInstance3D3/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ni3jg")
-
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/MeshInstance3D3"]
-transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
-size = Vector3(100, 20, 100)
-cull_mask = 1048560
-
 [node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("15_yy7dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("16_sdprx")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("16_sdprx")]
+navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 pickups_to_spawn = Array[PackedScene]([ExtResource("17_l0s6t"), ExtResource("18_b712g"), ExtResource("19_6bd6u"), ExtResource("20_fr0k5"), ExtResource("21_xdkx4")])
-collision_shapes = [NodePath("Area3D/CollisionShape3D"), NodePath("Area3D/CollisionShape3D2")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
-shape = SubResource("BoxShape3D_xwkx1")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Spawner/Area3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
-shape = SubResource("BoxShape3D_jmt0g")
 
 [node name="World Boundaries" parent="." instance=ExtResource("22_4s6i1")]
 

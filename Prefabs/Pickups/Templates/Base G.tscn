@@ -137,8 +137,8 @@ cap_bottom = false
 [node name="Base G" instance=ExtResource("1_iuckg")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0.589147, 0, 0.808026)
-bones/1/rotation = Quaternion(0, -0.784366, 0, 0.620298)
+bones/0/rotation = Quaternion(0, 0.316208, 0, 0.94869)
+bones/1/rotation = Quaternion(0, -0.924328, 0, 0.3816)
 
 [node name="object_0" parent="Armature/Skeleton3D" index="0"]
 layers = 2
@@ -155,7 +155,7 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="PopinPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_yfkuc")
+&"": SubResource("AnimationLibrary_yfkuc")
 }
 
 [node name="PopTree" type="AnimationTree" parent="." index="4"]

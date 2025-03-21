@@ -7,7 +7,7 @@
 [resource]
 albedo_texture = ExtResource("1_hyby6")
 emission_enabled = true
-emission_energy_multiplier = 0.0
+emission_energy_multiplier = 0.0831332
 emission_texture = ExtResource("3_bfeau")
 ao_enabled = true
 ao_texture = ExtResource("2_ygxh1")

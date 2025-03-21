@@ -1,6 +1,8 @@
 extends AnimationTree
 class_name PlayerAnimationTree
 
+signal combo_animation_changed
+
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
 var last_combo_animation: StringName
 
@@ -72,6 +74,7 @@ func update_combo_input() -> void:
 func update_combo_animation() -> void:
 	var current_node: StringName = upper_body_state_machine.get_current_node()
 	if (current_node != last_combo_animation):
+		combo_animation_changed.emit()
 		is_attack_combo = false
 	
 	last_combo_animation = current_node

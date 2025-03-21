@@ -6,6 +6,7 @@ class_name LevelConfig
 @export var splash: Texture2D
 @export var spawn_points: Array[SpawnPoint]
 @export var randomize_spawn: bool = false
+@export var pickup_spawner: Spawner
 
 @export_subgroup("Environment")
 @export var is_sunny: bool = false

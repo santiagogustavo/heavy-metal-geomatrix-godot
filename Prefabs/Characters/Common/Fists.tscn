@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://bexuiaqh7fwn0"]
+
+[ext_resource type="Script" uid="uid://ceuqdngdbvcrr" path="res://Scripts/Weapons/FistController.gd" id="1_805bh"]
+[ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="2_pfhgh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jqpkx"]
+radius = 0.3
+
+[node name="Fists" type="Node3D"]
+
+[node name="HandL" type="BoneAttachment3D" parent="."]
+transform = Transform3D(-0.581117, -0.696206, -0.421427, -0.447933, -0.158715, 0.879867, -0.679455, 0.700077, -0.219622, 0.0854633, 1.06574, 0.374432)
+bone_name = "Hand.L"
+bone_idx = 20
+use_external_skeleton = true
+external_skeleton = NodePath("../..")
+
+[node name="Fist" type="RigidBody3D" parent="HandL"]
+collision_layer = 8
+collision_mask = 64
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+script = ExtResource("1_805bh")
+hit_decal = ExtResource("2_pfhgh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandL/Fist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39698e-09, 0.0793457, 0)
+shape = SubResource("SphereShape3D_jqpkx")
+
+[node name="HandR" type="BoneAttachment3D" parent="."]
+transform = Transform3D(-0.981107, -0.0298185, 0.191154, 0.193451, -0.163341, 0.967417, 0.00237639, 0.986119, 0.166024, -0.289731, 1.15014, -0.0761782)
+bone_name = "Hand.R"
+bone_idx = 26
+use_external_skeleton = true
+external_skeleton = NodePath("../..")
+
+[node name="Fist" type="RigidBody3D" parent="HandR"]
+collision_layer = 8
+collision_mask = 64
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+script = ExtResource("1_805bh")
+hit_decal = ExtResource("2_pfhgh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandR/Fist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39698e-09, 0.0793457, 0)
+shape = SubResource("SphereShape3D_jqpkx")

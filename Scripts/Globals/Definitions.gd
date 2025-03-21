@@ -92,4 +92,9 @@ const Players: Dictionary = {
 	Characters.Dummy: "res://Prefabs/Characters/Dummy/Player.tscn"
 }
 
+const WeaponRange: Dictionary = {
+	"Min": 1.5,
+	"Max": 25.0,
+}
+
 var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

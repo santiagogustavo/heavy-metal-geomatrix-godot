@@ -3,20 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3bbm18v3tm52"
-path="res://.godot/imported/Sunken City Night_dacc25f.png-e3581736a4f28fb48cf22437a31db05a.ctex"
+path.s3tc="res://.godot/imported/Sunken City Night_dacc25f.png-e3581736a4f28fb48cf22437a31db05a.s3tc.ctex"
+path.etc2="res://.godot/imported/Sunken City Night_dacc25f.png-e3581736a4f28fb48cf22437a31db05a.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/Levels/Sunken City Night/Sunken City Night_dacc25f.png"
-dest_files=["res://.godot/imported/Sunken City Night_dacc25f.png-e3581736a4f28fb48cf22437a31db05a.ctex"]
+dest_files=["res://.godot/imported/Sunken City Night_dacc25f.png-e3581736a4f28fb48cf22437a31db05a.s3tc.ctex", "res://.godot/imported/Sunken City Night_dacc25f.png-e3581736a4f28fb48cf22437a31db05a.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +34,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

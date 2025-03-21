@@ -90,6 +90,7 @@ texture_albedo = ExtResource("1_w6fqy")
 texture_emission = ExtResource("1_w6fqy")
 modulate = Color(1, 1, 1, 0.588235)
 lower_fade = 2.4
+cull_mask = 157
 script = ExtResource("3_0f6r7")
 min_rotation = -360
 max_rotation = 360

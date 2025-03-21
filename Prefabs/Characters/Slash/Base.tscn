@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://mfit0jyuixrv"]
+[gd_scene load_steps=41 format=3 uid="uid://mfit0jyuixrv"]
 
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_f8chv"]
 [ext_resource type="AnimationLibrary" uid="uid://dfawi7p2j8jjm" path="res://Animations/Characters/Slash/Taunts/Taunts.res" id="2_80p5x"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://citc7ltmti8jj" path="res://Sound/Characters/Slash/Taunts/Entrance.wav" id="11_puls0"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="12_pelfc"]
 [ext_resource type="AudioStream" uid="uid://dx5w5kgydqstp" path="res://Sound/Characters/Slash/Taunts/Win.wav" id="12_xotd3"]
+[ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="13_ncch2"]
 [ext_resource type="AudioStream" uid="uid://ueewreyl8s8t" path="res://Sound/Characters/Slash/Taunts/Lose.wav" id="13_vm26t"]
 [ext_resource type="AudioStream" uid="uid://1encynnmgsof" path="res://Sound/Characters/Slash/Pickup/Pickup 1.wav" id="19_7btxk"]
 [ext_resource type="AudioStream" uid="uid://cfn5r2xt6j3tg" path="res://Sound/Characters/Slash/Damage/Death.wav" id="20_bw08s"]
@@ -82,7 +83,7 @@ stream_0/stream = ExtResource("22_uhfr1")
 stream_1/stream = ExtResource("23_7vqp0")
 stream_2/stream = ExtResource("24_8u1i0")
 
-[node name="Slash" type="Node3D" node_paths=PackedStringArray("skins", "hitboxes", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
+[node name="Slash" type="Node3D" node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
 script = ExtResource("1_f8chv")
 character = 1
 avatar_big = ExtResource("2_hkt64")
@@ -91,6 +92,7 @@ skins = [NodePath("Model/Armature/Default"), NodePath("Model/Armature/Skin1"), N
 stat_speed = 3
 stat_power = 2
 hitboxes = [NodePath("Model/Armature/Skeleton3D/Hitboxes/Head/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/Skeleton3D/Hitboxes/HandR/Area3D")]
+fists = [NodePath("Model/Armature/Skeleton3D/Fists/HandL/Fist"), NodePath("Model/Armature/Skeleton3D/Fists/HandR/Fist")]
 jiggle_bones = [NodePath("Model/Armature/Skeleton3D/BoobJiggle_L"), NodePath("Model/Armature/Skeleton3D/BoobJiggle_R")]
 sfx_controller = NodePath("SFX")
 body_slot = NodePath("Model/Armature/Skeleton3D/Body Slot")
@@ -251,7 +253,15 @@ transform = Transform3D(-0.657049, -0.444632, 0.60876, 0.685663, -0.0168797, 0.7
 [node name="HandR" parent="Model/Armature/Skeleton3D/Hitboxes" index="13"]
 transform = Transform3D(-0.981107, -0.0298181, 0.191155, 0.193452, -0.163341, 0.967417, 0.00237705, 0.986119, 0.166023, -0.289731, 1.00378, -0.0761781)
 
-[node name="Slash" parent="Model/Armature/Skeleton3D" index="5"]
+[node name="Fists" parent="Model/Armature/Skeleton3D" index="5" instance=ExtResource("13_ncch2")]
+
+[node name="HandL" parent="Model/Armature/Skeleton3D/Fists" index="0"]
+transform = Transform3D(-0.581116, -0.696206, -0.421427, -0.447934, -0.158715, 0.879866, -0.679455, 0.700076, -0.219623, 0.0854633, 0.919377, 0.374432)
+
+[node name="HandR" parent="Model/Armature/Skeleton3D/Fists" index="1"]
+transform = Transform3D(-0.981107, -0.0298181, 0.191155, 0.193452, -0.163341, 0.967417, 0.00237705, 0.986119, 0.166023, -0.289731, 1.00378, -0.0761781)
+
+[node name="Slash" parent="Model/Armature/Skeleton3D" index="6"]
 visible = false
 
 [node name="AnimationPlayer" parent="Model" index="1"]
@@ -356,4 +366,5 @@ attenuation_filter_db = 0.0
 
 [editable path="Model"]
 [editable path="Model/Armature/Skeleton3D/Hitboxes"]
+[editable path="Model/Armature/Skeleton3D/Fists"]
 [editable path="SFX/Common"]

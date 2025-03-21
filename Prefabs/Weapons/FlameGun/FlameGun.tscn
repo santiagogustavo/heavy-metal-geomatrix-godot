@@ -344,6 +344,7 @@ script = ExtResource("1_i2vrb")
 item_name = "Flame Gun"
 spend_amount = 20.0
 damage = 50
+weapon_range = 3.0
 animation_tree = NodePath("AnimationTree")
 beam = NodePath("Flame")
 raycast = NodePath("RayCast3D")

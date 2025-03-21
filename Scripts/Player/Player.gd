@@ -57,6 +57,7 @@ var lock_on_target: int = -1
 var lock_on_instance: Node3D
 var initial_camera_pivot_rotation: Vector3 = Vector3.ZERO
 var target_position: Vector3 = Vector3.ZERO
+var force: Vector3 = Vector3.ZERO
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
@@ -79,6 +80,7 @@ func _ready() -> void:
 			player_bot_ai = PlayerBotAI.new(self)
 			add_child(player_bot_ai)
 	character = load(Definitions.Players[selected_character]).instantiate()
+	character.player_rid = get_rid()
 	character.damage.connect(damage_player)
 	add_child(character)
 	player_name = character.character_name
@@ -86,6 +88,10 @@ func _ready() -> void:
 		sfx_controller = character.sfx_controller
 	if character.animation_tree:
 		animation_tree = character.animation_tree
+		animation_tree.combo_animation_changed.connect(func():
+			for fist in character.fists:
+				fist.can_hit = true
+		)
 		player_killed.connect(func (): animation_tree.play_ko_state())
 	inventory_manager = load("res://Prefabs/Player/InventoryManager.tscn").instantiate()
 	inventory_manager.player_rid = get_rid()
@@ -97,6 +103,7 @@ func _ready() -> void:
 	player_ready.emit()
 
 func _physics_process(delta: float) -> void:
+	compute_forces(delta)
 	compute_gravity(delta)
 	compute_movement()
 	if raycast.is_colliding():
@@ -137,7 +144,8 @@ func reset_player_to_spawn() -> void:
 	if spawn_point:
 		position = spawn_point.global_position
 		rotation = spawn_point.global_rotation
-	brain.new_rotation = rotation
+	if brain:
+		brain.new_rotation = rotation
 	if player_bot_ai:
 		player_bot_ai.state = PlayerBotAI.AIState.Idle
 	if animation_tree:
@@ -151,7 +159,7 @@ func heal_player(amount: int) -> void:
 	health += amount
 	health = clamp(health, 0, 100)
 
-func damage_player(amount: int, is_critical: bool = false) -> void:
+func damage_player(amount: int) -> void:
 	health -= amount
 	health = clamp(health, 0, 100)
 	if health == 0:
@@ -168,6 +176,9 @@ func update_externals() -> void:
 		player_input.is_locked_on = is_locked_on
 		if player_input.is_locked_on:
 			target_position = GameManager.get_enemies(team.name)[lock_on_target].global_position + Vector3(0, 1.0, 0)
+	if inventory_manager.right_hand_instance == null:
+		for fist in character.fists:
+			fist.is_attacking = brain.is_attacking
 	brain.is_on_floor = is_on_floor()
 	brain.can_double_jump = (
 		inventory_manager.has_jetpack
@@ -221,6 +232,10 @@ func switch_to_player_camera() -> void:
 func move_ko_pivot(new_position: Vector3, new_rotation: Vector3) -> void:
 	ko_pivot.global_position = new_position + ko_offset
 	ko_pivot.global_rotation = new_rotation
+
+func compute_forces(delta: float) -> void:
+	force = clamp(force, Vector3.ZERO, Vector3(force.x - delta, force.y - delta, force.z - delta))
+	#velocity += force
 
 func compute_gravity(delta: float) -> void:
 	velocity.y -= character.weight * Definitions.Gravity * delta

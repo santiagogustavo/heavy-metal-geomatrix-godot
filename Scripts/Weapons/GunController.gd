@@ -12,6 +12,7 @@ signal drop
 @export var burst_rate: float
 @export var spray_amount: float
 @export var zoom_factor: float = 1.0
+@export_range(Definitions.WeaponRange.Min, Definitions.WeaponRange.Max, 0.5) var weapon_range: float = Definitions.WeaponRange.Max
 @export var infinite_ammo: bool = false
 
 @export_subgroup("Instances")

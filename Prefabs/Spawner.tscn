@@ -1,14 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkieffjienrol"]
+[gd_scene load_steps=2 format=3 uid="uid://bkieffjienrol"]
 
 [ext_resource type="Script" uid="uid://dcrwbx1g8xou" path="res://Scripts/Spawner.gd" id="1_hango"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="2_p6h40"]
 
 [node name="Spawner" type="Node3D"]
 script = ExtResource("1_hango")
-pickup_to_spawn = ExtResource("2_p6h40")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
-[node name="Area3D" type="Area3D" parent="."]

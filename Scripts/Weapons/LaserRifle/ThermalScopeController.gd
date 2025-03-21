@@ -14,6 +14,6 @@ func _process(_delta: float) -> void:
 	scope_camera.fov = player_one.camera.fov
 	scope_camera.global_position = player_one.camera.global_position
 	scope_camera.global_rotation = player_one.camera.global_rotation
-	var is_aiming: bool = player_one.player_input.is_aiming
+	var is_aiming: bool = player_one.brain.is_aiming
 	animation_tree.set("parameters/conditions/is_aiming", is_aiming)
 	animation_tree.set("parameters/conditions/is_not_aiming", !is_aiming)

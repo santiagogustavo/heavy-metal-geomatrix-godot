@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=27 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lgjqh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
@@ -30,15 +30,9 @@ background_mode = 2
 background_energy_multiplier = 0.5
 sky = SubResource("Sky_cnmp7")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_08udg"]
-size = Vector3(20, 0, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dr3vy"]
-size = Vector3(60, 0, 60)
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_2od80"]
-vertices = PackedVector3Array(-9.5, 0.439581, -9.51498, -9.5, 0.439581, 9.48502, 9.5, 0.439581, 9.48502, 9.5, 0.439581, -9.51498)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-29.5, -5.525, -29.5, -29.5, -5.525, 29.5, 29.5, -5.525, 29.5, 29.5, -5.525, -29.5, -9.5, 0.475, -9.75, -9.5, 0.475, 9.5, 9.75, 0.475, 9.5, 9.75, 0.475, -9.75)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qce16"]
 material = ExtResource("12_g4juo")
@@ -46,10 +40,6 @@ size = Vector3(20, 0.05, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a64xa"]
 size = Vector3(20, 0.05, 20)
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_3kfwb"]
-vertices = PackedVector3Array(-29.5, -5.525, -29.5, -29.5, -5.525, 29.5, 29.5, -5.525, 29.5, 29.5, -5.525, -29.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yubfn"]
 material = ExtResource("13_gddvk")
@@ -61,10 +51,11 @@ backface_collision = true
 
 [node name="Playground2" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_lgjqh")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_lgjqh")]
 level_name = "Playground2"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2"), NodePath("../Spawn Points/SpawnPoint3")]
 randomize_spawn = true
+pickup_spawner = NodePath("../Spawner")
 is_rainy = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
@@ -84,16 +75,11 @@ environment = SubResource("Environment_qo5h5")
 [node name="Sun" parent="." instance=ExtResource("3_nkony")]
 light_energy = 0.1
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("collision_shapes") instance=ExtResource("6_qglil")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("6_qglil")]
+navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
+spawn_concurrent = 10
+spawn_min_distance = 20.0
 pickups_to_spawn = Array[PackedScene]([ExtResource("7_hmeq5"), ExtResource("8_5qf7q"), ExtResource("9_f62up"), ExtResource("10_ii6pf"), ExtResource("11_q2jjr")])
-collision_shapes = [NodePath("Area3D/CollisionShape3D"), NodePath("Area3D/CollisionShape3D2")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawner/Area3D" index="0"]
-shape = SubResource("BoxShape3D_08udg")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Spawner/Area3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
-shape = SubResource("BoxShape3D_dr3vy")
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
@@ -135,18 +121,15 @@ collision_layer = 2052
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_a64xa")
 
-[node name="NavigationRegion3D2" type="NavigationRegion3D" parent="Level Geometry"]
-navigation_mesh = SubResource("NavigationMesh_3kfwb")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D2"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 mesh = SubResource("BoxMesh_yubfn")
 skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D2/MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2"]
 collision_layer = 1028
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D2/MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_yfk20")
 
 [node name="Rain" type="Node3D" parent="Level Geometry"]

@@ -8,6 +8,7 @@ signal drop
 @export var item_name: String
 @export var spend_amount: float
 @export var damage: int
+@export_range(Definitions.WeaponRange.Min, Definitions.WeaponRange.Max, 0.5) var weapon_range: float = Definitions.WeaponRange.Max
 
 @export_subgroup("References")
 @export var animation_tree: AnimationTree

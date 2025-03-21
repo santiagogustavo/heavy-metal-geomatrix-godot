@@ -29,7 +29,8 @@ func reset_players_to_spawn_points():
 		for player: Player in team.players:
 			player.heal_player(100)
 			player.reset_player_to_spawn()
-			player.character.reset_jiggle_bones()
+			if player.character:
+				player.character.reset_jiggle_bones()
 
 func create_match(new_match: MatchManager) -> void:
 	current_match = new_match

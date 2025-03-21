@@ -25,6 +25,7 @@ signal damage
 
 @export_subgroup("References")
 @export var hitboxes: Array[CharacterHitbox]
+@export var fists: Array[FistController]
 @export var jiggle_bones: Array[WiggleBone]
 @export var sfx_controller: CharacterSFXController
 @export var animation_tree_reference: PackedScene
@@ -47,6 +48,8 @@ var animation_tree: AnimationTree
 var jiggle_physics_enabled: bool = true
 var current_skin: int = default_skin
 
+var player_rid: RID
+
 func _ready() -> void:
 	if animation_tree_reference:
 		animation_tree = animation_tree_reference.instantiate() as PlayerAnimationTree
@@ -56,7 +59,11 @@ func _ready() -> void:
 		add_child(animation_tree)
 		animation_tree.anim_player = NodePath('./Model/AnimationPlayer')
 	for hitbox in hitboxes:
+		hitbox.player_rid = player_rid
 		hitbox.hit.connect(take_damage_from_hitbox)
+	for fist in fists:
+		if fist and player_rid:
+			fist.player_rid = player_rid
 
 func _process(_delta: float) -> void:
 	show_current_skin()
@@ -76,11 +83,11 @@ func reset_jiggle_bones() -> void:
 
 func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vector3) -> void:
 	var hitmarker_instance: Hitmarker = hitmarker.instantiate()
-	hitmarker_instance.global_position = hit_position
-	hitmarker_instance.position.x += 0.5
-	hitmarker_instance.damage_taken = total_damage
+	hitmarker_instance.damage_taken = roundi(total_damage)
 	hitmarker_instance.is_critical = is_critical
 	get_tree().root.add_child(hitmarker_instance)
+	hitmarker_instance.position.x += 0.5
+	hitmarker_instance.global_position = hit_position
 
 func take_damage_from_hitbox(
 	damage_taken: float,
@@ -89,6 +96,6 @@ func take_damage_from_hitbox(
 ) -> void:
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
-	damage.emit(total_damage, is_critical)
+	damage.emit(total_damage)
 	if GameplaySettingsManager.hitmarkers_enabled:
 		create_hitmarker(total_damage, is_critical, hit_position)

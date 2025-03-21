@@ -197,6 +197,7 @@ script = ExtResource("1_mw4kj")
 item_name = "Hand Gun"
 bullets = 8
 fire_rate = 0.3
+weapon_range = 15.0
 bullet = ExtResource("2_y54om")
 ejecting_brass = ExtResource("3_68f05")
 animation_tree = NodePath("AnimationTree")
@@ -205,10 +206,6 @@ eject_hole = NodePath("EjectHole")
 
 [node name="Hand Gun" parent="." instance=ExtResource("4_7qq3n")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
-
-[node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.0553004, 1.19027e-07, -6.59232e-09, 0.99847)
-bones/1/rotation = Quaternion(-0.666921, -4.76792e-15, -1.59007e-07, 0.745128)
 
 [node name="object_2_001" parent="Hand Gun/Armature/Skeleton3D" index="0"]
 layers = 8
@@ -221,7 +218,7 @@ visible = false
 
 [node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Hand Gun"]
 libraries = {
-"": SubResource("AnimationLibrary_prc7n")
+&"": SubResource("AnimationLibrary_prc7n")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

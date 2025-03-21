@@ -1,36 +1,54 @@
 extends Node3D
+class_name Spawner
 
+@export var navigation_region: NavigationRegion3D
+@export_range(1.0, 10, 1.0) var spawn_concurrent: int = 1
+@export var spawn_min_distance: float = 10.0
+@export var spawn_timeout: float = 5.0
 @export var pickups_to_spawn: Array[PackedScene]
-@export var collision_shapes: Array[CollisionShape3D]
-@onready var timer: Timer = $Timer
 
-var spawn_center: Array[Vector3]
-var spawn_radius: Array[Vector3]
+var started: bool = false
+var last_spawn_location: Vector3 = Vector3.ZERO
 
-func _ready():
-	for collision_shape in collision_shapes:
-		spawn_center.push_front(collision_shape.global_position)
-		spawn_radius.push_front(collision_shape.shape.size / 2)
-	timer.connect("timeout", _on_timer_timeout)
-	spawn_at_random_position()
+var spawned_pickups: Array[Node3D] = []
 
-func _on_timer_timeout():
-	spawn_at_random_position()
+func _process(_delta: float) -> void:
+	if (
+		GameManager.current_match.round_status == MatchManager.RoundStatus.Started
+		and !started
+	):
+		started = true
+		spawn_concurrents()
+	elif (
+		GameManager.current_match.round_status != MatchManager.RoundStatus.Started
+		and started
+	):
+		started = false
 
-func spawn_at_random_position():
-	for index in collision_shapes.size():
-		var spawn_location = Vector3.ZERO
-		spawn_location.x = randf_range(
-			spawn_center[index].x - spawn_radius[index].x,
-			spawn_center[index].x + spawn_radius[index].x
-		)
-		spawn_location.y = spawn_center[index].y
-		spawn_location.z = randf_range(
-			spawn_center[index].z - spawn_radius[index].z,
-			spawn_center[index].z + spawn_radius[index].z
-		)
-		var random_pickup_index = randi_range(0, pickups_to_spawn.size() - 1)
-		var pickup_to_spawn = pickups_to_spawn[random_pickup_index]
-		var pickup = pickup_to_spawn.instantiate()
-		pickup.position = spawn_location
-		add_child(pickup)
+func get_navigation_random_position() -> Vector3:
+	return NavigationServer3D.region_get_random_point(
+		navigation_region.get_region_rid(),
+		0,
+		true
+	)
+
+func spawn_concurrents() -> void:
+	spawned_pickups.clear()
+	if !started:
+		return
+	for i in range(spawn_concurrent):
+		spawn_at_random_navigation_position()
+	get_tree().create_timer(spawn_timeout, false).timeout.connect(spawn_concurrents)
+
+func spawn_at_random_navigation_position() -> void:
+	var spawn_location: Vector3 = last_spawn_location
+	while last_spawn_location.distance_to(spawn_location) < spawn_min_distance:
+		spawn_location = get_navigation_random_position()
+	last_spawn_location = spawn_location
+	var random_pickup_index = randi_range(0, pickups_to_spawn.size() - 1)
+	var pickup_to_spawn = pickups_to_spawn[random_pickup_index]
+	var pickup = pickup_to_spawn.instantiate()
+	pickup.position = spawn_location
+	pickup.position.y -= 0.25
+	spawned_pickups.append(pickup)
+	add_child(pickup)

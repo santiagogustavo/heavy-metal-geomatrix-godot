@@ -4,6 +4,7 @@ class_name SwordController
 @export_subgroup("Properties")
 @export var item_name: String
 @export var damage: int
+@export_range(Definitions.WeaponRange.Min, Definitions.WeaponRange.Max, 0.5) var weapon_range: float = 1.75
 
 @export var hit_general_particle: PackedScene
 @export var hit_player_particle: PackedScene

@@ -414,6 +414,7 @@ fire_rate = 1.0
 burst_count = 4
 burst_rate = 0.1
 zoom_factor = 1.5
+weapon_range = 10.0
 bullet = ExtResource("2_5sidx")
 ejecting_brass = ExtResource("3_r4mkb")
 animation_tree = NodePath("AnimationTree")
@@ -423,7 +424,7 @@ eject_hole = NodePath("EjectHole")
 [node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(-0.000274402, 0.00896966, -0.0172379)
+bones/1/position = Vector3(-3.26082e-05, 0.00953388, -0.0172)
 bones/2/position = Vector3(0, 0.01, 0.00158699)
 
 [node name="object_0" parent="Moto Gun/Armature/Skeleton3D" index="0"]
@@ -437,7 +438,7 @@ layers = 8
 
 [node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Moto Gun"]
 libraries = {
-"": SubResource("AnimationLibrary_h0mab")
+&"": SubResource("AnimationLibrary_h0mab")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -530,7 +531,6 @@ stream = ExtResource("9_rrald")
 volume_db = -30.0
 max_db = 0.0
 pitch_scale = 0.64
-stream_paused = true
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 

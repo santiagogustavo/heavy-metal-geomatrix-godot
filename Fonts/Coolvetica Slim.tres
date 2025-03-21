@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c22rehsyj34fb"]
+
+[ext_resource type="FontFile" uid="uid://eh8q01om0msl" path="res://Fonts/Coolvetica Rg.otf" id="1_i77m7"]
+
+[resource]
+base_font = ExtResource("1_i77m7")
+variation_embolden = -0.3
