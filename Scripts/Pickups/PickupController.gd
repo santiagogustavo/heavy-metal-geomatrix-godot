@@ -39,6 +39,8 @@ func _process(_delta: float) -> void:
 			mesh.get_surface_override_material(0).albedo_color = color_start
 
 func _on_area_3d_body_entered(body: Node3D):
+	if is_collided:
+		return
 	collider = body
 	if pickup_on_press:
 		is_collided = true
@@ -46,8 +48,8 @@ func _on_area_3d_body_entered(body: Node3D):
 	else:
 		pickup_item()
 	
-func _on_area_3d_body_exited(_body: Node3D):
-	if collider:
+func _on_area_3d_body_exited(body: Node3D):
+	if collider == body:
 		is_collided = false
 		collider.is_pickup_collided = false
 		collider = null

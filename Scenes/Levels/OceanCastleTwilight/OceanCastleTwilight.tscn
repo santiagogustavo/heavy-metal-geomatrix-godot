@@ -190,11 +190,12 @@ stream_4/stream = ExtResource("27_ryyg3")
 
 [node name="Ocean Castle Twilight" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "snapshot_camera", "splash_animation_tree") instance=ExtResource("1_4un3q")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_4un3q")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")
-snapshot_camera = NodePath("../SnapshotViewport/SnapshotCamera")
+ost_player = NodePath("../OST")
+snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
 [node name="SplashLayer" parent="." instance=ExtResource("2_tegcv")]
@@ -676,7 +677,6 @@ pickups_to_spawn = Array[PackedScene]([ExtResource("18_403eb"), ExtResource("19_
 [node name="OST" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_7odcm")
-autoplay = true
 bus = &"Game"
 
 [editable path="SplashLayer"]

@@ -13,7 +13,6 @@ var engine_version: String = Engine.get_version_info().string
 # Gameplay variables
 var is_game_paused: bool = false
 var current_match: MatchManager
-var players: Array[Player] = []
 var teams: Array[Team] = []
 
 func _init() -> void:
@@ -45,6 +44,8 @@ func end_match() -> void:
 	current_level_config = null
 
 func create_team() -> int:
+	if teams.size() > 2:
+		return -1
 	var new_team = Team.new()
 	new_team.name = "Team +" + str(teams.size())
 	new_team.killed.connect(func (last_killed_player: Player): team_was_killed(last_killed_player))
@@ -115,6 +116,8 @@ func get_enemies(team_name: String) -> Array[Player]:
 func add_player(player: Player, team: int) -> bool:
 	if team >= teams.size():
 		return false
+	if get_total_players() > 4:
+		return false
 	if current_level_config and !current_level_config.get_available_spawn_point():
 		return false
 	teams[team].add_player(player)
@@ -147,6 +150,12 @@ func get_lowest_team() -> Team:
 		if team.get_team_health() < lowest_team.get_team_health():
 			lowest_team = team
 	return lowest_team
+
+func get_total_players() -> int:
+	var total: int = 0
+	for team: Team in teams:
+		total += team.players.size()
+	return total
 
 func match_round_ended() -> void:
 	var player_one: Player = get_player_one()

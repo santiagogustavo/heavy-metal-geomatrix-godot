@@ -1,0 +1,277 @@
+[gd_scene load_steps=22 format=3 uid="uid://cmrm12j5kdl81"]
+
+[ext_resource type="Script" uid="uid://b2tqialpg0ma8" path="res://Scripts/Menus/Versus/PlayerCard.gd" id="1_n3hab"]
+[ext_resource type="Texture2D" uid="uid://kt4d7n8f6ld" path="res://Textures/Icons/Teams/818stompers.png" id="2_cgaog"]
+[ext_resource type="Texture2D" uid="uid://dqx07g2rrmws" path="res://Textures/Icons/Teams/911elite.png" id="3_dwyeh"]
+[ext_resource type="Texture2D" uid="uid://8tnm5dy7wkwm" path="res://Textures/Icons/Teams/707metalheads.png" id="4_4fpg7"]
+[ext_resource type="Texture2D" uid="uid://yb7xidhwoo1n" path="res://Textures/Icons/Teams/323agents.png" id="5_ikl2n"]
+[ext_resource type="Shader" uid="uid://dwsg1rhd8i4h8" path="res://Materials/Shaders/Sprite Cutout.gdshader" id="6_0qbq7"]
+[ext_resource type="Texture2D" uid="uid://dkcqvo5kwj2i3" path="res://Textures/Menus/Versus/avatar_card_mask.png" id="7_tidxd"]
+[ext_resource type="Texture2D" uid="uid://b0g1xv1gbqo2t" path="res://Textures/Characters/Mayfly/Cards/6c34b3ba.png" id="8_n3hab"]
+[ext_resource type="Texture2D" uid="uid://2tl1kfvn0qn" path="res://Textures/Menus/Versus/avatar_card.png" id="9_ttpwq"]
+[ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="10_qyqei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgaog"]
+shader = ExtResource("6_0qbq7")
+shader_parameter/fill_amount = 0.0
+shader_parameter/mask_rotation = 0.0
+shader_parameter/mask_offset = Vector2(0, 0)
+shader_parameter/mask_size = Vector2(0.84, 0.98)
+shader_parameter/mask_rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/mask_scale_pivot = Vector2(0.5, 0.5)
+shader_parameter/invert_mask = true
+shader_parameter/use_different_texture = true
+shader_parameter/mask_texture = ExtResource("7_tidxd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3ryl"]
+font = ExtResource("10_qyqei")
+font_size = 48
+
+[sub_resource type="Animation" id="Animation_4wxm0"]
+resource_name = "Announce"
+length = 4.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(150, 250), Vector2(50, 250), Vector2(0, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fyu0v"]
+resource_name = "Quit"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 250), Vector2(500, 250)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vbnhn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5rm5"]
+_data = {
+&"Announce": SubResource("Animation_4wxm0"),
+&"Quit": SubResource("Animation_fyu0v"),
+&"RESET": SubResource("Animation_vbnhn")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n3hab"]
+animation = &"Announce"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cgaog"]
+animation = &"Quit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dwyeh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4fpg7"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ikl2n"]
+states/Announce/node = SubResource("AnimationNodeAnimation_n3hab")
+states/Announce/position = Vector2(401, 100.5)
+states/Quit/node = SubResource("AnimationNodeAnimation_cgaog")
+states/Quit/position = Vector2(630, 101)
+transitions = ["Start", "Announce", SubResource("AnimationNodeStateMachineTransition_dwyeh"), "Announce", "Quit", SubResource("AnimationNodeStateMachineTransition_4fpg7")]
+
+[node name="PlayerCardRight" type="Control"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 250)
+script = ExtResource("1_n3hab")
+team_icons = Array[Texture2D]([ExtResource("2_cgaog"), ExtResource("3_dwyeh"), ExtResource("4_4fpg7"), ExtResource("5_ikl2n")])
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_bottom = -250.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TeamDecoration" type="TextureRect" parent="Control"]
+modulate = Color(0.137255, 0.854902, 0.407843, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -164.0
+offset_right = -16.0
+offset_bottom = 116.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_ikl2n")
+expand_mode = 1
+
+[node name="Avatar" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_cgaog")
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -416.0
+offset_top = -174.5
+offset_right = -133.0
+offset_bottom = 174.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("8_n3hab")
+stretch_mode = 6
+flip_h = true
+
+[node name="Decoration" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -424.0
+offset_top = -181.5
+offset_right = -120.0
+offset_bottom = 181.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("9_ttpwq")
+expand_mode = 1
+flip_h = true
+
+[node name="PlayerName" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -360.0
+offset_top = 188.0
+offset_right = -128.0
+offset_bottom = 249.0
+text = "MAYFLY"
+label_settings = SubResource("LabelSettings_x3ryl")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f5rm5")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ikl2n")
+anim_player = NodePath("../AnimationPlayer")

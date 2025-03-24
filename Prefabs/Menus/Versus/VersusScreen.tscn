@@ -1,0 +1,457 @@
+[gd_scene load_steps=27 format=3 uid="uid://cvl62u5imifu2"]
+
+[ext_resource type="Shader" uid="uid://b4o2fauv7bvey" path="res://Materials/Shaders/Thermal.gdshader" id="1_s5arm"]
+[ext_resource type="Script" uid="uid://cub56m841dw1x" path="res://Scripts/Menus/Versus/VersusScreenController.gd" id="1_ul0yp"]
+[ext_resource type="Texture2D" uid="uid://dvevyincv5dvp" path="res://Textures/Levels/Splashes/OceanCastleTwilight.png" id="2_5f5ga"]
+[ext_resource type="PackedScene" uid="uid://bk2vk0a3rx6ds" path="res://Prefabs/Menus/Versus/PlayerCardLeft.tscn" id="3_0jpgm"]
+[ext_resource type="Texture2D" uid="uid://ig8bx3f10dhj" path="res://Textures/Menus/Versus/VS.png" id="3_5f5ga"]
+[ext_resource type="Shader" uid="uid://brgn1jix4qudq" path="res://Materials/Shaders/RadialShine.gdshader" id="4_t14vm"]
+[ext_resource type="PackedScene" uid="uid://cmrm12j5kdl81" path="res://Prefabs/Menus/Versus/PlayerCardRight.tscn" id="5_ul0yp"]
+[ext_resource type="Script" uid="uid://da5bk76p2wmgk" path="res://Scripts/Menus/Versus/LevelSplashGradient.gd" id="6_0gxbu"]
+[ext_resource type="Texture2D" uid="uid://dormj0yhtc2hy" path="res://Textures/Characters/Slash/Cards/d3f8d987.png" id="7_0jpgm"]
+[ext_resource type="AudioStream" uid="uid://bo2gmt5macheo" path="res://Sound/Menus/Versus/VERSUS.wav" id="8_1sq3t"]
+[ext_resource type="Texture2D" uid="uid://b0g1xv1gbqo2t" path="res://Textures/Characters/Mayfly/Cards/6c34b3ba.png" id="9_ypkns"]
+[ext_resource type="AudioStream" uid="uid://cgknfuiv3fqoh" path="res://Sound/Menus/Versus/VS_1.wav" id="10_sj6li"]
+
+[sub_resource type="Gradient" id="Gradient_iqqcg"]
+colors = PackedColorArray(0, 0, 0, 1, 0.439216, 0.541176, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qopbe"]
+gradient = SubResource("Gradient_iqqcg")
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmex7"]
+shader = ExtResource("1_s5arm")
+shader_parameter/gradient = SubResource("GradientTexture2D_qopbe")
+shader_parameter/use_screen_texture = true
+shader_parameter/use_screen_uv = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t14vm"]
+noise_type = 3
+frequency = 0.023
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_06kd2"]
+seamless = true
+noise = SubResource("FastNoiseLite_t14vm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_06kd2"]
+shader = ExtResource("4_t14vm")
+shader_parameter/shine_num = 8.0
+shader_parameter/rotation_speed = 1.0
+shader_parameter/light_magnitude = 1.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 1.0
+shader_parameter/filter_minv = 0.0
+shader_parameter/cut_inner_radius = 0.0
+shader_parameter/color = Color(0.576471, 0, 0.870588, 1)
+shader_parameter/NOISE = SubResource("NoiseTexture2D_06kd2")
+shader_parameter/NOISE_speed = Vector2(0, 0.1)
+shader_parameter/NOISE_magnitude = 0.39
+
+[sub_resource type="Gradient" id="Gradient_qliqg"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0vwxq"]
+gradient = SubResource("Gradient_qliqg")
+
+[sub_resource type="Animation" id="Animation_gvbsg"]
+resource_name = "Announce"
+length = 5.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VSContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 0.7, 4.29224, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VSContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 4.29224, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OST:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VSContainer/Impact:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.5, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.5, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"emit_fade_signal"
+}, {
+"args": [],
+"method": &"emit_end_signal"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("White Glow:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_13ekr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VSContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VSContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OST:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VSContainer/Impact:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("White Glow:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkfw4"]
+_data = {
+&"Announce": SubResource("Animation_gvbsg"),
+&"RESET": SubResource("Animation_13ekr")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0gxbu"]
+animation = &"Announce"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ypkns"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xnyxp"]
+states/Announce/node = SubResource("AnimationNodeAnimation_0gxbu")
+states/Announce/position = Vector2(408, 100)
+transitions = ["Start", "Announce", SubResource("AnimationNodeStateMachineTransition_ypkns")]
+
+[node name="VersusScreen" type="CanvasLayer"]
+layer = 4
+script = ExtResource("1_ul0yp")
+player_card_left = ExtResource("3_0jpgm")
+player_card_right = ExtResource("5_ul0yp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelSplash" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_bmex7")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_0gxbu")
+
+[node name="LevelSplashDebug" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_bmex7")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_0gxbu")
+texture = ExtResource("2_5f5ga")
+
+[node name="VSContainer" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Impact" type="AudioStreamPlayer2D" parent="Control/VSContainer"]
+position = Vector2(-556, -304)
+stream = ExtResource("8_1sq3t")
+volume_db = 5.0
+bus = &"Effects"
+
+[node name="Rect" type="ColorRect" parent="Control/VSContainer"]
+material = SubResource("ShaderMaterial_06kd2")
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.639216)
+
+[node name="VS" type="TextureRect" parent="Control/VSContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.5
+offset_top = -120.0
+offset_right = 122.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(123, 120)
+texture = ExtResource("3_5f5ga")
+expand_mode = 1
+
+[node name="Vignette" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0vwxq")
+
+[node name="White Glow" type="ColorRect" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TeamLeft" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 1500)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -748.0
+offset_right = 64.0
+offset_bottom = 752.0
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(0, 750)
+theme_override_constants/separation = -46
+alignment = 1
+
+[node name="TeamRight" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 1500)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -748.0
+offset_right = -56.0
+offset_bottom = 752.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(0, 750)
+theme_override_constants/separation = -46
+alignment = 1
+
+[node name="TeamLeftDebug" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 1500)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -748.0
+offset_right = 64.0
+offset_bottom = 752.0
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(0, 750)
+theme_override_constants/separation = -46
+alignment = 1
+
+[node name="PlayerCardLeft" parent="Control/TeamLeftDebug" instance=ExtResource("3_0jpgm")]
+layout_mode = 2
+player_name = "Slash"
+avatar = ExtResource("7_0jpgm")
+
+[node name="Control" parent="Control/TeamLeftDebug/PlayerCardLeft" index="0"]
+offset_left = -500.0
+offset_top = 0.0
+offset_right = -500.0
+offset_bottom = 0.0
+
+[node name="TeamRightDebug" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 1500)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -748.0
+offset_right = -56.0
+offset_bottom = 752.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(0, 750)
+theme_override_constants/separation = -46
+alignment = 1
+
+[node name="PlayerCardRight" parent="Control/TeamRightDebug" instance=ExtResource("5_ul0yp")]
+layout_mode = 2
+player_name = "Mayfly"
+avatar = ExtResource("9_ypkns")
+team = 3
+
+[node name="Control" parent="Control/TeamRightDebug/PlayerCardRight" index="0"]
+offset_left = 500.0
+offset_top = 0.0
+offset_right = 500.0
+offset_bottom = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_hkfw4")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Control"]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_xnyxp")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="OST" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_sj6li")
+bus = &"Menus"
+
+[editable path="Control/TeamLeftDebug/PlayerCardLeft"]
+[editable path="Control/TeamRightDebug/PlayerCardRight"]

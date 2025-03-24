@@ -117,10 +117,11 @@ stream_4/stream = ExtResource("16_0hywk")
 
 [node name="PitchDarkStadium" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "snapshot_camera", "splash_animation_tree") instance=ExtResource("1_8fted")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_8fted")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
-snapshot_camera = NodePath("../SnapshotViewport/SnapshotCamera")
+ost_player = NodePath("../OST")
+snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
 [node name="SplashLayer" parent="." instance=ExtResource("2_7jn1i")]
@@ -365,7 +366,6 @@ shape = SubResource("BoxShape3D_jtulh")
 [node name="OST" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_ov48a")
-autoplay = true
 bus = &"Game"
 
 [editable path="SplashLayer"]

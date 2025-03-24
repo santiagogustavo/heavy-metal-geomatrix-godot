@@ -85,8 +85,11 @@ func compute_next_state():
 	) if closest_pickup else false
 	var need_to_pickup: bool = (has_melee and is_closest_pickup_ranged) or !has_gun
 	if (
-		GameManager.current_match.round_status != MatchManager.RoundStatus.Started
-		or GameManager.current_match.is_player_input_locked
+		GameManager.current_match
+		and (
+			GameManager.current_match.round_status != MatchManager.RoundStatus.Started
+			or GameManager.current_match.is_player_input_locked
+		)
 	):
 		state = AIState.Idle
 		return

@@ -270,10 +270,11 @@ stream_4/stream = ExtResource("26_jeo0a")
 
 [node name="SunkenCityNight" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "snapshot_camera", "splash_animation_tree") instance=ExtResource("1_irl40")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_irl40")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
-snapshot_camera = NodePath("../SnapshotViewport/SnapshotCamera")
+ost_player = NodePath("../OST")
+snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
 [node name="SplashLayer" parent="." instance=ExtResource("2_1r2ip")]
@@ -636,7 +637,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7744, 6.8224, -20.8766)
 [node name="OST" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_rq1vi")
-autoplay = true
 bus = &"Game"
 
 [editable path="SplashLayer"]

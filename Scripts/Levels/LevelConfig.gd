@@ -7,6 +7,7 @@ class_name LevelConfig
 @export var spawn_points: Array[SpawnPoint]
 @export var randomize_spawn: bool = false
 @export var pickup_spawner: Spawner
+@export var ost_player: AudioStreamPlayer2D
 
 @export_subgroup("Environment")
 @export var is_sunny: bool = false
@@ -15,8 +16,11 @@ class_name LevelConfig
 
 @export_subgroup("Snapshot")
 @export var snapshot_mode: bool = false
-@export var snapshot_camera: Camera3D
+@export var snapshot_viewport: SubViewport
 @export var splash_animation_tree: AnimationTree
+
+@onready var versus_screen_resource: PackedScene = load("res://Prefabs/Menus/Versus/VersusScreen.tscn")
+var versus_screen_instance: VersusScreen
 
 func _ready() -> void:
 	GameManager.lock_cursor()
@@ -24,19 +28,48 @@ func _ready() -> void:
 	if !snapshot_mode:
 		if !GameManager.get_player_one():
 			create_player_one()
+			create_bot()
 		if !GameManager.current_match:
 			GameManager.create_match(MatchManager.new())
-		if snapshot_camera:
-			if splash_animation_tree:
-				await get_tree().create_timer(2.0).timeout
-				splash_animation_tree.set("parameters/conditions/fade_out", true)
-			snapshot_camera.queue_free()
 		GameManager.spawn_players()
 		GameManager.added_player.connect(on_player_added)
-		await get_tree().create_timer(0.1).timeout
-		GameManager.current_match.start_round()
+		instantiate_versus_screen()
 	else:
 		GameManager.unlock_cursor()
+
+func instantiate_versus_screen() -> void:
+	versus_screen_instance = versus_screen_resource.instantiate()
+	versus_screen_instance.debug = false
+	versus_screen_instance.level_splash = splash
+	versus_screen_instance.fade.connect(func ():
+		if snapshot_viewport:
+			snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
+	)
+	versus_screen_instance.ended.connect(on_versus_screen_ended)
+	get_tree().root.add_child.call_deferred(versus_screen_instance)
+	await get_tree().process_frame
+	if snapshot_viewport:
+		snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+
+func on_versus_screen_ended() -> void:
+	await play_splash_sequence()
+	start_match()
+
+func play_splash_sequence() -> void:
+	if ost_player:
+		ost_player.play()
+	if !snapshot_viewport:
+		return
+	if splash_animation_tree:
+		await get_tree().create_timer(2.0).timeout
+		splash_animation_tree.set("parameters/conditions/fade_out", true)
+	snapshot_viewport.queue_free()
+
+func start_match() -> void:
+	await get_tree().create_timer(0.1).timeout
+	if versus_screen_instance:
+		versus_screen_instance.queue_free()
+	GameManager.current_match.start_round()
 
 func _exit_tree() -> void:
 	GameManager.clear_teams()
@@ -59,3 +92,7 @@ func create_player_one() -> void:
 	player_instance.selected_character = Definitions.Characters.Slash
 	var team_index: int = GameManager.create_team()
 	GameManager.add_player(player_instance, team_index)
+
+func create_bot() -> void:
+	var debug: DebugCommands = DebugCommands.new(get_tree())
+	debug.add_bot()
