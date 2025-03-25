@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bpxpio7ixipg6"]
+[gd_scene load_steps=47 format=3 uid="uid://bpxpio7ixipg6"]
 
 [ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_8fted"]
 [ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb" id="1_e6pgn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_enk1q"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
+[ext_resource type="Compositor" uid="uid://csiin1xmgwwce" path="res://MotionBlurConfig.tres" id="3_qvd3e"]
 [ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/Pitch Dark Stadium/9939eb6_emit.tres" id="4_t2tlk"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_tqjn4"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="6_qyxnj"]
@@ -27,9 +28,6 @@
 [ext_resource type="AudioStream" uid="uid://dbjtrx1brw8ue" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst4.mp3" id="15_d40he"]
 [ext_resource type="AudioStream" uid="uid://dtxpgwc7umcfc" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst5.mp3" id="16_0hywk"]
 [ext_resource type="PackedScene" uid="uid://c6o2b3j7355k1" path="res://Models/Levels/Pitch Dark Stadium/Navmesh.glb" id="17_a6sam"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hsj7j"]
-viewport_path = NodePath("SnapshotViewport")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25dxq"]
 panorama = ExtResource("2_caq5r")
@@ -54,6 +52,9 @@ volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hsj7j"]
+viewport_path = NodePath("SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
 vertices = PackedVector3Array(-0.0500002, 2.55, -12.3, 1.2, 3.55, -12.55, 1.2, 3.55, -15.05, -12.05, 2.55, -15.05, -0.272223, 2.55, -15.05, -7.8, 4.05, 7.2, -7.3, 4.05, 7.7, -7.3, 4.05, 3.95, -9.05, 4.05, 3.95, -8.3, 2.55, 0.95, -8.05, 2.55, 2.2, 1.45, 2.55, 2.2, 1.45, 2.55, -11.05, -0.0500002, 2.55, -11.3, -9.55, 4.05, 3.45, -12.05, 4.05, 7.2, -9.3, 2.8, 0.95, -12.05, 2.55, -0.216666, -12.05, 2.8, 1.26667, -12.05, 3.8, 2.75, 2.45, 4.05, -12.55, 2.95, 4.05, -12.05, 5.7, 4.05, -15.05, 2.325, 4.05, -15.05, 2.95, 4.05, -5.8, 5.7, 4.05, -6.05, 7.2, 5.55, -15.05, 7.2, 5.55, -5.55, 10.7, 5.55, -5.55, 10.7, 5.55, -15.05, 5.7, 4.05, -4.55, 6.2, 4.05, -4.05, 2.95, 4.05, 1.95, 10.7, 4.05, 2.2, 10.7, 4.05, -4.05, 2.95, 4.05, 3.45, 2.45, 4.05, 3.95, 10.7, 4.05, 17.95, -7.3, 4.05, 17.95, -11.8, 5.8, 8.7, -11.8, 5.8, 17.95, -8.8, 5.8, 17.95, -8.8, 5.8, 8.7)
@@ -117,12 +118,17 @@ stream_4/stream = ExtResource("16_0hywk")
 
 [node name="PitchDarkStadium" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_8fted")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_8fted")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")
+world_environment = NodePath("../WorldEnvironment")
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4pe8")
+compositor = ExtResource("3_qvd3e")
 
 [node name="SplashLayer" parent="." instance=ExtResource("2_7jn1i")]
 
@@ -138,9 +144,6 @@ script = ExtResource("3_8d4wu")
 [node name="SnapshotCamera" parent="SnapshotViewport" instance=ExtResource("4_tqjn4")]
 transform = Transform3D(-0.766044, 0.261445, 0.587216, 0, 0.913545, -0.406736, -0.642788, -0.311578, -0.699816, 1.88, 3.76, 13.83)
 cull_mask = 209
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h4pe8")
 
 [node name="Spawn Points" type="Node3D" parent="."]
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dykoq75ft18o1"]
+[gd_scene load_steps=19 format=3 uid="uid://dykoq75ft18o1"]
 
 [ext_resource type="Texture2D" uid="uid://3ktp2urmbjum" path="res://Textures/Menus/logo_flat_small.png" id="1_myq6l"]
 [ext_resource type="Script" uid="uid://dpgn8o54evrbb" path="res://Scripts/Scenes/LoadingManager.gd" id="1_y5dpv"]
 [ext_resource type="FontFile" uid="uid://2x43qqo5f7ft" path="res://Fonts/Headshop.ttf" id="2_fgwot"]
+[ext_resource type="Compositor" uid="uid://csiin1xmgwwce" path="res://MotionBlurConfig.tres" id="4_qjj4j"]
+
+[sub_resource type="Environment" id="Environment_dq85b"]
 
 [sub_resource type="Animation" id="Animation_6o2yl"]
 resource_name = "Idle"
@@ -132,6 +135,10 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="LoadingScreen" type="CanvasLayer"]
 layer = 127
 script = ExtResource("1_y5dpv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dq85b")
+compositor = ExtResource("4_qjj4j")
 
 [node name="CompilerParent" type="Node3D" parent="."]
 

@@ -11,6 +11,9 @@ var rendering_scale: float = 1.0
 var bloom_enabled: bool = true
 var bloom_intensity: float = 0.25
 
+var motion_blur_enabled: bool = true
+var motion_blur_intensity: float = 1.0
+
 func _init() -> void:
 	if OS.has_feature("editor"):
 		ProjectSettings.set("display/window/stretch/mode", "viewport")
@@ -57,3 +60,15 @@ func set_bloom_enabled(enabled: bool) -> void:
 
 func set_bloom_intensity(intensity: float) -> void:
 	bloom_intensity = intensity
+
+func set_motion_blur_enabled(enabled: float) -> void:
+	motion_blur_enabled = enabled
+	if !GameManager.current_level_config:
+		return
+	if enabled:
+		GameManager.current_level_config.enable_environment_composition_effects()
+	else:
+		GameManager.current_level_config.disable_environment_composition_effects()
+
+func set_motion_blur_intensity(intensity: float) -> void:
+	motion_blur_intensity = intensity

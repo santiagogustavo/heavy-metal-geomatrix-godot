@@ -13,7 +13,7 @@ class_name PickupController
 @onready var meshes: Array[Node] = find_children("", "MeshInstance3D")
 @onready var animation_trees: Array[Node] = find_children("", "AnimationTree")
 
-var collider: Node3D
+var collider: Player
 var is_collided: bool = false
 var is_picking_up: bool = false
 var color_lerp: float = 0
@@ -55,25 +55,24 @@ func _on_area_3d_body_exited(body: Node3D):
 		collider = null
 
 func detect_player_pickup():
-	if collider and collider.brain.is_picking_up:
+	if !collider:
+		return
+	if collider.brain.is_picking_up and !is_picking_up:
 		pickup_item()
+		collider.is_pickup_collided = false
 
 func pickup_item():
-	if collider:
-		collider.inventory_manager.pick_up_item(equip_type, item)
-		collider.is_pickup_collided = false
-		is_picking_up = true
-
+	collider.inventory_manager.pick_up_item(equip_type, item)
+	collider.is_pickup_collided = false
+	is_picking_up = true
 	for animation_tree: AnimationTree in animation_trees:
 		animation_tree.set("parameters/conditions/is_picking_up", true)
-	await get_tree().create_timer(0.2).timeout
-	queue_free()
+	get_tree().create_timer(0.2, false).timeout.connect(queue_free)
 
 func _on_timeout():
 	for animation_tree: AnimationTree in animation_trees:
 		animation_tree.set("parameters/conditions/is_destroying", true)
-	await get_tree().create_timer(0.3).timeout
-	queue_free()
+	get_tree().create_timer(0.3, false).timeout.connect(queue_free)
 
 func lerp_collision_color():
 	color_lerp = pingpong(Time.get_ticks_msec(), lerp_duration) / lerp_duration

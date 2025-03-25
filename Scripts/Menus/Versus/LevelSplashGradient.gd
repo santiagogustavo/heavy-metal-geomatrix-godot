@@ -19,11 +19,11 @@ func update_material_gradient(splash: Texture2D) -> void:
 func get_average_color(splash: Texture2D) -> Color:
 	var image: Image = splash.get_image()
 	image.decompress()
-	var color: Vector3 = Vector3(0, 0, 0)
+	var all_colors: Vector3 = Vector3(0, 0, 0)
 	var total_pixels: int = image.get_size()[0] + image.get_size()[1]
 	for y in range(0, image.get_size().y):
 		for x in range(0, image.get_size().x):
 			var pixel: Color = image.get_pixel(x, y)
-			color += Vector3(pixel.r, pixel.g, pixel.b) / 255.0
-	color /= total_pixels
-	return Color(color[0], color[1], color[2])
+			all_colors += Vector3(pixel.r, pixel.g, pixel.b) / 255.0
+	all_colors /= total_pixels
+	return Color(all_colors[0], all_colors[1], all_colors[2])

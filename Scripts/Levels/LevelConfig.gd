@@ -8,6 +8,7 @@ class_name LevelConfig
 @export var randomize_spawn: bool = false
 @export var pickup_spawner: Spawner
 @export var ost_player: AudioStreamPlayer2D
+@export var world_environment: WorldEnvironment
 
 @export_subgroup("Environment")
 @export var is_sunny: bool = false
@@ -21,6 +22,7 @@ class_name LevelConfig
 
 @onready var versus_screen_resource: PackedScene = load("res://Prefabs/Menus/Versus/VersusScreen.tscn")
 var versus_screen_instance: VersusScreen
+var frames_to_preprocess_splash: int = 1
 
 func _ready() -> void:
 	GameManager.lock_cursor()
@@ -37,6 +39,9 @@ func _ready() -> void:
 	else:
 		GameManager.unlock_cursor()
 
+func _process(_delta: float) -> void:
+	set_environment_composition_effects_intensity(VideoSettingsManager.motion_blur_intensity)
+
 func instantiate_versus_screen() -> void:
 	versus_screen_instance = versus_screen_resource.instantiate()
 	versus_screen_instance.debug = false
@@ -47,11 +52,32 @@ func instantiate_versus_screen() -> void:
 	)
 	versus_screen_instance.ended.connect(on_versus_screen_ended)
 	get_tree().root.add_child.call_deferred(versus_screen_instance)
-	await get_tree().process_frame
+	disable_environment_composition_effects()
+	for i in range(frames_to_preprocess_splash):
+		await get_tree().process_frame
 	if snapshot_viewport:
 		snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 
+func enable_environment_composition_effects() -> void:
+	if !world_environment:
+		return
+	for effect: CompositorEffect in world_environment.compositor.compositor_effects:
+		effect.enabled = VideoSettingsManager.motion_blur_enabled
+
+func disable_environment_composition_effects() -> void:
+	if !world_environment:
+		return
+	for effect: CompositorEffect in world_environment.compositor.compositor_effects:
+		effect.enabled = false
+
+func set_environment_composition_effects_intensity(intensity: float) -> void:
+	if !world_environment:
+		return
+	for effect: CompositorEffect in world_environment.compositor.compositor_effects:
+		effect.intensity = intensity
+
 func on_versus_screen_ended() -> void:
+	enable_environment_composition_effects()
 	await play_splash_sequence()
 	start_match()
 

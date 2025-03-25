@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=35 format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
@@ -22,8 +22,10 @@
 [ext_resource type="Script" uid="uid://dwtufgeul4xde" path="res://Scripts/Menus/OptionsMenu/AimAssistButton.gd" id="12_1m567"]
 [ext_resource type="Script" uid="uid://rwtaj1nebmyd" path="res://Scripts/Menus/OptionsMenu/FovSlider.gd" id="12_fjwlq"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="13_cerdy"]
+[ext_resource type="Script" uid="uid://bx5ywrheuygnj" path="res://Scripts/Menus/OptionsMenu/MotionBlurToggle.gd" id="13_k8wft"]
 [ext_resource type="PackedScene" uid="uid://c0f7b66n3wqqq" path="res://Scenes/Menus/OptionsMenu/Controls/ControllerVibrationButton.tscn" id="13_m37qm"]
 [ext_resource type="Script" uid="uid://4dcghdphqkvk" path="res://Scripts/Menus/OptionsMenu/CrosshairColorSlider.gd" id="13_rsdcg"]
+[ext_resource type="Script" uid="uid://bgs63els716ds" path="res://Scripts/Menus/OptionsMenu/MotionBlurIntensitySlider.gd" id="14_cei6j"]
 [ext_resource type="Script" uid="uid://j3t1mlo7rmlr" path="res://Scripts/Menus/OptionsMenu/CrosshairStyleSlider.gd" id="14_he2h0"]
 [ext_resource type="Script" uid="uid://cct3ns241by6d" path="res://Scripts/Menus/OptionsMenu/CrosshairScaleSlider.gd" id="14_hv86s"]
 [ext_resource type="AudioStream" uid="uid://bf4i0pcarhkut" path="res://Sound/UI/PauseMenu/721504__baggonotes__button_hover.wav" id="19_83r31"]
@@ -194,6 +196,21 @@ layout_mode = 2
 
 [node name="BloomIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("10_6407g")]
 layout_mode = 2
+
+[node name="MotionBlurToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
+layout_mode = 2
+script = ExtResource("13_k8wft")
+
+[node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurToggle" index="0"]
+text = "Motion Blur"
+
+[node name="MotionBlurIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("10_6407g")]
+layout_mode = 2
+script = ExtResource("14_cei6j")
+
+[node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurIntensity" index="0"]
+text = "Motion Blur Intensity
+"
 
 [node name="Controls" type="MarginContainer" parent="TabContainer"]
 visible = false
@@ -432,6 +449,9 @@ bus = &"UI"
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider/CustomSlider10"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/PostProcessingLabel"]
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurToggle"]
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurIntensity"]
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurIntensity/CustomSlider10"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/AimingLabel"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/AimAssistButton"]
 [editable path="TabContainer/Controls/ScrollContainer/VBoxContainer/LookSmoothingSlider"]

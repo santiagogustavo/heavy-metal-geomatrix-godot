@@ -43,6 +43,8 @@ func load_video_settings():
 	VideoSettingsManager.set_rendering_scale(file.get_value("video", "rendering_scale", VideoSettingsManager.rendering_scale))
 	VideoSettingsManager.set_bloom_enabled(file.get_value("video", "bloom_enabled", VideoSettingsManager.bloom_enabled))
 	VideoSettingsManager.set_bloom_intensity(file.get_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity))
+	VideoSettingsManager.set_motion_blur_enabled(file.get_value("video", "motion_blur_enabled", VideoSettingsManager.motion_blur_enabled))
+	VideoSettingsManager.set_motion_blur_intensity(file.get_value("video", "motion_blur_intensity", VideoSettingsManager.motion_blur_intensity))
 
 func load_input_settings():
 	InputSettingsManager.set_aim_assist_enabled(file.get_value("input", "aim_assist_enabled", InputSettingsManager.aim_assist_enabled))
@@ -78,6 +80,8 @@ func save_video_settings():
 	file.set_value("video", "rendering_scale", VideoSettingsManager.rendering_scale)
 	file.set_value("video", "bloom_enabled", VideoSettingsManager.bloom_enabled)
 	file.set_value("video", "bloom_intensity", VideoSettingsManager.bloom_intensity)
+	file.set_value("video", "motion_blur_enabled", VideoSettingsManager.motion_blur_enabled)
+	file.set_value("video", "motion_blur_intensity", VideoSettingsManager.motion_blur_intensity)
 	
 func save_input_settings():
 	file.set_value("input", "aim_assist_enabled", InputSettingsManager.aim_assist_enabled)

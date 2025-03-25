@@ -49,13 +49,20 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	clear_process_variables()
 	common_behaviour(delta)
+
+func _physics_process(delta: float) -> void:
+	clear_physics_process_variables()
+	compute_next_state()
+	compute_state_machine(delta)
+
+func compute_state_machine(delta: float) -> void:
 	match state:
 		AIState.Idle:
 			clear_walking_variables()
 			pass
 		AIState.Advance:
 			compute_attack()
-			advance_to_target()
+			advance_to_target(delta)
 			pass
 		AIState.Retreat:
 			compute_attack()
@@ -63,15 +70,11 @@ func _process(delta: float) -> void:
 			pass
 		AIState.Pickup:
 			compute_pickup()
-			advance_to_target()
+			advance_to_target(delta)
 			pass
 		AIState.Dead:
 			clear_walking_variables()
 			pass
-
-func _physics_process(_delta: float) -> void:
-	clear_physics_process_variables()
-	compute_next_state()
 
 func compute_next_state():
 	var has_gun: bool = player.inventory_manager.right_hand_instance != null
@@ -125,6 +128,7 @@ func clear_walking_variables() -> void:
 	player.brain.is_dashing = false
 	player.brain.direction = Vector3.ZERO
 	player.brain.input_direction = Vector2.ZERO
+	player.velocity = Vector3(0.0, player.velocity.y, 0.0)
 
 func update_look(delta: float) -> void:
 	var clamped_distance: float = clamp(
@@ -204,7 +208,7 @@ func look_at_target_position(target: Vector3) -> void:
 func retreat_from_target() -> void:
 	player.velocity.z = -1 * player.current_speed
 
-func advance_to_target() -> void:
+func advance_to_target(delta: float) -> void:
 	if (
 		target_type == TargetType.Enemy
 		and target_distance < player.inventory_manager.weapon_range
@@ -218,9 +222,10 @@ func advance_to_target() -> void:
 		get_tree().create_timer(player.brain.dash_duration + 1.0).timeout.connect(func (): can_dash = true)
 	var current_location: Vector3 = player.global_transform.origin
 	var next_location: Vector3 = player.navigation_agent.get_next_path_position()
+	var delta_factor: float = delta * 25
 	var new_velocity: Vector3 = (next_location - current_location).normalized() * player.current_speed
-	player.velocity.x = new_velocity.x + additive_velocity.x
-	player.velocity.z = new_velocity.z + additive_velocity.z
+	player.velocity.x = (new_velocity.x + additive_velocity.x) * delta_factor
+	player.velocity.z = (new_velocity.z + additive_velocity.z) * delta_factor
 
 func set_navigation_target(target: Vector3) -> void:
 	player.navigation_agent.target_position = target

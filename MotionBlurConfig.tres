@@ -1,0 +1,65 @@
+[gd_resource type="Compositor" script_class="MotionBlurCompositor" load_steps=16 format=3 uid="uid://csiin1xmgwwce"]
+
+[ext_resource type="Resource" uid="uid://cslvcweyejh3c" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_camera_movement_component.tres" id="1_5l07c"]
+[ext_resource type="Resource" uid="uid://iru8ynu04i00" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_camera_rotation_component.tres" id="2_qkw6c"]
+[ext_resource type="Resource" uid="uid://rp3mpjmisoyh" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_object_movement_component.tres" id="3_0kojo"]
+[ext_resource type="Resource" uid="uid://c8ulad7utgrg7" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/pre_blur_processing_stage.tres" id="4_g84u5"]
+[ext_resource type="Script" uid="uid://cw03t6om84dx" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/pre_blur_processor.gd" id="5_fwmj4"]
+[ext_resource type="Resource" uid="uid://ca45noqewsyvp" path="res://addons/SphynxMotionBlurToolkit/Guertin/guertin_experimental_blur_stage.tres" id="6_38rlp"]
+[ext_resource type="Resource" uid="uid://cvb65hfs2lrxo" path="res://addons/SphynxMotionBlurToolkit/Guertin/guertin_neighbor_max_stage.tres" id="7_0lvmc"]
+[ext_resource type="Resource" uid="uid://bidsfymvdyhek" path="res://addons/SphynxMotionBlurToolkit/Guertin/guertin_overlay_stage.tres" id="8_6igud"]
+[ext_resource type="Script" uid="uid://d2a6ysba6wdwf" path="res://addons/SphynxMotionBlurToolkit/Guertin/new_guertin_motion_blur.gd" id="9_8ek50"]
+[ext_resource type="Resource" uid="uid://dipvwksvqb3dm" path="res://addons/SphynxMotionBlurToolkit/Guertin/guertin_tile_max_x_stage.tres" id="10_khe0j"]
+[ext_resource type="Resource" uid="uid://bxfg45ubc2pv7" path="res://addons/SphynxMotionBlurToolkit/Guertin/guertin_tile_max_y_stage.tres" id="11_lof56"]
+[ext_resource type="Resource" uid="uid://bqehecsdgt70s" path="res://addons/SphynxMotionBlurToolkit/Guertin/guertin_tile_variance_stage.tres" id="12_bflyd"]
+[ext_resource type="Script" uid="uid://doq21ixhkxx7v" path="res://addons/SphynxMotionBlurToolkit/BaseClasses/mb_compositor.gd" id="13_wkj4n"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_wlo56"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 3
+access_resolved_color = false
+access_resolved_depth = false
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_fwmj4")
+pre_blur_processor_stage = ExtResource("4_g84u5")
+camera_rotation_component = ExtResource("2_qkw6c")
+camera_movement_component = ExtResource("1_5l07c")
+object_movement_component = ExtResource("3_0kojo")
+debug = false
+metadata/_custom_type_script = "uid://cw03t6om84dx"
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_6fym0"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("9_8ek50")
+blur_stage = ExtResource("6_38rlp")
+overlay_stage = ExtResource("8_6igud")
+tile_max_x_stage = ExtResource("10_khe0j")
+tile_max_y_stage = ExtResource("11_lof56")
+neighbor_max_stage = ExtResource("7_0lvmc")
+tile_variance_stage = ExtResource("12_bflyd")
+tile_size = 40
+linear_falloff_slope = 1.0
+importance_bias = 40.0
+maximum_jitter_value = 0.95
+minimum_user_threshold = 1.5
+debug = false
+metadata/_custom_type_script = "uid://d2a6ysba6wdwf"
+
+[resource]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_wlo56"), SubResource("CompositorEffect_6fym0")])
+script = ExtResource("13_wkj4n")
+samples = 16
+intensity = 1.0
+center_fade = 0.0
+framerate_independent = false
+uncapped_independence = false
+target_constant_framerate = 30.0
+metadata/_custom_type_script = "uid://doq21ixhkxx7v"

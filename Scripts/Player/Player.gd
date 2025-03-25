@@ -108,6 +108,7 @@ func _physics_process(delta: float) -> void:
 	compute_movement()
 	if raycast.is_colliding():
 		collide(raycast.get_collider())
+	move_and_slide()
 
 func _process(_delta: float) -> void:
 	update_internals()
@@ -116,7 +117,6 @@ func _process(_delta: float) -> void:
 	set_animator_variables()
 	set_camera_variables()
 	set_inventory_items_variables()
-	move_and_slide()
 
 func _exit_tree() -> void:
 	if player_ui:
@@ -218,7 +218,7 @@ func compute_movement() -> void:
 	if player_input and brain.is_walking:
 		velocity.x = brain.direction.x * current_speed
 		velocity.z = brain.direction.z * current_speed
-	else:
+	elif player_input:
 		velocity.x = move_toward(brain.direction.x, 0, current_speed)
 		velocity.z = move_toward(brain.direction.z, 0, current_speed)
 	

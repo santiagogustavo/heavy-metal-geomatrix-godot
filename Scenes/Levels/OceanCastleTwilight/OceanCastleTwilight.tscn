@@ -1,6 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://x2kmujmq04vr"]
+[gd_scene load_steps=58 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_4un3q"]
+[ext_resource type="Compositor" uid="uid://csiin1xmgwwce" path="res://MotionBlurConfig.tres" id="2_f56u8"]
 [ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_tegcv"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_i8vr7"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_heanl"]
@@ -30,9 +31,6 @@
 [ext_resource type="AudioStream" uid="uid://crlksg8qn273" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst4.mp3" id="26_wj5b2"]
 [ext_resource type="AudioStream" uid="uid://d26wqq6m3ifj3" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst5.mp3" id="27_ryyg3"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lpthc"]
-viewport_path = NodePath("SnapshotViewport")
-
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gvb5h"]
 panorama = ExtResource("5_38h01")
 
@@ -59,6 +57,9 @@ volumetric_fog_anisotropy = 0.8
 volumetric_fog_ambient_inject = 0.23
 volumetric_fog_sky_affect = 0.0
 volumetric_fog_temporal_reprojection_enabled = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lpthc"]
+viewport_path = NodePath("SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
 render_priority = 0
@@ -190,13 +191,18 @@ stream_4/stream = ExtResource("27_ryyg3")
 
 [node name="Ocean Castle Twilight" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_4un3q")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_4un3q")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")
+world_environment = NodePath("../WorldEnvironment")
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q5l4r")
+compositor = ExtResource("2_f56u8")
 
 [node name="SplashLayer" parent="." instance=ExtResource("2_tegcv")]
 
@@ -219,9 +225,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("4_pck8h")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -17.7971, -0.00839552, -22.9026)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_q5l4r")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.485451, 0.186119, -0.854223, -0.042699, 0.970863, 0.235799, 0.87322, 0.150943, -0.46336, -101.001, 19.9837, -50.0151)
