@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsaqwrl4mvuaf"]
+
+[ext_resource type="Script" uid="uid://bpsustabqsqxx" path="res://Scripts/UI/HUD/TrophiesController.gd" id="1_rtvcm"]
+
+[node name="Trophies" type="HBoxContainer"]
+offset_left = 178.667
+offset_top = 18.6667
+offset_right = 374.667
+offset_bottom = 40.6667
+theme_override_constants/separation = 0
+alignment = 2
+script = ExtResource("1_rtvcm")

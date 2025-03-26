@@ -9,6 +9,8 @@ signal killed
 @export_subgroup("Properties")
 @export var team_name: String
 @export var players: Array[Player]
+@export var score: int
+@export var round_results: Array[MatchManager.RoundResult]
 
 func destroy() -> void:
 	clear_players()

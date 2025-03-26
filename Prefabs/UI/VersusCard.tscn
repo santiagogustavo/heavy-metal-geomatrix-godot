@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds8i2exuwegk4"]
+[gd_scene load_steps=17 format=3 uid="uid://ds8i2exuwegk4"]
 
 [ext_resource type="Script" uid="uid://66nu406mdhvw" path="res://Scripts/UI/HUD/VersusCard.gd" id="1_3fhsn"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_hhyiy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://ctwxapo2m61ry" path="res://Materials/UI/HUD/ProgressMask.tres" id="8_4200w"]
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="8_tj5vc"]
 [ext_resource type="Texture2D" uid="uid://oaky5lkouy4d" path="res://Textures/UI/HUD/New/vs_health_bar.png" id="9_psvmx"]
+[ext_resource type="PackedScene" uid="uid://bsaqwrl4mvuaf" path="res://Prefabs/UI/Trophies.tscn" id="11_dvndl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nawra"]
 shader = ExtResource("2_hhyiy")
@@ -98,6 +99,16 @@ offset_top = 28.0
 offset_right = 188.0
 offset_bottom = 41.0
 
+[node name="Trophies" parent="." instance=ExtResource("11_dvndl")]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 207.0
+offset_bottom = 34.0
+scale = Vector2(0.65, 0.65)
+alignment = 0
+team = 1
+
 [node name="Decoration" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -113,3 +124,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_psvmx")
 expand_mode = 1
+
+[editable path="Trophies"]

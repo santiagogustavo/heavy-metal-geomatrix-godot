@@ -339,15 +339,15 @@ states/StopShoot/position = Vector2(662, -15.5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fvyod"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_a58px"), "Shoot", "StopShoot", SubResource("AnimationNodeStateMachineTransition_4e7b5"), "StopShoot", "Idle", SubResource("AnimationNodeStateMachineTransition_qpbxp")]
 graph_offset = Vector2(-92, -94)
 
-[node name="FlameGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "beam", "raycast")]
+[node name="FlameGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "beam", "raycasts")]
 script = ExtResource("1_i2vrb")
 item_name = "Flame Gun"
 spend_amount = 20.0
-damage = 50
+damage = 100
 weapon_range = 3.0
 animation_tree = NodePath("AnimationTree")
 beam = NodePath("Flame")
-raycast = NodePath("RayCast3D")
+raycasts = [NodePath("Raycasts/RayCast3D"), NodePath("Raycasts/RayCast3D2"), NodePath("Raycasts/RayCast3D3"), NodePath("Raycasts/RayCast3D4"), NodePath("Raycasts/RayCast3D5")]
 hit_decal = ExtResource("2_psgu7")
 
 [node name="Flame Gun" parent="." instance=ExtResource("1_itxgw")]
@@ -364,8 +364,30 @@ omni_range = 3.0
 script = ExtResource("3_lu5al")
 max_light_range = 0.5
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="Raycasts" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="Raycasts"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83176)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D2" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, -0.83176)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D3" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0, 0, -0.83176)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D4" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -0.83176)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D5" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, -0.83176)
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 68
 

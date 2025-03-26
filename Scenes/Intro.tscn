@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://crexqpvbohv74" path="res://Textures/Menus/Intro/logo_large_monochrome_dark.png" id="2_piprb"]
 [ext_resource type="Script" uid="uid://dtgr0a1ld5rl7" path="res://Scripts/Menus/Intro/Label.gd" id="3_h3k8y"]
 [ext_resource type="Texture2D" uid="uid://bhvjn3mhseqbk" path="res://Textures/Menus/Intro/capcom_logo.png" id="5_8gr3n"]
-[ext_resource type="FontFile" uid="uid://dq0e75qk85kba" path="res://Fonts/Impact.ttf" id="5_u0p7l"]
+[ext_resource type="FontVariation" uid="uid://ct1o5l7sw2hmv" path="res://Fonts/Maximum Impact Bold.tres" id="5_jw2oo"]
 [ext_resource type="Texture2D" uid="uid://dp0v2qtkgtn" path="res://Textures/Menus/Intro/santiago.png" id="7_8avjc"]
 [ext_resource type="Texture2D" uid="uid://ccyje30y56aj5" path="res://Textures/Menus/Intro/logo.png" id="8_p5efx"]
 
@@ -84,7 +84,7 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_7v2gf"]
-font = ExtResource("5_u0p7l")
+font = ExtResource("5_jw2oo")
 font_size = 32
 
 [sub_resource type="Animation" id="Animation_6bqde"]
@@ -459,10 +459,11 @@ script = ExtResource("3_h3k8y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Godot"]
 libraries = {
-"": SubResource("AnimationLibrary_0bgog")
+&"": SubResource("AnimationLibrary_0bgog")
 }
 
 [node name="Capcom" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -477,7 +478,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0666667, 0.0862745, 0.109804, 1)
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
 
 [node name="Label" type="Label" parent="Capcom"]
 layout_mode = 1
@@ -516,6 +517,7 @@ texture = ExtResource("5_8gr3n")
 expand_mode = 3
 
 [node name="Santiago" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -530,7 +532,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0666667, 0.0862745, 0.109804, 1)
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
 
 [node name="Label" type="Label" parent="Santiago"]
 layout_mode = 1
@@ -559,9 +561,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -271.0
+offset_left = -291.0
 offset_top = -150.0
-offset_right = -35.8822
+offset_right = -55.8822
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -576,7 +578,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -7.0
+offset_left = -7.00012
 offset_top = -75.0
 offset_right = 323.14
 offset_bottom = 75.0
@@ -587,7 +589,7 @@ expand_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Santiago"]
 libraries = {
-"": SubResource("AnimationLibrary_jovel")
+&"": SubResource("AnimationLibrary_jovel")
 }
 
 [node name="Fade" type="ColorRect" parent="."]
@@ -601,5 +603,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_oanq2")
+&"": SubResource("AnimationLibrary_oanq2")
 }

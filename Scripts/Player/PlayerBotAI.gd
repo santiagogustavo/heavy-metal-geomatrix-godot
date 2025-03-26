@@ -49,23 +49,36 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	clear_process_variables()
 	common_behaviour(delta)
+	compute_state_machine()
 
 func _physics_process(delta: float) -> void:
 	clear_physics_process_variables()
 	compute_next_state()
-	compute_state_machine(delta)
+	compute_state_machine_physics(delta)
 
-func compute_state_machine(delta: float) -> void:
+func compute_state_machine() -> void:
+	if has_reached_target():
+		clear_walking_variables()
+	match state:
+		AIState.Advance:
+			compute_attack()
+			pass
+		AIState.Retreat:
+			compute_attack()
+			pass
+		AIState.Pickup:
+			compute_pickup()
+			pass
+
+func compute_state_machine_physics(delta: float) -> void:
 	match state:
 		AIState.Idle:
 			clear_walking_variables()
 			pass
 		AIState.Advance:
-			compute_attack()
 			advance_to_target(delta)
 			pass
 		AIState.Retreat:
-			compute_attack()
 			retreat_from_target()
 			pass
 		AIState.Pickup:
@@ -208,11 +221,14 @@ func look_at_target_position(target: Vector3) -> void:
 func retreat_from_target() -> void:
 	player.velocity.z = -1 * player.current_speed
 
-func advance_to_target(delta: float) -> void:
-	if (
+func has_reached_target() -> bool:
+	return (
 		target_type == TargetType.Enemy
 		and target_distance < player.inventory_manager.weapon_range
-	):
+	)
+
+func advance_to_target(delta: float) -> void:
+	if has_reached_target():
 		clear_walking_variables()
 		return
 	player.brain.is_walking = true

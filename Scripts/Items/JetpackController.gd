@@ -79,7 +79,8 @@ func play_jet_beam(force_beam: bool = false) -> void:
 		smoke_sfx.playing = true
 		play_jet_smoke()
 		return
-	InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)
+	if player_rid == GameManager.get_player_one().get_rid():
+		InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)
 	beam_sfx.playing = true
 	for particle in jet_beam:
 		particle.emitting = true
@@ -91,7 +92,7 @@ func play_jet_stream() -> void:
 			play_jet_smoke()
 
 	var is_emitting = is_dashing and fuel > 0
-	if is_emitting:
+	if is_emitting and player_rid == GameManager.get_player_one().get_rid():
 		InputManager.vibrate_controller(0, 0.0, 0.5, 0.2)
 	if loop_sfx.playing != is_emitting:
 		loop_sfx.playing = is_emitting

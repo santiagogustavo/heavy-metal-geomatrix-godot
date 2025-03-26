@@ -18,7 +18,7 @@ var player_rid: RID
 
 var has_collided = false
 
-func _process(_delta):
+func _physics_process(_delta: float) -> void:
 	detect_raycast_collision()
 	trail.set_process(is_attacking)
 	trail.visible = is_attacking
@@ -49,4 +49,6 @@ func detect_raycast_collision():
 		has_collided = false
 
 func vibrate_hard() -> void:
+	if player_rid != GameManager.get_player_one().get_rid():
+		return
 	InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)

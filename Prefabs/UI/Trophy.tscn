@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://b23e5q1lrcg5f"]
+
+[ext_resource type="Script" uid="uid://b2evnyxrffx6f" path="res://Scripts/UI/HUD/Trophy.gd" id="1_dp31m"]
+[ext_resource type="Texture2D" uid="uid://ctrvleg1xe1gk" path="res://Textures/UI/HUD/trophy.png" id="1_oyko2"]
+
+[node name="Trophy" type="Control"]
+custom_minimum_size = Vector2(36, 22)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -11.0
+offset_right = 18.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dp31m")
+
+[node name="Idle" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 0
+offset_top = -7.0
+offset_right = 36.0
+offset_bottom = 29.0
+texture = ExtResource("1_oyko2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Win" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 0.827451, 0.313726, 1)
+layout_mode = 0
+offset_top = -7.0
+offset_right = 36.0
+offset_bottom = 29.0
+texture = ExtResource("1_oyko2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Excessive" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 1, 1, 1)
+layout_mode = 0
+offset_top = -7.0
+offset_right = 36.0
+offset_bottom = 29.0
+texture = ExtResource("1_oyko2")
+expand_mode = 1
+stretch_mode = 5

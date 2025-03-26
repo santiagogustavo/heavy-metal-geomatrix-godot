@@ -31,14 +31,14 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_21o6g"]
+[sub_resource type="CurveTexture" id="CurveTexture_5hdia"]
 curve = SubResource("Curve_0uhms")
 
 [sub_resource type="Gradient" id="Gradient_g13qc"]
 offsets = PackedFloat32Array(0, 0.138182, 0.705455, 1)
 colors = PackedColorArray(0.235294, 0.921569, 0.87451, 1, 1, 0.729412, 0, 1, 1, 0, 0, 0.376471, 1, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w6bn0"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iqn0u"]
 gradient = SubResource("Gradient_g13qc")
 
 [sub_resource type="Curve" id="Curve_x48n7"]
@@ -46,7 +46,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
-[sub_resource type="CurveTexture" id="CurveTexture_uel8f"]
+[sub_resource type="CurveTexture" id="CurveTexture_3u44c"]
 curve = SubResource("Curve_x48n7")
 
 [sub_resource type="Curve" id="Curve_sau7g"]
@@ -54,7 +54,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
-[sub_resource type="CurveTexture" id="CurveTexture_k6hcu"]
+[sub_resource type="CurveTexture" id="CurveTexture_bxv1r"]
 curve = SubResource("Curve_sau7g")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2up6b"]
@@ -69,12 +69,12 @@ initial_velocity_max = 200.0
 gravity = Vector3(0, 0, 0)
 scale_min = 2.0
 scale_max = 3.0
-scale_curve = SubResource("CurveTexture_uel8f")
+scale_curve = SubResource("CurveTexture_3u44c")
 color = Color(1, 1, 1, 0.0784314)
-color_ramp = SubResource("GradientTexture1D_w6bn0")
-alpha_curve = SubResource("CurveTexture_21o6g")
+color_ramp = SubResource("GradientTexture1D_iqn0u")
+alpha_curve = SubResource("CurveTexture_5hdia")
 turbulence_noise_strength = 20.0
-turbulence_influence_over_life = SubResource("CurveTexture_k6hcu")
+turbulence_influence_over_life = SubResource("CurveTexture_bxv1r")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtjij"]
 shader = ExtResource("1_6nodx")

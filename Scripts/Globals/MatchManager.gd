@@ -22,8 +22,15 @@ enum RoundStatus {
 	Ended,
 }
 
+enum RoundResult {
+	Lose,
+	Win,
+	Excessive,
+}
+
 # Internals
 var timer: Timer = Timer.new()
+var total_time: float = 0.0
 var round_status: RoundStatus = RoundStatus.Idle
 var is_final_round: bool = false
 var is_player_input_locked: bool = true
@@ -38,7 +45,7 @@ func _ready() -> void:
 	get_tree().root.add_child.call_deferred(timer)
 	announcer.connect("start", start_round_logic)
 	announcer.connect("ready_to_start", func(): 
-		if is_final_round:
+		if is_final_round or GameManager.has_a_winner():
 			finish_and_show_results()
 		else:
 			start_round()
@@ -92,6 +99,7 @@ func end_round(timeout: bool = false) -> bool:
 	else:
 		announcer.end_round_ko()
 	round_end.emit()
+	total_time += time - timer.time_left
 	timer.stop()
 	round_status = RoundStatus.Ended
 	is_player_input_locked = true

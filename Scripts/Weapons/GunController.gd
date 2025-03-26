@@ -103,7 +103,11 @@ func _shoot(hard: bool = false) -> void:
 		instantiate_brass(eject_hole.global_position, eject_hole.global_transform.basis)
 
 func vibrate_soft() -> void:
+	if player_rid != GameManager.get_player_one().get_rid():
+		return
 	InputManager.vibrate_controller(0, 1.0, 0.0, 0.1)
 
 func vibrate_hard() -> void:
+	if player_rid != GameManager.get_player_one().get_rid():
+		return
 	InputManager.vibrate_controller(0, 0.0, 1.0, 0.2)

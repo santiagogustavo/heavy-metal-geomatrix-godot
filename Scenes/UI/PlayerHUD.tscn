@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=58 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Script" uid="uid://bgpkvkcv1uk0" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cdb17vbu6c3kc" path="res://Textures/UI/HUD/New/player_health_bar.png" id="12_34r24"]
 [ext_resource type="Texture2D" uid="uid://b0g1xv1gbqo2t" path="res://Textures/Characters/Mayfly/Cards/6c34b3ba.png" id="12_tjik2"]
 [ext_resource type="Script" uid="uid://bg75qdlhge7u5" path="res://Scripts/UI/HUD/VersusCardsController.gd" id="12_y0lsx"]
+[ext_resource type="PackedScene" uid="uid://bsaqwrl4mvuaf" path="res://Prefabs/UI/Trophies.tscn" id="13_a837n"]
 [ext_resource type="PackedScene" uid="uid://ds8i2exuwegk4" path="res://Prefabs/UI/VersusCard.tscn" id="14_3o7sl"]
 [ext_resource type="Texture2D" uid="uid://bhgtb3nef8el1" path="res://Textures/Characters/Di/Cards/ddb26342.png" id="15_1kw6d"]
 [ext_resource type="Script" uid="uid://ds7b5mg8vfxsc" path="res://Scripts/UI/HUD/Jetpack.gd" id="17_kcelk"]
@@ -419,6 +420,20 @@ offset_top = 43.0
 offset_right = 389.0
 offset_bottom = 73.0
 
+[node name="Trophies" parent="Container/Control/Player" instance=ExtResource("13_a837n")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.3333
+offset_top = -31.8333
+offset_right = 176.667
+offset_bottom = -9.83334
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Decoration" type="TextureRect" parent="Container/Control/Player"]
 layout_mode = 2
 offset_right = 396.0
@@ -652,7 +667,7 @@ vertical_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Control/Ammo"]
 libraries = {
-"": SubResource("AnimationLibrary_jjk7r")
+&"": SubResource("AnimationLibrary_jjk7r")
 }
 
 [node name="Melee" type="Control" parent="Container/Control"]
@@ -792,7 +807,7 @@ label_settings = SubResource("LabelSettings_b0nbu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Warning"]
 libraries = {
-"": SubResource("AnimationLibrary_xswkj")
+&"": SubResource("AnimationLibrary_xswkj")
 }
 
 [node name="Beep" type="AudioStreamPlayer2D" parent="Warning"]

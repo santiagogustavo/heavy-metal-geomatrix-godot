@@ -127,6 +127,14 @@ func add_player(player: Player, team: int) -> bool:
 func team_was_killed(last_killed_player: Player) -> void:
 	if current_match.can_end_round() and get_teams_alive().size() <= 1:
 		current_match.end_round()
+		var winning_team = get_teams_alive()[0]
+		for team in teams:
+			if winning_team.name == team.name and team.is_team_full_health():
+				team.round_results.append(MatchManager.RoundResult.Excessive)
+				team.score += 1
+			elif winning_team.name == team.name:
+				team.round_results.append(MatchManager.RoundResult.Win)
+				team.score += 1
 		if get_player_one():
 			get_player_one().move_ko_pivot(last_killed_player.global_position, last_killed_player.global_rotation)
 
@@ -156,6 +164,12 @@ func get_total_players() -> int:
 	for team: Team in teams:
 		total += team.players.size()
 	return total
+
+func has_a_winner() -> bool:
+	for team in teams:
+		if team.score == current_match.rounds:
+			return true
+	return false
 
 func match_round_ended() -> void:
 	var player_one: Player = get_player_one()
