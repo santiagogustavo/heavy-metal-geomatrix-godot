@@ -1,0 +1,285 @@
+[gd_scene load_steps=27 format=3 uid="uid://c861rmvx7g3pg"]
+
+[ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_28dy2"]
+[ext_resource type="PackedScene" uid="uid://cia5f8oqvm5gp" path="res://Models/Weapons/FAKK2/Uzi.glb" id="1_hy7jg"]
+[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="2_28dy2"]
+[ext_resource type="PackedScene" uid="uid://wonemlb7umjl" path="res://Prefabs/Weapons/FAKK2/Uzi/Bullet.tscn" id="2_ra4v2"]
+[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_p2nfn"]
+[ext_resource type="Texture2D" uid="uid://bob0vjjkn7it5" path="res://Textures/Pickups/Splash/Uzi.png" id="4_p2nfn"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_u6q2h"]
+[ext_resource type="AudioStream" uid="uid://ca8e7tabc8ne6" path="res://Sound/Weapons/FAKK2/Uzi/shoot.wav" id="6_hewpo"]
+
+[sub_resource type="Gradient" id="Gradient_amopo"]
+offsets = PackedFloat32Array(0, 0.984791)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6v3gg"]
+gradient = SubResource("Gradient_amopo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hewpo"]
+particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 0, -1)
+spread = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+color_ramp = SubResource("GradientTexture1D_6v3gg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yexw8"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_28dy2")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_p2nfn"]
+material = SubResource("StandardMaterial3D_yexw8")
+size = Vector2(0.75, 0.75)
+
+[sub_resource type="Animation" id="Animation_2haon"]
+resource_name = "Idle"
+length = 0.015
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletHole/Muzzle Flash:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletHole/Muzzle Light:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BulletHole/SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_p2nfn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletHole/Muzzle Flash:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletHole/Muzzle Light:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BulletHole/SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hewpo"]
+resource_name = "Shoot"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletHole/Muzzle Flash:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletHole/Muzzle Light:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BulletHole/SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"_shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2haon"]
+_data = {
+&"Idle": SubResource("Animation_2haon"),
+&"RESET": SubResource("Animation_p2nfn"),
+&"Shoot": SubResource("Animation_hewpo")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wj4m"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tne18"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0xu2e"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_hfi10"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lhv35"]
+graph_offset = Vector2(-225, 33)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_tne18")
+nodes/Animation/position = Vector2(-200, 120)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0xu2e")
+nodes/TimeScale/position = Vector2(140, 120)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_hfi10")
+nodes/TimeSeek/position = Vector2(-20, 120)
+node_connections = [&"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_armo7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vsmr"]
+advance_mode = 2
+advance_condition = &"is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f5hq7"]
+reset = false
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_amopo"]
+states/Idle/node = SubResource("AnimationNodeAnimation_3wj4m")
+states/Idle/position = Vector2(380, 100)
+states/Shoot/node = SubResource("AnimationNodeBlendTree_lhv35")
+states/Shoot/position = Vector2(379.938, -5.5)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_armo7"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7")]
+graph_offset = Vector2(-92, -60)
+
+[node name="Uzi" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
+script = ExtResource("1_28dy2")
+bullets = 64
+fire_rate = 0.05
+weapon_range = 11.9
+bullet = ExtResource("2_ra4v2")
+ejecting_brass = ExtResource("3_p2nfn")
+animation_tree = NodePath("AnimationTree")
+bullet_holes = [NodePath("BulletHole")]
+eject_hole = NodePath("EjectHole")
+item_name = "Uzi"
+equip_type = 1
+splash = ExtResource("4_p2nfn")
+
+[node name="Uzi" parent="." instance=ExtResource("1_hy7jg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="BulletHole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182878, -0.487839)
+
+[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235036, 0.000154138)
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+local_coords = true
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_hewpo")
+draw_pass_1 = SubResource("QuadMesh_p2nfn")
+
+[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00157207, -0.0459177)
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 0.0
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
+stream = ExtResource("6_hewpo")
+volume_db = -17.0
+max_db = 0.0
+pitch_scale = 1.5
+bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[node name="EjectHole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525596, 0.189, -0.0716723)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2haon")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_amopo")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_shooting = false
+parameters/Shoot/TimeScale/scale = 1.0
+parameters/Shoot/TimeSeek/seek_request = -1.0
+script = ExtResource("5_u6q2h")

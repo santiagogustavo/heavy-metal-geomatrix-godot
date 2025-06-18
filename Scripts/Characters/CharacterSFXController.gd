@@ -1,6 +1,8 @@
 extends Node3D
 class_name CharacterSFXController
 
+@onready var hurt_sfx: AudioStreamPlayer3D = $Hit
+
 @onready var walk_dirt_sfx: AudioStreamPlayer3D = $Common/WalkDirt
 @onready var walk_stone_sfx: AudioStreamPlayer3D = $Common/WalkStone
 @onready var walk_water_sfx: AudioStreamPlayer3D = $Common/WalkWater
@@ -12,6 +14,10 @@ class_name CharacterSFXController
 
 var is_walking: bool = false
 var current_collision_surface: Definitions.SurfaceType = Definitions.SurfaceType.LevelGeometry
+
+func play_hurt_sound() -> void:
+	if !hurt_sfx.playing:
+		hurt_sfx.play()
 
 func play_walk_sound_if_walking() -> void:
 	if !is_walking:

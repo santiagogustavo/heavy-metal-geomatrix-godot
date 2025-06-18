@@ -14,6 +14,12 @@ enum TargetType {
 	Pickup
 }
 
+enum DetectorPosition {
+	Front,
+	Left,
+	Right,
+}
+
 var state = AIState.Idle
 
 var player: Player
@@ -25,7 +31,7 @@ var target_position: Vector3 = Vector3.ZERO
 var enemy_distance: float = 0.0
 var enemy_position: Vector3 = Vector3.ZERO
 
-var closest_pickup: PickupController
+var closest_pickup: Pickup
 var closest_pickup_distance: float = 0.0
 var closest_pickup_position: Vector3 = Vector3.ZERO
 
@@ -40,10 +46,32 @@ var can_dash: bool = true
 
 var always_look_at_enemy: bool = false
 
+var detector_collided_left: bool = false
+var detector_collided_right: bool = false
+var detector_collided_front: bool = false
+
 func _init(init_player: Player) -> void:
 	player = init_player
 
 func _ready() -> void:
+	player.detectors[0].body_entered.connect(func (body: Node3D):
+		compute_detector_collision(DetectorPosition.Left, body, true)
+	)
+	player.detectors[0].body_exited.connect(func (body: Node3D):
+		compute_detector_collision(DetectorPosition.Left, body, false)
+	)
+	player.detectors[1].body_entered.connect(func (body: Node3D):
+		compute_detector_collision(DetectorPosition.Right, body, true)
+	)
+	player.detectors[1].body_exited.connect(func (body: Node3D):
+		compute_detector_collision(DetectorPosition.Right, body, false)
+	)
+	player.detectors[2].body_entered.connect(func (body: Node3D):
+		compute_detector_collision(DetectorPosition.Front, body, true)
+	)
+	player.detectors[2].body_exited.connect(func (body: Node3D):
+		compute_detector_collision(DetectorPosition.Front, body, false)
+	)
 	player.navigation_agent.link_reached.connect(handle_navigation_link_reached)
 
 func _process(delta: float) -> void:
@@ -103,7 +131,7 @@ func compute_next_state():
 	if (
 		GameManager.current_match
 		and (
-			GameManager.current_match.round_status != MatchManager.RoundStatus.Started
+			!GameManager.current_match.is_ongoing
 			or GameManager.current_match.is_player_input_locked
 		)
 	):
@@ -125,6 +153,7 @@ func compute_next_state():
 
 func common_behaviour(delta: float) -> void:
 	update_look(delta)
+	step_away_from_obstacle(delta)
 	get_direction_to_target()
 	compute_target()
 
@@ -137,6 +166,8 @@ func clear_physics_process_variables() -> void:
 	player.brain.is_picking_up = false
 
 func clear_walking_variables() -> void:
+	if has_collided_with_an_obstacle() and GameManager.current_match.is_ongoing:
+		return
 	player.brain.is_walking = false
 	player.brain.is_dashing = false
 	player.brain.direction = Vector3.ZERO
@@ -178,6 +209,8 @@ func compute_closest_enemy() -> void:
 	enemy_distance = get_distance_to_target(enemy_position)
 
 func compute_closest_pickup() -> void:
+	if !GameManager.current_level_config.pickup_spawner:
+		return
 	var pickups: Array[Node3D] = GameManager.current_level_config.pickup_spawner.spawned_pickups
 	var filtered_pickups: Array[Node3D]
 	for pickup in pickups:
@@ -192,11 +225,25 @@ func compute_attack() -> void:
 	if !is_distance_reliable:
 		return
 	var distance_of_aim = abs(player.rotation.y - player.brain.new_rotation.y)
-	player.brain.is_shooting = distance_of_aim < 0.05
-	player.brain.is_attacking = player.brain.is_shooting
+	player.brain.is_shooting = distance_of_aim < 0.05 and !DebugCommands.is_pacifist
+	player.brain.is_attacking = player.brain.is_shooting and !DebugCommands.is_pacifist
 
 func compute_pickup() -> void:
 	player.brain.is_picking_up = player.is_pickup_collided
+
+func compute_detector_collision(detector: DetectorPosition, body: Node3D, entered: bool) -> void:
+	var is_collider_weapon: bool = body.collision_layer == Definitions.SurfaceType.Weapon
+	var is_own_weapon: bool = is_collider_weapon and body is Item and (body as Item).player_rid == player.get_rid()
+	match detector:
+		DetectorPosition.Front:
+			detector_collided_front = !is_own_weapon and entered
+			return
+		DetectorPosition.Left:
+			detector_collided_left = !is_own_weapon and entered
+			return
+		DetectorPosition.Right:
+			detector_collided_right = !is_own_weapon and entered
+			return
 
 func action_jump() -> void:
 	player.brain.is_jumping = player.brain.is_on_floor
@@ -221,11 +268,27 @@ func look_at_target_position(target: Vector3) -> void:
 func retreat_from_target() -> void:
 	player.velocity.z = -1 * player.current_speed
 
+func has_collided_with_an_obstacle() -> bool:
+	return detector_collided_front
+
 func has_reached_target() -> bool:
 	return (
 		target_type == TargetType.Enemy
 		and target_distance < player.inventory_manager.weapon_range
 	)
+
+func step_away_from_obstacle(delta: float) -> void:
+	var sidestep_velocity: Vector3 = Vector3.ZERO
+	if has_collided_with_an_obstacle():
+		sidestep_velocity += Vector3(0, 0, 2)
+		if detector_collided_right:
+			sidestep_velocity += Vector3(-1, 0, 0)
+		else:
+			sidestep_velocity += Vector3(1, 0, 0)
+		sidestep_velocity *= player.current_speed
+		player.brain.is_walking = true
+	player.velocity.x += sidestep_velocity.x * delta
+	player.velocity.z += sidestep_velocity.z * delta
 
 func advance_to_target(delta: float) -> void:
 	if has_reached_target():

@@ -12,8 +12,8 @@ func update_material_gradient(splash: Texture2D) -> void:
 	var average_color: Color = get_average_color(splash)
 	var gradient_texture: GradientTexture1D = GradientTexture1D.new()
 	gradient_texture.gradient = Gradient.new()
-	gradient_texture.gradient.set_color(0.0, Color.BLACK)
-	gradient_texture.gradient.set_color(1.0, average_color)
+	gradient_texture.gradient.set_color(0, Color.BLACK)
+	gradient_texture.gradient.set_color(1, average_color)
 	material.set("shader_parameter/gradient", gradient_texture)
 
 func get_average_color(splash: Texture2D) -> Color:

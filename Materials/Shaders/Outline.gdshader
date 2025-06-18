@@ -1,80 +1,69 @@
 shader_type canvas_item;
+render_mode unshaded;
 
-// The outline color. GradientTexture1D is recommended.
-uniform sampler2D color: source_color;
-// The resolution for the gradient. Higher numbers will result in smoother but more expensive passes.
-uniform int gradientResolution: hint_range(1, 30) = 10;
-// Outline thickness.
-uniform float thickness: hint_range(0.0, 100.0) = 1.0;
-// Used to compensate for alpha values.
-uniform float tolerance: hint_range(0.0, 0.999) = 0.0;
-// If on will draw at diagonals. Off is mainly for pixel art but you do you.
-uniform bool diagonals = true;
-// If diagonals are checked will check for half pixels so it rounds the outline a bit more.
-uniform bool rounded = true;
+uniform float thickness : hint_range(0.0, 100.0);
+uniform int ring_count : hint_range(1,128) = 16;
+uniform float ring_offset : hint_range(0.0, 1.0, 0.01);
+uniform vec4 outline_color : source_color;
+uniform bool border_clipping_fix = true;
+uniform float aspect_ratio : hint_range(0.1, 10.0, 0.01) = 1.0;
+uniform bool square_border = false;
+uniform vec2 offset;
+uniform bool max_or_add = false;
 
-// Compensate UV for outline.
-void vertex() {
-	VERTEX = vec2(VERTEX.x * (1.0 + TEXTURE_PIXEL_SIZE.x * thickness * 2.0), VERTEX.y * (1.0 + TEXTURE_PIXEL_SIZE.y * thickness * 2.0));
-}
-
-// Checks a fragment for the edge of an uv.
-bool border(vec2 uv) {
-	vec2 uvBorder = abs(uv - vec2(0.5));
-	return max(step(0.5, uvBorder.x), step(0.5, uvBorder.y)) > 0.0;
-}
-
-// Gets alpha of given fragment if not near the edge.
-float get_alpha(sampler2D tex, vec2 uv){
-	float res = 0.0;
-	if (!border(uv)) {
-		res = texture(tex, uv).a;
+void vertex(){
+	if (border_clipping_fix){
+		vec2 o = (UV * 2.0 - 1.0);
+		VERTEX += o * thickness - offset;
+		VERTEX.x *= 1.0 + (aspect_ratio-1.0) * (thickness * TEXTURE_PIXEL_SIZE.x) * 2.0;
 	}
-	return res;
 }
 
-// Checks for neighboring pixels.
-bool in_range(vec2 size, sampler2D tex, vec2 uv) {
-	for (float i = -1.0; i < 2.0; i += 2.0) {
-		if (get_alpha(tex, uv + vec2(i * size.x, 0.0)) > 0.0) {return true;};
-		if (get_alpha(tex, uv + vec2(0.0, i * size.y)) > 0.0) {return true;};
-		if (diagonals) {
-			for (float j = -1.0; j < 2.0; j += 2.0) {
-				if (get_alpha(tex, uv + vec2(i * size.x, j * size.y)) > 0.0) {return true;};
-				if (rounded) {
-					if (get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5)) > 0.0) {return true;};
-				}
+vec2 square(float i){ // samples a square pattern
+	i *= 2.0;
+	return (vec2(
+		clamp(abs(mod(i,2.0)-1.0),0.25,0.75),
+		clamp(abs(mod(i+0.5,2.0)-1.0),0.25,0.75)
+		)-0.5)*4.0;
+}
+
+vec4 tex(sampler2D sampler, vec2 uv){
+	vec4 clr;
+	if (uv.x > 0.0 && uv.y > 0.0 && uv.x < 1.0 && uv.y < 1.0){ // bleeding texture sampling fix
+		clr = texture(sampler, uv);
+	}else{clr = vec4(0.0);}
+	return clr;
+}
+
+void fragment(){
+	vec2 o = offset / vec2(textureSize(TEXTURE, 0));
+	vec2 uv = UV;
+	uv -= vec2(0.5);
+	if (border_clipping_fix){
+		uv.x *= 1.0 + (aspect_ratio-1.0) * thickness * TEXTURE_PIXEL_SIZE.x * 2.0;
+		uv *= (1.0 + (thickness * TEXTURE_PIXEL_SIZE * 2.0));
+		uv -= o;
+		}
+	uv += vec2(0.5);
+	vec2 size = vec2(thickness) / vec2(textureSize(TEXTURE, 0));
+
+	vec4 sprite_color = tex(TEXTURE, uv);
+
+	float alpha = sprite_color.a;
+	if (square_border){
+		for(int i=0;i<ring_count;++i){
+			float r = float(i) / float(ring_count) + ring_offset;
+			alpha = max(alpha,texture(TEXTURE, uv + o + size * square(r) * vec2(aspect_ratio,1.0)).a * outline_color.a);}// texture sampling fix is disabled because both with and without give the same result
+	}else{
+		for(int i=0;i<ring_count;++i){
+			float r = float(i) * 3.14159 / float(ring_count) * 2.0 + ring_offset;
+			if (max_or_add){
+				alpha = alpha+tex(TEXTURE, uv + o +  vec2(size.x * sin(r) * aspect_ratio, size.y * cos(r))).a * outline_color.a;
+			}else{
+				alpha = max(alpha,tex(TEXTURE, uv + o +  vec2(size.x * sin(r) * aspect_ratio, size.y * cos(r))).a * outline_color.a);
 			}
 		}
 	}
-	return false;
-}
-
-// Get's closes pixel.
-float get_distance(vec2 maxDistance, sampler2D tex, vec2 uv) {
-	for (int i = 1; i < gradientResolution; i++) {
-		vec2 actualDistance = float(i) / float (gradientResolution) * maxDistance;
-		if (in_range(actualDistance, tex, uv)) {
-			return float(i) / float (gradientResolution);
-		}
-	}
-}
-
-void fragment() {
-	if (thickness > 0.0) {
-		// Correct image size to for outline in frame.
-		vec2 uv = UV;
-		uv -= vec2(0.5);
-		vec2 edge = TEXTURE_PIXEL_SIZE * thickness * 2.0;
-		uv = uv + uv * edge;
-		uv += vec2(0.5);
-
-		// Apply outline.
-		vec4 newColor = texture(TEXTURE, uv);
-		if (newColor.a <= tolerance || border(uv)) {
-			vec4 finalColor = step(1.0 - tolerance, in_range(edge / 2.0, TEXTURE, uv) ? 1.0: 0.0) * texture(color, vec2(get_distance(edge / 2.0 + 0.001, TEXTURE, uv)));
-			newColor = finalColor;
-		}
-		COLOR = newColor;
-	}
+    vec3 final_color = mix(outline_color.rgb, sprite_color.rgb, sprite_color.a);
+    COLOR = vec4(final_color, clamp(alpha, 0.0, 1.0));
 }

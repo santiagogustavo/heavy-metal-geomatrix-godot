@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn7p2nhkfaicw"]
-
-[ext_resource type="PackedScene" uid="uid://bsm4bbb2i7ocf" path="res://Prefabs/Pickups/Templates/Pickup.tscn" id="1_wjagt"]
-[ext_resource type="PackedScene" uid="uid://cbgvy2t34sq10" path="res://Prefabs/Pickups/Templates/Base G.tscn" id="2_5t0u2"]
-
-[node name="Pickup" instance=ExtResource("1_wjagt")]
-
-[node name="Base G" parent="." index="0" instance=ExtResource("2_5t0u2")]

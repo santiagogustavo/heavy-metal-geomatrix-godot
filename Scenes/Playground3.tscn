@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bnidl6p4mravx"]
+[gd_scene load_steps=27 format=3 uid="uid://bnidl6p4mravx"]
 
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="1_56f3u"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_pawks"]
@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_lt8du"]
 [ext_resource type="Texture2D" uid="uid://b4vhqhgq02hpx" path="res://Textures/Levels/Pitch Dark Stadium/f9d1ef50.png" id="3_owe1r"]
 [ext_resource type="Texture2D" uid="uid://df7hdss4piap6" path="res://Textures/Levels/Pitch Dark Stadium/f9d1ef50_spec.png" id="4_vs6mt"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="5_0qcg4"]
+[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="7_h2ggl"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="8_tslua"]
 [ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="9_vp1oc"]
 [ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="9_xra83"]
-[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="10_ei662"]
-[ext_resource type="PackedScene" uid="uid://cv3ji7o4nkmac" path="res://Prefabs/Pickups/LaserRiflePickup.tscn" id="13_hpotp"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="15_koe4l"]
+[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="16_0qcg4"]
+[ext_resource type="PackedScene" uid="uid://dqjcw70ma073f" path="res://Prefabs/Weapons/LaserRifle/LaserRifle.tscn" id="17_h2ggl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ptjie"]
 panorama = ExtResource("2_3ymf7")
@@ -59,9 +62,11 @@ backface_collision = true
 
 [node name="Playground3" type="Node3D"]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_pawks")]
+[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_pawks")]
 level_name = "Playground3"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
+pickup_spawner = NodePath("../Spawner")
+play_versus_screen = false
 is_snowy = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
@@ -79,6 +84,11 @@ environment = SubResource("Environment_boljn")
 transform = Transform3D(0.183013, -0.885646, 0.426777, -0.707107, 0.183013, 0.683013, -0.683013, -0.426777, -0.592752, -11, 22, 17)
 light_energy = 0.5
 
+[node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("5_0qcg4")]
+navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
+spawn_concurrent = 3
+items_to_spawn = Array[PackedScene]([ExtResource("17_h2ggl"), ExtResource("7_h2ggl"), ExtResource("16_0qcg4"), ExtResource("15_koe4l")])
+
 [node name="Level Geometry" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
@@ -94,9 +104,6 @@ mesh = SubResource("BoxMesh_utk2p")
 
 [node name="GroundSnow" parent="Level Geometry" instance=ExtResource("9_vp1oc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0571825, 0)
-
-[node name="HandgunPickup" parent="Level Geometry" instance=ExtResource("10_ei662")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1.19209e-07, 3)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
 navigation_mesh = SubResource("NavigationMesh_wnh1s")
@@ -117,6 +124,3 @@ collision_layer = 260
 shape = SubResource("ConcavePolygonShape3D_rxerr")
 
 [node name="World Boundaries" parent="." instance=ExtResource("1_56f3u")]
-
-[node name="LaserRiflePickup" parent="." instance=ExtResource("13_hpotp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91913, 0.0250001, -1.34424)

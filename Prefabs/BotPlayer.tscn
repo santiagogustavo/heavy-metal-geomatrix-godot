@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dip10l55s4dib"]
+[gd_scene load_steps=6 format=3 uid="uid://dip10l55s4dib"]
 
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/GenericPlayer.tscn" id="1_vkv67"]
 
@@ -23,10 +23,15 @@ attractor_interaction_enabled = false
 color_ramp = SubResource("GradientTexture1D_hbext")
 turbulence_noise_scale = 0.0
 
-[node name="Bot" node_paths=PackedStringArray("camera_pivot", "navigation_agent") instance=ExtResource("1_vkv67")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1jhi"]
+size = Vector3(0.25, 1.2, 0.25)
+
+[node name="Bot" node_paths=PackedStringArray("camera_pivot", "navigation_agent", "detectors") instance=ExtResource("1_vkv67")]
+collision_mask = 3895
 player_type = 2
 camera_pivot = NodePath("LookPivot")
 navigation_agent = NodePath("NavigationAgent3D")
+detectors = [NodePath("DetectorLeft"), NodePath("DetectorRight"), NodePath("DetectorFront")]
 
 [node name="Dash" parent="." index="3"]
 process_material = SubResource("ParticleProcessMaterial_sxw13")
@@ -35,3 +40,24 @@ process_material = SubResource("ParticleProcessMaterial_sxw13")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0.5)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
+
+[node name="DetectorLeft" type="Area3D" parent="." index="6"]
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorLeft" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.9, 0)
+shape = SubResource("BoxShape3D_j1jhi")
+
+[node name="DetectorRight" type="Area3D" parent="." index="7"]
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorRight" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.250047, 0.9, 0)
+shape = SubResource("BoxShape3D_j1jhi")
+
+[node name="DetectorFront" type="Area3D" parent="." index="8"]
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorFront" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.25)
+shape = SubResource("BoxShape3D_j1jhi")

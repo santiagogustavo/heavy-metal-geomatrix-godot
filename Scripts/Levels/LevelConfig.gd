@@ -9,6 +9,7 @@ class_name LevelConfig
 @export var pickup_spawner: Spawner
 @export var ost_player: AudioStreamPlayer2D
 @export var world_environment: WorldEnvironment
+@export var play_versus_screen: bool = true
 
 @export_subgroup("Environment")
 @export var is_sunny: bool = false
@@ -35,7 +36,10 @@ func _ready() -> void:
 			GameManager.create_match(MatchManager.new())
 		GameManager.spawn_players()
 		GameManager.added_player.connect(on_player_added)
-		instantiate_versus_screen()
+		if play_versus_screen:
+			instantiate_versus_screen()
+		else:
+			on_versus_screen_ended()
 	else:
 		GameManager.unlock_cursor()
 

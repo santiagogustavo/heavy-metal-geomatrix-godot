@@ -1,11 +1,10 @@
-extends Node3D
+extends Item
 class_name GunController
 
 signal gun_shot
 signal drop
 
 @export_subgroup("Properties")
-@export var item_name: String
 @export var bullets: int
 @export var fire_rate: float
 @export var burst_count: int
@@ -25,8 +24,6 @@ signal drop
 @export var eject_hole: Node3D
 
 @onready var bullets_per_shot: int = bullet_holes.size()
-
-var player_rid: RID
 
 @export var is_shooting: bool = false
 var is_shooting_locked: bool = false

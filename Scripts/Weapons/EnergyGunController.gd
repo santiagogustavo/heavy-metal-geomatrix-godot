@@ -1,11 +1,10 @@
-extends Node3D
+extends Item
 class_name EnergyGunController
 
 signal gun_shot
 signal drop
 
 @export_subgroup("Properties")
-@export var item_name: String
 @export var spend_amount: float
 @export var damage: int
 @export_range(Definitions.WeaponRange.Min, Definitions.WeaponRange.Max, 0.5) var weapon_range: float = Definitions.WeaponRange.Max
@@ -15,8 +14,6 @@ signal drop
 @export var beam: Node3D
 @export var raycasts: Array[RayCast3D] = []
 @export var hit_decal: PackedScene
-
-var player_rid: RID
 
 var is_shooting: bool = false
 var can_shoot: bool = false

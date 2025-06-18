@@ -1,12 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://d2eirpsbs2b4x"]
+[gd_scene load_steps=28 format=3 uid="uid://d2eirpsbs2b4x"]
 
 [ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_mw4kj"]
 [ext_resource type="PackedScene" uid="uid://di062cjwjx8x1" path="res://Prefabs/Weapons/HandGun/Bullet.tscn" id="2_y54om"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_68f05"]
 [ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="4_7qq3n"]
+[ext_resource type="Texture2D" uid="uid://vrph05fridtt" path="res://Textures/Pickups/Splash/HandGun.png" id="4_gjng4"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_dnrwh"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="6_q0g1c"]
 [ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="7_mi2mh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjng4"]
+size = Vector3(0.144775, 0.579785, 0.27)
 
 [sub_resource type="Animation" id="Animation_aauk2"]
 resource_name = "Idle"
@@ -192,9 +196,10 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_yexw8")
 size = Vector2(0.75, 0.75)
 
-[node name="HandGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
+[node name="HandGun" type="StaticBody3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("1_mw4kj")
-item_name = "Hand Gun"
 bullets = 8
 fire_rate = 0.3
 weapon_range = 15.0
@@ -203,6 +208,13 @@ ejecting_brass = ExtResource("3_68f05")
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole")]
 eject_hole = NodePath("EjectHole")
+item_name = "Hand Gun"
+equip_type = 1
+splash = ExtResource("4_gjng4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00088501, 0.111026, -0.203926)
+shape = SubResource("BoxShape3D_gjng4")
 
 [node name="Hand Gun" parent="." instance=ExtResource("4_7qq3n")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)

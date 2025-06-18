@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bpxpio7ixipg6"]
+[gd_scene load_steps=46 format=3 uid="uid://bpxpio7ixipg6"]
 
 [ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_8fted"]
 [ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb" id="1_e6pgn"]
@@ -15,17 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="8_55oue"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="8_j5vkf"]
 [ext_resource type="PackedScene" uid="uid://d2pc4utlvhahx" path="res://Prefabs/Levels/InvisibleWalls.tscn" id="9_hnk50"]
-[ext_resource type="PackedScene" uid="uid://cyeky57kf6wjh" path="res://Prefabs/Pickups/FlameGunPickup.tscn" id="9_qvd3e"]
-[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="10_4e3ak"]
-[ext_resource type="PackedScene" uid="uid://bspygcpipf0yv" path="res://Prefabs/Pickups/HardSwordPickup.tscn" id="11_7wfqp"]
-[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="12_6ghj8"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="10_55oue"]
+[ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="11_55oue"]
 [ext_resource type="AudioStream" uid="uid://l86jwrpnijve" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst1.mp3" id="12_amb02"]
-[ext_resource type="PackedScene" uid="uid://hasw7ncxhjoy" path="res://Prefabs/Pickups/ShotGunPickup.tscn" id="13_3p02d"]
 [ext_resource type="AudioStream" uid="uid://b80lbhjnp7oom" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst2.mp3" id="13_6pnrr"]
+[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="13_55oue"]
+[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="14_6ghj8"]
 [ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_hifk7"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="14_uccxj"]
 [ext_resource type="AudioStream" uid="uid://dbjtrx1brw8ue" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst4.mp3" id="15_d40he"]
+[ext_resource type="PackedScene" uid="uid://dtuv3k4y52i7i" path="res://Prefabs/Weapons/FAKK2/Chain Sword.tscn" id="15_qvd3e"]
 [ext_resource type="AudioStream" uid="uid://dtxpgwc7umcfc" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst5.mp3" id="16_0hywk"]
 [ext_resource type="PackedScene" uid="uid://c6o2b3j7355k1" path="res://Models/Levels/Pitch Dark Stadium/Navmesh.glb" id="17_a6sam"]
 
@@ -164,7 +163,7 @@ sky_mode = 1
 navigation_region = NodePath("../LevelGeometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-pickups_to_spawn = Array[PackedScene]([ExtResource("9_qvd3e"), ExtResource("10_4e3ak"), ExtResource("11_7wfqp"), ExtResource("12_6ghj8"), ExtResource("13_3p02d"), ExtResource("14_uccxj")])
+items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("11_55oue"), ExtResource("13_55oue"), ExtResource("14_6ghj8"), ExtResource("15_qvd3e")])
 
 [node name="LevelGeometry" type="Node3D" parent="."]
 
@@ -311,38 +310,47 @@ shape = SubResource("BoxShape3D_c2bhs")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88018, 2.76929, 6.92)
+cull_mask = 4293919232
 size = Vector3(9.76239, 1.48315, 23.8385)
 
 [node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00056, 2.76929, 10.9161)
+cull_mask = 4293919232
 size = Vector3(10.0213, 1.48315, 15.8464)
 
 [node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3852, 2.76929, 5.46455)
+cull_mask = 4293919232
 size = Vector3(4.74358, 1.48315, 4.94328)
 
 [node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3852, 4.51126, 13.386)
+cull_mask = 4293919232
 size = Vector3(4.74358, 1.9715, 10.9658)
 
 [node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16615, 2.76929, -10.4263)
+cull_mask = 4293919232
 size = Vector3(4.33432, 1.48315, 10.8586)
 
 [node name="GPUParticlesCollisionBox3D8" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(0.797784, -0.602943, 0, 0.602943, 0.797784, 0, 0, 0, 1, 1.08272, 2.60275, -13.9444)
+cull_mask = 4293919232
 size = Vector3(2.64388, 0.482361, 3.82237)
 
 [node name="GPUParticlesCollisionBox3D9" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(-6.12277e-08, -8.51675e-09, -1, 0.602944, 0.797784, -4.37114e-08, 0.797784, -0.602944, -4.37114e-08, -10.8645, 2.60275, 2.11668)
+cull_mask = 4293919232
 size = Vector3(2.64388, 0.482361, 3.82237)
 
 [node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.04586, 4.28427, -10.4263)
+cull_mask = 4293919232
 size = Vector3(5.43844, 1.54541, 10.8586)
 
 [node name="GPUParticlesCollisionBox3D7" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37586, 1.36992, -6.45155)
+cull_mask = 4293919232
 size = Vector3(14.7829, 1.48315, 18.8431)
 
 [node name="World Boundaries" parent="." instance=ExtResource("8_j5vkf")]

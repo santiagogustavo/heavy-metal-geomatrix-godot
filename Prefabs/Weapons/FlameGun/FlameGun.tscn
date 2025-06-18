@@ -1,15 +1,19 @@
-[gd_scene load_steps=31 format=3 uid="uid://bbfmrky7xobod"]
+[gd_scene load_steps=33 format=3 uid="uid://bbfmrky7xobod"]
 
 [ext_resource type="Script" uid="uid://snccbk1rl0xs" path="res://Scripts/Weapons/EnergyGunController.gd" id="1_i2vrb"]
 [ext_resource type="PackedScene" uid="uid://c10u54kbc48we" path="res://Models/Weapons/Flame Gun.glb" id="1_itxgw"]
 [ext_resource type="PackedScene" uid="uid://dbrwdyjtj7ipr" path="res://Prefabs/Decals/BurnDecal.tscn" id="2_psgu7"]
 [ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/Weapons/FlameGun/Flame.tscn" id="2_r6w7y"]
+[ext_resource type="Texture2D" uid="uid://ckdxku2j5yogs" path="res://Textures/Pickups/Splash/FlameGun.png" id="3_7wnhx"]
 [ext_resource type="Script" uid="uid://hywqchyqup6p" path="res://Scripts/Lights/FlickeringLight.gd" id="3_lu5al"]
 [ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="3_q1a8e"]
 [ext_resource type="AudioStream" uid="uid://4fiilu762n34" path="res://Sound/Weapons/Flame Gun/fire_start.wav" id="5_cqmtl"]
 [ext_resource type="AudioStream" uid="uid://vbw7rs4r7whe" path="res://Sound/Weapons/Flame Gun/fire_loop.wav" id="6_ibm82"]
 [ext_resource type="AudioStream" uid="uid://cjid2hqowd8r2" path="res://Sound/Weapons/Flame Gun/fire_stop.wav" id="7_5dabp"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="8_dfsoj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wnhx"]
+size = Vector3(0.29, 0.85, 0.27)
 
 [sub_resource type="Gradient" id="Gradient_25svv"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -339,9 +343,10 @@ states/StopShoot/position = Vector2(662, -15.5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fvyod"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_a58px"), "Shoot", "StopShoot", SubResource("AnimationNodeStateMachineTransition_4e7b5"), "StopShoot", "Idle", SubResource("AnimationNodeStateMachineTransition_qpbxp")]
 graph_offset = Vector2(-92, -94)
 
-[node name="FlameGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "beam", "raycasts")]
+[node name="FlameGun" type="StaticBody3D" node_paths=PackedStringArray("animation_tree", "beam", "raycasts")]
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("1_i2vrb")
-item_name = "Flame Gun"
 spend_amount = 20.0
 damage = 100
 weapon_range = 3.0
@@ -349,6 +354,13 @@ animation_tree = NodePath("AnimationTree")
 beam = NodePath("Flame")
 raycasts = [NodePath("Raycasts/RayCast3D"), NodePath("Raycasts/RayCast3D2"), NodePath("Raycasts/RayCast3D3"), NodePath("Raycasts/RayCast3D4"), NodePath("Raycasts/RayCast3D5")]
 hit_decal = ExtResource("2_psgu7")
+item_name = "Flame Gun"
+equip_type = 1
+splash = ExtResource("3_7wnhx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00088501, 0.000915527, -0.41925)
+shape = SubResource("BoxShape3D_7wnhx")
 
 [node name="Flame Gun" parent="." instance=ExtResource("1_itxgw")]
 

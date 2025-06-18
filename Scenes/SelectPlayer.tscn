@@ -558,7 +558,6 @@ stat_speed = 1
 hitboxes = []
 fists = [null, null]
 initial_loadout = null
-initial_loadout_slot = 0
 
 [node name="Skeleton3D" parent="CharacterContainer/Mayfly/Model/Armature" index="0"]
 bones/1/position = Vector3(0.361605, 0.522708, 0.867471)

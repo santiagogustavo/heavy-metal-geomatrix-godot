@@ -1,20 +1,19 @@
-extends Node3D
+extends Item
 class_name SwordController
 
 @export_subgroup("Properties")
-@export var item_name: String
 @export var damage: int
 @export_range(Definitions.WeaponRange.Min, Definitions.WeaponRange.Max, 0.5) var weapon_range: float = 1.75
 
+@export var animation_tree: AnimationTree
 @export var hit_general_particle: PackedScene
 @export var hit_player_particle: PackedScene
 @export var is_attacking = false
+@export var is_swinging = false
 @export var health = 100.0
 
 @onready var trail = $GPUTrail3D
 @onready var raycast: RayCast3D = $RayCast3D
-
-var player_rid: RID
 
 var has_collided = false
 
@@ -22,6 +21,9 @@ func _physics_process(_delta: float) -> void:
 	detect_raycast_collision()
 	trail.set_process(is_attacking)
 	trail.visible = is_attacking
+	if animation_tree:
+		animation_tree.set("parameters/conditions/is_attacking", is_attacking)
+		animation_tree.set("parameters/conditions/is_not_attacking", !is_swinging)
 
 func instantiate_hit(point: Vector3, normal: Vector3, type: int):
 	var hit_instance

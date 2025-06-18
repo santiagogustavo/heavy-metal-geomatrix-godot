@@ -442,6 +442,7 @@ material = SubResource("ShaderMaterial_hl7gn")
 size = Vector2(0.3, 0.3)
 
 [node name="BloodSplatter" type="GPUParticles3D"]
+layers = 512
 cast_shadow = 0
 emitting = false
 amount = 10

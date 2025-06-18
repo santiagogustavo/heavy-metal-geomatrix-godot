@@ -1,0 +1,288 @@
+[gd_scene load_steps=39 format=3 uid="uid://dtuv3k4y52i7i"]
+
+[ext_resource type="PackedScene" uid="uid://curogw0dbiwkt" path="res://Models/Weapons/FAKK2/Chain Sword.glb" id="1_3tpft"]
+[ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_xfmrq"]
+[ext_resource type="PackedScene" uid="uid://cfvw3jc7xr3vp" path="res://Prefabs/Decals/SwordHitDecal.tscn" id="2_0veay"]
+[ext_resource type="Shader" uid="uid://psswwkmow84n" path="res://Materials/Weapons/FAKK2/Chain Sword/teeth_animated.tres" id="2_1l807"]
+[ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_66ywa"]
+[ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="4_3b62v"]
+[ext_resource type="Texture2D" uid="uid://pf847ev6efpp" path="res://Textures/Pickups/Splash/ChainSword.png" id="4_66ywa"]
+[ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="5_ofo00"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="6_0veay"]
+[ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="7_66ywa"]
+[ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="8_3jjri"]
+[ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="12_1x176"]
+[ext_resource type="AudioStream" uid="uid://davwofshhqepr" path="res://Sound/Weapons/FAKK2/Chain Sword/Loop.wav" id="12_3jjri"]
+[ext_resource type="AudioStream" uid="uid://p45u1o7up6m1" path="res://Sound/Weapons/FAKK2/Chain Sword/Attack1.wav" id="13_rcn8b"]
+[ext_resource type="AudioStream" uid="uid://62j4k1igkela" path="res://Sound/Weapons/FAKK2/Chain Sword/Attack2.wav" id="14_1x176"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfmrq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_1l807")
+shader_parameter/Speed = 3.0
+shader_parameter/Emission_Intensity = 0.0
+
+[sub_resource type="Animation" id="Animation_emirx"]
+resource_name = "Attack"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chain Sword/models_weapons_chainsword_cs_slow:surface_material_override/2:shader_parameter/Speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, 20.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attack:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Loop:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chain Sword/models_weapons_chainsword_cs_slow:surface_material_override/2:shader_parameter/Emission_Intensity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1l807"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chain Sword/models_weapons_chainsword_cs_slow:surface_material_override/2:shader_parameter/Speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Loop:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chain Sword/models_weapons_chainsword_cs_slow:surface_material_override/2:shader_parameter/Emission_Intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rw8e"]
+_data = {
+&"Attack": SubResource("Animation_emirx"),
+&"RESET": SubResource("Animation_1l807")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xfmrq"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_emirx"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8rw8e"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g6qe4"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jsxmw"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_not_attacking"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3b62v"]
+states/Attack/node = SubResource("AnimationNodeAnimation_xfmrq")
+states/Attack/position = Vector2(468, -51)
+states/RESET/node = SubResource("AnimationNodeAnimation_emirx")
+states/RESET/position = Vector2(468.5, 101)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_8rw8e"), "RESET", "Attack", SubResource("AnimationNodeStateMachineTransition_g6qe4"), "Attack", "RESET", SubResource("AnimationNodeStateMachineTransition_jsxmw")]
+graph_offset = Vector2(100, -122)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tq2hr"]
+shader = ExtResource("4_3b62v")
+
+[sub_resource type="Gradient" id="Gradient_awhhb"]
+offsets = PackedFloat32Array(0, 0.992347)
+colors = PackedColorArray(1, 1, 1, 0.0980392, 1, 0.633333, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rcn8b"]
+gradient = SubResource("Gradient_awhhb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_luk4k"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_ofo00")
+shader_parameter/tex = ExtResource("7_66ywa")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_rcn8b")
+shader_parameter/curve = ExtResource("6_0veay")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+
+[sub_resource type="QuadMesh" id="QuadMesh_1x176"]
+material = SubResource("ShaderMaterial_luk4k")
+
+[sub_resource type="Gradient" id="Gradient_1v2rp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gvgds"]
+gradient = SubResource("Gradient_1v2rp")
+
+[sub_resource type="Curve" id="Curve_ddc04"]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_ev6v4"]
+curve = SubResource("Curve_ddc04")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_074c7"]
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 9.8, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_ev6v4")
+color = Color(0.541176, 0.541176, 0.541176, 1)
+color_ramp = SubResource("GradientTexture1D_gvgds")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh71l"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("12_1x176")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_e0uhh"]
+material = SubResource("StandardMaterial3D_fh71l")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1v2rp"]
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("13_rcn8b")
+stream_1/stream = ExtResource("14_1x176")
+
+[node name="ChainSword" type="Node3D" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("1_xfmrq")
+damage = 15
+weapon_range = 2.4
+animation_tree = NodePath("AnimationTree")
+hit_general_particle = ExtResource("2_0veay")
+hit_player_particle = ExtResource("3_66ywa")
+item_name = "Chain Sword"
+equip_type = 4
+splash = ExtResource("4_66ywa")
+
+[node name="Chain Sword" parent="." instance=ExtResource("1_3tpft")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+
+[node name="models_weapons_chainsword_cs_slow" parent="Chain Sword" index="0"]
+surface_material_override/2 = SubResource("ShaderMaterial_xfmrq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8rw8e")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_3b62v")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_attacking = false
+parameters/conditions/is_not_attacking = false
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 0.607977, 0, -8.74228e-08, 0, -1, -7.60837e-09, 0.746051, -0.00980772)
+amount = 30
+lifetime = 30.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_tq2hr")
+draw_pass_1 = SubResource("QuadMesh_1x176")
+script = ExtResource("8_3jjri")
+length = 30
+texture = ExtResource("7_66ywa")
+color_ramp = SubResource("GradientTexture1D_rcn8b")
+curve = ExtResource("6_0veay")
+_defaults_have_been_set = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160548, -0.0169598)
+target_position = Vector3(0, 1, 0)
+collision_mask = 68
+debug_shape_thickness = 5
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012688, 0.21767, -0.00943405)
+amount = 5
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_074c7")
+draw_pass_1 = SubResource("QuadMesh_e0uhh")
+
+[node name="Loop" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278687, 0)
+stream = ExtResource("12_3jjri")
+bus = &"Effects"
+
+[node name="Attack" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278687, 0)
+stream = SubResource("AudioStreamRandomizer_1v2rp")
+volume_db = -7.5
+bus = &"Effects"
+
+[editable path="Chain Sword"]

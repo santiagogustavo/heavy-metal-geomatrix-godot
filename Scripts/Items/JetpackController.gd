@@ -1,12 +1,10 @@
-extends Node3D
+extends Item
 class_name JetpackController
 
 @export var fuel: float = 100
 @export var empty_indicator: Node3D
 @export var is_dashing: bool = false
 @export var is_double_jumping: bool = false
-
-var player_rid: RID
 
 var fuel_cost_dash = 15
 var fuel_cost_jump = 20

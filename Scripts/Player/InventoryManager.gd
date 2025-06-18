@@ -97,7 +97,6 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 	right_hand_instance = item.instantiate()
 	right_hand_instance.player_rid = player_rid
 	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
-	right_hand_pickup.emit()
 	if right_hand_instance is GunController:
 		weapon_range = right_hand_instance.weapon_range
 		ammo_total = right_hand_instance.bullets
@@ -109,6 +108,8 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 		right_hand_instance.connect("drop", _on_item_drop)
 	if right_hand_instance is SwordController:
 		weapon_range = right_hand_instance.weapon_range
+	if right_hand_instance is CollisionObject3D:
+		right_hand_pickup.emit(right_hand_instance)
 
 func drop_right_hand_item():
 	has_gun = false

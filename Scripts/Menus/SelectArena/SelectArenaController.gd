@@ -59,6 +59,7 @@ func _ready() -> void:
 			if is_selected:
 				return
 			is_selected = true
+			open_rules_menu_button.focus_mode = Control.FOCUS_NONE
 			select_sfx.play()
 			selected.emit(arena.name)
 			select_arena(arena)
@@ -87,7 +88,7 @@ func select_arena(arena: ArenaCard) -> void:
 	GameManager.current_match.rounds = rules_rounds
 	GameManager.current_match.time = rules_time
 	await get_tree().create_timer(1.0).timeout
-	SceneManager.load_scene_file(arena.arena_scene)
+	await SceneManager.load_scene_file(arena.arena_scene)
 
 func focus_on_first():
 	focused_first = true

@@ -33,6 +33,7 @@ enum SurfaceType {
 	WorldBoundary = 16,
 	InvisibleWall = 32,
 	Hitbox = 64,
+	Weapon = 128,
 	Glass = 4 + 256,
 	Water = 4 + 512,
 	Stone = 4 + 1024,
@@ -93,7 +94,7 @@ const Players: Dictionary = {
 }
 
 const WeaponRange: Dictionary = {
-	"Min": 1.5,
+	"Min": 1.4,
 	"Max": 25.0,
 }
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://62j4k1igkela"
+path="res://.godot/imported/Attack2.wav-c44d08132645833d880d6b0e73136509.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/FAKK2/Chain Sword/Attack2.wav"
+dest_files=["res://.godot/imported/Attack2.wav-c44d08132645833d880d6b0e73136509.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

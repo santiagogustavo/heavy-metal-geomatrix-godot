@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://t2bpxpvcyq8e"]
+[gd_scene load_steps=25 format=3 uid="uid://t2bpxpvcyq8e"]
 
 [ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_vrd27"]
 [ext_resource type="PackedScene" uid="uid://br0xhibke7lcl" path="res://Prefabs/Weapons/ShotGun/Bullet.tscn" id="2_mk67q"]
 [ext_resource type="PackedScene" uid="uid://dnplldo5ba11p" path="res://Prefabs/Weapons/ShotGun/EjectingBrass.tscn" id="3_6lnp6"]
 [ext_resource type="PackedScene" uid="uid://cs067lroymjko" path="res://Models/Weapons/Shot Gun.glb" id="3_px2s6"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="4_cqhnr"]
+[ext_resource type="Texture2D" uid="uid://b1f68vv57045f" path="res://Textures/Pickups/Splash/ShotGun.png" id="4_ng7jd"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_r7n12"]
 [ext_resource type="AudioStream" uid="uid://beriiufu35fwu" path="res://Sound/Weapons/Shot Gun/Shot Gun Shoot.wav" id="6_wmxgr"]
 
@@ -170,7 +171,6 @@ size = Vector2(0.75, 0.75)
 
 [node name="ShotGun" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_vrd27")
-item_name = "Shot Gun"
 bullets = 24
 fire_rate = 0.6
 spray_amount = 3.0
@@ -180,6 +180,9 @@ ejecting_brass = ExtResource("3_6lnp6")
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole"), NodePath("BulletHole2"), NodePath("BulletHole3"), NodePath("BulletHole4")]
 eject_hole = NodePath("EjectHole")
+item_name = "Shot Gun"
+equip_type = 1
+splash = ExtResource("4_ng7jd")
 
 [node name="Shot Gun" parent="." instance=ExtResource("3_px2s6")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

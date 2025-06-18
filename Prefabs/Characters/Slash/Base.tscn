@@ -98,7 +98,6 @@ sfx_controller = NodePath("SFX")
 body_slot = NodePath("Model/Armature/Skeleton3D/Body Slot")
 right_hand_slot = NodePath("Model/Armature/Skeleton3D/Right Hand Slot")
 initial_loadout = ExtResource("4_26i6c")
-initial_loadout_slot = 1
 
 [node name="Model" parent="." instance=ExtResource("5_8ui2l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.1, 0)

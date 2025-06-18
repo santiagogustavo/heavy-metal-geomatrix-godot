@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf1bfsleugb3w"]
+[gd_scene load_steps=16 format=3 uid="uid://cf1bfsleugb3w"]
 
 [ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_3jf6o"]
 [ext_resource type="PackedScene" uid="uid://dru0a6nggo15i" path="res://Models/Weapons/Killer Sword.glb" id="1_vi24m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfvw3jc7xr3vp" path="res://Prefabs/Decals/SwordHitDecal.tscn" id="2_uwp03"]
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_5kijt"]
 [ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_uxaca"]
+[ext_resource type="Texture2D" uid="uid://ncn2u34iqesv" path="res://Textures/Pickups/Splash/KillerSword.png" id="4_g4oek"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="5_hrv4q"]
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="7_7wymm"]
 [ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="9_v8fy7"]
@@ -13,14 +14,14 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ka7vw"]
 shader = ExtResource("2_oav5y")
 
-[sub_resource type="Gradient" id="Gradient_awhhb"]
+[sub_resource type="Gradient" id="Gradient_g4oek"]
 offsets = PackedFloat32Array(0, 0.986971)
 colors = PackedColorArray(1, 0.776471, 0.501961, 0.490196, 1, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_annj2"]
-gradient = SubResource("Gradient_awhhb")
+gradient = SubResource("Gradient_g4oek")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_luk4k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hdn8"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_uxaca")
@@ -31,14 +32,16 @@ shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
 shader_parameter/flags = 40
 
 [sub_resource type="QuadMesh" id="QuadMesh_aif53"]
-material = SubResource("ShaderMaterial_luk4k")
+material = SubResource("ShaderMaterial_2hdn8")
 
 [node name="KillerSword" type="Node3D"]
 script = ExtResource("1_3jf6o")
-item_name = "Killer Sword"
 damage = 15
 hit_general_particle = ExtResource("2_uwp03")
 hit_player_particle = ExtResource("3_5kijt")
+item_name = "Killer Sword"
+equip_type = 4
+splash = ExtResource("4_g4oek")
 
 [node name="Killer Sword" parent="." instance=ExtResource("1_vi24m")]
 

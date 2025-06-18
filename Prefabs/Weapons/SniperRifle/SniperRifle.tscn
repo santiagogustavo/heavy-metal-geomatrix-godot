@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://cti1ekhybelqv"]
+[gd_scene load_steps=42 format=3 uid="uid://cti1ekhybelqv"]
 
 [ext_resource type="PackedScene" uid="uid://d1vviwsawunyr" path="res://Models/Weapons/Sniper Rifle.glb" id="1_4pa16"]
 [ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_hcmus"]
 [ext_resource type="PackedScene" uid="uid://dmqfvx1rknxho" path="res://Prefabs/Weapons/SniperRifle/Bullet.tscn" id="2_7uppe"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_dm8cq"]
+[ext_resource type="Texture2D" uid="uid://umpkadfob108" path="res://Textures/Pickups/Splash/SniperRifle.png" id="4_rtku7"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_0n4ku"]
 [ext_resource type="AudioStream" uid="uid://cqhrb6pgu8pag" path="res://Sound/Weapons/Sniper Rifle/shoot.wav" id="6_xf045"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="7_4jhhc"]
@@ -440,7 +441,6 @@ graph_offset = Vector2(-172, -100)
 
 [node name="SniperRifle" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_hcmus")
-item_name = "Sniper Rifle"
 bullets = 4
 fire_rate = 2.0
 zoom_factor = 3.0
@@ -449,6 +449,9 @@ ejecting_brass = ExtResource("3_dm8cq")
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole")]
 eject_hole = NodePath("EjectHole")
+item_name = "Sniper Rifle"
+equip_type = 1
+splash = ExtResource("4_rtku7")
 
 [node name="Sniper Rifle" parent="." instance=ExtResource("1_4pa16")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

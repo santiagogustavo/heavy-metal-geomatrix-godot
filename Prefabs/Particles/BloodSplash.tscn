@@ -35,6 +35,7 @@ orientation = 1
 
 [node name="BloodSplash" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+layers = 512
 cast_shadow = 0
 extra_cull_margin = 100.0
 emitting = false

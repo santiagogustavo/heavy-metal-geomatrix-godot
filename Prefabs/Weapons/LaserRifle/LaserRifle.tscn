@@ -1,8 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://dqjcw70ma073f"]
+[gd_scene load_steps=60 format=3 uid="uid://dqjcw70ma073f"]
 
 [ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_hjaw0"]
 [ext_resource type="PackedScene" uid="uid://dnjrhfjta5ceq" path="res://Prefabs/Weapons/LaserRifle/Bullet.tscn" id="2_gw1da"]
 [ext_resource type="Texture2D" uid="uid://0n7wisufmwgi" path="res://Textures/Particles/Muzzle/laser.png" id="3_ju4vl"]
+[ext_resource type="Texture2D" uid="uid://bohvar7dqxauc" path="res://Textures/Pickups/Splash/LaserRifle.png" id="3_peh57"]
 [ext_resource type="PackedScene" uid="uid://cxrf5vt3dbw8j" path="res://Models/Weapons/Laser Rifle.glb" id="3_wvedj"]
 [ext_resource type="AudioStream" uid="uid://bsnbwrtwtrau8" path="res://Sound/Weapons/Laser Rifle/Idle.wav" id="4_5c0mg"]
 [ext_resource type="Texture2D" uid="uid://dgmp5n6ey6rir" path="res://Textures/Particles/fog_1.png" id="4_ied0j"]
@@ -328,6 +329,7 @@ gradient = SubResource("Gradient_6tac8")
 shader = ExtResource("12_6tac8")
 shader_parameter/gradient = SubResource("GradientTexture1D_0cqty")
 shader_parameter/use_screen_texture = false
+shader_parameter/use_screen_uv = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gbhrc"]
 viewport_path = NodePath("ThermalScope/SubViewport")
@@ -504,13 +506,15 @@ graph_offset = Vector2(32, -128)
 
 [node name="LaserRifle" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes")]
 script = ExtResource("1_hjaw0")
-item_name = "Laser Rifle"
 bullets = 16
 fire_rate = 0.5
 zoom_factor = 1.5
 bullet = ExtResource("2_gw1da")
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole")]
+item_name = "Laser Rifle"
+equip_type = 1
+splash = ExtResource("3_peh57")
 
 [node name="Laser Rifle" parent="." instance=ExtResource("3_wvedj")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)

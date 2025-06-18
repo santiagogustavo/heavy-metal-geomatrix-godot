@@ -1,12 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://cy8lwontrbyhp"]
+[gd_scene load_steps=31 format=3 uid="uid://cy8lwontrbyhp"]
 
-[ext_resource type="Script" uid="uid://xnclxvs5yeh5" path="res://Scripts/Items/JetpackController.gd" id="1_06500"]
-[ext_resource type="PackedScene" uid="uid://yfmwmuu7yccd" path="res://Models/Items/Jetpack.glb" id="1_gojhc"]
-[ext_resource type="Material" uid="uid://d3u6rrjmll62h" path="res://Materials/Particles/Fire.tres" id="3_8lj7x"]
-[ext_resource type="AudioStream" uid="uid://cc2dcvyvhg6qh" path="res://Sound/Items/Jetpack/Beam.wav" id="3_b1kod"]
-[ext_resource type="AudioStream" uid="uid://c1cldxe1velc5" path="res://Sound/Items/Jetpack/Loop.wav" id="4_b0fqt"]
-[ext_resource type="Material" uid="uid://cjg0pv440lpce" path="res://Materials/Particles/Smoke.tres" id="4_t04u2"]
-[ext_resource type="AudioStream" uid="uid://kme5bco3a6er" path="res://Sound/Items/Jetpack/Smoke.wav" id="6_wpqex"]
+[ext_resource type="Script" uid="uid://xnclxvs5yeh5" path="res://Scripts/Items/JetpackController.gd" id="1_8fmfc"]
+[ext_resource type="Texture2D" uid="uid://ji5guxdhmby7" path="res://Textures/Pickups/Splash/Jetpack.png" id="2_1du6x"]
+[ext_resource type="PackedScene" uid="uid://yfmwmuu7yccd" path="res://Models/Items/Jetpack.glb" id="2_cdboq"]
+[ext_resource type="Material" uid="uid://d3u6rrjmll62h" path="res://Materials/Particles/Fire.tres" id="3_1du6x"]
+[ext_resource type="Material" uid="uid://cjg0pv440lpce" path="res://Materials/Particles/Smoke.tres" id="4_83u83"]
+[ext_resource type="AudioStream" uid="uid://cc2dcvyvhg6qh" path="res://Sound/Items/Jetpack/Beam.wav" id="5_1x7w2"]
+[ext_resource type="AudioStream" uid="uid://c1cldxe1velc5" path="res://Sound/Items/Jetpack/Loop.wav" id="6_w7mys"]
+[ext_resource type="AudioStream" uid="uid://kme5bco3a6er" path="res://Sound/Items/Jetpack/Smoke.wav" id="7_umjmb"]
 
 [sub_resource type="Animation" id="Animation_0grsm"]
 resource_name = "Idle"
@@ -65,7 +66,7 @@ color = Color(0.258824, 1, 0.603922, 1)
 color_ramp = SubResource("GradientTexture1D_lms57")
 
 [sub_resource type="QuadMesh" id="QuadMesh_2bbk3"]
-material = ExtResource("3_8lj7x")
+material = ExtResource("3_1du6x")
 size = Vector2(0.4, 0.4)
 
 [sub_resource type="Curve" id="Curve_o320o"]
@@ -102,7 +103,7 @@ color = Color(0.258824, 1, 0.603922, 1)
 color_ramp = SubResource("GradientTexture1D_l3ffo")
 
 [sub_resource type="QuadMesh" id="QuadMesh_m4sa3"]
-material = ExtResource("3_8lj7x")
+material = ExtResource("3_1du6x")
 size = Vector2(0.25, 0.25)
 
 [sub_resource type="Gradient" id="Gradient_wk8af"]
@@ -134,34 +135,32 @@ color = Color(0.490196, 0.490196, 0.490196, 1)
 color_ramp = SubResource("GradientTexture1D_t6hih")
 
 [sub_resource type="QuadMesh" id="QuadMesh_q2u8w"]
-material = ExtResource("4_t04u2")
+material = ExtResource("4_83u83")
 size = Vector2(0.4, 0.4)
 
 [node name="Jetpack" type="Node3D" node_paths=PackedStringArray("empty_indicator")]
-script = ExtResource("1_06500")
+script = ExtResource("1_8fmfc")
 empty_indicator = NodePath("Indicator")
+item_name = "Jetpack"
+splash = ExtResource("2_1du6x")
 
-[node name="Jetpack" parent="." instance=ExtResource("1_gojhc")]
+[node name="Jetpack" parent="." instance=ExtResource("2_cdboq")]
 transform = Transform3D(0.9, 3.55271e-14, 8.9407e-08, -1.42109e-14, 0.9, 7.10543e-15, -1.19209e-07, 7.10543e-15, 0.9, 0, 0, 0)
 
 [node name="Indicator" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206257, -0.133774)
 light_color = Color(1, 0, 0, 1)
-light_energy = 0.0
 omni_range = 0.5
 omni_attenuation = 0.241484
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Indicator"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_6e6ux")
+&"": SubResource("AnimationLibrary_6e6ux")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Indicator"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_6e6ux")
-}
 tree_root = SubResource("AnimationNodeBlendTree_eccwe")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -286,20 +285,20 @@ draw_pass_1 = SubResource("QuadMesh_q2u8w")
 [node name="SFX" type="Node3D" parent="."]
 
 [node name="Beam" type="AudioStreamPlayer3D" parent="SFX"]
-stream = ExtResource("3_b1kod")
+stream = ExtResource("5_1x7w2")
 max_db = 0.0
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
 [node name="Loop" type="AudioStreamPlayer3D" parent="SFX"]
-stream = ExtResource("4_b0fqt")
+stream = ExtResource("6_w7mys")
 volume_db = -25.0
 max_db = 0.0
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 
 [node name="Smoke" type="AudioStreamPlayer3D" parent="SFX"]
-stream = ExtResource("6_wpqex")
+stream = ExtResource("7_umjmb")
 volume_db = -30.0
 max_db = 0.0
 bus = &"Effects"

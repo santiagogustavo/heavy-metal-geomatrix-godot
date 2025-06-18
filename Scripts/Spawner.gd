@@ -5,7 +5,8 @@ class_name Spawner
 @export_range(1.0, 10, 1.0) var spawn_concurrent: int = 1
 @export var spawn_min_distance: float = 10.0
 @export var spawn_timeout: float = 5.0
-@export var pickups_to_spawn: Array[PackedScene]
+@export var items_to_spawn: Array[PackedScene]
+@onready var pickup = load("res://Prefabs/Pickups/Pickup.tscn")
 
 var started: bool = false
 var last_spawn_location: Vector3 = Vector3.ZERO
@@ -45,10 +46,11 @@ func spawn_at_random_navigation_position() -> void:
 	while last_spawn_location.distance_to(spawn_location) < spawn_min_distance:
 		spawn_location = get_navigation_random_position()
 	last_spawn_location = spawn_location
-	var random_pickup_index = randi_range(0, pickups_to_spawn.size() - 1)
-	var pickup_to_spawn = pickups_to_spawn[random_pickup_index]
-	var pickup = pickup_to_spawn.instantiate()
-	pickup.position = spawn_location
-	pickup.position.y -= 0.25
-	spawned_pickups.append(pickup)
-	add_child(pickup)
+	var random_pickup_index = randi_range(0, items_to_spawn.size() - 1)
+	var item_to_spawn = items_to_spawn[random_pickup_index]
+	var pickup_instance: Pickup = pickup.instantiate()
+	pickup_instance.item = item_to_spawn
+	pickup_instance.position = spawn_location
+	pickup_instance.position.y -= 0.25
+	spawned_pickups.append(pickup_instance)
+	add_child(pickup_instance)

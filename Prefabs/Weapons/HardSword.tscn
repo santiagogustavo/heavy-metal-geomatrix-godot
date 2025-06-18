@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4wyss068ducy"]
+[gd_scene load_steps=17 format=3 uid="uid://c4wyss068ducy"]
 
 [ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_exw1l"]
 [ext_resource type="PackedScene" uid="uid://bf5nixetmlasw" path="res://Models/Weapons/Hard Sword.glb" id="1_ofe1k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_cpri6"]
 [ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_j3tmt"]
 [ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="4_42fw5"]
+[ext_resource type="Texture2D" uid="uid://dqcusfmq0q7d3" path="res://Textures/Pickups/Splash/HardSword.png" id="4_ontql"]
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="5_nqugp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_npwpc"]
@@ -41,12 +42,20 @@ material = SubResource("ShaderMaterial_wljdo")
 
 [node name="HardSword" type="Node3D"]
 script = ExtResource("1_exw1l")
-item_name = "Hard Sword"
 damage = 10
 hit_general_particle = ExtResource("2_egqlw")
 hit_player_particle = ExtResource("3_cpri6")
+item_name = "Hard Sword"
+equip_type = 3
+splash = ExtResource("4_ontql")
 
 [node name="Hard Sword" parent="." instance=ExtResource("1_ofe1k")]
+
+[node name="object_0" parent="Hard Sword" index="0"]
+layers = 8
+
+[node name="object_1" parent="Hard Sword" index="1"]
+layers = 8
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(-0.954, 0, 1.4405e-07, 0, 0.58, 0, -1.4405e-07, 0, -0.954, -1.86215e-09, 0.740487, -0.00545657)
@@ -68,3 +77,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160548, -0.00359857)
 target_position = Vector3(0, 1.15, 0)
 collision_mask = 68
 debug_shape_thickness = 5
+
+[editable path="Hard Sword"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=40 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lhsfh"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
@@ -14,17 +14,15 @@
 [ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="13_hmcjl"]
 [ext_resource type="Texture2D" uid="uid://dem7e6i3ou4p4" path="res://Textures/Levels/frosted_glass.png" id="14_jk7h2"]
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="15_yy7dp"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="16_euj4p"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="16_sdprx"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="17_l0s6t"]
-[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="18_b712g"]
-[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="19_6bd6u"]
-[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="20_fr0k5"]
-[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="21_xdkx4"]
+[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="17_euj4p"]
+[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="19_4nt3m"]
+[ext_resource type="PackedScene" uid="uid://dtnqa6yywxj68" path="res://Prefabs/Pickups/Pickup.tscn" id="22_4nt3m"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_4s6i1"]
 [ext_resource type="PackedScene" uid="uid://bkt3ivhkt5nvf" path="res://Prefabs/node_3d.tscn" id="22_s37v4"]
-[ext_resource type="PackedScene" uid="uid://cyeky57kf6wjh" path="res://Prefabs/Pickups/FlameGunPickup.tscn" id="23_scgfw"]
+[ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="23_6njym"]
 [ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_uu1cf"]
-[ext_resource type="PackedScene" uid="uid://bspygcpipf0yv" path="res://Prefabs/Pickups/HardSwordPickup.tscn" id="25_jpqiw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("2_pg3qa")
@@ -109,6 +107,7 @@ backface_collision = true
 level_name = "Playground1"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
+play_versus_screen = false
 is_sunny = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
@@ -204,31 +203,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("16_sdprx")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
-pickups_to_spawn = Array[PackedScene]([ExtResource("17_l0s6t"), ExtResource("18_b712g"), ExtResource("19_6bd6u"), ExtResource("20_fr0k5"), ExtResource("21_xdkx4")])
+spawn_concurrent = 10
+items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_euj4p"), ExtResource("24_uu1cf"), ExtResource("19_4nt3m")])
 
 [node name="World Boundaries" parent="." instance=ExtResource("22_4s6i1")]
 
-[node name="HandGunPickup" parent="." instance=ExtResource("20_fr0k5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
-
 [node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.735458, 0.964555, -10.8468)
+cull_mask = 4293919232
 
 [node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="."]
+cull_mask = 4293919232
 size = Vector3(40, 0.1, 40)
 
 [node name="Node3D" parent="." instance=ExtResource("22_s37v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26639, 1.26391, -0.533026)
-
-[node name="FlameGunPickup" parent="." instance=ExtResource("23_scgfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23545, -4.14134e-07, -2.98111)
 
 [node name="HandGun" parent="." instance=ExtResource("24_uu1cf")]
 transform = Transform3D(-1, -1.73372e-09, -7.43702e-08, -2.85606e-10, 0.999004, 0.0446133, 1.49012e-07, 0.0446133, -0.999004, -1, 2.24906, -10)
 infinite_ammo = true
 is_shooting = true
 
-[node name="HardSwordPickup" parent="." instance=ExtResource("25_jpqiw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.21853, -6.17944e-08, -3.55798)
+[node name="Pickup2" parent="." instance=ExtResource("22_4nt3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)
+timeout = 15.0
+item = ExtResource("23_6njym")
 
 [editable path="Spawner"]

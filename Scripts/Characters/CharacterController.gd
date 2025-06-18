@@ -37,7 +37,6 @@ signal damage
 
 @export_subgroup("Loadout")
 @export var initial_loadout: PackedScene
-@export var initial_loadout_slot: Definitions.EquipType
 
 @onready var hitmarker: PackedScene = load("res://Prefabs/Player/Hitmarker.tscn")
 
@@ -97,6 +96,8 @@ func take_damage_from_hitbox(
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
 	damage.emit(total_damage)
+	if sfx_controller:
+		sfx_controller.play_hurt_sound()
 	if player_rid == GameManager.get_player_one().get_rid():
 		if is_critical:
 			InputManager.vibrate_controller(0, 1.0, 1.0, 0.5)

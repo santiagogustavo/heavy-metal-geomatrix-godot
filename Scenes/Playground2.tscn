@@ -1,23 +1,26 @@
-[gd_scene load_steps=27 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=30 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lgjqh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="2_rlu7d"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_nkony"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="6_2od80"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="6_qglil"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="7_hmeq5"]
-[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="8_5qf7q"]
-[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="9_f62up"]
-[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="10_ii6pf"]
-[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="11_q2jjr"]
+[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="7_3kfwb"]
+[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="8_vvk7a"]
+[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="9_6vc2e"]
+[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="10_sl81g"]
+[ext_resource type="PackedScene" uid="uid://c4wyss068ducy" path="res://Prefabs/Weapons/HardSword.tscn" id="11_1dd0n"]
 [ext_resource type="Material" uid="uid://dc5ihrsx5aehi" path="res://Materials/Levels/Playground Material 2.tres" id="12_g4juo"]
+[ext_resource type="PackedScene" uid="uid://cf1bfsleugb3w" path="res://Prefabs/Weapons/KillerSword.tscn" id="12_hw50o"]
+[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="13_bc0go"]
 [ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Materials/Levels/Playground Material 1.tres" id="13_gddvk"]
 [ext_resource type="PackedScene" uid="uid://1lkvm44wjt4x" path="res://Prefabs/Particles/Rain/Raindrops.tscn" id="14_c7o2r"]
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="15_rbg34"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_yijig"]
-[ext_resource type="PackedScene" uid="uid://cyeky57kf6wjh" path="res://Prefabs/Pickups/FlameGunPickup.tscn" id="17_qx33q"]
-[ext_resource type="PackedScene" uid="uid://c2ybff6j05cq4" path="res://Prefabs/Pickups/SniperRiflePickup.tscn" id="18_13jos"]
-[ext_resource type="PackedScene" uid="uid://hasw7ncxhjoy" path="res://Prefabs/Pickups/ShotGunPickup.tscn" id="19_xpdlw"]
+[ext_resource type="PackedScene" uid="uid://dtnqa6yywxj68" path="res://Prefabs/Pickups/Pickup.tscn" id="19_3kfwb"]
+[ext_resource type="PackedScene" uid="uid://dtuv3k4y52i7i" path="res://Prefabs/Weapons/FAKK2/Chain Sword.tscn" id="20_vvk7a"]
+[ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="21_6vc2e"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
 panorama = ExtResource("2_rlu7d")
@@ -56,6 +59,7 @@ level_name = "Playground2"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2"), NodePath("../Spawn Points/SpawnPoint3")]
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")
+play_versus_screen = false
 is_rainy = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
@@ -79,7 +83,7 @@ light_energy = 0.1
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 20.0
-pickups_to_spawn = Array[PackedScene]([ExtResource("7_hmeq5"), ExtResource("8_5qf7q"), ExtResource("9_f62up"), ExtResource("10_ii6pf"), ExtResource("11_q2jjr")])
+items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_3kfwb"), ExtResource("8_vvk7a"), ExtResource("9_6vc2e"), ExtResource("10_sl81g"), ExtResource("11_1dd0n"), ExtResource("12_hw50o"), ExtResource("13_bc0go")])
 
 [node name="Level Geometry" type="Node3D" parent="."]
 
@@ -140,28 +144,14 @@ shape = SubResource("ConcavePolygonShape3D_yfk20")
 
 [node name="World Boundaries" parent="." instance=ExtResource("16_yijig")]
 
-[node name="HandGunPickup" parent="." instance=ExtResource("10_ii6pf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+[node name="Pickup" parent="." instance=ExtResource("19_3kfwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0625181, 3)
+timeout = 15.0
+item = ExtResource("20_vvk7a")
 
-[node name="MotoGunPickup" parent="." instance=ExtResource("11_q2jjr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
-
-[node name="ShotGunPickup" parent="." instance=ExtResource("19_xpdlw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
-
-[node name="KillerSwordPickup" parent="." instance=ExtResource("9_f62up")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="RaySwordPickup" parent="." instance=ExtResource("8_5qf7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
-
-[node name="JetpackPickup" parent="." instance=ExtResource("7_hmeq5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
-
-[node name="FlameGunPickup" parent="." instance=ExtResource("17_qx33q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6)
-
-[node name="SniperRiflePickup" parent="." instance=ExtResource("18_13jos")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
+[node name="Pickup2" parent="." instance=ExtResource("19_3kfwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)
+timeout = 15.0
+item = ExtResource("21_6vc2e")
 
 [editable path="Spawner"]

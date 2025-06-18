@@ -34,6 +34,7 @@ var total_time: float = 0.0
 var round_status: RoundStatus = RoundStatus.Idle
 var is_final_round: bool = false
 var is_player_input_locked: bool = true
+var is_ongoing: bool = false
 
 func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -53,6 +54,7 @@ func _ready() -> void:
 	started.emit()
 
 func _process(_delta: float) -> void:
+	is_ongoing = round_status == RoundStatus.Started
 	current_time = ceili(timer.time_left)
 	set_process_unhandled_input(!DebugMenuManager.is_menu_open and !PauseMenuManager.is_menu_open)
 

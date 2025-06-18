@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 signal player_ready
+signal player_damage
 signal player_killed
 
 enum PlayerType {
@@ -30,6 +31,9 @@ enum PlayerType {
 @export var spawn_point: SpawnPoint
 @export var team: Team
 
+@export_subgroup("Collision Detectors")
+@export var detectors: Array[Area3D]
+
 @onready var dash: GPUParticles3D = $Dash
 @onready var raycast: RayCast3D = $RayCast3D
 
@@ -47,8 +51,6 @@ var player_input: PlayerInputManager
 var player_ui: Node2D
 
 var player_bot_ai: PlayerBotAI
-
-var collided_pickup: PickupController
 
 var current_speed: float = 0.0
 
@@ -84,6 +86,13 @@ func _ready() -> void:
 	character.damage.connect(damage_player)
 	add_child(character)
 	player_name = character.character_name
+	inventory_manager = load("res://Prefabs/Player/InventoryManager.tscn").instantiate()
+	inventory_manager.player_rid = get_rid()
+	inventory_manager.character_controller = character
+	inventory_manager.right_hand_pickup.connect(func (node: CollisionObject3D):
+		add_collision_exception_with(node)
+	)
+	add_child(inventory_manager)
 	if character.sfx_controller:
 		sfx_controller = character.sfx_controller
 	if character.animation_tree:
@@ -92,13 +101,14 @@ func _ready() -> void:
 			for fist in character.fists:
 				fist.can_hit = true
 		)
+		animation_tree.combo_animation_changed.connect(func ():
+			if inventory_manager.right_hand_instance is SwordController:
+				inventory_manager.right_hand_instance.is_swinging = true
+		)
 		player_killed.connect(func (): animation_tree.play_ko_state())
-	inventory_manager = load("res://Prefabs/Player/InventoryManager.tscn").instantiate()
-	inventory_manager.player_rid = get_rid()
-	inventory_manager.character_controller = character
-	add_child(inventory_manager)
 	if character.initial_loadout:
-		inventory_manager.pick_up_item(character.initial_loadout_slot, character.initial_loadout)
+		var loadout_instance: Item = character.initial_loadout.instantiate() as Item
+		inventory_manager.pick_up_item(loadout_instance.equip_type, character.initial_loadout)
 	reset_player_to_spawn()
 	player_ready.emit()
 
@@ -160,6 +170,7 @@ func heal_player(amount: int) -> void:
 	health = clamp(health, 0, 100)
 
 func damage_player(amount: int) -> void:
+	player_damage.emit()
 	health -= amount
 	health = clamp(health, 0, 100)
 	if health == 0:
@@ -283,8 +294,11 @@ func set_inventory_items_variables() -> void:
 		inventory_manager.body_instance.is_dashing = brain.is_dashing
 		inventory_manager.body_instance.is_double_jumping = brain.is_double_jumping
 	if inventory_manager.right_hand_instance != null:
-		if inventory_manager.right_hand_instance is SwordController and animation_tree:
-			inventory_manager.right_hand_instance.is_attacking = animation_tree.is_current_node_attacking()
+		if inventory_manager.right_hand_instance is SwordController:
+			inventory_manager.right_hand_instance.is_swinging = false
+			inventory_manager.right_hand_instance.is_attacking = (
+				animation_tree.is_current_node_attacking()
+			)
 		if (
 			inventory_manager.right_hand_instance is GunController
 			or inventory_manager.right_hand_instance is EnergyGunController

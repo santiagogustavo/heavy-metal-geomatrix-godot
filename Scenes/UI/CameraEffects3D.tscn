@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://byafmx5elekej"]
+[gd_scene load_steps=49 format=3 uid="uid://byafmx5elekej"]
 
 [ext_resource type="Script" uid="uid://7yxlh1cqojp3" path="res://Scripts/UI/CameraEffects/MotionBlur.gd" id="1_d58io"]
 [ext_resource type="Script" uid="uid://c77y6ojcpvtdf" path="res://Scripts/UI/CameraEffects/Bloom.gd" id="3_if111"]
@@ -6,7 +6,10 @@
 [ext_resource type="Script" uid="uid://ckxpsogw8b7w" path="res://Scripts/UI/CameraEffects/CameraSnow.gd" id="6_53sd6"]
 [ext_resource type="Shader" uid="uid://l2kuumwvekgq" path="res://Materials/UI/RadialBlur.gdshader" id="6_djyu1"]
 [ext_resource type="Texture2D" uid="uid://cwwbkn824wase" path="res://Textures/Particles/Snow/camera_snow_1.png" id="6_oyy1f"]
+[ext_resource type="Texture2D" uid="uid://bd7xbrc218b70" path="res://Textures/UI/Blood/Blood-Splatter-PNG-Photo-Image.png" id="8_6i3kf"]
 [ext_resource type="Texture2D" uid="uid://cmgjjhaxp46h1" path="res://Textures/Particles/Snow/camera_snow_4.png" id="8_8nf21"]
+[ext_resource type="Script" uid="uid://bbtt82aofxrc6" path="res://Scripts/UI/CameraEffects/Blood.gd" id="8_btk25"]
+[ext_resource type="Texture2D" uid="uid://b25fuksexb66j" path="res://Textures/UI/Blood/Blood-Splatter-No-Background.png" id="9_8kiwb"]
 [ext_resource type="Shader" uid="uid://d4h23bdkl46lp" path="res://Materials/Shaders/LensFlare.gdshader" id="9_mr5ej"]
 [ext_resource type="Texture2D" uid="uid://memgia12ldws" path="res://Textures/Particles/Rain/droplets_1.png" id="10_ll7gg"]
 [ext_resource type="Script" uid="uid://bb7w0rmbs5bll" path="res://Scripts/UI/CameraEffects/CameraRain2d.gd" id="10_loo2t"]
@@ -142,6 +145,26 @@ shader_parameter/MaxFlareIntensity = 1.0
 shader_parameter/AberrationStrength = 0.012
 shader_parameter/EmissionThreshold = 0.0
 
+[sub_resource type="Curve" id="Curve_8kiwb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_btk25"]
+curve = SubResource("Curve_8kiwb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nk1nt"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 400, 1)
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.2
+color = Color(0.82, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_btk25")
+
 [sub_resource type="Curve" id="Curve_d2sl7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -266,7 +289,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Flare/Control"]
 libraries = {
-"": SubResource("AnimationLibrary_u25cr")
+&"": SubResource("AnimationLibrary_u25cr")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Flare/Control"]
@@ -295,6 +318,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Blood" type="Node3D" parent="."]
+script = ExtResource("8_btk25")
+
+[node name="Control" type="Control" parent="Blood"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Splatter1" type="GPUParticles2D" parent="Blood/Control"]
+emitting = false
+amount = 1
+texture = ExtResource("8_6i3kf")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_nk1nt")
+
+[node name="Splatter2" type="GPUParticles2D" parent="Blood/Control"]
+emitting = false
+amount = 1
+texture = ExtResource("9_8kiwb")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_nk1nt")
+
 [node name="CameraSnow" type="Node3D" parent="."]
 script = ExtResource("6_53sd6")
 
@@ -310,17 +361,17 @@ grow_vertical = 2
 position = Vector2(600, 325)
 emitting = false
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_73ef5")
 texture = ExtResource("6_oyy1f")
 lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_73ef5")
 
 [node name="Particles2" type="GPUParticles2D" parent="CameraSnow/Control"]
 position = Vector2(600, 325)
 emitting = false
 amount = 5
-process_material = SubResource("ParticleProcessMaterial_8knii")
 texture = ExtResource("8_8nf21")
 lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_8knii")
 
 [node name="CameraRain2d" type="Node3D" parent="."]
 script = ExtResource("10_loo2t")
@@ -342,13 +393,13 @@ grow_vertical = 2
 [node name="Droplets1" type="GPUParticles2D" parent="CameraRain2d/Control"]
 emitting = false
 amount = 20
-process_material = SubResource("ParticleProcessMaterial_gvhp4")
 texture = ExtResource("10_ll7gg")
 lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_gvhp4")
 
 [node name="Droplets2" type="GPUParticles2D" parent="CameraRain2d/Control"]
 emitting = false
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_6ckrj")
 texture = ExtResource("11_iphpw")
 lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_6ckrj")

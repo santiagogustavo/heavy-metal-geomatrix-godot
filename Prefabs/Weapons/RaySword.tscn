@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dyxq3lfyh46m2"]
+[gd_scene load_steps=29 format=3 uid="uid://dyxq3lfyh46m2"]
 
 [ext_resource type="PackedScene" uid="uid://ddcr0ywp6fpmh" path="res://Models/Weapons/Ray Sword.glb" id="1_jfy31"]
 [ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_qluvp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://q4a4g1pb87og" path="res://Prefabs/Decals/SwordHitElectricDecal.tscn" id="2_isi4i"]
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_sekuh"]
 [ext_resource type="Texture2D" uid="uid://bhudqhirmgvh2" path="res://Textures/Particles/sparks_1.png" id="3_y5sag"]
+[ext_resource type="Texture2D" uid="uid://c40wdbdsmngmp" path="res://Textures/Pickups/Splash/RaySword.png" id="4_7r1fo"]
 [ext_resource type="Script" uid="uid://hywqchyqup6p" path="res://Scripts/Lights/FlickeringLight.gd" id="4_7yc0k"]
 [ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="4_j333q"]
 [ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="5_1aidu"]
@@ -92,10 +93,12 @@ material = SubResource("ShaderMaterial_d2q0u")
 
 [node name="RaySword" type="Node3D"]
 script = ExtResource("1_qluvp")
-item_name = "Ray Sword"
 damage = 10
 hit_general_particle = ExtResource("2_isi4i")
 hit_player_particle = ExtResource("3_sekuh")
+item_name = "Ray Sword"
+equip_type = 3
+splash = ExtResource("4_7r1fo")
 
 [node name="Ray Sword" parent="." instance=ExtResource("1_jfy31")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

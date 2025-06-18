@@ -20,14 +20,14 @@
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="15_c0cqg"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_7n2e0"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="17_2cp1u"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="18_403eb"]
-[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="19_60ryx"]
-[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="20_7b5bp"]
-[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="21_aqy7p"]
-[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="22_l7fp1"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="21_f56u8"]
+[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="22_rvlpc"]
+[ext_resource type="PackedScene" uid="uid://cti1ekhybelqv" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="23_ce0a0"]
 [ext_resource type="AudioStream" uid="uid://p6kh6ir5bhe8" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst1.mp3" id="23_xq6ud"]
+[ext_resource type="PackedScene" uid="uid://c4wyss068ducy" path="res://Prefabs/Weapons/HardSword.tscn" id="24_151h5"]
 [ext_resource type="AudioStream" uid="uid://cjw7awchh87gv" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst2.mp3" id="24_cv66c"]
 [ext_resource type="AudioStream" uid="uid://co88rxe270cqj" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst3.mp3" id="25_2uk6u"]
+[ext_resource type="PackedScene" uid="uid://cf1bfsleugb3w" path="res://Prefabs/Weapons/KillerSword.tscn" id="25_ex2nk"]
 [ext_resource type="AudioStream" uid="uid://crlksg8qn273" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst4.mp3" id="26_wj5b2"]
 [ext_resource type="AudioStream" uid="uid://d26wqq6m3ifj3" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst5.mp3" id="27_ryyg3"]
 
@@ -502,46 +502,57 @@ transform = Transform3D(1, -2.02931e-11, 0, -6.1732e-11, 1, -1.16415e-10, -2.910
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999974, -3.38719e-09, -1.5134e-09, -2.55176e-08, 0.999974, -3.29455e-08, -1.60653e-08, -1.61817e-08, 0.999974, -9.00003, -0.406749, -11.7721)
+cull_mask = 4293919232
 size = Vector3(24, 0.938477, 29.4174)
 
 [node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999952, -1.17022e-08, 1.30967e-09, -4.8361e-08, 0.999952, -5.83241e-08, -2.92785e-08, -2.7474e-08, 0.999952, -0.0347961, 0.74213, -11.6385)
+cull_mask = 4293919232
 size = Vector3(5.95892, 1.54199, 4.69912)
 
 [node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.99993, -3.03844e-08, 2.24391e-08, -7.49889e-08, 0.93878, 0.344305, -4.16476e-08, -0.344296, 0.938777, -0.0347996, 0.480275, -15.4612)
+cull_mask = 4293919232
 size = Vector3(5.95892, 0.938477, 3.49944)
 
 [node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999926, -5.65364e-06, 3.16446e-06, 4.07133e-06, 0.935459, 0.353217, -4.9673e-06, -0.353206, 0.935456, -0.030622, 2.16401, -6.94083)
+cull_mask = 4293919232
 size = Vector3(5.95892, 0.938477, 4.95431)
 
 [node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999934, -2.21136e-08, 4.65661e-10, -7.19666e-08, 0.999934, -7.77654e-08, -4.02215e-08, -3.53903e-08, 0.999934, -0.0307426, 1.7336, -0.208815)
+cull_mask = 4293919232
 size = Vector3(5.95892, 3.55127, 9.04911)
 
 [node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.707054, 0.00115334, -0.707068, -0.00085098, 0.999931, 0.000780051, 0.707054, 5.00344e-05, 0.707055, -1.62548, 1.72484, 4.08578)
+cull_mask = 4293919232
 size = Vector3(6.71912, 3.55127, 6.14982)
 
 [node name="GPUParticlesCollisionBox3D7" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999921, -3.16537e-08, 6.98492e-10, -8.16705e-08, 0.999921, -9.06875e-08, -4.64497e-08, -4.01633e-08, 0.999921, -5.83205, 1.72627, 5.9969)
+cull_mask = 4293919232
 size = Vector3(8.52513, 3.55127, 5.95314)
 
 [node name="GPUParticlesCollisionBox3D10" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(-8.66334e-07, -0.347037, 0.93776, 0.00193423, 0.93776, 0.347046, -0.999922, 0.0018144, 0.000670557, -12.1885, 2.19079, 5.94268)
+cull_mask = 4293919232
 size = Vector3(5.95892, 0.938477, 5.11436)
 
 [node name="GPUParticlesCollisionBox3D8" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999928, -2.65347e-08, -1.01863e-09, -7.64994e-08, 0.999928, -8.40519e-08, -4.28408e-08, -3.77186e-08, 0.999928, -17.8962, 1.73189, 5.97248)
+cull_mask = 4293919232
 size = Vector3(6.21628, 3.55127, 6.07643)
 
 [node name="GPUParticlesCollisionBox3D9" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999918, -3.37477e-08, 1.68802e-09, -8.38787e-08, 0.999918, -9.32487e-08, -4.7643e-08, -4.10946e-08, 0.999918, -18.4949, 1.73392, 2.22473)
+cull_mask = 4293919232
 size = Vector3(5.02013, 3.55127, 1.44349)
 
 [node name="GPUParticlesCollisionBox3D11" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(0.999912, -1.28637e-06, 6.84406e-07, 7.90379e-07, 0.938062, 0.346196, -1.09657e-06, -0.346182, 0.93806, -18.4701, 0.48434, 0.0323805)
+cull_mask = 4293919232
 size = Vector3(5.01567, 0.938477, 3.45431)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
@@ -675,7 +686,7 @@ shape = SubResource("BoxShape3D_afc0c")
 [node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("17_2cp1u")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 3
-pickups_to_spawn = Array[PackedScene]([ExtResource("18_403eb"), ExtResource("19_60ryx"), ExtResource("20_7b5bp"), ExtResource("21_aqy7p"), ExtResource("22_l7fp1")])
+items_to_spawn = Array[PackedScene]([ExtResource("21_f56u8"), ExtResource("22_rvlpc"), ExtResource("23_ce0a0"), ExtResource("24_151h5"), ExtResource("25_ex2nk")])
 
 [node name="OST" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3

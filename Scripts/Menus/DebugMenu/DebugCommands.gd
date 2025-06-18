@@ -11,6 +11,7 @@ var is_stats_overlay_open: bool = false
 static var target_point_visible: bool = false
 static var full_ammo: bool = false
 static var full_health: bool = false
+static var is_pacifist: bool = false
 
 var tree: SceneTree
 
@@ -36,15 +37,18 @@ func clear() -> void:
 func reload() -> void:
 	tree.reload_current_scene()
 
+func pacifist() -> void:
+	is_pacifist = !is_pacifist
+
 func add_bot() -> String:
 	var resource: Resource = load("res://Prefabs/BotPlayer.tscn")
 	resource.resource_local_to_scene = true
 	var instance: Player = resource.instantiate()
 	instance.selected_character = [
-		Definitions.Characters.Mayfly,
-		Definitions.Characters.Slash,
+		#Definitions.Characters.Mayfly,
+		#Definitions.Characters.Slash,
 		Definitions.Characters.Di,
-		Definitions.Characters.Kassey
+		#Definitions.Characters.Kassey
 	].pick_random()
 	instance.selected_skin = randi_range(0, 3)
 	if !GameManager.get_team(1):

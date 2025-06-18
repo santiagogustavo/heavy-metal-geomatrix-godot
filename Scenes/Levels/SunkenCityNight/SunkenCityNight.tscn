@@ -18,16 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://c2axca041ro8" path="res://Textures/Lens Flares/flare1.png" id="12_te444"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="13_28rel"]
 [ext_resource type="Texture2D" uid="uid://bgidypo45slaj" path="res://Textures/Levels/Sunken City Night/neon_sign_1_scaffold.png" id="14_8c3ea"]
-[ext_resource type="PackedScene" uid="uid://l4jr5gshy6ea" path="res://Prefabs/Pickups/HandGunPickup.tscn" id="14_itd51"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="14_mbsx2"]
 [ext_resource type="Texture2D" uid="uid://bjydtbiwp7bm" path="res://Textures/Levels/Sunken City Night/neon_sign_1.png" id="14_u3hmv"]
-[ext_resource type="PackedScene" uid="uid://cdcus70hgu8gh" path="res://Prefabs/Pickups/MotoGunPickup.tscn" id="15_5qahw"]
 [ext_resource type="Texture2D" uid="uid://bkiirw4mcsqoy" path="res://Textures/Levels/Sunken City Night/neon_sign_1_emm.png" id="15_js3wv"]
-[ext_resource type="PackedScene" uid="uid://qataf12e30v0" path="res://Prefabs/Pickups/JetpackPickup.tscn" id="16_284yf"]
-[ext_resource type="PackedScene" uid="uid://bpjd6kfqaq6m7" path="res://Prefabs/Pickups/RaySwordPickup.tscn" id="16_kqeaa"]
 [ext_resource type="Texture2D" uid="uid://cuelhlxjlmxtq" path="res://Textures/Levels/Sunken City Night/neon_sign_3.png" id="17_yyijs"]
 [ext_resource type="Texture2D" uid="uid://j5mqtnau4otl" path="res://Textures/Levels/Sunken City Night/neon_sign_2.png" id="18_gppi3"]
-[ext_resource type="PackedScene" uid="uid://ci3yxg18xuwtm" path="res://Prefabs/Pickups/KillerSwordPickup.tscn" id="19_4j3hn"]
 [ext_resource type="Texture2D" uid="uid://cv3wy4a10swgm" path="res://Textures/Levels/Sunken City Night/neon_sign_2_emm.png" id="19_tje26"]
 [ext_resource type="Texture2D" uid="uid://cf7vxkny4oigw" path="res://Textures/Levels/Sunken City Night/scaffold.png" id="20_pjyb5"]
 [ext_resource type="Texture2D" uid="uid://dbb6w4lrnl6lq" path="res://Textures/Levels/Sunken City Night/neon_sign_4.png" id="21_4yqmx"]
@@ -41,7 +36,12 @@
 [ext_resource type="AudioStream" uid="uid://m7w5l1kyndam" path="res://Music/SunkenCityNight/SunkenCityNightOst4.mp3" id="25_hbknm"]
 [ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
 [ext_resource type="PackedScene" uid="uid://c2b14t4ld7u2a" path="res://Models/Levels/Sunken City Night/Navmesh.glb" id="28_u1d5f"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="31_a3hbx"]
+[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="32_4nhff"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
+[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="33_3yyu5"]
+[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="34_ajwuo"]
+[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="35_pulof"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -483,26 +483,32 @@ mesh = SubResource("QuadMesh_q1cbc")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0275, 8.75516, -12.8594)
+cull_mask = 4293919232
 size = Vector3(15.1618, 4.48334, 7.29187)
 
 [node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0279, 7.48626, -28.6275)
+cull_mask = 4293919232
 size = Vector3(15.1609, 2.05893, 24.2561)
 
 [node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 0.893646, 0.448773, 0, -0.448773, 0.893646, -24.0338, 8.71362, -18.487)
+cull_mask = 4293919232
 size = Vector3(15.1491, 2.27849, 5.6476)
 
 [node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8205, 5.46661, -24.9828)
+cull_mask = 4293919232
 size = Vector3(3.34791, 2.05893, 31.5455)
 
 [node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.177, 5.46661, -24.9828)
+cull_mask = 4293919232
 size = Vector3(3.12561, 2.05893, 31.5455)
 
 [node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4997, 9.47559, -31.9959)
+cull_mask = 4293919232
 size = Vector3(4.99236, 2.03744, 10.0238)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level Geometry"]
@@ -612,7 +618,7 @@ end_position = Vector3(-1.721, -1.82292, 0.0225544)
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-pickups_to_spawn = Array[PackedScene]([ExtResource("14_itd51"), ExtResource("15_5qahw"), ExtResource("16_kqeaa"), ExtResource("16_284yf"), ExtResource("19_4j3hn")])
+items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("32_4nhff"), ExtResource("33_3yyu5"), ExtResource("34_ajwuo"), ExtResource("35_pulof")])
 
 [node name="Invisible Walls" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8619, 4.12044, -25.0382)
