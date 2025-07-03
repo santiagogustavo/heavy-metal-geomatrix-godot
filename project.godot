@@ -236,4 +236,5 @@ lock_on={
 
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+shader_compiler/shader_cache/compress=false
 textures/default_filters/use_nearest_mipmap_filter=true
