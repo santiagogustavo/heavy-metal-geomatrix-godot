@@ -1,6 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqjr87ej8gq1o"]
+[gd_scene load_steps=12 format=3 uid="uid://cqjr87ej8gq1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://be72q3c4piudx" path="res://Models/Characters/Slash/Skins/Mesh.res" id="1_x0qe4"]
+[ext_resource type="Material" uid="uid://dr5p6ihp8cjl3" path="res://Materials/Characters/Slash/Skins/Default/da8223a0.tres" id="2_j6xmm"]
+[ext_resource type="Material" uid="uid://dfw6dl27kdifu" path="res://Materials/Characters/Slash/Skins/Default/22d056e4.tres" id="3_n6pfc"]
+[ext_resource type="Material" uid="uid://b5vwultfenphc" path="res://Materials/Characters/Slash/Skins/Default/1fcbbb75.tres" id="4_8ler0"]
+[ext_resource type="Material" uid="uid://wqq717fny8k2" path="res://Materials/Characters/Slash/Skins/Default/f589e076.tres" id="5_ev6m8"]
+[ext_resource type="Material" uid="uid://dfqebvyo686ca" path="res://Materials/Characters/Slash/Skins/Default/9f3c5156.tres" id="6_he7kj"]
+[ext_resource type="Material" uid="uid://dsmd20yq0nijh" path="res://Materials/Characters/Slash/Skins/Default/35c3bfba.tres" id="7_nuy2t"]
+[ext_resource type="Material" uid="uid://cnsvi41jcdkpn" path="res://Materials/Characters/Slash/Skins/Default/5eccf1e4.tres" id="8_1umft"]
+[ext_resource type="Script" uid="uid://dw4b5ugmdg2tk" path="res://Scripts/Characters/AnimatedTexturesMesh.gd" id="9_n6pfc"]
+[ext_resource type="Texture2D" uid="uid://7qqne0hf68hg" path="res://Textures/Characters/Slash/Skins/Default/Masks/blink.png" id="10_8ler0"]
 
 [sub_resource type="Skin" id="Skin_8s7c2"]
 resource_name = "Skin"
@@ -113,3 +122,13 @@ layers = 4
 mesh = ExtResource("1_x0qe4")
 skin = SubResource("Skin_8s7c2")
 skeleton = NodePath("../Skeleton3D")
+surface_material_override/0 = ExtResource("2_j6xmm")
+surface_material_override/1 = ExtResource("3_n6pfc")
+surface_material_override/2 = ExtResource("4_8ler0")
+surface_material_override/3 = ExtResource("5_ev6m8")
+surface_material_override/4 = ExtResource("6_he7kj")
+surface_material_override/5 = ExtResource("7_nuy2t")
+surface_material_override/6 = ExtResource("8_1umft")
+script = ExtResource("9_n6pfc")
+face_surface = 3
+blink_mask = ExtResource("10_8ler0")

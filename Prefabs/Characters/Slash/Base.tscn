@@ -109,12 +109,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Skin1" parent="Model/Armature" index="1" instance=ExtResource("6_oiy26")]
 visible = false
+script = null
 
 [node name="Skin2" parent="Model/Armature" index="2" instance=ExtResource("8_nu3rw")]
 visible = false
+script = null
 
 [node name="Skin3" parent="Model/Armature" index="3" instance=ExtResource("9_veopt")]
 visible = false
+script = null
 
 [node name="Skeleton3D" parent="Model/Armature" index="4"]
 bones/0/position = Vector3(0.787353, 1.3091, -0.692334)
