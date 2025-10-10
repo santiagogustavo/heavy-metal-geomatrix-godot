@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqjr87ej8gq1o"]
+[gd_scene load_steps=16 format=3 uid="uid://cqjr87ej8gq1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://be72q3c4piudx" path="res://Models/Characters/Slash/Skins/Mesh.res" id="1_x0qe4"]
 [ext_resource type="Material" uid="uid://dr5p6ihp8cjl3" path="res://Materials/Characters/Slash/Skins/Default/da8223a0.tres" id="2_j6xmm"]
@@ -10,6 +10,10 @@
 [ext_resource type="Material" uid="uid://cnsvi41jcdkpn" path="res://Materials/Characters/Slash/Skins/Default/5eccf1e4.tres" id="8_1umft"]
 [ext_resource type="Script" uid="uid://dw4b5ugmdg2tk" path="res://Scripts/Characters/AnimatedTexturesMesh.gd" id="9_n6pfc"]
 [ext_resource type="Texture2D" uid="uid://7qqne0hf68hg" path="res://Textures/Characters/Slash/Skins/Default/Masks/blink.png" id="10_8ler0"]
+[ext_resource type="Texture2D" uid="uid://vgvraq6jbgbw" path="res://Textures/Characters/Slash/Skins/Default/Masks/talk1.png" id="11_nuy2t"]
+[ext_resource type="Texture2D" uid="uid://clyikemlatp1f" path="res://Textures/Characters/Slash/Skins/Default/Masks/talk2.png" id="12_1umft"]
+[ext_resource type="Texture2D" uid="uid://cv7ma0onvtvt5" path="res://Textures/Characters/Slash/Skins/Default/Masks/talk3.png" id="13_17g6k"]
+[ext_resource type="Texture2D" uid="uid://dmpdein58veiq" path="res://Textures/Characters/Slash/Skins/Default/Masks/hurt.png" id="14_1umft"]
 
 [sub_resource type="Skin" id="Skin_8s7c2"]
 resource_name = "Skin"
@@ -132,3 +136,7 @@ surface_material_override/6 = ExtResource("8_1umft")
 script = ExtResource("9_n6pfc")
 face_surface = 3
 blink_mask = ExtResource("10_8ler0")
+talk_masks = Array[Texture2D]([ExtResource("11_nuy2t"), ExtResource("12_1umft"), ExtResource("13_17g6k")])
+hurt_eye_mask = ExtResource("14_1umft")
+hurt_mouth_mask = ExtResource("13_17g6k")
+die_mouth_mask = ExtResource("12_1umft")

@@ -47,6 +47,9 @@ var animation_tree: AnimationTree
 var jiggle_physics_enabled: bool = true
 var current_skin: int = default_skin
 
+var is_dead: bool
+var is_hurt: bool
+
 var player_rid: RID
 
 func _ready() -> void:
@@ -66,6 +69,19 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	show_current_skin()
+	update_internal_variables()
+	update_skin_variables()
+
+func update_internal_variables() -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		is_dead = player.health <= 0
+
+func update_skin_variables() -> void:
+	for skin: MeshInstance3D in skins:
+		if skin is AnimatedTexturesMesh:
+			skin.is_dead = is_dead
+			skin.is_hurt = is_hurt
 
 func show_current_skin() -> void:
 	var index: int = 0
@@ -79,6 +95,16 @@ func show_current_skin() -> void:
 func reset_jiggle_bones() -> void:
 	for bone: WiggleBone in jiggle_bones:
 		bone.reset()
+
+func start_talking() -> void:
+	for skin: MeshInstance3D in skins:
+		if skin is AnimatedTexturesMesh:
+			skin.is_talking = true
+
+func stop_talking() -> void:
+	for skin: MeshInstance3D in skins:
+		if skin is AnimatedTexturesMesh:
+			skin.is_talking = false
 
 func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vector3) -> void:
 	var hitmarker_instance: Hitmarker = hitmarker.instantiate()
@@ -96,6 +122,8 @@ func take_damage_from_hitbox(
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
 	damage.emit(total_damage)
+	is_hurt = true
+	get_tree().create_timer(0.5).timeout.connect(func (): is_hurt = false)
 	if sfx_controller:
 		sfx_controller.play_hurt_sound()
 	if player_rid == GameManager.get_player_one().get_rid():

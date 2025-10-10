@@ -88,7 +88,7 @@ func select_arena(arena: ArenaCard) -> void:
 	GameManager.current_match.rounds = rules_rounds
 	GameManager.current_match.time = rules_time
 	await get_tree().create_timer(1.0).timeout
-	await SceneManager.load_scene_file(arena.arena_scene)
+	SceneManager.load_scene_file(arena.arena_scene)
 
 func focus_on_first():
 	focused_first = true

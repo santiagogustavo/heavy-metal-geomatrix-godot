@@ -105,6 +105,15 @@ func get_player_one() -> Player:
 			return team.players[index]
 	return null
 
+func get_player(rid: RID) -> Player:
+	if !rid:
+		return null
+	for team: Team in teams:
+		var index = team.players.map(func (player: Player): return player.get_rid()).find(rid)
+		if index != -1:
+			return team.players[index]
+	return null
+
 func get_enemies(team_name: String) -> Array[Player]:
 	var enemies: Array[Player] = []
 	for team: Team in teams:

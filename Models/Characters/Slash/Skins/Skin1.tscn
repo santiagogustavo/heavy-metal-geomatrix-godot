@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gnd1heqe2in2"]
+[gd_scene load_steps=11 format=3 uid="uid://gnd1heqe2in2"]
 
 [ext_resource type="PackedScene" uid="uid://cqjr87ej8gq1o" path="res://Models/Characters/Slash/Skins/Default.tscn" id="1_vo7w1"]
 [ext_resource type="Material" uid="uid://bwvji7aigshrb" path="res://Materials/Characters/Slash/Skins/Skin1/da8223a0.tres" id="2_3n55l"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://3xg80bip5qo2" path="res://Materials/Characters/Slash/Skins/Skin1/9f3c5156.tres" id="6_hgp27"]
 [ext_resource type="Material" uid="uid://6tgk1gsn13kc" path="res://Materials/Characters/Slash/Skins/Skin1/35c3bfba.tres" id="7_xe377"]
 [ext_resource type="Material" uid="uid://bemh1edybuhis" path="res://Materials/Characters/Slash/Skins/Skin1/5eccf1e4.tres" id="8_c3nuj"]
+[ext_resource type="Texture2D" uid="uid://chrchlg45mrhk" path="res://Textures/Characters/Slash/Skins/A/Masks/blink.png" id="9_memad"]
+[ext_resource type="Texture2D" uid="uid://ds17fpf2prsd8" path="res://Textures/Characters/Slash/Skins/A/Masks/hurt.png" id="10_i0o5h"]
 
 [node name="Skin1" instance=ExtResource("1_vo7w1")]
 surface_material_override/0 = ExtResource("2_3n55l")
@@ -17,3 +19,5 @@ surface_material_override/3 = ExtResource("5_bh0o3")
 surface_material_override/4 = ExtResource("6_hgp27")
 surface_material_override/5 = ExtResource("7_xe377")
 surface_material_override/6 = ExtResource("8_c3nuj")
+blink_mask = ExtResource("9_memad")
+hurt_eye_mask = ExtResource("10_i0o5h")

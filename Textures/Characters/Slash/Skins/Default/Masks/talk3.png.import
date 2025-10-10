@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clyikemlatp1f"
-path.s3tc="res://.godot/imported/talk2.png-b3588ccbdeb2dba7cc793221a9a21f85.s3tc.ctex"
-path.etc2="res://.godot/imported/talk2.png-b3588ccbdeb2dba7cc793221a9a21f85.etc2.ctex"
+uid="uid://cv7ma0onvtvt5"
+path.s3tc="res://.godot/imported/talk3.png-82e4d09b90c086f4b6c94ffb2261d487.s3tc.ctex"
+path.etc2="res://.godot/imported/talk3.png-82e4d09b90c086f4b6c94ffb2261d487.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Characters/Slash/Skins/Default/Masks/talk2.png"
-dest_files=["res://.godot/imported/talk2.png-b3588ccbdeb2dba7cc793221a9a21f85.s3tc.ctex", "res://.godot/imported/talk2.png-b3588ccbdeb2dba7cc793221a9a21f85.etc2.ctex"]
+source_file="res://Textures/Characters/Slash/Skins/Default/Masks/talk3.png"
+dest_files=["res://.godot/imported/talk3.png-82e4d09b90c086f4b6c94ffb2261d487.s3tc.ctex", "res://.godot/imported/talk3.png-82e4d09b90c086f4b6c94ffb2261d487.etc2.ctex"]
 
 [params]
 

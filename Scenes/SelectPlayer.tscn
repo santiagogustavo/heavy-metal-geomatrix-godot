@@ -730,7 +730,7 @@ cull_mask = 4
 fov = 40.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="PlayerViewport"]
-transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, -13, 154.86)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -13, 154.86)
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

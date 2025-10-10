@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="15_c0cqg"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_7n2e0"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="17_2cp1u"]
-[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="21_f56u8"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="21_f56u8"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="22_rvlpc"]
 [ext_resource type="PackedScene" uid="uid://cti1ekhybelqv" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="23_ce0a0"]
 [ext_resource type="AudioStream" uid="uid://p6kh6ir5bhe8" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst1.mp3" id="23_xq6ud"]
