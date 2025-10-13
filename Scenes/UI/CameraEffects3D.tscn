@@ -342,7 +342,6 @@ process_material = SubResource("ParticleProcessMaterial_nk1nt")
 emitting = false
 amount = 1
 texture = ExtResource("9_8kiwb")
-lifetime = 0.5
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_nk1nt")
 

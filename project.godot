@@ -231,6 +231,7 @@ lock_on={
 3d_physics/layer_10="Water"
 3d_physics/layer_11="Stone"
 3d_physics/layer_12="Dirt"
+3d_physics/layer_13="Blood"
 
 [rendering]
 

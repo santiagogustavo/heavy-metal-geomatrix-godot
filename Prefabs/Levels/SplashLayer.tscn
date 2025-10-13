@@ -110,7 +110,7 @@ stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lpmxr")
+&"": SubResource("AnimationLibrary_lpmxr")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

@@ -1,7 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://ja58pxt2agkl"]
+[gd_scene load_steps=22 format=3 uid="uid://ja58pxt2agkl"]
 
 [ext_resource type="Shader" uid="uid://b84vnvks1o0yp" path="res://Materials/Particles/BloodSplash.tres" id="1_6441y"]
-[ext_resource type="PackedScene" uid="uid://dkofnli8fa3t" path="res://Prefabs/Particles/BloodSplash.tscn" id="2_2t2ca"]
+[ext_resource type="Script" uid="uid://coqvxymav5qn5" path="res://Scripts/Particles/BloodSplatterParticle.gd" id="2_mqh1v"]
+[ext_resource type="Script" uid="uid://qanr3wkoc6qy" path="res://Scripts/Particles/RigidParticleCollider.gd" id="4_hbobm"]
+[ext_resource type="Texture2D" uid="uid://bdakmg3tpcj6v" path="res://Textures/Decals/Blood/blood_floor2.png" id="5_d2reb"]
+[ext_resource type="Texture2D" uid="uid://b0w0kw4c2rtg8" path="res://Textures/Decals/Blood/blood_floor1.png" id="5_ydcds"]
+[ext_resource type="Script" uid="uid://ctakc5waetkpu" path="res://Scripts/Decals/DecalRandomizer.gd" id="6_3m2na"]
+[ext_resource type="Texture2D" uid="uid://c5kac3kogq5b2" path="res://Textures/Decals/Blood/blood_floor3.png" id="8_nyc1w"]
+[ext_resource type="Texture2D" uid="uid://c8ohcumf3y643" path="res://Textures/Decals/Blood/blood_floor4.png" id="9_nyc1w"]
+[ext_resource type="Texture2D" uid="uid://c8cd1jwtlynx4" path="res://Textures/Decals/Blood/blood_floor5.png" id="10_wndo5"]
+[ext_resource type="Texture2D" uid="uid://brlmj2v3fmbc3" path="res://Textures/Decals/Blood/blood_floor6.png" id="11_a4kuq"]
+[ext_resource type="Texture2D" uid="uid://fwqu8mdd7xyp" path="res://Textures/Decals/Blood/blood_wall1.png" id="11_wndo5"]
+[ext_resource type="Texture2D" uid="uid://84my620isupv" path="res://Textures/Decals/Blood/blood_wall2.png" id="12_y6kuc"]
+[ext_resource type="Texture2D" uid="uid://6lgb1mxlbfxa" path="res://Textures/Decals/Blood/blood_wall3.png" id="13_gyws2"]
+[ext_resource type="Texture2D" uid="uid://ca0fmtl1n5bsk" path="res://Textures/Decals/Blood/blood_wall4.png" id="14_ps5n7"]
+[ext_resource type="Texture2D" uid="uid://dqsa7k05y2308" path="res://Textures/Decals/Blood/blood_wall5.png" id="15_7np0g"]
 
 [sub_resource type="Shader" id="Shader_dy1b8"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's ParticleProcessMaterial.
@@ -441,22 +454,177 @@ shader = ExtResource("1_6441y")
 material = SubResource("ShaderMaterial_hl7gn")
 size = Vector2(0.3, 0.3)
 
-[node name="BloodSplatter" type="GPUParticles3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_mqh1v"]
+radius = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbobm"]
+size = Vector3(2, 0.281738, 4.354)
+
+[node name="BloodSplatter" type="GPUParticles3D" node_paths=PackedStringArray("rigid_body", "floor_decals", "wall_decals")]
 layers = 512
 cast_shadow = 0
 emitting = false
 amount = 10
-sub_emitter = NodePath("BloodSplash")
 lifetime = 0.5
 one_shot = true
 collision_base_size = 0.05
 visibility_aabb = AABB(-0.43697, -1.87643, -3.59533, 0.861567, 2.17703, 3.89533)
 process_material = SubResource("ShaderMaterial_ba4h8")
 draw_pass_1 = SubResource("QuadMesh_0vpi8")
+script = ExtResource("2_mqh1v")
+rigid_body = NodePath("RigidBody3D")
+floor_decals = [NodePath("MeshInstance3D/Floor1"), NodePath("MeshInstance3D/Floor2"), NodePath("MeshInstance3D/Floor3"), NodePath("MeshInstance3D/Floor4"), NodePath("MeshInstance3D/Floor5"), NodePath("MeshInstance3D/Floor6")]
+wall_decals = [NodePath("MeshInstance3D2/Wall1"), NodePath("MeshInstance3D2/Wall2"), NodePath("MeshInstance3D2/Wall3"), NodePath("MeshInstance3D2/Wall4"), NodePath("MeshInstance3D2/Wall5")]
 
-[node name="BloodSplash" parent="." instance=ExtResource("2_2t2ca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0547885, 0)
-amount = 5
-lifetime = 5.0
-explosiveness = 1.0
-visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 4096
+collision_mask = 4
+contact_monitor = true
+max_contacts_reported = 1
+linear_velocity = Vector3(0, 0, -2)
+script = ExtResource("4_hbobm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_mqh1v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, -1.177)
+visible = false
+mesh = SubResource("BoxMesh_hbobm")
+
+[node name="Floor1" type="Decal" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(1, 0.1, 1)
+texture_albedo = ExtResource("5_ydcds")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -180
+max_rotation = 180
+
+[node name="Floor2" type="Decal" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(1, 0.1, 1)
+texture_albedo = ExtResource("5_d2reb")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -180
+max_rotation = 180
+
+[node name="Floor3" type="Decal" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(1, 0.1, 1)
+texture_albedo = ExtResource("8_nyc1w")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -180
+max_rotation = 180
+
+[node name="Floor4" type="Decal" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(1, 0.1, 1)
+texture_albedo = ExtResource("9_nyc1w")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -180
+max_rotation = 180
+
+[node name="Floor5" type="Decal" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(1, 0.1, 1)
+texture_albedo = ExtResource("10_wndo5")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -180
+max_rotation = 180
+
+[node name="Floor6" type="Decal" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(1, 0.1, 1)
+texture_albedo = ExtResource("11_a4kuq")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -180
+max_rotation = 180
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, -1.177)
+visible = false
+mesh = SubResource("BoxMesh_hbobm")
+
+[node name="Wall1" type="Decal" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(0.75, 0.1, 0.75)
+texture_albedo = ExtResource("11_wndo5")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -45
+max_rotation = 45
+
+[node name="Wall2" type="Decal" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(0.6, 0.1, 0.75)
+texture_albedo = ExtResource("12_y6kuc")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -45
+max_rotation = 45
+
+[node name="Wall3" type="Decal" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(0.75, 0.1, 0.75)
+texture_albedo = ExtResource("13_gyws2")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -45
+max_rotation = 45
+
+[node name="Wall4" type="Decal" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(0.75, 0.1, 0.75)
+texture_albedo = ExtResource("14_ps5n7")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -45
+max_rotation = 45
+
+[node name="Wall5" type="Decal" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
+visible = false
+size = Vector3(0.25, 0.1, 0.75)
+texture_albedo = ExtResource("15_7np0g")
+upper_fade = 0.01
+lower_fade = 0.01
+cull_mask = 16
+script = ExtResource("6_3m2na")
+min_rotation = -45
+max_rotation = 45

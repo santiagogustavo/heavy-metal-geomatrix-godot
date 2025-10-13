@@ -8,6 +8,10 @@ func _ready() -> void:
 	if !player:
 		return
 	player.player_damage.connect(func ():
-		splatter_1.emitting = true
-		splatter_2.emitting = true
+		if !splatter_1.emitting:
+			splatter_1.restart()
+			splatter_1.emitting = true
+		if !splatter_2.emitting:
+			splatter_2.restart()
+			splatter_2.emitting = true
 	)

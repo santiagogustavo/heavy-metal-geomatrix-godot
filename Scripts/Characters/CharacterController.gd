@@ -121,6 +121,10 @@ func take_damage_from_hitbox(
 ) -> void:
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
+	if GameplaySettingsManager.hitmarkers_enabled:
+		create_hitmarker(total_damage, is_critical, hit_position)
+	if is_dead:
+		return
 	damage.emit(total_damage)
 	is_hurt = true
 	get_tree().create_timer(0.5).timeout.connect(func (): is_hurt = false)
@@ -131,5 +135,3 @@ func take_damage_from_hitbox(
 			InputManager.vibrate_controller(0, 1.0, 1.0, 0.5)
 		else:
 			InputManager.vibrate_controller(0, 1.0, 1.0, 0.2)
-	if GameplaySettingsManager.hitmarkers_enabled:
-		create_hitmarker(total_damage, is_critical, hit_position)

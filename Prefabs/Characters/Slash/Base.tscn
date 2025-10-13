@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://mfit0jyuixrv"]
+[gd_scene load_steps=48 format=3 uid="uid://mfit0jyuixrv"]
 
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_f8chv"]
 [ext_resource type="AnimationLibrary" uid="uid://dfawi7p2j8jjm" path="res://Animations/Characters/Slash/Taunts/Taunts.res" id="2_80p5x"]
@@ -18,8 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://tkn1umjwsirn" path="res://Textures/Characters/Slash/f589e076_spec.png" id="8_tvtad"]
 [ext_resource type="PackedScene" uid="uid://fndbbfkc4b6l" path="res://Models/Characters/Slash/Skins/Skin3.tscn" id="9_veopt"]
 [ext_resource type="AnimationLibrary" uid="uid://b3yjrnykuy5ye" path="res://Animations/Characters/Slash/Upper Body.res" id="9_xb46u"]
+[ext_resource type="Texture2D" uid="uid://b6xm60kwunxfg" path="res://Textures/Characters/Slash/Skins/A/f589e076.png" id="10_rywok"]
 [ext_resource type="AudioStream" uid="uid://citc7ltmti8jj" path="res://Sound/Characters/Slash/Taunts/Entrance.wav" id="11_puls0"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="12_pelfc"]
+[ext_resource type="Texture2D" uid="uid://cid0ona0bku0c" path="res://Textures/Characters/Slash/Skins/B/f589e076.png" id="12_q8kbw"]
 [ext_resource type="AudioStream" uid="uid://dx5w5kgydqstp" path="res://Sound/Characters/Slash/Taunts/Win.wav" id="12_xotd3"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="13_ncch2"]
 [ext_resource type="AudioStream" uid="uid://ueewreyl8s8t" path="res://Sound/Characters/Slash/Taunts/Lose.wav" id="13_vm26t"]
@@ -44,6 +46,18 @@ ao_enabled = true
 ao_texture = ExtResource("8_tvtad")
 detail_enabled = true
 detail_albedo = ExtResource("7_50xhm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peqe5"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("10_rywok")
+ao_enabled = true
+ao_texture = ExtResource("8_tvtad")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmxk3"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("12_q8kbw")
+ao_enabled = true
+ao_texture = ExtResource("8_tvtad")
 
 [sub_resource type="Resource" id="Resource_c5sm1"]
 script = ExtResource("6_57uy4")
@@ -120,9 +134,11 @@ surface_material_override/3 = SubResource("StandardMaterial3D_rywok")
 
 [node name="Skin1" parent="Model/Armature" index="1" instance=ExtResource("6_oiy26")]
 visible = false
+surface_material_override/3 = SubResource("StandardMaterial3D_peqe5")
 
 [node name="Skin2" parent="Model/Armature" index="2" instance=ExtResource("8_nu3rw")]
 visible = false
+surface_material_override/3 = SubResource("StandardMaterial3D_wmxk3")
 
 [node name="Skin3" parent="Model/Armature" index="3" instance=ExtResource("9_veopt")]
 visible = false
