@@ -1,6 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://qcbwpopwlp4q"]
+[gd_scene load_steps=16 format=3 uid="uid://qcbwpopwlp4q"]
 
 [ext_resource type="ArrayMesh" uid="uid://t2o61a6f47dn" path="res://Models/Characters/Di/Skins/Mesh.res" id="1_e1unr"]
+[ext_resource type="Material" uid="uid://ygnsrx4dq1ak" path="res://Materials/Characters/Di/Skins/Default/bed17116.tres" id="2_so2mc"]
+[ext_resource type="Material" uid="uid://cukymk3lgv6qk" path="res://Materials/Characters/Di/Skins/Default/125799c1.tres" id="3_q0fdr"]
+[ext_resource type="Material" uid="uid://b5f3exilou0y1" path="res://Materials/Characters/Di/Skins/Default/9c8b0c60.tres" id="4_oqxck"]
+[ext_resource type="Material" uid="uid://draee7gfkk2i1" path="res://Materials/Characters/Di/Skins/Default/e50b3e8a.tres" id="5_fsm06"]
+[ext_resource type="Material" uid="uid://dk7xiqlp8k13l" path="res://Materials/Characters/Di/Skins/Default/a6cbf87d.tres" id="6_jmopt"]
+[ext_resource type="Material" uid="uid://dygasn17ffh16" path="res://Materials/Characters/Di/Skins/Default/b136187a.tres" id="7_lomqe"]
+[ext_resource type="Material" uid="uid://dv0fcl2cmm5ac" path="res://Materials/Characters/Di/Skins/Default/406c45bc.tres" id="8_jroub"]
+[ext_resource type="Script" uid="uid://dw4b5ugmdg2tk" path="res://Scripts/Characters/AnimatedTexturesMesh.gd" id="9_jroub"]
+[ext_resource type="Texture2D" uid="uid://myhcjh36b152" path="res://Textures/Characters/Di/Skins/Default/Masks/blink.png" id="10_dn0ug"]
+[ext_resource type="Texture2D" uid="uid://dk6suyko84ktc" path="res://Textures/Characters/Di/Skins/Default/Masks/talk1.png" id="11_xhefo"]
+[ext_resource type="Texture2D" uid="uid://dfxg4bag1plmi" path="res://Textures/Characters/Di/Skins/Default/Masks/talk2.png" id="12_xvjot"]
+[ext_resource type="Texture2D" uid="uid://c2el3cv5l03jr" path="res://Textures/Characters/Di/Skins/Default/Masks/talk3.png" id="13_aqrp1"]
+[ext_resource type="Texture2D" uid="uid://bjn121ybqwjsj" path="res://Textures/Characters/Di/Skins/Default/Masks/hurt.png" id="14_ubekq"]
 
 [sub_resource type="Skin" id="Skin_68u1b"]
 resource_name = "Skin"
@@ -113,3 +126,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 layers = 4
 mesh = ExtResource("1_e1unr")
 skin = SubResource("Skin_68u1b")
+surface_material_override/0 = ExtResource("2_so2mc")
+surface_material_override/1 = ExtResource("3_q0fdr")
+surface_material_override/2 = ExtResource("4_oqxck")
+surface_material_override/3 = ExtResource("5_fsm06")
+surface_material_override/4 = ExtResource("6_jmopt")
+surface_material_override/5 = ExtResource("7_lomqe")
+surface_material_override/6 = ExtResource("8_jroub")
+script = ExtResource("9_jroub")
+blink_mask = ExtResource("10_dn0ug")
+talk_masks = Array[Texture2D]([ExtResource("11_xhefo"), ExtResource("12_xvjot"), ExtResource("13_aqrp1")])
+hurt_eye_mask = ExtResource("14_ubekq")
+hurt_mouth_mask = ExtResource("13_aqrp1")
+die_mouth_mask = ExtResource("12_xvjot")

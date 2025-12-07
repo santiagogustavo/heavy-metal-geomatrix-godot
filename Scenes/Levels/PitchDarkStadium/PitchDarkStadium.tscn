@@ -169,8 +169,213 @@ items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("11_55
 
 [node name="Pitch Dark Stadium" parent="LevelGeometry" instance=ExtResource("1_e6pgn")]
 
+[node name="object_0" parent="LevelGeometry/Pitch Dark Stadium" index="0"]
+layers = 16
+
+[node name="object_1" parent="LevelGeometry/Pitch Dark Stadium" index="1"]
+layers = 16
+
+[node name="object_2" parent="LevelGeometry/Pitch Dark Stadium" index="2"]
+layers = 16
+
+[node name="object_3" parent="LevelGeometry/Pitch Dark Stadium" index="3"]
+layers = 16
+
+[node name="object_4" parent="LevelGeometry/Pitch Dark Stadium" index="4"]
+layers = 16
+
+[node name="object_5" parent="LevelGeometry/Pitch Dark Stadium" index="5"]
+layers = 16
+
+[node name="object_6" parent="LevelGeometry/Pitch Dark Stadium" index="6"]
+layers = 16
+
+[node name="object_7" parent="LevelGeometry/Pitch Dark Stadium" index="7"]
+layers = 16
+
+[node name="object_8" parent="LevelGeometry/Pitch Dark Stadium" index="8"]
+layers = 16
+
+[node name="object_10" parent="LevelGeometry/Pitch Dark Stadium" index="9"]
+layers = 16
+
+[node name="object_11" parent="LevelGeometry/Pitch Dark Stadium" index="10"]
+layers = 16
+
+[node name="object_12" parent="LevelGeometry/Pitch Dark Stadium" index="11"]
+layers = 16
+
+[node name="object_13" parent="LevelGeometry/Pitch Dark Stadium" index="12"]
+layers = 16
+
+[node name="object_14" parent="LevelGeometry/Pitch Dark Stadium" index="13"]
+layers = 16
+
+[node name="object_15" parent="LevelGeometry/Pitch Dark Stadium" index="14"]
+layers = 16
+
+[node name="object_16" parent="LevelGeometry/Pitch Dark Stadium" index="15"]
+layers = 16
+
+[node name="object_17" parent="LevelGeometry/Pitch Dark Stadium" index="16"]
+layers = 16
+
+[node name="object_18" parent="LevelGeometry/Pitch Dark Stadium" index="17"]
+layers = 16
+
+[node name="object_19" parent="LevelGeometry/Pitch Dark Stadium" index="18"]
+layers = 16
+
+[node name="object_20" parent="LevelGeometry/Pitch Dark Stadium" index="19"]
+layers = 16
+
+[node name="object_21" parent="LevelGeometry/Pitch Dark Stadium" index="20"]
+layers = 16
+
+[node name="object_22" parent="LevelGeometry/Pitch Dark Stadium" index="21"]
+layers = 16
+
+[node name="object_23" parent="LevelGeometry/Pitch Dark Stadium" index="22"]
+layers = 16
+
+[node name="object_24" parent="LevelGeometry/Pitch Dark Stadium" index="23"]
+layers = 16
+
+[node name="object_25" parent="LevelGeometry/Pitch Dark Stadium" index="24"]
+layers = 16
+
+[node name="object_26" parent="LevelGeometry/Pitch Dark Stadium" index="25"]
+layers = 16
+
+[node name="object_27" parent="LevelGeometry/Pitch Dark Stadium" index="26"]
+layers = 16
+
+[node name="object_28" parent="LevelGeometry/Pitch Dark Stadium" index="27"]
+layers = 16
+
+[node name="object_29" parent="LevelGeometry/Pitch Dark Stadium" index="28"]
+layers = 16
+
+[node name="object_30" parent="LevelGeometry/Pitch Dark Stadium" index="29"]
+layers = 16
+
+[node name="object_31" parent="LevelGeometry/Pitch Dark Stadium" index="30"]
+layers = 16
+
+[node name="object_32" parent="LevelGeometry/Pitch Dark Stadium" index="31"]
+layers = 16
+
+[node name="object_33" parent="LevelGeometry/Pitch Dark Stadium" index="32"]
+layers = 16
+
+[node name="object_34" parent="LevelGeometry/Pitch Dark Stadium" index="33"]
+layers = 16
+
+[node name="object_35" parent="LevelGeometry/Pitch Dark Stadium" index="34"]
+layers = 16
+
+[node name="object_36" parent="LevelGeometry/Pitch Dark Stadium" index="35"]
+layers = 16
+
+[node name="object_37" parent="LevelGeometry/Pitch Dark Stadium" index="36"]
+layers = 16
+
+[node name="object_38" parent="LevelGeometry/Pitch Dark Stadium" index="37"]
+layers = 16
+
+[node name="object_39" parent="LevelGeometry/Pitch Dark Stadium" index="38"]
+layers = 16
+
+[node name="object_40" parent="LevelGeometry/Pitch Dark Stadium" index="39"]
+layers = 16
+
+[node name="object_41" parent="LevelGeometry/Pitch Dark Stadium" index="40"]
+layers = 16
+
+[node name="object_42" parent="LevelGeometry/Pitch Dark Stadium" index="41"]
+layers = 16
+
+[node name="object_43" parent="LevelGeometry/Pitch Dark Stadium" index="42"]
+layers = 16
+
+[node name="object_44" parent="LevelGeometry/Pitch Dark Stadium" index="43"]
+layers = 16
+
+[node name="object_45" parent="LevelGeometry/Pitch Dark Stadium" index="44"]
+layers = 16
+
 [node name="object_46" parent="LevelGeometry/Pitch Dark Stadium" index="45"]
+layers = 16
 surface_material_override/0 = ExtResource("4_t2tlk")
+
+[node name="object_48" parent="LevelGeometry/Pitch Dark Stadium" index="46"]
+layers = 16
+
+[node name="object_49" parent="LevelGeometry/Pitch Dark Stadium" index="47"]
+layers = 16
+
+[node name="object_50" parent="LevelGeometry/Pitch Dark Stadium" index="48"]
+layers = 16
+
+[node name="object_51" parent="LevelGeometry/Pitch Dark Stadium" index="49"]
+layers = 16
+
+[node name="object_52" parent="LevelGeometry/Pitch Dark Stadium" index="50"]
+layers = 16
+
+[node name="object_53" parent="LevelGeometry/Pitch Dark Stadium" index="51"]
+layers = 16
+
+[node name="object_54" parent="LevelGeometry/Pitch Dark Stadium" index="52"]
+layers = 16
+
+[node name="object_55" parent="LevelGeometry/Pitch Dark Stadium" index="53"]
+layers = 16
+
+[node name="object_56" parent="LevelGeometry/Pitch Dark Stadium" index="54"]
+layers = 16
+
+[node name="object_57" parent="LevelGeometry/Pitch Dark Stadium" index="55"]
+layers = 16
+
+[node name="object_58" parent="LevelGeometry/Pitch Dark Stadium" index="56"]
+layers = 16
+
+[node name="object_59" parent="LevelGeometry/Pitch Dark Stadium" index="57"]
+layers = 16
+
+[node name="object_60" parent="LevelGeometry/Pitch Dark Stadium" index="58"]
+layers = 16
+
+[node name="object_61" parent="LevelGeometry/Pitch Dark Stadium" index="59"]
+layers = 16
+
+[node name="object_62" parent="LevelGeometry/Pitch Dark Stadium" index="60"]
+layers = 16
+
+[node name="object_63" parent="LevelGeometry/Pitch Dark Stadium" index="61"]
+layers = 16
+
+[node name="object_64" parent="LevelGeometry/Pitch Dark Stadium" index="62"]
+layers = 16
+
+[node name="object_65" parent="LevelGeometry/Pitch Dark Stadium" index="63"]
+layers = 16
+
+[node name="object_66" parent="LevelGeometry/Pitch Dark Stadium" index="64"]
+layers = 16
+
+[node name="object_67" parent="LevelGeometry/Pitch Dark Stadium" index="65"]
+layers = 16
+
+[node name="object_68" parent="LevelGeometry/Pitch Dark Stadium" index="66"]
+layers = 16
+
+[node name="object_69" parent="LevelGeometry/Pitch Dark Stadium" index="67"]
+layers = 16
+
+[node name="object_9" parent="LevelGeometry/Pitch Dark Stadium" index="68"]
+layers = 16
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="LevelGeometry"]
 navigation_mesh = SubResource("NavigationMesh_kvm1f")

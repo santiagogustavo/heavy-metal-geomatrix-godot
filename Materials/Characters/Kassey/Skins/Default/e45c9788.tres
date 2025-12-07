@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nma1ftfj105j" path="res://Textures/Characters/Kassey/Skins/Default/e45c9788_spec.png" id="2_if3uv"]
 
 [resource]
+resource_local_to_scene = true
 albedo_texture = ExtResource("1_q3o4u")
 ao_enabled = true
 ao_texture = ExtResource("2_if3uv")

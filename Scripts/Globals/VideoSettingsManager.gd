@@ -14,6 +14,9 @@ var bloom_intensity: float = 0.25
 var motion_blur_enabled: bool = true
 var motion_blur_intensity: float = 1.0
 
+var permanent_decals: bool = false
+var decal_lifetime: float = 100.0
+
 func _init() -> void:
 	if OS.has_feature("editor"):
 		ProjectSettings.set("display/window/stretch/mode", "viewport")

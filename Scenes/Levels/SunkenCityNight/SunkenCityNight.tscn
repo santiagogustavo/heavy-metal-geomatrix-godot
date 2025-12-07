@@ -36,7 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://m7w5l1kyndam" path="res://Music/SunkenCityNight/SunkenCityNightOst4.mp3" id="25_hbknm"]
 [ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
 [ext_resource type="PackedScene" uid="uid://c2b14t4ld7u2a" path="res://Models/Levels/Sunken City Night/Navmesh.glb" id="28_u1d5f"]
-[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="31_a3hbx"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="31_a3hbx"]
 [ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="32_4nhff"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
 [ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="33_3yyu5"]
@@ -315,8 +315,138 @@ shadow_enabled = true
 
 [node name="Sunken City Night" parent="Level Geometry" instance=ExtResource("2_ejg02")]
 
+[node name="object_0" parent="Level Geometry/Sunken City Night" index="0"]
+layers = 16
+
+[node name="object_25" parent="Level Geometry/Sunken City Night" index="1"]
+layers = 16
+
+[node name="object_22" parent="Level Geometry/Sunken City Night" index="2"]
+layers = 16
+
+[node name="object_21" parent="Level Geometry/Sunken City Night" index="3"]
+layers = 16
+
+[node name="object_16" parent="Level Geometry/Sunken City Night" index="4"]
+layers = 16
+
+[node name="object_27" parent="Level Geometry/Sunken City Night" index="5"]
+layers = 16
+
+[node name="object_33" parent="Level Geometry/Sunken City Night" index="6"]
+layers = 16
+
+[node name="object_30" parent="Level Geometry/Sunken City Night" index="7"]
+layers = 16
+
+[node name="object_32" parent="Level Geometry/Sunken City Night" index="8"]
+layers = 16
+
+[node name="object_7" parent="Level Geometry/Sunken City Night" index="9"]
+layers = 16
+
+[node name="object_40" parent="Level Geometry/Sunken City Night" index="10"]
+layers = 16
+
+[node name="object_8" parent="Level Geometry/Sunken City Night" index="11"]
+layers = 16
+
+[node name="object_41" parent="Level Geometry/Sunken City Night" index="12"]
+layers = 16
+
+[node name="object_3" parent="Level Geometry/Sunken City Night" index="13"]
+layers = 16
+
+[node name="object_39" parent="Level Geometry/Sunken City Night" index="14"]
+layers = 16
+
+[node name="object_48" parent="Level Geometry/Sunken City Night" index="15"]
+layers = 16
+
+[node name="object_34" parent="Level Geometry/Sunken City Night" index="16"]
+layers = 16
+
+[node name="object_29" parent="Level Geometry/Sunken City Night" index="17"]
+layers = 16
+
+[node name="object_31" parent="Level Geometry/Sunken City Night" index="18"]
+layers = 16
+
+[node name="object_36" parent="Level Geometry/Sunken City Night" index="19"]
+layers = 16
+
+[node name="object_42" parent="Level Geometry/Sunken City Night" index="20"]
+layers = 16
+
+[node name="object_43" parent="Level Geometry/Sunken City Night" index="21"]
+layers = 16
+
+[node name="object_38" parent="Level Geometry/Sunken City Night" index="22"]
+layers = 16
+
+[node name="object_9" parent="Level Geometry/Sunken City Night" index="23"]
+layers = 16
+
+[node name="object_2" parent="Level Geometry/Sunken City Night" index="24"]
+layers = 16
+
+[node name="object_5" parent="Level Geometry/Sunken City Night" index="25"]
+layers = 16
+
+[node name="object_37" parent="Level Geometry/Sunken City Night" index="26"]
+layers = 16
+
+[node name="object_35" parent="Level Geometry/Sunken City Night" index="27"]
+layers = 16
+
+[node name="object_49" parent="Level Geometry/Sunken City Night" index="28"]
+layers = 16
+
+[node name="object_1" parent="Level Geometry/Sunken City Night" index="29"]
+layers = 16
+
+[node name="object_4" parent="Level Geometry/Sunken City Night" index="30"]
+layers = 16
+
+[node name="object_57" parent="Level Geometry/Sunken City Night" index="31"]
+layers = 16
+
+[node name="object_58" parent="Level Geometry/Sunken City Night" index="32"]
+layers = 16
+
+[node name="object_6" parent="Level Geometry/Sunken City Night" index="33"]
+layers = 16
+
+[node name="object_53" parent="Level Geometry/Sunken City Night" index="34"]
+layers = 16
+
+[node name="object_52" parent="Level Geometry/Sunken City Night" index="35"]
+layers = 16
+
+[node name="object_55" parent="Level Geometry/Sunken City Night" index="36"]
+layers = 16
+
+[node name="object_56" parent="Level Geometry/Sunken City Night" index="37"]
+layers = 16
+
+[node name="object_54" parent="Level Geometry/Sunken City Night" index="38"]
+layers = 16
+
+[node name="object_50" parent="Level Geometry/Sunken City Night" index="39"]
+layers = 16
+
+[node name="object_47" parent="Level Geometry/Sunken City Night" index="40"]
+layers = 16
+
+[node name="object_45" parent="Level Geometry/Sunken City Night" index="41"]
+layers = 16
+
 [node name="object_51" parent="Level Geometry/Sunken City Night" index="42"]
+layers = 16
 surface_material_override/0 = SubResource("ShaderMaterial_vlpe4")
+
+[node name="object_25_001" parent="Level Geometry/Sunken City Night" index="43"]
+layers = 16
 
 [node name="Rain" type="Node3D" parent="Level Geometry"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dfansvoctxs5e"]
+[gd_scene load_steps=84 format=3 uid="uid://dfansvoctxs5e"]
 
 [ext_resource type="PackedScene" uid="uid://d3tvi3t4nmjo7" path="res://Models/Characters/Kassey/Kassey.glb" id="1_1w1qp"]
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_j5lmb"]
@@ -45,16 +45,28 @@
 [ext_resource type="Animation" uid="uid://lw1n6bx18vj1" path="res://Animations/Characters/Kassey/3 - Jump Land.res" id="30_pp7hl"]
 [ext_resource type="Animation" uid="uid://dmhbfxlu3popp" path="res://Animations/Characters/Kassey/3 - Jump Start.res" id="31_11ayr"]
 [ext_resource type="AnimationLibrary" uid="uid://2d0l4u4ivfp" path="res://Animations/Characters/Kassey/Upper Body.res" id="33_4w230"]
+[ext_resource type="Texture2D" uid="uid://dqabejviu4qug" path="res://Textures/Characters/Kassey/Skins/Default/d8a37c3.png" id="38_i4uby"]
+[ext_resource type="Texture2D" uid="uid://0wwle8jcqngi" path="res://Textures/Characters/Kassey/Skins/Default/d8a37c3_spec.png" id="39_l54vw"]
+[ext_resource type="Texture2D" uid="uid://dq7xf6ri4i8g3" path="res://Textures/Characters/Kassey/Skins/Default/3bad84f5.png" id="40_wub12"]
+[ext_resource type="Texture2D" uid="uid://dkmq8vxoulis5" path="res://Textures/Characters/Kassey/Skins/Default/3bad84f5_spec.png" id="41_t7582"]
+[ext_resource type="Texture2D" uid="uid://dy4qumnfye2ys" path="res://Textures/Characters/Kassey/Skins/Default/265d3558.png" id="42_2ut4s"]
+[ext_resource type="Texture2D" uid="uid://c2mtius51sjd2" path="res://Textures/Characters/Kassey/Skins/Default/265d3558_spec.png" id="43_6xwx7"]
 [ext_resource type="AudioStream" uid="uid://dh5kh8x4jwl62" path="res://Sound/Characters/Kassey/Pickup/Pickup 1.wav" id="43_856tj"]
 [ext_resource type="AudioStream" uid="uid://dbdrtg62q8kno" path="res://Sound/Characters/Kassey/Pickup/Pickup 2.wav" id="44_5xacv"]
 [ext_resource type="AudioStream" uid="uid://bxti6ef2fj5xk" path="res://Sound/Characters/Kassey/Damage/Death.wav" id="44_fs5gc"]
+[ext_resource type="Texture2D" uid="uid://b44gly1t4ovsm" path="res://Textures/Characters/Kassey/Skins/Default/de008fba.png" id="44_p7sck"]
 [ext_resource type="AudioStream" uid="uid://u5josehujxkb" path="res://Sound/Characters/Kassey/Pickup/Pickup 3.wav" id="45_jg3l4"]
 [ext_resource type="AudioStream" uid="uid://jwn7medqw7mu" path="res://Sound/Characters/Kassey/Damage/Hit 1.wav" id="45_l1dpf"]
+[ext_resource type="Texture2D" uid="uid://dn0tfjitwif82" path="res://Textures/Characters/Kassey/Skins/Default/de008fba_spec.png" id="45_s1slt"]
 [ext_resource type="AudioStream" uid="uid://dbsf178jclsuu" path="res://Sound/Characters/Kassey/Attack/Attack 1.wav" id="46_gkxgm"]
 [ext_resource type="AudioStream" uid="uid://b5ngstnjevysd" path="res://Sound/Characters/Kassey/Damage/Hit 2.wav" id="46_kx8im"]
+[ext_resource type="Texture2D" uid="uid://dmefngd00g3pm" path="res://Textures/Characters/Kassey/Skins/Default/c17e1d56.png" id="46_vbr1c"]
 [ext_resource type="AudioStream" uid="uid://kxw5dp02j86o" path="res://Sound/Characters/Kassey/Attack/Attack 2.wav" id="47_1ael4"]
+[ext_resource type="Texture2D" uid="uid://5kn7vsulgjq1" path="res://Textures/Characters/Kassey/Skins/Default/c17e1d56_spec.png" id="47_mcbpl"]
 [ext_resource type="AudioStream" uid="uid://dyruym4jb3u3y" path="res://Sound/Characters/Kassey/Damage/Hit 3.wav" id="47_ts0j1"]
 [ext_resource type="AudioStream" uid="uid://iuhploaf8bx4" path="res://Sound/Characters/Kassey/Attack/Attack 3.wav" id="48_kjlt8"]
+[ext_resource type="Texture2D" uid="uid://cr0wlf0pupko8" path="res://Textures/Characters/Kassey/Skins/Default/e45c9788.png" id="48_kkxv2"]
+[ext_resource type="Texture2D" uid="uid://nma1ftfj105j" path="res://Textures/Characters/Kassey/Skins/Default/e45c9788_spec.png" id="49_m4der"]
 [ext_resource type="AudioStream" uid="uid://cqdmw6sgdbhou" path="res://Sound/Characters/Kassey/Specials/Special 1.wav" id="49_tvohs"]
 [ext_resource type="AudioStream" uid="uid://b8coxs1hsf0cp" path="res://Sound/Characters/Kassey/Specials/Special 2.wav" id="50_ds2fd"]
 [ext_resource type="AudioStream" uid="uid://bhjhus7dgkh8w" path="res://Sound/Characters/Kassey/Specials/Special 3.wav" id="51_jsy6k"]
@@ -214,6 +226,43 @@ _data = {
 &"Run Right": ExtResource("15_3psjx")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uq8y"]
+resource_local_to_scene = true
+transparency = 4
+albedo_texture = ExtResource("38_i4uby")
+ao_enabled = true
+ao_texture = ExtResource("39_l54vw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5j8aa"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("40_wub12")
+ao_enabled = true
+ao_texture = ExtResource("41_t7582")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mt4g6"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("42_2ut4s")
+ao_enabled = true
+ao_texture = ExtResource("43_6xwx7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6b2j"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("44_p7sck")
+ao_enabled = true
+ao_texture = ExtResource("45_s1slt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tccvi"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("46_vbr1c")
+ao_enabled = true
+ao_texture = ExtResource("47_mcbpl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s23i5"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("48_kkxv2")
+ao_enabled = true
+ao_texture = ExtResource("49_m4der")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pjypn"]
 streams_count = 3
 stream_0/stream = ExtResource("45_l1dpf")
@@ -247,7 +296,6 @@ sfx_controller = NodePath("SFX")
 body_slot = NodePath("Model/Armature/Skeleton3D/Body Slot")
 right_hand_slot = NodePath("Model/Armature/Skeleton3D/Right Hand Slot")
 initial_loadout = ExtResource("4_y7ger")
-initial_loadout_slot = 1
 
 [node name="Model" parent="." instance=ExtResource("1_1w1qp")]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
@@ -433,18 +481,27 @@ libraries = {
 
 [node name="Default" parent="Model" instance=ExtResource("2_tkdiu")]
 skeleton = NodePath("../Armature/Skeleton3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_3uq8y")
+surface_material_override/1 = SubResource("StandardMaterial3D_5j8aa")
+surface_material_override/2 = SubResource("StandardMaterial3D_mt4g6")
+surface_material_override/3 = SubResource("StandardMaterial3D_h6b2j")
+surface_material_override/4 = SubResource("StandardMaterial3D_tccvi")
+surface_material_override/5 = SubResource("StandardMaterial3D_s23i5")
 
 [node name="Skin1" parent="Model" instance=ExtResource("3_8tnxv")]
 visible = false
 skeleton = NodePath("../Armature/Skeleton3D")
+script = null
 
 [node name="Skin2" parent="Model" instance=ExtResource("4_al6k4")]
 visible = false
 skeleton = NodePath("../Armature/Skeleton3D")
+script = null
 
 [node name="Skin3" parent="Model" instance=ExtResource("5_yhhg2")]
 visible = false
 skeleton = NodePath("../Armature/Skeleton3D")
+script = null
 
 [node name="SFX" type="Node3D" parent="."]
 process_mode = 3

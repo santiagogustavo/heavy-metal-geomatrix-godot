@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 	compute_state_machine_physics(delta)
 
 func compute_state_machine() -> void:
-	if has_reached_target():
+	if has_reached_target() or !GameManager.current_match.is_ongoing:
 		clear_walking_variables()
 	match state:
 		AIState.Advance:

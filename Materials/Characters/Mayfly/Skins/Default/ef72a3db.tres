@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://e368eaqrqnqw" path="res://Textures/Characters/Mayfly/ef72a3db_spec.png" id="2_b0o15"]
 
 [resource]
+resource_local_to_scene = true
 albedo_texture = ExtResource("1_vgcje")
 ao_enabled = true
 ao_texture = ExtResource("2_b0o15")

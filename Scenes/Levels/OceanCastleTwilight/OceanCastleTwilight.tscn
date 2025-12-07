@@ -240,15 +240,99 @@ transform = Transform3D(1, -0.000515652, -0.000438724, 0.000516282, 0.999999, 0.
 [node name="Ocean Castle Twilight" parent="Level Geometry" instance=ExtResource("7_ycalw")]
 transform = Transform3D(1, -1.8531e-11, 0, -1.76613e-10, 1, 0, 0, -3.49246e-10, 1, 0, 0, 0)
 
+[node name="object_0" parent="Level Geometry/Ocean Castle Twilight" index="0"]
+layers = 16
+
+[node name="object_1" parent="Level Geometry/Ocean Castle Twilight" index="1"]
+layers = 16
+
+[node name="object_3" parent="Level Geometry/Ocean Castle Twilight" index="2"]
+layers = 16
+
+[node name="object_4" parent="Level Geometry/Ocean Castle Twilight" index="3"]
+layers = 16
+
 [node name="object_5" parent="Level Geometry/Ocean Castle Twilight" index="4"]
 transform = Transform3D(-1, -1.80762e-11, -2.91038e-11, 3.50894e-10, 1, -8.14907e-10, 8.73115e-11, 1.16415e-10, 1, 24, 0, 34)
+layers = 16
+
+[node name="object_6" parent="Level Geometry/Ocean Castle Twilight" index="5"]
+layers = 16
+
+[node name="object_7" parent="Level Geometry/Ocean Castle Twilight" index="6"]
+layers = 16
+
+[node name="object_8" parent="Level Geometry/Ocean Castle Twilight" index="7"]
+layers = 16
+
+[node name="object_9" parent="Level Geometry/Ocean Castle Twilight" index="8"]
+layers = 16
+
+[node name="object_10" parent="Level Geometry/Ocean Castle Twilight" index="9"]
+layers = 16
+
+[node name="object_11" parent="Level Geometry/Ocean Castle Twilight" index="10"]
+layers = 16
 
 [node name="object_12" parent="Level Geometry/Ocean Castle Twilight" index="11"]
+layers = 16
 surface_material_override/0 = SubResource("ShaderMaterial_kbkfy")
+
+[node name="object_13" parent="Level Geometry/Ocean Castle Twilight" index="12"]
+layers = 16
+
+[node name="object_14" parent="Level Geometry/Ocean Castle Twilight" index="13"]
+layers = 16
+
+[node name="object_15" parent="Level Geometry/Ocean Castle Twilight" index="14"]
+layers = 16
+
+[node name="object_18" parent="Level Geometry/Ocean Castle Twilight" index="16"]
+layers = 16
+
+[node name="object_24" parent="Level Geometry/Ocean Castle Twilight" index="18"]
+layers = 16
+
+[node name="object_25" parent="Level Geometry/Ocean Castle Twilight" index="19"]
+layers = 16
+
+[node name="object_26" parent="Level Geometry/Ocean Castle Twilight" index="20"]
+layers = 16
+
+[node name="object_27" parent="Level Geometry/Ocean Castle Twilight" index="21"]
+layers = 16
+
+[node name="object_28" parent="Level Geometry/Ocean Castle Twilight" index="22"]
+layers = 16
+
+[node name="object_29" parent="Level Geometry/Ocean Castle Twilight" index="23"]
+layers = 16
+
+[node name="object_30" parent="Level Geometry/Ocean Castle Twilight" index="24"]
+layers = 16
+
+[node name="object_31" parent="Level Geometry/Ocean Castle Twilight" index="25"]
+layers = 16
+
+[node name="object_32" parent="Level Geometry/Ocean Castle Twilight" index="26"]
+layers = 16
+
+[node name="object_34" parent="Level Geometry/Ocean Castle Twilight" index="27"]
+layers = 16
+
+[node name="object_37" parent="Level Geometry/Ocean Castle Twilight" index="28"]
+layers = 16
+
+[node name="object_18_001" parent="Level Geometry/Ocean Castle Twilight" index="29"]
+layers = 16
+
+[node name="object_18_002" parent="Level Geometry/Ocean Castle Twilight" index="30"]
+layers = 16
 
 [node name="SunMesh" type="MeshInstance3D" parent="Level Geometry/Ocean Castle Twilight"]
 transform = Transform3D(0.5, -1.9952e-11, 0.866025, -3.49246e-10, 0.999999, -5.82077e-10, -0.866025, -4.65661e-10, 0.499999, -161.516, 0.0113446, -81.5069)
 visible = false
+layers = 16
 cast_shadow = 0
 mesh = SubResource("QuadMesh_jhafx")
 skeleton = NodePath("../..")

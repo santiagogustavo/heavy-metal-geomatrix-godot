@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c06r71nx4e1go" path="res://Textures/Characters/Di/b136187a_spec.png" id="2_cyuev"]
 
 [resource]
+resource_local_to_scene = true
 albedo_texture = ExtResource("1_60q12")
 ao_enabled = true
 ao_texture = ExtResource("2_cyuev")

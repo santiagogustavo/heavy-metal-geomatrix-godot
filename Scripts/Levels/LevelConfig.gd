@@ -55,10 +55,10 @@ func instantiate_versus_screen() -> void:
 			snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
 	)
 	versus_screen_instance.ended.connect(on_versus_screen_ended)
-	get_tree().root.add_child.call_deferred(versus_screen_instance)
-	disable_environment_composition_effects()
 	for i in range(frames_to_preprocess_splash):
 		await get_tree().process_frame
+	get_tree().root.add_child.call_deferred(versus_screen_instance)
+	disable_environment_composition_effects()
 	if snapshot_viewport:
 		snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 

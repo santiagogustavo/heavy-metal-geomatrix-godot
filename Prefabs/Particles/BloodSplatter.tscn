@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ja58pxt2agkl"]
+[gd_scene load_steps=23 format=3 uid="uid://ja58pxt2agkl"]
 
 [ext_resource type="Shader" uid="uid://b84vnvks1o0yp" path="res://Materials/Particles/BloodSplash.tres" id="1_6441y"]
 [ext_resource type="Script" uid="uid://coqvxymav5qn5" path="res://Scripts/Particles/BloodSplatterParticle.gd" id="2_mqh1v"]
@@ -403,7 +403,7 @@ void process() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ba4h8"]
 shader = SubResource("Shader_dy1b8")
-shader_parameter/direction = Vector3(0, 0, -1)
+shader_parameter/direction = Vector3(0, 0, 1)
 shader_parameter/spread = 3.0
 shader_parameter/flatness = 0.0
 shader_parameter/inherit_emitter_velocity_ratio = 0.0
@@ -457,6 +457,10 @@ size = Vector2(0.3, 0.3)
 [sub_resource type="SphereShape3D" id="SphereShape3D_mqh1v"]
 radius = 0.1
 
+[sub_resource type="SphereMesh" id="SphereMesh_y6kuc"]
+radius = 0.1
+height = 0.2
+
 [sub_resource type="BoxMesh" id="BoxMesh_hbobm"]
 size = Vector3(2, 0.281738, 4.354)
 
@@ -467,8 +471,9 @@ emitting = false
 amount = 10
 lifetime = 0.5
 one_shot = true
+randomness = 1.0
 collision_base_size = 0.05
-visibility_aabb = AABB(-0.43697, -1.87643, -3.59533, 0.861567, 2.17703, 3.89533)
+visibility_aabb = AABB(-0.437, -1.876, 0, 0.862, 2.177, 3.895)
 process_material = SubResource("ShaderMaterial_ba4h8")
 draw_pass_1 = SubResource("QuadMesh_0vpi8")
 script = ExtResource("2_mqh1v")
@@ -481,14 +486,18 @@ collision_layer = 4096
 collision_mask = 4
 contact_monitor = true
 max_contacts_reported = 1
-linear_velocity = Vector3(0, 0, -2)
+linear_velocity = Vector3(0, 0, 3)
 script = ExtResource("4_hbobm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_mqh1v")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = SubResource("SphereMesh_y6kuc")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, -1.177)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, 1.177)
 visible = false
 mesh = SubResource("BoxMesh_hbobm")
 
@@ -565,7 +574,7 @@ min_rotation = -180
 max_rotation = 180
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, -1.177)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, 1.177)
 visible = false
 mesh = SubResource("BoxMesh_hbobm")
 

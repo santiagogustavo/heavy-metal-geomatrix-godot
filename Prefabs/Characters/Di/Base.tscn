@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ccry22wstybxj"]
+[gd_scene load_steps=63 format=3 uid="uid://ccry22wstybxj"]
 
 [ext_resource type="PackedScene" uid="uid://cont5l5c6d0ig" path="res://Models/Characters/Di/Di.glb" id="1_lan5e"]
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_xxywp"]
@@ -21,19 +21,33 @@
 [ext_resource type="PackedScene" uid="uid://cvcq0427krdfb" path="res://Models/Characters/Di/Skins/Skin3.tscn" id="9_nc41o"]
 [ext_resource type="AnimationLibrary" uid="uid://d222qd28uwf07" path="res://Animations/Characters/Di/Upper Body.res" id="9_y82gw"]
 [ext_resource type="AudioStream" uid="uid://dla5xgblecomg" path="res://Sound/Characters/Di/Taunts/Lose.wav" id="10_em5mr"]
+[ext_resource type="Texture2D" uid="uid://bpqrrrqovrd4m" path="res://Textures/Characters/Di/bed17116.png" id="14_crert"]
+[ext_resource type="Texture2D" uid="uid://yva0dsg32mhp" path="res://Textures/Characters/Di/bed17116_spec.png" id="15_3qkqh"]
+[ext_resource type="Texture2D" uid="uid://l7elbnb74pu5" path="res://Textures/Characters/Di/125799c1.png" id="16_v6frh"]
+[ext_resource type="Texture2D" uid="uid://duhjc81ptw5ut" path="res://Textures/Characters/Di/125799c1_spec.png" id="17_gu4i4"]
 [ext_resource type="AudioStream" uid="uid://cqg6y44whamnl" path="res://Sound/Characters/Di/Pickup/Pickup 1.wav" id="18_8njvl"]
+[ext_resource type="Texture2D" uid="uid://dhdfu6om1d1c4" path="res://Textures/Characters/Di/9c8b0c60.png" id="18_eg4le"]
+[ext_resource type="Texture2D" uid="uid://u4ibpltkp2r" path="res://Textures/Characters/Di/9c8b0c60_spec.png" id="19_cxqsy"]
 [ext_resource type="AudioStream" uid="uid://cwgdilwqayilw" path="res://Sound/Characters/Di/Pickup/Pickup 2.wav" id="19_glhem"]
 [ext_resource type="AudioStream" uid="uid://clp7gr2asyohx" path="res://Sound/Characters/Di/Damage/Death.wav" id="19_xql4t"]
+[ext_resource type="Texture2D" uid="uid://drybh1wflimah" path="res://Textures/Characters/Di/e50b3e8a.png" id="20_8dfym"]
 [ext_resource type="AudioStream" uid="uid://bba52mmsrdcsh" path="res://Sound/Characters/Di/Damage/Hit 1.wav" id="20_adcdu"]
 [ext_resource type="AudioStream" uid="uid://d03p5btghoq41" path="res://Sound/Characters/Di/Pickup/Pickup 3.wav" id="20_ruf3e"]
 [ext_resource type="AudioStream" uid="uid://desgnf0sb36hl" path="res://Sound/Characters/Di/Attack/Attack 1.wav" id="21_0m75m"]
 [ext_resource type="AudioStream" uid="uid://duv1lpvt7b36p" path="res://Sound/Characters/Di/Damage/Hit 2.wav" id="21_pa4n3"]
+[ext_resource type="Texture2D" uid="uid://cor7iwby0to5f" path="res://Textures/Characters/Di/e50b3e8a_spec.png" id="21_v8nyn"]
 [ext_resource type="AudioStream" uid="uid://dop6ag3s0xkbb" path="res://Sound/Characters/Di/Damage/Hit 3.wav" id="22_4n60s"]
+[ext_resource type="Texture2D" uid="uid://bl0lx22dh2fp" path="res://Textures/Characters/Di/a6cbf87d.png" id="22_belp7"]
 [ext_resource type="AudioStream" uid="uid://dfnotbt72sadj" path="res://Sound/Characters/Di/Attack/Attack 2.wav" id="22_hccd4"]
+[ext_resource type="Texture2D" uid="uid://ieray1ih0vha" path="res://Textures/Characters/Di/a6cbf87d_spec.png" id="23_8qbnr"]
 [ext_resource type="AudioStream" uid="uid://bn7lp573a01x3" path="res://Sound/Characters/Di/Attack/Attack 3.wav" id="23_bnul5"]
 [ext_resource type="AudioStream" uid="uid://dc4qffu0jelau" path="res://Sound/Characters/Di/Specials/Special 1.wav" id="24_8p3tl"]
+[ext_resource type="Texture2D" uid="uid://b1sk6gm5ycpdy" path="res://Textures/Characters/Di/b136187a.png" id="24_gt4pf"]
 [ext_resource type="AudioStream" uid="uid://cvuwl5aqc1uvo" path="res://Sound/Characters/Di/Specials/Special 2.wav" id="25_o57uw"]
+[ext_resource type="Texture2D" uid="uid://c06r71nx4e1go" path="res://Textures/Characters/Di/b136187a_spec.png" id="25_v58wm"]
 [ext_resource type="AudioStream" uid="uid://mp6i1ksly1sg" path="res://Sound/Characters/Di/Specials/Special 3.wav" id="26_84ddn"]
+[ext_resource type="Texture2D" uid="uid://ce7skcnv4i81n" path="res://Textures/Characters/Di/406c45bc.png" id="26_rtl1p"]
+[ext_resource type="Texture2D" uid="uid://bdpoxexfynxdr" path="res://Textures/Characters/Di/406c45bc_spec.png" id="27_ywfvi"]
 
 [sub_resource type="Resource" id="Resource_gxjwx"]
 script = ExtResource("6_rii5r")
@@ -267,6 +281,52 @@ bind/33/name = &"FootIK.R"
 bind/33/bone = -1
 bind/33/pose = Transform3D(1, -5.97537e-07, -3.93117e-07, 1.98952e-13, -0.549617, 0.835417, -7.15256e-07, -0.835416, -0.549617, 0.0761895, 0.116931, 0.0659436)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qavk5"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_crert")
+ao_enabled = true
+ao_texture = ExtResource("15_3qkqh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a52ca"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("16_v6frh")
+ao_enabled = true
+ao_texture = ExtResource("17_gu4i4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0pgd"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("18_eg4le")
+ao_enabled = true
+ao_texture = ExtResource("19_cxqsy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyke8"]
+resource_local_to_scene = true
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("20_8dfym")
+ao_enabled = true
+ao_texture = ExtResource("21_v8nyn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50ija"]
+resource_local_to_scene = true
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("22_belp7")
+ao_enabled = true
+ao_texture = ExtResource("23_8qbnr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4emee"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("24_gt4pf")
+ao_enabled = true
+ao_texture = ExtResource("25_v58wm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx3m7"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("26_rtl1p")
+ao_enabled = true
+ao_texture = ExtResource("27_ywfvi")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pd144"]
 streams_count = 3
 stream_0/stream = ExtResource("20_adcdu")
@@ -301,7 +361,6 @@ sfx_controller = NodePath("SFX")
 body_slot = NodePath("Model/Armature/Skeleton3D/Body Slot")
 right_hand_slot = NodePath("Model/Armature/Skeleton3D/Right Hand Slot")
 initial_loadout = ExtResource("4_75wuh")
-initial_loadout_slot = 3
 
 [node name="Model" parent="." instance=ExtResource("1_lan5e")]
 transform = Transform3D(-1.1, 0, -1.66095e-07, 0, 1.1, 0, 1.66095e-07, 0, -1.1, 0, 0, 0)
@@ -458,21 +517,32 @@ libraries = {
 [node name="Default" parent="Model" instance=ExtResource("5_8q50d")]
 skin = SubResource("Skin_7c1ld")
 skeleton = NodePath("../Armature/Skeleton3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_qavk5")
+surface_material_override/1 = SubResource("StandardMaterial3D_a52ca")
+surface_material_override/2 = SubResource("StandardMaterial3D_l0pgd")
+surface_material_override/3 = SubResource("StandardMaterial3D_dyke8")
+surface_material_override/4 = SubResource("StandardMaterial3D_50ija")
+surface_material_override/5 = SubResource("StandardMaterial3D_4emee")
+surface_material_override/6 = SubResource("StandardMaterial3D_kx3m7")
+face_surface = 5
 
 [node name="Skin1" parent="Model" instance=ExtResource("7_gbxw1")]
 visible = false
 skin = SubResource("Skin_7c1ld")
 skeleton = NodePath("../Armature/Skeleton3D")
+script = null
 
 [node name="Skin2" parent="Model" instance=ExtResource("8_74yiy")]
 visible = false
 skin = SubResource("Skin_7c1ld")
 skeleton = NodePath("../Armature/Skeleton3D")
+script = null
 
 [node name="Skin3" parent="Model" instance=ExtResource("9_nc41o")]
 visible = false
 skin = SubResource("Skin_7c1ld")
 skeleton = NodePath("../Armature/Skeleton3D")
+script = null
 
 [node name="SFX" type="Node3D" parent="."]
 process_mode = 3

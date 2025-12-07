@@ -42,6 +42,8 @@ func create_timer(timer_name: String):
 
 func _ready() -> void:
 	face_surface_material = get_surface_override_material(face_surface)
+	if !face_surface_material:
+		return
 	face_surface_material.detail_enabled = true
 	base_face_texture = face_surface_material.albedo_texture
 	blank_image = Image.create_empty(
@@ -56,6 +58,8 @@ func _ready() -> void:
 	create_timer("talk_timer")
 
 func _process(_delta: float) -> void:
+	if !face_surface_material:
+		return
 	tex_buffer = blank_image.duplicate()
 	if is_dead:
 		dead_texture()

@@ -46,11 +46,12 @@ func add_bot() -> String:
 	var instance: Player = resource.instantiate()
 	instance.selected_character = [
 		#Definitions.Characters.Mayfly,
-		Definitions.Characters.Slash,
+		#Definitions.Characters.Slash,
 		#Definitions.Characters.Di,
-		#Definitions.Characters.Kassey
+		Definitions.Characters.Kassey
 	].pick_random()
-	instance.selected_skin = randi_range(0, 3)
+	instance.selected_skin = 0
+	#instance.selected_skin = randi_range(0, 3)
 	if !GameManager.get_team(1):
 		GameManager.create_team()
 	return "Bot added!" if GameManager.add_player(instance, 1) else "No spawns available :("

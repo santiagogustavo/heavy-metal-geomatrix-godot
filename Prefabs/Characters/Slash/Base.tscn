@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://mfit0jyuixrv"]
+[gd_scene load_steps=50 format=3 uid="uid://mfit0jyuixrv"]
 
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_f8chv"]
 [ext_resource type="AnimationLibrary" uid="uid://dfawi7p2j8jjm" path="res://Animations/Characters/Slash/Taunts/Taunts.res" id="2_80p5x"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://dx5w5kgydqstp" path="res://Sound/Characters/Slash/Taunts/Win.wav" id="12_xotd3"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="13_ncch2"]
 [ext_resource type="AudioStream" uid="uid://ueewreyl8s8t" path="res://Sound/Characters/Slash/Taunts/Lose.wav" id="13_vm26t"]
+[ext_resource type="Texture2D" uid="uid://roxl7ppbyndv" path="res://Textures/Characters/Slash/Skins/C/f589e076.png" id="14_q8kbw"]
 [ext_resource type="AudioStream" uid="uid://1encynnmgsof" path="res://Sound/Characters/Slash/Pickup/Pickup 1.wav" id="19_7btxk"]
 [ext_resource type="AudioStream" uid="uid://cfn5r2xt6j3tg" path="res://Sound/Characters/Slash/Damage/Death.wav" id="20_bw08s"]
 [ext_resource type="AudioStream" uid="uid://c3axjhuungq6e" path="res://Sound/Characters/Slash/Pickup/Pickup 2.wav" id="20_sy4wi"]
@@ -56,6 +57,12 @@ ao_texture = ExtResource("8_tvtad")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmxk3"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("12_q8kbw")
+ao_enabled = true
+ao_texture = ExtResource("8_tvtad")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p30er"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_q8kbw")
 ao_enabled = true
 ao_texture = ExtResource("8_tvtad")
 
@@ -142,6 +149,7 @@ surface_material_override/3 = SubResource("StandardMaterial3D_wmxk3")
 
 [node name="Skin3" parent="Model/Armature" index="3" instance=ExtResource("9_veopt")]
 visible = false
+surface_material_override/3 = SubResource("StandardMaterial3D_p30er")
 
 [node name="Skeleton3D" parent="Model/Armature" index="4"]
 bones/0/position = Vector3(0.386085, 1.16556, -0.692334)

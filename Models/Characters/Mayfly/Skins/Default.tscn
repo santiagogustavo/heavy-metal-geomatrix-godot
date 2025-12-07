@@ -1,7 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv3vruxl2ka7g"]
+[gd_scene load_steps=14 format=3 uid="uid://dv3vruxl2ka7g"]
 
 [ext_resource type="ArrayMesh" uid="uid://c8xt40buwkbkg" path="res://Models/Characters/Mayfly/Skins/Mesh.res" id="1_gm8lp"]
+[ext_resource type="Material" uid="uid://cgrkf6o8vg40a" path="res://Materials/Characters/Mayfly/Skins/Default/e391c87b.tres" id="2_e7een"]
+[ext_resource type="Material" uid="uid://j66kd5mxller" path="res://Materials/Characters/Mayfly/Skins/Default/ef72a3db.tres" id="3_aga7v"]
+[ext_resource type="Material" uid="uid://cvx7nb1gu0cx4" path="res://Materials/Characters/Mayfly/Skins/Default/df542a04.tres" id="4_pucxi"]
+[ext_resource type="Material" uid="uid://qdqfy6x8hcrw" path="res://Materials/Characters/Mayfly/Skins/Default/3645e401.tres" id="5_52s3o"]
+[ext_resource type="Material" uid="uid://ccdk6fotjgfs4" path="res://Materials/Characters/Mayfly/Skins/Default/9f06dbc3.tres" id="6_1tr3i"]
+[ext_resource type="Material" uid="uid://d0ao2f1lqoxyb" path="res://Materials/Characters/Mayfly/Skins/Default/13f49f7c.tres" id="7_2muec"]
+[ext_resource type="Script" uid="uid://dw4b5ugmdg2tk" path="res://Scripts/Characters/AnimatedTexturesMesh.gd" id="8_d8j4b"]
+[ext_resource type="Texture2D" uid="uid://baqvsuuotmej6" path="res://Textures/Characters/Mayfly/Skins/Default/Masks/blink.png" id="9_2muec"]
+[ext_resource type="Texture2D" uid="uid://bflsyrncy0tx8" path="res://Textures/Characters/Mayfly/Skins/Default/Masks/talk1.png" id="10_d8j4b"]
+[ext_resource type="Texture2D" uid="uid://bh2kt8fcg6jio" path="res://Textures/Characters/Mayfly/Skins/Default/Masks/talk2.png" id="11_cq41l"]
+[ext_resource type="Texture2D" uid="uid://bgqxe4upmfgxv" path="res://Textures/Characters/Mayfly/Skins/Default/Masks/talk3.png" id="12_bosiw"]
+[ext_resource type="Texture2D" uid="uid://cdmmf72ftymv" path="res://Textures/Characters/Mayfly/Skins/Default/Masks/hurt.png" id="13_kcpix"]
 
 [node name="Default" type="MeshInstance3D"]
 layers = 4
 mesh = ExtResource("1_gm8lp")
+surface_material_override/0 = ExtResource("2_e7een")
+surface_material_override/1 = ExtResource("3_aga7v")
+surface_material_override/2 = ExtResource("4_pucxi")
+surface_material_override/3 = ExtResource("5_52s3o")
+surface_material_override/4 = ExtResource("6_1tr3i")
+surface_material_override/5 = ExtResource("7_2muec")
+script = ExtResource("8_d8j4b")
+face_surface = 1
+blink_mask = ExtResource("9_2muec")
+talk_masks = Array[Texture2D]([ExtResource("10_d8j4b"), ExtResource("11_cq41l"), ExtResource("12_bosiw")])
+hurt_eye_mask = ExtResource("13_kcpix")
+hurt_mouth_mask = ExtResource("12_bosiw")
+die_mouth_mask = ExtResource("11_cq41l")

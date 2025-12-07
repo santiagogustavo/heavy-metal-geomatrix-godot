@@ -9,7 +9,8 @@ var local_collision_pos: Vector3
 func _ready() -> void:
 	rigid_body.reparent(get_tree().root)
 	var global_velocity = rigid_body.linear_velocity
-	var local_velocity = rigid_body.transform.basis.inverse() * global_velocity
+	var velocity_direction = rigid_body.transform.basis.inverse()
+	var local_velocity = velocity_direction  * global_velocity
 	rigid_body.linear_velocity = local_velocity
 	rigid_body.body_entered.connect(
 		func (_body: PhysicsBody3D):
