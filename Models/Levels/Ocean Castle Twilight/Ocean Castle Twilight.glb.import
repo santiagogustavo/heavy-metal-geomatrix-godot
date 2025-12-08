@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Ocean Castle Twilight.glb-59fe6152313e9b4e166
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,67 +34,85 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "1448c99": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/1448c99.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/1448c99.tres",
+"use_external/path": "uid://bulikaslkc5by"
 },
 "171fefb": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/171fefb.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/171fefb.tres",
+"use_external/path": "uid://sm7wkbnqbdl8"
 },
 "1ee2aa2d": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/1ee2aa2d.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/1ee2aa2d.tres",
+"use_external/path": "uid://v3giv7jg2k6n"
 },
 "2fdfb5a7": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/2fdfb5a7.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/2fdfb5a7.tres",
+"use_external/path": "uid://pmupgl1f26pb"
 },
 "3c1b2d1b": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/3c1b2d1b.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/3c1b2d1b.tres",
+"use_external/path": "uid://dewdiqteyvudn"
 },
 "48bbc6a7": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/48bbc6a7.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/48bbc6a7.tres",
+"use_external/path": "uid://cjtsacman7igl"
 },
 "5e58c3a1": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/5e58c3a1.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/5e58c3a1.tres",
+"use_external/path": "uid://cc54bknjrn8bv"
 },
 "645cd4b3": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/645cd4b3.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/645cd4b3.tres",
+"use_external/path": "uid://kgj56wy85g6k"
 },
 "6dc85889": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/6dc85889.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/6dc85889.tres",
+"use_external/path": "uid://cw3gxf8l4k55s"
 },
 "779ff58a": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/779ff58a.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/779ff58a.tres",
+"use_external/path": "uid://ceo5ulsxwutxg"
 },
 "83b505fe": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/83b505fe.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/83b505fe.tres",
+"use_external/path": "uid://demimoa7fuldd"
 },
 "a5e8cdbe": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/a5e8cdbe.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/a5e8cdbe.tres",
+"use_external/path": "uid://dkusdyovitdje"
 },
 "e109d152": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/e109d152.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/e109d152.tres",
+"use_external/path": "uid://ci1wcuciwn4if"
 },
 "e7c9ad4c": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/e7c9ad4c.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/e7c9ad4c.tres",
+"use_external/path": "uid://b0iw1xq4nd5gh"
 },
 "f2c1fced": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Ocean Castle Twilight/f2c1fced.tres"
+"use_external/fallback_path": "res://Materials/Levels/Ocean Castle Twilight/f2c1fced.tres",
+"use_external/path": "uid://dnae7i3c1ig4i"
 }
 }
 }

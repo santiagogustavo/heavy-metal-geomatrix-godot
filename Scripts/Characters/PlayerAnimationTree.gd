@@ -53,6 +53,7 @@ func switch_to_gameplay() -> void:
 func reset_player() -> void:
 	ko_anim = -1
 	switch_to_gameplay()
+	upper_body_state_machine.reset_state()
 	has_reset_player = true
 
 func play_ko_state() -> void:

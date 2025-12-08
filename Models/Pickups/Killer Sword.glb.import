@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Killer Sword.glb-6fd66686f978885b2770ba97757c
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.01
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,19 +34,25 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "606fc457": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Pickups/606fc457.tres"
+"use_external/fallback_path": "res://Materials/Pickups/606fc457.tres",
+"use_external/path": "uid://vfj0gtbqq0db"
 },
 "af4cf111_R": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Pickups/af4cf111_RB.tres"
+"use_external/fallback_path": "res://Materials/Pickups/af4cf111_RB.tres",
+"use_external/path": "uid://ck110ylvtm5hn"
 },
 "b0e9db7e": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Pickups/b0e9db7e.tres"
+"use_external/fallback_path": "res://Materials/Pickups/b0e9db7e.tres",
+"use_external/path": "uid://m3mpu08mp2ck"
 }
 }
 }

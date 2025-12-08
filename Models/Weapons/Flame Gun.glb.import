@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Flame Gun.glb-71283fe0c5745749ef1f1bf3dcca3e5
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.01
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "284fe876": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Flame Gun/284fe876.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Flame Gun/284fe876.tres",
+"use_external/path": "uid://b3verydbkc36v"
 },
 "34f5f989": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Flame Gun/34f5f989.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Flame Gun/34f5f989.tres",
+"use_external/path": "uid://ko3adj3o1fuo"
 }
 }
 }

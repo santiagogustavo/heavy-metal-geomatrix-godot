@@ -23,7 +23,6 @@ class_name LevelConfig
 
 @onready var versus_screen_resource: PackedScene = load("res://Prefabs/Menus/Versus/VersusScreen.tscn")
 var versus_screen_instance: VersusScreen
-var frames_to_preprocess_splash: int = 1
 
 func _ready() -> void:
 	GameManager.lock_cursor()
@@ -46,6 +45,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	set_environment_composition_effects_intensity(VideoSettingsManager.motion_blur_intensity)
 
+func after_process_first_frame() -> void:
+	get_tree().root.add_child.call_deferred(versus_screen_instance)
+	disable_environment_composition_effects()
+	if snapshot_viewport:
+		snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	get_tree().process_frame.disconnect(after_process_first_frame)
+
 func instantiate_versus_screen() -> void:
 	versus_screen_instance = versus_screen_resource.instantiate()
 	versus_screen_instance.debug = false
@@ -55,27 +61,22 @@ func instantiate_versus_screen() -> void:
 			snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
 	)
 	versus_screen_instance.ended.connect(on_versus_screen_ended)
-	for i in range(frames_to_preprocess_splash):
-		await get_tree().process_frame
-	get_tree().root.add_child.call_deferred(versus_screen_instance)
-	disable_environment_composition_effects()
-	if snapshot_viewport:
-		snapshot_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	get_tree().process_frame.connect(after_process_first_frame)
 
 func enable_environment_composition_effects() -> void:
-	if !world_environment:
+	if !world_environment or !world_environment.compositor:
 		return
 	for effect: CompositorEffect in world_environment.compositor.compositor_effects:
 		effect.enabled = VideoSettingsManager.motion_blur_enabled
 
 func disable_environment_composition_effects() -> void:
-	if !world_environment:
+	if !world_environment or !world_environment.compositor:
 		return
 	for effect: CompositorEffect in world_environment.compositor.compositor_effects:
 		effect.enabled = false
 
 func set_environment_composition_effects_intensity(intensity: float) -> void:
-	if !world_environment:
+	if !world_environment or !world_environment.compositor:
 		return
 	for effect: CompositorEffect in world_environment.compositor.compositor_effects:
 		effect.intensity = intensity

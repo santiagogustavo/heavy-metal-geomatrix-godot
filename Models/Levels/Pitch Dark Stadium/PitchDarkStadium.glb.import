@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/PitchDarkStadium.glb-b981b35c0874f12fee4aa93d
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,107 +34,135 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "1a188e5": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/1a188e5.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/1a188e5.tres",
+"use_external/path": "uid://bmri3c0da0msx"
 },
 "22325d12": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/22325d12.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/22325d12.tres",
+"use_external/path": "uid://ca2yr2x5em25o"
 },
 "35dfb7c8": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/35dfb7c8.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/35dfb7c8.tres",
+"use_external/path": "uid://cknw0avjoyyor"
 },
 "3d771c6a": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/3d771c6a.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/3d771c6a.tres",
+"use_external/path": "uid://crkuti2deyx8b"
 },
 "4251cd45": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/4251cd45.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/4251cd45.tres",
+"use_external/path": "uid://u3pakktkqhg"
 },
 "477a8a5d": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/477a8a5d.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/477a8a5d.tres",
+"use_external/path": "uid://dpaximpdsmywn"
 },
 "4a749d8d": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/4a749d8d.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/4a749d8d.tres",
+"use_external/path": "uid://bylvbydfaafrk"
 },
 "50af3ca5": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/50af3ca5.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/50af3ca5.tres",
+"use_external/path": "uid://olmcy83ci1cu"
 },
 "55902218": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/55902218.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/55902218.tres",
+"use_external/path": "uid://c76q42osl5o41"
 },
 "5e3000c2": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/5e3000c2.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/5e3000c2.tres",
+"use_external/path": "uid://ce3gt2ps121gs"
 },
 "7b60f3f8": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/7b60f3f8.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/7b60f3f8.tres",
+"use_external/path": "uid://ds73d2h6cpvyv"
 },
 "8c11667a": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/8c11667a.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/8c11667a.tres",
+"use_external/path": "uid://clrtlcktxajek"
 },
 "8d161025": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/8d161025.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/8d161025.tres",
+"use_external/path": "uid://dkw5odise5t75"
 },
 "8e45c46f": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/8e45c46f.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/8e45c46f.tres",
+"use_external/path": "uid://xx0vtsr2ts56"
 },
 "9939eb6": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/9939eb6.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/9939eb6.tres",
+"use_external/path": "uid://cmjks4n76kvts"
 },
 "a5d3c258": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/a5d3c258.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/a5d3c258.tres",
+"use_external/path": "uid://bylvt3vygud6j"
 },
 "a8de1a7d": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/a8de1a7d.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/a8de1a7d.tres",
+"use_external/path": "uid://ctf80lirbfpen"
 },
 "ae11273d": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/ae11273d.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/ae11273d.tres",
+"use_external/path": "uid://cufi2h4riyf2t"
 },
 "b033cc37": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/b033cc37.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/b033cc37.tres",
+"use_external/path": "uid://crm5uiq15bnrk"
 },
 "b1eef7e9": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/b1eef7e9.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/b1eef7e9.tres",
+"use_external/path": "uid://dqcbse4vgyr7e"
 },
 "c108a70a": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/c108a70a.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/c108a70a.tres",
+"use_external/path": "uid://joc3kasbxyv0"
 },
 "cb6837dc": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/cb6837dc.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/cb6837dc.tres",
+"use_external/path": "uid://co3gv12g51mcd"
 },
 "e0895b0": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/e0895b0.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/e0895b0.tres",
+"use_external/path": "uid://cgqk1qs73wnij"
 },
 "e44c0540": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/e44c0540.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/e44c0540.tres",
+"use_external/path": "uid://bpyvixvnyjkno"
 },
 "e6756422": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Pitch Dark Stadium/e6756422.tres"
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/e6756422.tres",
+"use_external/path": "uid://mg7adtlmtblm"
 }
 }
 }

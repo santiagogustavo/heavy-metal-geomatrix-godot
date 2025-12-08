@@ -8,6 +8,9 @@ var viewport_width: int = DisplayServer.window_get_size().x
 var viewport_height: int = DisplayServer.window_get_size().y
 var rendering_scale: float = 1.0
 
+var max_fps_enabled: bool = false
+var max_fps: int = 30
+
 var bloom_enabled: bool = true
 var bloom_intensity: float = 0.25
 
@@ -63,6 +66,14 @@ func set_bloom_enabled(enabled: bool) -> void:
 
 func set_bloom_intensity(intensity: float) -> void:
 	bloom_intensity = intensity
+
+func set_max_fps_enabled(enabled: float) -> void:
+	max_fps_enabled = enabled
+	set_max_fps(max_fps)
+
+func set_max_fps(fps_cap: int) -> void:
+	max_fps = fps_cap
+	Engine.max_fps = max_fps if max_fps_enabled else 0
 
 func set_motion_blur_enabled(enabled: float) -> void:
 	motion_blur_enabled = enabled

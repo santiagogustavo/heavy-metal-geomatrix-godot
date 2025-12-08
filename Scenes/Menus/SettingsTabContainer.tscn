@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene load_steps=36 format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bljpytl0oq7sy" path="res://Scenes/Menus/OptionsMenu/OptionsToggleButton.tscn" id="11_udgny"]
 [ext_resource type="Script" uid="uid://dwtufgeul4xde" path="res://Scripts/Menus/OptionsMenu/AimAssistButton.gd" id="12_1m567"]
 [ext_resource type="Script" uid="uid://rwtaj1nebmyd" path="res://Scripts/Menus/OptionsMenu/FovSlider.gd" id="12_fjwlq"]
+[ext_resource type="Script" uid="uid://mpwpae5uogkp" path="res://Scripts/Menus/OptionsMenu/MaxFpsToggleButton.gd" id="12_hapqg"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="13_cerdy"]
 [ext_resource type="Script" uid="uid://bx5ywrheuygnj" path="res://Scripts/Menus/OptionsMenu/MotionBlurToggle.gd" id="13_k8wft"]
 [ext_resource type="PackedScene" uid="uid://c0f7b66n3wqqq" path="res://Scenes/Menus/OptionsMenu/Controls/ControllerVibrationButton.tscn" id="13_m37qm"]
@@ -72,9 +73,9 @@ anchor_right = 1.0
 offset_left = 28.0
 offset_bottom = 63.0
 grow_horizontal = 2
-theme_override_colors/font_unselected_color = Color(1, 1, 1, 0.490196)
-theme_override_colors/font_hovered_color = Color(0.694118, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_hovered_color = Color(0.694118, 1, 1, 1)
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("1_vbs2d")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4tyo3")
@@ -96,15 +97,15 @@ anchor_bottom = 1.0
 offset_top = 63.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_unselected_color = Color(1, 1, 1, 0.490196)
-theme_override_colors/font_hovered_color = Color(0.694118, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_hovered_color = Color(0.694118, 1, 1, 1)
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("1_vbs2d")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_4tyo3")
-theme_override_styles/tab_selected = SubResource("StyleBoxTexture_a1tnm")
-theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_4tyo3")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_4tyo3")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_4tyo3")
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_a1tnm")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_4tyo3")
 current_tab = 0
 tabs_visible = false
 
@@ -190,6 +191,13 @@ layout_mode = 2
 
 [node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/PostProcessingLabel" index="0"]
 text = "Post Processing"
+
+[node name="MaxFpsToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
+layout_mode = 2
+script = ExtResource("12_hapqg")
+
+[node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/MaxFpsToggle" index="0"]
+text = "Limit FPS"
 
 [node name="BloomToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
 layout_mode = 2
@@ -432,7 +440,6 @@ text = "Crosshair A
 "
 
 [node name="SFX" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -449,6 +456,7 @@ bus = &"UI"
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider/CustomSlider10"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/PostProcessingLabel"]
+[editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/MaxFpsToggle"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurToggle"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurIntensity"]
 [editable path="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurIntensity/CustomSlider10"]

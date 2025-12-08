@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Hand Gun.glb-637bda76631b692b152681baff285689
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.01
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,19 +34,25 @@ animation/trimming=false
 animation/remove_immutable_tracks=false
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "54429747": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Common/54429747.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Common/54429747.tres",
+"use_external/path": "uid://c54x6gqn0oxcu"
 },
 "77370af1": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Hand Gun/77370af1.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Hand Gun/77370af1.tres",
+"use_external/path": "uid://d27eqq1cfctyh"
 },
 "a17a3edc": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Hand Gun/a17a3edc.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Hand Gun/a17a3edc.tres",
+"use_external/path": "uid://q4hfh28csl4p"
 }
 }
 }

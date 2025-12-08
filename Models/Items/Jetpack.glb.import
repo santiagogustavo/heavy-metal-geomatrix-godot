@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Jetpack.glb-b219056eb0001d649924a7e3340dc17d.
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.01
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "c57fd08e": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Items/Jetpack/c57fd08e.tres"
+"use_external/fallback_path": "res://Materials/Items/Jetpack/c57fd08e.tres",
+"use_external/path": "uid://bhoudy6fvswra"
 },
 "d4b974c1": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Items/Jetpack/d4b974c1.tres"
+"use_external/fallback_path": "res://Materials/Items/Jetpack/d4b974c1.tres",
+"use_external/path": "uid://ba0wdc2ho3gk4"
 }
 }
 }

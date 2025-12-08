@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Ray Sword.glb-52bbe06e28ffaa05969b2aff4b68c65
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.01
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "3d89ecc3": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Ray Sword/3d89ecc3.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Ray Sword/3d89ecc3.tres",
+"use_external/path": "uid://tyigychmm4sx"
 },
 "f3337a7": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Ray Sword/f3337a7.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Ray Sword/f3337a7.tres",
+"use_external/path": "uid://qkr7d8wvqggv"
 }
 }
 }

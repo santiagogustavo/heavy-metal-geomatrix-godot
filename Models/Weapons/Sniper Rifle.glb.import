@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Sniper Rifle.glb-2a072da1c1774c088759720a7a80
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=0.01
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,15 +34,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "3c848fd8": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Sniper Rifle/3c848fd8.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Sniper Rifle/3c848fd8.tres",
+"use_external/path": "uid://c4rm7uj5pxp6a"
 },
 "43a6782c": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Weapons/Sniper Rifle/43a6782c.tres"
+"use_external/fallback_path": "res://Materials/Weapons/Sniper Rifle/43a6782c.tres",
+"use_external/path": "uid://di5vjyd4pbkdu"
 }
 }
 }

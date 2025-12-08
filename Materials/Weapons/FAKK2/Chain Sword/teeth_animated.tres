@@ -58,7 +58,7 @@ op_type = 2
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, alpha_to_coverage;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, alpha_to_coverage;
 
 uniform float Speed = 1.0;
 uniform sampler2D tex_frg_3;

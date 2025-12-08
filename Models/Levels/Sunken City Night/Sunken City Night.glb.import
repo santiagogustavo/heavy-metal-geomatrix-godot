@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Sunken City Night.glb-6eaaba3130239e877b571eb
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,107 +34,135 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "110a3c4a": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/110a3c4a.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/110a3c4a.tres",
+"use_external/path": "uid://ldt4qedfhl7g"
 },
 "149ee502": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/149ee502.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/149ee502.tres",
+"use_external/path": "uid://8oa6arg1uan"
 },
 "193cef1d": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/193cef1d.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/193cef1d.tres",
+"use_external/path": "uid://b0ffok6frsgg0"
 },
 "35743e07": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/35743e07.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/35743e07.tres",
+"use_external/path": "uid://clv3u4c32m3nk"
 },
 "3bc171cf": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/3bc171cf.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/3bc171cf.tres",
+"use_external/path": "uid://btku5g5p6pr8x"
 },
 "4b2181eb": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/4b2181eb.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/4b2181eb.tres",
+"use_external/path": "uid://853qvh8yj4d5"
 },
 "510b6e74": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/510b6e74.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/510b6e74.tres",
+"use_external/path": "uid://dn3hy7tp6bnu6"
 },
 "56ad2daf": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/56ad2daf.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/56ad2daf.tres",
+"use_external/path": "uid://d3kiv7l8raf4l"
 },
 "5949aaca": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/5949aaca.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/5949aaca.tres",
+"use_external/path": "uid://dqyx0syyy2yx0"
 },
 "79fbbd8b": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/79fbbd8b.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/79fbbd8b.tres",
+"use_external/path": "uid://bkg7u4wqnsaf5"
 },
 "8bc01ff4": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/8bc01ff4.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/8bc01ff4.tres",
+"use_external/path": "uid://def74fq3e3x4q"
 },
 "8f08089f": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/8f08089f.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/8f08089f.tres",
+"use_external/path": "uid://ddrlxx8y0o7sd"
 },
 "9a19043b": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/9a19043b.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/9a19043b.tres",
+"use_external/path": "uid://b5qmxe6of28tj"
 },
 "9c089690": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/9c089690.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/9c089690.tres",
+"use_external/path": "uid://byxxce01qbq5a"
 },
 "a2d8d22b": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/a2d8d22b.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/a2d8d22b.tres",
+"use_external/path": "uid://byyva70sen8wq"
 },
 "a6876e41": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/a6876e41.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/a6876e41.tres",
+"use_external/path": "uid://bwi2doxhvn5re"
 },
 "ae58880f": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/ae58880f.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/ae58880f.tres",
+"use_external/path": "uid://dp2tcqorl6623"
 },
 "ccc08d4a": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/ccc08d4a.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/ccc08d4a.tres",
+"use_external/path": "uid://e2kkfhsbpc2"
 },
 "d5c4dd88": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/d5c4dd88.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/d5c4dd88.tres",
+"use_external/path": "uid://btuof4y0nsn6l"
 },
 "d745d8c0": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/d745d8c0.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/d745d8c0.tres",
+"use_external/path": "uid://f5vttwtmf78c"
 },
 "d745d8c0.001": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/d745d8c0.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/d745d8c0.tres",
+"use_external/path": "uid://f5vttwtmf78c"
 },
 "dacc25f": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/dacc25f.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/dacc25f.tres",
+"use_external/path": "uid://bar2r2vhjewwn"
 },
 "f480be53": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/f480be53.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/f480be53.tres",
+"use_external/path": "uid://duglo48n6kxg7"
 },
 "feb320f3": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/feb320f3.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/feb320f3.tres",
+"use_external/path": "uid://b7gtn8kwyoxxp"
 },
 "feb47083": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Levels/Sunken City Night/feb47083.tres"
+"use_external/fallback_path": "res://Materials/Levels/Sunken City Night/feb47083.tres",
+"use_external/path": "uid://j52oqyxkddjh"
 }
 },
 "meshes": {
@@ -142,6 +172,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
 "save_to_file/path": ""
 }
 }
