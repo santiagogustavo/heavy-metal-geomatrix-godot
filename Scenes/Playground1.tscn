@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_s26dd"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_m5gjv"]
-[ext_resource type="Compositor" uid="uid://csiin1xmgwwce" path="res://MotionBlurConfig.tres" id="4_6njym"]
 [ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="6_lid83"]
 [ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="7_yuttg"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="8_hapiw"]
@@ -24,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bkt3ivhkt5nvf" path="res://Prefabs/node_3d.tscn" id="22_s37v4"]
 [ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="23_6njym"]
 [ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_uu1cf"]
+[ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="25_nhjaw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("2_pg3qa")
@@ -109,6 +109,7 @@ level_name = "Playground1"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 play_versus_screen = false
+spawn_bots_count = 0
 is_sunny = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
@@ -120,7 +121,6 @@ transform = Transform3D(-0.776992, 0, -0.62951, 0, 1, 0, 0.62951, 0, -0.776992, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_obdgp")
-compositor = ExtResource("4_6njym")
 
 [node name="Sun" parent="." instance=ExtResource("3_m5gjv")]
 transform = Transform3D(0.965926, 1.13133e-08, -0.258819, 0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, 1, 31, 0)
@@ -230,5 +230,8 @@ is_shooting = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)
 timeout = 15.0
 item = ExtResource("23_6njym")
+
+[node name="Guillotine" parent="." instance=ExtResource("25_nhjaw")]
+transform = Transform3D(-0.7388318, 0, -0.6738898, 0, 1, 0, 0.6738898, 0, -0.7388318, 11.973581, -0.023739815, 10.645496)
 
 [editable path="Spawner"]

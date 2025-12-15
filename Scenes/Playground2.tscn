@@ -1,10 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=30 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lgjqh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="2_rlu7d"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_nkony"]
-[ext_resource type="Compositor" uid="uid://csiin1xmgwwce" path="res://MotionBlurConfig.tres" id="4_sl81g"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="6_2od80"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="6_qglil"]
 [ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="7_3kfwb"]
@@ -76,7 +75,6 @@ transform = Transform3D(-0.707107, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707107
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qo5h5")
-compositor = ExtResource("4_sl81g")
 
 [node name="Sun" parent="." instance=ExtResource("3_nkony")]
 light_energy = 0.1

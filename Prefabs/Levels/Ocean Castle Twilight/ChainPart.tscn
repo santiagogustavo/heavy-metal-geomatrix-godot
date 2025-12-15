@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=4 uid="uid://1w54ocdv7xpf"]
+
+[ext_resource type="Material" uid="uid://cobkvfu7jxy8y" path="res://Materials/Levels/Ocean Castle Twilight/d791be7f.tres" id="1_xqxa8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7vjio"]
+radius = 0.106933594
+height = 1.3164063
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hun5m"]
+_surfaces = [{
+"aabb": AABB(-0.09998828, -0.6685063, 0, 0.19997656, 1.3370126, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "d791be7f",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qMbMvTsjK78AAACAqMbMPTsjKz8AAACAqMbMPTsjK78AAACAqMbMvTsjKz8AAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_snp3d"]
+resource_name = "Guillotine_Plane_002"
+_surfaces = [{
+"aabb": AABB(-0.09998828, -0.6685063, 0, 0.19997656, 1.3370126, 1e-05),
+"attribute_data": PackedByteArray("AIB3PwAAgD8AAIA/AAA9PwAAgD8AAIA/AIB3PwAAPT8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": ExtResource("1_xqxa8"),
+"name": "d791be7f",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qMbMvTsjK78AAACAqMbMPTsjKz8AAACAqMbMPTsjK78AAACAqMbMvTsjKz8AAACA/3//f////7//f/9/////v/9//3////+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hun5m")
+
+[node name="ChainPart" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6700109, 0)
+shape = SubResource("CapsuleShape3D_7vjio")
+
+[node name="Chain" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6700109, 0)
+mesh = SubResource("ArrayMesh_snp3d")
+skeleton = NodePath("")
+
+[node name="Chain2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.6700109, 0)
+mesh = SubResource("ArrayMesh_snp3d")
+skeleton = NodePath("")

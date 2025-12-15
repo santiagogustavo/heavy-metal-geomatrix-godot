@@ -41,6 +41,11 @@ func detect_raycast_collision():
 		var collider: CollisionObject3D = raycast.get_collider()
 		if collider.get_rid() == player_rid or has_collided:
 			return
+			
+		if collider is RigidBody3D:
+			var impulse = raycast.get_collision_normal() * 10
+			(collider as RigidBody3D).apply_central_impulse(impulse * -1)
+
 		var point = raycast.get_collision_point()
 		var normal = raycast.get_collision_normal()
 		instantiate_hit(point, normal, collider.collision_layer)

@@ -11,6 +11,7 @@ config_version=5
 [animation]
 
 warnings/check_invalid_track_paths=false
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
@@ -232,6 +233,12 @@ lock_on={
 3d_physics/layer_11="Stone"
 3d_physics/layer_12="Dirt"
 3d_physics/layer_13="Blood"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+3d/physics_jitter_fix=0.5
+3d/physics_interpolation=false
 
 [rendering]
 

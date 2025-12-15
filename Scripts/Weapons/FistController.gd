@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name FistController
 
-@export var damage: int = 2
+@export var damage: int = 10
 @export var hit_decal: PackedScene
 
 var is_attacking: bool = false

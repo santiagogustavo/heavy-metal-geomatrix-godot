@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="8_tslua"]
 [ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="9_vp1oc"]
 [ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="9_xra83"]
-[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/Jetpack.tscn" id="15_koe4l"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="15_koe4l"]
 [ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="16_0qcg4"]
 [ext_resource type="PackedScene" uid="uid://dqjcw70ma073f" path="res://Prefabs/Weapons/LaserRifle/LaserRifle.tscn" id="17_h2ggl"]
 

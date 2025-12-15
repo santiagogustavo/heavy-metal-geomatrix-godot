@@ -116,7 +116,7 @@ func _physics_process(delta: float) -> void:
 	compute_forces(delta)
 	compute_gravity(delta)
 	compute_movement()
-	if raycast.is_colliding():
+	if raycast.is_colliding() and raycast.get_collider() is StaticBody3D:
 		collide(raycast.get_collider())
 	move_and_slide()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bpxpio7ixipg6"]
+[gd_scene load_steps=45 format=3 uid="uid://bpxpio7ixipg6"]
 
 [ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_8fted"]
 [ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb" id="1_e6pgn"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_enk1q"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
-[ext_resource type="Compositor" uid="uid://csiin1xmgwwce" path="res://MotionBlurConfig.tres" id="3_qvd3e"]
 [ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/Pitch Dark Stadium/9939eb6_emit.tres" id="4_t2tlk"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_tqjn4"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="6_qyxnj"]
@@ -127,7 +126,6 @@ splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h4pe8")
-compositor = ExtResource("3_qvd3e")
 
 [node name="SplashLayer" parent="." instance=ExtResource("2_7jn1i")]
 

@@ -10,6 +10,7 @@ class_name LevelConfig
 @export var ost_player: AudioStreamPlayer2D
 @export var world_environment: WorldEnvironment
 @export var play_versus_screen: bool = true
+@export var spawn_bots_count: int = 1
 
 @export_subgroup("Environment")
 @export var is_sunny: bool = false
@@ -30,7 +31,8 @@ func _ready() -> void:
 	if !snapshot_mode:
 		if !GameManager.get_player_one():
 			create_player_one()
-			create_bot()
+			for i in range(spawn_bots_count):
+				create_bot()
 		if !GameManager.current_match:
 			GameManager.create_match(MatchManager.new())
 		GameManager.spawn_players()

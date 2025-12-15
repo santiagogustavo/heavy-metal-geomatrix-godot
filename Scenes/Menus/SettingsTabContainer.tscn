@@ -206,6 +206,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="MotionBlurToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
+visible = false
 layout_mode = 2
 script = ExtResource("13_k8wft")
 
@@ -213,6 +214,7 @@ script = ExtResource("13_k8wft")
 text = "Motion Blur"
 
 [node name="MotionBlurIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("10_6407g")]
+visible = false
 layout_mode = 2
 script = ExtResource("14_cei6j")
 

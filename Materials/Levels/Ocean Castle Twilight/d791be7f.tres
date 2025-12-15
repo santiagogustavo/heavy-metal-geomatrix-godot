@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://2jalrweefh8r" path="res://Textures/Levels/Ocean Castle Twilight/d791be7f_spec.png" id="2_hgtjh"]
 
 [resource]
+transparency = 4
+blend_mode = 4
+cull_mode = 2
 albedo_texture = ExtResource("1_ya5q8")
 ao_enabled = true
 ao_light_affect = 1.0

@@ -1,7 +1,6 @@
 [gd_scene load_steps=58 format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_4un3q"]
-[ext_resource type="Compositor" uid="uid://csiin1xmgwwce" path="res://MotionBlurConfig.tres" id="2_f56u8"]
 [ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_tegcv"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_i8vr7"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_heanl"]
@@ -30,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cf1bfsleugb3w" path="res://Prefabs/Weapons/KillerSword.tscn" id="25_ex2nk"]
 [ext_resource type="AudioStream" uid="uid://crlksg8qn273" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst4.mp3" id="26_wj5b2"]
 [ext_resource type="AudioStream" uid="uid://d26wqq6m3ifj3" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst5.mp3" id="27_ryyg3"]
+[ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="31_rvlpc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gvb5h"]
 panorama = ExtResource("5_38h01")
@@ -202,7 +202,6 @@ splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q5l4r")
-compositor = ExtResource("2_f56u8")
 
 [node name="SplashLayer" parent="." instance=ExtResource("2_tegcv")]
 
@@ -776,6 +775,9 @@ items_to_spawn = Array[PackedScene]([ExtResource("21_f56u8"), ExtResource("22_rv
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_7odcm")
 bus = &"Game"
+
+[node name="Guillotine" parent="." instance=ExtResource("31_rvlpc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.437469, -0.012460875, -10.236532)
 
 [editable path="SplashLayer"]
 [editable path="Level Geometry/Ocean Castle Twilight"]
