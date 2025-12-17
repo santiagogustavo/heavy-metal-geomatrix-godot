@@ -109,7 +109,6 @@ level_name = "Playground1"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 play_versus_screen = false
-spawn_bots_count = 0
 is_sunny = true
 
 [node name="Spawn Points" type="Node3D" parent="."]

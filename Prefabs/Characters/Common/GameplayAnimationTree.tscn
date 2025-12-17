@@ -40,7 +40,7 @@ nodes/Blend/node = SubResource("AnimationNodeBlendSpace2D_vet6m")
 nodes/Blend/position = Vector2(-140, 160)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_u805d")
 nodes/TimeScale/position = Vector2(107.69, 157.3)
-node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Blend"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_spxsy"]
 animation = &"Lower Body/Dash Start - Forward"
@@ -74,7 +74,7 @@ nodes/Blend/node = SubResource("AnimationNodeBlendSpace2D_vfo47")
 nodes/Blend/position = Vector2(-140, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ifi24")
 nodes/TimeScale/position = Vector2(100, 140)
-node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Blend"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uiml4"]
 animation = &"Lower Body/Dash Stop - Forward"
@@ -108,7 +108,7 @@ nodes/Blend/node = SubResource("AnimationNodeBlendSpace2D_qwilg")
 nodes/Blend/position = Vector2(-198.44, 159.72)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_van8m")
 nodes/TimeScale/position = Vector2(73.81, 169.4)
-node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Blend"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlvda"]
 animation = &"Lower Body/Jump Double"
@@ -121,7 +121,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dlvda")
 nodes/Animation/position = Vector2(-260, 130)
 nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_dtr6r")
 nodes/TimeSeek/position = Vector2(60, 140)
-node_connections = [&"TimeSeek", 0, &"Animation", &"output", 0, &"TimeSeek"]
+node_connections = [&"output", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vihmd"]
 animation = &"Lower Body/Jump Fall"
@@ -134,7 +134,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_vihmd")
 nodes/Animation/position = Vector2(-160, 160)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_3fvl8")
 nodes/TimeScale/position = Vector2(77.2727, 161.818)
-node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yp4d2"]
 animation = &"Lower Body/Jump Start"
@@ -147,7 +147,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_yp4d2")
 nodes/Animation/position = Vector2(-160.182, 178.636)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_p4joy")
 nodes/TimeScale/position = Vector2(80, 160)
-node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kn4rp"]
 animation = &"Lower Body/Jump Land"
@@ -160,7 +160,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_kn4rp")
 nodes/Animation/position = Vector2(-390, 130)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_kry4l")
 nodes/TimeScale/position = Vector2(10, 130)
-node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hgc4k"]
 animation = &"Lower Body/Run Forward"
@@ -214,12 +214,12 @@ sync = true
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_w2pia"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_34ed1"]
-graph_offset = Vector2(-271.8, 36.663)
+graph_offset = Vector2(-271.8, 0)
 nodes/Blend/node = SubResource("AnimationNodeBlendSpace2D_7wpjo")
 nodes/Blend/position = Vector2(-160, 160)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_w2pia")
 nodes/TimeScale/position = Vector2(113.135, 149.072)
-node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Blend"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tqjij"]
 advance_mode = 2
@@ -758,7 +758,7 @@ nodes/Blend/node = SubResource("AnimationNodeBlendSpace2D_f258v")
 nodes/Blend/position = Vector2(-160, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_elhto")
 nodes/TimeScale/position = Vector2(100, 120)
-node_connections = [&"TimeScale", 0, &"Blend", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Blend"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fjy2n"]
 animation = &"Upper Body/Shoot - Weapon Single - Up 90"
@@ -810,7 +810,7 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_sbskr")
 nodes/TimeScale/position = Vector2(80, 120)
 nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_8741r")
 nodes/TimeSeek/position = Vector2(-120, 120)
-node_connections = [&"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Blend", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Blend"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ci3dl"]
 advance_mode = 2
@@ -1230,7 +1230,8 @@ transitions = ["Start", "Look - Empty", SubResource("AnimationNodeStateMachineTr
 graph_offset = Vector2(599.5, 397)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ccxfo"]
-graph_offset = Vector2(-550.224, -136.591)
+graph_offset = Vector2(-541.224, 0)
+nodes/output/position = Vector2(700, 40)
 nodes/Blend/node = SubResource("AnimationNodeBlend2_bsv2t")
 nodes/Blend/position = Vector2(80, 160)
 nodes/Gameplay/node = SubResource("AnimationNodeBlend2_4874o")
@@ -1241,8 +1242,7 @@ nodes/Reaction/node = SubResource("AnimationNodeStateMachine_vw2u0")
 nodes/Reaction/position = Vector2(70, -130)
 "nodes/Upper Body/node" = SubResource("AnimationNodeStateMachine_phig5")
 "nodes/Upper Body/position" = Vector2(-330, -100)
-nodes/output/position = Vector2(700, 40)
-node_connections = [&"Blend", 0, &"Upper Body", &"Blend", 1, &"Lower Body", &"Gameplay", 0, &"Reaction", &"Gameplay", 1, &"Blend", &"output", 0, &"Gameplay"]
+node_connections = [&"output", 0, &"Gameplay", &"Blend", 0, &"Upper Body", &"Blend", 1, &"Lower Body", &"Gameplay", 0, &"Reaction", &"Gameplay", 1, &"Blend"]
 
 [node name="AnimationTree" type="AnimationTree"]
 root_node = NodePath("../Model")
@@ -1263,7 +1263,7 @@ parameters/Gameplay/blend_amount = 1.0
 "parameters/Lower Body/Jump/TimeScale/scale" = 1.25
 "parameters/Lower Body/Land/TimeScale/scale" = 1.25
 "parameters/Lower Body/Walk/Blend/blend_position" = Vector2(0, 0)
-"parameters/Lower Body/Walk/TimeScale/scale" = 1.5
+"parameters/Lower Body/Walk/TimeScale/scale" = 1.3500000000000014
 "parameters/Upper Body/conditions/is_aiming" = false
 "parameters/Upper Body/conditions/is_attacking" = false
 "parameters/Upper Body/conditions/is_dropping" = false
