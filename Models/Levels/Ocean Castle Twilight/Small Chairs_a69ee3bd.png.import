@@ -2,19 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://71yvg2v81xqe"
-path.s3tc="res://.godot/imported/Small Chairs-0e23251d989a3497c1c26170b815d3cb_c5939f6b.png-1b7944bb29ad2d25e576f412fd8506c5.s3tc.ctex"
-path.etc2="res://.godot/imported/Small Chairs-0e23251d989a3497c1c26170b815d3cb_c5939f6b.png-1b7944bb29ad2d25e576f412fd8506c5.etc2.ctex"
+uid="uid://b10i1m23tjogo"
+path.s3tc="res://.godot/imported/Small Chairs_a69ee3bd.png-90e7b28c43237da551f3a59452a669c0.s3tc.ctex"
+path.etc2="res://.godot/imported/Small Chairs_a69ee3bd.png-90e7b28c43237da551f3a59452a669c0.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
-generator_parameters={}
+generator_parameters={
+"md5": "6e054e8a3907b28c02c4a931ec954d20"
+}
 
 [deps]
 
-source_file="res://Models/Levels/Ocean Castle Twilight/Small Chairs-0e23251d989a3497c1c26170b815d3cb_c5939f6b.png"
-dest_files=["res://.godot/imported/Small Chairs-0e23251d989a3497c1c26170b815d3cb_c5939f6b.png-1b7944bb29ad2d25e576f412fd8506c5.s3tc.ctex", "res://.godot/imported/Small Chairs-0e23251d989a3497c1c26170b815d3cb_c5939f6b.png-1b7944bb29ad2d25e576f412fd8506c5.etc2.ctex"]
+source_file="res://Models/Levels/Ocean Castle Twilight/Small Chairs_a69ee3bd.png"
+dest_files=["res://.godot/imported/Small Chairs_a69ee3bd.png-90e7b28c43237da551f3a59452a669c0.s3tc.ctex", "res://.godot/imported/Small Chairs_a69ee3bd.png-90e7b28c43237da551f3a59452a669c0.etc2.ctex"]
 
 [params]
 

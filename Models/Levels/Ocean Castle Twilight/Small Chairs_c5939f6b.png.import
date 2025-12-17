@@ -2,19 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://04tuupcefox0"
-path.s3tc="res://.godot/imported/Guillotine-581b7cf4823581dffc29831997781bdf_c6624452.png-5398156d79f9058ce710e90a50d8a636.s3tc.ctex"
-path.etc2="res://.godot/imported/Guillotine-581b7cf4823581dffc29831997781bdf_c6624452.png-5398156d79f9058ce710e90a50d8a636.etc2.ctex"
+uid="uid://dhthdi5me6qdc"
+path.s3tc="res://.godot/imported/Small Chairs_c5939f6b.png-6735510411e38ed4e9a3d9c936c67573.s3tc.ctex"
+path.etc2="res://.godot/imported/Small Chairs_c5939f6b.png-6735510411e38ed4e9a3d9c936c67573.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
-generator_parameters={}
+generator_parameters={
+"md5": "4b81ac70fa94d3b32943bdbb83975f17"
+}
 
 [deps]
 
-source_file="res://Models/Levels/Ocean Castle Twilight/Guillotine-581b7cf4823581dffc29831997781bdf_c6624452.png"
-dest_files=["res://.godot/imported/Guillotine-581b7cf4823581dffc29831997781bdf_c6624452.png-5398156d79f9058ce710e90a50d8a636.s3tc.ctex", "res://.godot/imported/Guillotine-581b7cf4823581dffc29831997781bdf_c6624452.png-5398156d79f9058ce710e90a50d8a636.etc2.ctex"]
+source_file="res://Models/Levels/Ocean Castle Twilight/Small Chairs_c5939f6b.png"
+dest_files=["res://.godot/imported/Small Chairs_c5939f6b.png-6735510411e38ed4e9a3d9c936c67573.s3tc.ctex", "res://.godot/imported/Small Chairs_c5939f6b.png-6735510411e38ed4e9a3d9c936c67573.etc2.ctex"]
 
 [params]
 
