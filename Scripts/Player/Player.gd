@@ -45,6 +45,7 @@ var animation_tree: PlayerAnimationTree
 var inventory_manager: InventoryManager
 
 var is_pickup_collided: bool = false
+var is_pickup_on_press: bool = false
 var shoot_target: Vector3 = Vector3.ZERO
 
 var player_input: PlayerInputManager
@@ -273,7 +274,7 @@ func set_animator_variables() -> void:
 	animation_tree.is_aiming = brain.is_aiming
 	animation_tree.is_shooting = brain.is_shooting
 	animation_tree.is_attacking = brain.is_attacking
-	animation_tree.is_picking_up = brain.is_picking_up
+	animation_tree.is_picking_up = brain.is_picking_up and is_pickup_on_press
 	animation_tree.direction = brain.input_direction
 	if player_input:
 		animation_tree.look = Vector2(0, camera.global_rotation.x * -0.6)

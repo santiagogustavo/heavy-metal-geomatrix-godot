@@ -87,12 +87,14 @@ func _on_area_3d_body_entered(body: Node3D):
 		return
 	current_player_collided = body
 	current_player_collided.is_pickup_collided = true
+	current_player_collided.is_pickup_on_press = pickup_on_press
 	if !pickup_on_press:
 		pickup_item()
 	
 func _on_area_3d_body_exited(body: Node3D):
 	if current_player_collided == body:
 		current_player_collided.is_pickup_collided = false
+		current_player_collided.is_pickup_on_press = false
 		current_player_collided = null
 
 func compute_pickup_attributes() -> void:

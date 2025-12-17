@@ -18,8 +18,9 @@ signal damage
 
 @export_subgroup("Physics")
 @export var speed = 7.5
-@export var dashing_speed = 10.0
-@export var jetpack_dashing_speed = 12.5
+@export var dashing_factor = 2.5
+@export var dashing_speed = speed + dashing_factor
+@export var jetpack_dashing_speed = dashing_speed + dashing_factor
 @export var jump_height = 10.0
 @export var weight = 2.5
 
