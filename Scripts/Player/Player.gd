@@ -85,6 +85,10 @@ func _ready() -> void:
 	character = load(Definitions.Players[selected_character]).instantiate()
 	character.player_rid = get_rid()
 	character.damage.connect(damage_player)
+	if character.round_pivot_offset and round_pivot:
+		round_pivot.position = character.round_pivot_offset.position
+	if character.camera_pivot_offset and camera_pivot:
+		camera_pivot.position = character.camera_pivot_offset.position
 	add_child(character)
 	player_name = character.character_name
 	inventory_manager = load("res://Prefabs/Player/InventoryManager.tscn").instantiate()

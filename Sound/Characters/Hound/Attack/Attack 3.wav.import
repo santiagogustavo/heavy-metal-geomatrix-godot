@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjcldo41sithq"
+path="res://.godot/imported/Attack 3.wav-5dde6e7d99c902b4693212548e9f5ac6.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Hound/Attack/Attack 3.wav"
+dest_files=["res://.godot/imported/Attack 3.wav-5dde6e7d99c902b4693212548e9f5ac6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

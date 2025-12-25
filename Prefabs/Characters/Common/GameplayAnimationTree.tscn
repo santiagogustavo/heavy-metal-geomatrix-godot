@@ -1230,7 +1230,7 @@ transitions = ["Start", "Look - Empty", SubResource("AnimationNodeStateMachineTr
 graph_offset = Vector2(599.5, 397)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ccxfo"]
-graph_offset = Vector2(-541.224, 0)
+graph_offset = Vector2(0, -64.026245)
 nodes/output/position = Vector2(700, 40)
 nodes/Blend/node = SubResource("AnimationNodeBlend2_bsv2t")
 nodes/Blend/position = Vector2(80, 160)

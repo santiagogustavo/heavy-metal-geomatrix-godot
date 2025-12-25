@@ -55,6 +55,7 @@ enum Characters {
 	Slash,
 	Kassey,
 	Di,
+	Hound,
 	Dummy,
 }
 
@@ -70,6 +71,7 @@ const CharacterNames: Dictionary = {
 	Characters.Slash: "Slash",
 	Characters.Kassey: "Kassey",
 	Characters.Di: "Di",
+	Characters.Hound: "Hound",
 	Characters.Dummy: "Dummy"
 }
 
@@ -82,7 +84,8 @@ const Selects: Dictionary = {
 	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Select.tscn",
 	Characters.Slash: "res://Prefabs/Characters/Slash/Select.tscn",
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Select.tscn",
-	Characters.Di: "res://Prefabs/Characters/Di/Select.tscn"
+	Characters.Di: "res://Prefabs/Characters/Di/Select.tscn",
+	Characters.Hound: "res://Prefabs/Characters/Hound/Select.tscn"
 }
 
 const Players: Dictionary = {
@@ -90,6 +93,7 @@ const Players: Dictionary = {
 	Characters.Slash: "res://Prefabs/Characters/Slash/Player.tscn",
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Player.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Player.tscn",
+	Characters.Hound: "res://Prefabs/Characters/Hound/Player.tscn",
 	Characters.Dummy: "res://Prefabs/Characters/Dummy/Player.tscn"
 }
 

@@ -39,6 +39,10 @@ signal damage
 @export_subgroup("Loadout")
 @export var initial_loadout: PackedScene
 
+@export_subgroup("Offsets")
+@export var round_pivot_offset: Marker3D
+@export var camera_pivot_offset: Marker3D
+
 @onready var hitmarker: PackedScene = load("res://Prefabs/Player/Hitmarker.tscn")
 
 # Internals

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0t6gifqjo32e"]
+
+[ext_resource type="PackedScene" uid="uid://5u7f4jbopy8y" path="res://Prefabs/Characters/Hound/Base.tscn" id="1_le5lr"]
+[ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="2_jgt8c"]
+
+[node name="Hound" instance=ExtResource("1_le5lr")]
+animation_tree_reference = ExtResource("2_jgt8c")
+
+[editable path="Model"]
+[editable path="Model/Armature/GeneralSkeleton/Hitboxes"]
+[editable path="Model/Armature/GeneralSkeleton/Fists"]
+[editable path="SFX/Common"]

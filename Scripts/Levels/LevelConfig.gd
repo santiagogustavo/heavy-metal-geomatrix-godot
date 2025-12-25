@@ -121,7 +121,7 @@ func on_player_added(player: Player, team: Team) -> void:
 
 func create_player_one() -> void:
 	var player_instance: Player = load("res://Prefabs/Player1.tscn").instantiate()
-	player_instance.selected_character = Definitions.Characters.Slash
+	player_instance.selected_character = Definitions.Characters.Hound
 	var team_index: int = GameManager.create_team()
 	GameManager.add_player(player_instance, team_index)
 
