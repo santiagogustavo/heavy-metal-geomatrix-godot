@@ -61,6 +61,7 @@ var lock_on_instance: Node3D
 var initial_camera_pivot_rotation: Vector3 = Vector3.ZERO
 var target_position: Vector3 = Vector3.ZERO
 var force: Vector3 = Vector3.ZERO
+var friction: float = 100.0
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
@@ -107,6 +108,7 @@ func _ready() -> void:
 				fist.can_hit = true
 		)
 		animation_tree.combo_animation_changed.connect(func ():
+			force.z = 30.0
 			if inventory_manager.right_hand_instance is SwordController:
 				inventory_manager.right_hand_instance.is_swinging = true
 		)
@@ -118,9 +120,9 @@ func _ready() -> void:
 	player_ready.emit()
 
 func _physics_process(delta: float) -> void:
-	compute_forces(delta)
 	compute_gravity(delta)
 	compute_movement()
+	compute_forces(delta)
 	if raycast.is_colliding() and raycast.get_collider() is StaticBody3D:
 		collide(raycast.get_collider())
 	move_and_slide()
@@ -250,8 +252,10 @@ func move_ko_pivot(new_position: Vector3, new_rotation: Vector3) -> void:
 	ko_pivot.global_rotation = new_rotation
 
 func compute_forces(delta: float) -> void:
-	force = clamp(force, Vector3.ZERO, Vector3(force.x - delta, force.y - delta, force.z - delta))
-	#velocity += force
+	force.z -= friction * delta
+	force.z = clamp(force.z, 0.0, INF)
+	var global_direction = global_transform.basis * Vector3(0, 0, -1)
+	velocity += global_direction * force.z
 
 func compute_gravity(delta: float) -> void:
 	velocity.y -= character.weight * Definitions.Gravity * delta

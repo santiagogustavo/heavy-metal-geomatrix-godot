@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://djjgfxkdb3yjw"]
+
+[ext_resource type="PackedScene" uid="uid://bebb24qflfntg" path="res://Models/Characters/Mayfly/MayflyV2.glb" id="1_4c1j1"]
+[ext_resource type="AnimationLibrary" uid="uid://vfmegwigbpp6" path="res://Animations/Libraries/Lower Body.res" id="2_vsj8m"]
+
+[node name="Mayfly" type="Node3D"]
+
+[node name="MayflyV2" parent="." instance=ExtResource("1_4c1j1")]
+
+[node name="GeneralSkeleton" parent="MayflyV2/Armature" index="0"]
+bones/0/position = Vector3(0.78735286, 1.4490994, -0.69233394)
+bones/1/position = Vector3(0.18538496, 0.57742757, 0.9066983)
+bones/2/position = Vector3(0.08748196, 0.114338264, 0.3453605)
+bones/2/rotation = Quaternion(0.88022244, -0.0022259625, 0.004129568, 0.47453824)
+bones/3/position = Vector3(-0.023641482, 1.4760959, 0.70773524)
+bones/3/rotation = Quaternion(0.70710677, -1.3767877e-07, -1.3767877e-07, 0.70710677)
+bones/4/position = Vector3(2.209964e-16, 0.8108336, -0.020566512)
+bones/4/rotation = Quaternion(0.09473291, -0.38097936, -0.051744398, 0.9182608)
+bones/5/position = Vector3(1.6689302e-08, 3.5163148e-09, -5.134205e-09)
+bones/5/rotation = Quaternion(-0.021525916, 0.1981165, 0.029947508, 0.9794844)
+bones/6/rotation = Quaternion(0.075530596, -0.1874175, 0.01786332, 0.97920924)
+bones/7/position = Vector3(0.076189496, 0.01428569, 0.03333292)
+bones/7/rotation = Quaternion(-0.5243865, 0.23628113, 0.12276998, 0.8087753)
+bones/8/rotation = Quaternion(0.85824317, -3.747843e-07, -1.9146803e-08, -0.5132433)
+bones/9/rotation = Quaternion(-0.04589838, 0.6748659, -0.73337585, -0.0678914)
+bones/10/rotation = Quaternion(0.15483908, 0.077554695, -0.11421265, 0.9782463)
+bones/11/rotation = Quaternion(0.96371144, -1.6606977e-07, -2.7624478e-09, -0.2669461)
+bones/12/rotation = Quaternion(0.10222111, 0.8557685, -0.5050681, 0.04601536)
+bones/13/rotation = Quaternion(-1.7881395e-07, 7.916217e-09, -9.3130126e-10, 1)
+bones/15/rotation = Quaternion(-1.4901161e-08, 1.583248e-08, -3.2596317e-09, 1)
+bones/16/rotation = Quaternion(-0.1713384, 0.3660816, 0.08373541, 0.91083246)
+bones/17/rotation = Quaternion(0.52210146, 0.47981375, 0.48137334, -0.5152363)
+bones/18/rotation = Quaternion(-0.4394034, -0.01870358, -0.06520587, 0.89572483)
+bones/19/rotation = Quaternion(0.0742528, -0.0038583572, -0.49330157, 0.8666748)
+bones/20/rotation = Quaternion(0.1582926, 0.9689144, -0.15384775, 0.11171104)
+bones/21/rotation = Quaternion(0.49999994, 0.5000001, 0.50000006, 0.49999994)
+bones/22/position = Vector3(0.23693204, -0.2697431, 0.25531277)
+bones/22/rotation = Quaternion(0.22145472, -0.6353435, -0.7302242, 0.11861336)
+bones/23/rotation = Quaternion(0.45292735, -0.5492823, -0.5336393, -0.45648098)
+bones/24/rotation = Quaternion(-0.45873523, -0.20983681, -0.12754865, 0.8539684)
+bones/25/rotation = Quaternion(0.12602139, 0.0065480163, 0.83722836, 0.5320945)
+bones/26/rotation = Quaternion(-0.04243407, 0.9407567, -0.2285304, -0.24688101)
+bones/28/position = Vector3(-0.11917776, -0.20282702, 0.124282345)
+bones/28/rotation = Quaternion(0.26912332, 0.6361701, 0.7130613, -0.12001628)
+bones/29/rotation = Quaternion(0.41305315, 0.40231857, 0.8167279, 0.021964723)
+bones/31/position = Vector3(-0.12218553, 1.1463335, -0.6773648)
+bones/32/position = Vector3(-0.2951172, 0.57742757, 0.9066983)
+bones/33/position = Vector3(-0.11651214, 0.22922094, -0.63865346)
+bones/33/rotation = Quaternion(0.9604738, 0.023850726, 0.086985074, -0.2633534)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MayflyV2"]
+libraries = {
+&"Lower Body": ExtResource("2_vsj8m")
+}
+
+[editable path="MayflyV2"]

@@ -1,0 +1,80 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bebb24qflfntg"
+path="res://.godot/imported/MayflyV2.glb-23894ff6ff03554bd7b639b1e8966820.scn"
+
+[deps]
+
+source_file="res://Models/Characters/Mayfly/MayflyV2.glb"
+dest_files=["res://.godot/imported/MayflyV2.glb-23894ff6ff03554bd7b639b1e8966820.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=0.009999999999999998
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=false
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"13f49f7c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Mayfly/Skins/Default/13f49f7c.tres",
+"use_external/path": "uid://d0ao2f1lqoxyb"
+},
+"3645e401": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Mayfly/Skins/Default/3645e401.tres",
+"use_external/path": "uid://qdqfy6x8hcrw"
+},
+"9f06dbc3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Mayfly/Skins/Default/9f06dbc3.tres",
+"use_external/path": "uid://ccdk6fotjgfs4"
+},
+"df542a04": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Mayfly/Skins/Default/df542a04.tres",
+"use_external/path": "uid://cvx7nb1gu0cx4"
+},
+"e391c87b": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Mayfly/Skins/Default/e391c87b.tres",
+"use_external/path": "uid://cgrkf6o8vg40a"
+},
+"ef72a3db": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Mayfly/Skins/Default/ef72a3db.tres",
+"use_external/path": "uid://j66kd5mxller"
+}
+},
+"nodes": {
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": Resource("uid://bqyvsk7cobkps", "res://Animations/CharacterBoneMap.tres")
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

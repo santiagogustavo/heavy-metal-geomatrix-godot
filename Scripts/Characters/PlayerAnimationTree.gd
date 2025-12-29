@@ -74,7 +74,7 @@ func update_combo_input() -> void:
 
 func update_combo_animation() -> void:
 	var current_node: StringName = upper_body_state_machine.get_current_node()
-	if (current_node != last_combo_animation):
+	if (current_node != last_combo_animation and current_node.contains('Attack')):
 		combo_animation_changed.emit()
 		is_attack_combo = false
 	

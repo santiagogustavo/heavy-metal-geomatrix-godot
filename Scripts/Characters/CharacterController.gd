@@ -10,6 +10,7 @@ signal damage
 @export var avatar_small: Texture2D
 @export var skins: Array[MeshInstance3D]
 @export var default_skin: int = 0
+@export var is_v2: bool = false
 
 @export_subgroup("Stats")
 @export_range(1, 3) var stat_speed: int = 1

@@ -17,7 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.00999999999999999
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
@@ -28,7 +28,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
@@ -76,13 +76,11 @@ _subresources={
 }
 },
 "nodes": {
-"PATH:AnimationPlayer": {
-"import/skip_import": true
-},
 "PATH:Armature/Skeleton3D": {
-"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
-,"bonemap":null,"bone_map/Root":&"","bone_map/Hips":&"Spine0","bone_map/Spine":&"CoreIK","bone_map/Chest":&"Spine3","bone_map/UpperChest":&"","bone_map/Neck":&"Neck","bone_map/Head":&"Head","bone_map/LeftEye":&"","bone_map/RightEye":&"","bone_map/Jaw":&"","bone_map/LeftShoulder":&"Shoulder.L","bone_map/LeftUpperArm":&"","bone_map/LeftLowerArm":&"","bone_map/LeftHand":&"Hand.L","bone_map/LeftThumbMetacarpal":&"","bone_map/LeftThumbProximal":&"","bone_map/LeftThumbDistal":&"","bone_map/LeftIndexProximal":&"","bone_map/LeftIndexIntermediate":&"","bone_map/LeftIndexDistal":&"","bone_map/LeftMiddleProximal":&"","bone_map/LeftMiddleIntermediate":&"","bone_map/LeftMiddleDistal":&"","bone_map/LeftRingProximal":&"","bone_map/LeftRingIntermediate":&"","bone_map/LeftRingDistal":&"","bone_map/LeftLittleProximal":&"","bone_map/LeftLittleIntermediate":&"","bone_map/LeftLittleDistal":&"","bone_map/RightShoulder":&"Shoulder.R","bone_map/RightUpperArm":&"","bone_map/RightLowerArm":&"","bone_map/RightHand":&"Hand.R","bone_map/RightThumbMetacarpal":&"","bone_map/RightThumbProximal":&"","bone_map/RightThumbDistal":&"","bone_map/RightIndexProximal":&"","bone_map/RightIndexIntermediate":&"","bone_map/RightIndexDistal":&"","bone_map/RightMiddleProximal":&"","bone_map/RightMiddleIntermediate":&"","bone_map/RightMiddleDistal":&"","bone_map/RightRingProximal":&"","bone_map/RightRingIntermediate":&"","bone_map/RightRingDistal":&"","bone_map/RightLittleProximal":&"","bone_map/RightLittleIntermediate":&"","bone_map/RightLittleDistal":&"","bone_map/LeftUpperLeg":&"","bone_map/LeftLowerLeg":&"Shin.L","bone_map/LeftFoot":&"Foot.L","bone_map/LeftToes":&"","bone_map/RightUpperLeg":&"","bone_map/RightLowerLeg":&"Shin.R","bone_map/RightFoot":&"Foot.R","bone_map/RightToes":&"","script":null)
-
+"rest_pose/external_animation_library": null,
+"rest_pose/load_pose": 1,
+"rest_pose/selected_animation": "T-Pose",
+"retarget/bone_map": Resource("uid://bqyvsk7cobkps", "res://Animations/CharacterBoneMap.tres")
 }
 }
 }

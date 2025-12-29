@@ -39,9 +39,14 @@ func instantiate_hit(point: Vector3, normal: Vector3, type: int):
 func detect_raycast_collision():
 	if is_attacking and raycast.is_colliding():
 		var collider: CollisionObject3D = raycast.get_collider()
-		if collider.get_rid() == player_rid or has_collided:
+		var is_self_player = (collider is CharacterHitbox) and (collider as CharacterHitbox).player_rid == player_rid
+		if (
+			!collider
+			or has_collided
+			or is_self_player
+		):
 			return
-			
+		
 		if collider is RigidBody3D:
 			var impulse = raycast.get_collision_normal() * 10
 			(collider as RigidBody3D).apply_central_impulse(impulse * -1)
@@ -49,7 +54,7 @@ func detect_raycast_collision():
 		var point = raycast.get_collision_point()
 		var normal = raycast.get_collision_normal()
 		instantiate_hit(point, normal, collider.collision_layer)
-		if collider.collision_layer == Definitions.SurfaceType.Hitbox:
+		if collider is CharacterHitbox:
 			(collider as CharacterHitbox).damage_taken(damage, point)
 		has_collided = true
 	else:
