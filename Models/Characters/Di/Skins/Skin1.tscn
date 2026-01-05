@@ -1,20 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://2hqycc5mu4gk"]
+[gd_scene load_steps=9 format=3 uid="uid://nppdq326ihs4"]
 
-[ext_resource type="PackedScene" uid="uid://qcbwpopwlp4q" path="res://Models/Characters/Di/Skins/Default.tscn" id="1_4pbkt"]
-[ext_resource type="Material" uid="uid://dqulirl41px3b" path="res://Materials/Characters/Di/Skins/Skin1/2f7c7e84.tres" id="2_jwrj6"]
-[ext_resource type="Material" uid="uid://b8fr2jylcrjnd" path="res://Materials/Characters/Di/Skins/Skin1/d5624974.tres" id="3_4kf62"]
-[ext_resource type="Material" uid="uid://b0sdvfvgvcw4a" path="res://Materials/Characters/Di/Skins/Skin1/58044425.tres" id="4_yo8nx"]
-[ext_resource type="Material" uid="uid://tk7tfbdulwus" path="res://Materials/Characters/Di/Skins/Skin1/d24287ce.tres" id="5_g65cx"]
-[ext_resource type="Material" uid="uid://d173muvhpweiu" path="res://Materials/Characters/Di/Skins/Skin1/de7c43b2.tres" id="6_lsqhx"]
-[ext_resource type="Material" uid="uid://fd47ekkva5vr" path="res://Materials/Characters/Di/Skins/Skin1/21ba9c31.tres" id="7_y7jr7"]
-[ext_resource type="Material" uid="uid://bcx8d1cdmf24n" path="res://Materials/Characters/Di/Skins/Skin1/a637d689.tres" id="8_km4kr"]
+[ext_resource type="PackedScene" uid="uid://qyu6mwstbrvs" path="res://Models/Characters/Di/Skins/Default.tscn" id="1_4eeh3"]
+[ext_resource type="Material" uid="uid://dqulirl41px3b" path="res://Materials/Characters/Di/Skins/Skin1/2f7c7e84.tres" id="2_4noc0"]
+[ext_resource type="Material" uid="uid://b8fr2jylcrjnd" path="res://Materials/Characters/Di/Skins/Skin1/d5624974.tres" id="3_08j0c"]
+[ext_resource type="Material" uid="uid://b0sdvfvgvcw4a" path="res://Materials/Characters/Di/Skins/Skin1/58044425.tres" id="4_1pt6o"]
+[ext_resource type="Material" uid="uid://tk7tfbdulwus" path="res://Materials/Characters/Di/Skins/Skin1/d24287ce.tres" id="5_vi0n8"]
+[ext_resource type="Material" uid="uid://d173muvhpweiu" path="res://Materials/Characters/Di/Skins/Skin1/de7c43b2.tres" id="6_725tx"]
+[ext_resource type="Material" uid="uid://fd47ekkva5vr" path="res://Materials/Characters/Di/Skins/Skin1/21ba9c31.tres" id="7_bwib2"]
+[ext_resource type="Material" uid="uid://bcx8d1cdmf24n" path="res://Materials/Characters/Di/Skins/Skin1/a637d689.tres" id="8_t80if"]
 
-[node name="Skin1" instance=ExtResource("1_4pbkt")]
-surface_material_override/0 = ExtResource("2_jwrj6")
-surface_material_override/1 = ExtResource("3_4kf62")
-surface_material_override/2 = ExtResource("4_yo8nx")
-surface_material_override/3 = ExtResource("5_g65cx")
-surface_material_override/4 = ExtResource("6_lsqhx")
-surface_material_override/5 = ExtResource("7_y7jr7")
-surface_material_override/6 = ExtResource("8_km4kr")
-face_surface = 5
+[node name="Skin1" instance=ExtResource("1_4eeh3")]
+surface_material_override/0 = ExtResource("2_4noc0")
+surface_material_override/1 = ExtResource("3_08j0c")
+surface_material_override/2 = ExtResource("4_1pt6o")
+surface_material_override/3 = ExtResource("5_vi0n8")
+surface_material_override/4 = ExtResource("6_725tx")
+surface_material_override/5 = ExtResource("7_bwib2")
+surface_material_override/6 = ExtResource("8_t80if")
