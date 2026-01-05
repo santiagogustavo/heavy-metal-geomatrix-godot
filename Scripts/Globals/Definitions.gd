@@ -82,7 +82,7 @@ const Scenes: Dictionary = {
 
 const Selects: Dictionary = {
 	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Select.tscn",
-	Characters.Slash: "res://Prefabs/Characters/Slash/BaseV2.tscn",
+	Characters.Slash: "res://Prefabs/Characters/Slash/Base.tscn",
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Select.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Select.tscn",
 	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn"
@@ -90,7 +90,7 @@ const Selects: Dictionary = {
 
 const Players: Dictionary = {
 	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Player.tscn",
-	Characters.Slash: "res://Prefabs/Characters/Slash/BaseV2.tscn",
+	Characters.Slash: "res://Prefabs/Characters/Slash/Base.tscn",
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Player.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Player.tscn",
 	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn",
