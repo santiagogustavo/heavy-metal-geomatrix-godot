@@ -266,7 +266,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="SelectPlayer" type="Node3D" node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "loadout_label", "ost", "cursor_sfx", "select_sfx")]
 script = ExtResource("1_c107j")
 redirect_to_scene = "res://Scenes/SelectArena.tscn"
-avatar_cards = [NodePath("Control/MarginContainer/Control/Characters/Slash"), NodePath("Control/MarginContainer/Control/Characters/Kassey"), NodePath("Control/MarginContainer/Control/Characters/Di"), NodePath("Control/MarginContainer/Control/Characters/Mayfly")]
+avatar_cards = [NodePath("Control/MarginContainer/Control/Characters/Slash"), NodePath("Control/MarginContainer/Control/Characters/Kassey"), NodePath("Control/MarginContainer/Control/Characters/Di"), NodePath("Control/MarginContainer/Control/Characters/Mayfly"), NodePath("Control/MarginContainer/Control/Characters/Hound")]
 team_icons = Array[Texture2D]([ExtResource("2_hhg02"), ExtResource("3_nm2xl"), ExtResource("4_km34c"), ExtResource("6_2w7o8")])
 character_name_label = NodePath("Control/MarginContainer/Control/Info/Character/Name")
 team_icon = NodePath("Control/MarginContainer/Control/Info/Character/Team/Icon")
@@ -395,7 +395,13 @@ character = 3
 [node name="Mayfly" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Di")
+focus_neighbor_bottom = NodePath("../Hound")
+
+[node name="Hound" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Mayfly")
 focus_neighbor_bottom = NodePath("../Slash")
+character = 4
 
 [node name="Info" type="VBoxContainer" parent="Control/MarginContainer/Control"]
 custom_minimum_size = Vector2(320, 0)
@@ -702,7 +708,7 @@ script = ExtResource("21_ha3xj")
 
 [node name="TunnelCamera" type="Camera3D" parent="TunnelViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.63)
-cull_mask = 1048571
+cull_mask = 1048563
 fov = 90.0
 
 [node name="PlayerViewport" type="SubViewport" parent="."]
@@ -713,7 +719,7 @@ script = ExtResource("21_ha3xj")
 
 [node name="PlayerCamera" type="Camera3D" parent="PlayerViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.63)
-cull_mask = 4
+cull_mask = 12
 fov = 40.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="PlayerViewport"]

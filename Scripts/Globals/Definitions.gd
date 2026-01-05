@@ -85,7 +85,7 @@ const Selects: Dictionary = {
 	Characters.Slash: "res://Prefabs/Characters/Slash/Select.tscn",
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Select.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Select.tscn",
-	Characters.Hound: "res://Prefabs/Characters/Hound/Select.tscn"
+	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn"
 }
 
 const Players: Dictionary = {
