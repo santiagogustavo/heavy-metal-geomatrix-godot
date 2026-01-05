@@ -1,0 +1,23 @@
+[gd_scene load_steps=11 format=3 uid="uid://t7t8hytne6s"]
+
+[ext_resource type="PackedScene" uid="uid://cglrt740g5kfb" path="res://Models/Characters/Slash/Skins V2/Default.tscn" id="1_6i478"]
+[ext_resource type="Material" uid="uid://d1t0bwavvu0qa" path="res://Materials/Characters/Slash/Skins/Skin3/da8223a0.tres" id="2_l755a"]
+[ext_resource type="Material" uid="uid://bdp5r7204lwpx" path="res://Materials/Characters/Slash/Skins/Skin3/22d056e4.tres" id="3_n2aqg"]
+[ext_resource type="Material" uid="uid://bh0wp14xf2hbr" path="res://Materials/Characters/Slash/Skins/Skin3/1fcbbb75.tres" id="4_eo6gw"]
+[ext_resource type="Material" uid="uid://bmhfyh7e3bh74" path="res://Materials/Characters/Slash/Skins/Skin3/f589e076.tres" id="5_ok7so"]
+[ext_resource type="Material" uid="uid://cl6ewtklmlnxj" path="res://Materials/Characters/Slash/Skins/Skin3/9f3c5156.tres" id="6_v5uqt"]
+[ext_resource type="Material" uid="uid://dordbu7rpi8es" path="res://Materials/Characters/Slash/Skins/Skin3/35c3bfba.tres" id="7_olpvf"]
+[ext_resource type="Material" uid="uid://d13qqc5ub037c" path="res://Materials/Characters/Slash/Skins/Skin3/5eccf1e4.tres" id="8_2vx4b"]
+[ext_resource type="Texture2D" uid="uid://c6lda5jwxwmgs" path="res://Textures/Characters/Slash/Skins/C/Masks/blink.png" id="9_ia1b3"]
+[ext_resource type="Texture2D" uid="uid://c1sbaijnmhx26" path="res://Textures/Characters/Slash/Skins/C/Masks/hurt.png" id="10_dcu54"]
+
+[node name="Skin3" instance=ExtResource("1_6i478")]
+surface_material_override/0 = ExtResource("2_l755a")
+surface_material_override/1 = ExtResource("3_n2aqg")
+surface_material_override/2 = ExtResource("4_eo6gw")
+surface_material_override/3 = ExtResource("5_ok7so")
+surface_material_override/4 = ExtResource("6_v5uqt")
+surface_material_override/5 = ExtResource("7_olpvf")
+surface_material_override/6 = ExtResource("8_2vx4b")
+blink_mask = ExtResource("9_ia1b3")
+hurt_eye_mask = ExtResource("10_dcu54")

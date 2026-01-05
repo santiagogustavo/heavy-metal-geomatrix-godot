@@ -18,14 +18,6 @@ signal damage
 @export_range(1, 3) var stat_power: int = 1
 @export_range(1, 3) var stat_vitality: int = 1
 
-@export_subgroup("Physics")
-@export var speed = 7.5
-@export var dashing_factor = 2.5
-@export var dashing_speed = speed + dashing_factor
-@export var jetpack_dashing_speed = dashing_speed + dashing_factor
-@export var jump_height = 10.0
-@export var weight = 2.5
-
 @export_subgroup("References")
 @export var hitboxes: Array[CharacterHitbox]
 @export var fists: Array[FistController]
@@ -57,6 +49,14 @@ signal damage
 var animation_tree: AnimationTree
 var jiggle_physics_enabled: bool = true
 var current_skin: int = default_skin
+
+# General Physics
+var speed = 7.5
+var dashing_factor = 2.5
+var dashing_speed = speed + dashing_factor
+var jetpack_dashing_speed = dashing_speed + dashing_factor
+var jump_height = 10.0
+var weight = 2.5
 
 var is_dead: bool
 var is_hurt: bool
