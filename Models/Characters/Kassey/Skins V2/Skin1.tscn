@@ -1,0 +1,17 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqt67vp121ste"]
+
+[ext_resource type="PackedScene" uid="uid://dmuralb7vf4hs" path="res://Models/Characters/Kassey/Skins V2/Default.tscn" id="1_tutri"]
+[ext_resource type="Material" uid="uid://6ngit7wtgdcs" path="res://Materials/Characters/Kassey/Skins/Skin1/f3f8de85.tres" id="2_iiwvl"]
+[ext_resource type="Material" uid="uid://hv44one2rm2s" path="res://Materials/Characters/Kassey/Skins/Skin1/2a050a45.tres" id="3_kqnd7"]
+[ext_resource type="Material" uid="uid://dfvk01wlxo77l" path="res://Materials/Characters/Kassey/Skins/Skin1/638fddd8.tres" id="4_8n2va"]
+[ext_resource type="Material" uid="uid://difhp0dy648ps" path="res://Materials/Characters/Kassey/Skins/Skin1/7737f438.tres" id="5_hi014"]
+[ext_resource type="Material" uid="uid://dln4kptlfchm6" path="res://Materials/Characters/Kassey/Skins/Skin1/f7743223.tres" id="6_n4xl4"]
+[ext_resource type="Material" uid="uid://d3fo70aj8g1tu" path="res://Materials/Characters/Kassey/Skins/Skin1/90d3b3c8.tres" id="7_0p1jq"]
+
+[node name="Skin1" instance=ExtResource("1_tutri")]
+surface_material_override/0 = ExtResource("2_iiwvl")
+surface_material_override/1 = ExtResource("3_kqnd7")
+surface_material_override/2 = ExtResource("4_8n2va")
+surface_material_override/3 = ExtResource("5_hi014")
+surface_material_override/4 = ExtResource("6_n4xl4")
+surface_material_override/5 = ExtResource("7_0p1jq")
