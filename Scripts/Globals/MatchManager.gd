@@ -105,6 +105,7 @@ func end_round(timeout: bool = false) -> bool:
 	timer.stop()
 	round_status = RoundStatus.Ended
 	is_player_input_locked = true
+	GameManager.compute_team_scores()
 	announcer.win = GameManager.is_player_one_win()
 	announcer.win_excessive = GameManager.is_player_one_win_excessive()
 	announcer.lose = GameManager.is_player_one_lose()

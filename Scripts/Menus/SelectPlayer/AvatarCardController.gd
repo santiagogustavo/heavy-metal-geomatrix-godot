@@ -11,6 +11,8 @@ class_name AvatarCard
 @onready var select: CharacterController = select_screen_player.instantiate()
 
 func _ready() -> void:
+	if select.is_v2:
+		select.is_taunt = true
 	avatar.texture = select.avatar_big
 	select.visible = false
 	mouse_entered.connect(func (): grab_focus())

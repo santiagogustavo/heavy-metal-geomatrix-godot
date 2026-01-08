@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b530ydw3ojk4a"
+path="res://.godot/imported/Special 3.wav-92ce43958da513afc0b3a71b7b580342.sample"
+
+[deps]
+
+source_file="res://Sound/Characters/Hound/Specials/Special 3.wav"
+dest_files=["res://.godot/imported/Special 3.wav-92ce43958da513afc0b3a71b7b580342.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

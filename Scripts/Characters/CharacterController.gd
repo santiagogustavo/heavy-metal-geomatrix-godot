@@ -10,19 +10,13 @@ signal damage
 @export var avatar_small: Texture2D
 @export var skins: Array[MeshInstance3D]
 @export var default_skin: int = 0
+@export var is_v2: bool = false
+@export var is_taunt: bool = false
 
 @export_subgroup("Stats")
 @export_range(1, 3) var stat_speed: int = 1
 @export_range(1, 3) var stat_power: int = 1
 @export_range(1, 3) var stat_vitality: int = 1
-
-@export_subgroup("Physics")
-@export var speed = 7.5
-@export var dashing_factor = 2.5
-@export var dashing_speed = speed + dashing_factor
-@export var jetpack_dashing_speed = dashing_speed + dashing_factor
-@export var jump_height = 10.0
-@export var weight = 2.5
 
 @export_subgroup("References")
 @export var hitboxes: Array[CharacterHitbox]
@@ -32,12 +26,20 @@ signal damage
 @export var animation_tree_reference: PackedScene
 @export var custom_animation_tree_reference: PackedScene
 
+@export_subgroup("Animation Trees")
+@export var gameplay_animation_tree: PackedScene
+@export var taunt_animation_tree: PackedScene
+
 @export_subgroup("Inventory")
 @export var body_slot: BoneAttachment3D
 @export var right_hand_slot: BoneAttachment3D
 
 @export_subgroup("Loadout")
 @export var initial_loadout: PackedScene
+
+@export_subgroup("Offsets")
+@export var round_pivot_offset: Marker3D
+@export var camera_pivot_offset: Marker3D
 
 @onready var hitmarker: PackedScene = load("res://Prefabs/Player/Hitmarker.tscn")
 
@@ -48,16 +50,30 @@ var animation_tree: AnimationTree
 var jiggle_physics_enabled: bool = true
 var current_skin: int = default_skin
 
+# General Physics
+var speed = 7.5
+var dashing_factor = 2.5
+var dashing_speed = speed + dashing_factor
+var jetpack_dashing_speed = dashing_speed + dashing_factor
+var jump_height = 10.0
+var weight = 2.5
+
 var is_dead: bool
 var is_hurt: bool
 
 var player_rid: RID
 
 func _ready() -> void:
-	if animation_tree_reference:
-		animation_tree = animation_tree_reference.instantiate() as PlayerAnimationTree
-	elif custom_animation_tree_reference:
-		animation_tree = custom_animation_tree_reference.instantiate() as AnimationTree
+	if is_v2:
+		if is_taunt:
+			animation_tree = taunt_animation_tree.instantiate() as AnimationTree
+		else:
+			animation_tree = gameplay_animation_tree.instantiate() as PlayerAnimationTree
+	else:
+		if animation_tree_reference:
+			animation_tree = animation_tree_reference.instantiate() as PlayerAnimationTree
+		elif custom_animation_tree_reference:
+			animation_tree = custom_animation_tree_reference.instantiate() as AnimationTree
 	if animation_tree != null:
 		add_child(animation_tree)
 		animation_tree.anim_player = NodePath('./Model/AnimationPlayer')

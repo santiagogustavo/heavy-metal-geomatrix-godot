@@ -60,6 +60,7 @@ spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Point
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")
 play_versus_screen = false
+spawn_bots_count = 0
 is_rainy = true
 
 [node name="Spawn Points" type="Node3D" parent="."]
@@ -153,5 +154,10 @@ item = ExtResource("20_vvk7a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)
 timeout = 15.0
 item = ExtResource("21_6vc2e")
+
+[node name="Pickup3" parent="." instance=ExtResource("19_3kfwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -4.0392833)
+timeout = 15.0
+item = ExtResource("6_2od80")
 
 [editable path="Spawner"]

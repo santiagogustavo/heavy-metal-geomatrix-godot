@@ -46,9 +46,10 @@ func add_bot() -> String:
 	var instance: Player = resource.instantiate()
 	instance.selected_character = [
 		#Definitions.Characters.Mayfly,
-		#Definitions.Characters.Slash,
+		Definitions.Characters.Slash
 		#Definitions.Characters.Di,
-		Definitions.Characters.Kassey
+		#Definitions.Characters.Kassey,
+		#Definitions.Characters.Hound
 	].pick_random()
 	instance.selected_skin = 0
 	#instance.selected_skin = randi_range(0, 3)

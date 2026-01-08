@@ -136,16 +136,21 @@ func add_player(player: Player, team: int) -> bool:
 func team_was_killed(last_killed_player: Player) -> void:
 	if current_match.can_end_round() and get_teams_alive().size() <= 1:
 		current_match.end_round()
-		var winning_team = get_teams_alive()[0]
-		for team in teams:
-			if winning_team.name == team.name and team.is_team_full_health():
-				team.round_results.append(MatchManager.RoundResult.Excessive)
-				team.score += 1
-			elif winning_team.name == team.name:
-				team.round_results.append(MatchManager.RoundResult.Win)
-				team.score += 1
 		if get_player_one():
 			get_player_one().move_ko_pivot(last_killed_player.global_position, last_killed_player.global_rotation)
+
+func compute_team_scores() -> void:
+	var teams_alive = get_teams_alive()
+	var healthiest_team = get_healthiest_team()
+	var is_a_draw = is_match_a_draw()
+	for team in teams_alive:
+		var team_has_scored = is_a_draw or healthiest_team.name == team.name
+		if team_has_scored and team.is_team_full_health():
+			team.round_results.append(MatchManager.RoundResult.Excessive)
+			team.score += 1
+		elif team_has_scored:
+			team.round_results.append(MatchManager.RoundResult.Win)
+			team.score += 1
 
 func get_teams_alive() -> Array[Team]:
 	var teams_alive: Array[Team] = []
