@@ -44,6 +44,7 @@ func _processed_input(delta: float) -> void:
 		compute_shoot_and_attack()
 		compute_pickup()
 		compute_lock_on()
+		compute_free_look()
 	else:
 		player.brain.is_shooting = false
 		player.brain.is_attacking = false
@@ -176,3 +177,7 @@ func update_dash() -> void:
 
 func compute_pickup():
 	player.brain.is_picking_up = Input.is_action_just_pressed("pickup") and player.brain.can_pickup
+
+func compute_free_look():
+	if Input.is_action_just_pressed("toggle_free_look"):
+		player.brain.is_free_look = !player.brain.is_free_look

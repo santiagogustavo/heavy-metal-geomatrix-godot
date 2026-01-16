@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1mhophsi8fwq"]
+[gd_scene load_steps=14 format=3 uid="uid://b1mhophsi8fwq"]
 
 [ext_resource type="Script" uid="uid://d2fwsrnvwkoul" path="res://Scripts/Player/RoundCameraController.gd" id="1_32jy6"]
 [ext_resource type="Shader" uid="uid://cpbf40viiiqlf" path="res://Materials/Shaders/Invert Color.gdshader" id="2_lmkaa"]
 [ext_resource type="PackedScene" uid="uid://ybnlc81pj2o3" path="res://Prefabs/Gizmos/CameraGizmo.tscn" id="3_ldk34"]
 [ext_resource type="Texture2D" uid="uid://cb7it1kh1b30u" path="res://Textures/Utils/photo-camera.png" id="4_5gotm"]
-[ext_resource type="PackedScene" uid="uid://bu2ontvhx7wrb" path="res://Models/Characters/Mayfly/Mayfly.glb" id="5_kq835"]
+[ext_resource type="PackedScene" uid="uid://cglrt740g5kfb" path="res://Models/Characters/Slash/Skins/Default.tscn" id="5_5l0kk"]
+[ext_resource type="Texture2D" uid="uid://qo0i1lcfs8q3" path="res://Textures/Characters/Slash/Skins/Default/f589e076.png" id="6_fgf5q"]
+[ext_resource type="Texture2D" uid="uid://tkn1umjwsirn" path="res://Textures/Characters/Slash/f589e076_spec.png" id="7_v4ee1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jrx0v"]
 shader = ExtResource("2_lmkaa")
@@ -102,6 +104,12 @@ _data = {
 &"RESET": SubResource("Animation_wx63i")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1u7x"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("6_fgf5q")
+ao_enabled = true
+ao_texture = ExtResource("7_v4ee1")
+
 [node name="RoundPivot" type="Marker3D"]
 script = ExtResource("1_32jy6")
 
@@ -129,14 +137,15 @@ grow_vertical = 2
 surface_material_override/0 = SubResource("StandardMaterial3D_gldn2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.965926, 0.249999, 0.0669904, 0.258819, 0.933013, 0.25, -3.1963e-06, 0.25882, -0.965926, 0, 2, -2)
+transform = Transform3D(-0.96592605, 0.24999888, 0.06699035, 0.25881872, 0.93301314, 0.24999985, -3.1962995e-06, 0.25881967, -0.9659261, 0, 2, -2)
 fov = 70.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_eghe4")
+&"": SubResource("AnimationLibrary_eghe4")
 }
 
-[node name="TEST" parent="." instance=ExtResource("5_kq835")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="TEST" parent="." instance=ExtResource("5_5l0kk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 visible = false
+surface_material_override/3 = SubResource("StandardMaterial3D_h1u7x")

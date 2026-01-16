@@ -10,6 +10,10 @@ var is_shooting: bool = false
 var is_attacking: bool = false
 var is_picking_up: bool = false
 var is_on_floor: bool = true
+var is_free_look: bool = false
+var should_look_at_target: bool = false
+
+var is_movement_locked: bool = false
 
 var can_double_jump: bool = false
 var can_pickup: bool = false
@@ -22,7 +26,14 @@ var dash_duration: float = 1.0
 var dash_timeout_active: bool = false
 
 func _process(_delta: float) -> void:
-	if !is_walking:
+	should_look_at_target = (
+		!is_free_look or
+		is_aiming or
+		is_walking or
+		is_shooting or
+		is_attacking
+	)
+	if !is_walking or is_movement_locked:
 		is_dashing = false
 	if is_dashing and !dash_timeout_active:
 		dash_timeout_active = true

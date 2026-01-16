@@ -10,7 +10,6 @@ signal damage
 @export var avatar_small: Texture2D
 @export var skins: Array[MeshInstance3D]
 @export var default_skin: int = 0
-@export var is_v2: bool = false
 @export var is_taunt: bool = false
 
 @export_subgroup("Stats")
@@ -23,8 +22,6 @@ signal damage
 @export var fists: Array[FistController]
 @export var jiggle_bones: Array[WiggleBone]
 @export var sfx_controller: CharacterSFXController
-@export var animation_tree_reference: PackedScene
-@export var custom_animation_tree_reference: PackedScene
 
 @export_subgroup("Animation Trees")
 @export var gameplay_animation_tree: PackedScene
@@ -64,16 +61,10 @@ var is_hurt: bool
 var player_rid: RID
 
 func _ready() -> void:
-	if is_v2:
-		if is_taunt:
-			animation_tree = taunt_animation_tree.instantiate() as AnimationTree
-		else:
-			animation_tree = gameplay_animation_tree.instantiate() as PlayerAnimationTree
+	if is_taunt:
+		animation_tree = taunt_animation_tree.instantiate() as AnimationTree
 	else:
-		if animation_tree_reference:
-			animation_tree = animation_tree_reference.instantiate() as PlayerAnimationTree
-		elif custom_animation_tree_reference:
-			animation_tree = custom_animation_tree_reference.instantiate() as AnimationTree
+		animation_tree = gameplay_animation_tree.instantiate() as PlayerAnimationTree
 	if animation_tree != null:
 		add_child(animation_tree)
 		animation_tree.anim_player = NodePath('./Model/AnimationPlayer')
@@ -122,6 +113,24 @@ func stop_talking() -> void:
 	for skin: MeshInstance3D in skins:
 		if skin is AnimatedTexturesMesh:
 			skin.is_talking = false
+
+func set_full_body(blend: float = 1.0) -> void:
+	animation_tree.set("parameters/Full Body/blend_amount", clampf(blend, 0.0, 1.0))
+
+func set_movement_locked(locked: bool) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.brain.is_movement_locked = locked
+
+func advance_up(amount: float = 10.0) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.apply_force(Vector3(0, amount, 0))
+
+func advance_forward(amount: float = 30.0) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.apply_force(Vector3(0, 0, amount))
 
 func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vector3) -> void:
 	var hitmarker_instance: Hitmarker = hitmarker.instantiate()

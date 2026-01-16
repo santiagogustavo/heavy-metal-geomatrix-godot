@@ -47,6 +47,7 @@ var inventory_manager: InventoryManager
 var is_pickup_collided: bool = false
 var is_pickup_on_press: bool = false
 var shoot_target: Vector3 = Vector3.ZERO
+var initial_character_rotation: Vector3 = Vector3.ZERO
 
 var player_input: PlayerInputManager
 var player_ui: Node2D
@@ -86,6 +87,7 @@ func _ready() -> void:
 	character = load(Definitions.Players[selected_character]).instantiate()
 	character.player_rid = get_rid()
 	character.damage.connect(damage_player)
+	initial_character_rotation = character.rotation
 	if character.round_pivot_offset and round_pivot:
 		round_pivot.position = character.round_pivot_offset.position
 	if character.camera_pivot_offset and camera_pivot:
@@ -108,7 +110,6 @@ func _ready() -> void:
 				fist.can_hit = true
 		)
 		animation_tree.combo_animation_changed.connect(func ():
-			force.z = 30.0
 			if inventory_manager.right_hand_instance is SwordController:
 				inventory_manager.right_hand_instance.is_swinging = true
 		)
@@ -127,9 +128,9 @@ func _physics_process(delta: float) -> void:
 		collide(raycast.get_collider())
 	move_and_slide()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	update_internals()
-	update_externals()
+	update_externals(delta)
 	look_at_target_position()
 	set_animator_variables()
 	set_camera_variables()
@@ -158,6 +159,7 @@ func lock_on_to_next_target() -> void:
 		GameManager.get_enemies(team.name)[lock_on_target].add_child(lock_on_instance)
 
 func reset_player_to_spawn() -> void:
+	character.rotation = Vector3.ZERO
 	if spawn_point:
 		position = spawn_point.global_position
 		rotation = spawn_point.global_rotation
@@ -188,7 +190,7 @@ func update_internals() -> void:
 		rotation = player_input.rotation
 	character.current_skin = clamp(selected_skin, 0, character.skins.size() - 1)
 
-func update_externals() -> void:
+func update_externals(delta: float) -> void:
 	if player_input:
 		is_locked_on = lock_on_target != -1
 		player_input.is_locked_on = is_locked_on
@@ -209,6 +211,7 @@ func update_externals() -> void:
 	dash.is_dashing = brain.is_dashing
 	dash.input_direction = brain.input_direction
 	dash.player_velocity = velocity
+	compute_free_look(delta)
 
 func look_at_target_position() -> void:
 	#var initial_rotation: Vector3 = rotation
@@ -218,6 +221,22 @@ func look_at_target_position() -> void:
 	if player_input and player_input.is_locked_on:
 		camera_pivot.look_at(target_position)
 		brain.new_rotation = camera_pivot.global_rotation
+
+func compute_free_look(delta: float) -> void:
+	var new_rotation: Vector3 = character.rotation
+	if brain.is_free_look:
+		character.top_level = true
+		character.global_position = global_position
+		if brain.should_look_at_target:
+			new_rotation = global_rotation
+	else:
+		character.top_level = false
+		new_rotation = initial_character_rotation
+	character.rotation.y = lerp_angle(
+		character.rotation.y,
+		new_rotation.y,
+		delta * 30
+	)
 
 func compute_movement() -> void:
 	current_speed = character.speed
@@ -233,14 +252,14 @@ func compute_movement() -> void:
 	):
 		current_speed = character.jetpack_dashing_speed
 	
-	if player_input and brain.is_walking:
+	if player_input and brain.is_walking and !brain.is_movement_locked:
 		velocity.x = brain.direction.x * current_speed
 		velocity.z = brain.direction.z * current_speed
 	elif player_input:
 		velocity.x = move_toward(brain.direction.x, 0, current_speed)
 		velocity.z = move_toward(brain.direction.z, 0, current_speed)
 	
-	if brain.is_jumping or brain.is_double_jumping:
+	if (brain.is_jumping or brain.is_double_jumping) and !brain.is_movement_locked:
 		velocity.y = character.jump_height
 
 func switch_to_player_camera() -> void:
@@ -251,11 +270,15 @@ func move_ko_pivot(new_position: Vector3, new_rotation: Vector3) -> void:
 	ko_pivot.global_position = new_position + ko_offset
 	ko_pivot.global_rotation = new_rotation
 
+func apply_force(applied_force: Vector3) -> void:
+	force += applied_force
+
 func compute_forces(delta: float) -> void:
-	force.z -= friction * delta
-	force.z = clamp(force.z, 0.0, INF)
-	var global_direction = global_transform.basis * Vector3(0, 0, -1)
-	velocity += global_direction * force.z
+	force -= Vector3.ONE * friction * delta
+	force = force.clamp(Vector3.ZERO, Vector3.INF)
+	var local_z_direction = character.global_transform.basis * Vector3(0, 0, -1)
+	velocity += local_z_direction * force.z
+	velocity.y += force.y
 
 func compute_gravity(delta: float) -> void:
 	velocity.y -= character.weight * Definitions.Gravity * delta
@@ -288,6 +311,8 @@ func set_animator_variables() -> void:
 		animation_tree.look = Vector2(0, camera.global_rotation.x * -0.6)
 	if player_bot_ai:
 		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6)
+	if !brain.should_look_at_target:
+		animation_tree.look = Vector2.ZERO
 	animation_tree.is_on_floor = brain.is_on_floor
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping
