@@ -25,7 +25,7 @@ func collide(collision: KinematicCollision3D):
 	if (collider as CharacterHitbox).player_rid == player_rid or !is_attacking or !can_hit:
 		return
 	can_hit = false
-	(collider as CharacterHitbox).damage_taken(damage, collision.get_position())
+	(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), global_position)
 	var point: Vector3 = collision.get_position()
 	var normal: Vector3 = collision.get_normal()
 	instantiate_hit(point, normal)

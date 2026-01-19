@@ -50,7 +50,7 @@ var shoot_target: Vector3 = Vector3.ZERO
 var initial_character_rotation: Vector3 = Vector3.ZERO
 
 var player_input: PlayerInputManager
-var player_ui: Node2D
+var player_ui: PlayerUI
 
 var player_bot_ai: PlayerBotAI
 

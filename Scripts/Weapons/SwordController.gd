@@ -55,7 +55,7 @@ func detect_raycast_collision():
 		var normal = raycast.get_collision_normal()
 		instantiate_hit(point, normal, collider.collision_layer)
 		if collider is CharacterHitbox:
-			(collider as CharacterHitbox).damage_taken(damage, point)
+			(collider as CharacterHitbox).damage_taken(damage, point, global_position)
 		has_collided = true
 	else:
 		has_collided = false

@@ -1,4 +1,7 @@
+class_name PlayerHUD
 extends CanvasLayer
+
+@onready var main_container: Control = $Container/Control
 
 func _process(_delta: float) -> void:
 	var current_match: MatchManager = GameManager.current_match

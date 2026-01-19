@@ -204,12 +204,14 @@ func compute_target() -> void:
 	set_navigation_target(target_position)
 
 func compute_closest_enemy() -> void:
+	if !GameManager.current_match or !GameManager.current_match.is_ongoing:
+		return
 	var enemies: Array[Player] = GameManager.get_enemies(player.team.name)
 	enemy_position = get_closest_position(enemies)
 	enemy_distance = get_distance_to_target(enemy_position)
 
 func compute_closest_pickup() -> void:
-	if !GameManager.current_level_config.pickup_spawner:
+	if !GameManager.current_level_config or !GameManager.current_level_config.pickup_spawner:
 		return
 	var pickups: Array[Node3D] = GameManager.current_level_config.pickup_spawner.spawned_pickups
 	var filtered_pickups: Array[Node3D]

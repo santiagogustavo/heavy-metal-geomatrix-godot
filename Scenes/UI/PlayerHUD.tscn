@@ -374,7 +374,7 @@ script = ExtResource("8_5ig34")
 
 [node name="HealthBackground" type="TextureRect" parent="Container/Control/Player"]
 material = SubResource("ShaderMaterial_iknaq")
-layout_mode = 2
+layout_mode = 0
 offset_left = 93.0
 offset_top = 43.0
 offset_right = 388.0
@@ -384,7 +384,7 @@ expand_mode = 1
 
 [node name="Avatar" type="TextureRect" parent="Container/Control/Player"]
 material = SubResource("ShaderMaterial_lbkkf")
-layout_mode = 2
+layout_mode = 0
 offset_left = 8.0
 offset_top = 4.0
 offset_right = 97.0
@@ -393,7 +393,7 @@ texture = ExtResource("12_tjik2")
 expand_mode = 1
 
 [node name="PlayerName" type="Label" parent="Container/Control/Player"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 96.4706
 offset_top = 3.52941
 offset_right = 230.471
@@ -405,7 +405,7 @@ uppercase = true
 
 [node name="HealthBarShadow" type="ColorRect" parent="Container/Control/Player"]
 material = SubResource("ShaderMaterial_gcgwj")
-layout_mode = 2
+layout_mode = 0
 offset_left = 93.0
 offset_top = 43.0
 offset_right = 389.0
@@ -414,7 +414,7 @@ color = Color(1, 0.25, 0.25, 1)
 
 [node name="HealthBar" type="ColorRect" parent="Container/Control/Player"]
 material = SubResource("ShaderMaterial_bxa2b")
-layout_mode = 2
+layout_mode = 0
 offset_left = 93.0
 offset_top = 43.0
 offset_right = 389.0
@@ -435,7 +435,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Decoration" type="TextureRect" parent="Container/Control/Player"]
-layout_mode = 2
+layout_mode = 0
 offset_right = 396.0
 offset_bottom = 101.0
 texture = ExtResource("12_34r24")

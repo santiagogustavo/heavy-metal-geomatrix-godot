@@ -67,9 +67,10 @@ func _burst_fire() -> void:
 		get_tree().create_timer(burst_rate).connect("timeout", _burst_fire)
 
 func instantiate_bullet(newPosition: Vector3, newBasis: Basis) -> Node3D:
-	var bullet_instance = bullet.instantiate()
+	var bullet_instance: Bullet = bullet.instantiate()
 	bullet_instance.position = newPosition
 	bullet_instance.transform.basis = newBasis
+	bullet_instance.emissor_position = global_position
 	get_tree().root.add_child(bullet_instance)
 	return bullet_instance
 

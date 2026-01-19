@@ -1,3 +1,4 @@
+class_name Bullet
 extends RigidBody3D
 
 @export_subgroup("Properties")
@@ -11,6 +12,8 @@ extends RigidBody3D
 @export var stone_decal: PackedScene
 @export var dirt_decal: PackedScene
 @export var blood_decal: PackedScene
+
+var emissor_position: Vector3
 
 func _physics_process(delta: float):
 	var collision: KinematicCollision3D = move_and_collide(transform.basis * Vector3(0, 0, -1) * speed * delta)
@@ -44,7 +47,7 @@ func collide(collision: KinematicCollision3D):
 
 	# if collider is world boundary
 	if collider.collision_layer == Definitions.SurfaceType.Hitbox:
-		(collider as CharacterHitbox).damage_taken(damage, collision.get_position())
+		(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), emissor_position)
 	if collider.collision_layer == Definitions.SurfaceType.WorldBoundary:
 		queue_free()
 	else:

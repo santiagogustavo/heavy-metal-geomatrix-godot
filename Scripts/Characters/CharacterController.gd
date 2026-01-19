@@ -39,6 +39,7 @@ signal damage
 @export var camera_pivot_offset: Marker3D
 
 @onready var hitmarker: PackedScene = load("res://Prefabs/Player/Hitmarker.tscn")
+@onready var damage_indicator: PackedScene = load("res://Prefabs/Player/DamageIndicator.tscn")
 
 # Internals
 @onready var character_name: String = Definitions.CharacterNames[character]
@@ -140,15 +141,25 @@ func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vect
 	hitmarker_instance.position.x += 0.5
 	hitmarker_instance.global_position = hit_position
 
+func create_damage_indicator(emissor_position: Vector3) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player and player.player_type == Player.PlayerType.Player1:
+		var damage_indicator_instance: DamageIndicator = damage_indicator.instantiate()
+		damage_indicator_instance.player_camera = player.camera
+		damage_indicator_instance.target_position = emissor_position
+		player.player_ui.player_hud.main_container.add_child(damage_indicator_instance)
+
 func take_damage_from_hitbox(
 	damage_taken: float,
 	damage_factor: float,
-	hit_position: Vector3
+	hit_position: Vector3,
+	emissor_position: Vector3
 ) -> void:
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
 	if GameplaySettingsManager.hitmarkers_enabled:
 		create_hitmarker(total_damage, is_critical, hit_position)
+		create_damage_indicator(emissor_position)
 	if is_dead:
 		return
 	damage.emit(total_damage)

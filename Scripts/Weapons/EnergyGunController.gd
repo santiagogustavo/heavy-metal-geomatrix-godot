@@ -63,7 +63,7 @@ func detect_raycast_collision(delta: float) -> void:
 			var normal = raycast.get_collision_normal()
 			instantiate_hit(point, normal, collider.collision_layer)
 			if collider.collision_layer == Definitions.SurfaceType.Hitbox:
-				(collider as CharacterHitbox).damage_taken(damage * delta, point)
+				(collider as CharacterHitbox).damage_taken(damage * delta, point, global_position)
 			frames_elapsed = 0
 			return
 
