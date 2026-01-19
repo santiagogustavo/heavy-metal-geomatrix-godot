@@ -159,12 +159,14 @@ func lock_on_to_next_target() -> void:
 		GameManager.get_enemies(team.name)[lock_on_target].add_child(lock_on_instance)
 
 func reset_player_to_spawn() -> void:
-	character.rotation = Vector3.ZERO
 	if spawn_point:
 		position = spawn_point.global_position
 		rotation = spawn_point.global_rotation
 	if brain:
+		brain.reset_brain()
 		brain.new_rotation = rotation
+		if brain.is_free_look:
+			character.rotation = spawn_point.global_rotation
 	if player_bot_ai:
 		player_bot_ai.state = PlayerBotAI.AIState.Idle
 	if animation_tree:
