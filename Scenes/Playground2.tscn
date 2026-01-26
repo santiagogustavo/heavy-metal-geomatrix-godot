@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene load_steps=31 format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lgjqh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dtnqa6yywxj68" path="res://Prefabs/Pickups/Pickup.tscn" id="19_3kfwb"]
 [ext_resource type="PackedScene" uid="uid://dtuv3k4y52i7i" path="res://Prefabs/Weapons/FAKK2/Chain Sword.tscn" id="20_vvk7a"]
 [ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="21_6vc2e"]
+[ext_resource type="PackedScene" uid="uid://cb566xay4rmx4" path="res://Prefabs/Particles/ExplosionBig.tscn" id="22_sl81g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
 panorama = ExtResource("2_rlu7d")
@@ -159,5 +160,8 @@ item = ExtResource("21_6vc2e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -4.0392833)
 timeout = 15.0
 item = ExtResource("6_2od80")
+
+[node name="Explosion" parent="." instance=ExtResource("22_sl81g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6551037, -5.9980764, -16.640629)
 
 [editable path="Spawner"]

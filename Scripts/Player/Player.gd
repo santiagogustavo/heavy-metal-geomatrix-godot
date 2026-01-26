@@ -165,7 +165,8 @@ func reset_player_to_spawn() -> void:
 	if brain:
 		brain.reset_brain()
 		brain.new_rotation = rotation
-		if brain.is_free_look:
+		if brain.is_free_look and spawn_point:
+			character.top_level = true
 			character.rotation = spawn_point.global_rotation
 	if player_bot_ai:
 		player_bot_ai.state = PlayerBotAI.AIState.Idle

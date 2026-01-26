@@ -25,6 +25,7 @@ func spawn_player(player: Player, spawn_point: SpawnPoint) -> void:
 	player.spawn_point = spawn_point
 	get_tree().root.add_child.call_deferred(player)
 	await player.player_ready
+	player.reset_player_to_spawn()
 	spawned_player.emit(player)
 	player.player_killed.connect(func (): on_player_killed(player))
 

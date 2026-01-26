@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj4w4gcpicofu"]
+
+[ext_resource type="PackedScene" uid="uid://sn64sugohhia" path="res://Models/Weapons/Grenade.glb" id="1_povim"]
+[ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Common/Bullet.tscn" id="2_qka4c"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Grenade" parent="." instance=ExtResource("1_povim")]
+transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, 0, 0, 0)
+
+[node name="Bullet" parent="." instance=ExtResource("2_qka4c")]
+visible = false
+
+[editable path="Bullet"]
+[editable path="Bullet/Mesh"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene load_steps=42 format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lhsfh"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="23_6njym"]
 [ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_uu1cf"]
 [ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="25_nhjaw"]
+[ext_resource type="PackedScene" uid="uid://cb566xay4rmx4" path="res://Prefabs/Particles/ExplosionBig.tscn" id="25_ptem2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("2_pg3qa")
@@ -233,5 +234,8 @@ item = ExtResource("23_6njym")
 
 [node name="Guillotine" parent="." instance=ExtResource("25_nhjaw")]
 transform = Transform3D(-0.7388318, 0, -0.6738898, 0, 1, 0, 0.6738898, 0, -0.7388318, 11.973581, -0.023739815, 10.645496)
+
+[node name="ExplosionBig" parent="." instance=ExtResource("25_ptem2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.974228, 0.028234363, -1.5326158)
 
 [editable path="Spawner"]

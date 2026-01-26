@@ -56,7 +56,7 @@ enum Characters {
 	Kassey,
 	Di,
 	Hound,
-	Dummy,
+	Pufferson,
 }
 
 const TeamNames: Dictionary = {
@@ -72,7 +72,7 @@ const CharacterNames: Dictionary = {
 	Characters.Kassey: "Kassey",
 	Characters.Di: "Di",
 	Characters.Hound: "Hound",
-	Characters.Dummy: "Dummy"
+	Characters.Pufferson: "Pufferson"
 }
 
 const Scenes: Dictionary = {
@@ -94,7 +94,7 @@ const Players: Dictionary = {
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Base.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Base.tscn",
 	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn",
-	Characters.Dummy: "res://Prefabs/Characters/Dummy/Player.tscn"
+	Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn"
 }
 
 const WeaponRange: Dictionary = {
