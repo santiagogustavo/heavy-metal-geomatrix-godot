@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="15_yy7dp"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="16_euj4p"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="16_sdprx"]
-[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="17_euj4p"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="17_6njym"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="19_4nt3m"]
 [ext_resource type="PackedScene" uid="uid://dtnqa6yywxj68" path="res://Prefabs/Pickups/Pickup.tscn" id="22_4nt3m"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_4s6i1"]
@@ -206,7 +206,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 [node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("16_sdprx")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
-items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_euj4p"), ExtResource("24_uu1cf"), ExtResource("19_4nt3m")])
+items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_6njym"), ExtResource("24_uu1cf"), ExtResource("19_4nt3m")])
 
 [node name="World Boundaries" parent="." instance=ExtResource("22_4s6i1")]
 

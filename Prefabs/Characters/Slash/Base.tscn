@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="5_gjt6c"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_hhmb0"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="5_yfynj"]
-[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="6_hhmb0"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="6_msvhg"]
 [ext_resource type="AudioStream" uid="uid://citc7ltmti8jj" path="res://Sound/Characters/Slash/Taunts/Entrance.wav" id="6_u1owl"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="6_wmxk3"]
 [ext_resource type="AudioStream" uid="uid://dx5w5kgydqstp" path="res://Sound/Characters/Slash/Taunts/Win.wav" id="7_y61a5"]
 [ext_resource type="AudioStream" uid="uid://ueewreyl8s8t" path="res://Sound/Characters/Slash/Taunts/Lose.wav" id="8_fu0jm"]
 [ext_resource type="PackedScene" uid="uid://cglrt740g5kfb" path="res://Models/Characters/Slash/Skins/Default.tscn" id="8_nowrf"]
@@ -103,7 +103,6 @@ character = 1
 avatar_big = ExtResource("2_gjt6c")
 avatar_small = ExtResource("3_msvhg")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
-is_v2 = true
 stat_speed = 3
 stat_power = 2
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
@@ -114,7 +113,7 @@ gameplay_animation_tree = ExtResource("4_rwktk")
 taunt_animation_tree = ExtResource("5_hhmb0")
 body_slot = NodePath("Model/Armature/GeneralSkeleton/Body Slot")
 right_hand_slot = NodePath("Model/Armature/GeneralSkeleton/Right Hand Slot")
-initial_loadout = ExtResource("6_hhmb0")
+initial_loadout = ExtResource("6_wmxk3")
 
 [node name="Model" parent="." instance=ExtResource("1_8wfds")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)

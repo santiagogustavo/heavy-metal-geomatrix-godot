@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_nkony"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="6_2od80"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="6_qglil"]
-[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="7_3kfwb"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="7_sl81g"]
 [ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="8_vvk7a"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="9_6vc2e"]
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="10_sl81g"]
@@ -85,7 +85,7 @@ light_energy = 0.1
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_3kfwb"), ExtResource("8_vvk7a"), ExtResource("9_6vc2e"), ExtResource("10_sl81g"), ExtResource("11_1dd0n"), ExtResource("12_hw50o"), ExtResource("13_bc0go")])
+items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_sl81g"), ExtResource("8_vvk7a"), ExtResource("9_6vc2e"), ExtResource("10_sl81g"), ExtResource("11_1dd0n"), ExtResource("12_hw50o"), ExtResource("13_bc0go")])
 
 [node name="Level Geometry" type="Node3D" parent="."]
 

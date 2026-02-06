@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="31_a3hbx"]
 [ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="32_4nhff"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
-[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="33_3yyu5"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="32_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="34_ajwuo"]
 [ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="35_pulof"]
 
@@ -746,7 +746,7 @@ end_position = Vector3(-1.721, -1.82292, 0.0225544)
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("32_4nhff"), ExtResource("33_3yyu5"), ExtResource("34_ajwuo"), ExtResource("35_pulof")])
+items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("32_4nhff"), ExtResource("32_u1d5f"), ExtResource("34_ajwuo"), ExtResource("35_pulof")])
 
 [node name="Invisible Walls" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8619, 4.12044, -25.0382)
