@@ -35,6 +35,7 @@ func _ready() -> void:
 				create_bot()
 		if !GameManager.current_match:
 			GameManager.create_match(MatchManager.new())
+			GameManager.current_match.time = 99
 		GameManager.spawn_players()
 		GameManager.added_player.connect(on_player_added)
 		if play_versus_screen:

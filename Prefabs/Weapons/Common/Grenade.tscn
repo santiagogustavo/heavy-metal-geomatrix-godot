@@ -1,15 +1,102 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj4w4gcpicofu"]
+[gd_scene load_steps=18 format=3 uid="uid://cj4w4gcpicofu"]
 
+[ext_resource type="Script" uid="uid://cybkhxuww1dsq" path="res://Scripts/Weapons/BulletController.gd" id="1_lqnav"]
 [ext_resource type="PackedScene" uid="uid://sn64sugohhia" path="res://Models/Weapons/Grenade.glb" id="1_povim"]
-[ext_resource type="PackedScene" uid="uid://2dqf8eoucva7" path="res://Prefabs/Weapons/Common/Bullet.tscn" id="2_qka4c"]
+[ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="1_qka4c"]
+[ext_resource type="PackedScene" uid="uid://cb566xay4rmx4" path="res://Prefabs/Particles/ExplosionBig.tscn" id="2_71cgi"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lqnav"]
+rough = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dnl62"]
+radius = 0.068359375
+height = 0.19824219
+
+[sub_resource type="Curve" id="Curve_lqnav"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_71cgi"]
+curve = SubResource("Curve_lqnav")
+
+[sub_resource type="Curve" id="Curve_2kx0u"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kxkim"]
+curve = SubResource("Curve_2kx0u")
+
+[sub_resource type="Gradient" id="Gradient_h5moo"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(1, 0.305882, 0, 1, 0.04, 0.04, 0.04, 0.5686275, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dgkbu"]
+gradient = SubResource("Gradient_h5moo")
+
+[sub_resource type="Curve" id="Curve_nyo2d"]
+_data = [Vector2(0, 0), 0.0, 4.516855, 0, 0, Vector2(1, 1), -0.16131617, 1.33017, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_tdsgc"]
+curve = SubResource("Curve_nyo2d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_82v5k"]
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_71cgi")
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+angular_velocity_curve = SubResource("CurveTexture_kxkim")
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_tdsgc")
+color_ramp = SubResource("GradientTexture1D_dgkbu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e25oy"]
+transparency = 4
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_qka4c")
+heightmap_scale = 6.04
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_vw5h0"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("StandardMaterial3D_e25oy")
+size = Vector2(2, 2)
+
+[node name="Grenade" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 84
+mass = 25.0
+physics_material_override = SubResource("PhysicsMaterial_lqnav")
+continuous_cd = true
+script = ExtResource("1_lqnav")
+speed = 20.0
+generic_decal = ExtResource("2_71cgi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_dnl62")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 15
+lifetime = 0.25
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_82v5k")
+draw_pass_1 = SubResource("QuadMesh_vw5h0")
 
 [node name="Grenade" parent="." instance=ExtResource("1_povim")]
 transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, 0, 0, 0)
-
-[node name="Bullet" parent="." instance=ExtResource("2_qka4c")]
-visible = false
-
-[editable path="Bullet"]
-[editable path="Bullet/Mesh"]

@@ -22,15 +22,15 @@ func _physics_process(delta: float):
 
 func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vector3, type: int):
 	var decal_instance: Node3D
-	if type == Definitions.SurfaceType.Hitbox:
+	if type == Definitions.SurfaceType.Hitbox and blood_decal:
 		decal_instance = blood_decal.instantiate()
-	elif type == Definitions.SurfaceType.Glass:
+	elif type == Definitions.SurfaceType.Glass and glass_decal:
 		decal_instance = glass_decal.instantiate()
-	elif type == Definitions.SurfaceType.Water:
+	elif type == Definitions.SurfaceType.Water and water_decal:
 		decal_instance = water_decal.instantiate()
-	elif type == Definitions.SurfaceType.Stone:
+	elif type == Definitions.SurfaceType.Stone and stone_decal:
 		decal_instance = stone_decal.instantiate()
-	elif type == Definitions.SurfaceType.Dirt:
+	elif type == Definitions.SurfaceType.Dirt and dirt_decal:
 		decal_instance = dirt_decal.instantiate()
 	else:
 		decal_instance = generic_decal.instantiate()

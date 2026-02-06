@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhuqwxrwxe5er"
+path="res://.godot/imported/Grenade Launch.wav-5dd7e9b5360347259fe80e5ab1447882.sample"
+
+[deps]
+
+source_file="res://Sound/Weapons/Flame Gun/Grenade Launch.wav"
+dest_files=["res://.godot/imported/Grenade Launch.wav-5dd7e9b5360347259fe80e5ab1447882.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

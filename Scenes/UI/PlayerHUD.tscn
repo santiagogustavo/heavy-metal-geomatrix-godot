@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene load_steps=63 format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Script" uid="uid://bgpkvkcv1uk0" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
@@ -21,9 +21,12 @@
 [ext_resource type="Texture2D" uid="uid://b4cowmetjtjpx" path="res://Textures/UI/HUD/New/jetpack_fuel_bar.png" id="18_rgfee"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="19_kvrfk"]
 [ext_resource type="Script" uid="uid://croi07w0xqqmf" path="res://Scripts/UI/HUD/Ammo.gd" id="20_c6iue"]
+[ext_resource type="Script" uid="uid://ban5od6yaj82m" path="res://Scripts/UI/HUD/Weapon.gd" id="21_2ht85"]
+[ext_resource type="PackedScene" uid="uid://cj7n836c3k7a8" path="res://Prefabs/UI/HUD/EnergyMode.tscn" id="21_4vxlg"]
 [ext_resource type="Script" uid="uid://c2if277t6hygp" path="res://Scripts/UI/HUD/Melee.gd" id="21_agdla"]
 [ext_resource type="Script" uid="uid://bv6i04p2e258e" path="res://Scripts/UI/HUD/Energy.gd" id="22_iklc2"]
 [ext_resource type="Texture2D" uid="uid://bt7vtikx87pgx" path="res://Textures/UI/HUD/New/weapon_divider.png" id="22_nu1bm"]
+[ext_resource type="PackedScene" uid="uid://ke8bauxkneac" path="res://Prefabs/UI/HUD/BulletMode.tscn" id="23_1ny2s"]
 [ext_resource type="Script" uid="uid://dvd7rus6meoi5" path="res://Scripts/UI/HUD/Scoreboard.gd" id="24_cqqf3"]
 [ext_resource type="Texture2D" uid="uid://dcakxbma523me" path="res://Textures/UI/HUD/New/warning_box.png" id="24_g3fjk"]
 [ext_resource type="Script" uid="uid://j0yuutbfg7k7" path="res://Scripts/UI/HUD/Warning.gd" id="24_tuivd"]
@@ -85,6 +88,17 @@ shader_parameter/Progress = 1.0
 font = ExtResource("19_kvrfk")
 shadow_color = Color(0, 0, 0, 0.490196)
 shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ht85"]
+font = ExtResource("19_kvrfk")
+shadow_color = Color(0, 0, 0, 0.490196)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ny2s"]
+font = ExtResource("19_kvrfk")
+font_color = Color(0, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.490196)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81voo"]
 resource_local_to_scene = true
@@ -519,6 +533,54 @@ offset_bottom = 54.0
 text = "JETPACK FUEL"
 label_settings = SubResource("LabelSettings_wm351")
 vertical_alignment = 1
+
+[node name="Weapon" type="Control" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("21_2ht85")
+
+[node name="EnergyMode" parent="Container/Control/Weapon" instance=ExtResource("21_4vxlg")]
+layout_mode = 1
+
+[node name="BulletMode" parent="Container/Control/Weapon" instance=ExtResource("23_1ny2s")]
+layout_mode = 1
+
+[node name="Labels" type="HBoxContainer" parent="Container/Control/Weapon"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -23.0
+offset_right = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Name" type="Label" parent="Container/Control/Weapon/Labels"]
+layout_mode = 2
+text = "Flame Gun"
+label_settings = SubResource("LabelSettings_2ht85")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Mode" type="Label" parent="Container/Control/Weapon/Labels"]
+layout_mode = 2
+text = "Fire"
+label_settings = SubResource("LabelSettings_1ny2s")
+horizontal_alignment = 2
+uppercase = true
 
 [node name="Energy" type="Control" parent="Container/Control"]
 layout_mode = 1

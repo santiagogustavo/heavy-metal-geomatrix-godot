@@ -13,12 +13,12 @@
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="8_dfsoj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7wnhx"]
-size = Vector3(0.29, 0.85, 0.27)
+size = Vector3(0.29, 0.45771486, 0.27)
 
 [sub_resource type="Gradient" id="Gradient_25svv"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_c81qw"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7wnhx"]
 gradient = SubResource("Gradient_25svv")
 
 [sub_resource type="Curve" id="Curve_edjx7"]
@@ -26,7 +26,7 @@ _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
-[sub_resource type="CurveTexture" id="CurveTexture_jeqdk"]
+[sub_resource type="CurveTexture" id="CurveTexture_4nosv"]
 curve = SubResource("Curve_edjx7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pv34c"]
@@ -37,11 +37,11 @@ initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 gravity = Vector3(0, 9.8, 0)
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_jeqdk")
+scale_curve = SubResource("CurveTexture_4nosv")
 color = Color(0.29, 0.29, 0.29, 1)
-color_ramp = SubResource("GradientTexture1D_c81qw")
+color_ramp = SubResource("GradientTexture1D_7wnhx")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh71l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_834y5"]
 transparency = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -53,7 +53,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_k6dci"]
-material = SubResource("StandardMaterial3D_fh71l")
+material = SubResource("StandardMaterial3D_834y5")
 
 [sub_resource type="Animation" id="Animation_6k7b2"]
 resource_name = "Idle"
@@ -359,7 +359,7 @@ equip_type = 1
 splash = ExtResource("3_7wnhx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00088501, 0.000915527, -0.41925)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00088501, 0.00091551844, -0.22310743)
 shape = SubResource("BoxShape3D_7wnhx")
 
 [node name="Flame Gun" parent="." instance=ExtResource("1_itxgw")]

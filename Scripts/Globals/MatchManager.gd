@@ -38,7 +38,7 @@ var is_ongoing: bool = false
 
 func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	timer.connect("timeout", func (): end_round(true))
+	timer.timeout.connect( func (): end_round(true))
 
 func _ready() -> void:
 	GameManager.current_scene_type = Definitions.SceneType.MatchStarted

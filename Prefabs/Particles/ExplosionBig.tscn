@@ -227,9 +227,12 @@ tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_3bqpb"]
@@ -366,11 +369,12 @@ process_material = SubResource("ParticleProcessMaterial_82hhk")
 draw_pass_1 = SubResource("QuadMesh_s1ktf")
 
 [node name="Decal" type="Decal" parent="."]
-size = Vector3(5, 0.5, 5)
+size = Vector3(5, 0.15, 5)
 texture_albedo = ExtResource("5_e625d")
 texture_emission = ExtResource("6_v8o6a")
 emission_energy = 3.05
 modulate = Color(1, 0.56666666, 0, 1)
+cull_mask = 1047568
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(1, 0.6, 0, 1)

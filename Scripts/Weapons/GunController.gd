@@ -10,6 +10,7 @@ signal drop
 @export var burst_count: int
 @export var burst_rate: float
 @export var spray_amount: float
+@export var always_shoot_at_bullet_hole_direction: bool = false
 @export var zoom_factor: float = 1.0
 @export_range(Definitions.WeaponRange.Min, Definitions.WeaponRange.Max, 0.5) var weapon_range: float = Definitions.WeaponRange.Max
 @export var infinite_ammo: bool = false
@@ -19,7 +20,7 @@ signal drop
 @export var ejecting_brass: PackedScene
 
 @export_subgroup("References")
-@export var animation_tree: AnimationTree
+@export var animation_tree: GunAnimationTree
 @export var bullet_holes: Array[Node3D]
 @export var eject_hole: Node3D
 
@@ -93,7 +94,8 @@ func _shoot(hard: bool = false) -> void:
 		bullets -= bullets_per_shot
 	for bullet_hole in bullet_holes:
 		var bullet_instance: Node3D = instantiate_bullet(bullet_hole.global_position, bullet_hole.global_transform.basis)
-		TransformUtils.safe_look_at(bullet_instance, target_point)
+		if !always_shoot_at_bullet_hole_direction:
+			TransformUtils.safe_look_at(bullet_instance, target_point)
 		bullet_instance.rotate_x(deg_to_rad(randf_range(-spray_amount, spray_amount)))
 		bullet_instance.rotate_y(deg_to_rad(randf_range(-spray_amount, spray_amount)))
 		bullet_instance.rotate_z(deg_to_rad(randf_range(-spray_amount, spray_amount)))

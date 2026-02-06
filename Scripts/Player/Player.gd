@@ -114,6 +114,7 @@ func _ready() -> void:
 				inventory_manager.right_hand_instance.is_swinging = true
 		)
 		player_killed.connect(func (): animation_tree.play_ko_state())
+		inventory_manager.gun_shoot.connect(animation_tree.animate_gun_shoot)
 	if character.initial_loadout:
 		var loadout_instance: Item = character.initial_loadout.instantiate() as Item
 		inventory_manager.pick_up_item(loadout_instance.equip_type, character.initial_loadout)
@@ -298,7 +299,10 @@ func set_camera_variables() -> void:
 func set_animator_variables() -> void:
 	if !animation_tree:
 		return
-	if inventory_manager.right_hand_instance != null and inventory_manager.right_hand_instance is GunController:
+	if (
+		inventory_manager.right_hand_instance != null and 
+		(inventory_manager.right_hand_instance is GunController or inventory_manager.right_hand_instance is GunControllerV2)
+	):
 		animation_tree.is_shooting_locked = inventory_manager.right_hand_instance.is_shooting_locked
 	if sfx_controller:
 		sfx_controller.is_walking = brain.is_walking
@@ -319,11 +323,6 @@ func set_animator_variables() -> void:
 	animation_tree.is_on_floor = brain.is_on_floor
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping
-	animation_tree.is_gun_shooting = (
-		inventory_manager.is_gun_shooting
-		if inventory_manager.right_hand_instance is GunController
-		else brain.is_shooting
-	)
 	animation_tree.is_holding_weapon = inventory_manager.is_holding_weapon
 
 func set_inventory_items_variables() -> void:
@@ -339,6 +338,7 @@ func set_inventory_items_variables() -> void:
 		if (
 			inventory_manager.right_hand_instance is GunController
 			or inventory_manager.right_hand_instance is EnergyGunController
+			or inventory_manager.right_hand_instance is GunControllerV2
 		):
 			inventory_manager.right_hand_instance.is_shooting = brain.is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

@@ -67,7 +67,11 @@ func update_pickup() -> void:
 
 func update_fire_rate() -> void:
 	if is_gun_shooting:
-		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
+		animate_gun_shoot()
+
+func animate_gun_shoot() -> void:
+	upper_body_state_machine.travel("Shoot - Weapon Single", true)
+	set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
 
 func update_combo_input() -> void:
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):

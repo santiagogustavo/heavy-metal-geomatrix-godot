@@ -139,7 +139,7 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0xu2e")
 nodes/TimeScale/position = Vector2(140, 120)
 nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_hfi10")
 nodes/TimeSeek/position = Vector2(-20, 120)
-node_connections = [&"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_armo7"]
 advance_mode = 2
@@ -167,7 +167,7 @@ graph_offset = Vector2(-92, -60)
 offsets = PackedFloat32Array(0, 0.984791)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6v3gg"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gjng4"]
 gradient = SubResource("Gradient_ds7hw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8kahf"]
@@ -178,9 +178,9 @@ direction = Vector3(0, 0, -1)
 spread = 1.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
-color_ramp = SubResource("GradientTexture1D_6v3gg")
+color_ramp = SubResource("GradientTexture1D_gjng4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yexw8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q7ou"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
@@ -193,7 +193,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_mmxmh"]
-material = SubResource("StandardMaterial3D_yexw8")
+material = SubResource("StandardMaterial3D_2q7ou")
 size = Vector2(0.75, 0.75)
 
 [node name="HandGun" type="StaticBody3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
@@ -218,6 +218,12 @@ shape = SubResource("BoxShape3D_gjng4")
 
 [node name="Hand Gun" parent="." instance=ExtResource("4_7qq3n")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.055300385, 1.1902697e-07, -6.5923187e-09, 0.99846977)
+bones/1/position = Vector3(3.5544e-08, 0.288226, -0.149083)
+bones/1/rotation = Quaternion(-0.66692126, -6.3734304e-15, -1.5900606e-07, 0.7451282)
+bones/1/scale = Vector3(1, 1, 1)
 
 [node name="object_2_001" parent="Hand Gun/Armature/Skeleton3D" index="0"]
 layers = 8
