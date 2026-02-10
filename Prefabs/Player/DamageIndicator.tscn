@@ -90,6 +90,7 @@ script = ExtResource("1_l7orj")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(20, 20)
+rotation = -1.5707964
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="TextureRect" type="TextureRect" parent="Node2D"]

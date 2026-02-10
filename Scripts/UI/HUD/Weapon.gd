@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	)
 	var has_more_than_one_fire_mode = (
 		has_weapon and
-		(player.inventory_manager.right_hand_instance as GunControllerV2).fire_modes.size() > 1
+		(player.inventory_manager.right_hand_instance as GunControllerV2).has_mode_than_one_fire_mode
 	)
 	visible = has_weapon
 	mode_label.visible = has_more_than_one_fire_mode

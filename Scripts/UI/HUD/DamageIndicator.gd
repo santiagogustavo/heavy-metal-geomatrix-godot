@@ -3,8 +3,12 @@ extends Control
 
 @export var player_camera: Camera3D
 @export var target_position: Vector3
-@onready var node_2d: Node2D = $Node2D
+@onready var damage_indicator_look_at: Node3D = Node3D.new()
+
+func _ready() -> void:
+	var player = GameManager.get_player_one()
+	player.add_child(damage_indicator_look_at)
 
 func _process(_delta: float) -> void:
-	var target_screen_pos: Vector2 = player_camera.unproject_position(target_position)
-	node_2d.look_at(target_screen_pos)
+	damage_indicator_look_at.look_at(target_position, Vector3.UP)
+	rotation = -damage_indicator_look_at.rotation.y

@@ -135,6 +135,7 @@ scroll_following = true
 
 [node name="Input" type="LineEdit" parent="Container/Console"]
 layout_mode = 2
+keep_editing_on_text_submit = true
 caret_blink = true
 caret_force_displayed = true
 

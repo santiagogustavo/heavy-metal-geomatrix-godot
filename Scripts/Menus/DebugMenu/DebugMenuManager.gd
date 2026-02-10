@@ -60,9 +60,9 @@ func on_submit() -> void:
 	history.push_front(line_edit.text)
 	run_command(line_edit.text)
 	history_index = -1
-	line_edit.text = ''
 	line_edit.grab_focus()
-	
+	line_edit.text = ''
+
 func on_clear() -> void:
 	history = []
 	messages.clear()

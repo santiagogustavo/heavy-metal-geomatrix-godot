@@ -62,6 +62,7 @@ var lock_on_instance: Node3D
 var initial_camera_pivot_rotation: Vector3 = Vector3.ZERO
 var target_position: Vector3 = Vector3.ZERO
 var force: Vector3 = Vector3.ZERO
+var global_force: Vector3 = Vector3.ZERO
 var friction: float = 100.0
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
@@ -125,6 +126,7 @@ func _physics_process(delta: float) -> void:
 	compute_gravity(delta)
 	compute_movement()
 	compute_forces(delta)
+	compute_global_forces(delta)
 	if raycast.is_colliding() and raycast.get_collider() is StaticBody3D:
 		collide(raycast.get_collider())
 	move_and_slide()
@@ -184,6 +186,8 @@ func heal_player(amount: int) -> void:
 
 func damage_player(amount: int) -> void:
 	player_damage.emit()
+	if DebugCommands.full_health and player_type == PlayerType.Player1:
+		return
 	health -= amount
 	health = clamp(health, 0, 100)
 	if health == 0:
@@ -277,10 +281,31 @@ func move_ko_pivot(new_position: Vector3, new_rotation: Vector3) -> void:
 func apply_force(applied_force: Vector3) -> void:
 	force += applied_force
 
+func apply_global_force(applied_force: Vector3) -> void:
+	global_force += applied_force
+
+func compensate_friction(value: float, delta: float) -> float:
+	var friction_delta = friction * delta
+	if value < -friction_delta:
+		return value + friction_delta
+	elif value > friction-delta:
+		return value - friction_delta
+	else:
+		return 0
+
+func compute_global_forces(delta: float) -> void:
+	global_force.x = compensate_friction(global_force.x, delta)
+	global_force.y = compensate_friction(global_force.y, delta)
+	global_force.z = compensate_friction(global_force.z, delta)
+	velocity += global_force
+
 func compute_forces(delta: float) -> void:
-	force -= Vector3.ONE * friction * delta
-	force = force.clamp(Vector3.ZERO, Vector3.INF)
+	force.x = compensate_friction(force.x, delta)
+	force.y = compensate_friction(force.y, delta)
+	force.z = compensate_friction(force.z, delta)
+	var local_x_direction = character.global_transform.basis * Vector3(1, 0, 0)
 	var local_z_direction = character.global_transform.basis * Vector3(0, 0, -1)
+	velocity += local_x_direction * force.x
 	velocity += local_z_direction * force.z
 	velocity.y += force.y
 

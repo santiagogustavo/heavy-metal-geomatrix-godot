@@ -341,7 +341,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_onadi"]
 advance_mode = 2
-advance_expression = "is_shooting && selected_fire_mode == 0"
+advance_expression = "is_shooting && selected_fire_mode == \"Grenade\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_upb4l"]
 switch_mode = 2
@@ -350,7 +350,7 @@ advance_expression = "!is_shooting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_25514"]
 advance_mode = 2
-advance_expression = "is_shooting && selected_fire_mode == 1
+advance_expression = "is_shooting && selected_fire_mode == \"Fire\"
 "
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vpbts"]

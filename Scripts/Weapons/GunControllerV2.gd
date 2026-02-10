@@ -8,6 +8,7 @@ signal drop
 @export_subgroup("Properties")
 @export var fire_modes: Array[GunFireMode]
 @export var selected_fire_mode_index: int = 0
+@export var share_ammo_and_energy: bool = true
 @export var always_shoot_at_bullet_hole_direction: bool = false
 @export var infinite_ammo: bool = false
 
@@ -36,8 +37,10 @@ var is_dropping: bool = false
 @onready var selected_fire_mode: GunFireMode = null
 var is_bullet_mode: bool = true
 var is_energy_mode: bool = false
+var has_mode_than_one_fire_mode: bool = false
 
 func _ready() -> void:
+	has_mode_than_one_fire_mode = fire_modes.size() > 1
 	update_selected_fire_mode()
 
 func _process(delta: float) -> void:
@@ -67,10 +70,7 @@ func _physics_process(delta: float) -> void:
 
 func update_selected_fire_mode() -> void:
 	selected_fire_mode = fire_modes[selected_fire_mode_index]
-	if selected_fire_mode is GunBulletMode:
-		animation_tree.selected_fire_mode = 0
-	elif selected_fire_mode is GunEnergyMode:
-		animation_tree.selected_fire_mode = 1
+	animation_tree.selected_fire_mode = selected_fire_mode.mode_name
 	fire_mode_changed.emit()
 
 func clear_current_fire_mode_and_go_to_next() -> void:
@@ -110,6 +110,7 @@ func process_energy_mode(delta: float) -> void:
 func update_fire_rate() -> void:
 	is_shooting_locked = true
 	current_burst_count = (selected_fire_mode as GunBulletMode).burst_count
+	animation_tree.has_burst = (selected_fire_mode as GunBulletMode).burst_count > 0
 	get_tree().create_timer((selected_fire_mode as GunBulletMode).fire_rate).connect("timeout", _unlock_fire)
 	get_tree().create_timer((selected_fire_mode as GunBulletMode).burst_rate).connect("timeout", _burst_fire)
 
@@ -117,7 +118,7 @@ func _unlock_fire() -> void:
 	is_shooting_locked = false
 
 func _burst_fire() -> void:
-	if current_burst_count == 0 || selected_fire_mode.bullets == 0:
+	if current_burst_count == 0 or !selected_fire_mode:
 		is_bursting = false
 	else:
 		is_bursting = true
@@ -130,6 +131,7 @@ func instantiate_bullet(newPosition: Vector3, newBasis: Basis) -> Node3D:
 	bullet_instance.position = newPosition
 	bullet_instance.transform.basis = newBasis
 	bullet_instance.emissor_position = global_position
+	bullet_instance.emissor_rid = player_rid
 	get_tree().root.add_child(bullet_instance)
 	return bullet_instance
 
@@ -150,7 +152,12 @@ func _shoot(hard: bool = false) -> void:
 		vibrate_hard()
 	for bullet_hole in bullet_holes:
 		if !DebugCommands.full_ammo and !infinite_ammo:
-			(selected_fire_mode as GunBulletMode).bullets -= 1
+			if share_ammo_and_energy:
+				for fire_mode in fire_modes:
+					if fire_mode is GunBulletMode:
+						(fire_mode as GunBulletMode).bullets -= 1
+			else:
+				(selected_fire_mode as GunBulletMode).bullets -= 1
 		var bullet_instance: Node3D = instantiate_bullet(bullet_hole.global_position, bullet_hole.global_transform.basis)
 		if !always_shoot_at_bullet_hole_direction:
 			TransformUtils.safe_look_at(bullet_instance, target_point)
@@ -166,9 +173,17 @@ func _shoot(hard: bool = false) -> void:
 func spend_fuel(delta: float) -> void:
 	gun_shot.emit()
 	if !DebugCommands.full_ammo:
-		(selected_fire_mode as GunEnergyMode).energy -= delta * (selected_fire_mode as GunEnergyMode).spend_amount
-		if (selected_fire_mode as GunEnergyMode).energy < 0:
-			(selected_fire_mode as GunEnergyMode).energy = 0
+		var energy_spent = delta * (selected_fire_mode as GunEnergyMode).spend_amount 
+		if share_ammo_and_energy:
+			for fire_mode in fire_modes:
+				if fire_mode is GunEnergyMode:
+					(fire_mode as GunEnergyMode).energy -= energy_spent
+					if (fire_mode as GunEnergyMode).energy < 0:
+						(fire_mode as GunEnergyMode).energy = 0
+		else:
+			(selected_fire_mode as GunEnergyMode).energy -= energy_spent
+			if (selected_fire_mode as GunEnergyMode).energy < 0:
+				(selected_fire_mode as GunEnergyMode).energy = 0
 
 func instantiate_hit(point: Vector3, normal: Vector3, _type: int) -> void:
 	var hit_instance: Node3D

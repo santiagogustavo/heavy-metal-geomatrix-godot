@@ -14,6 +14,7 @@ extends RigidBody3D
 @export var blood_decal: PackedScene
 
 var emissor_position: Vector3
+var emissor_rid: RID
 
 func _physics_process(delta: float):
 	var collision: KinematicCollision3D = move_and_collide(transform.basis * Vector3(0, 0, -1) * speed * delta)
@@ -34,6 +35,8 @@ func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vect
 		decal_instance = dirt_decal.instantiate()
 	else:
 		decal_instance = generic_decal.instantiate()
+	if "emissor_rid" in decal_instance:
+		decal_instance.emissor_rid = emissor_rid
 	collider.add_child(decal_instance)
 	decal_instance.global_transform.origin = point
 	decal_instance.look_at(point + normal + Vector3(0.001, 0.0, 0.0))
@@ -44,7 +47,7 @@ func collide(collision: KinematicCollision3D):
 	if collider is RigidBody3D:
 		var impulse = collision.get_normal() * speed / 10
 		(collider as RigidBody3D).apply_central_impulse(impulse * -1)
-
+	
 	# if collider is world boundary
 	if collider.collision_layer == Definitions.SurfaceType.Hitbox:
 		(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), emissor_position)
