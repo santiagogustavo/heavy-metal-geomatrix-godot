@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dobtjao64n6lp"]
+[gd_scene format=3 uid="uid://dobtjao64n6lp"]
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Script" uid="uid://bgpkvkcv1uk0" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
@@ -344,11 +344,11 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
-[node name="PlayerHUD" type="CanvasLayer"]
+[node name="PlayerHUD" type="CanvasLayer" unique_id=1694275318]
 process_mode = 3
 script = ExtResource("1_nerrs")
 
-[node name="Container" type="MarginContainer" parent="."]
+[node name="Container" type="MarginContainer" parent="." unique_id=928905483]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -359,10 +359,10 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="Control" type="Control" parent="Container"]
+[node name="Control" type="Control" parent="Container" unique_id=1942947265]
 layout_mode = 2
 
-[node name="Crosshair" parent="Container/Control" instance=ExtResource("7_nt7e2")]
+[node name="Crosshair" parent="Container/Control" unique_id=535760336 instance=ExtResource("7_nt7e2")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -378,7 +378,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Player" type="Control" parent="Container/Control"]
+[node name="Player" type="Control" parent="Container/Control" unique_id=397055377]
 layout_mode = 1
 anchors_preset = 0
 offset_right = 396.0
@@ -386,7 +386,7 @@ offset_bottom = 101.0
 scale = Vector2(0.75, 0.75)
 script = ExtResource("8_5ig34")
 
-[node name="HealthBackground" type="TextureRect" parent="Container/Control/Player"]
+[node name="HealthBackground" type="TextureRect" parent="Container/Control/Player" unique_id=1585152294]
 material = SubResource("ShaderMaterial_iknaq")
 layout_mode = 0
 offset_left = 93.0
@@ -396,7 +396,7 @@ offset_bottom = 72.0
 texture = ExtResource("11_2lcjo")
 expand_mode = 1
 
-[node name="Avatar" type="TextureRect" parent="Container/Control/Player"]
+[node name="Avatar" type="TextureRect" parent="Container/Control/Player" unique_id=1750493344]
 material = SubResource("ShaderMaterial_lbkkf")
 layout_mode = 0
 offset_left = 8.0
@@ -406,7 +406,7 @@ offset_bottom = 94.0
 texture = ExtResource("12_tjik2")
 expand_mode = 1
 
-[node name="PlayerName" type="Label" parent="Container/Control/Player"]
+[node name="PlayerName" type="Label" parent="Container/Control/Player" unique_id=1696818048]
 layout_mode = 0
 offset_left = 96.4706
 offset_top = 3.52941
@@ -417,7 +417,7 @@ label_settings = SubResource("LabelSettings_hnf54")
 vertical_alignment = 1
 uppercase = true
 
-[node name="HealthBarShadow" type="ColorRect" parent="Container/Control/Player"]
+[node name="HealthBarShadow" type="ColorRect" parent="Container/Control/Player" unique_id=315301553]
 material = SubResource("ShaderMaterial_gcgwj")
 layout_mode = 0
 offset_left = 93.0
@@ -426,7 +426,7 @@ offset_right = 389.0
 offset_bottom = 73.0
 color = Color(1, 0.25, 0.25, 1)
 
-[node name="HealthBar" type="ColorRect" parent="Container/Control/Player"]
+[node name="HealthBar" type="ColorRect" parent="Container/Control/Player" unique_id=439497896]
 material = SubResource("ShaderMaterial_bxa2b")
 layout_mode = 0
 offset_left = 93.0
@@ -434,7 +434,7 @@ offset_top = 43.0
 offset_right = 389.0
 offset_bottom = 73.0
 
-[node name="Trophies" parent="Container/Control/Player" instance=ExtResource("13_a837n")]
+[node name="Trophies" parent="Container/Control/Player" unique_id=656173124 instance=ExtResource("13_a837n")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -448,14 +448,14 @@ offset_bottom = -9.83334
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Decoration" type="TextureRect" parent="Container/Control/Player"]
+[node name="Decoration" type="TextureRect" parent="Container/Control/Player" unique_id=1949949495]
 layout_mode = 0
 offset_right = 396.0
 offset_bottom = 101.0
 texture = ExtResource("12_34r24")
 expand_mode = 1
 
-[node name="VersusCards" type="Control" parent="Container/Control"]
+[node name="VersusCards" type="Control" parent="Container/Control" unique_id=1916186013]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -465,23 +465,23 @@ offset_bottom = 300.0
 grow_horizontal = 0
 script = ExtResource("12_y0lsx")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Container/Control/VersusCards"]
+[node name="HFlowContainer" type="HFlowContainer" parent="Container/Control/VersusCards" unique_id=1344299706]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/v_separation = -8
 
-[node name="VersusCard" parent="Container/Control/VersusCards/HFlowContainer" instance=ExtResource("14_3o7sl")]
+[node name="VersusCard" parent="Container/Control/VersusCards/HFlowContainer" unique_id=516863012 instance=ExtResource("14_3o7sl")]
 visible = false
 layout_mode = 2
 
-[node name="VersusCard2" parent="Container/Control/VersusCards/HFlowContainer" instance=ExtResource("14_3o7sl")]
+[node name="VersusCard2" parent="Container/Control/VersusCards/HFlowContainer" unique_id=298340186 instance=ExtResource("14_3o7sl")]
 visible = false
 layout_mode = 2
 player_name = "Di"
 avatar = ExtResource("15_1kw6d")
 
-[node name="Jetpack" type="Control" parent="Container/Control"]
+[node name="Jetpack" type="Control" parent="Container/Control" unique_id=888681298]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -491,7 +491,7 @@ offset_right = 206.0
 grow_vertical = 0
 script = ExtResource("17_kcelk")
 
-[node name="Background" type="TextureRect" parent="Container/Control/Jetpack"]
+[node name="Background" type="TextureRect" parent="Container/Control/Jetpack" unique_id=35670680]
 material = SubResource("ShaderMaterial_iknaq")
 layout_mode = 0
 offset_left = 8.0
@@ -501,7 +501,7 @@ offset_bottom = 25.0
 texture = ExtResource("11_2lcjo")
 expand_mode = 1
 
-[node name="FuelBarShadow" type="ColorRect" parent="Container/Control/Jetpack"]
+[node name="FuelBarShadow" type="ColorRect" parent="Container/Control/Jetpack" unique_id=79972186]
 material = SubResource("ShaderMaterial_eu110")
 layout_mode = 0
 offset_left = 8.0
@@ -509,7 +509,7 @@ offset_top = 4.0
 offset_right = 200.0
 offset_bottom = 25.0
 
-[node name="FuelBar" type="ColorRect" parent="Container/Control/Jetpack"]
+[node name="FuelBar" type="ColorRect" parent="Container/Control/Jetpack" unique_id=987892280]
 material = SubResource("ShaderMaterial_5a7ao")
 layout_mode = 0
 offset_left = 8.0
@@ -517,14 +517,14 @@ offset_top = 4.0
 offset_right = 200.0
 offset_bottom = 25.0
 
-[node name="Decoration" type="TextureRect" parent="Container/Control/Jetpack"]
+[node name="Decoration" type="TextureRect" parent="Container/Control/Jetpack" unique_id=705737305]
 layout_mode = 0
 offset_right = 206.0
 offset_bottom = 32.0
 texture = ExtResource("18_rgfee")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Container/Control/Jetpack"]
+[node name="Label" type="Label" parent="Container/Control/Jetpack" unique_id=1668750032]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 31.0
@@ -534,7 +534,7 @@ text = "JETPACK FUEL"
 label_settings = SubResource("LabelSettings_wm351")
 vertical_alignment = 1
 
-[node name="Weapon" type="Control" parent="Container/Control"]
+[node name="Weapon" type="Control" parent="Container/Control" unique_id=245740914]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -547,13 +547,13 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("21_2ht85")
 
-[node name="EnergyMode" parent="Container/Control/Weapon" instance=ExtResource("21_4vxlg")]
+[node name="EnergyMode" parent="Container/Control/Weapon" unique_id=1679025526 instance=ExtResource("21_4vxlg")]
 layout_mode = 1
 
-[node name="BulletMode" parent="Container/Control/Weapon" instance=ExtResource("23_1ny2s")]
+[node name="BulletMode" parent="Container/Control/Weapon" unique_id=2034317280 instance=ExtResource("23_1ny2s")]
 layout_mode = 1
 
-[node name="Labels" type="HBoxContainer" parent="Container/Control/Weapon"]
+[node name="Labels" type="HBoxContainer" parent="Container/Control/Weapon" unique_id=1869003074]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -566,23 +566,22 @@ offset_right = -3.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 8
-alignment = 1
 
-[node name="Name" type="Label" parent="Container/Control/Weapon/Labels"]
+[node name="Name" type="Label" parent="Container/Control/Weapon/Labels" unique_id=490247026]
 layout_mode = 2
 text = "Flame Gun"
 label_settings = SubResource("LabelSettings_2ht85")
 horizontal_alignment = 2
 uppercase = true
 
-[node name="Mode" type="Label" parent="Container/Control/Weapon/Labels"]
+[node name="Mode" type="Label" parent="Container/Control/Weapon/Labels" unique_id=1850034058]
 layout_mode = 2
-text = "Fire"
+text = "Fire Mode"
 label_settings = SubResource("LabelSettings_1ny2s")
 horizontal_alignment = 2
 uppercase = true
 
-[node name="Energy" type="Control" parent="Container/Control"]
+[node name="Energy" type="Control" parent="Container/Control" unique_id=461250606]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -595,7 +594,7 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("22_iklc2")
 
-[node name="Background" type="TextureRect" parent="Container/Control/Energy"]
+[node name="Background" type="TextureRect" parent="Container/Control/Energy" unique_id=354556300]
 material = SubResource("ShaderMaterial_iknaq")
 layout_mode = 1
 anchors_preset = 3
@@ -613,7 +612,7 @@ texture = ExtResource("11_2lcjo")
 expand_mode = 1
 flip_h = true
 
-[node name="FuelBarShadow" type="ColorRect" parent="Container/Control/Energy"]
+[node name="FuelBarShadow" type="ColorRect" parent="Container/Control/Energy" unique_id=1299096173]
 material = SubResource("ShaderMaterial_81voo")
 layout_mode = 1
 anchors_preset = 3
@@ -629,7 +628,7 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(-1, 1)
 
-[node name="FuelBar" type="ColorRect" parent="Container/Control/Energy"]
+[node name="FuelBar" type="ColorRect" parent="Container/Control/Energy" unique_id=1958257963]
 material = SubResource("ShaderMaterial_53mmv")
 layout_mode = 1
 anchors_preset = 3
@@ -645,7 +644,7 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(-1, 1)
 
-[node name="Decoration" type="TextureRect" parent="Container/Control/Energy"]
+[node name="Decoration" type="TextureRect" parent="Container/Control/Energy" unique_id=302299200]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -662,7 +661,7 @@ texture = ExtResource("18_rgfee")
 expand_mode = 1
 flip_h = true
 
-[node name="Label" type="Label" parent="Container/Control/Energy"]
+[node name="Label" type="Label" parent="Container/Control/Energy" unique_id=830477627]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 73.0
@@ -673,7 +672,7 @@ label_settings = SubResource("LabelSettings_4ibaa")
 horizontal_alignment = 2
 uppercase = true
 
-[node name="Ammo" type="Control" parent="Container/Control"]
+[node name="Ammo" type="Control" parent="Container/Control" unique_id=1600716884]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -686,7 +685,7 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("20_c6iue")
 
-[node name="Decoration" type="TextureRect" parent="Container/Control/Ammo"]
+[node name="Decoration" type="TextureRect" parent="Container/Control/Ammo" unique_id=1743413352]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 64.0
@@ -695,7 +694,7 @@ offset_bottom = 74.0
 texture = ExtResource("22_nu1bm")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Container/Control/Ammo"]
+[node name="Label" type="Label" parent="Container/Control/Ammo" unique_id=1462072269]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 73.0
@@ -706,7 +705,7 @@ label_settings = SubResource("LabelSettings_4ibaa")
 horizontal_alignment = 2
 uppercase = true
 
-[node name="AmmoTotal" type="Label" parent="Container/Control/Ammo"]
+[node name="AmmoTotal" type="Label" parent="Container/Control/Ammo" unique_id=1928698322]
 layout_mode = 0
 offset_left = 91.0
 offset_right = 142.0
@@ -716,7 +715,7 @@ label_settings = SubResource("LabelSettings_mi474")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Ammo" type="Label" parent="Container/Control/Ammo"]
+[node name="Ammo" type="Label" parent="Container/Control/Ammo" unique_id=1638299493]
 layout_mode = 0
 offset_left = 35.0
 offset_right = 100.0
@@ -727,12 +726,10 @@ label_settings = SubResource("LabelSettings_p8qr6")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Control/Ammo"]
-libraries = {
-&"": SubResource("AnimationLibrary_jjk7r")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Control/Ammo" unique_id=613737049]
+libraries/ = SubResource("AnimationLibrary_jjk7r")
 
-[node name="Melee" type="Control" parent="Container/Control"]
+[node name="Melee" type="Control" parent="Container/Control" unique_id=134703329]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -745,14 +742,14 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("21_agdla")
 
-[node name="Decoration" type="TextureRect" parent="Container/Control/Melee"]
+[node name="Decoration" type="TextureRect" parent="Container/Control/Melee" unique_id=313841262]
 layout_mode = 0
 offset_right = 144.0
 offset_bottom = 10.0
 texture = ExtResource("22_nu1bm")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Container/Control/Melee"]
+[node name="Label" type="Label" parent="Container/Control/Melee" unique_id=1697290944]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 8.0
@@ -763,7 +760,7 @@ label_settings = SubResource("LabelSettings_4ibaa")
 horizontal_alignment = 2
 uppercase = true
 
-[node name="Scoreboard" type="Control" parent="Container/Control"]
+[node name="Scoreboard" type="Control" parent="Container/Control" unique_id=1993928617]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -774,7 +771,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 script = ExtResource("24_cqqf3")
 
-[node name="Timer" type="VBoxContainer" parent="Container/Control/Scoreboard"]
+[node name="Timer" type="VBoxContainer" parent="Container/Control/Scoreboard" unique_id=299704370]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -785,14 +782,14 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="Time" type="Label" parent="Container/Control/Scoreboard/Timer"]
+[node name="Time" type="Label" parent="Container/Control/Scoreboard/Timer" unique_id=595602883]
 layout_mode = 2
 text = "99
 "
 label_settings = SubResource("LabelSettings_lnars")
 horizontal_alignment = 1
 
-[node name="Decoration" type="TextureRect" parent="Container/Control/Scoreboard/Timer"]
+[node name="Decoration" type="TextureRect" parent="Container/Control/Scoreboard/Timer" unique_id=331886807]
 custom_minimum_size = Vector2(72, 8)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -800,7 +797,7 @@ size_flags_vertical = 4
 texture = ExtResource("24_ukxoo")
 expand_mode = 1
 
-[node name="Round" type="Label" parent="Container/Control/Scoreboard/Timer"]
+[node name="Round" type="Label" parent="Container/Control/Scoreboard/Timer" unique_id=1950521148]
 layout_mode = 2
 text = "Round 1
 "
@@ -808,7 +805,7 @@ label_settings = SubResource("LabelSettings_r1fs0")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Warning" type="Control" parent="."]
+[node name="Warning" type="Control" parent="." unique_id=1688269051]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -818,7 +815,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("24_tuivd")
 
-[node name="Decoration" type="TextureRect" parent="Warning"]
+[node name="Decoration" type="TextureRect" parent="Warning" unique_id=1669542893]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -835,7 +832,7 @@ pivot_offset = Vector2(160, 32)
 texture = ExtResource("24_g3fjk")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Warning/Decoration"]
+[node name="Label" type="Label" parent="Warning/Decoration" unique_id=1233219879]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -851,7 +848,7 @@ grow_vertical = 2
 text = "WARNING"
 label_settings = SubResource("LabelSettings_b0nbu")
 
-[node name="Label2" type="Label" parent="Warning/Decoration"]
+[node name="Label2" type="Label" parent="Warning/Decoration" unique_id=1874578864]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -867,18 +864,16 @@ grow_vertical = 2
 text = "LOW VITALITY"
 label_settings = SubResource("LabelSettings_b0nbu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Warning"]
-libraries = {
-&"": SubResource("AnimationLibrary_xswkj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Warning" unique_id=1234961598]
+libraries/ = SubResource("AnimationLibrary_xswkj")
 
-[node name="Beep" type="AudioStreamPlayer2D" parent="Warning"]
+[node name="Beep" type="AudioStreamPlayer2D" parent="Warning" unique_id=1492990817]
 stream = ExtResource("26_7rq6n")
 volume_db = -5.0
 pitch_scale = 0.64
 bus = &"UI Reverb"
 
-[node name="Glitch" type="TextureRect" parent="Warning"]
+[node name="Glitch" type="TextureRect" parent="Warning" unique_id=145218116]
 material = SubResource("ShaderMaterial_su5mw")
 layout_mode = 1
 anchors_preset = 15

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://5u7f4jbopy8y"]
+[gd_scene format=3 uid="uid://5u7f4jbopy8y"]
 
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_75d35"]
 [ext_resource type="PackedScene" uid="uid://bbheqlt3nwi5n" path="res://Models/Characters/Hound/Hound.glb" id="1_uct5m"]
@@ -177,7 +177,7 @@ stream_0/stream = ExtResource("16_stcy1")
 stream_1/stream = ExtResource("17_75d35")
 stream_2/stream = ExtResource("18_p1tty")
 
-[node name="Hound" type="Node3D" node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
+[node name="Hound" type="Node3D" unique_id=1950269893 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_75d35")
 character = 4
 avatar_big = ExtResource("2_68nn1")
@@ -197,7 +197,7 @@ initial_loadout = ExtResource("4_atjvi")
 round_pivot_offset = NodePath("RoundPivotOffset")
 camera_pivot_offset = NodePath("CameraPivotOffset")
 
-[node name="Model" parent="." instance=ExtResource("1_uct5m")]
+[node name="Model" parent="." unique_id=773949955 instance=ExtResource("1_uct5m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="GeneralSkeleton" parent="Model/Armature" index="0"]
@@ -247,7 +247,7 @@ bones/33/rotation = Quaternion(0.86305946, -0.09327893, 0.17302282, 0.4652854)
 [node name="object_3_001" parent="Model/Armature/GeneralSkeleton" index="0"]
 layers = 4
 
-[node name="Hitboxes" parent="Model/Armature/GeneralSkeleton" index="1" instance=ExtResource("12_kgubi")]
+[node name="Hitboxes" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1303818365 instance=ExtResource("12_kgubi")]
 
 [node name="Head" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="0"]
 transform = Transform3D(0.99999976, -1.0019168e-05, 0.00064355135, 1.2239002e-07, 0.9998818, 0.015376085, -0.00064370036, -0.015376084, 0.9998816, -0.031269558, 1.6724892, -0.047590256)
@@ -352,7 +352,7 @@ bone_name = "RightHand"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16869704, 0)
 shape = SubResource("SphereShape3D_opawo")
 
-[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="2" instance=ExtResource("13_atjvi")]
+[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=1542175869 instance=ExtResource("13_atjvi")]
 
 [node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0"]
 transform = Transform3D(0.42145348, -0.6962065, -0.58109665, -0.8798454, -0.15871215, -0.4479759, 0.2196567, 0.70007634, -0.67944384, 0.10986483, 1.158996, 0.4968337)
@@ -368,23 +368,23 @@ bone_name = "RightHand"
 [node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/Fist" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="3"]
+[node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=1179291103]
 transform = Transform3D(0.7333255, 8.104771e-08, -0.67987776, 4.973799e-14, 1, 1.1920929e-07, 0.67987776, -8.7419245e-08, 0.7333255, -0.04951019, 1.3131061, -0.02791566)
 bone_name = "Spine"
 bone_idx = 13
 
-[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Body Slot"]
+[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Body Slot" unique_id=971713150]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4551915e-08, 0.049593996, -0.2178481)
 
-[node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="4"]
+[node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="4" unique_id=332569477]
 transform = Transform3D(0.19120112, -0.029817909, 0.9810977, 0.96740794, -0.16334137, -0.19349736, 0.1660235, 0.9861189, -0.002385065, -0.37365478, 1.253679, -0.08166811)
 bone_name = "RightHand"
 bone_idx = 26
 
-[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Right Hand Slot"]
+[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Right Hand Slot" unique_id=764937996]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0.05617038, 1.9790605e-09)
 
-[node name="Select Moto Gun" parent="Model/Armature/GeneralSkeleton/Right Hand Slot/Offset" instance=ExtResource("9_kgubi")]
+[node name="Select Moto Gun" parent="Model/Armature/GeneralSkeleton/Right Hand Slot/Offset" unique_id=2057075656 instance=ExtResource("9_kgubi")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0)
 visible = false
 
@@ -397,39 +397,37 @@ layers = 8
 [node name="object_1_001" parent="Model/Armature/GeneralSkeleton/Right Hand Slot/Offset/Select Moto Gun/Armature/Skeleton3D" index="2"]
 layers = 8
 
-[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton" index="5"]
+[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton" index="5" unique_id=893877772]
 transform = Transform3D(0, 4.371138e-08, 1, 1, 4.371139e-08, -1.9106855e-15, -4.371139e-08, 1, -4.371138e-08, -0.8607222, 1.600084, -0.046164747)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=2072197442]
 root_node = NodePath("../Armature")
-libraries = {
-&"": SubResource("AnimationLibrary_jcis8"),
-&"Lower Body": ExtResource("2_h5hc6"),
-&"Taunts": ExtResource("11_jcis8"),
-&"Upper Body": ExtResource("4_5qgjw")
-}
+libraries/ = SubResource("AnimationLibrary_jcis8")
+"libraries/Lower Body" = ExtResource("2_h5hc6")
+libraries/Taunts = ExtResource("11_jcis8")
+"libraries/Upper Body" = ExtResource("4_5qgjw")
 
-[node name="SFX" type="Node3D" parent="."]
+[node name="SFX" type="Node3D" parent="." unique_id=1207627926]
 process_mode = 3
 script = ExtResource("4_stcy1")
 
-[node name="Taunts" type="Node3D" parent="SFX"]
+[node name="Taunts" type="Node3D" parent="SFX" unique_id=421167738]
 
-[node name="Entrance" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Entrance" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=1383712032]
 stream = ExtResource("5_75d35")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Win" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Win" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=1312268108]
 stream = ExtResource("6_stcy1")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Lose" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Lose" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=37499327]
 stream = ExtResource("7_stcy1")
 volume_db = -15.0
 max_db = 0.0
@@ -437,9 +435,9 @@ max_polyphony = 26
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Common" parent="SFX" instance=ExtResource("8_lcsv2")]
+[node name="Common" parent="SFX" unique_id=1071316558 instance=ExtResource("8_lcsv2")]
 
-[node name="Death" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Death" type="AudioStreamPlayer3D" parent="SFX" unique_id=758214556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("9_stcy1")
 volume_db = -10.0
@@ -448,7 +446,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Hit" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Hit" type="AudioStreamPlayer3D" parent="SFX" unique_id=1623320008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_lcsv2")
 volume_db = -10.0
@@ -457,7 +455,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX" unique_id=1782011382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_0yp2h")
 volume_db = -10.0
@@ -466,7 +464,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Attack" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Attack" type="AudioStreamPlayer3D" parent="SFX" unique_id=1280960792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_68nn1")
 volume_db = -10.0
@@ -475,7 +473,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX" unique_id=622220331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("19_stcy1")
 volume_db = -10.0
@@ -484,7 +482,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX" unique_id=965587687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("20_75d35")
 volume_db = -10.0
@@ -493,7 +491,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX" unique_id=1616800506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("21_p1tty")
 volume_db = -10.0
@@ -502,10 +500,10 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="RoundPivotOffset" type="Marker3D" parent="."]
+[node name="RoundPivotOffset" type="Marker3D" parent="." unique_id=156103114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.2)
 
-[node name="CameraPivotOffset" type="Marker3D" parent="."]
+[node name="CameraPivotOffset" type="Marker3D" parent="." unique_id=667704730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.4, 0)
 
 [editable path="Model"]

@@ -129,10 +129,12 @@ func pickup_item():
 func set_item_size() -> void:
 	if is_big:
 		item_big.visible = true
-		item_small.queue_free()
+		item_small.visible = false
+		#item_small.queue_free()
 	else:
 		item_small.visible = true
-		item_big.queue_free()
+		item_big.visible = false
+		#item_big.queue_free()
 
 func set_label_text() -> void:
 	name_label.text = item_name

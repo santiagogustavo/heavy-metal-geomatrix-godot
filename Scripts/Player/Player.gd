@@ -288,7 +288,7 @@ func compensate_friction(value: float, delta: float) -> float:
 	var friction_delta = friction * delta
 	if value < -friction_delta:
 		return value + friction_delta
-	elif value > friction-delta:
+	elif value > friction_delta:
 		return value - friction_delta
 	else:
 		return 0
