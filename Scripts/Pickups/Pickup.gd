@@ -17,6 +17,7 @@ class_name Pickup
 @onready var splash_big_rect: TextureRect = $SplashBigViewport/Control/Control/Splash
 @onready var particles: GPUParticles3D = $GPUParticles3D
 @onready var collision_area: Area3D = $Area3D
+@onready var terrain_detector: RayCast3D = $TerrainDetector
 
 # COLOR ITEMS #
 @onready var base_1: MeshInstance3D = $Meshes/Base/object_0
@@ -76,6 +77,15 @@ func _process(_delta: float) -> void:
 		set_color_theme(lerp(color_start, color_end, color_lerp))
 	else:
 		set_color_theme(color_hashes[pickup_color])
+
+func _physics_process(_delta: float) -> void:
+	if terrain_detector.is_colliding():
+		var point: Vector3 = terrain_detector.get_collision_point()
+		var normal: Vector3 = terrain_detector.get_collision_normal()
+		global_transform.origin = point
+		look_at(point + normal + Vector3(0.001, 0.0, 0.0))
+		rotation_degrees.x -= 90
+		
 
 func _on_timeout():
 	for animation_tree: AnimationTree in animation_trees:

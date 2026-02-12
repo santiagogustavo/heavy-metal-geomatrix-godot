@@ -905,6 +905,11 @@ shader_parameter/max_or_add = true
 script = ExtResource("1_wtfkp")
 animation_trees = [NodePath("Meshes/PopTree"), NodePath("AnimationTree")]
 
+[node name="TerrainDetector" type="RayCast3D" parent="." unique_id=638818690]
+collision_mask = 4
+collide_with_areas = true
+debug_shape_thickness = 5
+
 [node name="Meshes" type="Node3D" parent="." unique_id=1738308032]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 

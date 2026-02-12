@@ -52,7 +52,7 @@ volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qjnkp"]
-viewport_path = NodePath("SnapshotViewport")
+viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
 vertices = PackedVector3Array(-0.0500002, 2.55, -12.3, 1.2, 3.55, -12.55, 1.2, 3.55, -15.05, -12.05, 2.55, -15.05, -0.272223, 2.55, -15.05, -7.8, 4.05, 7.2, -7.3, 4.05, 7.7, -7.3, 4.05, 3.95, -9.05, 4.05, 3.95, -8.3, 2.55, 0.95, -8.05, 2.55, 2.2, 1.45, 2.55, 2.2, 1.45, 2.55, -11.05, -0.0500002, 2.55, -11.3, -9.55, 4.05, 3.45, -12.05, 4.05, 7.2, -9.3, 2.8, 0.95, -12.05, 2.55, -0.216666, -12.05, 2.8, 1.26667, -12.05, 3.8, 2.75, 2.45, 4.05, -12.55, 2.95, 4.05, -12.05, 5.7, 4.05, -15.05, 2.325, 4.05, -15.05, 2.95, 4.05, -5.8, 5.7, 4.05, -6.05, 7.2, 5.55, -15.05, 7.2, 5.55, -5.55, 10.7, 5.55, -5.55, 10.7, 5.55, -15.05, 5.7, 4.05, -4.55, 6.2, 4.05, -4.05, 2.95, 4.05, 1.95, 10.7, 4.05, 2.2, 10.7, 4.05, -4.05, 2.95, 4.05, 3.45, 2.45, 4.05, 3.95, 10.7, 4.05, 17.95, -7.3, 4.05, 17.95, -11.8, 5.8, 8.7, -11.8, 5.8, 17.95, -8.8, 5.8, 17.95, -8.8, 5.8, 8.7)
@@ -116,14 +116,13 @@ stream_4/stream = ExtResource("16_0hywk")
 
 [node name="PitchDarkStadium" type="Node3D" unique_id=1441522439]
 
-[node name="LevelConfig" parent="." unique_id=303055488 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree", "splash_texture_rect") instance=ExtResource("1_8fted")]
+[node name="LevelConfig" parent="." unique_id=303055488 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_8fted")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
-splash_texture_rect = NodePath("../SplashLayer/Splash/Viewport")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1157527330]
 environment = SubResource("Environment_h4pe8")

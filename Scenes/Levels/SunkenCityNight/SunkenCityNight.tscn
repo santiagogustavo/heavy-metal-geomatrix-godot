@@ -275,6 +275,7 @@ spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Point
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
+spawn_bots_count = 0
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 splash_texture_rect = NodePath("../SplashLayer/Splash/Viewport")

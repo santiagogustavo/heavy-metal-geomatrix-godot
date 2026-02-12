@@ -21,7 +21,6 @@ class_name LevelConfig
 @export var snapshot_mode: bool = false
 @export var snapshot_viewport: SubViewport
 @export var splash_animation_tree: AnimationTree
-@export var splash_texture_rect: TextureRect
 
 @onready var versus_screen_resource: PackedScene = load("res://Prefabs/Menus/Versus/VersusScreen.tscn")
 var versus_screen_instance: VersusScreen
@@ -40,7 +39,6 @@ func _ready() -> void:
 		GameManager.spawn_players()
 		GameManager.added_player.connect(on_player_added)
 		if play_versus_screen:
-			splash_texture_rect.texture = snapshot_viewport.get_texture()
 			instantiate_versus_screen()
 		else:
 			on_versus_screen_ended()

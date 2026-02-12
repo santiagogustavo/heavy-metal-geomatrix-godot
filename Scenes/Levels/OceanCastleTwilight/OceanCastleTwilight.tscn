@@ -61,7 +61,7 @@ volumetric_fog_sky_affect = 0.0
 volumetric_fog_temporal_reprojection_enabled = false
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ce0a0"]
-viewport_path = NodePath("SnapshotViewport")
+viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
 render_priority = 0
@@ -193,7 +193,7 @@ stream_4/stream = ExtResource("27_ryyg3")
 
 [node name="Ocean Castle Twilight" type="Node3D" unique_id=2077813121]
 
-[node name="LevelConfig" parent="." unique_id=1888432946 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree", "splash_texture_rect") instance=ExtResource("1_4un3q")]
+[node name="LevelConfig" parent="." unique_id=1888432946 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_4un3q")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")
@@ -201,14 +201,13 @@ ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
-splash_texture_rect = NodePath("../SplashLayer/Splash/Viewport")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741432771]
 environment = SubResource("Environment_q5l4r")
 
 [node name="SplashLayer" parent="." unique_id=168747904 instance=ExtResource("2_tegcv")]
 
-[node name="Viewport" parent="SplashLayer/Splash" parent_id_path=PackedInt32Array(168747904, 1800134493) index="0" unique_id=138938182]
+[node name="Viewport" parent="SplashLayer/Splash" index="0"]
 texture = SubResource("ViewportTexture_ce0a0")
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=2017796208]
