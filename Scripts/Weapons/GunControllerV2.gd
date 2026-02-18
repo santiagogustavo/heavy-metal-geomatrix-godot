@@ -143,7 +143,11 @@ func instantiate_brass(newPosition: Vector3, newBasis: Basis) -> Node3D:
 	return brass_instance
 
 func _shoot(hard: bool = false) -> void:
-	if selected_fire_mode is not GunBulletMode or (selected_fire_mode as GunBulletMode).bullets == 0:
+	if (
+		!selected_fire_mode
+		or selected_fire_mode is not GunBulletMode
+		or (selected_fire_mode as GunBulletMode).bullets == 0
+	):
 		return
 	gun_shot.emit()
 	if !hard:

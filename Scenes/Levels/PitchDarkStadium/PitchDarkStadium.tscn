@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="8_j5vkf"]
 [ext_resource type="PackedScene" uid="uid://d2pc4utlvhahx" path="res://Prefabs/Levels/InvisibleWalls.tscn" id="9_hnk50"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="10_55oue"]
-[ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="11_55oue"]
 [ext_resource type="AudioStream" uid="uid://l86jwrpnijve" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst1.mp3" id="12_amb02"]
 [ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="12_qjnkp"]
+[ext_resource type="PackedScene" uid="uid://d2b75t1ilt30u" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="12_qvd3e"]
 [ext_resource type="AudioStream" uid="uid://b80lbhjnp7oom" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst2.mp3" id="13_6pnrr"]
 [ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="13_qvd3e"]
 [ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]
@@ -165,7 +165,7 @@ sky_mode = 1
 navigation_region = NodePath("../LevelGeometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("11_55oue"), ExtResource("13_qvd3e"), ExtResource("12_qjnkp"), ExtResource("15_qvd3e")])
+items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("12_qvd3e"), ExtResource("13_qvd3e"), ExtResource("12_qjnkp"), ExtResource("15_qvd3e")])
 
 [node name="LevelGeometry" type="Node3D" parent="." unique_id=1236181171]
 
