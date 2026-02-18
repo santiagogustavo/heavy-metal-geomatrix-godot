@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://df7hdss4piap6" path="res://Textures/Levels/Pitch Dark Stadium/f9d1ef50_spec.png" id="4_vs6mt"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="5_0qcg4"]
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="7_h2ggl"]
-[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySwordV2.tscn" id="8_koe4l"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="8_koe4l"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="8_tslua"]
 [ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="9_vp1oc"]
 [ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="9_xra83"]

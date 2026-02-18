@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="10_55oue"]
 [ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="11_55oue"]
 [ext_resource type="AudioStream" uid="uid://l86jwrpnijve" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst1.mp3" id="12_amb02"]
-[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySwordV2.tscn" id="12_qjnkp"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="12_qjnkp"]
 [ext_resource type="AudioStream" uid="uid://b80lbhjnp7oom" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst2.mp3" id="13_6pnrr"]
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="13_55oue"]
 [ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]

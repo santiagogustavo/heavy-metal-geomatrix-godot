@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 
 [audio]
 
-buses/default_bus_layout="res://AudioBus.tres"
+buses/default_bus_layout="uid://cwyymwlj666vt"
 general/2d_panning_strength=0.0
 
 [autoload]

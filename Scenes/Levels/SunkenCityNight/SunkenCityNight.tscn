@@ -42,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
 [ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="32_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="34_ajwuo"]
-[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySwordV2.tscn" id="34_u1d5f"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="34_u1d5f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")

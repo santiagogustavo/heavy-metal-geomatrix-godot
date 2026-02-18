@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="10_sl81g"]
 [ext_resource type="PackedScene" uid="uid://c4wyss068ducy" path="res://Prefabs/Weapons/HardSword.tscn" id="11_1dd0n"]
 [ext_resource type="Material" uid="uid://dc5ihrsx5aehi" path="res://Materials/Levels/Playground Material 2.tres" id="12_g4juo"]
-[ext_resource type="PackedScene" uid="uid://cf1bfsleugb3w" path="res://Prefabs/Weapons/KillerSword.tscn" id="12_hw50o"]
-[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySwordV2.tscn" id="13_6vc2e"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="13_6vc2e"]
 [ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Materials/Levels/Playground Material 1.tres" id="13_gddvk"]
+[ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="14_1dd0n"]
 [ext_resource type="PackedScene" uid="uid://1lkvm44wjt4x" path="res://Prefabs/Particles/Rain/Raindrops.tscn" id="14_c7o2r"]
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="15_rbg34"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_yijig"]
@@ -88,7 +88,7 @@ light_energy = 0.1
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_sl81g"), ExtResource("8_vvk7a"), ExtResource("9_6vc2e"), ExtResource("10_sl81g"), ExtResource("11_1dd0n"), ExtResource("12_hw50o"), ExtResource("13_6vc2e")])
+items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_sl81g"), ExtResource("8_vvk7a"), ExtResource("9_6vc2e"), ExtResource("10_sl81g"), ExtResource("11_1dd0n"), ExtResource("14_1dd0n"), ExtResource("13_6vc2e")])
 
 [node name="Level Geometry" type="Node3D" parent="." unique_id=1177179093]
 
