@@ -1,19 +1,20 @@
-[gd_scene load_steps=60 format=3 uid="uid://dqjcw70ma073f"]
+[gd_scene format=3 uid="uid://2xp7onlf1xxc"]
 
-[ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_hjaw0"]
-[ext_resource type="PackedScene" uid="uid://dnjrhfjta5ceq" path="res://Prefabs/Weapons/LaserRifle/Bullet.tscn" id="2_gw1da"]
-[ext_resource type="Texture2D" uid="uid://0n7wisufmwgi" path="res://Textures/Particles/Muzzle/laser.png" id="3_ju4vl"]
-[ext_resource type="Texture2D" uid="uid://bohvar7dqxauc" path="res://Textures/Pickups/Splash/LaserRifle.png" id="3_peh57"]
-[ext_resource type="PackedScene" uid="uid://cxrf5vt3dbw8j" path="res://Models/Weapons/Laser Rifle.glb" id="3_wvedj"]
-[ext_resource type="AudioStream" uid="uid://bsnbwrtwtrau8" path="res://Sound/Weapons/Laser Rifle/Idle.wav" id="4_5c0mg"]
-[ext_resource type="Texture2D" uid="uid://dgmp5n6ey6rir" path="res://Textures/Particles/fog_1.png" id="4_ied0j"]
-[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_216hm"]
-[ext_resource type="AudioStream" uid="uid://pvnpxiyie4nb" path="res://Sound/Weapons/Laser Rifle/Shoot.wav" id="6_wcl0o"]
-[ext_resource type="Script" uid="uid://b1r8ujjwdqjf3" path="res://Scripts/Weapons/LaserRifle/ThermalScopeController.gd" id="9_of5vx"]
-[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="9_p7tcm"]
-[ext_resource type="Shader" uid="uid://b4o2fauv7bvey" path="res://Materials/Shaders/Thermal.gdshader" id="12_6tac8"]
-[ext_resource type="Shader" uid="uid://6re56k5n6vww" path="res://Materials/Shaders/Night Vision.gdshader" id="12_peh57"]
-[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="14_6tac8"]
+[ext_resource type="PackedScene" uid="uid://cxrf5vt3dbw8j" path="res://Models/Weapons/Laser Rifle.glb" id="1_8ik53"]
+[ext_resource type="Script" uid="uid://b0f626p3mv6vk" path="res://Scripts/Weapons/GunControllerV2.gd" id="1_20047"]
+[ext_resource type="Script" uid="uid://upo11pnbegro" path="res://Scripts/Weapons/GunBulletMode.gd" id="2_8218f"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="2_gq517"]
+[ext_resource type="Texture2D" uid="uid://bohvar7dqxauc" path="res://Textures/Pickups/Splash/LaserRifle.png" id="2_sag54"]
+[ext_resource type="AudioStream" uid="uid://bsnbwrtwtrau8" path="res://Sound/Weapons/Laser Rifle/Idle.wav" id="3_20047"]
+[ext_resource type="Texture2D" uid="uid://0n7wisufmwgi" path="res://Textures/Particles/Muzzle/laser.png" id="4_8218f"]
+[ext_resource type="PackedScene" uid="uid://dnjrhfjta5ceq" path="res://Prefabs/Weapons/LaserRifle/Bullet.tscn" id="4_sag54"]
+[ext_resource type="Texture2D" uid="uid://dgmp5n6ey6rir" path="res://Textures/Particles/fog_1.png" id="5_sag54"]
+[ext_resource type="AudioStream" uid="uid://pvnpxiyie4nb" path="res://Sound/Weapons/Laser Rifle/Shoot.wav" id="6_88838"]
+[ext_resource type="Script" uid="uid://b1r8ujjwdqjf3" path="res://Scripts/Weapons/LaserRifle/ThermalScopeController.gd" id="7_ypqlx"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="8_ef7k4"]
+[ext_resource type="Shader" uid="uid://6re56k5n6vww" path="res://Materials/Shaders/Night Vision.gdshader" id="9_6qvla"]
+[ext_resource type="Shader" uid="uid://b4o2fauv7bvey" path="res://Materials/Shaders/Thermal.gdshader" id="10_4rkro"]
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="11_pccyb"]
 
 [sub_resource type="Animation" id="Animation_4xas3"]
 resource_name = "Idle"
@@ -173,7 +174,7 @@ tracks/5/keys = {
 "values": [0.0416912, 1.0, 0.6, 0.8, 1.0, 0.3, 1.0, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4uwj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3pimq"]
 _data = {
 &"Idle": SubResource("Animation_4xas3"),
 &"RESET": SubResource("Animation_g7n5w"),
@@ -198,7 +199,7 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_db7ao")
 nodes/TimeScale/position = Vector2(106, 150)
 nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_6uat3")
 nodes/TimeSeek/position = Vector2(-70, 120)
-node_connections = [&"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_30rum"]
 advance_mode = 2
@@ -214,7 +215,7 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_uj63e"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_agkbl"]
 states/Idle/node = SubResource("AnimationNodeAnimation_aq6k7")
 states/Idle/position = Vector2(506.982, 100.57)
 states/Shoot/node = SubResource("AnimationNodeBlendTree_58dgv")
@@ -223,23 +224,23 @@ states/Start/position = Vector2(200, 99.75)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_30rum"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_j327v"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_fgnvf")]
 graph_offset = Vector2(164, -118)
 
-[sub_resource type="Curve" id="Curve_0eurq"]
+[sub_resource type="Curve" id="Curve_o30wk"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
 [sub_resource type="CurveTexture" id="CurveTexture_ouphx"]
-curve = SubResource("Curve_0eurq")
+curve = SubResource("Curve_o30wk")
 
-[sub_resource type="Curve" id="Curve_0e0xh"]
+[sub_resource type="Curve" id="Curve_ofqmk"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.8), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
 [sub_resource type="CurveTexture" id="CurveTexture_x5e3o"]
-curve = SubResource("Curve_0e0xh")
+curve = SubResource("Curve_ofqmk")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j503v"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ksal2"]
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 5.0
@@ -250,34 +251,34 @@ alpha_curve = SubResource("CurveTexture_ouphx")
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_ju4vl")
+albedo_texture = ExtResource("4_8218f")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_pbcal"]
+[sub_resource type="QuadMesh" id="QuadMesh_i0xh0"]
 material = SubResource("StandardMaterial3D_hwadw")
 size = Vector2(1, 0.5)
 
-[sub_resource type="Curve" id="Curve_cbb8j"]
+[sub_resource type="Curve" id="Curve_4ops0"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
 [sub_resource type="CurveTexture" id="CurveTexture_22cec"]
-curve = SubResource("Curve_cbb8j")
+curve = SubResource("Curve_4ops0")
 
-[sub_resource type="Curve" id="Curve_mhmhn"]
+[sub_resource type="Curve" id="Curve_t1e0r"]
 _data = [Vector2(0, 0.7), 0.0, 0.3, 0, 1, Vector2(1, 1), 0.3, 0.0, 1, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
 [sub_resource type="CurveTexture" id="CurveTexture_nvd6a"]
-curve = SubResource("Curve_mhmhn")
+curve = SubResource("Curve_t1e0r")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ww3po"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0eqeg"]
 emission_shape = 3
 emission_box_extents = Vector3(0.1, 0, 0.1)
 angle_min = -90.0
@@ -296,18 +297,18 @@ alpha_curve = SubResource("CurveTexture_22cec")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q12wm"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_ied0j")
+albedo_texture = ExtResource("5_sag54")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_uunqj"]
+[sub_resource type="QuadMesh" id="QuadMesh_vxksv"]
 material = SubResource("StandardMaterial3D_q12wm")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tac8"]
-shader = ExtResource("12_peh57")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_agheh"]
+shader = ExtResource("9_6qvla")
 shader_parameter/luminance = Color(1, 1, 1, 1)
 shader_parameter/base_color = Color(0, 0.490196, 1, 1)
 shader_parameter/brightness = 1.5
@@ -317,25 +318,25 @@ shader_parameter/edge_x = 2.0
 shader_parameter/edge_y = 3.0
 shader_parameter/flickering_level = 0.1
 
-[sub_resource type="Gradient" id="Gradient_6tac8"]
+[sub_resource type="Gradient" id="Gradient_iavl6"]
 offsets = PackedFloat32Array(0, 0.4, 0.8, 1)
 colors = PackedColorArray(0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_0cqty"]
-gradient = SubResource("Gradient_6tac8")
+gradient = SubResource("Gradient_iavl6")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5us0"]
-shader = ExtResource("12_6tac8")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqefp"]
+shader = ExtResource("10_4rkro")
 shader_parameter/gradient = SubResource("GradientTexture1D_0cqty")
 shader_parameter/use_screen_texture = false
 shader_parameter/use_screen_uv = true
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gbhrc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tlwww"]
 viewport_path = NodePath("ThermalScope/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cqty"]
-shader = ExtResource("14_6tac8")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cl1ik"]
+shader = ExtResource("11_pccyb")
 shader_parameter/shake_power = 0.2
 shader_parameter/shake_rate = 1.0
 shader_parameter/shake_speed = 5.0
@@ -463,7 +464,7 @@ tracks/2/keys = {
 "values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rpp61"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhow5"]
 _data = {
 &"Disable": SubResource("Animation_peh57"),
 &"Enable": SubResource("Animation_w5us0"),
@@ -494,7 +495,7 @@ advance_condition = &"is_not_aiming"
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ke7s5"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n32yu"]
 states/Disable/node = SubResource("AnimationNodeAnimation_peh57")
 states/Disable/position = Vector2(636, -33.875)
 states/Enable/node = SubResource("AnimationNodeAnimation_6tac8")
@@ -504,114 +505,120 @@ states/RESET/position = Vector2(524.5, 101.75)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_w5us0"), "RESET", "Enable", SubResource("AnimationNodeStateMachineTransition_kvfqx"), "Enable", "Disable", SubResource("AnimationNodeStateMachineTransition_rpp61"), "Disable", "RESET", SubResource("AnimationNodeStateMachineTransition_d1umb")]
 graph_offset = Vector2(32, -128)
 
-[node name="LaserRifle" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes")]
-script = ExtResource("1_hjaw0")
-bullets = 16
-fire_rate = 0.5
-zoom_factor = 1.5
-bullet = ExtResource("2_gw1da")
+[node name="LaserRifle" type="Node3D" unique_id=1894078245 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes")]
+script = ExtResource("1_20047")
+fire_modes = [NodePath("GunBulletMode")]
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole")]
 item_name = "Laser Rifle"
 equip_type = 1
-splash = ExtResource("3_peh57")
+splash = ExtResource("2_sag54")
 
-[node name="Laser Rifle" parent="." instance=ExtResource("3_wvedj")]
+[node name="GunBulletMode" type="Node" parent="." unique_id=1239164654]
+script = ExtResource("2_8218f")
+bullets = 16
+fire_rate = 0.5
+bullet = ExtResource("4_sag54")
+mode_name = "Fire"
+damage = 5
+zoom_factor = 1.5
+metadata/_custom_type_script = "uid://upo11pnbegro"
+
+[node name="Laser Rifle" parent="." unique_id=758194550 instance=ExtResource("1_8ik53")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="object_0" parent="Laser Rifle" index="0"]
 layers = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_h4uwj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=892533322]
+libraries/ = SubResource("AnimationLibrary_3pimq")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=696110671]
 callback_mode_discrete = 0
-tree_root = SubResource("AnimationNodeStateMachine_uj63e")
+tree_root = SubResource("AnimationNodeStateMachine_agkbl")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_shooting = false
 parameters/Shoot/TimeScale/scale = 1.0
 parameters/Shoot/TimeSeek/seek_request = -1.0
-script = ExtResource("5_216hm")
+script = ExtResource("2_gq517")
 
-[node name="Idle" type="AudioStreamPlayer3D" parent="."]
+[node name="Idle" type="AudioStreamPlayer3D" parent="." unique_id=584554372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227895, -0.427748)
-stream = ExtResource("4_5c0mg")
+stream = ExtResource("3_20047")
 volume_db = -25.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="BulletHole" type="Node3D" parent="."]
+[node name="BulletHole" type="Node3D" parent="." unique_id=702967727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178358, -0.626534)
 
-[node name="MuzzleFlash" type="GPUParticles3D" parent="BulletHole"]
+[node name="MuzzleFlash" type="GPUParticles3D" parent="BulletHole" unique_id=1241323347]
 emitting = false
 amount = 1
 lifetime = 0.1
 one_shot = true
-process_material = SubResource("ParticleProcessMaterial_j503v")
-draw_pass_1 = SubResource("QuadMesh_pbcal")
+process_material = SubResource("ParticleProcessMaterial_ksal2")
+draw_pass_1 = SubResource("QuadMesh_i0xh0")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="BulletHole"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="BulletHole" unique_id=711928228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.214893, 0.047488, 0.223222)
 emitting = false
 amount = 5
 lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_ww3po")
-draw_pass_1 = SubResource("QuadMesh_uunqj")
+process_material = SubResource("ParticleProcessMaterial_0eqeg")
+draw_pass_1 = SubResource("QuadMesh_vxksv")
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="BulletHole"]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="BulletHole" unique_id=717855255]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.219992, 0.047488, 0.223222)
 emitting = false
 amount = 5
 lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_ww3po")
-draw_pass_1 = SubResource("QuadMesh_uunqj")
+process_material = SubResource("ParticleProcessMaterial_0eqeg")
+draw_pass_1 = SubResource("QuadMesh_vxksv")
 
-[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
-stream = ExtResource("6_wcl0o")
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=1446687151]
+stream = ExtResource("6_88838")
 volume_db = -10.0
 max_db = 0.0
 pitch_scale = 0.75
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 
-[node name="ThermalScope" type="Node3D" parent="." node_paths=PackedStringArray("scope_camera", "animation_tree")]
-script = ExtResource("9_of5vx")
+[node name="ThermalScope" type="Node3D" parent="." unique_id=227693998 node_paths=PackedStringArray("scope_camera", "animation_tree")]
+script = ExtResource("7_ypqlx")
 scope_camera = NodePath("SubViewport/Camera3D")
 animation_tree = NodePath("AnimationTree")
 
-[node name="SubViewport" type="SubViewport" parent="ThermalScope"]
+[node name="SubViewport" type="SubViewport" parent="ThermalScope" unique_id=829516209]
 transparent_bg = true
 handle_input_locally = false
 debug_draw = 1
-script = ExtResource("9_p7tcm")
+script = ExtResource("8_ef7k4")
 
-[node name="Camera3D" type="Camera3D" parent="ThermalScope/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="ThermalScope/SubViewport" unique_id=1136509083]
 cull_mask = 12
 
-[node name="NightVision" type="CanvasLayer" parent="ThermalScope"]
+[node name="NightVision" type="CanvasLayer" parent="ThermalScope" unique_id=224032237]
 layer = 0
 
-[node name="Control" type="Control" parent="ThermalScope/NightVision"]
+[node name="Control" type="Control" parent="ThermalScope/NightVision" unique_id=1310212113]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="NightVision" type="ColorRect" parent="ThermalScope/NightVision/Control"]
+[node name="NightVision" type="ColorRect" parent="ThermalScope/NightVision/Control" unique_id=896488075]
 visible = false
-material = SubResource("ShaderMaterial_6tac8")
+material = SubResource("ShaderMaterial_agheh")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -619,10 +626,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Scope" type="CanvasLayer" parent="ThermalScope"]
+[node name="Scope" type="CanvasLayer" parent="ThermalScope" unique_id=1073849170]
 layer = 0
 
-[node name="Control" type="Control" parent="ThermalScope/Scope"]
+[node name="Control" type="Control" parent="ThermalScope/Scope" unique_id=1554037538]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -630,22 +637,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Thermal" type="TextureRect" parent="ThermalScope/Scope/Control"]
+[node name="Thermal" type="TextureRect" parent="ThermalScope/Scope/Control" unique_id=836285738]
 visible = false
-material = SubResource("ShaderMaterial_w5us0")
+material = SubResource("ShaderMaterial_wqefp")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_gbhrc")
+texture = SubResource("ViewportTexture_tlwww")
 expand_mode = 1
 
-[node name="Glitch" type="CanvasLayer" parent="ThermalScope"]
+[node name="Glitch" type="CanvasLayer" parent="ThermalScope" unique_id=1828902659]
 layer = 0
 
-[node name="Control" type="Control" parent="ThermalScope/Glitch"]
+[node name="Control" type="Control" parent="ThermalScope/Glitch" unique_id=981951483]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -653,9 +660,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Glitch" type="ColorRect" parent="ThermalScope/Glitch/Control"]
+[node name="Glitch" type="ColorRect" parent="ThermalScope/Glitch/Control" unique_id=1865065651]
 visible = false
-material = SubResource("ShaderMaterial_0cqty")
+material = SubResource("ShaderMaterial_cl1ik")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -663,15 +670,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ThermalScope"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ThermalScope" unique_id=260037387]
 root_node = NodePath("../Scope")
-libraries = {
-&"": SubResource("AnimationLibrary_rpp61")
-}
+libraries/ = SubResource("AnimationLibrary_vhow5")
 
-[node name="AnimationTree" type="AnimationTree" parent="ThermalScope"]
+[node name="AnimationTree" type="AnimationTree" parent="ThermalScope" unique_id=1276701503]
 root_node = NodePath("../Scope")
-tree_root = SubResource("AnimationNodeStateMachine_ke7s5")
+tree_root = SubResource("AnimationNodeStateMachine_n32yu")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_aiming = false
 parameters/conditions/is_not_aiming = false
