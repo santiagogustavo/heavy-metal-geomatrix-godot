@@ -38,6 +38,7 @@ func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vect
 	if "emissor_rid" in decal_instance:
 		decal_instance.emissor_rid = emissor_rid
 	collider.add_child(decal_instance)
+	decal_instance.scale = Vector3.ONE / collider.scale
 	decal_instance.global_transform.origin = point
 	TransformUtils.safe_look_at(decal_instance, point + normal)
 

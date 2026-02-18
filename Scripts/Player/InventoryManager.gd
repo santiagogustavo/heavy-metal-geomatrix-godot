@@ -59,14 +59,8 @@ func update_variables():
 	
 	if right_hand_instance != null:
 		right_hand_item_name = right_hand_instance.item_name
-		has_gun = (
-			right_hand_instance is GunController or
-			(right_hand_instance is GunControllerV2 and (right_hand_instance as GunControllerV2).is_bullet_mode)
-		)
-		has_energy_gun = (
-			right_hand_instance is EnergyGunController or
-			(right_hand_instance is GunControllerV2 and (right_hand_instance as GunControllerV2).is_energy_mode)
-		)
+		has_gun = right_hand_instance is GunControllerV2 and (right_hand_instance as GunControllerV2).is_bullet_mode
+		has_energy_gun = right_hand_instance is GunControllerV2 and (right_hand_instance as GunControllerV2).is_energy_mode
 		if has_gun and right_hand_instance is GunControllerV2:
 			zoom_factor = right_hand_instance.selected_fire_mode.zoom_factor if has_gun else 1.0
 			ammo = right_hand_instance.selected_fire_mode.bullets if has_gun else 0
@@ -113,15 +107,6 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 	right_hand_instance = item.instantiate()
 	right_hand_instance.player_rid = player_rid
 	right_hand_slot.get_node("Offset").add_child(right_hand_instance)
-	if right_hand_instance is GunController:
-		weapon_range = right_hand_instance.weapon_range
-		ammo_total = right_hand_instance.bullets
-		right_hand_instance.connect("gun_shot", _on_gun_shot)
-		right_hand_instance.connect("drop", _on_item_drop)
-	if right_hand_instance is EnergyGunController:
-		weapon_range = right_hand_instance.weapon_range
-		right_hand_instance.connect("gun_shot", _on_gun_shot)
-		right_hand_instance.connect("drop", _on_item_drop)
 	if right_hand_instance is GunControllerV2:
 		ammo_total = right_hand_instance.selected_fire_mode.total_bullets if right_hand_instance.selected_fire_mode is GunBulletMode else 0
 		weapon_range = right_hand_instance.selected_fire_mode.fire_range

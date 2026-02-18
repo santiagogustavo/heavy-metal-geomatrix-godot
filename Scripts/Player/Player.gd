@@ -326,7 +326,7 @@ func set_animator_variables() -> void:
 		return
 	if (
 		inventory_manager.right_hand_instance != null and 
-		(inventory_manager.right_hand_instance is GunController or inventory_manager.right_hand_instance is GunControllerV2)
+		inventory_manager.right_hand_instance is GunControllerV2
 	):
 		animation_tree.is_shooting_locked = inventory_manager.right_hand_instance.is_shooting_locked
 	if sfx_controller:
@@ -361,10 +361,6 @@ func set_inventory_items_variables() -> void:
 				animation_tree.is_current_node_attacking()
 				and health > 0
 			)
-		if (
-			inventory_manager.right_hand_instance is GunController
-			or inventory_manager.right_hand_instance is EnergyGunController
-			or inventory_manager.right_hand_instance is GunControllerV2
-		):
+		if inventory_manager.right_hand_instance is GunControllerV2:
 			inventory_manager.right_hand_instance.is_shooting = brain.is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

@@ -172,6 +172,8 @@ mesh = SubResource("BoxMesh_rg8kh")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2" unique_id=1173334932]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 10.8627)
+top_level = true
 collision_layer = 260
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2/StaticBody3D" unique_id=936428442]
@@ -184,6 +186,8 @@ mesh = SubResource("BoxMesh_i1mvp")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3" unique_id=465374186]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, -10.8579)
+top_level = true
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3/StaticBody3D" unique_id=1959885158]
