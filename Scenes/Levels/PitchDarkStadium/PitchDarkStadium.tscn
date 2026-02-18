@@ -25,7 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_hifk7"]
 [ext_resource type="AudioStream" uid="uid://dbjtrx1brw8ue" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst4.mp3" id="15_d40he"]
-[ext_resource type="PackedScene" uid="uid://dtuv3k4y52i7i" path="res://Prefabs/Weapons/FAKK2/Chain Sword.tscn" id="15_qvd3e"]
+[ext_resource type="PackedScene" uid="uid://btn7c23i0enhg" path="res://Prefabs/Weapons/FAKK2/ChainSword.tscn" id="15_qvd3e"]
 [ext_resource type="AudioStream" uid="uid://dtxpgwc7umcfc" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst5.mp3" id="16_0hywk"]
 [ext_resource type="PackedScene" uid="uid://c6o2b3j7355k1" path="res://Models/Levels/Pitch Dark Stadium/Navmesh.glb" id="17_a6sam"]
 
@@ -53,7 +53,7 @@ volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7wfqp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qvd3e"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
@@ -134,7 +134,7 @@ script = ExtResource("4_4e3ak")
 [node name="SplashLayer" parent="." unique_id=1486111303 instance=ExtResource("2_7jn1i")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_7wfqp")
+texture = SubResource("ViewportTexture_qvd3e")
 metadata/_edit_use_anchors_ = true
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=695088672]

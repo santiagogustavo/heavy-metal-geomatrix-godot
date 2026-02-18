@@ -21,8 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="15_rbg34"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_yijig"]
 [ext_resource type="PackedScene" uid="uid://dtnqa6yywxj68" path="res://Prefabs/Pickups/Pickup.tscn" id="19_3kfwb"]
-[ext_resource type="PackedScene" uid="uid://dtuv3k4y52i7i" path="res://Prefabs/Weapons/FAKK2/Chain Sword.tscn" id="20_vvk7a"]
 [ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="21_6vc2e"]
+[ext_resource type="PackedScene" uid="uid://btn7c23i0enhg" path="res://Prefabs/Weapons/FAKK2/ChainSword.tscn" id="22_1dd0n"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
 panorama = ExtResource("2_rlu7d")
@@ -152,7 +152,7 @@ shape = SubResource("ConcavePolygonShape3D_yfk20")
 [node name="Pickup" parent="." unique_id=141926861 instance=ExtResource("19_3kfwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0625181, 3)
 timeout = 15.0
-item = ExtResource("20_vvk7a")
+item = ExtResource("22_1dd0n")
 
 [node name="Pickup2" parent="." unique_id=1626116613 instance=ExtResource("19_3kfwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)
