@@ -1,4 +1,7 @@
 extends WorldEnvironment
 
-func _ready() -> void:
-	compositor.compositor_effects[0].enabled = false
+func _process(_delta: float) -> void:
+	for effect in compositor.compositor_effects:
+		if effect is GuertinMotionBlur:
+			effect.enabled = VideoSettingsManager.motion_blur_enabled
+			effect.intensity = VideoSettingsManager.motion_blur_intensity

@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_4un3q"]
 [ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_tegcv"]
+[ext_resource type="Compositor" uid="uid://bd5earwsxt0e8" path="res://Prefabs/Levels/WorldEnvironmentCompositor.tres" id="3_151h5"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_i8vr7"]
+[ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_ex2nk"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_heanl"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="4_pck8h"]
 [ext_resource type="Texture2D" uid="uid://24rcfmn5xmcj" path="res://Textures/Skyboxes/Twilight Cloudy.png" id="5_38h01"]
@@ -60,7 +62,7 @@ volumetric_fog_ambient_inject = 0.23
 volumetric_fog_sky_affect = 0.0
 volumetric_fog_temporal_reprojection_enabled = false
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ce0a0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_151h5"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
@@ -204,11 +206,13 @@ splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741432771]
 environment = SubResource("Environment_q5l4r")
+compositor = ExtResource("3_151h5")
+script = ExtResource("4_ex2nk")
 
 [node name="SplashLayer" parent="." unique_id=168747904 instance=ExtResource("2_tegcv")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_ce0a0")
+texture = SubResource("ViewportTexture_151h5")
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=2017796208]
 audio_listener_enable_3d = true

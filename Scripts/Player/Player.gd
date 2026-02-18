@@ -111,7 +111,10 @@ func _ready() -> void:
 				fist.can_hit = true
 		)
 		animation_tree.combo_animation_changed.connect(func ():
-			if inventory_manager.right_hand_instance is SwordController:
+			if (
+				inventory_manager.right_hand_instance is SwordController
+				or inventory_manager.right_hand_instance is MeleeControllerV2
+			):
 				inventory_manager.right_hand_instance.is_swinging = true
 		)
 		player_killed.connect(func (): animation_tree.play_ko_state())
@@ -355,10 +358,14 @@ func set_inventory_items_variables() -> void:
 		inventory_manager.body_instance.is_dashing = brain.is_dashing
 		inventory_manager.body_instance.is_double_jumping = brain.is_double_jumping
 	if inventory_manager.right_hand_instance != null:
-		if inventory_manager.right_hand_instance is SwordController:
+		if (
+			inventory_manager.right_hand_instance is SwordController
+			or inventory_manager.right_hand_instance is MeleeControllerV2
+		):
 			inventory_manager.right_hand_instance.is_swinging = false
 			inventory_manager.right_hand_instance.is_attacking = (
 				animation_tree.is_current_node_attacking()
+				and health > 0
 			)
 		if (
 			inventory_manager.right_hand_instance is GunController

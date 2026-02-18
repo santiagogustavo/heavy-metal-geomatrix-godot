@@ -78,8 +78,12 @@ func update_variables():
 			energy = right_hand_instance.selected_fire_mode.energy if has_energy_gun else 0.0
 		else:
 			energy = right_hand_instance.energy if has_energy_gun else 0.0
-		has_melee = right_hand_instance is SwordController
-		melee_health = right_hand_instance.health if right_hand_instance is SwordController else 0.0
+		has_melee = right_hand_instance is SwordController or right_hand_instance is MeleeControllerV2
+		melee_health = (
+			right_hand_instance.health
+			if (right_hand_instance is SwordController or right_hand_instance is MeleeControllerV2)
+			else 0.0
+		)
 	else:
 		has_gun = false
 		has_energy_gun = false
@@ -124,7 +128,7 @@ func clear_and_instantiate_right_hand_item(item: PackedScene):
 		right_hand_instance.connect("gun_shot", _on_gun_shot)
 		right_hand_instance.connect("drop", _on_item_drop)
 		right_hand_instance.connect("fire_mode_changed", _on_change_fire_mode)
-	if right_hand_instance is SwordController:
+	if right_hand_instance is SwordController or right_hand_instance is MeleeControllerV2:
 		weapon_range = right_hand_instance.weapon_range
 	if right_hand_instance is CollisionObject3D:
 		right_hand_pickup.emit(right_hand_instance)

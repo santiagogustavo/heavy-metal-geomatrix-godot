@@ -1,0 +1,28 @@
+[gd_resource type="Compositor" format=3 uid="uid://bd5earwsxt0e8"]
+
+[ext_resource type="Resource" uid="uid://ca45noqewsyvp" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_blur_stage.tres" id="1_5rumg"]
+[ext_resource type="Resource" uid="uid://cvb65hfs2lrxo" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_neighbor_max_stage.tres" id="2_a4701"]
+[ext_resource type="Resource" uid="uid://bidsfymvdyhek" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_overlay_stage.tres" id="3_fucle"]
+[ext_resource type="Resource" uid="uid://c8ulad7utgrg7" path="res://addons/sphynx_motion_blur_toolkit/pre_blur_processing/shader_stages/pre_blur_processing_stage.tres" id="4_wcabt"]
+[ext_resource type="Script" uid="uid://c5jewnyvlca7j" path="res://addons/sphynx_motion_blur_toolkit/guertin/guertin_motion_blur.gd" id="5_jmbk5"]
+[ext_resource type="Resource" uid="uid://dipvwksvqb3dm" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_tile_max_x_stage.tres" id="6_g5eil"]
+[ext_resource type="Resource" uid="uid://bxfg45ubc2pv7" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_tile_max_y_stage.tres" id="7_ff8xt"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_iahgy"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = true
+needs_normal_roughness = false
+script = ExtResource("5_jmbk5")
+shader_stages/blur_stage = ExtResource("1_5rumg")
+shader_stages/overlay_stage = ExtResource("3_fucle")
+shader_stages/tile_max_x_stage = ExtResource("6_g5eil")
+shader_stages/tile_max_y_stage = ExtResource("7_ff8xt")
+shader_stages/neighbor_max_stage = ExtResource("2_a4701")
+shader_stages/pre_blur_processor_stage = ExtResource("4_wcabt")
+metadata/_custom_type_script = "uid://c5jewnyvlca7j"
+
+[resource]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_iahgy")])

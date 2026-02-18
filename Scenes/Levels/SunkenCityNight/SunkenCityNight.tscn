@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_arequ"]
 [ext_resource type="PackedScene" uid="uid://nkwpbcej5qsd" path="res://Models/Levels/Sunken City Night/Sunken City Night.glb" id="2_ejg02"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="3_337c6"]
+[ext_resource type="Compositor" uid="uid://bd5earwsxt0e8" path="res://Prefabs/Levels/WorldEnvironmentCompositor.tres" id="3_a3hbx"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_cpffb"]
+[ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_4nhff"]
 [ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="4_6k4rg"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_ccf1j"]
 [ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="5_c85kp"]
@@ -40,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
 [ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="32_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="34_ajwuo"]
-[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="35_pulof"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySwordV2.tscn" id="34_u1d5f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -60,8 +62,8 @@ fog_sky_affect = 0.0
 volumetric_fog_density = 0.0126
 volumetric_fog_albedo = Color(0.57, 0.684667, 1, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_u1d5f"]
-viewport_path = NodePath("SnapshotViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_3yyu5"]
+viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vlpe4"]
 render_priority = 0
@@ -270,23 +272,23 @@ stream_4/stream = ExtResource("26_jeo0a")
 
 [node name="SunkenCityNight" type="Node3D" unique_id=1357975664]
 
-[node name="LevelConfig" parent="." unique_id=639634506 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree", "splash_texture_rect") instance=ExtResource("1_irl40")]
+[node name="LevelConfig" parent="." unique_id=639634506 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_irl40")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
-spawn_bots_count = 0
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
-splash_texture_rect = NodePath("../SplashLayer/Splash/Viewport")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=144122190]
 environment = SubResource("Environment_pkx01")
+compositor = ExtResource("3_a3hbx")
+script = ExtResource("4_4nhff")
 
 [node name="SplashLayer" parent="." unique_id=1807516140 instance=ExtResource("2_1r2ip")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_u1d5f")
+texture = SubResource("ViewportTexture_3yyu5")
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=611891105]
 audio_listener_enable_3d = true
@@ -746,7 +748,7 @@ end_position = Vector3(-1.721, -1.82292, 0.0225544)
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("32_4nhff"), ExtResource("32_u1d5f"), ExtResource("34_ajwuo"), ExtResource("35_pulof")])
+items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("32_4nhff"), ExtResource("32_u1d5f"), ExtResource("34_ajwuo"), ExtResource("34_u1d5f")])
 
 [node name="Invisible Walls" type="StaticBody3D" parent="." unique_id=1060023409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8619, 4.12044, -25.0382)

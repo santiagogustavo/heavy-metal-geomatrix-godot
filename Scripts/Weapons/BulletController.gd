@@ -39,7 +39,7 @@ func instantiate_decal(collider: CollisionObject3D, point: Vector3, normal: Vect
 		decal_instance.emissor_rid = emissor_rid
 	collider.add_child(decal_instance)
 	decal_instance.global_transform.origin = point
-	decal_instance.look_at(point + normal + Vector3(0.001, 0.0, 0.0))
+	TransformUtils.safe_look_at(decal_instance, point + normal)
 
 func collide(collision: KinematicCollision3D):
 	var collider: CollisionObject3D = collision.get_collider()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ckmlfl5g8p20j"]
+[gd_scene format=3 uid="uid://ckmlfl5g8p20j"]
 
 [ext_resource type="Texture2D" uid="uid://kfes856htuuh" path="res://Textures/UI/Menus/Options Menu/tab.png" id="1_qbj4w"]
 [ext_resource type="PackedScene" uid="uid://c6w5wfuqaneav" path="res://Scenes/Menus/OptionsMenu/AudioSliderSettings.tscn" id="1_rjmv2"]
@@ -58,7 +58,7 @@ texture = ExtResource("3_oy27y")
 texture_margin_bottom = 6.0
 draw_center = false
 
-[node name="SettingsTabContainer" type="Control"]
+[node name="SettingsTabContainer" type="Control" unique_id=1955895601]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ryf32")
 
-[node name="TabBar" type="TabBar" parent="."]
+[node name="TabBar" type="TabBar" parent="." unique_id=2103029776]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -90,7 +90,7 @@ tab_1/title = "GRAPHICS"
 tab_2/title = "CONTROLS"
 tab_3/title = "GAMEPLAY"
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=457494940]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,7 +110,7 @@ theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_4tyo3")
 current_tab = 0
 tabs_visible = false
 
-[node name="Sound" type="MarginContainer" parent="TabContainer"]
+[node name="Sound" type="MarginContainer" parent="TabContainer" unique_id=266825341]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -118,36 +118,36 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 metadata/_tab_index = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound" unique_id=283313353]
 layout_mode = 2
 follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/ScrollContainer" unique_id=1794095354]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 32
 
-[node name="MasterVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="MasterVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=252652483 instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="UIVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="UIVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=893925393 instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 
-[node name="MusicVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="MusicVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=567051268 instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="EffectsVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="EffectsVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=1878728241 instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Effects"
 
-[node name="AnnouncerVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" instance=ExtResource("1_rjmv2")]
+[node name="AnnouncerVolume" parent="TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=1172719610 instance=ExtResource("1_rjmv2")]
 layout_mode = 2
 bus_name = "Announcer"
 
-[node name="Graphics" type="MarginContainer" parent="TabContainer"]
+[node name="Graphics" type="MarginContainer" parent="TabContainer" unique_id=643182731]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
@@ -156,28 +156,28 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Graphics"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Graphics" unique_id=2137169236]
 layout_mode = 2
 follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/ScrollContainer" unique_id=371945889]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 32
 
-[node name="DisplayLabel" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="DisplayLabel" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=2077821172 instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/DisplayLabel" index="0"]
 text = "Display"
 
-[node name="WindowModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("2_3fvw6")]
+[node name="WindowModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=1075780235 instance=ExtResource("2_3fvw6")]
 layout_mode = 2
 
-[node name="ResolutionModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("3_imv6s")]
+[node name="ResolutionModeButton" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=271511973 instance=ExtResource("3_imv6s")]
 layout_mode = 2
 
-[node name="RenderScaleSlider" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="RenderScaleSlider" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=1198810232 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("10_jofee")
 
@@ -187,35 +187,33 @@ text = "Rendering Scale"
 [node name="HSlider" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/RenderScaleSlider/CustomSlider10" index="0"]
 min_value = 0.1
 
-[node name="PostProcessingLabel" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="PostProcessingLabel" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=1338319004 instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/PostProcessingLabel" index="0"]
 text = "Post Processing"
 
-[node name="MaxFpsToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
+[node name="MaxFpsToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=406363577 instance=ExtResource("9_03lvh")]
 layout_mode = 2
 script = ExtResource("12_hapqg")
 
 [node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/MaxFpsToggle" index="0"]
 text = "Limit FPS"
 
-[node name="BloomToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
+[node name="BloomToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=2088909671 instance=ExtResource("9_03lvh")]
 layout_mode = 2
 
-[node name="BloomIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("10_6407g")]
+[node name="BloomIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=503932442 instance=ExtResource("10_6407g")]
 layout_mode = 2
 
-[node name="MotionBlurToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("9_03lvh")]
-visible = false
+[node name="MotionBlurToggle" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=446455636 instance=ExtResource("9_03lvh")]
 layout_mode = 2
 script = ExtResource("13_k8wft")
 
 [node name="Label" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer/MotionBlurToggle" index="0"]
 text = "Motion Blur"
 
-[node name="MotionBlurIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" instance=ExtResource("10_6407g")]
-visible = false
+[node name="MotionBlurIntensity" parent="TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=1735566054 instance=ExtResource("10_6407g")]
 layout_mode = 2
 script = ExtResource("14_cei6j")
 
@@ -223,7 +221,7 @@ script = ExtResource("14_cei6j")
 text = "Motion Blur Intensity
 "
 
-[node name="Controls" type="MarginContainer" parent="TabContainer"]
+[node name="Controls" type="MarginContainer" parent="TabContainer" unique_id=2105857128]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
@@ -232,32 +230,32 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 metadata/_tab_index = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls" unique_id=1143356642]
 layout_mode = 2
 follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/ScrollContainer" unique_id=1183864731]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="AimingLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="AimingLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=780611997 instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/AimingLabel" index="0"]
 text = "Aiming"
 
-[node name="AimAssistButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("11_udgny")]
+[node name="AimAssistButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=1555447113 instance=ExtResource("11_udgny")]
 layout_mode = 2
 script = ExtResource("12_1m567")
 
 [node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/AimAssistButton" index="0"]
 text = "Aim Assist"
 
-[node name="LookSmoothingButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("5_shsid")]
+[node name="LookSmoothingButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=1171818068 instance=ExtResource("5_shsid")]
 layout_mode = 2
 
-[node name="LookSmoothingSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("6_4u23p")]
+[node name="LookSmoothingSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=140432722 instance=ExtResource("6_4u23p")]
 layout_mode = 2
 
 [node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/LookSmoothingSlider/CustomSlider10" index="0"]
@@ -266,13 +264,13 @@ max_value = 0.5
 step = 0.05
 value = 0.2
 
-[node name="MouseLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="MouseLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=763993104 instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseLabel" index="0"]
 text = "Mouse"
 
-[node name="MouseHorizontalSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("7_4f7kh")]
+[node name="MouseHorizontalSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=721334884 instance=ExtResource("7_4f7kh")]
 layout_mode = 2
 
 [node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseHorizontalSlider/CustomSlider10" index="0"]
@@ -281,7 +279,7 @@ max_value = 0.5
 step = 0.01
 value = 0.2
 
-[node name="MouseVerticalSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("8_ge777")]
+[node name="MouseVerticalSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=2126446321 instance=ExtResource("8_ge777")]
 layout_mode = 2
 
 [node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/MouseVerticalSlider/CustomSlider10" index="0"]
@@ -290,16 +288,16 @@ max_value = 0.5
 step = 0.01
 value = 0.2
 
-[node name="ControllerLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="ControllerLabel" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=253365786 instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/ControllerLabel" index="0"]
 text = "Controller"
 
-[node name="OptionsToggleButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("13_m37qm")]
+[node name="OptionsToggleButton" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=187796084 instance=ExtResource("13_m37qm")]
 layout_mode = 2
 
-[node name="StickHorizontalSensitivity" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("9_8hf25")]
+[node name="StickHorizontalSensitivity" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=814255140 instance=ExtResource("9_8hf25")]
 layout_mode = 2
 
 [node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/StickHorizontalSensitivity/CustomSlider10" index="0"]
@@ -307,7 +305,7 @@ min_value = 0.5
 max_value = 2.0
 step = 0.25
 
-[node name="StickVerticalSensitivity" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("10_07rme")]
+[node name="StickVerticalSensitivity" parent="TabContainer/Controls/ScrollContainer/VBoxContainer" unique_id=375281424 instance=ExtResource("10_07rme")]
 layout_mode = 2
 
 [node name="HSlider" parent="TabContainer/Controls/ScrollContainer/VBoxContainer/StickVerticalSensitivity/CustomSlider10" index="0"]
@@ -315,7 +313,7 @@ min_value = 0.5
 max_value = 2.0
 step = 0.25
 
-[node name="Gameplay" type="MarginContainer" parent="TabContainer"]
+[node name="Gameplay" type="MarginContainer" parent="TabContainer" unique_id=846390587]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
@@ -324,23 +322,23 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 metadata/_tab_index = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Gameplay"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Gameplay" unique_id=1093552307]
 layout_mode = 2
 follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay/ScrollContainer" unique_id=305880478]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="FeelLabel" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="FeelLabel" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=1197435206 instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FeelLabel" index="0"]
 text = "Look and Feel"
 
-[node name="FOV" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="FOV" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=395828031 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("12_fjwlq")
 
@@ -353,27 +351,27 @@ max_value = 80.0
 step = 5.0
 value = 70.0
 
-[node name="Hitmarkers" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_udgny")]
+[node name="Hitmarkers" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=355080240 instance=ExtResource("11_udgny")]
 layout_mode = 2
 script = ExtResource("23_bq2jv")
 
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Hitmarkers" index="0"]
 text = "Hitmarkers"
 
-[node name="FreeLook" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_udgny")]
+[node name="FreeLook" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=1634749205 instance=ExtResource("11_udgny")]
 layout_mode = 2
 script = ExtResource("27_wxyvh")
 
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/FreeLook" index="0"]
 text = "Free Look"
 
-[node name="CrosshairLabel" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("4_rb5w8")]
+[node name="CrosshairLabel" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=738079699 instance=ExtResource("4_rb5w8")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/CrosshairLabel" index="0"]
 text = "Crosshair"
 
-[node name="Preview" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="Preview" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=2123505223 instance=ExtResource("11_7172o")]
 layout_mode = 2
 
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview" index="0"]
@@ -382,14 +380,14 @@ visible = false
 [node name="CustomSlider10" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview" index="1"]
 visible = false
 
-[node name="Crosshair" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview" instance=ExtResource("13_cerdy")]
+[node name="Crosshair" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/Preview" unique_id=1681334638 instance=ExtResource("13_cerdy")]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 flip_h = true
 
-[node name="StyleSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="StyleSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=2098009231 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("14_he2h0")
 
@@ -408,14 +406,14 @@ max_value = 7.0
 step = 1.0
 value = 1.0
 
-[node name="ScaleSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="ScaleSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=759300543 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("14_hv86s")
 
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/ScaleSlider" index="0"]
 text = "Scale"
 
-[node name="RColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="RColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=1346584727 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "R"
@@ -423,7 +421,7 @@ color_channel = "R"
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/RColorSlider" index="0"]
 text = "Crosshair R"
 
-[node name="GColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="GColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=1522314315 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "G"
@@ -431,7 +429,7 @@ color_channel = "G"
 [node name="Label" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer/GColorSlider" index="0"]
 text = "Crosshair G"
 
-[node name="BColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="BColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=1783825411 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "B"
@@ -440,7 +438,7 @@ color_channel = "B"
 text = "Crosshair B
 "
 
-[node name="AColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" instance=ExtResource("11_7172o")]
+[node name="AColorSlider" parent="TabContainer/Gameplay/ScrollContainer/VBoxContainer" unique_id=1276453512 instance=ExtResource("11_7172o")]
 layout_mode = 2
 script = ExtResource("13_rsdcg")
 color_channel = "A"
@@ -449,16 +447,16 @@ color_channel = "A"
 text = "Crosshair A
 "
 
-[node name="SFX" type="Control" parent="."]
+[node name="SFX" type="Control" parent="." unique_id=1578323276]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Entered" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Entered" type="AudioStreamPlayer2D" parent="SFX" unique_id=818923028]
 stream = ExtResource("19_83r31")
 bus = &"UI"
 
-[node name="Selected" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Selected" type="AudioStreamPlayer2D" parent="SFX" unique_id=1564473176]
 stream = ExtResource("20_pce0q")
 bus = &"UI"
 
