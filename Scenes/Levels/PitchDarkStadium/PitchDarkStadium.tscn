@@ -21,7 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://l86jwrpnijve" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst1.mp3" id="12_amb02"]
 [ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="12_qjnkp"]
 [ext_resource type="AudioStream" uid="uid://b80lbhjnp7oom" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst2.mp3" id="13_6pnrr"]
-[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="13_55oue"]
+[ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="13_qvd3e"]
 [ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_hifk7"]
 [ext_resource type="AudioStream" uid="uid://dbjtrx1brw8ue" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst4.mp3" id="15_d40he"]
@@ -53,7 +53,7 @@ volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qvd3e"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4e3ak"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
@@ -134,7 +134,7 @@ script = ExtResource("4_4e3ak")
 [node name="SplashLayer" parent="." unique_id=1486111303 instance=ExtResource("2_7jn1i")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_qvd3e")
+texture = SubResource("ViewportTexture_4e3ak")
 metadata/_edit_use_anchors_ = true
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=695088672]
@@ -165,7 +165,7 @@ sky_mode = 1
 navigation_region = NodePath("../LevelGeometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("11_55oue"), ExtResource("13_55oue"), ExtResource("12_qjnkp"), ExtResource("15_qvd3e")])
+items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("11_55oue"), ExtResource("13_qvd3e"), ExtResource("12_qjnkp"), ExtResource("15_qvd3e")])
 
 [node name="LevelGeometry" type="Node3D" parent="." unique_id=1236181171]
 
