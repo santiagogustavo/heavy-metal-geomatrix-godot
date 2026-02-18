@@ -25,11 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="22_rvlpc"]
 [ext_resource type="PackedScene" uid="uid://cti1ekhybelqv" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="23_ce0a0"]
 [ext_resource type="AudioStream" uid="uid://p6kh6ir5bhe8" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst1.mp3" id="23_xq6ud"]
-[ext_resource type="PackedScene" uid="uid://c4wyss068ducy" path="res://Prefabs/Weapons/HardSword.tscn" id="24_151h5"]
 [ext_resource type="AudioStream" uid="uid://cjw7awchh87gv" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst2.mp3" id="24_cv66c"]
 [ext_resource type="AudioStream" uid="uid://co88rxe270cqj" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst3.mp3" id="25_2uk6u"]
 [ext_resource type="AudioStream" uid="uid://crlksg8qn273" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst4.mp3" id="26_wj5b2"]
 [ext_resource type="AudioStream" uid="uid://d26wqq6m3ifj3" path="res://Music/OceanCastleTwilight/OceanCastleTwilightOst5.mp3" id="27_ryyg3"]
+[ext_resource type="PackedScene" uid="uid://bn3lfst3ikk2g" path="res://Prefabs/Weapons/HardSword.tscn" id="28_ex2nk"]
 [ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="29_ex2nk"]
 [ext_resource type="PackedScene" uid="uid://cx4bdm3aywybe" path="res://Prefabs/Levels/Ocean Castle Twilight/BigChair.tscn" id="31_ce0a0"]
 [ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="31_rvlpc"]
@@ -791,7 +791,7 @@ shape = SubResource("BoxShape3D_afc0c")
 [node name="Spawner" parent="." unique_id=211188528 node_paths=PackedStringArray("navigation_region") instance=ExtResource("17_2cp1u")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 3
-items_to_spawn = Array[PackedScene]([ExtResource("21_f56u8"), ExtResource("22_rvlpc"), ExtResource("23_ce0a0"), ExtResource("24_151h5"), ExtResource("29_ex2nk")])
+items_to_spawn = Array[PackedScene]([ExtResource("21_f56u8"), ExtResource("22_rvlpc"), ExtResource("23_ce0a0"), ExtResource("28_ex2nk"), ExtResource("29_ex2nk")])
 
 [node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=105663426]
 process_mode = 3

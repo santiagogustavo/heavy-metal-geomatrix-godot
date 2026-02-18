@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://duvycjn3ulr5"]
+[gd_scene format=3 uid="uid://duvycjn3ulr5"]
 
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_2d4v2"]
 [ext_resource type="PackedScene" uid="uid://dtfwtnaja8d2w" path="res://Models/Characters/Di/Di.glb" id="1_re6lv"]
@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://srlaaa2tu160" path="res://Sound/Characters/Di/Taunts/Win.wav" id="5_uswe7"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="6_2d4v2"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="6_bsshr"]
-[ext_resource type="PackedScene" uid="uid://c4wyss068ducy" path="res://Prefabs/Weapons/HardSword.tscn" id="6_tj0pt"]
+[ext_resource type="PackedScene" uid="uid://bn3lfst3ikk2g" path="res://Prefabs/Weapons/HardSword.tscn" id="6_gu4i4"]
 [ext_resource type="AudioStream" uid="uid://dla5xgblecomg" path="res://Sound/Characters/Di/Taunts/Lose.wav" id="6_vpj87"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="7_keb7p"]
 [ext_resource type="PackedScene" uid="uid://qyu6mwstbrvs" path="res://Models/Characters/Di/Skins/Default.tscn" id="8_5roht"]
@@ -52,25 +52,25 @@
 [ext_resource type="PackedScene" uid="uid://nppdq326ihs4" path="res://Models/Characters/Di/Skins/Skin1.tscn" id="23_orw0i"]
 [ext_resource type="PackedScene" uid="uid://bf5nixetmlasw" path="res://Models/Weapons/Hard Sword.glb" id="28_lcknh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m6tq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gu4i4"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("9_ds68s")
 ao_enabled = true
 ao_texture = ExtResource("10_orw0i")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uty00"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eg4le"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("11_t75ac")
 ao_enabled = true
 ao_texture = ExtResource("12_ess3g")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8nem"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxqsy"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("13_lcknh")
 ao_enabled = true
 ao_texture = ExtResource("14_7m6tq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ums2s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dfym"]
 resource_local_to_scene = true
 transparency = 4
 cull_mode = 2
@@ -78,7 +78,7 @@ albedo_texture = ExtResource("15_uty00")
 ao_enabled = true
 ao_texture = ExtResource("16_r8nem")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmxdb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8nyn"]
 resource_local_to_scene = true
 transparency = 4
 cull_mode = 2
@@ -86,13 +86,13 @@ albedo_texture = ExtResource("17_ums2s")
 ao_enabled = true
 ao_texture = ExtResource("18_gmxdb")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcg3t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_belp7"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("19_lcg3t")
 ao_enabled = true
 ao_texture = ExtResource("20_3mmw4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mmw4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qbnr"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("21_wou6w")
 ao_enabled = true
@@ -200,7 +200,7 @@ stream_0/stream = ExtResource("15_j6tad")
 stream_1/stream = ExtResource("16_5roht")
 stream_2/stream = ExtResource("17_sq7nw")
 
-[node name="Di" type="Node3D" node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
+[node name="Di" type="Node3D" unique_id=33256245 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
 script = ExtResource("1_2d4v2")
 character = 3
 character_team = 2
@@ -217,9 +217,9 @@ gameplay_animation_tree = ExtResource("4_5roht")
 taunt_animation_tree = ExtResource("5_sq7nw")
 body_slot = NodePath("Model/Armature/GeneralSkeleton/Body Slot")
 right_hand_slot = NodePath("Model/Armature/GeneralSkeleton/Right Hand Slot")
-initial_loadout = ExtResource("6_tj0pt")
+initial_loadout = ExtResource("6_gu4i4")
 
-[node name="Model" parent="." instance=ExtResource("1_re6lv")]
+[node name="Model" parent="." unique_id=1468439096 instance=ExtResource("1_re6lv")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="GeneralSkeleton" parent="Model/Armature" index="0"]
@@ -267,61 +267,61 @@ bones/33/rotation = Quaternion(0.87983096, -0.014326459, 0.026573587, 0.4743271)
 [node name="Di" parent="Model/Armature/GeneralSkeleton" index="0"]
 visible = false
 
-[node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" instance=ExtResource("8_5roht")]
-surface_material_override/0 = SubResource("StandardMaterial3D_7m6tq")
-surface_material_override/1 = SubResource("StandardMaterial3D_uty00")
-surface_material_override/2 = SubResource("StandardMaterial3D_r8nem")
-surface_material_override/3 = SubResource("StandardMaterial3D_ums2s")
-surface_material_override/4 = SubResource("StandardMaterial3D_gmxdb")
-surface_material_override/5 = SubResource("StandardMaterial3D_lcg3t")
-surface_material_override/6 = SubResource("StandardMaterial3D_3mmw4")
+[node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=2020747127 instance=ExtResource("8_5roht")]
+surface_material_override/0 = SubResource("StandardMaterial3D_gu4i4")
+surface_material_override/1 = SubResource("StandardMaterial3D_eg4le")
+surface_material_override/2 = SubResource("StandardMaterial3D_cxqsy")
+surface_material_override/3 = SubResource("StandardMaterial3D_8dfym")
+surface_material_override/4 = SubResource("StandardMaterial3D_v8nyn")
+surface_material_override/5 = SubResource("StandardMaterial3D_belp7")
+surface_material_override/6 = SubResource("StandardMaterial3D_8qbnr")
 
-[node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" instance=ExtResource("23_orw0i")]
+[node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=561423234 instance=ExtResource("23_orw0i")]
 visible = false
 
-[node name="Skin2" parent="Model/Armature/GeneralSkeleton" index="3" instance=ExtResource("10_tj0pt")]
+[node name="Skin2" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=284445026 instance=ExtResource("10_tj0pt")]
 visible = false
 
-[node name="Skin3" parent="Model/Armature/GeneralSkeleton" index="4" instance=ExtResource("11_h62hk")]
+[node name="Skin3" parent="Model/Armature/GeneralSkeleton" index="4" unique_id=1706575762 instance=ExtResource("11_h62hk")]
 visible = false
 
-[node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="5"]
+[node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="5" unique_id=644137206]
 transform = Transform3D(-0.94726884, -0.3109643, 0.07734905, 0.30016625, -0.9455943, -0.12550662, 0.11216886, -0.095670946, 0.98907316, -0.049307894, 1.0619931, 0.13001645)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("3_bsshr")
 properties = SubResource("Resource_51v3q")
 
-[node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="6"]
+[node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="6" unique_id=1800434290]
 transform = Transform3D(0.17831318, -0.6575382, -0.73201597, 0.442763, -0.61075014, 0.6564637, -0.8787293, -0.44116572, 0.1822288, -0.10249222, 1.1133773, 0.07699779)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("3_bsshr")
 properties = SubResource("Resource_51v3q")
 
-[node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="7"]
+[node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="7" unique_id=826614518]
 transform = Transform3D(0.58448243, -0.089392185, -0.8064672, -0.5646996, 0.6689038, -0.4834068, 0.58266175, 0.7379545, 0.34048277, -0.038444966, 1.0196351, -1.7430633e-05)
 bone_name = "Spine"
 bone_idx = 13
 
-[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Body Slot"]
+[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Body Slot" unique_id=1210358302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450581e-09, -0.01865423, -0.21198544)
 
-[node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="8"]
+[node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="8" unique_id=1506265234]
 transform = Transform3D(-0.007400073, 0.20490368, 0.9787544, -0.0023142397, -0.97878194, 0.204892, 0.99996996, -0.00074884295, 0.007717233, -0.1711421, 0.9534362, 0.48415557)
 bone_name = "RightHand"
 bone_idx = 26
 
-[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Right Hand Slot"]
+[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Right Hand Slot" unique_id=1403801959]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 3.602707e-09, 0.06111415, -5.820782e-11)
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="9"]
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="9" unique_id=1875387094]
 transform = Transform3D(0.93369263, -0.1361416, 0.33118528, 0.24222094, 0.92131466, -0.3041519, -0.2637181, 0.36420438, 0.893201, 0.055755183, 0.7609099, 0.02020112)
 visible = false
 bone_name = "Hip.L"
 bone_idx = 7
 
-[node name="Hard Sword" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D" instance=ExtResource("28_lcknh")]
+[node name="Hard Sword" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D" unique_id=428881691 instance=ExtResource("28_lcknh")]
 transform = Transform3D(0.5396199, 0.5270734, -0.656509, 0.018366674, 0.7722309, 0.6350764, 0.84170836, -0.3547578, 0.4070306, 0.06696474, -0.053564906, 0.13264066)
 
 [node name="object_0" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/Hard Sword" index="0"]
@@ -330,7 +330,7 @@ layers = 8
 [node name="object_1" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/Hard Sword" index="1"]
 layers = 8
 
-[node name="Hitboxes" parent="Model/Armature/GeneralSkeleton" index="10" instance=ExtResource("5_rn7ny")]
+[node name="Hitboxes" parent="Model/Armature/GeneralSkeleton" index="10" unique_id=979417101 instance=ExtResource("5_rn7ny")]
 
 [node name="Head" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="0"]
 transform = Transform3D(0.9971356, -0.022026747, 0.07235739, -1.4901161e-07, 0.9566553, 0.29122293, -0.07563573, -0.29038867, 0.953915, -0.046589915, 1.2163723, 0.19882524)
@@ -380,7 +380,7 @@ transform = Transform3D(-0.9380826, 0.07145098, -0.3389633, -0.3403785, -0.37194
 transform = Transform3D(-0.007400073, 0.20490368, 0.9787544, -0.0023142397, -0.97878194, 0.204892, 0.99996996, -0.00074884295, 0.007717233, -0.1711421, 0.9534362, 0.48415557)
 bone_name = "RightHand"
 
-[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" instance=ExtResource("6_2d4v2")]
+[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" unique_id=637077998 instance=ExtResource("6_2d4v2")]
 
 [node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0"]
 transform = Transform3D(-0.13178332, -0.604156, 0.7858935, -0.027261853, 0.794717, 0.6063676, -0.9909036, 0.058484226, -0.12120095, -0.10122003, 0.7943383, 0.4236499)
@@ -390,45 +390,43 @@ bone_name = "LeftHand"
 transform = Transform3D(-0.007400073, 0.20490368, 0.9787544, -0.0023142397, -0.97878194, 0.204892, 0.99996996, -0.00074884295, 0.007717233, -0.1711421, 0.9534362, 0.48415557)
 bone_name = "RightHand"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=786046162]
 root_node = NodePath("../Armature")
-libraries = {
-&"": SubResource("AnimationLibrary_bsshr"),
-&"Lower Body": ExtResource("2_wdexw"),
-&"Taunts": ExtResource("3_uswe7"),
-&"Upper Body": ExtResource("6_bsshr")
-}
+libraries/ = SubResource("AnimationLibrary_bsshr")
+"libraries/Lower Body" = ExtResource("2_wdexw")
+libraries/Taunts = ExtResource("3_uswe7")
+"libraries/Upper Body" = ExtResource("6_bsshr")
 
-[node name="SFX" type="Node3D" parent="."]
+[node name="SFX" type="Node3D" parent="." unique_id=1602980485]
 process_mode = 3
 script = ExtResource("3_j1lmw")
 
-[node name="Taunts" type="Node3D" parent="SFX"]
+[node name="Taunts" type="Node3D" parent="SFX" unique_id=700805070]
 
-[node name="Entrance" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Entrance" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=1141550345]
 stream = ExtResource("4_d37jy")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Win" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Win" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=1696195523]
 stream = ExtResource("5_uswe7")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Lose" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Lose" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=139966299]
 stream = ExtResource("6_vpj87")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Common" parent="SFX" instance=ExtResource("7_keb7p")]
+[node name="Common" parent="SFX" unique_id=714393391 instance=ExtResource("7_keb7p")]
 
-[node name="Death" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Death" type="AudioStreamPlayer3D" parent="SFX" unique_id=1485889411]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("8_vd4rb")
 volume_db = -10.0
@@ -437,7 +435,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Hit" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Hit" type="AudioStreamPlayer3D" parent="SFX" unique_id=559946080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_f2gsq")
 volume_db = -10.0
@@ -446,7 +444,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX" unique_id=1966986105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_g7bry")
 volume_db = -10.0
@@ -455,7 +453,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Attack" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Attack" type="AudioStreamPlayer3D" parent="SFX" unique_id=472812534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_r4dm0")
 volume_db = -10.0
@@ -464,7 +462,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX" unique_id=718128154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("18_tj0pt")
 volume_db = -10.0
@@ -473,7 +471,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX" unique_id=984579111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("19_h62hk")
 volume_db = -10.0
@@ -482,7 +480,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX" unique_id=1005239836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("20_rvvl3")
 volume_db = -10.0
