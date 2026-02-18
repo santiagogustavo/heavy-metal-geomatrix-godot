@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_4s6i1"]
 [ext_resource type="PackedScene" uid="uid://bkt3ivhkt5nvf" path="res://Prefabs/node_3d.tscn" id="22_s37v4"]
 [ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="23_6njym"]
-[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_uu1cf"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_dorkn"]
 [ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="25_nhjaw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
@@ -212,7 +212,7 @@ navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 10.0
 spawn_timeout = 5.0
-items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_6njym"), ExtResource("24_uu1cf"), ExtResource("19_4nt3m")])
+items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_6njym"), ExtResource("24_dorkn"), ExtResource("19_4nt3m")])
 
 [node name="World Boundaries" parent="." unique_id=2017473306 instance=ExtResource("22_4s6i1")]
 
@@ -226,11 +226,6 @@ size = Vector3(40, 0.1, 40)
 
 [node name="Node3D" parent="." unique_id=197569161 instance=ExtResource("22_s37v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26639, 1.26391, -0.533026)
-
-[node name="HandGun" parent="." unique_id=720047094 instance=ExtResource("24_uu1cf")]
-transform = Transform3D(-1, -1.73372e-09, -7.43702e-08, -2.85606e-10, 0.999004, 0.0446133, 1.49012e-07, 0.0446133, -0.999004, -1, 2.24906, -10)
-infinite_ammo = true
-is_shooting = true
 
 [node name="Pickup2" parent="." unique_id=1795264621 instance=ExtResource("22_4nt3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)

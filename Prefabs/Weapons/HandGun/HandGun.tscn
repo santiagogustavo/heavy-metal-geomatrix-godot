@@ -1,16 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://d2eirpsbs2b4x"]
+[gd_scene format=3 uid="uid://dojwk8kvm3dvr"]
 
-[ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_mw4kj"]
-[ext_resource type="PackedScene" uid="uid://di062cjwjx8x1" path="res://Prefabs/Weapons/HandGun/Bullet.tscn" id="2_y54om"]
-[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_68f05"]
-[ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="4_7qq3n"]
-[ext_resource type="Texture2D" uid="uid://vrph05fridtt" path="res://Textures/Pickups/Splash/HandGun.png" id="4_gjng4"]
-[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_dnrwh"]
-[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="6_q0g1c"]
-[ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="7_mi2mh"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gjng4"]
-size = Vector3(0.144775, 0.579785, 0.27)
+[ext_resource type="Script" uid="uid://b0f626p3mv6vk" path="res://Scripts/Weapons/GunControllerV2.gd" id="1_bydft"]
+[ext_resource type="Texture2D" uid="uid://vrph05fridtt" path="res://Textures/Pickups/Splash/HandGun.png" id="2_jr5y6"]
+[ext_resource type="Script" uid="uid://upo11pnbegro" path="res://Scripts/Weapons/GunBulletMode.gd" id="2_m0u56"]
+[ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="3_jr5y6"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="4_0vjk5"]
+[ext_resource type="PackedScene" uid="uid://di062cjwjx8x1" path="res://Prefabs/Weapons/HandGun/Bullet.tscn" id="4_75ilw"]
+[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_75ilw"]
+[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="5_rybl7"]
+[ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="6_rybl7"]
 
 [sub_resource type="Animation" id="Animation_aauk2"]
 resource_name = "Idle"
@@ -114,7 +112,7 @@ tracks/9/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_prc7n"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybghn"]
 _data = {
 &"Idle": SubResource("Animation_aauk2"),
 &"RESET": SubResource("Animation_yefmb"),
@@ -155,7 +153,7 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_a2l3g"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rwkdm"]
 states/Idle/node = SubResource("AnimationNodeAnimation_3wj4m")
 states/Idle/position = Vector2(380, 100)
 states/Shoot/node = SubResource("AnimationNodeBlendTree_lhv35")
@@ -163,14 +161,14 @@ states/Shoot/position = Vector2(379.938, -5.5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_armo7"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7")]
 graph_offset = Vector2(-92, -60)
 
-[sub_resource type="Gradient" id="Gradient_ds7hw"]
+[sub_resource type="Gradient" id="Gradient_r5phl"]
 offsets = PackedFloat32Array(0, 0.984791)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_gjng4"]
-gradient = SubResource("Gradient_ds7hw")
+gradient = SubResource("Gradient_r5phl")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8kahf"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dqt6l"]
 particle_flag_disable_z = true
 angle_min = -90.0
 angle_max = 90.0
@@ -185,45 +183,40 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_q0g1c")
+albedo_texture = ExtResource("5_75ilw")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_mmxmh"]
+[sub_resource type="QuadMesh" id="QuadMesh_bhgq0"]
 material = SubResource("StandardMaterial3D_2q7ou")
 size = Vector2(0.75, 0.75)
 
-[node name="HandGun" type="StaticBody3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
-collision_layer = 128
-collision_mask = 0
-script = ExtResource("1_mw4kj")
-bullets = 8
-fire_rate = 0.3
-weapon_range = 15.0
-bullet = ExtResource("2_y54om")
-ejecting_brass = ExtResource("3_68f05")
+[node name="HandGun" type="Node3D" unique_id=968131077 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes", "eject_hole")]
+script = ExtResource("1_bydft")
+fire_modes = [NodePath("GunBulletMode")]
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole")]
 eject_hole = NodePath("EjectHole")
 item_name = "Hand Gun"
 equip_type = 1
-splash = ExtResource("4_gjng4")
+splash = ExtResource("2_jr5y6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00088501, 0.111026, -0.203926)
-shape = SubResource("BoxShape3D_gjng4")
+[node name="GunBulletMode" type="Node" parent="." unique_id=479563968]
+script = ExtResource("2_m0u56")
+bullets = 8
+fire_rate = 0.3
+bullet = ExtResource("4_75ilw")
+ejecting_brass = ExtResource("5_rybl7")
+mode_name = "Fire"
+damage = 5
+fire_range = 15.0
+metadata/_custom_type_script = "uid://upo11pnbegro"
 
-[node name="Hand Gun" parent="." instance=ExtResource("4_7qq3n")]
+[node name="Hand Gun" parent="." unique_id=958114076 instance=ExtResource("3_jr5y6")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
-
-[node name="Skeleton3D" parent="Hand Gun/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.055300385, 1.1902697e-07, -6.5923187e-09, 0.99846977)
-bones/1/position = Vector3(3.5544e-08, 0.288226, -0.149083)
-bones/1/rotation = Quaternion(-0.66692126, -6.3734304e-15, -1.5900606e-07, 0.7451282)
-bones/1/scale = Vector3(1, 1, 1)
 
 [node name="object_2_001" parent="Hand Gun/Armature/Skeleton3D" index="0"]
 layers = 8
@@ -234,25 +227,23 @@ layers = 8
 [node name="Bullet" parent="Hand Gun" index="1"]
 visible = false
 
-[node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Hand Gun"]
-libraries = {
-&"": SubResource("AnimationLibrary_prc7n")
-}
+[node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Hand Gun" unique_id=821420348]
+libraries/ = SubResource("AnimationLibrary_ybghn")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1758463789]
 root_node = NodePath("../Hand Gun")
 callback_mode_discrete = 0
-tree_root = SubResource("AnimationNodeStateMachine_a2l3g")
+tree_root = SubResource("AnimationNodeStateMachine_rwkdm")
 anim_player = NodePath("../Hand Gun/AnimationPlayerCustom")
 parameters/conditions/is_shooting = false
 parameters/Shoot/TimeScale/scale = 1.0
 parameters/Shoot/TimeSeek/seek_request = -1.0
-script = ExtResource("5_dnrwh")
+script = ExtResource("4_0vjk5")
 
-[node name="BulletHole" type="Node3D" parent="."]
+[node name="BulletHole" type="Node3D" parent="." unique_id=1139801947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192, -0.462)
 
-[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole"]
+[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole" unique_id=1863531524]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235036, 0.000154138)
 emitting = false
 amount = 1
@@ -260,23 +251,23 @@ lifetime = 0.1
 one_shot = true
 local_coords = true
 transform_align = 2
-process_material = SubResource("ParticleProcessMaterial_8kahf")
-draw_pass_1 = SubResource("QuadMesh_mmxmh")
+process_material = SubResource("ParticleProcessMaterial_dqt6l")
+draw_pass_1 = SubResource("QuadMesh_bhgq0")
 
-[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole"]
+[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole" unique_id=591609236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00157207, -0.0459177)
 light_color = Color(1, 0.666667, 0, 1)
 light_energy = 0.0
 
-[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
-stream = ExtResource("7_mi2mh")
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=1496196492]
+stream = ExtResource("6_rybl7")
 volume_db = -20.0
 max_db = 0.0
 pitch_scale = 0.75
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 
-[node name="EjectHole" type="Node3D" parent="."]
+[node name="EjectHole" type="Node3D" parent="." unique_id=699369207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175679, -0.123125)
 
 [editable path="Hand Gun"]

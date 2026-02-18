@@ -38,9 +38,9 @@
 [ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
 [ext_resource type="PackedScene" uid="uid://c2b14t4ld7u2a" path="res://Models/Levels/Sunken City Night/Navmesh.glb" id="28_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="31_a3hbx"]
-[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="32_4nhff"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
 [ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="32_u1d5f"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="33_4nhff"]
 [ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="34_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="35_4nhff"]
 
@@ -62,7 +62,7 @@ fog_sky_affect = 0.0
 volumetric_fog_density = 0.0126
 volumetric_fog_albedo = Color(0.57, 0.684667, 1, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3yyu5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4nhff"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vlpe4"]
@@ -288,7 +288,7 @@ script = ExtResource("4_4nhff")
 [node name="SplashLayer" parent="." unique_id=1807516140 instance=ExtResource("2_1r2ip")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_3yyu5")
+texture = SubResource("ViewportTexture_4nhff")
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=611891105]
 audio_listener_enable_3d = true
@@ -748,7 +748,7 @@ end_position = Vector3(-1.721, -1.82292, 0.0225544)
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("32_4nhff"), ExtResource("32_u1d5f"), ExtResource("35_4nhff"), ExtResource("34_u1d5f")])
+items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("33_4nhff"), ExtResource("32_u1d5f"), ExtResource("35_4nhff"), ExtResource("34_u1d5f")])
 
 [node name="Invisible Walls" type="StaticBody3D" parent="." unique_id=1060023409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8619, 4.12044, -25.0382)

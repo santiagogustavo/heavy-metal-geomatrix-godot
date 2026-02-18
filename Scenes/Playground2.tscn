@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="6_2od80"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="6_qglil"]
 [ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="7_sl81g"]
-[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="8_vvk7a"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="9_6vc2e"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="10_1dd0n"]
 [ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="12_1dd0n"]
 [ext_resource type="Material" uid="uid://dc5ihrsx5aehi" path="res://Materials/Levels/Playground Material 2.tres" id="12_g4juo"]
 [ext_resource type="PackedScene" uid="uid://bn3lfst3ikk2g" path="res://Prefabs/Weapons/HardSword.tscn" id="13_1dd0n"]
@@ -88,7 +88,7 @@ light_energy = 0.1
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_sl81g"), ExtResource("8_vvk7a"), ExtResource("9_6vc2e"), ExtResource("12_1dd0n"), ExtResource("13_1dd0n"), ExtResource("14_1dd0n"), ExtResource("13_6vc2e")])
+items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_sl81g"), ExtResource("10_1dd0n"), ExtResource("9_6vc2e"), ExtResource("12_1dd0n"), ExtResource("13_1dd0n"), ExtResource("14_1dd0n"), ExtResource("13_6vc2e")])
 
 [node name="Level Geometry" type="Node3D" parent="." unique_id=1177179093]
 
