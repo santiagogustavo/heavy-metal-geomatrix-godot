@@ -10,10 +10,10 @@
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="4_5qxpq"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_7pwax"]
 [ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="4_c1562"]
-[ext_resource type="PackedScene" uid="uid://cti1ekhybelqv" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="5_c1562"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="5_dhxsf"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_jksom"]
 [ext_resource type="AudioStream" uid="uid://caqbht7qwhd8r" path="res://Sound/Characters/Mayfly/Taunts/Entrance.wav" id="6_c1562"]
+[ext_resource type="PackedScene" uid="uid://blnck15xqws86" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="6_vtabk"]
 [ext_resource type="AudioStream" uid="uid://dur2jfph1faay" path="res://Sound/Characters/Mayfly/Taunts/Win.wav" id="7_qdmts"]
 [ext_resource type="PackedScene" uid="uid://e2x4pxle61fa" path="res://Models/Characters/Mayfly/Skins/Default.tscn" id="8_icvnh"]
 [ext_resource type="AudioStream" uid="uid://dheiicvawvtyy" path="res://Sound/Characters/Mayfly/Taunts/Lose.wav" id="8_ji630"]
@@ -39,7 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://xvrtauyxmkuq" path="res://Sound/Characters/Mayfly/Specials/Special 2.wav" id="21_l5512"]
 [ext_resource type="AudioStream" uid="uid://d7lbvw0h2m3l" path="res://Sound/Characters/Mayfly/Specials/Special 3.wav" id="22_4cc3r"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtabk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50vbu"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("9_vtabk")
 ao_enabled = true
@@ -84,7 +84,7 @@ gameplay_animation_tree = ExtResource("4_7pwax")
 taunt_animation_tree = ExtResource("5_jksom")
 body_slot = NodePath("Model/Armature/GeneralSkeleton/Body Slot")
 right_hand_slot = NodePath("Model/Armature/GeneralSkeleton/Right Hand Slot")
-initial_loadout = ExtResource("5_c1562")
+initial_loadout = ExtResource("6_vtabk")
 
 [node name="Model" parent="." unique_id=289208743 instance=ExtResource("1_b1dom")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -134,7 +134,7 @@ bones/33/rotation = Quaternion(0.86305946, -0.09327893, 0.17302284, 0.4652854)
 visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1951877582 instance=ExtResource("8_icvnh")]
-surface_material_override/1 = SubResource("StandardMaterial3D_vtabk")
+surface_material_override/1 = SubResource("StandardMaterial3D_50vbu")
 
 [node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=525841906 instance=ExtResource("9_uxa88")]
 visible = false

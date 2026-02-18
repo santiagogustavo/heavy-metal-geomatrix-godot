@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pjqiv0a6gq37" path="res://Textures/Characters/Pufferson/Cards/avatar_big.png" id="2_4ydor"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="3_vvvyk"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="4_7nl8l"]
-[ext_resource type="PackedScene" uid="uid://btn7c23i0enhg" path="res://Prefabs/Weapons/FAKK2/ChainSword.tscn" id="5_f7t6p"]
+[ext_resource type="PackedScene" uid="uid://blnck15xqws86" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="5_f7t6p"]
 [ext_resource type="PackedScene" uid="uid://iotc8s2lo1q" path="res://Models/Characters/Pufferson/Pufferson.glb" id="6_7cy2y"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="7_vvvyk"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="8_7nl8l"]

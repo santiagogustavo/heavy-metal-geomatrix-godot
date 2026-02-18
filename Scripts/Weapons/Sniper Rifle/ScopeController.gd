@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var parent_controller: GunController = get_parent()
+@onready var parent_controller: GunControllerV2 = get_parent()
 @onready var scope: TextureRect = $Control/Scope
 @onready var scope_outline: TextureRect = $Control/ScopeOutline
 @onready var animation_tree: AnimationTree = $AnimationTree
