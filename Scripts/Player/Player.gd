@@ -5,6 +5,9 @@ signal player_ready
 signal player_damage
 signal player_killed
 
+signal pickup_collided
+signal pickup_leave
+
 enum PlayerType {
 	Player1,
 	Player2,

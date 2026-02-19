@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cwosw8phngcv"]
+
+[ext_resource type="Script" uid="uid://bub3v3v44cdah" path="res://Scripts/UI/HUD/Pickup.gd" id="1_l437k"]
+[ext_resource type="FontFile" uid="uid://eh8q01om0msl" path="res://Fonts/Coolvetica Rg.otf" id="2_lasy3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fq8h0"]
+font = ExtResource("2_lasy3")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_hb1q4"]
+resource_name = "PopIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3qihl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7o70h"]
+_data = {
+&"PopIn": SubResource("Animation_hb1q4"),
+&"RESET": SubResource("Animation_3qihl")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fq8h0"]
+animation = &"PopIn"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ny2s"]
+animation = &"PopIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ht85"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ny2s"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fq8h0"]
+advance_mode = 2
+advance_condition = &"pickup_collided"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hb1q4"]
+advance_mode = 2
+advance_condition = &"pickup_leave"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3qihl"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fq8h0"]
+states/PopIn/node = SubResource("AnimationNodeAnimation_1ny2s")
+states/PopIn/position = Vector2(502, -52)
+"states/PopIn 2/node" = SubResource("AnimationNodeAnimation_fq8h0")
+"states/PopIn 2/position" = Vector2(631, -51)
+states/RESET/node = SubResource("AnimationNodeAnimation_2ht85")
+states/RESET/position = Vector2(502, 100)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_1ny2s"), "RESET", "PopIn", SubResource("AnimationNodeStateMachineTransition_fq8h0"), "PopIn", "PopIn 2", SubResource("AnimationNodeStateMachineTransition_hb1q4"), "PopIn 2", "RESET", SubResource("AnimationNodeStateMachineTransition_3qihl")]
+graph_offset = Vector2(156, -142)
+
+[node name="Pickup" type="Control" unique_id=782993533]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l437k")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2003149395]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = -18.0
+offset_right = 130.0
+offset_bottom = 4.0
+grow_horizontal = 0
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(0, 22)
+color = Color(1, 0.18431373, 0.25882354, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=237604836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer" unique_id=1963099087]
+layout_mode = 2
+text = "Item Name"
+label_settings = SubResource("LabelSettings_fq8h0")
+clip_text = true
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1479940349]
+libraries/ = SubResource("AnimationLibrary_7o70h")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=701598129]
+callback_mode_discrete = 1
+tree_root = SubResource("AnimationNodeStateMachine_fq8h0")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/pickup_collided = false
+parameters/conditions/pickup_leave = false

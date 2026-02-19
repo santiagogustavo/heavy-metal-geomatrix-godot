@@ -103,3 +103,15 @@ const WeaponRange: Dictionary = {
 }
 
 var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+enum PickupColor {
+	Red,
+	Green,
+	Blue
+}
+
+var PickupColorHashes: Dictionary = {
+	PickupColor.Red: "ff2f42",
+	PickupColor.Green: "68fe9b",
+	PickupColor.Blue: "2d78ff"
+}

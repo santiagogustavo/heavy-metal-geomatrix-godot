@@ -2,7 +2,9 @@
 
 [ext_resource type="Shader" uid="uid://cddl3bdm4dln6" path="res://Materials/UI/HUD/HealthBar.tres" id="1_h7o1f"]
 [ext_resource type="Script" uid="uid://bgpkvkcv1uk0" path="res://Scripts/UI/HUD/PlayerHudController.gd" id="1_nerrs"]
+[ext_resource type="Script" uid="uid://dxwggq42s4axm" path="res://Scripts/UI/HUD/CrosshairContainer.gd" id="2_1ny2s"]
 [ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2efbf"]
+[ext_resource type="PackedScene" uid="uid://cwosw8phngcv" path="res://Prefabs/UI/HUD/Pickup.tscn" id="3_2ht85"]
 [ext_resource type="PackedScene" uid="uid://dxvpad20l184n" path="res://Scenes/UI/Crosshair.tscn" id="7_nt7e2"]
 [ext_resource type="Script" uid="uid://dfd5k8mgf2wtg" path="res://Scripts/UI/HUD/Player.gd" id="8_5ig34"]
 [ext_resource type="Texture2D" uid="uid://dwjcsemw1xwdy" path="res://Textures/UI/HUD/New/player_health_bar_mask_bar.png" id="8_flou3"]
@@ -33,6 +35,74 @@
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="25_xpoe2"]
 [ext_resource type="AudioStream" uid="uid://b5533tkw2f3jv" path="res://Sound/UI/HUD/warning.wav" id="26_7rq6n"]
 [ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="29_dm27j"]
+
+[sub_resource type="Animation" id="Animation_fq8h0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hb1q4"]
+resource_name = "Shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3qihl"]
+_data = {
+&"RESET": SubResource("Animation_fq8h0"),
+&"Shoot": SubResource("Animation_hb1q4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ny2s"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fq8h0"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_hb1q4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3qihl"]
+graph_offset = Vector2(-454.09998, 177.9)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_hb1q4")
+nodes/TimeSeek/position = Vector2(60, 160)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_fq8h0")
+nodes/Animation/position = Vector2(-240, 180)
+node_connections = [&"output", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hb1q4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7o70h"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_htmul"]
+states/RESET/node = SubResource("AnimationNodeAnimation_1ny2s")
+states/RESET/position = Vector2(460, 100)
+states/Shoot/node = SubResource("AnimationNodeBlendTree_3qihl")
+states/Shoot/position = Vector2(460, -25)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_hb1q4"), "Shoot", "RESET", SubResource("AnimationNodeStateMachineTransition_7o70h")]
+graph_offset = Vector2(64, -71)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iknaq"]
 shader = ExtResource("2_2efbf")
@@ -290,7 +360,23 @@ theme_override_constants/margin_bottom = 40
 [node name="Control" type="Control" parent="Container" unique_id=1942947265]
 layout_mode = 2
 
-[node name="Crosshair" parent="Container/Control" unique_id=535760336 instance=ExtResource("7_nt7e2")]
+[node name="CrosshairContainer" type="Control" parent="Container/Control" unique_id=282361044]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+script = ExtResource("2_1ny2s")
+
+[node name="Crosshair" parent="Container/Control/CrosshairContainer" unique_id=927337292 instance=ExtResource("7_nt7e2")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -303,8 +389,17 @@ offset_right = 15.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Control/CrosshairContainer" unique_id=1670394727]
+libraries/ = SubResource("AnimationLibrary_3qihl")
+
+[node name="AnimationTree" type="AnimationTree" parent="Container/Control/CrosshairContainer" unique_id=1487390625]
+tree_root = SubResource("AnimationNodeStateMachine_htmul")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Shoot/TimeSeek/seek_request = -1.0
+
+[node name="Pickup" parent="Container/Control" unique_id=782993533 instance=ExtResource("3_2ht85")]
+layout_mode = 1
 
 [node name="Player" type="Control" parent="Container/Control" unique_id=397055377]
 layout_mode = 1
