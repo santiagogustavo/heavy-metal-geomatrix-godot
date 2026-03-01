@@ -17,8 +17,12 @@ var is_attacking = false
 var is_swinging = false
 var has_collided = false
 
+var last_player_hit_rid = null
+
 func _physics_process(_delta: float) -> void:
 	var collision: KinematicCollision3D = rigid_body.move_and_collide(transform.basis * Vector3(0, 0, 0))
+	if is_swinging:
+		last_player_hit_rid = null
 	if is_attacking and collision:
 		collide(collision)
 		has_collided = true
@@ -58,12 +62,16 @@ func collide(collision: KinematicCollision3D):
 		var impulse = normal * 30
 		(collider as RigidBody3D).apply_central_impulse(impulse * -1)
 	elif collider is CharacterHitbox:
-		var collided_player = GameManager.get_player((collider as CharacterHitbox).player_rid)
+		var player_hit_rid = (collider as CharacterHitbox).player_rid
+		if last_player_hit_rid == player_hit_rid:
+			return
+		last_player_hit_rid = player_hit_rid
+		var collided_player = GameManager.get_player(player_hit_rid)
 		var push_direction: Vector3 = collided_player.global_position - global_position
 		collided_player.apply_global_force(push_direction.normalized() * 30)
 	
 	if collider.collision_layer == Definitions.SurfaceType.Hitbox:
-		(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), point)
+		(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), point, true)
 	instantiate_hit(point, normal, collider.collision_layer)
 
 func vibrate_hard() -> void:

@@ -137,7 +137,8 @@ func team_was_killed(last_killed_player: Player) -> void:
 	if current_match.can_end_round() and get_teams_alive().size() <= 1:
 		current_match.end_round()
 		if get_player_one():
-			get_player_one().move_ko_pivot(last_killed_player.global_position, last_killed_player.global_rotation)
+			get_player_one().move_ko_pivot(last_killed_player)
+			#get_player_one().move_ko_pivot(last_killed_player.global_position, last_killed_player.global_rotation)
 
 func compute_team_scores() -> void:
 	var teams_alive = get_teams_alive()
@@ -187,7 +188,7 @@ func has_a_winner() -> bool:
 
 func match_round_ended() -> void:
 	var player_one: Player = get_player_one()
-	player_one.move_ko_pivot(player_one.global_position, player_one.global_rotation)
+	player_one.move_ko_pivot(player_one)
 
 func is_player_one_win() -> bool:
 	return get_healthiest_team().name == get_player_one().team.name

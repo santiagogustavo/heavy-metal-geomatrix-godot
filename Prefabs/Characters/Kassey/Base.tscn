@@ -36,6 +36,7 @@
 [ext_resource type="Material" uid="uid://q4hfh28csl4p" path="res://Materials/Weapons/Hand Gun/a17a3edc.tres" id="27_s4vkl"]
 [ext_resource type="AnimationLibrary" uid="uid://vfmegwigbpp6" path="res://Animations/Libraries/Lower Body.res" id="29_ddyhc"]
 [ext_resource type="AnimationLibrary" uid="uid://dhtb15v55d82c" path="res://Animations/Characters/Kassey/Taunts.res" id="30_kngan"]
+[ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="30_s4vkl"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="31_ss2si"]
 [ext_resource type="AudioStream" uid="uid://dh5kh8x4jwl62" path="res://Sound/Characters/Kassey/Pickup/Pickup 1.wav" id="43_856tj"]
 [ext_resource type="AudioStream" uid="uid://dbdrtg62q8kno" path="res://Sound/Characters/Kassey/Pickup/Pickup 2.wav" id="44_5xacv"]
@@ -51,38 +52,38 @@
 [ext_resource type="AudioStream" uid="uid://b8coxs1hsf0cp" path="res://Sound/Characters/Kassey/Specials/Special 2.wav" id="50_ds2fd"]
 [ext_resource type="AudioStream" uid="uid://bhjhus7dgkh8w" path="res://Sound/Characters/Kassey/Specials/Special 3.wav" id="51_jsy6k"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4vkl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bgq1"]
 resource_local_to_scene = true
 transparency = 4
 albedo_texture = ExtResource("9_ea3kh")
 ao_enabled = true
 ao_texture = ExtResource("10_drebd")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bgq1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhhtn"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("11_s4vkl")
 ao_enabled = true
 ao_texture = ExtResource("12_5bgq1")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhhtn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvu7j"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("13_jhhtn")
 ao_enabled = true
 ao_texture = ExtResource("14_gvu7j")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvu7j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42dvd"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("15_42dvd")
 ao_enabled = true
 ao_texture = ExtResource("16_ddyhc")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42dvd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddyhc"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("17_kngan")
 ao_enabled = true
 ao_texture = ExtResource("18_ss2si")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddyhc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kngan"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("19_iearr")
 ao_enabled = true
@@ -326,12 +327,12 @@ visible = false
 layers = 4
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1294128584 instance=ExtResource("2_tkdiu")]
-surface_material_override/0 = SubResource("StandardMaterial3D_s4vkl")
-surface_material_override/1 = SubResource("StandardMaterial3D_5bgq1")
-surface_material_override/2 = SubResource("StandardMaterial3D_jhhtn")
-surface_material_override/3 = SubResource("StandardMaterial3D_gvu7j")
-surface_material_override/4 = SubResource("StandardMaterial3D_42dvd")
-surface_material_override/5 = SubResource("StandardMaterial3D_ddyhc")
+surface_material_override/0 = SubResource("StandardMaterial3D_5bgq1")
+surface_material_override/1 = SubResource("StandardMaterial3D_jhhtn")
+surface_material_override/2 = SubResource("StandardMaterial3D_gvu7j")
+surface_material_override/3 = SubResource("StandardMaterial3D_42dvd")
+surface_material_override/4 = SubResource("StandardMaterial3D_ddyhc")
+surface_material_override/5 = SubResource("StandardMaterial3D_kngan")
 
 [node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=91992195 instance=ExtResource("3_8tnxv")]
 visible = false
@@ -462,17 +463,18 @@ bone_name = "RightHand"
 
 [node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" unique_id=1680592013 instance=ExtResource("9_ss2si")]
 
-[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0"]
+[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0" unique_id=1272063757]
 transform = Transform3D(0.42145348, -0.6962065, -0.58109665, -0.8798454, -0.15871215, -0.4479759, 0.2196567, 0.70007634, -0.67944384, 0.08531074, 1.0736326, 0.3762457)
 bone_name = "LeftHand"
 
-[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1"]
+[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
 transform = Transform3D(0.19120112, -0.029817909, 0.9810977, 0.96740794, -0.16334137, -0.19349736, 0.1660235, 0.9861189, -0.002385065, -0.2901486, 1.1471531, -0.07296568)
 bone_name = "RightHand"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=2138419853]
 root_node = NodePath("../Armature")
 libraries/ = SubResource("AnimationLibrary_moote")
+"libraries/Hit Reactions" = ExtResource("30_s4vkl")
 "libraries/Lower Body" = ExtResource("29_ddyhc")
 libraries/Taunts = ExtResource("30_kngan")
 "libraries/Upper Body" = ExtResource("31_ss2si")

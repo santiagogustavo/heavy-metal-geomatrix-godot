@@ -38,6 +38,7 @@ signal damage
 @export var round_pivot_offset: Marker3D
 @export var camera_pivot_offset: Marker3D
 
+@onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var hitmarker: PackedScene = load("res://Prefabs/Player/Hitmarker.tscn")
 @onready var damage_indicator: PackedScene = load("res://Prefabs/Player/DamageIndicator.tscn")
 
@@ -67,8 +68,8 @@ func _ready() -> void:
 	else:
 		animation_tree = gameplay_animation_tree.instantiate() as PlayerAnimationTree
 	if animation_tree != null:
+		animation_tree.anim_player = animation_player.get_path()
 		add_child(animation_tree)
-		animation_tree.anim_player = NodePath('./Model/AnimationPlayer')
 	for hitbox in hitboxes:
 		hitbox.player_rid = player_rid
 		hitbox.hit.connect(take_damage_from_hitbox)
@@ -133,6 +134,11 @@ func advance_forward(amount: float = 30.0) -> void:
 	if player:
 		player.apply_force(Vector3(0, 0, amount))
 
+func advance_backward(amount: float = 30.0) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.apply_force(Vector3(0, 0, -amount))
+
 func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vector3) -> void:
 	var hitmarker_instance: Hitmarker = hitmarker.instantiate()
 	hitmarker_instance.damage_taken = roundi(total_damage)
@@ -153,7 +159,8 @@ func take_damage_from_hitbox(
 	damage_taken: float,
 	damage_factor: float,
 	hit_position: Vector3,
-	emissor_position: Vector3
+	emissor_position: Vector3,
+	show_hit_reaction: bool = false
 ) -> void:
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
@@ -162,7 +169,7 @@ func take_damage_from_hitbox(
 		create_damage_indicator(emissor_position)
 	if is_dead:
 		return
-	damage.emit(total_damage)
+	damage.emit(total_damage, show_hit_reaction)
 	is_hurt = true
 	get_tree().create_timer(0.5).timeout.connect(func (): is_hurt = false)
 	if sfx_controller:

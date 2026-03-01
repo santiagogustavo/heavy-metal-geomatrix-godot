@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://ce2bdrrr0kqnq" path="res://Sound/Characters/Hound/Damage/Death.wav" id="9_stcy1"]
 [ext_resource type="AudioStream" uid="uid://bm3tfn88lx36t" path="res://Sound/Characters/Hound/Damage/Hit 1.wav" id="10_75d35"]
 [ext_resource type="AnimationLibrary" uid="uid://8yhy4ywiskgx" path="res://Animations/Characters/Hound/Taunts.res" id="11_jcis8"]
+[ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="11_kdmvf"]
 [ext_resource type="AudioStream" uid="uid://dppdoj7lspbgl" path="res://Sound/Characters/Hound/Damage/Hit 2.wav" id="11_p1tty"]
 [ext_resource type="AudioStream" uid="uid://cnokd1dyit5dc" path="res://Sound/Characters/Hound/Damage/Hit 3.wav" id="12_68nn1"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="12_kgubi"]
@@ -354,18 +355,18 @@ shape = SubResource("SphereShape3D_opawo")
 
 [node name="Fists" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=1542175869 instance=ExtResource("13_atjvi")]
 
-[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0"]
+[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0" unique_id=1272063757]
 transform = Transform3D(0.42145348, -0.6962065, -0.58109665, -0.8798454, -0.15871215, -0.4479759, 0.2196567, 0.70007634, -0.67944384, 0.10986483, 1.158996, 0.4968337)
 bone_name = "LeftHand"
 
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandL/Fist" index="0"]
+[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandL/Fist" parent_id_path=PackedInt32Array(1542175869, 631813799) index="0" unique_id=173894629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1"]
+[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
 transform = Transform3D(0.19120112, -0.029817909, 0.9810977, 0.96740794, -0.16334137, -0.19349736, 0.1660235, 0.9861189, -0.002385065, -0.37365478, 1.253679, -0.08166811)
 bone_name = "RightHand"
 
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/Fist" index="0"]
+[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/Fist" parent_id_path=PackedInt32Array(1542175869, 59190840) index="0" unique_id=1255486430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=1179291103]
@@ -403,6 +404,7 @@ transform = Transform3D(0, 4.371138e-08, 1, 1, 4.371139e-08, -1.9106855e-15, -4.
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=2072197442]
 root_node = NodePath("../Armature")
 libraries/ = SubResource("AnimationLibrary_jcis8")
+"libraries/Hit Reactions" = ExtResource("11_kdmvf")
 "libraries/Lower Body" = ExtResource("2_h5hc6")
 libraries/Taunts = ExtResource("11_jcis8")
 "libraries/Upper Body" = ExtResource("4_5qgjw")

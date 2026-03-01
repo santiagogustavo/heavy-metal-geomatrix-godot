@@ -3,7 +3,9 @@ class_name PlayerAnimationTree
 
 signal combo_animation_changed
 
+var lower_body_state_machine: AnimationNodeStateMachinePlayback
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
+var reaction_state_machine: AnimationNodeStateMachinePlayback
 var last_combo_animation: StringName
 
 var direction: Vector2 = Vector2.ZERO
@@ -32,7 +34,9 @@ const lower_blend_tree_lerp: float = 15
 const upper_blend_tree_lerp: float = 20
 
 func _ready() -> void:
+	lower_body_state_machine = get("parameters/Lower Body/playback")
 	upper_body_state_machine = get("parameters/Upper Body/playback")
+	reaction_state_machine = get("parameters/Reaction/playback")
 
 func _process(delta: float) -> void:
 	update_lower_body(delta)
@@ -68,6 +72,12 @@ func update_pickup() -> void:
 func update_fire_rate() -> void:
 	if is_gun_shooting:
 		animate_gun_shoot()
+
+func update_hit_reaction(is_front_hit: bool) -> void:
+	set("parameters/Upper Body/Hit/TimeSeek/seek_request", 0.0)
+	set("parameters/Upper Body/Hit/BlendSpace1D/blend_position", 1.0 if is_front_hit else -1.0)
+	upper_body_state_machine.travel("Hit", true)
+	
 
 func animate_gun_shoot() -> void:
 	upper_body_state_machine.travel("Shoot - Weapon Single", true)

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="7_vvvyk"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="8_7nl8l"]
 [ext_resource type="AnimationLibrary" uid="uid://vfmegwigbpp6" path="res://Animations/Libraries/Lower Body.res" id="9_3gwpf"]
+[ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="9_4ydor"]
 [ext_resource type="AnimationLibrary" uid="uid://ctr3odfdjnyok" path="res://Animations/Libraries/Taunts.res" id="10_dt7jj"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="11_7axyf"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="12_imaf8"]
@@ -247,21 +248,21 @@ shape = SubResource("SphereShape3D_7nl8l")
 
 [node name="Fists" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=2034551123 instance=ExtResource("8_7nl8l")]
 
-[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0"]
+[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0" unique_id=1272063757]
 transform = Transform3D(0.43263707, -0.64230424, -0.6326691, -0.79114014, 0.06604813, -0.608058, 0.4323449, 0.7635986, -0.47957793, 0.06693944, 0.832723, 0.15579876)
 bone_name = "LeftHand"
 bone_idx = 16
 
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandL/Fist" index="0"]
+[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandL/Fist" parent_id_path=PackedInt32Array(2034551123, 631813799) index="0" unique_id=173894629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_j2f2b")
 
-[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1"]
+[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
 transform = Transform3D(0.2077029, 0.04368595, 0.97721595, 0.96920276, 0.12593374, -0.21162918, -0.13230968, 0.9910764, -0.016183853, -0.2891636, 0.77236974, -0.12501383)
 bone_name = "RightHand"
 bone_idx = 20
 
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/Fist" index="0"]
+[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/Fist" parent_id_path=PackedInt32Array(2034551123, 59190840) index="0" unique_id=1255486430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_j2f2b")
 
@@ -283,6 +284,7 @@ transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=1767661366]
 root_node = NodePath("../Armature")
+"libraries/Hit Reactions" = ExtResource("9_4ydor")
 "libraries/Lower Body" = ExtResource("9_3gwpf")
 libraries/Taunts = ExtResource("10_dt7jj")
 "libraries/Upper Body" = ExtResource("11_7axyf")

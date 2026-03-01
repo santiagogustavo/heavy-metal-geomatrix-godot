@@ -1,6 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dip10l55s4dib"]
+[gd_scene format=3 uid="uid://dip10l55s4dib"]
 
 [ext_resource type="PackedScene" uid="uid://bskt672q08ljw" path="res://Prefabs/GenericPlayer.tscn" id="1_vkv67"]
+[ext_resource type="Texture2D" uid="uid://qo0i1lcfs8q3" path="res://Textures/Characters/Slash/Skins/Default/f589e076.png" id="2_i58b6"]
+[ext_resource type="Texture2D" uid="uid://tkn1umjwsirn" path="res://Textures/Characters/Slash/f589e076_spec.png" id="3_2i6tu"]
+[ext_resource type="Script" uid="uid://bqq8s2uap3hve" path="res://Scripts/Player/DirectionalDetector.gd" id="4_2i6tu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i6tu"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_i58b6")
+ao_enabled = true
+ao_texture = ExtResource("3_2i6tu")
 
 [sub_resource type="Gradient" id="Gradient_wjqau"]
 interpolation_color_space = 1
@@ -10,7 +19,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.991281, 1, 1, 1, 1, 1, 1, 1, 0,
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hbext"]
 gradient = SubResource("Gradient_wjqau")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sxw13"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oqhji"]
 resource_local_to_scene = true
 emission_shape = 3
 emission_box_extents = Vector3(0.3, 0.5, 0.6)
@@ -26,38 +35,54 @@ turbulence_noise_scale = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1jhi"]
 size = Vector3(0.25, 1.2, 0.25)
 
-[node name="Bot" node_paths=PackedStringArray("camera_pivot", "navigation_agent", "detectors") instance=ExtResource("1_vkv67")]
+[node name="Bot" unique_id=2040670979 node_paths=PackedStringArray("camera_pivot", "navigation_agent", "detectors") instance=ExtResource("1_vkv67")]
 collision_mask = 3895
 player_type = 2
 camera_pivot = NodePath("LookPivot")
 navigation_agent = NodePath("NavigationAgent3D")
 detectors = [NodePath("DetectorLeft"), NodePath("DetectorRight"), NodePath("DetectorFront")]
 
-[node name="Dash" parent="." index="3"]
-process_material = SubResource("ParticleProcessMaterial_sxw13")
+[node name="TEST" parent="." index="1" unique_id=168524473]
+surface_material_override/3 = SubResource("StandardMaterial3D_2i6tu")
 
-[node name="LookPivot" type="Marker3D" parent="." index="4"]
+[node name="Dash" parent="." index="3" unique_id=1873573577]
+process_material = SubResource("ParticleProcessMaterial_oqhji")
+
+[node name="LookPivot" type="Marker3D" parent="." index="4" unique_id=1403654790]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0.5)
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5" unique_id=1965631768]
 
-[node name="DetectorLeft" type="Area3D" parent="." index="6"]
+[node name="DetectorLeft" type="Area3D" parent="." index="6" unique_id=670330969]
 collision_mask = 128
+script = ExtResource("4_2i6tu")
+hit_direction = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorLeft" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorLeft" index="0" unique_id=2145970298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.9, 0)
 shape = SubResource("BoxShape3D_j1jhi")
 
-[node name="DetectorRight" type="Area3D" parent="." index="7"]
+[node name="DetectorRight" type="Area3D" parent="." index="7" unique_id=1968845519]
 collision_mask = 128
+script = ExtResource("4_2i6tu")
+hit_direction = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorRight" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorRight" index="0" unique_id=630861371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.250047, 0.9, 0)
 shape = SubResource("BoxShape3D_j1jhi")
 
-[node name="DetectorFront" type="Area3D" parent="." index="8"]
+[node name="DetectorFront" type="Area3D" parent="." index="8" unique_id=1280793823]
 collision_mask = 128
+script = ExtResource("4_2i6tu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorFront" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorFront" index="0" unique_id=746614806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.25)
+shape = SubResource("BoxShape3D_j1jhi")
+
+[node name="DetectorBack" type="Area3D" parent="." index="9" unique_id=1217760983]
+collision_mask = 128
+script = ExtResource("4_2i6tu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorBack" index="0" unique_id=1630008649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.25)
 shape = SubResource("BoxShape3D_j1jhi")

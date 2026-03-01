@@ -62,7 +62,7 @@ volumetric_fog_ambient_inject = 0.23
 volumetric_fog_sky_affect = 0.0
 volumetric_fog_temporal_reprojection_enabled = false
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_k2jka"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ex2nk"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
@@ -212,7 +212,7 @@ script = ExtResource("4_ex2nk")
 [node name="SplashLayer" parent="." unique_id=168747904 instance=ExtResource("2_tegcv")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_k2jka")
+texture = SubResource("ViewportTexture_ex2nk")
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=2017796208]
 audio_listener_enable_3d = true

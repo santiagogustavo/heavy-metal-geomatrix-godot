@@ -51,26 +51,27 @@
 [ext_resource type="Texture2D" uid="uid://bdpoxexfynxdr" path="res://Textures/Characters/Di/406c45bc_spec.png" id="22_g6kak"]
 [ext_resource type="PackedScene" uid="uid://nppdq326ihs4" path="res://Models/Characters/Di/Skins/Skin1.tscn" id="23_orw0i"]
 [ext_resource type="PackedScene" uid="uid://bf5nixetmlasw" path="res://Models/Weapons/Hard Sword.glb" id="28_lcknh"]
+[ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="31_eg4le"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gu4i4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxqsy"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("9_ds68s")
 ao_enabled = true
 ao_texture = ExtResource("10_orw0i")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eg4le"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dfym"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("11_t75ac")
 ao_enabled = true
 ao_texture = ExtResource("12_ess3g")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxqsy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8nyn"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("13_lcknh")
 ao_enabled = true
 ao_texture = ExtResource("14_7m6tq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dfym"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_belp7"]
 resource_local_to_scene = true
 transparency = 4
 cull_mode = 2
@@ -78,7 +79,7 @@ albedo_texture = ExtResource("15_uty00")
 ao_enabled = true
 ao_texture = ExtResource("16_r8nem")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8nyn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qbnr"]
 resource_local_to_scene = true
 transparency = 4
 cull_mode = 2
@@ -86,13 +87,13 @@ albedo_texture = ExtResource("17_ums2s")
 ao_enabled = true
 ao_texture = ExtResource("18_gmxdb")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_belp7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gt4pf"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("19_lcg3t")
 ao_enabled = true
 ao_texture = ExtResource("20_3mmw4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qbnr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v58wm"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("21_wou6w")
 ao_enabled = true
@@ -268,13 +269,13 @@ bones/33/rotation = Quaternion(0.87983096, -0.014326459, 0.026573587, 0.4743271)
 visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=2020747127 instance=ExtResource("8_5roht")]
-surface_material_override/0 = SubResource("StandardMaterial3D_gu4i4")
-surface_material_override/1 = SubResource("StandardMaterial3D_eg4le")
-surface_material_override/2 = SubResource("StandardMaterial3D_cxqsy")
-surface_material_override/3 = SubResource("StandardMaterial3D_8dfym")
-surface_material_override/4 = SubResource("StandardMaterial3D_v8nyn")
-surface_material_override/5 = SubResource("StandardMaterial3D_belp7")
-surface_material_override/6 = SubResource("StandardMaterial3D_8qbnr")
+surface_material_override/0 = SubResource("StandardMaterial3D_cxqsy")
+surface_material_override/1 = SubResource("StandardMaterial3D_8dfym")
+surface_material_override/2 = SubResource("StandardMaterial3D_v8nyn")
+surface_material_override/3 = SubResource("StandardMaterial3D_belp7")
+surface_material_override/4 = SubResource("StandardMaterial3D_8qbnr")
+surface_material_override/5 = SubResource("StandardMaterial3D_gt4pf")
+surface_material_override/6 = SubResource("StandardMaterial3D_v58wm")
 
 [node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=561423234 instance=ExtResource("23_orw0i")]
 visible = false
@@ -382,17 +383,18 @@ bone_name = "RightHand"
 
 [node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" unique_id=637077998 instance=ExtResource("6_2d4v2")]
 
-[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0"]
+[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0" unique_id=1272063757]
 transform = Transform3D(-0.13178332, -0.604156, 0.7858935, -0.027261853, 0.794717, 0.6063676, -0.9909036, 0.058484226, -0.12120095, -0.10122003, 0.7943383, 0.4236499)
 bone_name = "LeftHand"
 
-[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1"]
+[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
 transform = Transform3D(-0.007400073, 0.20490368, 0.9787544, -0.0023142397, -0.97878194, 0.204892, 0.99996996, -0.00074884295, 0.007717233, -0.1711421, 0.9534362, 0.48415557)
 bone_name = "RightHand"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=786046162]
 root_node = NodePath("../Armature")
 libraries/ = SubResource("AnimationLibrary_bsshr")
+"libraries/Hit Reactions" = ExtResource("31_eg4le")
 "libraries/Lower Body" = ExtResource("2_wdexw")
 libraries/Taunts = ExtResource("3_uswe7")
 "libraries/Upper Body" = ExtResource("6_bsshr")

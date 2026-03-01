@@ -66,10 +66,12 @@ var initial_camera_pivot_rotation: Vector3 = Vector3.ZERO
 var target_position: Vector3 = Vector3.ZERO
 var force: Vector3 = Vector3.ZERO
 var global_force: Vector3 = Vector3.ZERO
-var friction: float = 100.0
+var friction: float = 50.0
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
+
+@onready var debug_ball: MeshInstance3D = $MeshInstance3D
 
 func _ready() -> void:
 	brain = PlayerBrain.new()
@@ -187,7 +189,9 @@ func heal_player(amount: int) -> void:
 	health += amount
 	health = clamp(health, 0, 100)
 
-func damage_player(amount: int) -> void:
+func damage_player(amount: int, show_hit_reaction = false) -> void:
+	if show_hit_reaction:
+		animation_tree.update_hit_reaction(true)
 	player_damage.emit()
 	if DebugCommands.full_health and player_type == PlayerType.Player1:
 		return
@@ -277,9 +281,11 @@ func switch_to_player_camera() -> void:
 	if camera:
 		camera.make_current()
 
-func move_ko_pivot(new_position: Vector3, new_rotation: Vector3) -> void:
-	ko_pivot.global_position = new_position + ko_offset
-	ko_pivot.global_rotation = new_rotation
+func move_ko_pivot(last_killed_player: Player) -> void:
+	ko_pivot.reparent(last_killed_player, false)
+	ko_pivot.ko_ended.connect(func():
+		ko_pivot.reparent(self, false)
+	)
 
 func apply_force(applied_force: Vector3) -> void:
 	force += applied_force
@@ -348,7 +354,7 @@ func set_animator_variables() -> void:
 		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6)
 	if !brain.should_look_at_target:
 		animation_tree.look = Vector2.ZERO
-	animation_tree.is_on_floor = brain.is_on_floor
+	animation_tree.is_on_floor = brain.is_on_floor or animation_tree.is_current_node_attacking()
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_holding_weapon = inventory_manager.is_holding_weapon

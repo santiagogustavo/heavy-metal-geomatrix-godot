@@ -227,8 +227,16 @@ func compute_attack() -> void:
 	if !is_distance_reliable:
 		return
 	var distance_of_aim = abs(player.rotation.y - player.brain.new_rotation.y)
-	player.brain.is_shooting = distance_of_aim < 0.05 and !DebugCommands.is_pacifist
-	player.brain.is_attacking = player.brain.is_shooting and !DebugCommands.is_pacifist
+	player.brain.is_shooting = (
+		distance_of_aim < 0.05
+		and !player.brain.is_movement_locked
+		and !DebugCommands.is_pacifist
+	)
+	player.brain.is_attacking = (
+		player.brain.is_shooting
+		and !player.brain.is_movement_locked
+		and !DebugCommands.is_pacifist
+	)
 
 func compute_pickup() -> void:
 	player.brain.is_picking_up = player.is_pickup_collided
@@ -293,7 +301,7 @@ func step_away_from_obstacle(delta: float) -> void:
 	player.velocity.z += sidestep_velocity.z * delta
 
 func advance_to_target(delta: float) -> void:
-	if has_reached_target():
+	if has_reached_target() or player.brain.is_movement_locked:
 		clear_walking_variables()
 		return
 	player.brain.is_walking = true
