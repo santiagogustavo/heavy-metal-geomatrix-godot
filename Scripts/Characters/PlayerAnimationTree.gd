@@ -6,6 +6,7 @@ signal combo_animation_changed
 var lower_body_state_machine: AnimationNodeStateMachinePlayback
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
 var weapon_single_state_machine: AnimationNodeStateMachinePlayback
+var melee_light_state_machine: AnimationNodeStateMachinePlayback
 var reaction_state_machine: AnimationNodeStateMachinePlayback
 var last_combo_animation: StringName
 
@@ -38,6 +39,7 @@ func _ready() -> void:
 	lower_body_state_machine = get("parameters/Lower Body/playback")
 	upper_body_state_machine = get("parameters/Upper Body/playback")
 	weapon_single_state_machine = get("parameters/Upper Body/WeaponSingle/playback")
+	melee_light_state_machine = get("parameters/Upper Body/MeleeLight/playback")
 	reaction_state_machine = get("parameters/Reaction/playback")
 
 func _process(delta: float) -> void:
@@ -90,7 +92,11 @@ func update_combo_input() -> void:
 		is_attack_combo = true
 
 func update_combo_animation() -> void:
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 3:
+		current_node = melee_light_state_machine.get_current_node()
+	else:
+		current_node = upper_body_state_machine.get_current_node()
 	if (current_node != last_combo_animation and current_node.contains('Attack')):
 		combo_animation_changed.emit()
 		is_attack_combo = false
@@ -105,17 +111,29 @@ func get_current_upper_body_animation() -> StringName:
 	return upper_body_state_machine.get_current_node()
 
 func is_current_node_shooting() -> bool:
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 1:
+		current_node = weapon_single_state_machine.get_current_node()
+	else:
+		current_node = upper_body_state_machine.get_current_node()
 	return current_node.to_lower().contains('shoot')
 
 func is_current_node_attacking() -> bool:
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 3:
+		current_node = melee_light_state_machine.get_current_node()
+	else:
+		current_node = upper_body_state_machine.get_current_node()
 	return current_node.to_lower().contains('attack')
 
 func is_current_node_last_combo() -> bool:
 	var regex = RegEx.new()
 	regex.compile('attack[\\s\\S]*4')
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 3:
+		current_node = melee_light_state_machine.get_current_node()
+	else:
+		current_node = upper_body_state_machine.get_current_node()
 	return !!regex.search(current_node.to_lower())
 
 func update_lower_body(delta: float) -> void:
@@ -159,7 +177,7 @@ func update_upper_body(delta: float) -> void:
 	set("parameters/Upper Body/Shoot - Weapon Double/Blend/blend_position", lerp_look)
 	
 	# MELEE LIGHT #
-	set("parameters/Upper Body/Look - Melee Light/blend_position", lerp_look)
+	set("parameters/Upper Body/MeleeLight/Look/blend_position", lerp_look)
 	
 	# MELEE HEAVY #
 	set("parameters/Upper Body/Look - Melee Heavy/blend_position", lerp_look)
