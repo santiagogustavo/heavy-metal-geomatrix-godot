@@ -5,6 +5,7 @@ signal combo_animation_changed
 
 var lower_body_state_machine: AnimationNodeStateMachinePlayback
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
+var empty_state_machine: AnimationNodeStateMachinePlayback
 var weapon_single_state_machine: AnimationNodeStateMachinePlayback
 var weapon_double_state_machine: AnimationNodeStateMachinePlayback
 var melee_light_state_machine: AnimationNodeStateMachinePlayback
@@ -40,6 +41,7 @@ const upper_blend_tree_lerp: float = 20
 func _ready() -> void:
 	lower_body_state_machine = get("parameters/Lower Body/playback")
 	upper_body_state_machine = get("parameters/Upper Body/playback")
+	empty_state_machine = get("parameters/Upper Body/Empty/playback")
 	weapon_single_state_machine = get("parameters/Upper Body/WeaponSingle/playback")
 	weapon_double_state_machine = get("parameters/Upper Body/WeaponDouble/playback")
 	melee_light_state_machine = get("parameters/Upper Body/MeleeLight/playback")
@@ -105,6 +107,8 @@ func update_combo_animation() -> void:
 		current_node = melee_light_state_machine.get_current_node()
 	elif equip == 4:
 		current_node = melee_heavy_state_machine.get_current_node()
+	else:
+		current_node = empty_state_machine.get_current_node()
 	if (current_node != last_combo_animation and current_node.contains('Attack')):
 		combo_animation_changed.emit()
 		is_attack_combo = false
@@ -132,6 +136,8 @@ func is_current_node_attacking() -> bool:
 		current_node = melee_light_state_machine.get_current_node()
 	elif equip == 4:
 		current_node = melee_heavy_state_machine.get_current_node()
+	else:
+		current_node = empty_state_machine.get_current_node()
 	return current_node.to_lower().contains('attack')
 
 func is_current_node_last_combo() -> bool:
@@ -142,6 +148,8 @@ func is_current_node_last_combo() -> bool:
 		current_node = melee_light_state_machine.get_current_node()
 	elif equip == 4:
 		current_node = melee_heavy_state_machine.get_current_node()
+	else:
+		current_node = empty_state_machine.get_current_node()
 	return !!regex.search(current_node.to_lower())
 
 func update_lower_body(delta: float) -> void:
@@ -168,11 +176,11 @@ func update_upper_body(delta: float) -> void:
 	set("parameters/Upper Body/conditions/is_dropping", is_dropping)
 	
 	# BLEND TREES #
-	var current_look: Vector2 = get("parameters/Upper Body/Look - Empty/blend_position")
+	var current_look: Vector2 = get("parameters/Upper Body/Empty/Look/blend_position")
 	var lerp_look: Vector2 = current_look.lerp(
 		Vector2(look.x, -look.y), upper_blend_tree_lerp * delta
 	)
-	set("parameters/Upper Body/Look - Empty/blend_position", lerp_look)
+	set("parameters/Upper Body/Empty/Look/blend_position", lerp_look)
 	
 	# WEAPON SINGLE #
 	set("parameters/Upper Body/WeaponSingle/Look/blend_position", lerp_look)
