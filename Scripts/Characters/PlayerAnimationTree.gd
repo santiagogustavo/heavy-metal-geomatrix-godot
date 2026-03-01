@@ -5,6 +5,7 @@ signal combo_animation_changed
 
 var lower_body_state_machine: AnimationNodeStateMachinePlayback
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
+var weapon_single_state_machine: AnimationNodeStateMachinePlayback
 var reaction_state_machine: AnimationNodeStateMachinePlayback
 var last_combo_animation: StringName
 
@@ -36,6 +37,7 @@ const upper_blend_tree_lerp: float = 20
 func _ready() -> void:
 	lower_body_state_machine = get("parameters/Lower Body/playback")
 	upper_body_state_machine = get("parameters/Upper Body/playback")
+	weapon_single_state_machine = get("parameters/Upper Body/WeaponSingle/playback")
 	reaction_state_machine = get("parameters/Reaction/playback")
 
 func _process(delta: float) -> void:
@@ -80,8 +82,8 @@ func update_hit_reaction(is_front_hit: bool) -> void:
 	
 
 func animate_gun_shoot() -> void:
-	upper_body_state_machine.travel("Shoot - Weapon Single", true)
-	set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
+	weapon_single_state_machine.travel("Shoot", true)
+	set("parameters/Upper Body/WeaponSingle/Shoot/TimeSeek/seek_request", 0.0)
 
 func update_combo_input() -> void:
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):
@@ -147,9 +149,9 @@ func update_upper_body(delta: float) -> void:
 	set("parameters/Upper Body/Look - Empty/blend_position", lerp_look)
 	
 	# WEAPON SINGLE #
-	set("parameters/Upper Body/Look - Weapon Single/blend_position", lerp_look)
-	set("parameters/Upper Body/Aim - Weapon Single/blend_position", lerp_look)
-	set("parameters/Upper Body/Shoot - Weapon Single/Blend/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponSingle/Look/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponSingle/Aim/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponSingle/Shoot/BlendSpace2D/blend_position", lerp_look)
 	
 	# WEAPON DOUBLE #
 	set("parameters/Upper Body/Look - Weapon Double/blend_position", lerp_look)
