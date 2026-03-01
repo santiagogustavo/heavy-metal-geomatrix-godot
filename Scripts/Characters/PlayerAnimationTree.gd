@@ -6,6 +6,7 @@ signal combo_animation_changed
 var lower_body_state_machine: AnimationNodeStateMachinePlayback
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
 var weapon_single_state_machine: AnimationNodeStateMachinePlayback
+var weapon_double_state_machine: AnimationNodeStateMachinePlayback
 var melee_light_state_machine: AnimationNodeStateMachinePlayback
 var melee_heavy_state_machine: AnimationNodeStateMachinePlayback
 var reaction_state_machine: AnimationNodeStateMachinePlayback
@@ -40,6 +41,7 @@ func _ready() -> void:
 	lower_body_state_machine = get("parameters/Lower Body/playback")
 	upper_body_state_machine = get("parameters/Upper Body/playback")
 	weapon_single_state_machine = get("parameters/Upper Body/WeaponSingle/playback")
+	weapon_double_state_machine = get("parameters/Upper Body/WeaponDouble/playback")
 	melee_light_state_machine = get("parameters/Upper Body/MeleeLight/playback")
 	melee_heavy_state_machine = get("parameters/Upper Body/MeleeHeavy/playback")
 	reaction_state_machine = get("parameters/Reaction/playback")
@@ -86,8 +88,12 @@ func update_hit_reaction(is_front_hit: bool) -> void:
 	
 
 func animate_gun_shoot() -> void:
-	weapon_single_state_machine.travel("Shoot", true)
-	set("parameters/Upper Body/WeaponSingle/Shoot/TimeSeek/seek_request", 0.0)
+	if equip == 1:
+		weapon_single_state_machine.travel("Shoot", true)
+		set("parameters/Upper Body/WeaponSingle/Shoot/TimeSeek/seek_request", 0.0)
+	elif equip == 2:
+		weapon_double_state_machine.travel("Shoot", true)
+		set("parameters/Upper Body/WeaponDouble/Shoot/TimeSeek/seek_request", 0.0)
 
 func update_combo_input() -> void:
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):
@@ -116,8 +122,8 @@ func is_current_node_shooting() -> bool:
 	var current_node: StringName
 	if equip == 1:
 		current_node = weapon_single_state_machine.get_current_node()
-	else:
-		current_node = upper_body_state_machine.get_current_node()
+	elif equip == 2:
+		current_node = weapon_double_state_machine.get_current_node()
 	return current_node.to_lower().contains('shoot')
 
 func is_current_node_attacking() -> bool:
@@ -174,9 +180,9 @@ func update_upper_body(delta: float) -> void:
 	set("parameters/Upper Body/WeaponSingle/Shoot/BlendSpace2D/blend_position", lerp_look)
 	
 	# WEAPON DOUBLE #
-	set("parameters/Upper Body/Look - Weapon Double/blend_position", lerp_look)
-	set("parameters/Upper Body/Aim - Weapon Double/blend_position", lerp_look)
-	set("parameters/Upper Body/Shoot - Weapon Double/Blend/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponDouble/Look/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponDouble/Aim/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponDouble/Shoot/BlendSpace2D/blend_position", lerp_look)
 	
 	# MELEE LIGHT #
 	set("parameters/Upper Body/MeleeLight/Look/blend_position", lerp_look)
