@@ -2,6 +2,7 @@ extends Node3D
 class_name CharacterController
 
 signal damage
+signal block
 
 @export_subgroup("Properties")
 @export var character: Definitions.Characters
@@ -162,6 +163,10 @@ func take_damage_from_hitbox(
 	emissor_position: Vector3,
 	show_hit_reaction: bool = false
 ) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if show_hit_reaction and player.brain.is_blocking:
+		block.emit()
+		return
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
 	if GameplaySettingsManager.hitmarkers_enabled:

@@ -24,6 +24,7 @@ var is_double_jumping: bool = false
 var is_on_floor: bool = true
 var is_aiming: bool = false
 var is_shooting: bool = false
+var is_blocking: bool = false
 var is_gun_shooting: bool = false
 var is_holding_weapon: bool = false
 var is_attacking: bool = false
@@ -87,7 +88,12 @@ func update_hit_reaction(is_front_hit: bool) -> void:
 	set("parameters/Upper Body/Hit/TimeSeek/seek_request", 0.0)
 	set("parameters/Upper Body/Hit/BlendSpace1D/blend_position", 1.0 if is_front_hit else -1.0)
 	upper_body_state_machine.travel("Hit", true)
-	
+
+func update_block_hit() -> void:
+	if equip == 3:
+		melee_light_state_machine.travel("Block Hit", true)
+	elif equip == 4:
+		melee_heavy_state_machine.travel("Block Hit", true)
 
 func animate_gun_shoot() -> void:
 	if equip == 1:

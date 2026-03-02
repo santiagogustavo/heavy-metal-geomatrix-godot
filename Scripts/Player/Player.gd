@@ -93,6 +93,7 @@ func _ready() -> void:
 	character = load(Definitions.Players[selected_character]).instantiate()
 	character.player_rid = get_rid()
 	character.damage.connect(damage_player)
+	character.block.connect(block_damage_player)
 	initial_character_rotation = character.rotation
 	if character.round_pivot_offset and round_pivot:
 		round_pivot.position = character.round_pivot_offset.position
@@ -200,6 +201,9 @@ func damage_player(amount: int, show_hit_reaction = false) -> void:
 	if health == 0:
 		player_killed.emit()
 
+func block_damage_player() -> void:
+	animation_tree.update_block_hit()
+
 func update_internals() -> void:
 	if player_input:
 		rotation = player_input.rotation
@@ -223,6 +227,7 @@ func update_externals(delta: float) -> void:
 		is_pickup_collided
 		and brain.is_on_floor
 	)
+	brain.equip_type = inventory_manager.equip_type
 	dash.is_dashing = brain.is_dashing
 	dash.input_direction = brain.input_direction
 	dash.player_velocity = velocity
@@ -346,6 +351,7 @@ func set_animator_variables() -> void:
 	animation_tree.is_aiming = brain.is_aiming
 	animation_tree.is_shooting = brain.is_shooting
 	animation_tree.is_attacking = brain.is_attacking
+	animation_tree.is_blocking = brain.is_blocking
 	animation_tree.is_picking_up = brain.is_picking_up and is_pickup_on_press
 	animation_tree.direction = brain.input_direction
 	if player_input:
