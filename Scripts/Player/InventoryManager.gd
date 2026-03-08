@@ -65,8 +65,8 @@ func update_variables():
 			zoom_factor = right_hand_instance.selected_fire_mode.zoom_factor if has_gun else 1.0
 			ammo = right_hand_instance.selected_fire_mode.bullets if has_gun else 0
 		else:
-			zoom_factor = right_hand_instance.zoom_factor if has_gun else 1.0
-			ammo = right_hand_instance.bullets if has_gun else 0
+			zoom_factor = 0.5
+			ammo = 0
 		
 		if has_energy_gun and right_hand_instance is GunControllerV2 and (right_hand_instance as GunControllerV2).selected_fire_mode:
 			energy = right_hand_instance.selected_fire_mode.energy if has_energy_gun else 0.0
@@ -141,6 +141,9 @@ func _on_holster_timeout():
 	is_holding_weapon = false
 	
 func _on_item_drop():
+	if !right_hand_instance:
+		return
+	right_hand_instance.is_dropping = true
 	is_dropping = true
 	get_tree().create_timer(0.2).timeout.connect(func ():
 		is_dropping = false

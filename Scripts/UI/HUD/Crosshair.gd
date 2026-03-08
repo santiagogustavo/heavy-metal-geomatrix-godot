@@ -5,7 +5,13 @@ extends TextureRect
 func _process(_delta: float) -> void:
 	var player_one: Player = GameManager.get_player_one()
 	if player_one:
-		visible = !player_one.is_locked_on
+		visible = (
+			!player_one.is_locked_on and
+			(
+				player_one.inventory_manager.has_gun or
+				player_one.inventory_manager.has_energy_gun
+			)
+		)
 	modulate = Color(
 		GameplaySettingsManager.crosshair_color_r,
 		GameplaySettingsManager.crosshair_color_g,

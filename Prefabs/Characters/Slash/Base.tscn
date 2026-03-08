@@ -43,25 +43,25 @@
 [ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="21_p30er"]
 [ext_resource type="AudioStream" uid="uid://cid7ihc3iljle" path="res://Sound/Characters/Slash/Specials/Special 3.wav" id="22_i13xs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjju6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p30er"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("9_wmxk3")
 ao_enabled = true
 ao_texture = ExtResource("10_p30er")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynuop"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjju6"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("12_mjju6")
 ao_enabled = true
 ao_texture = ExtResource("10_p30er")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2ga8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynuop"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("14_ynuop")
 ao_enabled = true
 ao_texture = ExtResource("10_p30er")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ii6yt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2ga8"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("16_v2ga8")
 ao_enabled = true
@@ -107,7 +107,7 @@ skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Arm
 stat_speed = 3
 stat_power = 2
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
-fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/Fist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/Fist")]
+fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/RightFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/LeftFist")]
 jiggle_bones = [NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_L"), NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_R")]
 sfx_controller = NodePath("SFX")
 gameplay_animation_tree = ExtResource("4_rwktk")
@@ -167,19 +167,19 @@ bones/33/rotation = Quaternion(0.92980677, 0.097210556, 0.23281486, 0.2679681)
 visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1300241982 instance=ExtResource("8_nowrf")]
-surface_material_override/3 = SubResource("StandardMaterial3D_mjju6")
+surface_material_override/3 = SubResource("StandardMaterial3D_p30er")
 
 [node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=1760771654 instance=ExtResource("9_twjt3")]
 visible = false
-surface_material_override/3 = SubResource("StandardMaterial3D_ynuop")
+surface_material_override/3 = SubResource("StandardMaterial3D_mjju6")
 
 [node name="Skin2" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=364026006 instance=ExtResource("10_7357b")]
 visible = false
-surface_material_override/3 = SubResource("StandardMaterial3D_v2ga8")
+surface_material_override/3 = SubResource("StandardMaterial3D_ynuop")
 
 [node name="Skin3" parent="Model/Armature/GeneralSkeleton" index="4" unique_id=270853801 instance=ExtResource("11_n3uxg")]
 visible = false
-surface_material_override/3 = SubResource("StandardMaterial3D_ii6yt")
+surface_material_override/3 = SubResource("StandardMaterial3D_v2ga8")
 
 [node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="5" unique_id=1614622999]
 transform = Transform3D(-0.19037458, 0.6548235, 0.7314122, 0.008197515, -0.7439515, 0.6681834, 0.98167723, 0.13320081, 0.13626139, 0.090620354, 1.2753118, 0.15072861)

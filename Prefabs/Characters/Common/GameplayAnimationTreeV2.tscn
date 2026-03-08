@@ -1356,7 +1356,6 @@ transitions = ["WeaponSingle", "Empty", SubResource("AnimationNodeStateMachineTr
 graph_offset = Vector2(657.5, -266)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_a81bo"]
-graph_offset = Vector2(-320, -130)
 nodes/output/position = Vector2(700, 40)
 "nodes/Full Body/node" = SubResource("AnimationNodeBlend2_bsv2t")
 "nodes/Full Body/position" = Vector2(80, 160)

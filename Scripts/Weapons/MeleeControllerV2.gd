@@ -19,6 +19,9 @@ var has_collided = false
 
 var last_player_hit_rid = null
 
+var total_hits = 0
+var MAX_HITS = 1
+
 func _physics_process(_delta: float) -> void:
 	var collision: KinematicCollision3D = rigid_body.move_and_collide(transform.basis * Vector3(0, 0, 0))
 	if is_swinging:
@@ -50,15 +53,22 @@ func collide(collision: KinematicCollision3D):
 	var is_self_player = (collider is CharacterHitbox) and (collider as CharacterHitbox).player_rid == player_rid
 	if (
 		!collider
-		or has_collided
+		or (collider is FistController)
+		or total_hits >= MAX_HITS
 		or is_self_player
 	):
 		return
 	
+	total_hits += 1
+	get_tree().create_timer(0.3).timeout.connect(func (): total_hits = clampi(total_hits - 1, 0, MAX_HITS))
+	
 	var point: Vector3 = collision.get_position()
 	var normal: Vector3 = collision.get_normal()
 	
-	if collider is RigidBody3D:
+	if (
+		collider is RigidBody3D and
+		collider.collision_layer != Definitions.SurfaceType.BladeOrProjectile
+	):
 		var impulse = normal * 30
 		(collider as RigidBody3D).apply_central_impulse(impulse * -1)
 	elif collider is CharacterHitbox:

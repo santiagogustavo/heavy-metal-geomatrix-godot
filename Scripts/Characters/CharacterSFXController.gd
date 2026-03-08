@@ -2,6 +2,7 @@ extends Node3D
 class_name CharacterSFXController
 
 @onready var hurt_sfx: AudioStreamPlayer3D = $Hit
+@onready var dash_loop_sfx: AudioStreamPlayer3D = $"Common/Dash Loop"
 
 @onready var walk_dirt_sfx: AudioStreamPlayer3D = $Common/WalkDirt
 @onready var walk_stone_sfx: AudioStreamPlayer3D = $Common/WalkStone
@@ -14,6 +15,9 @@ class_name CharacterSFXController
 
 var is_walking: bool = false
 var current_collision_surface: Definitions.SurfaceType = Definitions.SurfaceType.LevelGeometry
+
+func stop_dash_loop() -> void:
+	dash_loop_sfx.playing = false
 
 func play_hurt_sound() -> void:
 	if !hurt_sfx.playing:

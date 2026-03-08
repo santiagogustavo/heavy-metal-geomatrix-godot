@@ -123,6 +123,7 @@ func set_full_body(blend: float = 1.0) -> void:
 func set_movement_locked(locked: bool) -> void:
 	var player: Player = GameManager.get_player(player_rid)
 	if player:
+		sfx_controller.stop_dash_loop()
 		player.brain.is_movement_locked = locked
 
 func advance_up(amount: float = 10.0) -> void:

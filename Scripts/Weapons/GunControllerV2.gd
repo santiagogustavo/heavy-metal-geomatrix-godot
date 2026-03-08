@@ -32,7 +32,6 @@ var frames_elapsed: int = 0
 var can_damage: bool = true
 
 @onready var target_point: Vector3 = Vector3.FORWARD * transform.basis * 100
-var is_dropping: bool = false
 
 @onready var selected_fire_mode: GunFireMode = null
 var is_bullet_mode: bool = true

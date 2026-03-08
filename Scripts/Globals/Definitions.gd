@@ -30,6 +30,7 @@ enum SceneType {
 enum SurfaceType {
 	Player = 1,
 	LevelGeometry = 4,
+	BladeOrProjectile = 8,
 	WorldBoundary = 16,
 	InvisibleWall = 32,
 	Hitbox = 64,

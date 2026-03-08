@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_enk1q"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
+[ext_resource type="Compositor" uid="uid://bd5earwsxt0e8" path="res://Prefabs/Levels/WorldEnvironmentCompositor.tres" id="3_qvd3e"]
 [ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_4e3ak"]
 [ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/Pitch Dark Stadium/9939eb6_emit.tres" id="4_t2tlk"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_tqjn4"]
@@ -52,7 +53,7 @@ volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_55oue"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qvd3e"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
@@ -127,12 +128,13 @@ splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1157527330]
 environment = SubResource("Environment_h4pe8")
+compositor = ExtResource("3_qvd3e")
 script = ExtResource("4_4e3ak")
 
 [node name="SplashLayer" parent="." unique_id=1486111303 instance=ExtResource("2_7jn1i")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_55oue")
+texture = SubResource("ViewportTexture_qvd3e")
 metadata/_edit_use_anchors_ = true
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=695088672]

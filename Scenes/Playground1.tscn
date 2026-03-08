@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_s26dd"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_m5gjv"]
-[ext_resource type="Compositor" uid="uid://bd5earwsxt0e8" path="res://Prefabs/Levels/WorldEnvironmentCompositor.tres" id="4_ptem2"]
 [ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="6_lid83"]
 [ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="7_yuttg"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="8_hapiw"]
@@ -123,7 +122,6 @@ transform = Transform3D(-0.776992, 0, -0.62951, 0, 1, 0, 0.62951, 0, -0.776992, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=376560647]
 environment = SubResource("Environment_obdgp")
-compositor = ExtResource("4_ptem2")
 script = ExtResource("11_k8et5")
 
 [node name="Sun" parent="." unique_id=1200400304 instance=ExtResource("3_m5gjv")]

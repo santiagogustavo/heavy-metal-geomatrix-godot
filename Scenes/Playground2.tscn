@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="2_rlu7d"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_nkony"]
-[ext_resource type="Compositor" uid="uid://bd5earwsxt0e8" path="res://Prefabs/Levels/WorldEnvironmentCompositor.tres" id="4_1dd0n"]
 [ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_sl81g"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="6_2od80"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="6_qglil"]
@@ -78,7 +77,6 @@ transform = Transform3D(-0.707107, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707107
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=780870999]
 environment = SubResource("Environment_qo5h5")
-compositor = ExtResource("4_1dd0n")
 script = ExtResource("4_sl81g")
 
 [node name="Sun" parent="." unique_id=483478221 instance=ExtResource("3_nkony")]

@@ -6,4 +6,5 @@ class_name Item
 @export var equip_type: Definitions.EquipType
 @export var splash: Texture2D
 
+var is_dropping: bool = false
 var player_rid: RID

@@ -107,6 +107,8 @@ func _ready() -> void:
 	inventory_manager.right_hand_pickup.connect(func (node: CollisionObject3D):
 		add_collision_exception_with(node)
 	)
+	if player_input:
+		player_input.drop.connect(inventory_manager._on_item_drop)
 	add_child(inventory_manager)
 	if character.sfx_controller:
 		sfx_controller = character.sfx_controller

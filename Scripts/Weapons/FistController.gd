@@ -10,7 +10,7 @@ var can_hit: bool = false
 var player_rid: RID
 
 func _physics_process(_delta: float):
-	var collision: KinematicCollision3D = move_and_collide(Vector3.ZERO)
+	var collision: KinematicCollision3D = move_and_collide(transform.basis * Vector3(0, 0, 0))
 	if collision:
 		collide(collision)
 
@@ -22,10 +22,12 @@ func instantiate_hit(point: Vector3, normal: Vector3):
 
 func collide(collision: KinematicCollision3D):
 	var collider: CollisionObject3D = collision.get_collider()
-	if (collider as CharacterHitbox).player_rid == player_rid or !is_attacking or !can_hit:
+	if (
+		(collider as CharacterHitbox).player_rid == player_rid or
+		!is_attacking
+	):
 		return
-	can_hit = false
-	(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), global_position)
+	(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), global_position, true)
 	var point: Vector3 = collision.get_position()
 	var normal: Vector3 = collision.get_normal()
 	instantiate_hit(point, normal)

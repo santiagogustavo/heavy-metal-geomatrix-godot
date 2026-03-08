@@ -188,7 +188,7 @@ stat_speed = 2
 stat_power = 2
 stat_vitality = 2
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
-fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/Fist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/Fist")]
+fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/RightFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/LeftFist")]
 sfx_controller = NodePath("SFX")
 gameplay_animation_tree = ExtResource("4_h1yqc")
 taunt_animation_tree = ExtResource("5_11ge4")
@@ -359,15 +359,9 @@ shape = SubResource("SphereShape3D_opawo")
 transform = Transform3D(0.42145348, -0.6962065, -0.58109665, -0.8798454, -0.15871215, -0.4479759, 0.2196567, 0.70007634, -0.67944384, 0.10986483, 1.158996, 0.4968337)
 bone_name = "LeftHand"
 
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandL/Fist" parent_id_path=PackedInt32Array(1542175869, 631813799) index="0" unique_id=173894629]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
 transform = Transform3D(0.19120112, -0.029817909, 0.9810977, 0.96740794, -0.16334137, -0.19349736, 0.1660235, 0.9861189, -0.002385065, -0.37365478, 1.253679, -0.08166811)
 bone_name = "RightHand"
-
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/Fist" parent_id_path=PackedInt32Array(1542175869, 59190840) index="0" unique_id=1255486430]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=1179291103]
 transform = Transform3D(0.7333255, 8.104771e-08, -0.67987776, 4.973799e-14, 1, 1.1920929e-07, 0.67987776, -8.7419245e-08, 0.7333255, -0.04951019, 1.3131061, -0.02791566)
