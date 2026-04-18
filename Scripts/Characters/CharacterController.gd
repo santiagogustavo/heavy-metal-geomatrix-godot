@@ -75,8 +75,7 @@ func _ready() -> void:
 		hitbox.player_rid = player_rid
 		hitbox.hit.connect(take_damage_from_hitbox)
 	for fist in fists:
-		if fist and player_rid:
-			fist.player_rid = player_rid
+		fist.player_rid = player_rid
 
 func _process(_delta: float) -> void:
 	show_current_skin()
@@ -162,9 +161,12 @@ func take_damage_from_hitbox(
 	damage_factor: float,
 	hit_position: Vector3,
 	emissor_position: Vector3,
-	show_hit_reaction: bool = false
+	show_hit_reaction: bool = false,
+	hit_player_rid: RID = RID(),
 ) -> void:
 	var player: Player = GameManager.get_player(player_rid)
+	if hit_player_rid == player_rid:
+		return
 	if show_hit_reaction and player.brain.is_blocking:
 		block.emit()
 		return

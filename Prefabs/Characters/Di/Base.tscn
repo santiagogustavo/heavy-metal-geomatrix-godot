@@ -211,7 +211,7 @@ skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Arm
 stat_speed = 2
 stat_power = 2
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
-fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/RightFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/LeftFist")]
+fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/LeftFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/RightFist")]
 jiggle_bones = [NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_L"), NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_R")]
 sfx_controller = NodePath("SFX")
 gameplay_animation_tree = ExtResource("4_5roht")
@@ -323,7 +323,7 @@ bone_name = "Hip.L"
 bone_idx = 7
 
 [node name="Hard Sword" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D" unique_id=428881691 instance=ExtResource("28_lcknh")]
-transform = Transform3D(0.5396199, 0.5270734, -0.656509, 0.018366674, 0.7722309, 0.6350764, 0.84170836, -0.3547578, 0.4070306, 0.06696474, -0.053564906, 0.13264066)
+transform = Transform3D(0.5396199, 0.5270733, -0.6565089, 0.018366674, 0.77223086, 0.63507634, 0.84170836, -0.35475776, 0.40703058, 0.06696474, -0.053564906, 0.13264066)
 
 [node name="object_0" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/Hard Sword" index="0"]
 layers = 8
@@ -381,21 +381,13 @@ transform = Transform3D(-0.9380826, 0.07145098, -0.3389633, -0.3403785, -0.37194
 transform = Transform3D(-0.007400073, 0.20490368, 0.9787544, -0.0023142397, -0.97878194, 0.204892, 0.99996996, -0.00074884295, 0.007717233, -0.1711421, 0.9534362, 0.48415557)
 bone_name = "RightHand"
 
-[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" unique_id=637077998 instance=ExtResource("6_2d4v2")]
+[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" unique_id=1022998179 instance=ExtResource("6_2d4v2")]
 
 [node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0" unique_id=1272063757]
 transform = Transform3D(-0.13178332, -0.604156, 0.7858935, -0.027261853, 0.794717, 0.6063676, -0.9909036, 0.058484226, -0.12120095, -0.10122003, 0.7943383, 0.4236499)
-bone_name = "LeftHand"
-
-[node name="RightFist" parent="Model/Armature/GeneralSkeleton/Fists/HandL" index="0" unique_id=631813799]
-transform = Transform3D(-0.007400071, 0.20490362, 0.9787539, -0.002314239, -0.97878164, 0.20489189, 0.99996966, -0.0007488427, 0.0077172294, -0.1711421, 0.9534362, 0.48415557)
 
 [node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
 transform = Transform3D(-0.007400073, 0.20490368, 0.9787544, -0.0023142397, -0.97878194, 0.204892, 0.99996996, -0.00074884295, 0.007717233, -0.1711421, 0.9534362, 0.48415557)
-bone_name = "RightHand"
-
-[node name="LeftFist" parent="Model/Armature/GeneralSkeleton/Fists/HandR" index="0" unique_id=59190840]
-transform = Transform3D(-0.13178328, -0.60415584, 0.78589314, -0.027261846, 0.7947168, 0.6063673, -0.9909033, 0.058484208, -0.12120089, -0.10122003, 0.7943383, 0.4236499)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=786046162]
 root_node = NodePath("../Armature")

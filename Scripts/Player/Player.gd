@@ -37,8 +37,8 @@ enum PlayerType {
 @export_subgroup("Collision Detectors")
 @export var detectors: Array[Area3D]
 
-@onready var dash: GPUParticles3D = $Dash
-@onready var raycast: RayCast3D = $RayCast3D
+@onready var dash_particle: GPUParticles3D = $DashParticle
+@onready var aim_raycast: RayCast3D = $AimRaycast
 
 # Instances
 var brain: PlayerBrain
@@ -70,8 +70,6 @@ var friction: float = 50.0
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
-
-@onready var debug_ball: MeshInstance3D = $MeshInstance3D
 
 func _ready() -> void:
 	brain = PlayerBrain.new()
@@ -116,7 +114,7 @@ func _ready() -> void:
 		animation_tree = character.animation_tree
 		animation_tree.combo_animation_changed.connect(func():
 			for fist in character.fists:
-				fist.can_hit = true
+				fist.handle_combo_animation_changed()
 		)
 		animation_tree.combo_animation_changed.connect(func ():
 			if inventory_manager.right_hand_instance is MeleeControllerV2:
@@ -135,8 +133,8 @@ func _physics_process(delta: float) -> void:
 	compute_movement()
 	compute_forces(delta)
 	compute_global_forces(delta)
-	if raycast.is_colliding() and raycast.get_collider() is StaticBody3D:
-		collide(raycast.get_collider())
+	if aim_raycast.is_colliding() and aim_raycast.get_collider() is StaticBody3D:
+		collide(aim_raycast.get_collider())
 	move_and_slide()
 
 func _process(delta: float) -> void:
@@ -219,7 +217,7 @@ func update_externals(delta: float) -> void:
 			target_position = GameManager.get_enemies(team.name)[lock_on_target].global_position + Vector3(0, 1.0, 0)
 	if inventory_manager.right_hand_instance == null:
 		for fist in character.fists:
-			fist.is_attacking = brain.is_attacking
+			fist.is_attacking = compute_is_attacking()
 	brain.is_on_floor = is_on_floor()
 	brain.can_double_jump = (
 		inventory_manager.has_jetpack
@@ -230,9 +228,9 @@ func update_externals(delta: float) -> void:
 		and brain.is_on_floor
 	)
 	brain.equip_type = inventory_manager.equip_type
-	dash.is_dashing = brain.is_dashing
-	dash.input_direction = brain.input_direction
-	dash.player_velocity = velocity
+	dash_particle.is_dashing = brain.is_dashing
+	dash_particle.input_direction = brain.input_direction
+	dash_particle.player_velocity = velocity
 	compute_free_look(delta)
 
 func look_at_target_position() -> void:
@@ -328,6 +326,9 @@ func compute_forces(delta: float) -> void:
 func compute_gravity(delta: float) -> void:
 	velocity.y -= character.weight * Definitions.Gravity * delta
 
+func compute_is_attacking() -> bool:
+	return animation_tree.is_current_node_attacking() and health > 0
+
 func set_camera_variables() -> void:
 	if player_type == PlayerType.Bot:
 		shoot_target = player_bot_ai.target_position
@@ -374,10 +375,7 @@ func set_inventory_items_variables() -> void:
 	if inventory_manager.right_hand_instance != null:
 		if inventory_manager.right_hand_instance is MeleeControllerV2:
 			inventory_manager.right_hand_instance.is_swinging = false
-			inventory_manager.right_hand_instance.is_attacking = (
-				animation_tree.is_current_node_attacking()
-				and health > 0
-			)
+			inventory_manager.right_hand_instance.is_attacking = compute_is_attacking()
 		if inventory_manager.right_hand_instance is GunControllerV2:
 			inventory_manager.right_hand_instance.is_shooting = brain.is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

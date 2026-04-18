@@ -99,7 +99,7 @@ const Players: Dictionary = {
 }
 
 const WeaponRange: Dictionary = {
-	"Min": 1.4,
+	"Min": 2.0,
 	"Max": 25.0,
 }
 

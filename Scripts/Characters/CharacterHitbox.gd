@@ -10,6 +10,14 @@ func damage_taken(
 	damage: float,
 	hit_position: Vector3,
 	emissor_position: Vector3,
-	show_hit_reaction: bool = false
+	show_hit_reaction: bool = false,
+	hit_player_rid: RID = RID(),
 ) -> void:
-	hit.emit(damage, damage_factor, hit_position, emissor_position, show_hit_reaction)
+	hit.emit(
+		damage,
+		damage_factor,
+		hit_position,
+		emissor_position,
+		show_hit_reaction,
+		hit_player_rid
+	)
