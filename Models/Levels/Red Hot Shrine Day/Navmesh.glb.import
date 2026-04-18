@@ -3,20 +3,23 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5wv8mvubc5ba"
-valid=false
+uid="uid://beq3l6dsrsgrn"
+path="res://.godot/imported/Navmesh.glb-17c93ac53058205f17293f026d0b0503.scn"
 
 [deps]
 
-source_file="res://Models/Levels/Red Hot Shrine Day/Red Hot Shrine Day.fbx"
+source_file="res://Models/Levels/Red Hot Shrine Day/Navmesh.glb"
+dest_files=["res://.godot/imported/Navmesh.glb-17c93ac53058205f17293f026d0b0503.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -31,7 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={}
-fbx/importer=1
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=2
+gltf/embedded_image_handling=1

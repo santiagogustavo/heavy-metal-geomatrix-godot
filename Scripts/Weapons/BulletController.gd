@@ -49,6 +49,9 @@ func collide(collision: KinematicCollision3D):
 		var impulse = collision.get_normal() * speed / 10
 		(collider as RigidBody3D).apply_central_impulse(impulse * -1)
 	
+	if collider is PristineBody:
+		collider.damage_taken(damage)
+	
 	# if collider is world boundary
 	if collider.collision_layer == Definitions.SurfaceType.Hitbox:
 		(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), emissor_position)

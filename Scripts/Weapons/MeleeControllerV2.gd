@@ -37,14 +37,15 @@ func _physics_process(_delta: float) -> void:
 		animation_tree.set("parameters/conditions/is_attacking", is_attacking)
 		animation_tree.set("parameters/conditions/is_not_attacking", !is_swinging)
 
-func instantiate_hit(point: Vector3, normal: Vector3, type: int):
+func instantiate_hit(collider: CollisionObject3D, point: Vector3, normal: Vector3, type: int):
 	var hit_instance
 	if type == Definitions.SurfaceType.Hitbox:
 		hit_instance = hit_player_particle.instantiate()
 	else:
 		hit_instance = hit_general_particle.instantiate()
-	get_tree().root.add_child(hit_instance)
 	vibrate_hard()
+	collider.add_child(hit_instance)
+	hit_instance.scale = Vector3.ONE / collider.scale
 	hit_instance.global_transform.origin = point
 	TransformUtils.safe_look_at(hit_instance, point + normal)
 
@@ -80,9 +81,12 @@ func collide(collision: KinematicCollision3D):
 		var push_direction: Vector3 = collided_player.global_position - global_position
 		collided_player.apply_global_force(push_direction.normalized() * 30)
 	
+	if collider is PristineBody:
+		collider.damage_taken(damage)
+	
 	if collider.collision_layer == Definitions.SurfaceType.Hitbox:
 		(collider as CharacterHitbox).damage_taken(damage, collision.get_position(), point, true)
-	instantiate_hit(point, normal, collider.collision_layer)
+	instantiate_hit(collider, point, normal, collider.collision_layer)
 
 func vibrate_hard() -> void:
 	if player_rid != GameManager.get_player_one().get_rid():

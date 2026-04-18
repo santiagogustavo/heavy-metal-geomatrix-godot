@@ -628,14 +628,14 @@ cull_mask = 4293919232
 size = Vector3(5.95892, 0.938477, 5.11436)
 
 [node name="GPUParticlesCollisionBox3D8" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=46494237]
-transform = Transform3D(0.999928, -2.65347e-08, -1.01863e-09, -7.64994e-08, 0.999928, -8.40519e-08, -4.28408e-08, -3.77186e-08, 0.999928, -17.8962, 1.73189, 5.97248)
+transform = Transform3D(0.99992216, -3.1072375e-08, 4.3655746e-10, -8.103149e-08, 0.99992216, -8.987263e-08, -4.604226e-08, -3.9930455e-08, 0.99992216, -17.896204, 0.7396516, 5.9724784)
 cull_mask = 4293919232
-size = Vector3(6.21628, 3.55127, 6.07643)
+size = Vector3(6.21628, 1.5666506, 6.07643)
 
 [node name="GPUParticlesCollisionBox3D9" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=1988289578]
-transform = Transform3D(0.999918, -3.37477e-08, 1.68802e-09, -8.38787e-08, 0.999918, -9.32487e-08, -4.7643e-08, -4.10946e-08, 0.999918, -18.4949, 1.73392, 2.22473)
+transform = Transform3D(0.9999113, -3.9565407e-08, 2.590241e-09, -8.9804985e-08, 0.9999113, -9.9651515e-08, -5.2532414e-08, -4.33065e-08, 0.9999113, -18.4949, 0.7351004, 2.22473)
 cull_mask = 4293919232
-size = Vector3(5.02013, 3.55127, 1.44349)
+size = Vector3(5.02013, 1.553467, 1.44349)
 
 [node name="GPUParticlesCollisionBox3D11" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=1827374601]
 transform = Transform3D(0.999912, -1.28637e-06, 6.84406e-07, 7.90379e-07, 0.938062, 0.346196, -1.09657e-06, -0.346182, 0.93806, -18.4701, 0.48434, 0.0323805)

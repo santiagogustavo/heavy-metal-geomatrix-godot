@@ -1,0 +1,330 @@
+[gd_scene format=3 uid="uid://b7ty5v7ifa1yn"]
+
+[ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="1_3cl6h"]
+[ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_kf12v"]
+[ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="2_uuu12"]
+[ext_resource type="Script" uid="uid://cqve5bpmljhwj" path="res://Scripts/Levels/Sun.gd" id="3_8hau5"]
+[ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="3_jwvik"]
+[ext_resource type="PackedScene" uid="uid://cna45sa1xwk7h" path="res://Models/Levels/Red Hot Shrine Day/Red Hot Shrine Day.glb" id="3_uuu12"]
+[ext_resource type="PackedScene" uid="uid://beq3l6dsrsgrn" path="res://Models/Levels/Red Hot Shrine Day/Navmesh.glb" id="5_uuidt"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="7_ktx3f"]
+[ext_resource type="Texture2D" uid="uid://dxa1tcgelr650" path="res://Textures/Particles/dust_1.png" id="7_yl6su"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="8_68oyf"]
+[ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="9_kf12v"]
+[ext_resource type="PackedScene" uid="uid://bn3lfst3ikk2g" path="res://Prefabs/Weapons/HardSword.tscn" id="10_xifv4"]
+[ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="11_yl6su"]
+[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="12_68oyf"]
+[ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_xifv4"]
+[ext_resource type="PackedScene" uid="uid://ceje3sfnyrp2o" path="res://Prefabs/Levels/Red Hot Shrine Day/TotemSmall.tscn" id="16_d2ocq"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8hau5"]
+panorama = ExtResource("1_3cl6h")
+
+[sub_resource type="Sky" id="Sky_uuidt"]
+sky_material = SubResource("PanoramaSkyMaterial_8hau5")
+
+[sub_resource type="Environment" id="Environment_jwvik"]
+background_mode = 2
+sky = SubResource("Sky_uuidt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kf12v"]
+size = Vector3(35.9617, 1, 33.02533)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xifv4"]
+size = Vector3(5.9988403, 3.0505676, 8.411804)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yl6su"]
+size = Vector3(15.034946, 3.0505676, 4.933029)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d2ocq"]
+size = Vector3(15.0161705, 0.187, 4.9918046)
+
+[sub_resource type="Curve" id="Curve_d2ocq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_84gig"]
+curve = SubResource("Curve_d2ocq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2vt68"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 0, 15)
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+alpha_curve = SubResource("CurveTexture_84gig")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4pty"]
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_yl6su")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 5.0
+distance_fade_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0e22f"]
+material = SubResource("StandardMaterial3D_c4pty")
+size = Vector2(5, 2)
+orientation = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_uuidt"]
+vertices = PackedVector3Array(-17.005121, -1.1853265, 6.4219017, -14.005121, -1.1853265, 6.4219017, -13.755121, -1.1853265, -1.8280983, -17.005121, -1.1853265, -10.328098, -8.755121, -1.1853265, -24.578098, -7.005121, -1.1853265, -1.8280983, 6.744879, -1.1853265, -1.8280983, 16.994879, -1.1853265, -10.328098, 8.744879, -1.1853265, -24.578098, 13.494879, -1.1853265, -1.8280983, 16.994879, -1.1853265, -1.8280983, -7.005121, 1.8146735, 2.9219017, 6.744879, 1.8146735, 2.9219017, -7.005121, 1.5646735, 1.7344017, 6.744879, 1.5646735, 1.7344017, 13.744879, -1.1853265, 6.4219017, 16.994879, -1.1853265, 6.4219017, -8.255121, 1.8146735, 2.6719017, -8.255121, 1.8146735, -0.8280983, -12.755121, 1.8146735, -0.8280983, -12.755121, 1.8146735, 6.4219017, 12.744879, 1.8146735, -0.8280983, 8.244879, 1.8146735, -0.8280983, 8.244879, 1.8146735, 2.6719017, 12.744879, 1.8146735, 6.4219017)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 4), PackedInt32Array(6, 4, 8), PackedInt32Array(6, 8, 7), PackedInt32Array(7, 10, 9), PackedInt32Array(5, 2, 3), PackedInt32Array(7, 9, 6), PackedInt32Array(11, 13, 12), PackedInt32Array(12, 13, 14), PackedInt32Array(14, 13, 5), PackedInt32Array(14, 5, 6), PackedInt32Array(16, 15, 10), PackedInt32Array(10, 15, 9), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 20), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 24), PackedInt32Array(11, 12, 20), PackedInt32Array(20, 12, 24), PackedInt32Array(12, 23, 24), PackedInt32Array(11, 20, 17)]
+sample_partition_type = 1
+agent_height = 1.75
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84gig"]
+size = Vector3(0.49389648, 16.597565, 17.515)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2vt68"]
+size = Vector3(0.49389648, 16.597565, 18.041409)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4pty"]
+size = Vector3(0.49389648, 16.597565, 35.999313)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0e22f"]
+size = Vector3(0.49389648, 16.597565, 17.96738)
+
+[node name="RedHotShrineDay" type="Node3D" unique_id=1138765275]
+
+[node name="LevelConfig" parent="." unique_id=785466676 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_kf12v")]
+level_name = "Red Hot Shrine Day"
+spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
+randomize_spawn = true
+pickup_spawner = NodePath("../Spawner")
+world_environment = NodePath("../WorldEnvironment")
+spawn_bots_count = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1928442071]
+environment = SubResource("Environment_jwvik")
+script = ExtResource("2_uuu12")
+
+[node name="Spawn Points" type="Node3D" parent="." unique_id=1346915527]
+
+[node name="SpawnPoint" parent="Spawn Points" unique_id=746325936 instance=ExtResource("3_jwvik")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.275402, 14.956211, -39.353127)
+
+[node name="SpawnPoint2" parent="Spawn Points" unique_id=507565676 instance=ExtResource("3_jwvik")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 49.469833, 14.956211, -39.353127)
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=2098357091]
+transform = Transform3D(-0.7307873, 0.49453074, -0.47052044, -0.016969785, 0.67592585, 0.73677427, 0.68239427, 0.54640985, -0.4855659, 33.059364, 35.07535, -39.83868)
+layers = 128
+shadow_enabled = true
+shadow_bias = 0.02
+shadow_reverse_cull_face = true
+script = ExtResource("3_8hau5")
+
+[node name="Level Geometry" type="Node3D" parent="." unique_id=1577205906]
+
+[node name="TotemSmall" parent="Level Geometry" unique_id=1726738382 instance=ExtResource("16_d2ocq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.351978, 15.010206, -34.92333)
+
+[node name="TotemSmall2" parent="Level Geometry" unique_id=1251738828 instance=ExtResource("16_d2ocq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.351978, 15.010206, -43.92333)
+
+[node name="TotemSmall3" parent="Level Geometry" unique_id=1561049001 instance=ExtResource("16_d2ocq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.601013, 15.010206, -34.92333)
+
+[node name="TotemSmall4" parent="Level Geometry" unique_id=1303629179 instance=ExtResource("16_d2ocq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.601013, 15.010206, -43.92333)
+
+[node name="Red Hot Shrine Day" parent="Level Geometry" unique_id=1208771775 instance=ExtResource("3_uuu12")]
+
+[node name="object_0" parent="Level Geometry/Red Hot Shrine Day" index="0" unique_id=1211378912]
+layers = 16
+
+[node name="object_1" parent="Level Geometry/Red Hot Shrine Day" index="1" unique_id=1796634432]
+layers = 16
+
+[node name="object_2" parent="Level Geometry/Red Hot Shrine Day" index="2" unique_id=505918313]
+layers = 16
+
+[node name="object_3" parent="Level Geometry/Red Hot Shrine Day" index="3" unique_id=1957115144]
+layers = 16
+
+[node name="object_4" parent="Level Geometry/Red Hot Shrine Day" index="4" unique_id=355926999]
+layers = 16
+
+[node name="object_5" parent="Level Geometry/Red Hot Shrine Day" index="5" unique_id=632746357]
+layers = 16
+
+[node name="object_9" parent="Level Geometry/Red Hot Shrine Day" index="6" unique_id=1085259750]
+layers = 16
+
+[node name="object_11" parent="Level Geometry/Red Hot Shrine Day" index="7" unique_id=885896151]
+layers = 16
+
+[node name="object_14" parent="Level Geometry/Red Hot Shrine Day" index="8" unique_id=1578774831]
+layers = 16
+
+[node name="object_15" parent="Level Geometry/Red Hot Shrine Day" index="9" unique_id=561321316]
+layers = 16
+
+[node name="object_16" parent="Level Geometry/Red Hot Shrine Day" index="10" unique_id=20174514]
+layers = 16
+
+[node name="object_8" parent="Level Geometry/Red Hot Shrine Day" index="11" unique_id=1101786582]
+layers = 16
+
+[node name="object_17" parent="Level Geometry/Red Hot Shrine Day" index="12" unique_id=471736873]
+layers = 16
+
+[node name="object_12" parent="Level Geometry/Red Hot Shrine Day" index="13" unique_id=1074946830]
+layers = 16
+
+[node name="object_10" parent="Level Geometry/Red Hot Shrine Day" index="14" unique_id=1912548420]
+layers = 16
+
+[node name="object_7" parent="Level Geometry/Red Hot Shrine Day" index="15" unique_id=79241657]
+layers = 16
+
+[node name="object_6" parent="Level Geometry/Red Hot Shrine Day" index="16" unique_id=393413767]
+layers = 16
+
+[node name="Collisions" type="Node3D" parent="Level Geometry" unique_id=245485778]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=2062628344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.022083, 17.219435, -35.943405)
+collision_layer = 1028
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D" unique_id=1650888062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9733734, -2.7092285, 0.20993042)
+shape = SubResource("BoxShape3D_kf12v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D" unique_id=1254111806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.520941, -0.74479675, 11.911167)
+shape = SubResource("BoxShape3D_xifv4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D" unique_id=1372942034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.454346, -0.74479675, 11.911167)
+shape = SubResource("BoxShape3D_xifv4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D" unique_id=246465809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9767952, -0.74479675, 13.650555)
+shape = SubResource("BoxShape3D_yl6su")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D" unique_id=66025841]
+transform = Transform3D(1, 0, 0, 0, 0.7933532, 0.60876137, 0, -0.60876137, 0.7933532, 0.98080826, -0.78027153, 9.256538)
+shape = SubResource("BoxShape3D_d2ocq")
+
+[node name="Particles" type="Node3D" parent="Level Geometry" unique_id=458894880]
+
+[node name="FloorDust" type="GPUParticles3D" parent="Level Geometry/Particles" unique_id=543929751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.890165, 15.436504, -36.304676)
+layers = 64
+cast_shadow = 0
+amount = 40
+lifetime = 4.0
+preprocess = 4.0
+randomness = 1.0
+visibility_aabb = AABB(-5.797434, -5, -19.876858, 52.009514, 10, 39.66445)
+process_material = SubResource("ParticleProcessMaterial_2vt68")
+draw_pass_1 = SubResource("PlaneMesh_0e22f")
+
+[node name="Particle Collisions" type="Node3D" parent="Level Geometry" unique_id=164897447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.758472, 14.9983425, -36.55058)
+visible = false
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=180757465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24859238, -0.28236008, 8.256279)
+cull_mask = 4293919232
+size = Vector3(35.10498, 0.6113281, 16.812622)
+
+[node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=2089714020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24859238, -0.28236008, -7.213932)
+cull_mask = 4293919232
+size = Vector3(17.586182, 0.6113281, 15.976997)
+
+[node name="GPUParticlesCollisionBox3D7" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=92123454]
+transform = Transform3D(0.8660253, 0, -0.49999997, 0, 1, 0, 0.49999997, 0, 0.8660253, -8.803654, -0.28236008, -5.414562)
+cull_mask = 4293919232
+size = Vector3(9.405273, 0.6113281, 17.432835)
+
+[node name="GPUParticlesCollisionBox3D8" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=457395939]
+transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, 9.3593025, -0.28236008, -5.414562)
+cull_mask = 4293919232
+size = Vector3(9.405273, 0.6113281, 17.432835)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=1865987974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.263805, 1.4891796, 12.477951)
+cull_mask = 4293919232
+size = Vector3(5.9962234, 3.028839, 8.369278)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=57192597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.735737, 1.4891796, 12.477951)
+cull_mask = 4293919232
+size = Vector3(6.001702, 3.028839, 8.369278)
+
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=450534095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24388123, 1.4891796, 14.228247)
+cull_mask = 4293919232
+size = Vector3(15.007675, 3.028839, 4.8686867)
+
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Collisions" unique_id=224027338]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0.24388123, 1.2516193, 10.075613)
+cull_mask = 4293919232
+size = Vector3(15.007675, 0.45924377, 4.9178624)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry" unique_id=287606129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.07247, 17.145683, -26.658382)
+navigation_mesh = SubResource("NavigationMesh_uuidt")
+
+[node name="Navmesh" parent="Level Geometry/NavigationRegion3D" unique_id=306674287 instance=ExtResource("5_uuidt")]
+visible = false
+
+[node name="Spawner" parent="." unique_id=785663173 node_paths=PackedStringArray("navigation_region") instance=ExtResource("7_ktx3f")]
+navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
+spawn_concurrent = 3
+items_to_spawn = Array[PackedScene]([ExtResource("8_68oyf"), ExtResource("9_kf12v"), ExtResource("10_xifv4"), ExtResource("11_yl6su")])
+
+[node name="World Boundaries" parent="." unique_id=896150592 instance=ExtResource("12_68oyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.489048, 21.986526, -28.643314)
+
+[node name="Invisible Walls" type="StaticBody3D" parent="." unique_id=671779446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.135944, 13.107225, -28.708954)
+collision_layer = 32
+
+[node name="CollisionShape3D" parent="Invisible Walls" unique_id=1133241828 instance=ExtResource("14_xifv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.620579, 10.147724, 0.7058945)
+shape = SubResource("BoxShape3D_84gig")
+
+[node name="CollisionShape3D5" parent="Invisible Walls" unique_id=1704837721 instance=ExtResource("14_xifv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.620579, 10.147724, 0.7058945)
+shape = SubResource("BoxShape3D_84gig")
+
+[node name="CollisionShape3D2" parent="Invisible Walls" unique_id=44053434 instance=ExtResource("14_xifv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.903082, 10.147724, 0.72036743)
+shape = SubResource("BoxShape3D_84gig")
+
+[node name="CollisionShape3D3" parent="Invisible Walls" unique_id=1835259321 instance=ExtResource("14_xifv4")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -22.465637, 10.147724, -15.698341)
+shape = SubResource("BoxShape3D_2vt68")
+
+[node name="CollisionShape3D4" parent="Invisible Walls" unique_id=970930839 instance=ExtResource("14_xifv4")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 4.1709023, 10.147724, -15.698341)
+shape = SubResource("BoxShape3D_2vt68")
+
+[node name="CollisionShape3D6" parent="Invisible Walls" unique_id=248335601 instance=ExtResource("14_xifv4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.129589, 10.147724, 9.14324)
+shape = SubResource("BoxShape3D_c4pty")
+
+[node name="CollisionShape3D7" parent="Invisible Walls" unique_id=1917661291 instance=ExtResource("14_xifv4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.147713, 10.147724, -23.280083)
+shape = SubResource("BoxShape3D_0e22f")
+
+[editable path="Level Geometry/Red Hot Shrine Day"]
+[editable path="Spawner"]

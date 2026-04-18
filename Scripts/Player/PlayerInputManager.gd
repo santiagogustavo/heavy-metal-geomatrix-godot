@@ -126,6 +126,8 @@ func update_camera_clamp() -> void:
 func is_target_player() -> bool:
 	if target_raycast and target_raycast.is_colliding():
 		var collider: PhysicsBody3D = target_raycast.get_collider()
+		if collider == null:
+			return false
 		var layer = collider.collision_layer as Definitions.SurfaceType
 		return layer == Definitions.SurfaceType.Hitbox
 	return false

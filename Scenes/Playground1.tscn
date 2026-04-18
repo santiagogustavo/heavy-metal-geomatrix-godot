@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_dorkn"]
 [ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="25_nhjaw"]
 [ext_resource type="PackedScene" uid="uid://d2b75t1ilt30u" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="25_ptem2"]
+[ext_resource type="PackedScene" uid="uid://ceje3sfnyrp2o" path="res://Prefabs/Levels/Red Hot Shrine Day/TotemSmall.tscn" id="26_ptem2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("2_pg3qa")
@@ -236,5 +237,8 @@ item = ExtResource("25_ptem2")
 
 [node name="Guillotine" parent="." unique_id=1012458926 instance=ExtResource("25_nhjaw")]
 transform = Transform3D(-0.7388318, 0, -0.6738898, 0, 1, 0, 0.6738898, 0, -0.7388318, 11.973581, -0.023739815, 10.645496)
+
+[node name="TotemSmall" parent="." unique_id=1726738382 instance=ExtResource("26_ptem2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.527821, 0.0056369393, -4.664942)
 
 [editable path="Spawner"]

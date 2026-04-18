@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cgnftctjv7bs2"]
+
+[ext_resource type="Texture2D" uid="uid://bnu2m3hon6bjy" path="res://Textures/Levels/Red Hot Shrine Day/c09547a3.png" id="1_1orce"]
+[ext_resource type="Texture2D" uid="uid://itcaf3xim0t" path="res://Textures/Levels/Red Hot Shrine Day/c09547a3_spec.png" id="2_1jqou"]
+
+[resource]
+albedo_texture = ExtResource("1_1orce")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_1jqou")
