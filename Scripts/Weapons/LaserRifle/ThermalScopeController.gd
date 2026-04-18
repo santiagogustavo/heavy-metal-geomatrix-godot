@@ -3,7 +3,7 @@ extends Node3D
 @export var scope_camera: Camera3D
 @export var animation_tree: AnimationTree
 
-@onready var parent_controller: GunController = get_parent()
+@onready var parent_controller: GunControllerV2 = get_parent()
 @onready var player_one: Player = GameManager.get_player_one()
 
 func _ready() -> void:

@@ -1,13 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://bskt672q08ljw"]
+[gd_scene format=3 uid="uid://bskt672q08ljw"]
 
 [ext_resource type="Script" uid="uid://bl6buiuooradx" path="res://Scripts/Player/Player.gd" id="1_s5b7i"]
 [ext_resource type="PackedScene" uid="uid://de4uiy610h5pr" path="res://Prefabs/Particles/Dash Trail/Dash Trail.tscn" id="2_3ycw1"]
-[ext_resource type="PackedScene" uid="uid://bu2ontvhx7wrb" path="res://Models/Characters/Mayfly/Mayfly.glb" id="2_d43yv"]
+[ext_resource type="PackedScene" uid="uid://cglrt740g5kfb" path="res://Models/Characters/Slash/Skins/Default.tscn" id="2_6ltrx"]
+[ext_resource type="Texture2D" uid="uid://qo0i1lcfs8q3" path="res://Textures/Characters/Slash/Skins/Default/f589e076.png" id="3_ps541"]
+[ext_resource type="Texture2D" uid="uid://tkn1umjwsirn" path="res://Textures/Characters/Slash/f589e076_spec.png" id="4_gvf20"]
 [ext_resource type="Script" uid="uid://bhba7etdaeq0k" path="res://Scripts/Player/PlayerDashController.gd" id="5_1f0ha"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t21dw"]
-radius = 0.3
 height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ltrx"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_ps541")
+ao_enabled = true
+ao_texture = ExtResource("4_gvf20")
 
 [sub_resource type="Gradient" id="Gradient_wjqau"]
 interpolation_color_space = 1
@@ -17,7 +24,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.991281, 1, 1, 1, 1, 1, 1, 1, 0,
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hbext"]
 gradient = SubResource("Gradient_wjqau")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sxw13"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ps541"]
 resource_local_to_scene = true
 emission_shape = 3
 emission_box_extents = Vector3(0.3, 0.5, 0.6)
@@ -30,27 +37,30 @@ attractor_interaction_enabled = false
 color_ramp = SubResource("GradientTexture1D_hbext")
 turbulence_noise_scale = 0.0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=1805307860]
 collision_mask = 4023
 floor_constant_speed = true
 script = ExtResource("1_s5b7i")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="BaseCapsule" type="CollisionShape3D" parent="." unique_id=176569239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_t21dw")
 
-[node name="TEST" parent="." instance=ExtResource("2_d43yv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="TEST" parent="." unique_id=168524473 instance=ExtResource("2_6ltrx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 visible = false
+surface_material_override/3 = SubResource("StandardMaterial3D_6ltrx")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="AimRaycast" type="RayCast3D" parent="." unique_id=32736809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_mask = 3876
 
-[node name="Dash" parent="." instance=ExtResource("2_3ycw1")]
+[node name="DashParticle" parent="." unique_id=1873573577 instance=ExtResource("2_3ycw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853793, 0)
 amount = 8
 lifetime = 0.1
 trail_lifetime = 1.0
-process_material = SubResource("ParticleProcessMaterial_sxw13")
+process_material = SubResource("ParticleProcessMaterial_ps541")
 script = ExtResource("5_1f0ha")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1328474174]

@@ -1,75 +1,88 @@
-[gd_scene load_steps=16 format=3 uid="uid://cf1bfsleugb3w"]
+[gd_scene format=3 uid="uid://2hs4n36k3cbd"]
 
-[ext_resource type="Script" uid="uid://cmh6obv20u8rp" path="res://Scripts/Weapons/SwordController.gd" id="1_3jf6o"]
-[ext_resource type="PackedScene" uid="uid://dru0a6nggo15i" path="res://Models/Weapons/Killer Sword.glb" id="1_vi24m"]
-[ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="2_oav5y"]
-[ext_resource type="PackedScene" uid="uid://cfvw3jc7xr3vp" path="res://Prefabs/Decals/SwordHitDecal.tscn" id="2_uwp03"]
-[ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_5kijt"]
-[ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_uxaca"]
-[ext_resource type="Texture2D" uid="uid://ncn2u34iqesv" path="res://Textures/Pickups/Splash/KillerSword.png" id="4_g4oek"]
-[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="5_hrv4q"]
-[ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="7_7wymm"]
-[ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="9_v8fy7"]
+[ext_resource type="PackedScene" uid="uid://dru0a6nggo15i" path="res://Models/Weapons/Killer Sword.glb" id="1_i50vw"]
+[ext_resource type="Script" uid="uid://dvfijxun0826u" path="res://Scripts/Weapons/MeleeControllerV2.gd" id="1_o2oi7"]
+[ext_resource type="Texture2D" uid="uid://ncn2u34iqesv" path="res://Textures/Pickups/Splash/KillerSword.png" id="2_1main"]
+[ext_resource type="PackedScene" uid="uid://cfvw3jc7xr3vp" path="res://Prefabs/Decals/SwordHitDecal.tscn" id="2_cy6ke"]
+[ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="2_oyh0u"]
+[ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_mw62h"]
+[ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_o2oi7"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="4_1main"]
+[ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="5_cy6ke"]
+[ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="6_mw62h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ka7vw"]
-shader = ExtResource("2_oav5y")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i50vw"]
+points = PackedVector3Array(3.7252903e-08, 0.64750564, 0.18704414, 0.016470943, 1.1599296, 0.05424583, 3.7252903e-08, 1.3610504, 0.13492149, -0.016476316, 1.1599296, 0.05424583, -0.024256816, 0.44135374, 0.024750069, -0.027831051, 0.11093207, -0.042457193, 3.7252903e-08, 0.14690489, 0.024750069, 0.027831126, 0.11093207, -0.042457193, 0.024251442, 0.44135374, 0.024750069, 0.01785487, 1.0318866, -0.022759676, 0.01618762, 1.1858401, 0.030945525, 0.019908965, 0.842589, 0.023436904, 0.018214472, 0.9990582, 0.028857931, 3.7252903e-08, 1.2186685, -0.009021923, -0.016192991, 1.1858401, 0.030945525, -0.017860241, 1.0318866, -0.022759676, -0.018219845, 0.9990582, 0.028857931, -0.026626926, 0.22224656, -0.04131238, -0.020110484, 0.8243511, -0.035251603, -0.014732786, 0.07621704, -0.09622973, 3.7252903e-08, 0.7983148, -0.1569385, 0.014727414, 0.07621704, -0.09622973, 3.7252903e-08, 0.3090341, -0.15677014, 0.020105112, 0.8243511, -0.035251603, 3.7252903e-08, 1.0730163, -0.10653305, 3.7252903e-08, 0.1720607, -0.1567028)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hv84y"]
+shader = ExtResource("2_oyh0u")
 
 [sub_resource type="Gradient" id="Gradient_g4oek"]
 offsets = PackedFloat32Array(0, 0.986971)
 colors = PackedColorArray(1, 0.776471, 0.501961, 0.490196, 1, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_annj2"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_knqdu"]
 gradient = SubResource("Gradient_g4oek")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hdn8"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("3_uxaca")
-shader_parameter/tex = ExtResource("9_v8fy7")
-shader_parameter/color_ramp = SubResource("GradientTexture1D_annj2")
-shader_parameter/curve = ExtResource("5_hrv4q")
+shader = ExtResource("3_o2oi7")
+shader_parameter/tex = ExtResource("5_cy6ke")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_knqdu")
+shader_parameter/curve = ExtResource("4_1main")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/flags = 40
 
-[sub_resource type="QuadMesh" id="QuadMesh_aif53"]
+[sub_resource type="QuadMesh" id="QuadMesh_ivg1n"]
 material = SubResource("ShaderMaterial_2hdn8")
 
-[node name="KillerSword" type="Node3D"]
-script = ExtResource("1_3jf6o")
+[node name="KillerSword" type="Node3D" unique_id=197491150]
+script = ExtResource("1_o2oi7")
 damage = 15
-hit_general_particle = ExtResource("2_uwp03")
-hit_player_particle = ExtResource("3_5kijt")
+weapon_range = 1.9
+hit_general_particle = ExtResource("2_cy6ke")
+hit_player_particle = ExtResource("3_mw62h")
 item_name = "Killer Sword"
 equip_type = 4
-splash = ExtResource("4_g4oek")
+splash = ExtResource("2_1main")
 
-[node name="Killer Sword" parent="." instance=ExtResource("1_vi24m")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=721806859]
+collision_layer = 8
+collision_mask = 76
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+continuous_cd = true
+contact_monitor = true
 
-[node name="object_0" parent="Killer Sword" index="0"]
+[node name="Killer Sword" parent="RigidBody3D" unique_id=821806956 instance=ExtResource("1_i50vw")]
+
+[node name="object_0" parent="RigidBody3D/Killer Sword" index="0"]
 layers = 8
 
-[node name="object_1" parent="Killer Sword" index="1"]
+[node name="object_1" parent="RigidBody3D/Killer Sword" index="1"]
 layers = 8
 
-[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1087523926]
+shape = SubResource("ConvexPolygonShape3D_i50vw")
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=938853475]
 transform = Transform3D(-1, -5.0139e-16, -8.74228e-08, -7.40049e-09, 0.605795, 0.0846517, 8.7109e-08, 0.0514663, -0.996411, -1.86215e-09, 0.740487, 0.0556854)
 amount = 30
 lifetime = 30.0
 explosiveness = 1.0
 fixed_fps = 0
-process_material = SubResource("ShaderMaterial_ka7vw")
-draw_pass_1 = SubResource("QuadMesh_aif53")
-script = ExtResource("7_7wymm")
+process_material = SubResource("ShaderMaterial_hv84y")
+draw_pass_1 = SubResource("QuadMesh_ivg1n")
+script = ExtResource("6_mw62h")
 length = 30
-texture = ExtResource("9_v8fy7")
-color_ramp = SubResource("GradientTexture1D_annj2")
-curve = ExtResource("5_hrv4q")
+texture = ExtResource("5_cy6ke")
+color_ramp = SubResource("GradientTexture1D_knqdu")
+curve = ExtResource("4_1main")
 _defaults_have_been_set = true
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160548, -0.0676142)
-target_position = Vector3(0, 1.2, 0)
-collision_mask = 68
-debug_shape_thickness = 5
-
-[editable path="Killer Sword"]
+[editable path="RigidBody3D/Killer Sword"]

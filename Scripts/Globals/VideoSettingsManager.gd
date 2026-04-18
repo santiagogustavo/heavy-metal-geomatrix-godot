@@ -25,9 +25,9 @@ func _init() -> void:
 		ProjectSettings.set("display/window/stretch/mode", "viewport")
 
 func center_window():
-	var screen_center = DisplayServer.screen_get_size() / 2
-	var window_size = get_window().get_size_with_decorations()
-	DisplayServer.window_set_position(screen_center - (window_size / 2))
+	var screen_center = Vector2(DisplayServer.screen_get_size()) / 2
+	var window_size = Vector2(get_window().get_size_with_decorations())
+	DisplayServer.window_set_position(Vector2i(screen_center - (window_size / 2)))
 
 func set_window_size(size: Vector2i) -> void:
 	viewport_width = size.x
@@ -44,7 +44,7 @@ func set_window_mode(index: int) -> void:
 	window_mode = index as DisplayServer.WindowMode
 	match index:
 		0: # Fullscreen
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		1: # Windowed
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -52,8 +52,8 @@ func set_window_mode(index: int) -> void:
 		2: # Borderless Window
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-		3: # Borderless Window
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		3: # Borderless Fullscreen
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 	refresh_window()
 

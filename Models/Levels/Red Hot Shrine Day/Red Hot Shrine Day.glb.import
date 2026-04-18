@@ -1,0 +1,100 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cna45sa1xwk7h"
+path="res://.godot/imported/Red Hot Shrine Day.glb-6d291c4d2bc724d56f1475437541d71e.scn"
+
+[deps]
+
+source_file="res://Models/Levels/Red Hot Shrine Day/Red Hot Shrine Day.glb"
+dest_files=["res://.godot/imported/Red Hot Shrine Day.glb-6d291c4d2bc724d56f1475437541d71e.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"1ef6c748": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/1ef6c748.tres",
+"use_external/path": "uid://vjuk1ohdj3vv"
+},
+"28a62f0d": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/28a62f0d.tres",
+"use_external/path": "uid://un0nj66pcb62"
+},
+"336e412d": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/336e412d.tres",
+"use_external/path": "uid://cbm0pfkwkw1s7"
+},
+"42f3bf59": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/42f3bf59.tres",
+"use_external/path": "uid://dyacdv8hef8ey"
+},
+"56c76bee": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/56c76bee.tres",
+"use_external/path": "uid://c6ufs8hv2clfs"
+},
+"7484db85": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/7484db85.tres",
+"use_external/path": "uid://ghafcgqhqfji"
+},
+"b1eafc09": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/b1eafc09.tres",
+"use_external/path": "uid://b4rbe6k41d6gt"
+},
+"b608f860": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/b608f860.tres",
+"use_external/path": "uid://gkrkiom1v08"
+},
+"c09547a3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/c09547a3.tres",
+"use_external/path": "uid://cgnftctjv7bs2"
+},
+"c1a7f2eb": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/c1a7f2eb.tres",
+"use_external/path": "uid://bvne2wpiqblmd"
+},
+"e71d2ad3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Red Hot Shrine Day/e71d2ad3.tres",
+"use_external/path": "uid://dox7y27eoht2k"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

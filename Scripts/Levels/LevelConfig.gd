@@ -35,6 +35,7 @@ func _ready() -> void:
 				create_bot()
 		if !GameManager.current_match:
 			GameManager.create_match(MatchManager.new())
+			GameManager.current_match.time = 99
 		GameManager.spawn_players()
 		GameManager.added_player.connect(on_player_added)
 		if play_versus_screen:
@@ -121,7 +122,7 @@ func on_player_added(player: Player, team: Team) -> void:
 
 func create_player_one() -> void:
 	var player_instance: Player = load("res://Prefabs/Player1.tscn").instantiate()
-	player_instance.selected_character = Definitions.Characters.Kassey
+	player_instance.selected_character = Definitions.Characters.Di
 	var team_index: int = GameManager.create_team()
 	GameManager.add_player(player_instance, team_index)
 

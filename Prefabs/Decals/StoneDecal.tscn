@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://diilg16diw1j4"]
+[gd_scene format=3 uid="uid://diilg16diw1j4"]
 
 [ext_resource type="AudioStream" uid="uid://cacg1klxqject" path="res://Sound/Weapons/Common/Stone Hit 1.wav" id="1_2i1yv"]
 [ext_resource type="Texture2D" uid="uid://cv4464k6i533j" path="res://Textures/Decals/stone_hit.png" id="1_3wqng"]
@@ -101,26 +101,28 @@ stream_0/stream = ExtResource("1_2i1yv")
 stream_1/stream = ExtResource("2_w6b7h")
 stream_2/stream = ExtResource("3_e2jw0")
 
-[node name="StoneDecal" type="Node3D" node_paths=PackedStringArray("particles")]
-top_level = true
+[sub_resource type="BoxMesh" id="BoxMesh_2sx4n"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="StoneDecal" type="Node3D" unique_id=642820706 node_paths=PackedStringArray("particles")]
 script = ExtResource("1_fbugl")
 particles = [NodePath("BulletSpark/RaySpark"), NodePath("BulletSpark/RaySpark2")]
 
-[node name="Decal" type="Decal" parent="."]
+[node name="Decal" type="Decal" parent="." unique_id=49406354]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 size = Vector3(0.2, 0.1, 0.2)
 texture_albedo = ExtResource("1_3wqng")
 upper_fade = 9.01716e-05
 lower_fade = 1e-05
 
-[node name="BulletSpark" parent="." instance=ExtResource("2_4e051")]
+[node name="BulletSpark" parent="." unique_id=100900687 instance=ExtResource("2_4e051")]
 
 [node name="RaySpark" parent="BulletSpark" index="0"]
 process_material = SubResource("ParticleProcessMaterial_a48g5")
 draw_pass_1 = SubResource("QuadMesh_x16we")
 timeout = 0.5
 
-[node name="RaySpark2" parent="BulletSpark" instance=ExtResource("5_s8rcp")]
+[node name="RaySpark2" parent="BulletSpark" unique_id=388356465 instance=ExtResource("5_s8rcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
 amount = 1
 lifetime = 1.0
@@ -129,12 +131,16 @@ process_material = SubResource("ParticleProcessMaterial_6fip2")
 draw_pass_1 = SubResource("QuadMesh_kkjdk")
 timeout = 1.0
 
-[node name="SFX" type="AudioStreamPlayer3D" parent="."]
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=2144589133]
 stream = SubResource("AudioStreamRandomizer_0h3bh")
 max_db = 2.0
 autoplay = true
 bus = &"Effects"
 attenuation_filter_db = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1468946767]
+visible = false
+mesh = SubResource("BoxMesh_2sx4n")
 
 [editable path="BulletSpark"]
 [editable path="BulletSpark/RaySpark"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b5wu7c7eewugs"]
+[gd_scene format=3 uid="uid://b5wu7c7eewugs"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lhsfh"]
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="8_hapiw"]
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="9_ds7yn"]
 [ext_resource type="Texture2D" uid="uid://djdwcspbmak5r" path="res://Textures/Levels/5a480546_nrm.png" id="10_kuhwj"]
+[ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="11_k8et5"]
 [ext_resource type="Texture2D" uid="uid://yhc2736083x" path="res://Textures/Levels/5a480546_spec.png" id="11_uk7c0"]
 [ext_resource type="PackedScene" uid="uid://cm0l0ldh7cvh1" path="res://Prefabs/Weapons/FlameGun/Flame.tscn" id="12_rucj7"]
 [ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="13_hmcjl"]
@@ -16,14 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://blbxoehnjop8p" path="res://Prefabs/gpu_particles_3d_2.tscn" id="15_yy7dp"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="16_euj4p"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="16_sdprx"]
-[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="17_euj4p"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="17_6njym"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="19_4nt3m"]
 [ext_resource type="PackedScene" uid="uid://dtnqa6yywxj68" path="res://Prefabs/Pickups/Pickup.tscn" id="22_4nt3m"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="22_4s6i1"]
 [ext_resource type="PackedScene" uid="uid://bkt3ivhkt5nvf" path="res://Prefabs/node_3d.tscn" id="22_s37v4"]
-[ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="23_6njym"]
-[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_uu1cf"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="24_dorkn"]
 [ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="25_nhjaw"]
+[ext_resource type="PackedScene" uid="uid://d2b75t1ilt30u" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="25_ptem2"]
+[ext_resource type="PackedScene" uid="uid://ceje3sfnyrp2o" path="res://Prefabs/Levels/Red Hot Shrine Day/TotemSmall.tscn" id="26_ptem2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
 panorama = ExtResource("2_pg3qa")
@@ -102,9 +104,9 @@ material = SubResource("StandardMaterial3D_12ns8")
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 backface_collision = true
 
-[node name="Playground1" type="Node3D"]
+[node name="Playground1" type="Node3D" unique_id=1440842752]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_lhsfh")]
+[node name="LevelConfig" parent="." unique_id=181503592 node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_lhsfh")]
 level_name = "Playground1"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
@@ -112,126 +114,131 @@ play_versus_screen = false
 spawn_bots_count = 0
 is_sunny = true
 
-[node name="Spawn Points" type="Node3D" parent="."]
+[node name="Spawn Points" type="Node3D" parent="." unique_id=228931088]
 
-[node name="SpawnPoint" parent="Spawn Points" instance=ExtResource("2_s26dd")]
+[node name="SpawnPoint" parent="Spawn Points" unique_id=502659270 instance=ExtResource("2_s26dd")]
 
-[node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("2_s26dd")]
+[node name="SpawnPoint2" parent="Spawn Points" unique_id=1314259147 instance=ExtResource("2_s26dd")]
 transform = Transform3D(-0.776992, 0, -0.62951, 0, 1, 0, 0.62951, 0, -0.776992, -6.32054, 0, -8.02063)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=376560647]
 environment = SubResource("Environment_obdgp")
+script = ExtResource("11_k8et5")
 
-[node name="Sun" parent="." instance=ExtResource("3_m5gjv")]
+[node name="Sun" parent="." unique_id=1200400304 instance=ExtResource("3_m5gjv")]
 transform = Transform3D(0.965926, 1.13133e-08, -0.258819, 0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, 1, 31, 0)
 light_energy = 0.4
 
-[node name="Level Geometry" type="Node3D" parent="."]
+[node name="Level Geometry" type="Node3D" parent="." unique_id=317106208]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry" unique_id=761649906]
 navigation_mesh = SubResource("NavigationMesh_nhjaw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D" unique_id=751657130]
 transform = Transform3D(1, 3.0164e-16, -1.73678e-08, 0, 1, 1.73678e-08, 1.73678e-08, -1.73678e-08, 1, 0, 0, 2.38419e-07)
 layers = 16
 material_override = SubResource("StandardMaterial3D_w1635")
 mesh = SubResource("PlaneMesh_lwwtc")
 skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D" unique_id=602972444]
 collision_layer = 1028
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D/StaticBody3D" unique_id=1068732734]
 shape = SubResource("ConcavePolygonShape3D_mviyq")
 
-[node name="Water" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="Water" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D" unique_id=521184484]
 transform = Transform3D(1, 9.04922e-16, -3.47356e-08, 3.0164e-16, 1, 3.47356e-08, 3.47356e-08, -3.47356e-08, 1, 0, -8, 0)
 layers = 16
 material_override = SubResource("ShaderMaterial_aqyya")
 mesh = SubResource("PlaneMesh_mq3id")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Water"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Water" unique_id=1562083119]
 collision_layer = 516
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Water/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Water/StaticBody3D" unique_id=113106031]
 shape = SubResource("ConcavePolygonShape3D_6ruon")
 
-[node name="ReflectionProbe2" type="ReflectionProbe" parent="Level Geometry/NavigationRegion3D/Water"]
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="Level Geometry/NavigationRegion3D/Water" unique_id=612677473]
 transform = Transform3D(0.02, 6.0328e-18, 6.94712e-10, 1.80984e-17, 0.02, -6.94712e-10, -6.94712e-10, 6.94712e-10, 0.02, 0, 0.22, 7.21775e-09)
 size = Vector3(100, 20, 100)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D" unique_id=1438754555]
 transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 10.8627)
 layers = 16
 mesh = SubResource("BoxMesh_rg8kh")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2" unique_id=1173334932]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 10.8627)
+top_level = true
 collision_layer = 260
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2/StaticBody3D" unique_id=936428442]
 shape = SubResource("ConcavePolygonShape3D_l6fwg")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D" unique_id=1870822271]
 transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, -10.8579)
 layers = 16
 mesh = SubResource("BoxMesh_i1mvp")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3" unique_id=465374186]
+transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, -10.8579)
+top_level = true
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3/StaticBody3D" unique_id=1959885158]
 shape = SubResource("ConcavePolygonShape3D_ni3jg")
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry/NavigationRegion3D/MeshInstance3D3" unique_id=957401961]
 transform = Transform3D(0.486876, 0, 0, 0, 0.486876, 0, 0, 0, 0.486876, 0, 0, 0)
 size = Vector3(100, 20, 100)
 cull_mask = 1048560
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Level Geometry"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Level Geometry" unique_id=423928791]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8776, 5.33969, -0.274099)
 light_color = Color(0, 0.615686, 1, 1)
 light_energy = 12.144
 shadow_enabled = true
 omni_range = 10.0
 
-[node name="GPUParticles3D" parent="Level Geometry" instance=ExtResource("12_rucj7")]
+[node name="GPUParticles3D" parent="Level Geometry" unique_id=76159355 instance=ExtResource("12_rucj7")]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -12.469, 0.34235, -16.0485)
 
-[node name="GPUParticles3D2" parent="Level Geometry" instance=ExtResource("15_yy7dp")]
+[node name="GPUParticles3D2" parent="Level Geometry" unique_id=706983128 instance=ExtResource("15_yy7dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("16_sdprx")]
+[node name="Spawner" parent="." unique_id=2104389264 node_paths=PackedStringArray("navigation_region") instance=ExtResource("16_sdprx")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
-items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_euj4p"), ExtResource("24_uu1cf"), ExtResource("19_4nt3m")])
+spawn_min_distance = 10.0
+spawn_timeout = 5.0
+items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_6njym"), ExtResource("24_dorkn"), ExtResource("19_4nt3m")])
 
-[node name="World Boundaries" parent="." instance=ExtResource("22_4s6i1")]
+[node name="World Boundaries" parent="." unique_id=2017473306 instance=ExtResource("22_4s6i1")]
 
-[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="."]
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="." unique_id=1038695977]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.735458, 0.964555, -10.8468)
 cull_mask = 4293919232
 
-[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="."]
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="." unique_id=535718199]
 cull_mask = 4293919232
 size = Vector3(40, 0.1, 40)
 
-[node name="Node3D" parent="." instance=ExtResource("22_s37v4")]
+[node name="Node3D" parent="." unique_id=197569161 instance=ExtResource("22_s37v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26639, 1.26391, -0.533026)
 
-[node name="HandGun" parent="." instance=ExtResource("24_uu1cf")]
-transform = Transform3D(-1, -1.73372e-09, -7.43702e-08, -2.85606e-10, 0.999004, 0.0446133, 1.49012e-07, 0.0446133, -0.999004, -1, 2.24906, -10)
-infinite_ammo = true
-is_shooting = true
-
-[node name="Pickup2" parent="." instance=ExtResource("22_4nt3m")]
+[node name="Pickup2" parent="." unique_id=1795264621 instance=ExtResource("22_4nt3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)
 timeout = 15.0
-item = ExtResource("23_6njym")
+item = ExtResource("25_ptem2")
 
-[node name="Guillotine" parent="." instance=ExtResource("25_nhjaw")]
+[node name="Guillotine" parent="." unique_id=1012458926 instance=ExtResource("25_nhjaw")]
 transform = Transform3D(-0.7388318, 0, -0.6738898, 0, 1, 0, 0.6738898, 0, -0.7388318, 11.973581, -0.023739815, 10.645496)
+
+[node name="TotemSmall" parent="." unique_id=1726738382 instance=ExtResource("26_ptem2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.527821, 0.0056369393, -4.664942)
 
 [editable path="Spawner"]

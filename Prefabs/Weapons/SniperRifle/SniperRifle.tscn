@@ -1,27 +1,28 @@
-[gd_scene load_steps=42 format=3 uid="uid://cti1ekhybelqv"]
+[gd_scene format=3 uid="uid://blnck15xqws86"]
 
-[ext_resource type="PackedScene" uid="uid://d1vviwsawunyr" path="res://Models/Weapons/Sniper Rifle.glb" id="1_4pa16"]
-[ext_resource type="Script" uid="uid://8dm11urt6ykq" path="res://Scripts/Weapons/GunController.gd" id="1_hcmus"]
-[ext_resource type="PackedScene" uid="uid://dmqfvx1rknxho" path="res://Prefabs/Weapons/SniperRifle/Bullet.tscn" id="2_7uppe"]
-[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="3_dm8cq"]
-[ext_resource type="Texture2D" uid="uid://umpkadfob108" path="res://Textures/Pickups/Splash/SniperRifle.png" id="4_rtku7"]
-[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_0n4ku"]
-[ext_resource type="AudioStream" uid="uid://cqhrb6pgu8pag" path="res://Sound/Weapons/Sniper Rifle/shoot.wav" id="6_xf045"]
-[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="7_4jhhc"]
-[ext_resource type="Script" uid="uid://cchn7gyik5ond" path="res://Scripts/Weapons/Sniper Rifle/ScopeController.gd" id="8_48sey"]
-[ext_resource type="Shader" uid="uid://rto2wqt5pton" path="res://Materials/Shaders/Screen Blur Masked.gdshader" id="8_sa1p5"]
-[ext_resource type="Texture2D" uid="uid://pah0ictfips6" path="res://Textures/Weapons/Sniper Rifle/scope_overlay.png" id="10_yj7a0"]
-[ext_resource type="Texture2D" uid="uid://dnx40rey8qhhk" path="res://Textures/Weapons/Sniper Rifle/scope_no_outline.png" id="12_2e7gy"]
-[ext_resource type="Texture2D" uid="uid://cskmxsk66hd01" path="res://Textures/Weapons/Sniper Rifle/scope_outline.png" id="13_kph15"]
+[ext_resource type="Script" uid="uid://b0f626p3mv6vk" path="res://Scripts/Weapons/GunControllerV2.gd" id="1_5suv7"]
+[ext_resource type="Texture2D" uid="uid://umpkadfob108" path="res://Textures/Pickups/Splash/SniperRifle.png" id="2_k1hn6"]
+[ext_resource type="Script" uid="uid://upo11pnbegro" path="res://Scripts/Weapons/GunBulletMode.gd" id="3_bjpql"]
+[ext_resource type="PackedScene" uid="uid://dmqfvx1rknxho" path="res://Prefabs/Weapons/SniperRifle/Bullet.tscn" id="4_bjpql"]
+[ext_resource type="PackedScene" uid="uid://d1vviwsawunyr" path="res://Models/Weapons/Sniper Rifle.glb" id="4_l7fe8"]
+[ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="5_l7fe8"]
+[ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_xggc8"]
+[ext_resource type="AudioStream" uid="uid://cqhrb6pgu8pag" path="res://Sound/Weapons/Sniper Rifle/shoot.wav" id="6_lhyoj"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="7_1w88w"]
+[ext_resource type="Script" uid="uid://cchn7gyik5ond" path="res://Scripts/Weapons/Sniper Rifle/ScopeController.gd" id="8_7g1gb"]
+[ext_resource type="Shader" uid="uid://rto2wqt5pton" path="res://Materials/Shaders/Screen Blur Masked.gdshader" id="9_r8tpd"]
+[ext_resource type="Texture2D" uid="uid://pah0ictfips6" path="res://Textures/Weapons/Sniper Rifle/scope_overlay.png" id="10_0hv12"]
+[ext_resource type="Texture2D" uid="uid://dnx40rey8qhhk" path="res://Textures/Weapons/Sniper Rifle/scope_no_outline.png" id="11_x03y2"]
+[ext_resource type="Texture2D" uid="uid://cskmxsk66hd01" path="res://Textures/Weapons/Sniper Rifle/scope_outline.png" id="12_75am1"]
 
-[sub_resource type="Gradient" id="Gradient_s4lqj"]
+[sub_resource type="Gradient" id="Gradient_s1r2k"]
 offsets = PackedFloat32Array(0, 0.984791)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jrkse"]
-gradient = SubResource("Gradient_s4lqj")
+gradient = SubResource("Gradient_s1r2k")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dpvyy"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8y3b3"]
 particle_flag_disable_z = true
 angle_min = -90.0
 angle_max = 90.0
@@ -36,14 +37,14 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("5_0n4ku")
+albedo_texture = ExtResource("5_xggc8")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_t4dpe"]
+[sub_resource type="QuadMesh" id="QuadMesh_3rnbk"]
 material = SubResource("StandardMaterial3D_ofxjw")
 size = Vector2(0.75, 0.75)
 
@@ -168,7 +169,7 @@ tracks/4/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vj7e"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuy2i"]
 _data = {
 &"Idle": SubResource("Animation_mum7l"),
 &"RESET": SubResource("Animation_6je63"),
@@ -193,7 +194,7 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cah7w"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2fv0s"]
 states/Idle/node = SubResource("AnimationNodeAnimation_3vt6q")
 states/Idle/position = Vector2(424.5, 101.75)
 states/Shoot/node = SubResource("AnimationNodeAnimation_kjjr0")
@@ -201,12 +202,12 @@ states/Shoot/position = Vector2(424.5, -30)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_e2686"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_pyaun"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_ghc52")]
 graph_offset = Vector2(-32, -46)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_46puh"]
-shader = ExtResource("8_sa1p5")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rw7xh"]
+shader = ExtResource("9_r8tpd")
 shader_parameter/blur_amount = 3.0
 shader_parameter/mix_amount = 0.0
 shader_parameter/color_over = Color(0, 0, 0, 1)
-shader_parameter/mask = ExtResource("10_yj7a0")
+shader_parameter/mask = ExtResource("10_0hv12")
 
 [sub_resource type="Animation" id="Animation_4trv8"]
 length = 0.001
@@ -398,7 +399,7 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j6rv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvax1"]
 _data = {
 &"RESET": SubResource("Animation_4trv8"),
 &"ZoomIn": SubResource("Animation_s064s"),
@@ -429,7 +430,7 @@ advance_condition = &"is_not_aiming"
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5fa1h"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ip33b"]
 states/RESET/node = SubResource("AnimationNodeAnimation_gtkxu")
 states/RESET/position = Vector2(446.25, 100.125)
 states/ZoomIn/node = SubResource("AnimationNodeAnimation_h7yso")
@@ -439,30 +440,37 @@ states/ZoomOut/position = Vector2(614, -6.5)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_vl1us"), "RESET", "ZoomIn", SubResource("AnimationNodeStateMachineTransition_8puqx"), "ZoomIn", "ZoomOut", SubResource("AnimationNodeStateMachineTransition_pdyc1"), "ZoomOut", "RESET", SubResource("AnimationNodeStateMachineTransition_qcdvr")]
 graph_offset = Vector2(-172, -100)
 
-[node name="SniperRifle" type="Node3D" node_paths=PackedStringArray("animation_tree", "bullet_holes", "eject_hole")]
-script = ExtResource("1_hcmus")
-bullets = 4
-fire_rate = 2.0
-zoom_factor = 3.0
-bullet = ExtResource("2_7uppe")
-ejecting_brass = ExtResource("3_dm8cq")
+[node name="SniperRifle" type="Node3D" unique_id=2114632426 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes", "eject_hole")]
+script = ExtResource("1_5suv7")
+fire_modes = [NodePath("GunBulletMode")]
 animation_tree = NodePath("AnimationTree")
 bullet_holes = [NodePath("BulletHole")]
 eject_hole = NodePath("EjectHole")
 item_name = "Sniper Rifle"
 equip_type = 1
-splash = ExtResource("4_rtku7")
+splash = ExtResource("2_k1hn6")
 
-[node name="Sniper Rifle" parent="." instance=ExtResource("1_4pa16")]
+[node name="GunBulletMode" type="Node" parent="." unique_id=1069260431]
+script = ExtResource("3_bjpql")
+bullets = 4
+fire_rate = 2.0
+bullet = ExtResource("4_bjpql")
+ejecting_brass = ExtResource("5_l7fe8")
+mode_name = "Fire"
+damage = 30
+zoom_factor = 3.0
+metadata/_custom_type_script = "uid://upo11pnbegro"
+
+[node name="Sniper Rifle" parent="." unique_id=1820589031 instance=ExtResource("4_l7fe8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="object_1_001" parent="Sniper Rifle/Armature/Skeleton3D" index="0"]
 layers = 8
 
-[node name="BulletHole" type="Node3D" parent="."]
+[node name="BulletHole" type="Node3D" parent="." unique_id=603877973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224411, -0.898884)
 
-[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole"]
+[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole" unique_id=832565263]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.000235036, 0.000154138)
 emitting = false
 amount = 1
@@ -470,51 +478,50 @@ lifetime = 0.1
 one_shot = true
 local_coords = true
 transform_align = 2
-process_material = SubResource("ParticleProcessMaterial_dpvyy")
-draw_pass_1 = SubResource("QuadMesh_t4dpe")
+process_material = SubResource("ParticleProcessMaterial_8y3b3")
+draw_pass_1 = SubResource("QuadMesh_3rnbk")
 
-[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole"]
+[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole" unique_id=154083699]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00157207, -0.0459177)
 light_color = Color(1, 0.666667, 0, 1)
 light_energy = 0.0
 
-[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
-stream = ExtResource("6_xf045")
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=402206236]
+stream = ExtResource("6_lhyoj")
 max_db = 0.0
 pitch_scale = 0.75
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 
-[node name="EjectHole" type="Node3D" parent="."]
+[node name="EjectHole" type="Node3D" parent="." unique_id=1539125877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229593, 0.122277)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_3vj7e")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=765586669]
+libraries/ = SubResource("AnimationLibrary_vuy2i")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1045050312]
 callback_mode_discrete = 0
-tree_root = SubResource("AnimationNodeStateMachine_cah7w")
+tree_root = SubResource("AnimationNodeStateMachine_2fv0s")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_shooting = false
-script = ExtResource("7_4jhhc")
+script = ExtResource("7_1w88w")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1563926850]
 layer = 0
-script = ExtResource("8_48sey")
+script = ExtResource("8_7g1gb")
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=349982914]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Blur" type="ColorRect" parent="CanvasLayer/Control"]
+[node name="Blur" type="ColorRect" parent="CanvasLayer/Control" unique_id=408801903]
 modulate = Color(1, 1, 1, 0)
-material = SubResource("ShaderMaterial_46puh")
+material = SubResource("ShaderMaterial_rw7xh")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -522,7 +529,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Scope" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="Scope" type="TextureRect" parent="CanvasLayer/Control" unique_id=1611427692]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 13
@@ -533,11 +540,11 @@ offset_left = -664.875
 offset_right = 664.875
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_2e7gy")
+texture = ExtResource("11_x03y2")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="ScopeOutline" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="ScopeOutline" type="TextureRect" parent="CanvasLayer/Control" unique_id=796267069]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 13
@@ -551,17 +558,15 @@ grow_vertical = 2
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(665, 324)
-texture = ExtResource("13_kph15")
+texture = ExtResource("12_75am1")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-libraries = {
-&"": SubResource("AnimationLibrary_8j6rv")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1222318940]
+libraries/ = SubResource("AnimationLibrary_qvax1")
 
-[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer"]
-tree_root = SubResource("AnimationNodeStateMachine_5fa1h")
+[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer" unique_id=95138774]
+tree_root = SubResource("AnimationNodeStateMachine_ip33b")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_aiming = false
 parameters/conditions/is_not_aiming = false

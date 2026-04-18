@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cglrji4ptv28t"]
+[gd_scene format=3 uid="uid://cglrji4ptv28t"]
 
 [ext_resource type="Script" uid="uid://bo5b0wltovt57" path="res://Scripts/Player/LockOnTargetController.gd" id="1_40tbk"]
 [ext_resource type="Texture2D" uid="uid://bgup7bmse8tfy" path="res://Textures/UI/locktarget.png" id="1_s4emi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcwse"]
+render_priority = 1
 transparency = 4
 depth_draw_mode = 1
 no_depth_test = true
@@ -64,17 +65,15 @@ states/Idle/node = SubResource("AnimationNodeAnimation_wicst")
 states/Idle/position = Vector2(394.5, 96)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gn630")]
 
-[node name="LockOnTarget" type="Node3D"]
+[node name="LockOnTarget" type="Node3D" unique_id=40103154]
 script = ExtResource("1_40tbk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1365653906]
 mesh = SubResource("QuadMesh_x64o5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_hhg00")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=398340041]
+libraries/ = SubResource("AnimationLibrary_hhg00")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1049719191]
 tree_root = SubResource("AnimationNodeStateMachine_4c04o")
 anim_player = NodePath("../AnimationPlayer")

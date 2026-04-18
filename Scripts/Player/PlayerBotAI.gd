@@ -204,12 +204,14 @@ func compute_target() -> void:
 	set_navigation_target(target_position)
 
 func compute_closest_enemy() -> void:
+	if !GameManager.current_match or !GameManager.current_match.is_ongoing:
+		return
 	var enemies: Array[Player] = GameManager.get_enemies(player.team.name)
 	enemy_position = get_closest_position(enemies)
 	enemy_distance = get_distance_to_target(enemy_position)
 
 func compute_closest_pickup() -> void:
-	if !GameManager.current_level_config.pickup_spawner:
+	if !GameManager.current_level_config or !GameManager.current_level_config.pickup_spawner:
 		return
 	var pickups: Array[Node3D] = GameManager.current_level_config.pickup_spawner.spawned_pickups
 	var filtered_pickups: Array[Node3D]
@@ -225,8 +227,16 @@ func compute_attack() -> void:
 	if !is_distance_reliable:
 		return
 	var distance_of_aim = abs(player.rotation.y - player.brain.new_rotation.y)
-	player.brain.is_shooting = distance_of_aim < 0.05 and !DebugCommands.is_pacifist
-	player.brain.is_attacking = player.brain.is_shooting and !DebugCommands.is_pacifist
+	player.brain.is_shooting = (
+		distance_of_aim < 0.05
+		and !player.brain.is_movement_locked
+		and !DebugCommands.is_pacifist
+	)
+	player.brain.is_attacking = (
+		player.brain.is_shooting
+		and !player.brain.is_movement_locked
+		and !DebugCommands.is_pacifist
+	)
 
 func compute_pickup() -> void:
 	player.brain.is_picking_up = player.is_pickup_collided
@@ -291,7 +301,7 @@ func step_away_from_obstacle(delta: float) -> void:
 	player.velocity.z += sidestep_velocity.z * delta
 
 func advance_to_target(delta: float) -> void:
-	if has_reached_target():
+	if has_reached_target() or player.brain.is_movement_locked:
 		clear_walking_variables()
 		return
 	player.brain.is_walking = true

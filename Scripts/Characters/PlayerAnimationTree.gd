@@ -3,7 +3,14 @@ class_name PlayerAnimationTree
 
 signal combo_animation_changed
 
+var lower_body_state_machine: AnimationNodeStateMachinePlayback
 var upper_body_state_machine: AnimationNodeStateMachinePlayback
+var empty_state_machine: AnimationNodeStateMachinePlayback
+var weapon_single_state_machine: AnimationNodeStateMachinePlayback
+var weapon_double_state_machine: AnimationNodeStateMachinePlayback
+var melee_light_state_machine: AnimationNodeStateMachinePlayback
+var melee_heavy_state_machine: AnimationNodeStateMachinePlayback
+var reaction_state_machine: AnimationNodeStateMachinePlayback
 var last_combo_animation: StringName
 
 var direction: Vector2 = Vector2.ZERO
@@ -17,6 +24,7 @@ var is_double_jumping: bool = false
 var is_on_floor: bool = true
 var is_aiming: bool = false
 var is_shooting: bool = false
+var is_blocking: bool = false
 var is_gun_shooting: bool = false
 var is_holding_weapon: bool = false
 var is_attacking: bool = false
@@ -32,7 +40,14 @@ const lower_blend_tree_lerp: float = 15
 const upper_blend_tree_lerp: float = 20
 
 func _ready() -> void:
+	lower_body_state_machine = get("parameters/Lower Body/playback")
 	upper_body_state_machine = get("parameters/Upper Body/playback")
+	empty_state_machine = get("parameters/Upper Body/Empty/playback")
+	weapon_single_state_machine = get("parameters/Upper Body/WeaponSingle/playback")
+	weapon_double_state_machine = get("parameters/Upper Body/WeaponDouble/playback")
+	melee_light_state_machine = get("parameters/Upper Body/MeleeLight/playback")
+	melee_heavy_state_machine = get("parameters/Upper Body/MeleeHeavy/playback")
+	reaction_state_machine = get("parameters/Reaction/playback")
 
 func _process(delta: float) -> void:
 	update_lower_body(delta)
@@ -54,6 +69,7 @@ func reset_player() -> void:
 	ko_anim = -1
 	switch_to_gameplay()
 	upper_body_state_machine.reset_state()
+	upper_body_state_machine.start("Start", true)
 	has_reset_player = true
 
 func play_ko_state() -> void:
@@ -66,14 +82,39 @@ func update_pickup() -> void:
 
 func update_fire_rate() -> void:
 	if is_gun_shooting:
-		set("parameters/Upper Body/Shoot - Weapon Single/TimeSeek/seek_request", 0.0)
+		animate_gun_shoot()
+
+func update_hit_reaction(is_front_hit: bool) -> void:
+	set("parameters/Upper Body/Hit/TimeSeek/seek_request", 0.0)
+	set("parameters/Upper Body/Hit/BlendSpace1D/blend_position", 1.0 if is_front_hit else -1.0)
+	upper_body_state_machine.travel("Hit", true)
+
+func update_block_hit() -> void:
+	if equip == 3:
+		melee_light_state_machine.travel("Block Hit", true)
+	elif equip == 4:
+		melee_heavy_state_machine.travel("Block Hit", true)
+
+func animate_gun_shoot() -> void:
+	if equip == 1:
+		weapon_single_state_machine.travel("Shoot", true)
+		set("parameters/Upper Body/WeaponSingle/Shoot/TimeSeek/seek_request", 0.0)
+	elif equip == 2:
+		weapon_double_state_machine.travel("Shoot", true)
+		set("parameters/Upper Body/WeaponDouble/Shoot/TimeSeek/seek_request", 0.0)
 
 func update_combo_input() -> void:
 	if (is_attacking and is_current_node_attacking() and !is_current_node_last_combo()):
 		is_attack_combo = true
 
 func update_combo_animation() -> void:
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 3:
+		current_node = melee_light_state_machine.get_current_node()
+	elif equip == 4:
+		current_node = melee_heavy_state_machine.get_current_node()
+	else:
+		current_node = empty_state_machine.get_current_node()
 	if (current_node != last_combo_animation and current_node.contains('Attack')):
 		combo_animation_changed.emit()
 		is_attack_combo = false
@@ -88,17 +129,33 @@ func get_current_upper_body_animation() -> StringName:
 	return upper_body_state_machine.get_current_node()
 
 func is_current_node_shooting() -> bool:
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 1:
+		current_node = weapon_single_state_machine.get_current_node()
+	elif equip == 2:
+		current_node = weapon_double_state_machine.get_current_node()
 	return current_node.to_lower().contains('shoot')
 
 func is_current_node_attacking() -> bool:
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 3:
+		current_node = melee_light_state_machine.get_current_node()
+	elif equip == 4:
+		current_node = melee_heavy_state_machine.get_current_node()
+	else:
+		current_node = empty_state_machine.get_current_node()
 	return current_node.to_lower().contains('attack')
 
 func is_current_node_last_combo() -> bool:
 	var regex = RegEx.new()
 	regex.compile('attack[\\s\\S]*4')
-	var current_node: StringName = upper_body_state_machine.get_current_node()
+	var current_node: StringName
+	if equip == 3:
+		current_node = melee_light_state_machine.get_current_node()
+	elif equip == 4:
+		current_node = melee_heavy_state_machine.get_current_node()
+	else:
+		current_node = empty_state_machine.get_current_node()
 	return !!regex.search(current_node.to_lower())
 
 func update_lower_body(delta: float) -> void:
@@ -125,24 +182,24 @@ func update_upper_body(delta: float) -> void:
 	set("parameters/Upper Body/conditions/is_dropping", is_dropping)
 	
 	# BLEND TREES #
-	var current_look: Vector2 = get("parameters/Upper Body/Look - Empty/blend_position")
+	var current_look: Vector2 = get("parameters/Upper Body/Empty/Look/blend_position")
 	var lerp_look: Vector2 = current_look.lerp(
 		Vector2(look.x, -look.y), upper_blend_tree_lerp * delta
 	)
-	set("parameters/Upper Body/Look - Empty/blend_position", lerp_look)
+	set("parameters/Upper Body/Empty/Look/blend_position", lerp_look)
 	
 	# WEAPON SINGLE #
-	set("parameters/Upper Body/Look - Weapon Single/blend_position", lerp_look)
-	set("parameters/Upper Body/Aim - Weapon Single/blend_position", lerp_look)
-	set("parameters/Upper Body/Shoot - Weapon Single/Blend/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponSingle/Look/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponSingle/Aim/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponSingle/Shoot/BlendSpace2D/blend_position", lerp_look)
 	
 	# WEAPON DOUBLE #
-	set("parameters/Upper Body/Look - Weapon Double/blend_position", lerp_look)
-	set("parameters/Upper Body/Aim - Weapon Double/blend_position", lerp_look)
-	set("parameters/Upper Body/Shoot - Weapon Double/Blend/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponDouble/Look/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponDouble/Aim/blend_position", lerp_look)
+	set("parameters/Upper Body/WeaponDouble/Shoot/BlendSpace2D/blend_position", lerp_look)
 	
 	# MELEE LIGHT #
-	set("parameters/Upper Body/Look - Melee Light/blend_position", lerp_look)
+	set("parameters/Upper Body/MeleeLight/Look/blend_position", lerp_look)
 	
 	# MELEE HEAVY #
-	set("parameters/Upper Body/Look - Melee Heavy/blend_position", lerp_look)
+	set("parameters/Upper Body/MeleeHeavy/Look/blend_position", lerp_look)

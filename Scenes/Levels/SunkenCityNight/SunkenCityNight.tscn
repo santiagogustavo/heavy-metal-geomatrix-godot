@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://cfdmaidpgq6oq"]
+[gd_scene format=3 uid="uid://cfdmaidpgq6oq"]
 
 [ext_resource type="PackedScene" uid="uid://dpe8wv78aa5vo" path="res://Scenes/Levels/SunkenCityNight/LevelConfig.tscn" id="1_irl40"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="1_x780f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://nkwpbcej5qsd" path="res://Models/Levels/Sunken City Night/Sunken City Night.glb" id="2_ejg02"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="3_337c6"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_cpffb"]
+[ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_4nhff"]
 [ext_resource type="Texture2D" uid="uid://1mmapgq07e8g" path="res://Textures/Levels/1da126ac.png" id="4_6k4rg"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_ccf1j"]
 [ext_resource type="Texture2D" uid="uid://cn2tyy8pwdnvu" path="res://Textures/Levels/1da126ac_nrm.png" id="5_c85kp"]
@@ -36,11 +37,11 @@
 [ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
 [ext_resource type="PackedScene" uid="uid://c2b14t4ld7u2a" path="res://Models/Levels/Sunken City Night/Navmesh.glb" id="28_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="31_a3hbx"]
-[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="32_4nhff"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
-[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="33_3yyu5"]
-[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="34_ajwuo"]
-[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="35_pulof"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="32_u1d5f"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="33_4nhff"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="34_u1d5f"]
+[ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="35_4nhff"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -60,8 +61,8 @@ fog_sky_affect = 0.0
 volumetric_fog_density = 0.0126
 volumetric_fog_albedo = Color(0.57, 0.684667, 1, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_18o3v"]
-viewport_path = NodePath("SnapshotViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3hbx"]
+viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vlpe4"]
 render_priority = 0
@@ -268,9 +269,9 @@ stream_2/stream = ExtResource("24_y4q1x")
 stream_3/stream = ExtResource("25_hbknm")
 stream_4/stream = ExtResource("26_jeo0a")
 
-[node name="SunkenCityNight" type="Node3D"]
+[node name="SunkenCityNight" type="Node3D" unique_id=1357975664]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_irl40")]
+[node name="LevelConfig" parent="." unique_id=639634506 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_irl40")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")
@@ -278,40 +279,41 @@ world_environment = NodePath("../WorldEnvironment")
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=144122190]
 environment = SubResource("Environment_pkx01")
+script = ExtResource("4_4nhff")
 
-[node name="SplashLayer" parent="." instance=ExtResource("2_1r2ip")]
+[node name="SplashLayer" parent="." unique_id=1807516140 instance=ExtResource("2_1r2ip")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_18o3v")
+texture = SubResource("ViewportTexture_a3hbx")
 
-[node name="SnapshotViewport" type="SubViewport" parent="."]
+[node name="SnapshotViewport" type="SubViewport" parent="." unique_id=611891105]
 audio_listener_enable_3d = true
 size = Vector2i(1280, 720)
 script = ExtResource("3_cpffb")
 
-[node name="SnapshotCamera" parent="SnapshotViewport" instance=ExtResource("4_ccf1j")]
+[node name="SnapshotCamera" parent="SnapshotViewport" unique_id=966449558 instance=ExtResource("4_ccf1j")]
 transform = Transform3D(-0.258819, -0.314475, -0.9133, 0, 0.945518, -0.325568, 0.965926, -0.0842632, -0.244718, -20.03, 11.16, -33.74)
 cull_mask = 209
 
-[node name="Spawn Points" type="Node3D" parent="."]
+[node name="Spawn Points" type="Node3D" parent="." unique_id=1744533852]
 
-[node name="SpawnPoint" parent="Spawn Points" instance=ExtResource("2_arequ")]
+[node name="SpawnPoint" parent="Spawn Points" unique_id=1688913818 instance=ExtResource("2_arequ")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 8.50979, -24)
 
-[node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("2_arequ")]
+[node name="SpawnPoint2" parent="Spawn Points" unique_id=1802679566 instance=ExtResource("2_arequ")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -18.0621, 8.50979, -24)
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=479177538]
 transform = Transform3D(0.788043, 0.295041, -0.540314, -2.43716e-09, 0.877674, 0.479259, 0.61562, -0.377676, 0.691645, -20.8277, 17.618, -26.1909)
 layers = 128
 light_energy = 0.1
 shadow_enabled = true
 
-[node name="Level Geometry" type="Node3D" parent="."]
+[node name="Level Geometry" type="Node3D" parent="." unique_id=654806268]
 
-[node name="Sunken City Night" parent="Level Geometry" instance=ExtResource("2_ejg02")]
+[node name="Sunken City Night" parent="Level Geometry" unique_id=1319795731 instance=ExtResource("2_ejg02")]
 
 [node name="object_0" parent="Level Geometry/Sunken City Night" index="0"]
 layers = 16
@@ -446,9 +448,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_vlpe4")
 [node name="object_25_001" parent="Level Geometry/Sunken City Night" index="43"]
 layers = 16
 
-[node name="Rain" type="Node3D" parent="Level Geometry"]
+[node name="Rain" type="Node3D" parent="Level Geometry" unique_id=1641892400]
 
-[node name="Raindrops" parent="Level Geometry/Rain" instance=ExtResource("8_wsk8x")]
+[node name="Raindrops" parent="Level Geometry/Rain" unique_id=1765396745 instance=ExtResource("8_wsk8x")]
 transform = Transform3D(2.49343, 0, 0, 0, 1, 0, 0, 0, 2.77783, -23.9892, 36.6784, -23.696)
 amount = 1000
 lifetime = 2.0
@@ -456,92 +458,92 @@ preprocess = 2.0
 speed_scale = 1.5
 visibility_aabb = AABB(-10, -36.6917, -10, 20, 33.6712, 20)
 
-[node name="Ripple" parent="Level Geometry/Rain" instance=ExtResource("9_5fhfi")]
+[node name="Ripple" parent="Level Geometry/Rain" unique_id=116026676 instance=ExtResource("9_5fhfi")]
 transform = Transform3D(1.04824, 0, 0, 0, 1, 0, 0, 0, 1.54356, -23.9267, 6.53466, -25.1685)
 amount = 800
 
-[node name="Ripple2" parent="Level Geometry/Rain" instance=ExtResource("9_5fhfi")]
+[node name="Ripple2" parent="Level Geometry/Rain" unique_id=1173019319 instance=ExtResource("9_5fhfi")]
 transform = Transform3D(0.729337, 0, 0, 0, 1, 0, 0, 0, 1, -24.0247, 8.51248, -30.6334)
 amount = 300
 
-[node name="Ripple3" parent="Level Geometry/Rain" instance=ExtResource("9_5fhfi")]
+[node name="Ripple3" parent="Level Geometry/Rain" unique_id=740140095 instance=ExtResource("9_5fhfi")]
 transform = Transform3D(0.729337, 0, 0, 0, 1, 0, 0, 0, 0.33638, -24.0247, 11.0403, -12.8852)
 amount = 100
 
-[node name="Ripple4" parent="Level Geometry/Rain" instance=ExtResource("9_5fhfi")]
+[node name="Ripple4" parent="Level Geometry/Rain" unique_id=2115330675 instance=ExtResource("9_5fhfi")]
 transform = Transform3D(0.729337, 0, 0, 0, 0.892042, 0.122394, 0, -0.451952, 0.241575, -24.0247, 9.74728, -19.0716)
 
-[node name="Ripple5" parent="Level Geometry/Rain" instance=ExtResource("9_5fhfi")]
+[node name="Ripple5" parent="Level Geometry/Rain" unique_id=1059700167 instance=ExtResource("9_5fhfi")]
 transform = Transform3D(0.235914, 0, 0, 0, 1, 0, 0, 0, 0.46534, -22.5417, 10.5327, -32.0201)
 amount = 50
 visibility_aabb = AABB(-9.50156, 0, -10, 19.0031, 0.1, 20)
 
-[node name="Audios" type="Node3D" parent="Level Geometry"]
+[node name="Audios" type="Node3D" parent="Level Geometry" unique_id=486962833]
 
-[node name="Rain" type="AudioStreamPlayer2D" parent="Level Geometry/Audios"]
+[node name="Rain" type="AudioStreamPlayer2D" parent="Level Geometry/Audios" unique_id=1615674614]
 stream = ExtResource("12_i5l5g")
 volume_db = -10.0
 autoplay = true
 bus = &"Effects"
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Level Geometry" unique_id=1134638304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78129, 26.0579, -18.2193)
 size = Vector3(1820.17, 120.131, 1798.02)
 
-[node name="Collisions" type="Node3D" parent="Level Geometry"]
+[node name="Collisions" type="Node3D" parent="Level Geometry" unique_id=1320969849]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Collisions"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=1866950800]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 collision_layer = 1028
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D" unique_id=832087099]
 shape = SubResource("ConcavePolygonShape3D_5k14q")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level Geometry/Collisions"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=1684368722]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D2" unique_id=463974229]
 shape = SubResource("ConcavePolygonShape3D_ir87y")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="Level Geometry/Collisions"]
+[node name="StaticBody3D3" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=874776983]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D3" unique_id=248172260]
 shape = SubResource("ConcavePolygonShape3D_go4qs")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="Level Geometry/Collisions"]
+[node name="StaticBody3D4" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=1038429540]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D4" unique_id=1057260816]
 shape = SubResource("ConcavePolygonShape3D_6jelf")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="Level Geometry/Collisions"]
+[node name="StaticBody3D5" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=1041068471]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D5" unique_id=1794019078]
 shape = SubResource("ConcavePolygonShape3D_y04pa")
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="Level Geometry/Collisions"]
+[node name="StaticBody3D6" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=437075419]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 collision_layer = 1028
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D6" unique_id=2143460276]
 shape = SubResource("ConcavePolygonShape3D_xaqi6")
 
-[node name="StaticBody3D7" type="StaticBody3D" parent="Level Geometry/Collisions"]
+[node name="StaticBody3D7" type="StaticBody3D" parent="Level Geometry/Collisions" unique_id=140720994]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.62921e-07, 0, 1.62921e-07, 1, 0, 0, 0)
 collision_layer = 516
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/Collisions/StaticBody3D7" unique_id=1830701497]
 shape = SubResource("ConcavePolygonShape3D_humt8")
 
-[node name="Lights" type="Node3D" parent="Level Geometry"]
+[node name="Lights" type="Node3D" parent="Level Geometry" unique_id=345539169]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Level Geometry"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Level Geometry" unique_id=1369336111]
 transform = Transform3D(-0.91799, -0.387672, -0.0836909, -0.298448, 0.53627, 0.789521, -0.261194, 0.74975, -0.607991, -32.1587, 35.8691, -56.4211)
 light_color = Color(1, 0.992157, 0.811765, 1)
 light_energy = 20.0
@@ -550,11 +552,11 @@ shadow_bias = 0.05
 spot_range = 100.0
 spot_angle = 30.18
 
-[node name="Flare" type="MeshInstance3D" parent="Level Geometry/SpotLight3D"]
+[node name="Flare" type="MeshInstance3D" parent="Level Geometry/SpotLight3D" unique_id=2037876621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, -0.266492, 7.45058e-09)
 mesh = SubResource("QuadMesh_kfi7b")
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Level Geometry"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level Geometry" unique_id=50275863]
 transform = Transform3D(-0.42736217, 0.66457206, -0.6129482, -0.29844815, 0.5362699, 0.7895208, 0.85339886, 0.52034485, -0.03084116, -1.7016, 35.8691, -72.8256)
 light_color = Color(1, 0.992157, 0.811765, 1)
 light_energy = 20.0
@@ -562,216 +564,214 @@ shadow_enabled = true
 spot_range = 100.0
 spot_angle = 30.18
 
-[node name="Flare" type="MeshInstance3D" parent="Level Geometry/SpotLight3D2"]
+[node name="Flare" type="MeshInstance3D" parent="Level Geometry/SpotLight3D2" unique_id=566985856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, -0.266492, 7.45058e-09)
 mesh = SubResource("QuadMesh_kfi7b")
 
-[node name="NeonSign1" type="Node3D" parent="Level Geometry"]
+[node name="NeonSign1" type="Node3D" parent="Level Geometry" unique_id=408989942]
 transform = Transform3D(1.64848, 0, 0.477465, 0, 1.87614, 0, -0.895794, 0, 0.87865, -16.8765, 39.0877, -67.273)
 
-[node name="Scaffold" type="MeshInstance3D" parent="Level Geometry/NeonSign1"]
+[node name="Scaffold" type="MeshInstance3D" parent="Level Geometry/NeonSign1" unique_id=1460889510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.178689)
 mesh = SubResource("QuadMesh_6p6bx")
 skeleton = NodePath("../..")
 
-[node name="Neon" type="MeshInstance3D" parent="Level Geometry/NeonSign1"]
+[node name="Neon" type="MeshInstance3D" parent="Level Geometry/NeonSign1" unique_id=1552608169]
 mesh = SubResource("QuadMesh_gqv5h")
 skeleton = NodePath("../..")
 
-[node name="NeonSign2" type="Node3D" parent="Level Geometry"]
+[node name="NeonSign2" type="Node3D" parent="Level Geometry" unique_id=1390526613]
 transform = Transform3D(0.230854, 0.0818496, -0.997458, -2.69551, 2.12922, -0.0380094, 2.1207, 2.69743, 0.0602693, 63.9947, 31.7505, 75.9597)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign2" unique_id=801678231]
 mesh = SubResource("QuadMesh_a7mi7")
 
-[node name="NeonSign3" type="Node3D" parent="Level Geometry"]
+[node name="NeonSign3" type="Node3D" parent="Level Geometry" unique_id=1675673961]
 transform = Transform3D(1.93971, 0.567005, -0.514946, -0.151809, 2.21523, 0.335991, 1.33124, -0.573552, 0.788632, 89.2698, 30.237, -84.0089)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign3" unique_id=1874773354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.184408)
 mesh = SubResource("QuadMesh_a2ifl")
 
-[node name="Scaffold" type="MeshInstance3D" parent="Level Geometry/NeonSign3"]
+[node name="Scaffold" type="MeshInstance3D" parent="Level Geometry/NeonSign3" unique_id=919699881]
 mesh = SubResource("QuadMesh_emisd")
 
-[node name="NeonSign4" type="Node3D" parent="Level Geometry"]
+[node name="NeonSign4" type="Node3D" parent="Level Geometry" unique_id=1948029796]
 transform = Transform3D(-0.706408, 0.0312115, 1.63706, -0.0814544, 1.04115, -0.0766893, -2.06758, -0.0516808, -0.556297, -150.411, 18.8155, -43.2351)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign4" unique_id=919941456]
 mesh = SubResource("QuadMesh_y6s1b")
 
-[node name="NeonSign5" type="Node3D" parent="Level Geometry"]
+[node name="NeonSign5" type="Node3D" parent="Level Geometry" unique_id=1750558619]
 transform = Transform3D(0.514199, -0.00671499, -0.982039, 0.0119726, 7.2716, -0.000386486, 3.34024, -0.0250304, 0.151177, 173.731, 68.9362, 77.1949)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NeonSign5" unique_id=1719413100]
 cast_shadow = 0
 mesh = SubResource("QuadMesh_q1cbc")
 
-[node name="Particle Colliders" type="Node3D" parent="Level Geometry"]
+[node name="Particle Colliders" type="Node3D" parent="Level Geometry" unique_id=626320857]
 
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=479550337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0275, 8.75516, -12.8594)
 cull_mask = 4293919232
 size = Vector3(15.1618, 4.48334, 7.29187)
 
-[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=1884844827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0279, 7.48626, -28.6275)
 cull_mask = 4293919232
 size = Vector3(15.1609, 2.05893, 24.2561)
 
-[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=1265042123]
 transform = Transform3D(1, 0, 0, 0, 0.893646, 0.448773, 0, -0.448773, 0.893646, -24.0338, 8.71362, -18.487)
 cull_mask = 4293919232
 size = Vector3(15.1491, 2.27849, 5.6476)
 
-[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=1502554167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8205, 5.46661, -24.9828)
 cull_mask = 4293919232
 size = Vector3(3.34791, 2.05893, 31.5455)
 
-[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=1230052867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.177, 5.46661, -24.9828)
 cull_mask = 4293919232
 size = Vector3(3.12561, 2.05893, 31.5455)
 
-[node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders"]
+[node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="Level Geometry/Particle Colliders" unique_id=868777860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4997, 9.47559, -31.9959)
 cull_mask = 4293919232
 size = Vector3(4.99236, 2.03744, 10.0238)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Level Geometry"]
-libraries = {
-&"": SubResource("AnimationLibrary_3b7db")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level Geometry" unique_id=1069953740]
+libraries/ = SubResource("AnimationLibrary_3b7db")
 
-[node name="AnimationTree" type="AnimationTree" parent="Level Geometry"]
+[node name="AnimationTree" type="AnimationTree" parent="Level Geometry" unique_id=335788717]
 tree_root = SubResource("AnimationNodeStateMachine_jknrq")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry" unique_id=1511009921]
 navigation_mesh = SubResource("NavigationMesh_a3hbx")
 
-[node name="Navmesh" parent="Level Geometry/NavigationRegion3D" instance=ExtResource("28_u1d5f")]
+[node name="Navmesh" parent="Level Geometry/NavigationRegion3D" unique_id=1233102583 instance=ExtResource("28_u1d5f")]
 visible = false
 
-[node name="NavigationLink3D" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=499499565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2186, 8.78178, -22.8617)
 end_position = Vector3(-1.72109, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D2" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D2" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=273167320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2186, 8.78178, -27.8617)
 end_position = Vector3(-1.72109, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D3" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D3" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=178796209]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2186, 8.78178, -32.8617)
 end_position = Vector3(-1.72109, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D4" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D4" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1819891293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2186, 8.78178, -37.8617)
 end_position = Vector3(-1.72109, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D5" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D5" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=109454386]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7787, 8.78178, -22.8617)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D6" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D6" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=849184591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7787, 8.78178, -27.8617)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D7" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D7" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=884512817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7787, 8.78178, -32.8617)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D8" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D8" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=82364170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7787, 8.78178, -37.8617)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D9" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D9" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=2013802748]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4004, 10.9003, -35.1946)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D10" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D10" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=100979108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4004, 10.9003, -29.1946)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D11" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D11" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1265074244]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4004, 10.9003, -29.1946)
 end_position = Vector3(-1.721, -1.823, 0.023)
 
-[node name="NavigationLink3D12" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D12" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=383187199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4004, 10.9003, -35.1946)
 end_position = Vector3(-1.721, -1.823, 0.023)
 
-[node name="NavigationLink3D13" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D13" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1116307187]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4004, 10.9003, -28.1946)
 end_position = Vector3(0, -1.823, 2)
 
-[node name="NavigationLink3D14" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D14" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1311799332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7787, 8.78178, -11.4927)
 bidirectional = false
 start_position = Vector3(-0.0153427, 2.7629, 0.0501947)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D15" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D15" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=546848613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7787, 8.78178, -15.4927)
 bidirectional = false
 start_position = Vector3(-0.0153427, 2.7629, 0.0501947)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D16" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D16" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1009669666]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7787, 8.78178, -19.4927)
 bidirectional = false
 start_position = Vector3(-0.164017, 1.16391, 0.0599327)
 end_position = Vector3(1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D17" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D17" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=356052507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0251, 8.78178, -11.4927)
 bidirectional = false
 start_position = Vector3(-0.0153427, 2.7629, 0.0501947)
 end_position = Vector3(-1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D18" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D18" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1892632925]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0251, 8.78178, -15.4927)
 bidirectional = false
 start_position = Vector3(-0.0153427, 2.7629, 0.0501947)
 end_position = Vector3(-1.721, -1.82292, 0.0225544)
 
-[node name="NavigationLink3D19" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D19" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1905704386]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0251, 8.78178, -19.4927)
 bidirectional = false
 start_position = Vector3(-0.164017, 1.16391, 0.0599327)
 end_position = Vector3(-1.721, -1.82292, 0.0225544)
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("13_28rel")]
+[node name="Spawner" parent="." unique_id=476681795 node_paths=PackedStringArray("navigation_region") instance=ExtResource("13_28rel")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("32_4nhff"), ExtResource("33_3yyu5"), ExtResource("34_ajwuo"), ExtResource("35_pulof")])
+items_to_spawn = Array[PackedScene]([ExtResource("31_a3hbx"), ExtResource("33_4nhff"), ExtResource("32_u1d5f"), ExtResource("35_4nhff"), ExtResource("34_u1d5f")])
 
-[node name="Invisible Walls" type="StaticBody3D" parent="."]
+[node name="Invisible Walls" type="StaticBody3D" parent="." unique_id=1060023409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8619, 4.12044, -25.0382)
 collision_layer = 32
 
-[node name="CollisionShape3D5" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
+[node name="CollisionShape3D5" parent="Invisible Walls" unique_id=1749191504 instance=ExtResource("32_pxprx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7371, 13.7986, 0.0586987)
 shape = SubResource("BoxShape3D_rdg16")
 
-[node name="CollisionShape3D6" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
+[node name="CollisionShape3D6" parent="Invisible Walls" unique_id=2062523156 instance=ExtResource("32_pxprx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5111, 13.7986, 0.0586987)
 shape = SubResource("BoxShape3D_rdg16")
 
-[node name="CollisionShape3D7" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
+[node name="CollisionShape3D7" parent="Invisible Walls" unique_id=821925675 instance=ExtResource("32_pxprx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.114452, 13.7986, -15.6081)
 shape = SubResource("BoxShape3D_0yu5d")
 
-[node name="CollisionShape3D8" parent="Invisible Walls" instance=ExtResource("32_pxprx")]
+[node name="CollisionShape3D8" parent="Invisible Walls" unique_id=1685454497 instance=ExtResource("32_pxprx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.114452, 13.7986, 15.691)
 shape = SubResource("BoxShape3D_0yu5d")
 
-[node name="World Boundaries" parent="." instance=ExtResource("14_mbsx2")]
+[node name="World Boundaries" parent="." unique_id=1093918903 instance=ExtResource("14_mbsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7744, 6.8224, -20.8766)
 
-[node name="OST" type="AudioStreamPlayer2D" parent="."]
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=779658209]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_rq1vi")
 bus = &"Game"

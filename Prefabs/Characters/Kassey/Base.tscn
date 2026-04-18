@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://7f7klsd70wet"]
+[gd_scene format=4 uid="uid://7f7klsd70wet"]
 
 [ext_resource type="PackedScene" uid="uid://4rpgbqcx2mlc" path="res://Models/Characters/Kassey/Kassey.glb" id="1_1w1qp"]
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_j5lmb"]
@@ -9,20 +9,34 @@
 [ext_resource type="Texture2D" uid="uid://bc2dnikq5olds" path="res://Textures/Characters/Kassey/Cards/4a771680.png" id="3_qklw6"]
 [ext_resource type="PackedScene" uid="uid://c21gahrcwjfd1" path="res://Models/Characters/Kassey/Skins/Skin2.tscn" id="4_al6k4"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_ea3kh"]
-[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="4_y7ger"]
 [ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="5_0hxec"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_drebd"]
 [ext_resource type="PackedScene" uid="uid://c8068nwrjcnur" path="res://Models/Characters/Kassey/Skins/Skin3.tscn" id="5_yhhg2"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="6_7s2fl"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="6_drebd"]
 [ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="6_hcat4"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="8_kngan"]
+[ext_resource type="Texture2D" uid="uid://dqabejviu4qug" path="res://Textures/Characters/Kassey/Skins/Default/d8a37c3.png" id="9_ea3kh"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="9_ss2si"]
+[ext_resource type="Texture2D" uid="uid://0wwle8jcqngi" path="res://Textures/Characters/Kassey/Skins/Default/d8a37c3_spec.png" id="10_drebd"]
 [ext_resource type="AudioStream" uid="uid://batjkus31e212" path="res://Sound/Characters/Kassey/Taunts/Entrance.wav" id="11_g4l87"]
+[ext_resource type="Texture2D" uid="uid://dq7xf6ri4i8g3" path="res://Textures/Characters/Kassey/Skins/Default/3bad84f5.png" id="11_s4vkl"]
+[ext_resource type="Texture2D" uid="uid://dkmq8vxoulis5" path="res://Textures/Characters/Kassey/Skins/Default/3bad84f5_spec.png" id="12_5bgq1"]
 [ext_resource type="AudioStream" uid="uid://fqg2klfuq0bi" path="res://Sound/Characters/Kassey/Taunts/Win.wav" id="12_jf87h"]
 [ext_resource type="AudioStream" uid="uid://c24r331n1v8ts" path="res://Sound/Characters/Kassey/Taunts/Lose.wav" id="13_elvcm"]
-[ext_resource type="PackedScene" uid="uid://b28giemmouara" path="res://Models/Weapons/Hand Gun.glb" id="26_42dvd"]
+[ext_resource type="Texture2D" uid="uid://dy4qumnfye2ys" path="res://Textures/Characters/Kassey/Skins/Default/265d3558.png" id="13_jhhtn"]
+[ext_resource type="Texture2D" uid="uid://c2mtius51sjd2" path="res://Textures/Characters/Kassey/Skins/Default/265d3558_spec.png" id="14_gvu7j"]
+[ext_resource type="Texture2D" uid="uid://b44gly1t4ovsm" path="res://Textures/Characters/Kassey/Skins/Default/de008fba.png" id="15_42dvd"]
+[ext_resource type="Texture2D" uid="uid://dn0tfjitwif82" path="res://Textures/Characters/Kassey/Skins/Default/de008fba_spec.png" id="16_ddyhc"]
+[ext_resource type="Texture2D" uid="uid://dmefngd00g3pm" path="res://Textures/Characters/Kassey/Skins/Default/c17e1d56.png" id="17_kngan"]
+[ext_resource type="Texture2D" uid="uid://5kn7vsulgjq1" path="res://Textures/Characters/Kassey/Skins/Default/c17e1d56_spec.png" id="18_ss2si"]
+[ext_resource type="Texture2D" uid="uid://cr0wlf0pupko8" path="res://Textures/Characters/Kassey/Skins/Default/e45c9788.png" id="19_iearr"]
+[ext_resource type="Texture2D" uid="uid://nma1ftfj105j" path="res://Textures/Characters/Kassey/Skins/Default/e45c9788_spec.png" id="20_6486s"]
+[ext_resource type="Material" uid="uid://d27eqq1cfctyh" path="res://Materials/Weapons/Hand Gun/77370af1.tres" id="26_drebd"]
+[ext_resource type="Material" uid="uid://q4hfh28csl4p" path="res://Materials/Weapons/Hand Gun/a17a3edc.tres" id="27_s4vkl"]
 [ext_resource type="AnimationLibrary" uid="uid://vfmegwigbpp6" path="res://Animations/Libraries/Lower Body.res" id="29_ddyhc"]
 [ext_resource type="AnimationLibrary" uid="uid://dhtb15v55d82c" path="res://Animations/Characters/Kassey/Taunts.res" id="30_kngan"]
+[ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="30_s4vkl"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="31_ss2si"]
 [ext_resource type="AudioStream" uid="uid://dh5kh8x4jwl62" path="res://Sound/Characters/Kassey/Pickup/Pickup 1.wav" id="43_856tj"]
 [ext_resource type="AudioStream" uid="uid://dbdrtg62q8kno" path="res://Sound/Characters/Kassey/Pickup/Pickup 2.wav" id="44_5xacv"]
@@ -38,11 +52,125 @@
 [ext_resource type="AudioStream" uid="uid://b8coxs1hsf0cp" path="res://Sound/Characters/Kassey/Specials/Special 2.wav" id="50_ds2fd"]
 [ext_resource type="AudioStream" uid="uid://bhjhus7dgkh8w" path="res://Sound/Characters/Kassey/Specials/Special 3.wav" id="51_jsy6k"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4vkl"]
+resource_local_to_scene = true
+transparency = 4
+albedo_texture = ExtResource("9_ea3kh")
+ao_enabled = true
+ao_texture = ExtResource("10_drebd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bgq1"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("11_s4vkl")
+ao_enabled = true
+ao_texture = ExtResource("12_5bgq1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhhtn"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("13_jhhtn")
+ao_enabled = true
+ao_texture = ExtResource("14_gvu7j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvu7j"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("15_42dvd")
+ao_enabled = true
+ao_texture = ExtResource("16_ddyhc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42dvd"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("17_kngan")
+ao_enabled = true
+ao_texture = ExtResource("18_ss2si")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddyhc"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("19_iearr")
+ao_enabled = true
+ao_texture = ExtResource("20_6486s")
+
 [sub_resource type="Resource" id="Resource_6rvdl"]
 script = ExtResource("6_hcat4")
 stiffness = 0.2
 damping = 0.5
 length = 0.2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8psh4"]
+resource_name = "Hand Gun_mesh_2_001"
+_surfaces = [{
+"aabb": AABB(-0.09374997, 0.20074081, -0.20000009, 0.18750003, 0.17925921, 0.30000007),
+"attribute_data": PackedByteArray("//99PwIA6D4AADI/AgDoPq9zVD8CAKQ+r3NUPwIApD4AAH4/AgCkPv//fT8CAOg+AAAyPwIA6D7//30/AgDoPgAAfj8CAKQ+AAB+PwIApD6vc1Q/AgCkPgAAMj8CAOg+r3NUPwIApD6vc1Q/AgCkPgAAMj8CAOg+AAB+P5Ljtj6vc1Q/kuO2Pq9zVD8CAKQ+r3NUPwIApD4AAH4/AgCkPgAAfj+S47Y+AAB+PwIApD7//30/AgDoPrnocT8CAOg+uehxPwIA6D666HE/AgCkPgAAfj8CAKQ+AAAyPwIA6D4AADI/AgDoPq9zVD8CAKQ+AAAAAACAfT8AAMg+AIB9PwAAyD4AgD8/AADIPgCAPz8AAAAAAIA/PwAAAAAAgH0/"),
+"bone_aabbs": [AABB(-0.09374997, 0.20074081, -0.20000009, 0.18750003, 0.17925921, 0.3000101), AABB(-0.09374997, 0.20074081, -0.20000009, 0.18750003, 0.17925921, 0.3000101)],
+"format": 34359745559,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMA"),
+"material": ExtResource("26_drebd"),
+"name": "77370af1",
+"primitive": 3,
+"skin_data": PackedByteArray("AQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("CYPbvMT1qD7KzMw9GIPbvML1qD4bCCW9yYJbvFyPwj4L6r48yYJbvFyPwj4L6r48t4JbvF2Pwj7MzMw9CYPbvMT1qD7KzMw9gYPbPML1qD4eCCW9k4PbPMT1qD7JzMw95YNbPF2Pwj7MzMw95YNbPF2Pwj7MzMw904NbPFyPwj4H6r48gYPbPML1qD4eCCW904NbPFyPwj4H6r48yYJbvFyPwj4L6r48GIPbvML1qD4bCCW9t4JbvF2Pwj7MzMw9yYJbvFyPwj4L6r4804NbPFyPwj4H6r4804NbPFyPwj4H6r485YNbPF2Pwj7MzMw9t4JbvF2Pwj7MzMw95YNbPF2Pwj7MzMw9k4PbPMT1qD7JzMw9CYPbvMT1qD7KzMw9CYPbvMT1qD7KzMw9t4JbvF2Pwj7MzMw95YNbPF2Pwj7MzMw9GIPbvML1qD4bCCW9gYPbPML1qD4eCCW904NbPFyPwj4H6r48/P+/vQSPTT7OzEy+BADAPQCPTT7QzEy+CQDAPcH1qD7TzEy+CQDAPcH1qD7TzEy+9/+/vcL1qD7OzEy+/P+/vQSPTT7OzEy+DBsMm/9//78MGwyb/3//vwwbDJv/f/+/DBsMm/9//78MGwyb/3//vwwbDJv/f/+/8uQMm/9//z/y5Ayb/3//P/LkDJv/f/8/8uQMm/9//z/y5Ayb/3//P/LkDJv/f/8/Vrj//////79WuP//////v1a4//////+//3/+//9//7//f/7//3//v/9//v//f/+//3////9//7//f////3//v/9/////f/+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+/Vrj//////79WuP//////v1a4//////+/AAAAAP7//z8AAAAA/v//PwAAAAD+//8/AAAAAP7//z8AAAAA/v//PwAAAAD+//8/")
+}, {
+"aabb": AABB(-0.09374997, 0.20074081, -0.20000009, 0.18750012, 0.12925926, 0.31542856),
+"attribute_data": PackedByteArray("AACkPgQAzz4AAH4/BADPPgAAfj+4qu49AAB+P7iq7j0AAKQ+uKruPQAApD4EAM8+jCfLPgQAzz4TtSE/BADPPhO1IT+4qu49E7UhP7iq7j2MJ8s+uKruPYwnyz4EAM8+AAB+PwQAzz4AAKQ+BADPPgAApD64qu49AACkPriq7j0AAH4/uKruPQAAfj8EAM8+AAB+P7SqJD4AAH4/WtXAPgAApD5a1cA+AACkPlrVwD4AAKQ+tKokPgAAfj+0qiQ+AACkPgAAwDsAAKQ+uKruPQAAfj+4qu49AAB+P7iq7j0AAH4/AADAOwAApD4AAMA7"),
+"bone_aabbs": [AABB(-0.09374997, 0.20074081, -0.20000009, 0.18751, 0.12925926, 0.31542856), AABB(-0.09374997, 0.20074081, -0.20000009, 0.18751, 0.12925926, 0.31542856)],
+"format": 34359745559,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0A"),
+"material": ExtResource("27_s4vkl"),
+"name": "a17a3edc",
+"primitive": 3,
+"skin_data": PackedByteArray("AQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAAAQAAAAAAAAD/f/9/AAAAAAEAAAAAAAAA/3//fwAAAAABAAAAAAAAAP9//38AAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("BADAPQCPTT7QzEy+DgDAPQKPTT69Zew9EwDAPcT1qD68Zew9EwDAPcT1qD68Zew9CQDAPcH1qD7TzEy+BADAPQCPTT7QzEy+DgDAPQKPTT69Zew99P+/vQaPTT7CZew97/+/vcX1qD7BZew97/+/vcX1qD7BZew9EwDAPcT1qD68Zew9DgDAPQKPTT69Zew99P+/vQaPTT7CZew9/P+/vQSPTT7OzEy+9/+/vcL1qD7OzEy+9/+/vcL1qD7OzEy+7/+/vcX1qD7BZew99P+/vQaPTT7CZew99P+/vQaPTT7CZew9DgDAPQKPTT69Zew9BADAPQCPTT7QzEy+BADAPQCPTT7QzEy+/P+/vQSPTT7OzEy+9P+/vQaPTT7CZew99/+/vcL1qD7OzEy+CQDAPcH1qD7TzEy+EwDAPcT1qD68Zew9EwDAPcT1qD68Zew97/+/vcX1qD7BZew99/+/vcL1qD7OzEy+/v//f/9//z/+//9//3//P/7//3//f/8//v//f/9//z/+//9//3//P/7//3//f/8//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//3////9//z//f////3//P/9/////f/8//3/+//9//z//f/7//3//P/9//v//f/8/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="Skin" id="Skin_ut7jw"]
+resource_name = "Skin"
+bind_count = 2
+bind/0/name = &"Grip"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, -2.6328927e-08, -2.3696035e-07, -7.1054274e-15, 0.9938837, -0.11043155, 2.3841858e-07, 0.11043152, 0.9938837, -2.3696034e-09, -0.0011043155, 0.009938837)
+bind/1/name = &"Barrell"
+bind/1/bone = -1
+bind/1/pose = Transform3D(1, -2.3841858e-07, 1.7763566e-15, 7.1054257e-15, -8.9406946e-08, -0.9999999, 2.3841858e-07, 0.9999999, -7.450579e-09, 6.4373026e-08, -0.18999995, -0.26999998)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bv7xu"]
+resource_name = "Hand Gun_mesh_7"
+_surfaces = [{
+"aabb": AABB(-0.093750104, -0.2619702, -0.65504, 0.18750018, 0.6604404, 0.75504005),
+"attribute_data": PackedByteArray("AAAAAFqq0j4AAAAAKkS2PgAAxD6aRMg+AAAAAF67BT8AAMQ+lkTIPgAAxD4+7go/AAAAAFqq0j4AAAAAdu4TPwAAxD4+7go/AADEPtrMGz8AAAAAXrsFPwAAxD6YWg4/s2d1PphaDj8AAMQ+VLw+P7NndT5UvD4/AADEPp6tOT+zZ3U+nq05PwAAxD5UvD4/s2d1PlS8Pj+zZ3U+mFoOPwAAxD6YWg4/0WrJPqo3pj7Rask+RPc0P84j7D6qN6Y+ZW7rPkT3ND/OI+w+qjemPmVu6z5E9zQ/MyovP44dpj4jMC8/vhU1P9FqyT5E9zQ/ZW7rPkT3ND/OI+w+qjemPtFqyT6qN6Y+MyovP44dpj4jMC8/vhU1P2Vu6z5E9zQ/ziPsPqo3pj4gQC8/fig/PyMwLz++FTU/ZW7rPkT3ND9xYOs+fig/P3A+8j4AAG4/AAAePwAAfD9wPvI+AAB8P3A+8j4AAHw/AAAePwAAfD9wPvI+AABuP3A+8j4AAG4/OB/fPgAAfD9wPvI+AAB8PwAAfj8AAIAzAAB+PwQAnD4AABo/BACcPgAAGj8AAIAzAAAAAAYAnD4AABg/BgCcPgAAGD8AAAA0AAAAAAAAADQAADI/9v/rPgAAMj8AAEA/AAB+PwAAQD8AAH4/9v/rPjMzcz4AAAA0AAAYPwAAADQAABg/BgCcPjMzcz4GAJw+0jGpPZZEyD7SMak9BgCkPtIxqT0+7go/AADEPgIApD7SMak9mkTIPtIxqT0+7go/0jGpPdzMGz/Rask+RPc0P84j7D6qN6Y+ZW7rPkT3ND8zKi8/jh2mPtFqyT5E9zQ/ziPsPqo3pj4gQC8/fig/P2Vu6z5E9zQ/ZW7rPkT3ND8zKi8/jh2mPgAAGj8EAJw+AAB+PwAAgDMAAAAABgCcPgAAGD8AAAA0AAB+PwAAQD8AADI/9v/rPgAAGD8GAJw+MzNzPgAAADQ="),
+"bone_aabbs": [AABB(-0.093750104, -0.2619702, -0.65504, 0.18750018, 0.6604404, 0.75504005)],
+"format": 34359745559,
+"index_count": 156,
+"index_data": PackedByteArray("QgBDAAEAAQBDAAAABgBCAAEAQwBCAAQARABCAAYABABCAAgAQgBEAAgACgBEAAYACABEAAkARQBDAAQABAACAEUARgBDAEUAQwBGAAAAAgBGAEUAAABGAAMARwBGAAIARgBHAAMABQBHAAIAAwBHAAcASABHAAUARwBIAAcACQBIAAUARABIAAkABwBIAAoASABEAAoACwAMAA0ADAAOAA0ADQAOAA8ADgAQAA8AEQASABMAEwAUABEAFQBJAEoAFgAYABcAGQAaABsASwAcAEwATQAeAE4AHwAgAB0AIQAiACMATwAmAFAAJwAoACUAUQAkAFIAKQAqACsALAAtAC4ALwAwADEAMgAzADQAUwA1AFQAVQA3AFYAOAA5ADYAOgA7ADwAVwA9AFgAPgA/AEAAWQBBAFoA"),
+"lods": [0.099901386, PackedByteArray("AAABAAIAAwAAAAIAAgABAAQABQADAAIAAQAGAAQABwADAAUABAAGAAgACQAHAAUABgAKAAgACgAHAAkACAAKAAkACwAMAA0ADAAOAA0ADQAOAA8ADgAQAA8AEQASABMAEwAUABEAFQAWABcAFgAYABcAGQAaABsAGgAcABsAHQAeAB8AHwAgAB0AIQAiACMAIwAkACEAJQAmACcAJwAoACUAKQAqACsALAAtAC4ALwAwADEAMgAzADQANAA1ADIANgA3ADgAOAA5ADYAOgA7ADwAPAA9ADoAPgA/AEAAQABBAD4A")],
+"material": ExtResource("26_drebd"),
+"name": "77370af1",
+"primitive": 3,
+"skin_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAA=="),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 91,
+"vertex_data": PackedByteArray("07VcvRcrmj60sCe/m/M+tL4Yqj60sCe/CMKWvQAAoD7LzMy+0LVcvZKfdD60sCe/68GWPQIAoD7OzMy+B8KWvcL1aD7LzMy+crVcPRgrmj60sCe//i06tELEVD60sCe/7sGWPcL1aD7OzMy+5cvCs6VwPT7MzMy+dLVcPZKfdD60sCe/yXQTPaxHYT7MzMy+wnQTPaxHYT7VWf++yHQTPbh46T3MzMy+w3QTPbh46T1JP/C+/nQTvbl46T3MzMy+BHUTvbl46T1JP/C+/nQTvbl46T3MzMy+BHUTvbl46T1JP/C+BnUTvaxHYT7VWf++/nQTvaxHYT7MzMy+58xMvRU0Gj7koMO+9MxMvaCQYb5X/eu+tMxMPRU0Gj7loMO+p8xMPaCQYb5Y/eu+tMxMPRU0Gj7loMO+p8xMPaCQYb5Y/eu+xMxMPZsF3z2QZz6+t8xMPfUghr47kIe+t8xMPfUghr47kIe+5cxMvfUghr46kIe+2MxMvZwF3z2PZz6+xMxMPZsF3z2QZz6+2MxMvZwF3z2PZz6+5cxMvfUghr46kIe+9MxMvaCQYb5X/eu+58xMvRU0Gj7koMO+5cxMvfUghr46kIe+t8xMPfUghr47kIe+p8xMPaCQYb5Y/eu+9MxMvaCQYb5X/eu+FajGs0kEzD6z7ci+rY+os+tRuD4ZVK++4vIwvOtRuD6z7ci+GPIwPOtRuD6z7ci+rY+os+tRuD4ZVK++FajGs0kEzD6z7ci+FajGs0kEzD6z7ci+4vIwvOtRuD6z7ci+GPIwPOtRuD6z7ci+/P+/PetRuD7QzEy+/P+/PcrMTD7PzEy+BgDAvcrMTD7MzEy+BADAvetRuD7MzEy+DgDAvfQ70T3LzMy++f+/vfc70T3OzMw9CQDAPfU70T3HzMw98v+/PfM70T3OzMy+DgDAvetRuD7MzMy+DgDAvfQ70T3LzMy+8v+/PfM70T3OzMy+9P+/PetRuD7OzMy+/P+/PcrMTD7PzEy+CQDAPcvMTD7HzMw9+f+/vcvMTD7OzMw9BgDAvcrMTD7MzEy+48GWPQEAoD6amRm/kFQrtI/CtT6ZmRm/5sGWPcL1aD6amRm/pdXPs5DCtT7MzMy+EMKWvQAAoD6ZmRm/DsKWvcL1aD6ZmRm/r88ktKJwPT6ZmRm/9MxMvaCQYb5X/eu+tMxMPRU0Gj7loMO+p8xMPaCQYb5Y/eu+xMxMPZsF3z2QZz6+t8xMPfUghr47kIe+2MxMvZwF3z2PZz6+5cxMvfUghr46kIe+p8xMPaCQYb5Y/eu+9MxMvaCQYb5X/eu+2MxMvZwF3z2PZz6+BgDAvcrMTD7MzEy+/P+/PetRuD7QzEy+DgDAvfQ70T3LzMy+CQDAPfU70T3HzMw98v+/PfM70T3OzMy+DgDAvetRuD7MzMy++f+/vcvMTD7OzMw9/P+/PcrMTD7PzEy+gxnO04VBUMa+O/7/5LU9LN84EKnjkB67gxkwLDFB4bkfxxCp////P9kuJVH/f/+/e+bO082+4jm+OwAA+6tmViXRJVH/f/8//38AAP9//7975jAsHb6IRv///3//f/8/U+9uM0+4IEn/v/8//3//v1HQGCwam1ex/z//P/9//7+tLxgs5GRXsf8//z//f/+/rS8YLORkV7GrEG4zr0fetgAA/3//f/+/cBb+/////z9wFv7/////P3AW/v////8/cBb+/////z////9//39DS////3//f0NL////f/9/Q0v///9//38cS/9/j2kAAP8//3+PaQAA/z//f49pAAD/P/9/j2kAAP8/AAD/f/9/4rQAAP9//3/itAAA/3//f+K0AAD/f/9/u7RvlgAA/383S2+WAAChgClLb5YAAP9/N0tvlgAA/383S3oqAZi8lv+/eioBmLyW/796KgGYvJb/v4TVAZhCaf8/hNUBmEJp/z+E1QGYQmn/P/////////8//////////z//////////P/9//3////+//3//f////7//f/9/////v/9//3////+//38AAP9//z//fwAA/3//P/9/AAD/f/8//38AAP9//z8AAP7/////PwAA/v////8/AAD+/////z8AAP7/////P/9//v//f/+//3/+//9//7//f/7//3//v/9/////f/+/ytahuNaWJUDQa///MJnkN8rWXUc3lzc//39SyP9/KKQ0KaG462hyvzQpXUdcaei/0GsAACZoyLdwFv7/////P3AW/v////8/////f/9/HEv///9//38cS/9/j2kAAP8//3+PaQAA/z9vlgAAoYApS2+WAAChgClLAAD/f/9/u7QAAP9//3+7tP9//3////+//3//f////7//fwAA/3//P/9/AAD/f/8/AAD+/////z8AAP7/////P/9/////f/+//3////9//78=")
+}, {
+"aabb": AABB(-0.093750104, -0.079815865, -0.65504, 0.18750018, 0.43981585, 0.75504005),
+"attribute_data": PackedByteArray("iBxSPVoiMj+MHFI9ulFOP///Qz4AACY/AgBEPhR0Wj9uvKk+WiIyP2+8qT65UU4/tErIPXuRUj+0Ssg96mR/P1PtkT7qZH8/U+2RPnuRUj/SGr8+APDfuQAAAAAA8N+50hq/PnCgCj4AAAAAcKAKPtIavz5woAo+AAAAAHCgCj7SGr8+zLrLPgAAAABwoAo+AAAAAJvGFT/SGr8+zLrLPtIavz7Muss+AAAAAJvGFT9t028/zLrLPgAAAACbxhU/bdNvP5vGFT9t028/zLrLPm3Tbz/Muss+bdNvP5vGFT8ARFw/m8YVP23Tbz/Muss+bdNvP5vGFT/SGr8+zLrLPm3Tbz+bxhU/AAAAAJvGFT/SGr8+zLrLPtIavz7Muss+AAAAAJvGFT/SGr8+cKAKPgAAAACbxhU/AAAAAHCgCj7SGr8+cKAKPqtXBz8Pnx4/LEEBP8dOcz9H9gw/y5lzPwS5Dj+NZRs/eqUxP+wjcD9CVmU/X+dcP+Xdzz7XenQ/oFT1Ptd6dD+gVPU+kcQeP6BU9T6RxB4/5d3PPpHEHj/l3c8+13p0P0JWZT9f51w/eqUxP+wjcD8EuQ4/jWUbP0JWZT9f51w/QlZlPwzLcD96pTE/7CNwP0JWZT9f51w/zWlCP/8oCD8EuQ4/jWUbPwS5Dj+NZRs/zWlCP/8oCD9CVmU/X+dcPwBEXD+bxhU/AERcP8y6yz5t028/zLrLPg=="),
+"bone_aabbs": [AABB(-0.093750104, -0.079815865, -0.65504, 0.18750018, 0.43981585, 0.75504005)],
+"format": 34359745559,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgADAAQAAwAFAAQABgAHAAgACAAJAAYACgALAAwACwANAAwADgAPABAAEQASABMAFAAVABYAFwAYABkAGgAbABwAHQAeAB8AIAAhACIAIwAkACUAJgAnACgAKQAqACsALAAtAC4ALwAwADEAMgAzADQANQA2ADcAOAA5ADoAOwA8AD0APgA/AEAAQQBCAEMA"),
+"material": ExtResource("27_s4vkl"),
+"name": "a17a3edc",
+"primitive": 3,
+"skin_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAA="),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 68,
+"vertex_data": PackedByteArray("07VcvRcrmj60sCe/0LVcvZKfdD60sCe/m/M+tL4Yqj60sCe//i06tELEVD60sCe/crVcPRgrmj60sCe/dLVcPZKfdD60sCe/BnUTvaxHYT7VWf++BHUTvbl46T1JP/C+w3QTPbh46T1JP/C+wnQTPaxHYT7VWf++BADAvetRuD7MzEy+DgDAvetRuD7MzMy+/P+/PetRuD7QzEy+9P+/PetRuD7OzMy+/P+/PetRuD7QzEy+9P+/PetRuD7OzMy+/P+/PcrMTD7PzEy+9P+/PetRuD7OzMy+8v+/PfM70T3OzMy+/P+/PcrMTD7PzEy+/P+/PcrMTD7PzEy+8v+/PfM70T3OzMy+CQDAPcvMTD7HzMw98v+/PfM70T3OzMy+CQDAPfU70T3HzMw9CQDAPcvMTD7HzMw9CQDAPcvMTD7HzMw9CQDAPfU70T3HzMw9+f+/vfc70T3OzMw9+f+/vcvMTD7OzMw9+f+/vfc70T3OzMw9BgDAvcrMTD7MzEy++f+/vfc70T3OzMw9DgDAvfQ70T3LzMy+BgDAvcrMTD7MzEy+BgDAvcrMTD7MzEy+DgDAvfQ70T3LzMy+BADAvetRuD7MzEy+DgDAvfQ70T3LzMy+DgDAvetRuD7MzMy+BADAvetRuD7MzEy+HXo5MoB2o73GdzS9MjMzPVa3Ej5Gd4O9NDMzvVe3Ej5Ed4O9MjMzPVa3Ej5Gd4O9HXo5MoB2o73GdzS9PjMzPUUOkb1CVBc9PjMzPUUOkb1CVBc9JzMzvUQOkb1HVBc9LTMzvXTrGz4Wu4k8LTMzvXTrGz4Wu4k8OTMzPXTrGz4Fu4k8PjMzPUUOkb1CVBc9JzMzvUQOkb1HVBc9HXo5MoB2o73GdzS9NDMzvVe3Ej5Ed4O9JzMzvUQOkb1HVBc9PjMzPUUOkb1CVBc9HXo5MoB2o73GdzS9PjMzPUUOkb1CVBc9OTMzPXTrGz4Fu4k8MjMzPVa3Ej5Gd4O9NDMzvVe3Ej5Ed4O9LTMzvXTrGz4Wu4k8JzMzvUQOkb1HVBc9+f+/vfc70T3OzMw9+f+/vcvMTD7OzMw9CQDAPcvMTD7HzMw9gxnO047nfiCDGTAsNOzCXr47/v/W/hVBvjsAANP9k0B75s7TecLkSXvmMCz8wMczqxBuM+/xS2CtLxgsDtuAYFHQGCz+voctU+9uM2e/9zj/f////3//P/9/////f/8//3////9//z//f////3//P////3//f/8/////f/9//z////9//3//P////3//f+RC////f/9/5EL///9//3/kQv7//3//f/8//v//f/9//z/+//9//3//P////3//f/8/////f/9//z////9//3//P/9//3////+//3//f////7//f/9/////vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//fzG7AAD/f/9/MbsAAP9//38xuwAA/3//f/+/AAD/f/9//78AAP9//3//v5gKAAA3AY5AmAoAADcBjkCYCgAANwGOQFLu6Ejgmo1QUu7oSOCajVBS7uhI4JqNUP9/l4oAAP8//3+XigAA/z//f5eKAAD/P/9/l4oAAP8//3+XigAA/z//f5eKAAD/P6wR6EgeZXGvrBHoSB5lca+sEehIHmVxr/9/yAz6p2TE/3/IDPqnZMT/f8gM+qdkxP///3//f/NU////f/9/81T///9//3/zVAAA/3//fwurAAD/f/9/C6sAAP9//38Lq/9//3////+//3//f////7//f/9/////vw==")
+}]
+blend_shape_mode = 0
 
 [sub_resource type="Animation" id="Animation_7dw6h"]
 length = 0.001
@@ -130,204 +258,260 @@ stream_0/stream = ExtResource("46_gkxgm")
 stream_1/stream = ExtResource("47_1ael4")
 stream_2/stream = ExtResource("48_kjlt8")
 
-[node name="Kassey" type="Node3D" node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
+[node name="Kassey" type="Node3D" unique_id=1015752579 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
 script = ExtResource("1_j5lmb")
 character = 2
 character_team = 1
 avatar_big = ExtResource("2_gu0ub")
 avatar_small = ExtResource("3_qklw6")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
-is_v2 = true
 stat_speed = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
-fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/Fist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/Fist")]
+fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/RightFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/LeftFist")]
 jiggle_bones = [NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_L"), NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_R")]
 sfx_controller = NodePath("SFX")
 gameplay_animation_tree = ExtResource("4_ea3kh")
 taunt_animation_tree = ExtResource("5_drebd")
 body_slot = NodePath("Model/Armature/GeneralSkeleton/Body Slot")
 right_hand_slot = NodePath("Model/Armature/GeneralSkeleton/Right Hand Slot")
-initial_loadout = ExtResource("4_y7ger")
+initial_loadout = ExtResource("6_drebd")
 
-[node name="Model" parent="." instance=ExtResource("1_1w1qp")]
+[node name="Model" parent="." unique_id=725245511 instance=ExtResource("1_1w1qp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="GeneralSkeleton" parent="Model/Armature" index="0"]
+bones/0/position = Vector3(0.35789216, 1.267207, 0.49943596)
+bones/0/rotation = Quaternion(0.04466612, -0.052122947, 0.7056947, -0.70518315)
+bones/1/position = Vector3(-0.6847459, 0.74657524, -0.35356712)
+bones/1/rotation = Quaternion(0.5330481, -0.46460706, 0.4646071, 0.5330481)
+bones/2/position = Vector3(-0.04736104, 0.109022066, 0.021896038)
+bones/2/rotation = Quaternion(0.36121258, -0.43274692, 0.8027042, 0.19473428)
+bones/3/position = Vector3(0.031199899, 1.5845975, 0.32599303)
+bones/3/rotation = Quaternion(0.7099291, -0.090827465, -0.08449137, 0.6932621)
+bones/4/position = Vector3(-0.0055153696, 0.9092777, -0.049680457)
+bones/4/rotation = Quaternion(-0.0125802085, -0.6569308, -0.014672105, 0.7537032)
+bones/5/rotation = Quaternion(-0.004497722, -0.022430195, -0.009186987, 0.99969614)
+bones/6/rotation = Quaternion(0.027412161, -0.24045646, -0.0067936177, 0.97024906)
+bones/7/rotation = Quaternion(-0.1540545, -0.33024508, 0.03956253, 0.930398)
+bones/8/rotation = Quaternion(0.9425384, -0.23448065, -0.0072325105, -0.2378824)
+bones/9/rotation = Quaternion(0.04401437, 0.6375141, -0.7515882, -0.16356583)
+bones/10/rotation = Quaternion(-0.09048515, 0.3239919, 0.017677756, 0.94155675)
+bones/11/rotation = Quaternion(0.8918608, 0.31744608, 0.009791694, -0.32205036)
+bones/12/rotation = Quaternion(-0.47713283, 0.5105794, -0.62778217, -0.34284467)
+bones/13/rotation = Quaternion(-0.08879623, 0.19222338, 0.011749933, 0.9772551)
+bones/15/rotation = Quaternion(0.002445346, 0.027336787, -0.019756515, 0.99942815)
+bones/16/rotation = Quaternion(-0.011988439, 0.49211434, -0.022843875, 0.87014824)
+bones/17/position = Vector3(0.040593907, 0.17100893, -0.017415572)
+bones/17/rotation = Quaternion(0.48627293, 0.5040593, 0.51313555, -0.49614)
+bones/18/rotation = Quaternion(-0.26828024, 0.65537477, -0.15940331, 0.6878229)
+bones/19/rotation = Quaternion(0.116255954, -0.0060404837, -0.7723496, 0.6244392)
+bones/20/rotation = Quaternion(0.04577886, 0.9053555, 0.36104566, 0.21881919)
+bones/21/rotation = Quaternion(0.31178704, 0.48598272, 0.31902146, 0.75155514)
+bones/22/position = Vector3(0.20929623, -0.21672232, -0.0878595)
+bones/22/rotation = Quaternion(0.3228775, -0.32998648, -0.8538655, 0.24035963)
+bones/23/position = Vector3(-0.04059389, 0.17100896, -0.017415585)
+bones/23/rotation = Quaternion(0.45576894, -0.5269683, -0.5490156, -0.46169367)
+bones/24/rotation = Quaternion(-0.2745315, -0.706468, 0.24193265, 0.6058086)
+bones/25/rotation = Quaternion(0.10328734, 0.005366891, 0.68619466, 0.7200276)
+bones/26/rotation = Quaternion(-0.44791406, 0.83375573, 0.3134152, -0.077430144)
+bones/27/rotation = Quaternion(-0.31621292, 0.51894486, 0.26119024, -0.74999017)
+bones/28/position = Vector3(-0.24459326, -0.2397299, -0.12199083)
+bones/28/rotation = Quaternion(0.4413013, 0.53159636, 0.72267544, -0.019969344)
+bones/29/rotation = Quaternion(0.4130531, 0.40231854, 0.81672794, 0.0219646)
+bones/31/position = Vector3(-0.28050503, 1.1543093, -0.4374732)
+bones/31/rotation = Quaternion(-0.7051831, -0.7056947, 0.05212297, 0.044666097)
+bones/32/position = Vector3(-0.40504688, 0.6057614, 0.34658587)
+bones/32/rotation = Quaternion(0.5330481, -0.46460715, 0.46460712, 0.5330481)
+bones/33/position = Vector3(0.16000554, 0.18643494, -0.08632127)
+bones/33/rotation = Quaternion(0.5977719, -0.27125862, 0.7532491, 0.04127253)
 
 [node name="object_0" parent="Model/Armature/GeneralSkeleton" index="0"]
 visible = false
 layers = 4
 
-[node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" instance=ExtResource("2_tkdiu")]
+[node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1294128584 instance=ExtResource("2_tkdiu")]
+surface_material_override/0 = SubResource("StandardMaterial3D_s4vkl")
+surface_material_override/1 = SubResource("StandardMaterial3D_5bgq1")
+surface_material_override/2 = SubResource("StandardMaterial3D_jhhtn")
+surface_material_override/3 = SubResource("StandardMaterial3D_gvu7j")
+surface_material_override/4 = SubResource("StandardMaterial3D_42dvd")
+surface_material_override/5 = SubResource("StandardMaterial3D_ddyhc")
 
-[node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" instance=ExtResource("3_8tnxv")]
+[node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=91992195 instance=ExtResource("3_8tnxv")]
 visible = false
 
-[node name="Skin2" parent="Model/Armature/GeneralSkeleton" index="3" instance=ExtResource("4_al6k4")]
+[node name="Skin2" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=447505904 instance=ExtResource("4_al6k4")]
 visible = false
 
-[node name="Skin3" parent="Model/Armature/GeneralSkeleton" index="4" instance=ExtResource("5_yhhg2")]
+[node name="Skin3" parent="Model/Armature/GeneralSkeleton" index="4" unique_id=789383715 instance=ExtResource("5_yhhg2")]
 visible = false
 
-[node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="5"]
-transform = Transform3D(-0.6578095, 0.29647964, 0.69237745, 0.368236, -0.67531466, 0.6390245, 0.65703046, 0.67531466, 0.33505392, 0.045496948, 1.4257615, 0.014568399)
+[node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="5" unique_id=335985710]
+transform = Transform3D(-0.8103659, -0.5544372, 0.18948917, 0.51822335, -0.5273089, 0.67334217, -0.27340657, 0.6438515, 0.7146356, -0.027533904, 1.3688049, 0.002070561)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("5_0hxec")
 properties = SubResource("Resource_6rvdl")
 
-[node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="6"]
-transform = Transform3D(-0.65780944, -0.2964797, -0.6923774, -0.3682359, -0.6753146, 0.6390245, -0.6570304, 0.67531455, 0.3350539, -0.04549694, 1.4257615, 0.014568399)
+[node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="6" unique_id=929789024]
+transform = Transform3D(0.15282774, -0.85072094, -0.50290895, -0.47774845, -0.509071, 0.71596295, -0.86510116, 0.13084504, -0.4842307, -0.07301909, 1.3716061, -0.07668944)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("5_0hxec")
 properties = SubResource("Resource_6rvdl")
 
-[node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4222805e-16, 1.2908983, -0.015611805)
+[node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="7" unique_id=678369921]
+transform = Transform3D(0.49987072, 0.19756085, -0.84326684, -0.030784257, 0.9770744, 0.21066105, 0.86555266, -0.07934396, 0.49449262, -0.051470224, 1.2315077, -0.041532747)
 bone_name = "Spine"
 bone_idx = 13
 
-[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Body Slot"]
+[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Body Slot" unique_id=1318737465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2864274e-09, 4.656613e-09, -0.18967506)
 
-[node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="8"]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, -0.6283562, 1.4519658, -0.03584716)
+[node name="Right Hand Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="8" unique_id=1960456042]
+transform = Transform3D(0.27627745, 0.09770009, 0.95609903, 0.92573935, 0.24023253, -0.29205304, -0.25822005, 0.9657862, -0.024074018, -0.13996407, 1.0433027, -0.1728343)
 bone_name = "RightHand"
 bone_idx = 26
 
-[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Right Hand Slot"]
+[node name="Offset" type="Node3D" parent="Model/Armature/GeneralSkeleton/Right Hand Slot" unique_id=18233948]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 3.7440806e-09, 0.046276297, 0.01666765)
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10247209, 1.0095649, -0.041204233)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="9" unique_id=121438701]
+transform = Transform3D(0.6806726, 0.19852616, -0.70517534, -0.07203521, 0.9760542, 0.20525375, 0.72903746, -0.08891316, 0.67867416, -0.046074037, 0.95195717, -0.14795005)
 visible = false
 bone_name = "Hip.R"
 bone_idx = 10
 
-[node name="Hand Gun" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D" instance=ExtResource("26_42dvd")]
-transform = Transform3D(0.43586275, -0.15194154, 0.1921909, -0.20926976, -0.026937151, 0.45329958, -0.12739588, -0.47559243, -0.087075345, -0.042902913, 0.11678678, 0.04280654)
-
-[node name="object_2_001" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/Hand Gun/Armature/Skeleton3D" index="0"]
+[node name="object_2_001" type="MeshInstance3D" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D" unique_id=267696720]
+transform = Transform3D(-4.004687e-08, 0.50000006, -2.2351742e-08, 7.450581e-09, -1.4901161e-08, -0.50000006, -0.49999994, -1.9557774e-08, 0, 0.0019999743, 0.04699999, 0.02000004)
 layers = 8
+mesh = SubResource("ArrayMesh_8psh4")
+skin = SubResource("Skin_ut7jw")
+skeleton = NodePath("../Hand Gun/Armature/Skeleton3D")
 
-[node name="object_7" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D/Hand Gun/Armature/Skeleton3D" index="1"]
+[node name="object_7" type="MeshInstance3D" parent="Model/Armature/GeneralSkeleton/BoneAttachment3D" unique_id=736942237]
+transform = Transform3D(-4.004687e-08, 0.50000006, -2.2351742e-08, 7.450581e-09, -1.4901161e-08, -0.50000006, -0.49999994, -1.9557774e-08, 0, 0.0019999743, 0.04699999, 0.02000004)
 layers = 8
+mesh = SubResource("ArrayMesh_bv7xu")
+skin = SubResource("Skin_ut7jw")
+skeleton = NodePath("../Hand Gun/Armature/Skeleton3D")
 
-[node name="Hitboxes" parent="Model/Armature/GeneralSkeleton" index="10" instance=ExtResource("8_kngan")]
+[node name="Hitboxes" parent="Model/Armature/GeneralSkeleton" index="10" unique_id=1709627993 instance=ExtResource("8_kngan")]
 
 [node name="Head" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.220446e-14, 1.6237215, -0.038823254)
+transform = Transform3D(0.96368825, 0.26409817, 0.039461493, -0.26544, 0.963535, 0.033793278, -0.029097885, -0.043040857, 0.9986495, 0.03534604, 1.5517029, -0.07613332)
 
 [node name="Torso" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="1"]
-transform = Transform3D(1, 1.3322676e-14, -2.3841864e-07, -1.3461201e-08, 0.99840486, -0.056460302, 2.3803831e-07, 0.056460302, 0.99840486, -2.220446e-16, 1.1260402, -0.02493462)
+transform = Transform3D(-0.38445425, -0.006569572, -0.9231207, -0.023489242, 0.9997205, 0.002667915, 0.92284507, 0.022709096, -0.3845011, -0.04713422, 1.0667932, -0.04238827)
 
 [node name="HipL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1024721, 1.0095649, -0.04120423)
+transform = Transform3D(-0.5194113, 0.36082157, -0.7746094, 0.18680109, 0.9325, 0.30911005, 0.83385676, 0.015857372, -0.5517528, -0.0274004, 0.947445, 0.05609174)
 
 [node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D" index="0"]
 transform = Transform3D(1, 0, -1.49012e-08, -2.98023e-08, 1, 2.98023e-08, 0, 2.98023e-08, 1, -0.025423, -0.21549052, 0.005867476)
 
 [node name="ShinL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="3"]
-transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, -1, 0.10974117, 0.53889644, -0.04834692)
+transform = Transform3D(-0.52351344, 0.295794, 0.7990242, -0.2814268, -0.9451997, 0.165519, 0.80419683, -0.13821544, 0.578069, -0.19547057, 0.5076966, 0.058630545)
 bone_name = "LeftLowerLeg"
 
 [node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D" index="0"]
 transform = Transform3D(1, 1.49012e-08, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.0142417, 0.16906, 0.0148261)
 
 [node name="FootL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="4"]
-transform = Transform3D(-1, 0, 0, 0, 0, 1, 0, 1, 0, 0.10974117, 0.11433816, -0.061441913)
+transform = Transform3D(0.6965721, -0.7174017, 0.011059195, 0.0034073144, 0.018721312, 0.999819, -0.7174787, -0.69640815, 0.015485175, -0.059425548, 0.10857171, 0.0075198486)
 bone_name = "LeftFoot"
 
 [node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D" index="0"]
 transform = Transform3D(1, -1.01328e-06, 9.90927e-07, -7.45058e-08, 1, 3.27826e-07, 2.98023e-08, -2.98023e-08, 1, -0.0222079, 0.0869795, -0.00359249)
 
 [node name="HipR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10247209, 1.0095649, -0.041204233)
+transform = Transform3D(0.6806726, 0.19852616, -0.70517534, -0.07203521, 0.9760542, 0.20525375, 0.72903746, -0.08891316, 0.67867416, -0.046074037, 0.95195717, -0.14795005)
 
 [node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D" index="0"]
 transform = Transform3D(1, -1.49012e-08, 2.98023e-08, -2.98023e-08, 1, -2.98023e-08, -2.98023e-08, -1.49012e-08, 1, 0, -0.215, 0)
 
 [node name="ShinR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="6"]
-transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, -1, -0.10974118, 0.53889644, -0.04834691)
+transform = Transform3D(0.4980154, 0.6730832, 0.5467539, 0.5345701, -0.7347454, 0.417593, 0.6827996, 0.08431041, -0.7257246, -0.13942507, 0.49161682, -0.11624843)
 bone_name = "RightLowerLeg"
 
 [node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D" index="0"]
 transform = Transform3D(1, -5.96046e-08, 0, 0, 1, 0, 5.96046e-08, -2.98023e-08, 1, -0.00266159, 0.177296, 0.0237272)
 
 [node name="FootR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="7"]
-transform = Transform3D(-1, 0, 0, 0, 0, 1, 0, 1, 0, -0.10974118, 0.11433816, -0.06144189)
+transform = Transform3D(0.32656744, -0.7925686, -0.51496506, 0.27256954, -0.442719, 0.8542281, -0.90501904, -0.41932678, 0.07145266, 0.15349773, 0.18514293, -0.089957096)
 bone_name = "RightFoot"
 
 [node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D" index="0"]
 transform = Transform3D(1, -1.07288e-06, 9.98378e-07, -2.98023e-08, 1, 3.27826e-07, 0, 0, 1, 0.00620535, 0.071349, 0.00668768)
 
 [node name="BicepL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="8"]
-transform = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0.11453361, 1.4559847, -0.035847154)
+transform = Transform3D(-0.49409616, 0.3884311, -0.7778112, -0.7699368, -0.6110315, 0.18395099, -0.40381482, 0.6897548, 0.60097575, 0.05158431, 1.3920017, 0.035744563)
 
 [node name="TricepL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="9"]
-transform = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0.38608456, 1.4531142, -0.040807415)
+transform = Transform3D(-0.14598256, -0.68156964, -0.71704394, 0.70728546, -0.5786779, 0.40605307, -0.6916908, -0.44787803, 0.5665413, 0.16174679, 1.2293667, 0.223326)
 
 [node name="HandL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="10"]
-transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0.6283562, 1.4519659, -0.03584716)
+transform = Transform3D(0.22760385, -0.9731895, -0.033149213, -0.923455, -0.20492235, -0.3244035, 0.308913, 0.104447395, -0.9453377, -0.0032790005, 1.0922115, 0.11073635)
 bone_name = "LeftHand"
 
 [node name="BicepR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="11"]
-transform = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, -0.11453361, 1.4559847, -0.035847154)
+transform = Transform3D(-0.39659452, -0.50146675, -0.768924, 0.7625105, -0.64635915, 0.028247356, -0.5111661, -0.57510954, 0.6387162, -0.06923871, 1.3995138, -0.15536231)
 
 [node name="TricepR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="12"]
-transform = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, -0.38608456, 1.453114, -0.040807415)
+transform = Transform3D(-0.6222253, 0.2529029, -0.7408617, -0.59124553, -0.7721008, 0.23300079, -0.513093, 0.5830102, 0.6299484, -0.20517239, 1.2276956, -0.3159029)
 
 [node name="HandR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="13"]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, -0.6283562, 1.4519658, -0.03584716)
+transform = Transform3D(0.27627745, 0.09770009, 0.95609903, 0.92573935, 0.24023253, -0.29205304, -0.25822005, 0.9657862, -0.024074018, -0.13996407, 1.0433027, -0.1728343)
 bone_name = "RightHand"
 
-[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" instance=ExtResource("9_ss2si")]
+[node name="Fists" parent="Model/Armature/GeneralSkeleton" index="11" unique_id=1680592013 instance=ExtResource("9_ss2si")]
 
-[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0"]
-transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0.6283562, 1.4519659, -0.03584716)
+[node name="HandL" parent="Model/Armature/GeneralSkeleton/Fists" index="0" unique_id=1272063757]
+transform = Transform3D(0.22760385, -0.9731895, -0.033149213, -0.923455, -0.20492235, -0.3244035, 0.308913, 0.104447395, -0.9453377, -0.0032790005, 1.0922115, 0.11073635)
 bone_name = "LeftHand"
 
-[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1"]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, -0.6283562, 1.4519658, -0.03584716)
+[node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
+transform = Transform3D(0.27627745, 0.09770009, 0.95609903, 0.92573935, 0.24023253, -0.29205304, -0.25822005, 0.9657862, -0.024074018, -0.13996407, 1.0433027, -0.1728343)
 bone_name = "RightHand"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=2138419853]
 root_node = NodePath("../Armature")
-libraries = {
-&"": SubResource("AnimationLibrary_moote"),
-&"Lower Body": ExtResource("29_ddyhc"),
-&"Taunts": ExtResource("30_kngan"),
-&"Upper Body": ExtResource("31_ss2si")
-}
+libraries/ = SubResource("AnimationLibrary_moote")
+"libraries/Hit Reactions" = ExtResource("30_s4vkl")
+"libraries/Lower Body" = ExtResource("29_ddyhc")
+libraries/Taunts = ExtResource("30_kngan")
+"libraries/Upper Body" = ExtResource("31_ss2si")
 
-[node name="SFX" type="Node3D" parent="."]
+[node name="SFX" type="Node3D" parent="." unique_id=320959521]
 process_mode = 3
 script = ExtResource("2_e62qw")
 
-[node name="Taunts" type="Node3D" parent="SFX"]
+[node name="Taunts" type="Node3D" parent="SFX" unique_id=464250460]
 
-[node name="Entrance" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Entrance" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=583048301]
 stream = ExtResource("11_g4l87")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Win" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Win" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=1589797449]
 stream = ExtResource("12_jf87h")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Lose" type="AudioStreamPlayer3D" parent="SFX/Taunts"]
+[node name="Lose" type="AudioStreamPlayer3D" parent="SFX/Taunts" unique_id=1521200989]
 stream = ExtResource("13_elvcm")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Common" parent="SFX" instance=ExtResource("6_7s2fl")]
+[node name="Common" parent="SFX" unique_id=1025540409 instance=ExtResource("6_7s2fl")]
 
-[node name="Death" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Death" type="AudioStreamPlayer3D" parent="SFX" unique_id=767211793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("44_fs5gc")
 volume_db = -10.0
@@ -336,7 +520,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Hit" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Hit" type="AudioStreamPlayer3D" parent="SFX" unique_id=979573349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_d3lnu")
 volume_db = -10.0
@@ -345,7 +529,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Pickup" type="AudioStreamPlayer3D" parent="SFX" unique_id=573751235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_i8f3a")
 volume_db = -10.0
@@ -354,7 +538,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Attack" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Attack" type="AudioStreamPlayer3D" parent="SFX" unique_id=249891836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = SubResource("AudioStreamRandomizer_y2he5")
 volume_db = -10.0
@@ -363,7 +547,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 1" type="AudioStreamPlayer3D" parent="SFX" unique_id=547368178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("49_tvohs")
 volume_db = -10.0
@@ -372,7 +556,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 2" type="AudioStreamPlayer3D" parent="SFX" unique_id=1554486188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("50_ds2fd")
 volume_db = -10.0
@@ -381,7 +565,7 @@ pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
 
-[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="Special 3" type="AudioStreamPlayer3D" parent="SFX" unique_id=214555559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49041, 0)
 stream = ExtResource("51_jsy6k")
 volume_db = -10.0
@@ -391,7 +575,6 @@ bus = &"Characters"
 attenuation_filter_db = 0.0
 
 [editable path="Model"]
-[editable path="Model/Armature/GeneralSkeleton/BoneAttachment3D/Hand Gun"]
 [editable path="Model/Armature/GeneralSkeleton/Hitboxes"]
 [editable path="Model/Armature/GeneralSkeleton/Fists"]
 [editable path="SFX/Common"]

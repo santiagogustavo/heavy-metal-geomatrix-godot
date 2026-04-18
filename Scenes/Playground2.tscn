@@ -1,26 +1,27 @@
-[gd_scene load_steps=30 format=3 uid="uid://ckv2g8hx55b6r"]
+[gd_scene format=3 uid="uid://ckv2g8hx55b6r"]
 
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_lgjqh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_314ru"]
 [ext_resource type="Texture2D" uid="uid://c02qjkoa040vm" path="res://Textures/Skyboxes/Night Cloudy.png" id="2_rlu7d"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_nkony"]
+[ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_sl81g"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="6_2od80"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="6_qglil"]
-[ext_resource type="PackedScene" uid="uid://bbfmrky7xobod" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="7_3kfwb"]
-[ext_resource type="PackedScene" uid="uid://d2eirpsbs2b4x" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="8_vvk7a"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="7_sl81g"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="9_6vc2e"]
-[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="10_sl81g"]
-[ext_resource type="PackedScene" uid="uid://c4wyss068ducy" path="res://Prefabs/Weapons/HardSword.tscn" id="11_1dd0n"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="10_1dd0n"]
+[ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="12_1dd0n"]
 [ext_resource type="Material" uid="uid://dc5ihrsx5aehi" path="res://Materials/Levels/Playground Material 2.tres" id="12_g4juo"]
-[ext_resource type="PackedScene" uid="uid://cf1bfsleugb3w" path="res://Prefabs/Weapons/KillerSword.tscn" id="12_hw50o"]
-[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="13_bc0go"]
+[ext_resource type="PackedScene" uid="uid://bn3lfst3ikk2g" path="res://Prefabs/Weapons/HardSword.tscn" id="13_1dd0n"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="13_6vc2e"]
 [ext_resource type="Material" uid="uid://1osy87pllxdw" path="res://Materials/Levels/Playground Material 1.tres" id="13_gddvk"]
+[ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="14_1dd0n"]
 [ext_resource type="PackedScene" uid="uid://1lkvm44wjt4x" path="res://Prefabs/Particles/Rain/Raindrops.tscn" id="14_c7o2r"]
 [ext_resource type="PackedScene" uid="uid://kpelyyx1nkpw" path="res://Prefabs/Particles/Rain/Ripple.tscn" id="15_rbg34"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="16_yijig"]
 [ext_resource type="PackedScene" uid="uid://dtnqa6yywxj68" path="res://Prefabs/Pickups/Pickup.tscn" id="19_3kfwb"]
-[ext_resource type="PackedScene" uid="uid://dtuv3k4y52i7i" path="res://Prefabs/Weapons/FAKK2/Chain Sword.tscn" id="20_vvk7a"]
-[ext_resource type="PackedScene" uid="uid://c861rmvx7g3pg" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="21_6vc2e"]
+[ext_resource type="PackedScene" uid="uid://btn7c23i0enhg" path="res://Prefabs/Weapons/FAKK2/ChainSword.tscn" id="22_1dd0n"]
+[ext_resource type="PackedScene" uid="uid://d2b75t1ilt30u" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="23_1dd0n"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ctbho"]
 panorama = ExtResource("2_rlu7d")
@@ -52,9 +53,9 @@ size = Vector3(60, 0.05, 60)
 data = PackedVector3Array(-30, 0.025, 30, 30, 0.025, 30, -30, -0.025, 30, 30, 0.025, 30, 30, -0.025, 30, -30, -0.025, 30, 30, 0.025, -30, -30, 0.025, -30, 30, -0.025, -30, -30, 0.025, -30, -30, -0.025, -30, 30, -0.025, -30, 30, 0.025, 30, 30, 0.025, -30, 30, -0.025, 30, 30, 0.025, -30, 30, -0.025, -30, 30, -0.025, 30, -30, 0.025, -30, -30, 0.025, 30, -30, -0.025, -30, -30, 0.025, 30, -30, -0.025, 30, -30, -0.025, -30, 30, 0.025, 30, -30, 0.025, 30, 30, 0.025, -30, -30, 0.025, 30, -30, 0.025, -30, 30, 0.025, -30, -30, -0.025, 30, 30, -0.025, 30, -30, -0.025, -30, 30, -0.025, 30, 30, -0.025, -30, -30, -0.025, -30)
 backface_collision = true
 
-[node name="Playground2" type="Node3D"]
+[node name="Playground2" type="Node3D" unique_id=1455164991]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_lgjqh")]
+[node name="LevelConfig" parent="." unique_id=1447486150 node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_lgjqh")]
 level_name = "Playground2"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2"), NodePath("../Spawn Points/SpawnPoint3")]
 randomize_spawn = true
@@ -63,99 +64,100 @@ play_versus_screen = false
 spawn_bots_count = 0
 is_rainy = true
 
-[node name="Spawn Points" type="Node3D" parent="."]
+[node name="Spawn Points" type="Node3D" parent="." unique_id=877649640]
 
-[node name="SpawnPoint" parent="Spawn Points" instance=ExtResource("2_314ru")]
+[node name="SpawnPoint" parent="Spawn Points" unique_id=172595448 instance=ExtResource("2_314ru")]
 transform = Transform3D(6.15892e-08, 0, 1, 0, 1, 0, -1, 0, 6.15892e-08, 2, 0, 1)
 
-[node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("2_314ru")]
+[node name="SpawnPoint2" parent="Spawn Points" unique_id=141288141 instance=ExtResource("2_314ru")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8, 0, 8)
 
-[node name="SpawnPoint3" parent="Spawn Points" instance=ExtResource("2_314ru")]
+[node name="SpawnPoint3" parent="Spawn Points" unique_id=1654054872 instance=ExtResource("2_314ru")]
 transform = Transform3D(-0.707107, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707107, 8, 0, -9)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=780870999]
 environment = SubResource("Environment_qo5h5")
+script = ExtResource("4_sl81g")
 
-[node name="Sun" parent="." instance=ExtResource("3_nkony")]
+[node name="Sun" parent="." unique_id=483478221 instance=ExtResource("3_nkony")]
 light_energy = 0.1
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("6_qglil")]
+[node name="Spawner" parent="." unique_id=695934134 node_paths=PackedStringArray("navigation_region") instance=ExtResource("6_qglil")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 20.0
-items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_3kfwb"), ExtResource("8_vvk7a"), ExtResource("9_6vc2e"), ExtResource("10_sl81g"), ExtResource("11_1dd0n"), ExtResource("12_hw50o"), ExtResource("13_bc0go")])
+items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_sl81g"), ExtResource("10_1dd0n"), ExtResource("9_6vc2e"), ExtResource("12_1dd0n"), ExtResource("13_1dd0n"), ExtResource("14_1dd0n"), ExtResource("13_6vc2e")])
 
-[node name="Level Geometry" type="Node3D" parent="."]
+[node name="Level Geometry" type="Node3D" parent="." unique_id=1177179093]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry" unique_id=880836463]
 navigation_mesh = SubResource("NavigationMesh_2od80")
 
-[node name="NavigationLink3D" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1194151236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 bidirectional = false
 start_position = Vector3(-0.0643117, 0, 1.73293)
 end_position = Vector3(0, -6, 6)
 
-[node name="NavigationLink3D2" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D2" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1617978499]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.7121, 0, -0.0266852)
 bidirectional = false
 start_position = Vector3(-0.0266852, 0, 1)
 end_position = Vector3(-0.0266855, -6, 5.2879)
 
-[node name="NavigationLink3D3" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D3" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1233530475]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.6426e-07, 0, -8.02668)
 bidirectional = false
 start_position = Vector3(-7.36773e-07, 0, 1.97332)
 end_position = Vector3(-1.08646e-06, -6, 5.97332)
 
-[node name="NavigationLink3D4" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="NavigationLink3D4" type="NavigationLink3D" parent="Level Geometry/NavigationRegion3D" unique_id=1070150645]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8.68612, 0, -0.026684)
 bidirectional = false
 start_position = Vector3(0.026684, 0, 1)
 end_position = Vector3(0.0266833, -6, 5.31388)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D" unique_id=644085979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44379e-06, -0.0354192, -0.0149821)
 mesh = SubResource("BoxMesh_qce16")
 skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D" unique_id=1071158832]
 collision_layer = 2052
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D/StaticBody3D" unique_id=1747384836]
 shape = SubResource("BoxShape3D_a64xa")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level Geometry/NavigationRegion3D" unique_id=289319460]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 mesh = SubResource("BoxMesh_yubfn")
 skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2" unique_id=604672064]
 collision_layer = 1028
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/MeshInstance3D2/StaticBody3D" unique_id=1269286843]
 shape = SubResource("ConcavePolygonShape3D_yfk20")
 
-[node name="Rain" type="Node3D" parent="Level Geometry"]
+[node name="Rain" type="Node3D" parent="Level Geometry" unique_id=1328127599]
 
-[node name="Raindrops" parent="Level Geometry/Rain" instance=ExtResource("14_c7o2r")]
+[node name="Raindrops" parent="Level Geometry/Rain" unique_id=1872251842 instance=ExtResource("14_c7o2r")]
 
-[node name="Ripple" parent="Level Geometry/Rain" instance=ExtResource("15_rbg34")]
+[node name="Ripple" parent="Level Geometry/Rain" unique_id=177766880 instance=ExtResource("15_rbg34")]
 
-[node name="World Boundaries" parent="." instance=ExtResource("16_yijig")]
+[node name="World Boundaries" parent="." unique_id=17469099 instance=ExtResource("16_yijig")]
 
-[node name="Pickup" parent="." instance=ExtResource("19_3kfwb")]
+[node name="Pickup" parent="." unique_id=141926861 instance=ExtResource("19_3kfwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.0625181, 3)
 timeout = 15.0
-item = ExtResource("20_vvk7a")
+item = ExtResource("22_1dd0n")
 
-[node name="Pickup2" parent="." instance=ExtResource("19_3kfwb")]
+[node name="Pickup2" parent="." unique_id=1626116613 instance=ExtResource("19_3kfwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -0.450477)
 timeout = 15.0
-item = ExtResource("21_6vc2e")
+item = ExtResource("23_1dd0n")
 
-[node name="Pickup3" parent="." instance=ExtResource("19_3kfwb")]
+[node name="Pickup3" parent="." unique_id=1344139014 instance=ExtResource("19_3kfwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -4.0392833)
 timeout = 15.0
 item = ExtResource("6_2od80")

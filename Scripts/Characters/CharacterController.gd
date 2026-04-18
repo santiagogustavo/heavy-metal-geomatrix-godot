@@ -2,6 +2,7 @@ extends Node3D
 class_name CharacterController
 
 signal damage
+signal block
 
 @export_subgroup("Properties")
 @export var character: Definitions.Characters
@@ -10,7 +11,6 @@ signal damage
 @export var avatar_small: Texture2D
 @export var skins: Array[MeshInstance3D]
 @export var default_skin: int = 0
-@export var is_v2: bool = false
 @export var is_taunt: bool = false
 
 @export_subgroup("Stats")
@@ -23,8 +23,6 @@ signal damage
 @export var fists: Array[FistController]
 @export var jiggle_bones: Array[WiggleBone]
 @export var sfx_controller: CharacterSFXController
-@export var animation_tree_reference: PackedScene
-@export var custom_animation_tree_reference: PackedScene
 
 @export_subgroup("Animation Trees")
 @export var gameplay_animation_tree: PackedScene
@@ -41,7 +39,9 @@ signal damage
 @export var round_pivot_offset: Marker3D
 @export var camera_pivot_offset: Marker3D
 
+@onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 @onready var hitmarker: PackedScene = load("res://Prefabs/Player/Hitmarker.tscn")
+@onready var damage_indicator: PackedScene = load("res://Prefabs/Player/DamageIndicator.tscn")
 
 # Internals
 @onready var character_name: String = Definitions.CharacterNames[character]
@@ -64,25 +64,18 @@ var is_hurt: bool
 var player_rid: RID
 
 func _ready() -> void:
-	if is_v2:
-		if is_taunt:
-			animation_tree = taunt_animation_tree.instantiate() as AnimationTree
-		else:
-			animation_tree = gameplay_animation_tree.instantiate() as PlayerAnimationTree
+	if is_taunt:
+		animation_tree = taunt_animation_tree.instantiate() as AnimationTree
 	else:
-		if animation_tree_reference:
-			animation_tree = animation_tree_reference.instantiate() as PlayerAnimationTree
-		elif custom_animation_tree_reference:
-			animation_tree = custom_animation_tree_reference.instantiate() as AnimationTree
+		animation_tree = gameplay_animation_tree.instantiate() as PlayerAnimationTree
 	if animation_tree != null:
+		animation_tree.anim_player = animation_player.get_path()
 		add_child(animation_tree)
-		animation_tree.anim_player = NodePath('./Model/AnimationPlayer')
 	for hitbox in hitboxes:
 		hitbox.player_rid = player_rid
 		hitbox.hit.connect(take_damage_from_hitbox)
 	for fist in fists:
-		if fist and player_rid:
-			fist.player_rid = player_rid
+		fist.player_rid = player_rid
 
 func _process(_delta: float) -> void:
 	show_current_skin()
@@ -123,6 +116,30 @@ func stop_talking() -> void:
 		if skin is AnimatedTexturesMesh:
 			skin.is_talking = false
 
+func set_full_body(blend: float = 1.0) -> void:
+	animation_tree.set("parameters/Full Body/blend_amount", clampf(blend, 0.0, 1.0))
+
+func set_movement_locked(locked: bool) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		sfx_controller.stop_dash_loop()
+		player.brain.is_movement_locked = locked
+
+func advance_up(amount: float = 10.0) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.apply_force(Vector3(0, amount, 0))
+
+func advance_forward(amount: float = 30.0) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.apply_force(Vector3(0, 0, amount))
+
+func advance_backward(amount: float = 30.0) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.apply_force(Vector3(0, 0, -amount))
+
 func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vector3) -> void:
 	var hitmarker_instance: Hitmarker = hitmarker.instantiate()
 	hitmarker_instance.damage_taken = roundi(total_damage)
@@ -131,18 +148,36 @@ func create_hitmarker(total_damage: float, is_critical: bool, hit_position: Vect
 	hitmarker_instance.position.x += 0.5
 	hitmarker_instance.global_position = hit_position
 
+func create_damage_indicator(emissor_position: Vector3) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player and player.player_type == Player.PlayerType.Player1:
+		var damage_indicator_instance: DamageIndicator = damage_indicator.instantiate()
+		damage_indicator_instance.player_camera = player.camera
+		damage_indicator_instance.target_position = emissor_position
+		player.player_ui.player_hud.main_container.add_child(damage_indicator_instance)
+
 func take_damage_from_hitbox(
 	damage_taken: float,
 	damage_factor: float,
-	hit_position: Vector3
+	hit_position: Vector3,
+	emissor_position: Vector3,
+	show_hit_reaction: bool = false,
+	hit_player_rid: RID = RID(),
 ) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if hit_player_rid == player_rid:
+		return
+	if show_hit_reaction and player.brain.is_blocking:
+		block.emit()
+		return
 	var total_damage: int = roundi(damage_taken * damage_factor)
 	var is_critical: bool = damage_factor > 1
 	if GameplaySettingsManager.hitmarkers_enabled:
 		create_hitmarker(total_damage, is_critical, hit_position)
+		create_damage_indicator(emissor_position)
 	if is_dead:
 		return
-	damage.emit(total_damage)
+	damage.emit(total_damage, show_hit_reaction)
 	is_hurt = true
 	get_tree().create_timer(0.5).timeout.connect(func (): is_hurt = false)
 	if sfx_controller:

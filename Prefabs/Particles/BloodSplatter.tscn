@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ja58pxt2agkl"]
+[gd_scene format=3 uid="uid://ja58pxt2agkl"]
 
 [ext_resource type="Shader" uid="uid://b84vnvks1o0yp" path="res://Materials/Particles/BloodSplash.tres" id="1_6441y"]
 [ext_resource type="Script" uid="uid://coqvxymav5qn5" path="res://Scripts/Particles/BloodSplatterParticle.gd" id="2_mqh1v"]
@@ -464,7 +464,7 @@ height = 0.2
 [sub_resource type="BoxMesh" id="BoxMesh_hbobm"]
 size = Vector3(2, 0.281738, 4.354)
 
-[node name="BloodSplatter" type="GPUParticles3D" node_paths=PackedStringArray("rigid_body", "floor_decals", "wall_decals")]
+[node name="BloodSplatter" type="GPUParticles3D" unique_id=1763249769 node_paths=PackedStringArray("rigid_body", "floor_decals", "wall_decals")]
 layers = 512
 cast_shadow = 0
 emitting = false
@@ -481,27 +481,28 @@ rigid_body = NodePath("RigidBody3D")
 floor_decals = [NodePath("MeshInstance3D/Floor1"), NodePath("MeshInstance3D/Floor2"), NodePath("MeshInstance3D/Floor3"), NodePath("MeshInstance3D/Floor4"), NodePath("MeshInstance3D/Floor5"), NodePath("MeshInstance3D/Floor6")]
 wall_decals = [NodePath("MeshInstance3D2/Wall1"), NodePath("MeshInstance3D2/Wall2"), NodePath("MeshInstance3D2/Wall3"), NodePath("MeshInstance3D2/Wall4"), NodePath("MeshInstance3D2/Wall5")]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=2128173823]
 collision_layer = 4096
-collision_mask = 4
+collision_mask = 3844
+can_sleep = false
 contact_monitor = true
 max_contacts_reported = 1
 linear_velocity = Vector3(0, 0, 3)
 script = ExtResource("4_hbobm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1246790347]
 shape = SubResource("SphereShape3D_mqh1v")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=461025165]
 visible = false
 mesh = SubResource("SphereMesh_y6kuc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1859079128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, 1.177)
 visible = false
 mesh = SubResource("BoxMesh_hbobm")
 
-[node name="Floor1" type="Decal" parent="MeshInstance3D"]
+[node name="Floor1" type="Decal" parent="MeshInstance3D" unique_id=410867840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(1, 0.1, 1)
@@ -513,7 +514,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
 
-[node name="Floor2" type="Decal" parent="MeshInstance3D"]
+[node name="Floor2" type="Decal" parent="MeshInstance3D" unique_id=102666787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(1, 0.1, 1)
@@ -525,7 +526,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
 
-[node name="Floor3" type="Decal" parent="MeshInstance3D"]
+[node name="Floor3" type="Decal" parent="MeshInstance3D" unique_id=86713801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(1, 0.1, 1)
@@ -537,7 +538,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
 
-[node name="Floor4" type="Decal" parent="MeshInstance3D"]
+[node name="Floor4" type="Decal" parent="MeshInstance3D" unique_id=1411486141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(1, 0.1, 1)
@@ -549,7 +550,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
 
-[node name="Floor5" type="Decal" parent="MeshInstance3D"]
+[node name="Floor5" type="Decal" parent="MeshInstance3D" unique_id=613606753]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(1, 0.1, 1)
@@ -561,7 +562,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
 
-[node name="Floor6" type="Decal" parent="MeshInstance3D"]
+[node name="Floor6" type="Decal" parent="MeshInstance3D" unique_id=474987863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(1, 0.1, 1)
@@ -573,12 +574,12 @@ script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1338245638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, 1.177)
 visible = false
 mesh = SubResource("BoxMesh_hbobm")
 
-[node name="Wall1" type="Decal" parent="MeshInstance3D2"]
+[node name="Wall1" type="Decal" parent="MeshInstance3D2" unique_id=555843114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(0.75, 0.1, 0.75)
@@ -590,7 +591,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
 
-[node name="Wall2" type="Decal" parent="MeshInstance3D2"]
+[node name="Wall2" type="Decal" parent="MeshInstance3D2" unique_id=1985866963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(0.6, 0.1, 0.75)
@@ -602,7 +603,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
 
-[node name="Wall3" type="Decal" parent="MeshInstance3D2"]
+[node name="Wall3" type="Decal" parent="MeshInstance3D2" unique_id=2086511478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(0.75, 0.1, 0.75)
@@ -614,7 +615,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
 
-[node name="Wall4" type="Decal" parent="MeshInstance3D2"]
+[node name="Wall4" type="Decal" parent="MeshInstance3D2" unique_id=514656469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(0.75, 0.1, 0.75)
@@ -626,7 +627,7 @@ script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
 
-[node name="Wall5" type="Decal" parent="MeshInstance3D2"]
+[node name="Wall5" type="Decal" parent="MeshInstance3D2" unique_id=871808682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
 visible = false
 size = Vector3(0.25, 0.1, 0.75)

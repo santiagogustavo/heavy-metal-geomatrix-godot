@@ -2,6 +2,7 @@ extends Node
 
 var fov: float = 60
 var hitmarkers_enabled: bool = true
+var free_look_enabled: bool = false
 
 var crosshair_style: int = 2
 var crosshair_scale: float = 0.5
@@ -15,6 +16,9 @@ func set_fov(value: float) -> void:
 
 func set_hitmarkers_enabled(value: bool) -> void:
 	hitmarkers_enabled = value
+
+func set_free_look_enabled(value: bool) -> void:
+	free_look_enabled = value
 
 func set_crosshair_style(value: int) -> void:
 	crosshair_style = value

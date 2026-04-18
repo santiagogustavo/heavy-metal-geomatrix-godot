@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkieffjienrol"]
+[gd_scene format=3 uid="uid://bkieffjienrol"]
 
 [ext_resource type="Script" uid="uid://dcrwbx1g8xou" path="res://Scripts/Spawner.gd" id="1_hango"]
 
-[node name="Spawner" type="Node3D"]
+[node name="Spawner" type="Node3D" unique_id=785663173]
 script = ExtResource("1_hango")
+spawn_concurrent = null
+spawn_min_distance = null
+spawn_timeout = null
+items_to_spawn = null

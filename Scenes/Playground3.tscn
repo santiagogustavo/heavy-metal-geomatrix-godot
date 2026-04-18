@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bnidl6p4mravx"]
+[gd_scene format=3 uid="uid://bnidl6p4mravx"]
 
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="1_56f3u"]
 [ext_resource type="PackedScene" uid="uid://coyixyoikh0ww" path="res://Prefabs/Levels/LevelConfig.tscn" id="1_pawks"]
@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://b4vhqhgq02hpx" path="res://Textures/Levels/Pitch Dark Stadium/f9d1ef50.png" id="3_owe1r"]
 [ext_resource type="Texture2D" uid="uid://df7hdss4piap6" path="res://Textures/Levels/Pitch Dark Stadium/f9d1ef50_spec.png" id="4_vs6mt"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="5_0qcg4"]
-[ext_resource type="PackedScene" uid="uid://t2bpxpvcyq8e" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="7_h2ggl"]
+[ext_resource type="PackedScene" uid="uid://2xp7onlf1xxc" path="res://Prefabs/Weapons/LaserRifle/LaserRifle.tscn" id="6_koe4l"]
+[ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="7_koe4l"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="8_koe4l"]
 [ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="8_tslua"]
 [ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="9_vp1oc"]
 [ext_resource type="Shader" uid="uid://bx1ybdygigbml" path="res://Materials/Shaders/Bump Distort.gdshader" id="9_xra83"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="15_koe4l"]
-[ext_resource type="PackedScene" uid="uid://dyxq3lfyh46m2" path="res://Prefabs/Weapons/RaySword.tscn" id="16_0qcg4"]
-[ext_resource type="PackedScene" uid="uid://dqjcw70ma073f" path="res://Prefabs/Weapons/LaserRifle/LaserRifle.tscn" id="17_h2ggl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ptjie"]
 panorama = ExtResource("2_3ymf7")
@@ -60,67 +60,67 @@ data = PackedVector3Array(-10, 0.025, 10, 10, 0.025, 10, -10, -0.025, 10, 10, 0.
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 backface_collision = true
 
-[node name="Playground3" type="Node3D"]
+[node name="Playground3" type="Node3D" unique_id=1757850735]
 
-[node name="LevelConfig" parent="." node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_pawks")]
+[node name="LevelConfig" parent="." unique_id=1479686208 node_paths=PackedStringArray("spawn_points", "pickup_spawner") instance=ExtResource("1_pawks")]
 level_name = "Playground3"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 play_versus_screen = false
 is_snowy = true
 
-[node name="Spawn Points" type="Node3D" parent="."]
+[node name="Spawn Points" type="Node3D" parent="." unique_id=1533671565]
 
-[node name="SpawnPoint" parent="Spawn Points" instance=ExtResource("2_k7xfn")]
+[node name="SpawnPoint" parent="Spawn Points" unique_id=563957899 instance=ExtResource("2_k7xfn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="SpawnPoint2" parent="Spawn Points" instance=ExtResource("2_k7xfn")]
+[node name="SpawnPoint2" parent="Spawn Points" unique_id=142117059 instance=ExtResource("2_k7xfn")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 5, 0, 6)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=496024485]
 environment = SubResource("Environment_boljn")
 
-[node name="Sun" parent="." instance=ExtResource("2_lt8du")]
+[node name="Sun" parent="." unique_id=162007551 instance=ExtResource("2_lt8du")]
 transform = Transform3D(0.183013, -0.885646, 0.426777, -0.707107, 0.183013, 0.683013, -0.683013, -0.426777, -0.592752, -11, 22, 17)
 light_energy = 0.5
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("5_0qcg4")]
+[node name="Spawner" parent="." unique_id=1957512118 node_paths=PackedStringArray("navigation_region") instance=ExtResource("5_0qcg4")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 3
-items_to_spawn = Array[PackedScene]([ExtResource("17_h2ggl"), ExtResource("7_h2ggl"), ExtResource("16_0qcg4"), ExtResource("15_koe4l")])
+items_to_spawn = Array[PackedScene]([ExtResource("6_koe4l"), ExtResource("7_koe4l"), ExtResource("8_koe4l"), ExtResource("15_koe4l")])
 
-[node name="Level Geometry" type="Node3D" parent="."]
+[node name="Level Geometry" type="Node3D" parent="." unique_id=1487912468]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level Geometry" unique_id=1888482127]
 layers = 16
 mesh = SubResource("BoxMesh_ekdnb")
 
-[node name="GlassTest" type="MeshInstance3D" parent="Level Geometry"]
+[node name="GlassTest" type="MeshInstance3D" parent="Level Geometry" unique_id=1617855252]
 transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 4.70097)
 layers = 16
 mesh = SubResource("BoxMesh_utk2p")
 
-[node name="Snowfall" parent="Level Geometry" instance=ExtResource("8_tslua")]
+[node name="Snowfall" parent="Level Geometry" unique_id=1222248749 instance=ExtResource("8_tslua")]
 
-[node name="GroundSnow" parent="Level Geometry" instance=ExtResource("9_vp1oc")]
+[node name="GroundSnow" parent="Level Geometry" unique_id=1513720850 instance=ExtResource("9_vp1oc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0571825, 0)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level Geometry" unique_id=432110641]
 navigation_mesh = SubResource("NavigationMesh_wnh1s")
 
-[node name="Collisions" type="Node3D" parent="Level Geometry/NavigationRegion3D"]
+[node name="Collisions" type="Node3D" parent="Level Geometry/NavigationRegion3D" unique_id=829052662]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Collisions"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Collisions" unique_id=1892198269]
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Collisions/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Collisions/StaticBody3D" unique_id=192969774]
 shape = SubResource("ConcavePolygonShape3D_dyrvp")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Collisions"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level Geometry/NavigationRegion3D/Collisions" unique_id=1524415093]
 transform = Transform3D(2.05391, 0, 0, 0, 2.05391, 0, 0, 0, 2.05391, -0.740146, 0.981171, 4.70097)
 collision_layer = 260
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Collisions/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level Geometry/NavigationRegion3D/Collisions/StaticBody3D2" unique_id=1779722358]
 shape = SubResource("ConcavePolygonShape3D_rxerr")
 
-[node name="World Boundaries" parent="." instance=ExtResource("1_56f3u")]
+[node name="World Boundaries" parent="." unique_id=1643238761 instance=ExtResource("1_56f3u")]

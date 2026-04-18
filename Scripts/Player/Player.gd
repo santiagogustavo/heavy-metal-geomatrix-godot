@@ -5,6 +5,9 @@ signal player_ready
 signal player_damage
 signal player_killed
 
+signal pickup_collided
+signal pickup_leave
+
 enum PlayerType {
 	Player1,
 	Player2,
@@ -34,8 +37,8 @@ enum PlayerType {
 @export_subgroup("Collision Detectors")
 @export var detectors: Array[Area3D]
 
-@onready var dash: GPUParticles3D = $Dash
-@onready var raycast: RayCast3D = $RayCast3D
+@onready var dash_particle: GPUParticles3D = $DashParticle
+@onready var aim_raycast: RayCast3D = $AimRaycast
 
 # Instances
 var brain: PlayerBrain
@@ -47,9 +50,10 @@ var inventory_manager: InventoryManager
 var is_pickup_collided: bool = false
 var is_pickup_on_press: bool = false
 var shoot_target: Vector3 = Vector3.ZERO
+var initial_character_rotation: Vector3 = Vector3.ZERO
 
 var player_input: PlayerInputManager
-var player_ui: Node2D
+var player_ui: PlayerUI
 
 var player_bot_ai: PlayerBotAI
 
@@ -61,7 +65,8 @@ var lock_on_instance: Node3D
 var initial_camera_pivot_rotation: Vector3 = Vector3.ZERO
 var target_position: Vector3 = Vector3.ZERO
 var force: Vector3 = Vector3.ZERO
-var friction: float = 100.0
+var global_force: Vector3 = Vector3.ZERO
+var friction: float = 50.0
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
@@ -86,6 +91,8 @@ func _ready() -> void:
 	character = load(Definitions.Players[selected_character]).instantiate()
 	character.player_rid = get_rid()
 	character.damage.connect(damage_player)
+	character.block.connect(block_damage_player)
+	initial_character_rotation = character.rotation
 	if character.round_pivot_offset and round_pivot:
 		round_pivot.position = character.round_pivot_offset.position
 	if character.camera_pivot_offset and camera_pivot:
@@ -98,6 +105,8 @@ func _ready() -> void:
 	inventory_manager.right_hand_pickup.connect(func (node: CollisionObject3D):
 		add_collision_exception_with(node)
 	)
+	if player_input:
+		player_input.drop.connect(inventory_manager._on_item_drop)
 	add_child(inventory_manager)
 	if character.sfx_controller:
 		sfx_controller = character.sfx_controller
@@ -105,14 +114,14 @@ func _ready() -> void:
 		animation_tree = character.animation_tree
 		animation_tree.combo_animation_changed.connect(func():
 			for fist in character.fists:
-				fist.can_hit = true
+				fist.handle_combo_animation_changed()
 		)
 		animation_tree.combo_animation_changed.connect(func ():
-			force.z = 30.0
-			if inventory_manager.right_hand_instance is SwordController:
+			if inventory_manager.right_hand_instance is MeleeControllerV2:
 				inventory_manager.right_hand_instance.is_swinging = true
 		)
 		player_killed.connect(func (): animation_tree.play_ko_state())
+		inventory_manager.gun_shoot.connect(animation_tree.animate_gun_shoot)
 	if character.initial_loadout:
 		var loadout_instance: Item = character.initial_loadout.instantiate() as Item
 		inventory_manager.pick_up_item(loadout_instance.equip_type, character.initial_loadout)
@@ -123,13 +132,14 @@ func _physics_process(delta: float) -> void:
 	compute_gravity(delta)
 	compute_movement()
 	compute_forces(delta)
-	if raycast.is_colliding() and raycast.get_collider() is StaticBody3D:
-		collide(raycast.get_collider())
+	compute_global_forces(delta)
+	if aim_raycast.is_colliding() and aim_raycast.get_collider() is StaticBody3D:
+		collide(aim_raycast.get_collider())
 	move_and_slide()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	update_internals()
-	update_externals()
+	update_externals(delta)
 	look_at_target_position()
 	set_animator_variables()
 	set_camera_variables()
@@ -162,7 +172,11 @@ func reset_player_to_spawn() -> void:
 		position = spawn_point.global_position
 		rotation = spawn_point.global_rotation
 	if brain:
+		brain.reset_brain()
 		brain.new_rotation = rotation
+		if brain.is_free_look and spawn_point:
+			character.top_level = true
+			character.rotation = spawn_point.global_rotation
 	if player_bot_ai:
 		player_bot_ai.state = PlayerBotAI.AIState.Idle
 	if animation_tree:
@@ -176,19 +190,26 @@ func heal_player(amount: int) -> void:
 	health += amount
 	health = clamp(health, 0, 100)
 
-func damage_player(amount: int) -> void:
+func damage_player(amount: int, show_hit_reaction = false) -> void:
+	if show_hit_reaction:
+		animation_tree.update_hit_reaction(true)
 	player_damage.emit()
+	if DebugCommands.full_health and player_type == PlayerType.Player1:
+		return
 	health -= amount
 	health = clamp(health, 0, 100)
 	if health == 0:
 		player_killed.emit()
+
+func block_damage_player() -> void:
+	animation_tree.update_block_hit()
 
 func update_internals() -> void:
 	if player_input:
 		rotation = player_input.rotation
 	character.current_skin = clamp(selected_skin, 0, character.skins.size() - 1)
 
-func update_externals() -> void:
+func update_externals(delta: float) -> void:
 	if player_input:
 		is_locked_on = lock_on_target != -1
 		player_input.is_locked_on = is_locked_on
@@ -196,7 +217,7 @@ func update_externals() -> void:
 			target_position = GameManager.get_enemies(team.name)[lock_on_target].global_position + Vector3(0, 1.0, 0)
 	if inventory_manager.right_hand_instance == null:
 		for fist in character.fists:
-			fist.is_attacking = brain.is_attacking
+			fist.is_attacking = compute_is_attacking()
 	brain.is_on_floor = is_on_floor()
 	brain.can_double_jump = (
 		inventory_manager.has_jetpack
@@ -206,9 +227,11 @@ func update_externals() -> void:
 		is_pickup_collided
 		and brain.is_on_floor
 	)
-	dash.is_dashing = brain.is_dashing
-	dash.input_direction = brain.input_direction
-	dash.player_velocity = velocity
+	brain.equip_type = inventory_manager.equip_type
+	dash_particle.is_dashing = brain.is_dashing
+	dash_particle.input_direction = brain.input_direction
+	dash_particle.player_velocity = velocity
+	compute_free_look(delta)
 
 func look_at_target_position() -> void:
 	#var initial_rotation: Vector3 = rotation
@@ -218,6 +241,22 @@ func look_at_target_position() -> void:
 	if player_input and player_input.is_locked_on:
 		camera_pivot.look_at(target_position)
 		brain.new_rotation = camera_pivot.global_rotation
+
+func compute_free_look(delta: float) -> void:
+	var new_rotation: Vector3 = character.rotation
+	if brain.is_free_look:
+		character.top_level = true
+		character.global_position = global_position
+		if brain.should_look_at_target:
+			new_rotation = global_rotation
+	else:
+		character.top_level = false
+		new_rotation = initial_character_rotation
+	character.rotation.y = lerp_angle(
+		character.rotation.y,
+		new_rotation.y,
+		delta * 30
+	)
 
 func compute_movement() -> void:
 	current_speed = character.speed
@@ -233,32 +272,62 @@ func compute_movement() -> void:
 	):
 		current_speed = character.jetpack_dashing_speed
 	
-	if player_input and brain.is_walking:
+	if player_input and brain.is_walking and !brain.is_movement_locked:
 		velocity.x = brain.direction.x * current_speed
 		velocity.z = brain.direction.z * current_speed
 	elif player_input:
 		velocity.x = move_toward(brain.direction.x, 0, current_speed)
 		velocity.z = move_toward(brain.direction.z, 0, current_speed)
 	
-	if brain.is_jumping or brain.is_double_jumping:
+	if (brain.is_jumping or brain.is_double_jumping) and !brain.is_movement_locked:
 		velocity.y = character.jump_height
 
 func switch_to_player_camera() -> void:
 	if camera:
 		camera.make_current()
 
-func move_ko_pivot(new_position: Vector3, new_rotation: Vector3) -> void:
-	ko_pivot.global_position = new_position + ko_offset
-	ko_pivot.global_rotation = new_rotation
+func move_ko_pivot(last_killed_player: Player) -> void:
+	ko_pivot.reparent(last_killed_player, false)
+	ko_pivot.ko_ended.connect(func():
+		ko_pivot.reparent(self, false)
+	)
+
+func apply_force(applied_force: Vector3) -> void:
+	force += applied_force
+
+func apply_global_force(applied_force: Vector3) -> void:
+	global_force += applied_force
+
+func compensate_friction(value: float, delta: float) -> float:
+	var friction_delta = friction * delta
+	if value < -friction_delta:
+		return value + friction_delta
+	elif value > friction_delta:
+		return value - friction_delta
+	else:
+		return 0
+
+func compute_global_forces(delta: float) -> void:
+	global_force.x = compensate_friction(global_force.x, delta)
+	global_force.y = compensate_friction(global_force.y, delta)
+	global_force.z = compensate_friction(global_force.z, delta)
+	velocity += global_force
 
 func compute_forces(delta: float) -> void:
-	force.z -= friction * delta
-	force.z = clamp(force.z, 0.0, INF)
-	var global_direction = global_transform.basis * Vector3(0, 0, -1)
-	velocity += global_direction * force.z
+	force.x = compensate_friction(force.x, delta)
+	force.y = compensate_friction(force.y, delta)
+	force.z = compensate_friction(force.z, delta)
+	var local_x_direction = character.global_transform.basis * Vector3(1, 0, 0)
+	var local_z_direction = character.global_transform.basis * Vector3(0, 0, -1)
+	velocity += local_x_direction * force.x
+	velocity += local_z_direction * force.z
+	velocity.y += force.y
 
 func compute_gravity(delta: float) -> void:
 	velocity.y -= character.weight * Definitions.Gravity * delta
+
+func compute_is_attacking() -> bool:
+	return animation_tree.is_current_node_attacking() and health > 0
 
 func set_camera_variables() -> void:
 	if player_type == PlayerType.Bot:
@@ -272,7 +341,10 @@ func set_camera_variables() -> void:
 func set_animator_variables() -> void:
 	if !animation_tree:
 		return
-	if inventory_manager.right_hand_instance != null and inventory_manager.right_hand_instance is GunController:
+	if (
+		inventory_manager.right_hand_instance != null and 
+		inventory_manager.right_hand_instance is GunControllerV2
+	):
 		animation_tree.is_shooting_locked = inventory_manager.right_hand_instance.is_shooting_locked
 	if sfx_controller:
 		sfx_controller.is_walking = brain.is_walking
@@ -282,20 +354,18 @@ func set_animator_variables() -> void:
 	animation_tree.is_aiming = brain.is_aiming
 	animation_tree.is_shooting = brain.is_shooting
 	animation_tree.is_attacking = brain.is_attacking
+	animation_tree.is_blocking = brain.is_blocking
 	animation_tree.is_picking_up = brain.is_picking_up and is_pickup_on_press
 	animation_tree.direction = brain.input_direction
 	if player_input:
 		animation_tree.look = Vector2(0, camera.global_rotation.x * -0.6)
 	if player_bot_ai:
 		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6)
-	animation_tree.is_on_floor = brain.is_on_floor
+	if !brain.should_look_at_target:
+		animation_tree.look = Vector2.ZERO
+	animation_tree.is_on_floor = brain.is_on_floor or animation_tree.is_current_node_attacking()
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping
-	animation_tree.is_gun_shooting = (
-		inventory_manager.is_gun_shooting
-		if inventory_manager.right_hand_instance is GunController
-		else brain.is_shooting
-	)
 	animation_tree.is_holding_weapon = inventory_manager.is_holding_weapon
 
 func set_inventory_items_variables() -> void:
@@ -303,14 +373,9 @@ func set_inventory_items_variables() -> void:
 		inventory_manager.body_instance.is_dashing = brain.is_dashing
 		inventory_manager.body_instance.is_double_jumping = brain.is_double_jumping
 	if inventory_manager.right_hand_instance != null:
-		if inventory_manager.right_hand_instance is SwordController:
+		if inventory_manager.right_hand_instance is MeleeControllerV2:
 			inventory_manager.right_hand_instance.is_swinging = false
-			inventory_manager.right_hand_instance.is_attacking = (
-				animation_tree.is_current_node_attacking()
-			)
-		if (
-			inventory_manager.right_hand_instance is GunController
-			or inventory_manager.right_hand_instance is EnergyGunController
-		):
+			inventory_manager.right_hand_instance.is_attacking = compute_is_attacking()
+		if inventory_manager.right_hand_instance is GunControllerV2:
 			inventory_manager.right_hand_instance.is_shooting = brain.is_shooting
 			inventory_manager.right_hand_instance.target_point = shoot_target

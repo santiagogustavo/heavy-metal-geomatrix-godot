@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://2dqf8eoucva7"]
+[gd_scene format=3 uid="uid://2dqf8eoucva7"]
 
 [ext_resource type="Script" uid="uid://cybkhxuww1dsq" path="res://Scripts/Weapons/BulletController.gd" id="1_rn5p5"]
 [ext_resource type="PackedScene" uid="uid://dmq6da7dayio0" path="res://Prefabs/Decals/BulletDecal.tscn" id="3_8h365"]
@@ -42,7 +42,7 @@ shader_parameter/flags = 40
 [sub_resource type="QuadMesh" id="QuadMesh_2gd2c"]
 material = SubResource("ShaderMaterial_bacuo")
 
-[node name="Bullet" type="RigidBody3D"]
+[node name="Bullet" type="RigidBody3D" unique_id=640216223]
 collision_layer = 8
 collision_mask = 84
 gravity_scale = 0.0
@@ -55,7 +55,7 @@ stone_decal = ExtResource("5_ef3j6")
 dirt_decal = ExtResource("6_e6q5k")
 blood_decal = ExtResource("7_yh4oq")
 
-[node name="Mesh" parent="." instance=ExtResource("4_7ms7h")]
+[node name="Mesh" parent="." unique_id=1236396817 instance=ExtResource("4_7ms7h")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Bullet" parent="Mesh" index="0"]
@@ -64,11 +64,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0514191)
 [node name="BulletCasing" parent="Mesh" index="1"]
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=802062901]
 transform = Transform3D(-1.5, 4.40457e-20, -1.31134e-07, -1.31134e-07, -6.55671e-08, 1.5, -5.73205e-15, 1.5, 6.55671e-08, -3.97047e-23, 0, 0.000448741)
 shape = SubResource("CapsuleShape3D_1hjxn")
 
-[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+[node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=334826275]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 amount = 10
 lifetime = 10.0

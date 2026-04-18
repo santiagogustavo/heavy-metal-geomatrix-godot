@@ -30,6 +30,7 @@ enum SceneType {
 enum SurfaceType {
 	Player = 1,
 	LevelGeometry = 4,
+	BladeOrProjectile = 8,
 	WorldBoundary = 16,
 	InvisibleWall = 32,
 	Hitbox = 64,
@@ -56,7 +57,7 @@ enum Characters {
 	Kassey,
 	Di,
 	Hound,
-	Dummy,
+	Pufferson,
 }
 
 const TeamNames: Dictionary = {
@@ -72,7 +73,7 @@ const CharacterNames: Dictionary = {
 	Characters.Kassey: "Kassey",
 	Characters.Di: "Di",
 	Characters.Hound: "Hound",
-	Characters.Dummy: "Dummy"
+	Characters.Pufferson: "Pufferson"
 }
 
 const Scenes: Dictionary = {
@@ -94,12 +95,24 @@ const Players: Dictionary = {
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Base.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Base.tscn",
 	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn",
-	Characters.Dummy: "res://Prefabs/Characters/Dummy/Player.tscn"
+	Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn"
 }
 
 const WeaponRange: Dictionary = {
-	"Min": 1.4,
+	"Min": 2.0,
 	"Max": 25.0,
 }
 
 var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+enum PickupColor {
+	Red,
+	Green,
+	Blue
+}
+
+var PickupColorHashes: Dictionary = {
+	PickupColor.Red: "ff2f42",
+	PickupColor.Green: "68fe9b",
+	PickupColor.Blue: "2d78ff"
+}

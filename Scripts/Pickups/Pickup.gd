@@ -17,6 +17,7 @@ class_name Pickup
 @onready var splash_big_rect: TextureRect = $SplashBigViewport/Control/Control/Splash
 @onready var particles: GPUParticles3D = $GPUParticles3D
 @onready var collision_area: Area3D = $Area3D
+@onready var terrain_detector: RayCast3D = $TerrainDetector
 
 # COLOR ITEMS #
 @onready var base_1: MeshInstance3D = $Meshes/Base/object_0
@@ -33,21 +34,9 @@ class_name Pickup
 var item_instance: Item
 var item_name: String
 var equip_type: Definitions.EquipType
-var pickup_color: PickupColor
+var pickup_color: Definitions.PickupColor
 var is_big: bool = false
 var pickup_on_press: bool = true
-
-enum PickupColor {
-	Red,
-	Green,
-	Blue
-}
-
-var color_hashes: Dictionary = {
-	PickupColor.Red: "ff2f42",
-	PickupColor.Green: "68fe9b",
-	PickupColor.Blue: "2d78ff"
-}
 
 var current_player_collided: Player
 var is_picking_up: bool = false
@@ -75,7 +64,16 @@ func _process(_delta: float) -> void:
 	if current_player_collided and !is_picking_up:
 		set_color_theme(lerp(color_start, color_end, color_lerp))
 	else:
-		set_color_theme(color_hashes[pickup_color])
+		set_color_theme(Definitions.PickupColorHashes[pickup_color])
+
+func _physics_process(_delta: float) -> void:
+	if terrain_detector.is_colliding():
+		var point: Vector3 = terrain_detector.get_collision_point()
+		var normal: Vector3 = terrain_detector.get_collision_normal()
+		global_transform.origin = point
+		look_at(point + normal + Vector3(0.001, 0.0, 0.0))
+		rotation_degrees.x -= 90
+		
 
 func _on_timeout():
 	for animation_tree: AnimationTree in animation_trees:
@@ -88,11 +86,13 @@ func _on_area_3d_body_entered(body: Node3D):
 	current_player_collided = body
 	current_player_collided.is_pickup_collided = true
 	current_player_collided.is_pickup_on_press = pickup_on_press
+	current_player_collided.pickup_collided.emit(self)
 	if !pickup_on_press:
 		pickup_item()
 	
 func _on_area_3d_body_exited(body: Node3D):
 	if current_player_collided == body:
+		current_player_collided.pickup_leave.emit()
 		current_player_collided.is_pickup_collided = false
 		current_player_collided.is_pickup_on_press = false
 		current_player_collided = null
@@ -100,22 +100,22 @@ func _on_area_3d_body_exited(body: Node3D):
 func compute_pickup_attributes() -> void:
 	match equip_type:
 		Definitions.EquipType.Body:
-			pickup_color = PickupColor.Green
+			pickup_color = Definitions.PickupColor.Green
 			pickup_on_press = false
 			return
 		Definitions.EquipType.WeaponSingle:
-			pickup_color = PickupColor.Blue
+			pickup_color = Definitions.PickupColor.Blue
 			return
 		Definitions.EquipType.WeaponDouble:
-			pickup_color = PickupColor.Blue
+			pickup_color = Definitions.PickupColor.Blue
 			is_big = true
 			return
 		Definitions.EquipType.MeleeLight:
-			pickup_color = PickupColor.Red
+			pickup_color = Definitions.PickupColor.Red
 			is_big = true
 			return
 		Definitions.EquipType.MeleeHeavy:
-			pickup_color = PickupColor.Red
+			pickup_color = Definitions.PickupColor.Red
 			is_big = true
 			return
 
@@ -129,10 +129,12 @@ func pickup_item():
 func set_item_size() -> void:
 	if is_big:
 		item_big.visible = true
-		item_small.queue_free()
+		item_small.visible = false
+		#item_small.queue_free()
 	else:
 		item_small.visible = true
-		item_big.queue_free()
+		item_big.visible = false
+		#item_big.queue_free()
 
 func set_label_text() -> void:
 	name_label.text = item_name

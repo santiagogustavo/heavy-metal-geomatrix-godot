@@ -1,0 +1,590 @@
+[gd_scene format=3 uid="uid://bpxpio7ixipg6"]
+
+[ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_8fted"]
+[ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/Pitch Dark Stadium/PitchDarkStadium.glb" id="1_e6pgn"]
+[ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_7jn1i"]
+[ext_resource type="Texture2D" uid="uid://cwe67c5gjbitq" path="res://Textures/Skyboxes/Night Moony.png" id="2_caq5r"]
+[ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_enk1q"]
+[ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
+[ext_resource type="Compositor" uid="uid://bd5earwsxt0e8" path="res://Prefabs/Levels/WorldEnvironmentCompositor.tres" id="3_qvd3e"]
+[ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_4e3ak"]
+[ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/Pitch Dark Stadium/9939eb6_emit.tres" id="4_t2tlk"]
+[ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_tqjn4"]
+[ext_resource type="PackedScene" uid="uid://bt7grkfli0urs" path="res://Prefabs/Particles/Snow/Snowfall.tscn" id="6_qyxnj"]
+[ext_resource type="PackedScene" uid="uid://befau3i2w2xwj" path="res://Prefabs/Particles/Snow/GroundSnow.tscn" id="7_4t0ls"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="8_55oue"]
+[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="8_j5vkf"]
+[ext_resource type="PackedScene" uid="uid://d2pc4utlvhahx" path="res://Prefabs/Levels/InvisibleWalls.tscn" id="9_hnk50"]
+[ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="10_55oue"]
+[ext_resource type="AudioStream" uid="uid://l86jwrpnijve" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst1.mp3" id="12_amb02"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="12_qjnkp"]
+[ext_resource type="PackedScene" uid="uid://d2b75t1ilt30u" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="12_qvd3e"]
+[ext_resource type="AudioStream" uid="uid://b80lbhjnp7oom" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst2.mp3" id="13_6pnrr"]
+[ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="13_qvd3e"]
+[ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]
+[ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_hifk7"]
+[ext_resource type="AudioStream" uid="uid://dbjtrx1brw8ue" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst4.mp3" id="15_d40he"]
+[ext_resource type="PackedScene" uid="uid://btn7c23i0enhg" path="res://Prefabs/Weapons/FAKK2/ChainSword.tscn" id="15_qvd3e"]
+[ext_resource type="AudioStream" uid="uid://dtxpgwc7umcfc" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst5.mp3" id="16_0hywk"]
+[ext_resource type="PackedScene" uid="uid://c6o2b3j7355k1" path="res://Models/Levels/Pitch Dark Stadium/Navmesh.glb" id="17_a6sam"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25dxq"]
+panorama = ExtResource("2_caq5r")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_ygp6j"]
+sky_material = SubResource("PanoramaSkyMaterial_25dxq")
+
+[sub_resource type="Environment" id="Environment_h4pe8"]
+background_mode = 2
+sky = SubResource("Sky_ygp6j")
+glow_enabled = true
+glow_bloom = 1.0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.0392157, 0.0588235, 0.0745098, 1)
+fog_density = 0.95
+fog_sky_affect = 0.0
+fog_depth_end = 200.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
+volumetric_fog_length = 30.0
+volumetric_fog_sky_affect = 0.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qvd3e"]
+viewport_path = NodePath("../SnapshotViewport")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
+vertices = PackedVector3Array(-0.0500002, 2.55, -12.3, 1.2, 3.55, -12.55, 1.2, 3.55, -15.05, -12.05, 2.55, -15.05, -0.272223, 2.55, -15.05, -7.8, 4.05, 7.2, -7.3, 4.05, 7.7, -7.3, 4.05, 3.95, -9.05, 4.05, 3.95, -8.3, 2.55, 0.95, -8.05, 2.55, 2.2, 1.45, 2.55, 2.2, 1.45, 2.55, -11.05, -0.0500002, 2.55, -11.3, -9.55, 4.05, 3.45, -12.05, 4.05, 7.2, -9.3, 2.8, 0.95, -12.05, 2.55, -0.216666, -12.05, 2.8, 1.26667, -12.05, 3.8, 2.75, 2.45, 4.05, -12.55, 2.95, 4.05, -12.05, 5.7, 4.05, -15.05, 2.325, 4.05, -15.05, 2.95, 4.05, -5.8, 5.7, 4.05, -6.05, 7.2, 5.55, -15.05, 7.2, 5.55, -5.55, 10.7, 5.55, -5.55, 10.7, 5.55, -15.05, 5.7, 4.05, -4.55, 6.2, 4.05, -4.05, 2.95, 4.05, 1.95, 10.7, 4.05, 2.2, 10.7, 4.05, -4.05, 2.95, 4.05, 3.45, 2.45, 4.05, 3.95, 10.7, 4.05, 17.95, -7.3, 4.05, 17.95, -11.8, 5.8, 8.7, -11.8, 5.8, 17.95, -8.8, 5.8, 17.95, -8.8, 5.8, 8.7)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(4, 0, 3), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 8), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 13), PackedInt32Array(11, 13, 12), PackedInt32Array(8, 5, 14), PackedInt32Array(14, 5, 15), PackedInt32Array(0, 13, 3), PackedInt32Array(3, 13, 9), PackedInt32Array(3, 9, 16), PackedInt32Array(15, 19, 14), PackedInt32Array(14, 19, 18), PackedInt32Array(14, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(16, 17, 3), PackedInt32Array(20, 1, 2), PackedInt32Array(2, 23, 20), PackedInt32Array(20, 23, 21), PackedInt32Array(21, 23, 22), PackedInt32Array(24, 21, 25), PackedInt32Array(25, 21, 22), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(24, 25, 30), PackedInt32Array(30, 31, 24), PackedInt32Array(24, 31, 32), PackedInt32Array(34, 33, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(35, 32, 33), PackedInt32Array(36, 35, 33), PackedInt32Array(6, 7, 36), PackedInt32Array(36, 33, 6), PackedInt32Array(6, 33, 38), PackedInt32Array(38, 33, 37), PackedInt32Array(42, 41, 39), PackedInt32Array(39, 41, 40)]
+agent_radius = 0.75
+
+[sub_resource type="Curve" id="Curve_4jmxy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_wpslr"]
+curve = SubResource("Curve_4jmxy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ox1s1"]
+emission_shape = 3
+emission_box_extents = Vector3(30, 1, 30)
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_wpslr")
+turbulence_noise_scale = 1.0
+collision_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4sgj5"]
+size = Vector3(5.57141, 1.46051, 10.9276)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcx7d"]
+size = Vector3(9.70172, 1.52454, 34.887)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y5vik"]
+size = Vector3(15.2973, 1.52454, 16.1682)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ud5kv"]
+size = Vector3(15.2973, 0.3899, 19.0401)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b2qei"]
+size = Vector3(5.00423, 2.00076, 11.0379)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f65e2"]
+size = Vector3(3.69971, 0.330078, 2.57636)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c2bhs"]
+size = Vector3(3.57434, 0.330078, 2.66605)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_adxuw"]
+size = Vector3(0.5, 20, 35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtulh"]
+size = Vector3(0.5, 20, 25)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ov48a"]
+streams_count = 5
+stream_0/stream = ExtResource("12_amb02")
+stream_1/stream = ExtResource("13_6pnrr")
+stream_2/stream = ExtResource("14_a616r")
+stream_3/stream = ExtResource("15_d40he")
+stream_4/stream = ExtResource("16_0hywk")
+
+[node name="PitchDarkStadium" type="Node3D" unique_id=1441522439]
+
+[node name="LevelConfig" parent="." unique_id=303055488 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_8fted")]
+spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
+pickup_spawner = NodePath("../Spawner")
+ost_player = NodePath("../OST")
+world_environment = NodePath("../WorldEnvironment")
+snapshot_viewport = NodePath("../SnapshotViewport")
+splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1157527330]
+environment = SubResource("Environment_h4pe8")
+compositor = ExtResource("3_qvd3e")
+script = ExtResource("4_4e3ak")
+
+[node name="SplashLayer" parent="." unique_id=1486111303 instance=ExtResource("2_7jn1i")]
+
+[node name="Viewport" parent="SplashLayer/Splash" index="0"]
+texture = SubResource("ViewportTexture_qvd3e")
+metadata/_edit_use_anchors_ = true
+
+[node name="SnapshotViewport" type="SubViewport" parent="." unique_id=695088672]
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+script = ExtResource("3_8d4wu")
+
+[node name="SnapshotCamera" parent="SnapshotViewport" unique_id=1655463632 instance=ExtResource("4_tqjn4")]
+transform = Transform3D(-0.766044, 0.261445, 0.587216, 0, 0.913545, -0.406736, -0.642788, -0.311578, -0.699816, 1.88, 3.76, 13.83)
+cull_mask = 209
+
+[node name="Spawn Points" type="Node3D" parent="." unique_id=1479927715]
+
+[node name="SpawnPoint" parent="Spawn Points" unique_id=1607462319 instance=ExtResource("2_enk1q")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 9.82351, 5.00641, -13)
+
+[node name="SpawnPoint2" parent="Spawn Points" unique_id=1158585713 instance=ExtResource("2_enk1q")]
+transform = Transform3D(0.847567, 0, -0.530689, 0, 1, 0, 0.530689, 0, 0.847567, -5.56463, 3.50397, 16.8942)
+
+[node name="Sun" parent="." unique_id=903183671 instance=ExtResource("2_fhn3g")]
+transform = Transform3D(0.993395, 0.0336558, -0.1097, -3.72529e-09, 0.956019, 0.293306, 0.114746, -0.291369, 0.949704, -32.4805, 35.8746, 80.1979)
+light_energy = 0.025
+light_indirect_energy = 0.0
+shadow_enabled = false
+sky_mode = 1
+
+[node name="Spawner" parent="." unique_id=1811203404 node_paths=PackedStringArray("navigation_region") instance=ExtResource("8_55oue")]
+navigation_region = NodePath("../LevelGeometry/NavigationRegion3D")
+spawn_concurrent = 2
+spawn_min_distance = 20.0
+items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("12_qvd3e"), ExtResource("13_qvd3e"), ExtResource("12_qjnkp"), ExtResource("15_qvd3e")])
+
+[node name="LevelGeometry" type="Node3D" parent="." unique_id=1236181171]
+
+[node name="Pitch Dark Stadium" parent="LevelGeometry" unique_id=1888370747 instance=ExtResource("1_e6pgn")]
+
+[node name="object_0" parent="LevelGeometry/Pitch Dark Stadium" index="0"]
+layers = 16
+
+[node name="object_1" parent="LevelGeometry/Pitch Dark Stadium" index="1"]
+layers = 16
+
+[node name="object_2" parent="LevelGeometry/Pitch Dark Stadium" index="2"]
+layers = 16
+
+[node name="object_3" parent="LevelGeometry/Pitch Dark Stadium" index="3"]
+layers = 16
+
+[node name="object_4" parent="LevelGeometry/Pitch Dark Stadium" index="4"]
+layers = 16
+
+[node name="object_5" parent="LevelGeometry/Pitch Dark Stadium" index="5"]
+layers = 16
+
+[node name="object_6" parent="LevelGeometry/Pitch Dark Stadium" index="6"]
+layers = 16
+
+[node name="object_7" parent="LevelGeometry/Pitch Dark Stadium" index="7"]
+layers = 16
+
+[node name="object_8" parent="LevelGeometry/Pitch Dark Stadium" index="8"]
+layers = 16
+
+[node name="object_10" parent="LevelGeometry/Pitch Dark Stadium" index="9"]
+layers = 16
+
+[node name="object_11" parent="LevelGeometry/Pitch Dark Stadium" index="10"]
+layers = 16
+
+[node name="object_12" parent="LevelGeometry/Pitch Dark Stadium" index="11"]
+layers = 16
+
+[node name="object_13" parent="LevelGeometry/Pitch Dark Stadium" index="12"]
+layers = 16
+
+[node name="object_14" parent="LevelGeometry/Pitch Dark Stadium" index="13"]
+layers = 16
+
+[node name="object_15" parent="LevelGeometry/Pitch Dark Stadium" index="14"]
+layers = 16
+
+[node name="object_16" parent="LevelGeometry/Pitch Dark Stadium" index="15"]
+layers = 16
+
+[node name="object_17" parent="LevelGeometry/Pitch Dark Stadium" index="16"]
+layers = 16
+
+[node name="object_18" parent="LevelGeometry/Pitch Dark Stadium" index="17"]
+layers = 16
+
+[node name="object_19" parent="LevelGeometry/Pitch Dark Stadium" index="18"]
+layers = 16
+
+[node name="object_20" parent="LevelGeometry/Pitch Dark Stadium" index="19"]
+layers = 16
+
+[node name="object_21" parent="LevelGeometry/Pitch Dark Stadium" index="20"]
+layers = 16
+
+[node name="object_22" parent="LevelGeometry/Pitch Dark Stadium" index="21"]
+layers = 16
+
+[node name="object_23" parent="LevelGeometry/Pitch Dark Stadium" index="22"]
+layers = 16
+
+[node name="object_24" parent="LevelGeometry/Pitch Dark Stadium" index="23"]
+layers = 16
+
+[node name="object_25" parent="LevelGeometry/Pitch Dark Stadium" index="24"]
+layers = 16
+
+[node name="object_26" parent="LevelGeometry/Pitch Dark Stadium" index="25"]
+layers = 16
+
+[node name="object_27" parent="LevelGeometry/Pitch Dark Stadium" index="26"]
+layers = 16
+
+[node name="object_28" parent="LevelGeometry/Pitch Dark Stadium" index="27"]
+layers = 16
+
+[node name="object_29" parent="LevelGeometry/Pitch Dark Stadium" index="28"]
+layers = 16
+
+[node name="object_30" parent="LevelGeometry/Pitch Dark Stadium" index="29"]
+layers = 16
+
+[node name="object_31" parent="LevelGeometry/Pitch Dark Stadium" index="30"]
+layers = 16
+
+[node name="object_32" parent="LevelGeometry/Pitch Dark Stadium" index="31"]
+layers = 16
+
+[node name="object_33" parent="LevelGeometry/Pitch Dark Stadium" index="32"]
+layers = 16
+
+[node name="object_34" parent="LevelGeometry/Pitch Dark Stadium" index="33"]
+layers = 16
+
+[node name="object_35" parent="LevelGeometry/Pitch Dark Stadium" index="34"]
+layers = 16
+
+[node name="object_36" parent="LevelGeometry/Pitch Dark Stadium" index="35"]
+layers = 16
+
+[node name="object_37" parent="LevelGeometry/Pitch Dark Stadium" index="36"]
+layers = 16
+
+[node name="object_38" parent="LevelGeometry/Pitch Dark Stadium" index="37"]
+layers = 16
+
+[node name="object_39" parent="LevelGeometry/Pitch Dark Stadium" index="38"]
+layers = 16
+
+[node name="object_40" parent="LevelGeometry/Pitch Dark Stadium" index="39"]
+layers = 16
+
+[node name="object_41" parent="LevelGeometry/Pitch Dark Stadium" index="40"]
+layers = 16
+
+[node name="object_42" parent="LevelGeometry/Pitch Dark Stadium" index="41"]
+layers = 16
+
+[node name="object_43" parent="LevelGeometry/Pitch Dark Stadium" index="42"]
+layers = 16
+
+[node name="object_44" parent="LevelGeometry/Pitch Dark Stadium" index="43"]
+layers = 16
+
+[node name="object_45" parent="LevelGeometry/Pitch Dark Stadium" index="44"]
+layers = 16
+
+[node name="object_46" parent="LevelGeometry/Pitch Dark Stadium" index="45"]
+layers = 16
+surface_material_override/0 = ExtResource("4_t2tlk")
+
+[node name="object_48" parent="LevelGeometry/Pitch Dark Stadium" index="46"]
+layers = 16
+
+[node name="object_49" parent="LevelGeometry/Pitch Dark Stadium" index="47"]
+layers = 16
+
+[node name="object_50" parent="LevelGeometry/Pitch Dark Stadium" index="48"]
+layers = 16
+
+[node name="object_51" parent="LevelGeometry/Pitch Dark Stadium" index="49"]
+layers = 16
+
+[node name="object_52" parent="LevelGeometry/Pitch Dark Stadium" index="50"]
+layers = 16
+
+[node name="object_53" parent="LevelGeometry/Pitch Dark Stadium" index="51"]
+layers = 16
+
+[node name="object_54" parent="LevelGeometry/Pitch Dark Stadium" index="52"]
+layers = 16
+
+[node name="object_55" parent="LevelGeometry/Pitch Dark Stadium" index="53"]
+layers = 16
+
+[node name="object_56" parent="LevelGeometry/Pitch Dark Stadium" index="54"]
+layers = 16
+
+[node name="object_57" parent="LevelGeometry/Pitch Dark Stadium" index="55"]
+layers = 16
+
+[node name="object_58" parent="LevelGeometry/Pitch Dark Stadium" index="56"]
+layers = 16
+
+[node name="object_59" parent="LevelGeometry/Pitch Dark Stadium" index="57"]
+layers = 16
+
+[node name="object_60" parent="LevelGeometry/Pitch Dark Stadium" index="58"]
+layers = 16
+
+[node name="object_61" parent="LevelGeometry/Pitch Dark Stadium" index="59"]
+layers = 16
+
+[node name="object_62" parent="LevelGeometry/Pitch Dark Stadium" index="60"]
+layers = 16
+
+[node name="object_63" parent="LevelGeometry/Pitch Dark Stadium" index="61"]
+layers = 16
+
+[node name="object_64" parent="LevelGeometry/Pitch Dark Stadium" index="62"]
+layers = 16
+
+[node name="object_65" parent="LevelGeometry/Pitch Dark Stadium" index="63"]
+layers = 16
+
+[node name="object_66" parent="LevelGeometry/Pitch Dark Stadium" index="64"]
+layers = 16
+
+[node name="object_67" parent="LevelGeometry/Pitch Dark Stadium" index="65"]
+layers = 16
+
+[node name="object_68" parent="LevelGeometry/Pitch Dark Stadium" index="66"]
+layers = 16
+
+[node name="object_69" parent="LevelGeometry/Pitch Dark Stadium" index="67"]
+layers = 16
+
+[node name="object_9" parent="LevelGeometry/Pitch Dark Stadium" index="68"]
+layers = 16
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="LevelGeometry" unique_id=1855749916]
+navigation_mesh = SubResource("NavigationMesh_kvm1f")
+
+[node name="Navmesh" parent="LevelGeometry/NavigationRegion3D" unique_id=469855309 instance=ExtResource("17_a6sam")]
+visible = false
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=1014366669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.05155, 3.33419)
+end_position = Vector3(0.00830507, -2.02848, -0.859487)
+
+[node name="NavigationLink3D2" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=237720458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4.05155, 3.33419)
+end_position = Vector3(0.00830507, -2.02848, -0.859487)
+
+[node name="NavigationLink3D3" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=435320982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12962, 4.05155, -0.665807)
+end_position = Vector3(-0.455738, -2.05155, -0.0179031)
+
+[node name="NavigationLink3D4" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=1296966043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12962, 4.05155, -5.28114)
+end_position = Vector3(-0.455738, -2.05155, -0.0179031)
+
+[node name="NavigationLink3D5" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=1787242764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12962, 4.05155, -9.98636)
+end_position = Vector3(-0.455738, -2.05155, -0.0179031)
+
+[node name="NavigationLink3D6" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=2022870196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33517, 4.09124, -13.7596)
+end_position = Vector3(0.365165, 1.50654, 0.00285912)
+
+[node name="NavigationLink3D7" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=1528617840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33517, 4.09124, -8.54102)
+end_position = Vector3(0.365165, 1.50654, 0.00285912)
+
+[node name="NavigationLink3D8" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=96009287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88051, 4.09124, -4.51196)
+end_position = Vector3(0.02565, 1.50654, -0.441891)
+
+[node name="NavigationLink3D9" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=1530109151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84667, 4.09124, 16.0951)
+end_position = Vector3(-0.539754, 1.70881, 0.0112381)
+
+[node name="NavigationLink3D10" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=1548558212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84667, 4.09124, 11.2522)
+end_position = Vector3(-0.539754, 1.70881, 0.0112381)
+
+[node name="NavigationLink3D11" type="NavigationLink3D" parent="LevelGeometry/NavigationRegion3D" unique_id=194658077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3228, 4.09124, 7.93948)
+end_position = Vector3(-0.0177946, 1.70881, 0.50343)
+
+[node name="Particles" type="Node3D" parent="LevelGeometry" unique_id=1941529662]
+
+[node name="Snowfall" parent="LevelGeometry/Particles" unique_id=1895237675 instance=ExtResource("6_qyxnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 33.235, 3)
+amount = 800
+visibility_aabb = AABB(-25, 0.5, -30, 50, -35, 60)
+process_material = SubResource("ParticleProcessMaterial_ox1s1")
+
+[node name="GroundSnow" parent="LevelGeometry/Particles" unique_id=353926198 instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.669362, 0, 0, 0, 1, 0, 0, 0, 0.880154, -5.59989, 2.00921, -6.50754)
+amount = 100
+
+[node name="GroundSnow2" parent="LevelGeometry/Particles" unique_id=1733329455 instance=ExtResource("7_4t0ls")]
+transform = Transform3D(1.20503, 0, 0, 0, 1, 0, 0, 0, 0.736085, -0.479127, 3.52978, 10.8536)
+amount = 100
+
+[node name="GroundSnow3" parent="LevelGeometry/Particles" unique_id=226493723 instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.451703, 0, 0, 0, 1, 0, 0, 0, 0.393507, 7.12067, 3.52978, -0.399942)
+amount = 25
+
+[node name="GroundSnow6" parent="LevelGeometry/Particles" unique_id=2026885070 instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.162691, 0, 0, 0, 1, 0, 0, 0, 0.537221, 4.13343, 3.52978, -10.2807)
+amount = 15
+
+[node name="GroundSnow4" parent="LevelGeometry/Particles" unique_id=330470790 instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.237893, 0, 0, 0, 1, 0, 0, 0, 0.501588, 9.25003, 5.01455, -10.32)
+amount = 25
+
+[node name="GroundSnow5" parent="LevelGeometry/Particles" unique_id=1710437382 instance=ExtResource("7_4t0ls")]
+transform = Transform3D(0.219884, 0, 0, 0, 1, 0, 0, 0, 0.514581, -10.589, 5.51915, 13.5227)
+amount = 25
+
+[node name="LightingArena" type="Node3D" parent="LevelGeometry" unique_id=396852395]
+
+[node name="SpotLight3D10" type="DirectionalLight3D" parent="LevelGeometry/LightingArena" unique_id=232438802]
+transform = Transform3D(-1, 3.11927e-08, -8.16686e-08, 0, 0.93418, 0.356803, 8.74228e-08, 0.356803, -0.93418, 3.27419, 67.27, -185.232)
+layers = 128
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="SpotLight3D11" type="DirectionalLight3D" parent="LevelGeometry/LightingArena" unique_id=646741725]
+transform = Transform3D(-4.37114e-08, 0.417613, -0.908625, 0, 0.908625, 0.417613, 1, 1.82545e-08, -3.97173e-08, -111.214, 67.27, 16.383)
+layers = 128
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="SpotLight3D12" type="DirectionalLight3D" parent="LevelGeometry/LightingArena" unique_id=1586282507]
+transform = Transform3D(0.356265, -0.333392, 0.872883, -4.38176e-15, 0.93418, 0.356803, -0.934385, -0.127117, 0.332815, 113.295, 61.8816, -171.124)
+layers = 128
+light_energy = 0.05
+
+[node name="Collisions" type="Node3D" parent="LevelGeometry" unique_id=1702069006]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Collisions" unique_id=558768236]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D" unique_id=528026836]
+transform = Transform3D(0.999636, 0.0269795, 0, -0.0269795, 0.999636, 0, 0, 0, 1, 9.10732, 4.26629, -10.5043)
+shape = SubResource("BoxShape3D_4sgj5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D" unique_id=1139937114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88103, 2.76825, 1.48088)
+shape = SubResource("BoxShape3D_lcx7d")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D" unique_id=1036033296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61178, 2.76825, 11.0837)
+shape = SubResource("BoxShape3D_y5vik")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D" unique_id=1966247178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61178, 1.84037, -6.61528)
+shape = SubResource("BoxShape3D_ud5kv")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D" unique_id=1064949766]
+transform = Transform3D(0.999636, 0.0269795, 0, -0.0269795, 0.999636, 0, 0, 0, 1, -10.5512, 4.56875, 13.4769)
+shape = SubResource("BoxShape3D_b2qei")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D" unique_id=163852718]
+transform = Transform3D(1, 0, 0, 0, 0.791693, 0.610919, 0, -0.610919, 0.791693, -10.8427, 2.62095, 2.08873)
+shape = SubResource("BoxShape3D_f65e2")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="LevelGeometry/Collisions/StaticBody3D" unique_id=1093000462]
+transform = Transform3D(-4.37114e-08, -0.610919, 0.791693, 0, 0.791693, 0.610919, -1, 2.67041e-08, -3.4606e-08, 1.06687, 2.60876, -13.9077)
+shape = SubResource("BoxShape3D_c2bhs")
+
+[node name="Particle Colliders" type="Node3D" parent="LevelGeometry" unique_id=1161115807]
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=446632597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88018, 2.76929, 6.92)
+cull_mask = 4293919232
+size = Vector3(9.76239, 1.48315, 23.8385)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=886048646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00056, 2.76929, 10.9161)
+cull_mask = 4293919232
+size = Vector3(10.0213, 1.48315, 15.8464)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=56551685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3852, 2.76929, 5.46455)
+cull_mask = 4293919232
+size = Vector3(4.74358, 1.48315, 4.94328)
+
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=1951145893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3852, 4.51126, 13.386)
+cull_mask = 4293919232
+size = Vector3(4.74358, 1.9715, 10.9658)
+
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=779821351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16615, 2.76929, -10.4263)
+cull_mask = 4293919232
+size = Vector3(4.33432, 1.48315, 10.8586)
+
+[node name="GPUParticlesCollisionBox3D8" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=681098396]
+transform = Transform3D(0.797784, -0.602943, 0, 0.602943, 0.797784, 0, 0, 0, 1, 1.08272, 2.60275, -13.9444)
+cull_mask = 4293919232
+size = Vector3(2.64388, 0.482361, 3.82237)
+
+[node name="GPUParticlesCollisionBox3D9" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=1648854666]
+transform = Transform3D(-6.12277e-08, -8.51675e-09, -1, 0.602944, 0.797784, -4.37114e-08, 0.797784, -0.602944, -4.37114e-08, -10.8645, 2.60275, 2.11668)
+cull_mask = 4293919232
+size = Vector3(2.64388, 0.482361, 3.82237)
+
+[node name="GPUParticlesCollisionBox3D6" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=1020092752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.04586, 4.28427, -10.4263)
+cull_mask = 4293919232
+size = Vector3(5.43844, 1.54541, 10.8586)
+
+[node name="GPUParticlesCollisionBox3D7" type="GPUParticlesCollisionBox3D" parent="LevelGeometry/Particle Colliders" unique_id=1677681627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37586, 1.36992, -6.45155)
+cull_mask = 4293919232
+size = Vector3(14.7829, 1.48315, 18.8431)
+
+[node name="World Boundaries" parent="." unique_id=1034404737 instance=ExtResource("8_j5vkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.29899, 0)
+
+[node name="InvisibleWalls" parent="." unique_id=639130731 instance=ExtResource("9_hnk50")]
+
+[node name="CollisionShape3D5" parent="InvisibleWalls" unique_id=2039033871 instance=ExtResource("14_hifk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0497, 12.0601, 1.45032)
+shape = SubResource("BoxShape3D_adxuw")
+
+[node name="CollisionShape3D6" parent="InvisibleWalls" unique_id=261226857 instance=ExtResource("14_hifk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0266, 12.0601, 1.45032)
+shape = SubResource("BoxShape3D_adxuw")
+
+[node name="CollisionShape3D7" parent="InvisibleWalls" unique_id=912172110 instance=ExtResource("14_hifk7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.505583, 12.0601, -16.0735)
+shape = SubResource("BoxShape3D_jtulh")
+
+[node name="CollisionShape3D8" parent="InvisibleWalls" unique_id=1853209527 instance=ExtResource("14_hifk7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.505583, 12.0601, 19.0672)
+shape = SubResource("BoxShape3D_jtulh")
+
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=1732485749]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_ov48a")
+bus = &"Game"
+
+[editable path="SplashLayer"]
+[editable path="LevelGeometry/Pitch Dark Stadium"]

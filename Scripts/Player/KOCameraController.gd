@@ -1,6 +1,8 @@
 extends Marker3D
 class_name KOCameraController
 
+signal ko_ended
+
 @onready var camera: Camera3D = $Camera3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -12,3 +14,6 @@ func _ready() -> void:
 func play_ko_animation() -> void:
 	camera.make_current()
 	animation_player.play("KO")
+
+func emit_ko_ended() -> void:
+	ko_ended.emit()

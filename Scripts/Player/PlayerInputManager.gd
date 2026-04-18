@@ -2,6 +2,7 @@ extends Node3D
 class_name PlayerInputManager
 
 signal lock_on
+signal drop
 
 @export_subgroup("Controls")
 @export_range(45, 90) var look_clamp: int = 60
@@ -44,6 +45,7 @@ func _processed_input(delta: float) -> void:
 		compute_shoot_and_attack()
 		compute_pickup()
 		compute_lock_on()
+		compute_drop()
 	else:
 		player.brain.is_shooting = false
 		player.brain.is_attacking = false
@@ -104,6 +106,10 @@ func compute_lock_on() -> void:
 	if Input.is_action_just_pressed("lock_on"):
 		lock_on.emit()
 
+func compute_drop() -> void:
+	if Input.is_action_just_pressed("drop_weapon"):
+		drop.emit()
+
 func update_look_and_aim(delta: float) -> void:
 	input_look.y = -rad_to_deg(camera_pivot.rotation.x) / 90
 	update_aim_assist(delta)
@@ -120,6 +126,8 @@ func update_camera_clamp() -> void:
 func is_target_player() -> bool:
 	if target_raycast and target_raycast.is_colliding():
 		var collider: PhysicsBody3D = target_raycast.get_collider()
+		if collider == null:
+			return false
 		var layer = collider.collision_layer as Definitions.SurfaceType
 		return layer == Definitions.SurfaceType.Hitbox
 	return false
@@ -163,7 +171,7 @@ func get_relative_zoom_factor() -> float:
 	if !player or !player.inventory_manager:
 		return 1
 	var zoom_factor: float = player.inventory_manager.zoom_factor
-	return (1.0 / zoom_factor) if player.brain.is_aiming else 1.0
+	return (1.0 / zoom_factor) if (player.brain.is_aiming and zoom_factor > 1.0) else 1.0
 
 func update_dash() -> void:
 	if (
