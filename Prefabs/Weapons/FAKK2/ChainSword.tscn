@@ -20,7 +20,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0k5yj"]
 size = Vector3(0.07910156, 0.94641113, 0.17871094)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6tnn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i34yi"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_v3oo7")
@@ -137,8 +137,18 @@ _data = {
 &"RESET": SubResource("Animation_1l807")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xfmrq"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i34yi"]
 animation = &"Attack"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_g6tnn"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_myb05"]
+graph_offset = Vector2(-225, -20)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_i34yi")
+nodes/Animation/position = Vector2(-140, 140)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_g6tnn")
+nodes/TimeSeek/position = Vector2(60, 160)
+node_connections = [&"output", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_emirx"]
 animation = &"RESET"
@@ -146,22 +156,23 @@ animation = &"RESET"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8rw8e"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g6qe4"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gaf8"]
 advance_mode = 2
-advance_condition = &"is_attacking"
+advance_expression = "is_attacking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jsxmw"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5jq2b"]
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"is_not_attacking"
+advance_expression = "is_not_attacking"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d7hal"]
-states/Attack/node = SubResource("AnimationNodeAnimation_xfmrq")
-states/Attack/position = Vector2(468, -51)
+states/Attack/node = SubResource("AnimationNodeBlendTree_myb05")
+states/Attack/position = Vector2(468.5, -50)
+states/End/position = Vector2(898, 101)
 states/RESET/node = SubResource("AnimationNodeAnimation_emirx")
 states/RESET/position = Vector2(468.5, 101)
-transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_8rw8e"), "RESET", "Attack", SubResource("AnimationNodeStateMachineTransition_g6qe4"), "Attack", "RESET", SubResource("AnimationNodeStateMachineTransition_jsxmw")]
-graph_offset = Vector2(100, -122)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_8rw8e"), "RESET", "Attack", SubResource("AnimationNodeStateMachineTransition_5gaf8"), "Attack", "RESET", SubResource("AnimationNodeStateMachineTransition_5jq2b")]
+graph_offset = Vector2(23, -250)
 
 [sub_resource type="Gradient" id="Gradient_1mkd2"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -258,7 +269,7 @@ shape = SubResource("BoxShape3D_0k5yj")
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
 
 [node name="models_weapons_chainsword_cs_slow" parent="Blade/Chain Sword" index="0"]
-surface_material_override/2 = SubResource("ShaderMaterial_g6tnn")
+surface_material_override/2 = SubResource("ShaderMaterial_i34yi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Blade" unique_id=632741518]
 libraries/ = SubResource("AnimationLibrary_fp3qp")
@@ -267,8 +278,7 @@ libraries/ = SubResource("AnimationLibrary_fp3qp")
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_d7hal")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_attacking = false
-parameters/conditions/is_not_attacking = false
+parameters/Attack/TimeSeek/seek_request = -1.0
 
 [node name="Smoke" type="GPUParticles3D" parent="Blade" unique_id=557375441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012688, 0.21767, -0.00943405)

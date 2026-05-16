@@ -129,6 +129,11 @@ func advance_up(amount: float = 10.0) -> void:
 	var player: Player = GameManager.get_player(player_rid)
 	if player:
 		player.apply_force(Vector3(0, amount, 0))
+		
+func advance_down(amount: float = 10.0) -> void:
+	var player: Player = GameManager.get_player(player_rid)
+	if player:
+		player.apply_force(Vector3(0, -amount, 0))
 
 func advance_forward(amount: float = 30.0) -> void:
 	var player: Player = GameManager.get_player(player_rid)

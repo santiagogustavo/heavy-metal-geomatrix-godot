@@ -33,6 +33,8 @@ var is_picking_up: bool = false
 var is_dropping: bool = false
 var is_shooting_locked: bool = false
 
+var should_play_land_animation: bool = false
+
 var ko_anim: int = -1
 var has_reset_player: bool = false
 
@@ -50,6 +52,7 @@ func _ready() -> void:
 	reaction_state_machine = get("parameters/Reaction/playback")
 
 func _process(delta: float) -> void:
+	compute_lower_body()
 	update_lower_body(delta)
 	update_upper_body(delta)
 	update_combo_input()
@@ -75,6 +78,9 @@ func reset_player() -> void:
 func play_ko_state() -> void:
 	ko_anim = randi_range(1, 2)
 	switch_to_reaction()
+
+func compute_lower_body() -> void:
+	should_play_land_animation = is_on_floor
 
 func update_pickup() -> void:
 	if is_picking_up:

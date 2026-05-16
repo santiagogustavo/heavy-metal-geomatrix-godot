@@ -10,6 +10,11 @@ class_name MeleeControllerV2
 @export var hit_general_particle: PackedScene
 @export var hit_player_particle: PackedScene
 
+@onready var animation_tree_playback: AnimationNodeStateMachinePlayback = (
+	animation_tree.get("parameters/playback")
+	if animation_tree
+	else null
+)
 @onready var trail: GPUTrail3D = $GPUTrail3D
 @onready var blade: ExtendedArea3D = $Blade
 
@@ -29,15 +34,23 @@ func _ready() -> void:
 	
 func handle_combo_animation_changed() -> void:
 	can_hit = true
+	travel_to_attack_instantly()
 
-func _physics_process(_delta: float) -> void:
-	blade.is_attacking = is_attacking
-	blade.can_hit = can_hit
+func _process(_delta: float) -> void:
 	trail.set_process(is_attacking)
 	trail.visible = is_attacking
 	if animation_tree:
 		animation_tree.set("parameters/conditions/is_attacking", is_attacking)
 		animation_tree.set("parameters/conditions/is_not_attacking", !is_attacking)
+
+func _physics_process(_delta: float) -> void:
+	blade.is_attacking = is_attacking
+	blade.can_hit = can_hit
+
+func travel_to_attack_instantly() -> void:
+	if animation_tree_playback:
+		animation_tree_playback.travel("Attack", true)
+		animation_tree.set("parameters/Attack/TimeSeek/seek_request", 0.0)
 
 func instantiate_hit(collider: CollisionObject3D, point: Vector3, normal: Vector3, type: int):
 	var hit_instance

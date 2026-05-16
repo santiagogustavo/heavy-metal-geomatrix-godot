@@ -363,7 +363,7 @@ func set_animator_variables() -> void:
 		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6)
 	if !brain.should_look_at_target:
 		animation_tree.look = Vector2.ZERO
-	animation_tree.is_on_floor = brain.is_on_floor or animation_tree.is_current_node_attacking()
+	animation_tree.is_on_floor = brain.is_on_floor
 	animation_tree.equip = inventory_manager.equip_type
 	animation_tree.is_dropping = inventory_manager.is_dropping
 	animation_tree.is_holding_weapon = inventory_manager.is_holding_weapon

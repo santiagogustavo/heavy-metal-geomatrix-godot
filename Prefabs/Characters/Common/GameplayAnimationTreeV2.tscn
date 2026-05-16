@@ -296,12 +296,12 @@ advance_expression = "!is_jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rpode"]
 advance_mode = 2
-advance_expression = "is_on_floor"
+advance_expression = "is_on_floor and should_play_land_animation"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y120s"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "is_on_floor"
+advance_expression = "is_on_floor and should_play_land_animation"
 
 [sub_resource type="Curve" id="Curve_s6v2b"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
@@ -332,7 +332,7 @@ advance_expression = "!is_on_floor"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_52ovb"]
 advance_mode = 2
-advance_expression = "is_on_floor"
+advance_expression = "is_on_floor and should_play_land_animation"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k765a"]
 advance_mode = 2
@@ -356,7 +356,7 @@ states/Land/position = Vector2(653, -103.555)
 states/Walk/node = SubResource("AnimationNodeBlendTree_34ed1")
 states/Walk/position = Vector2(366, 100)
 transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_tqjij"), "Walk", "Dash Start", SubResource("AnimationNodeStateMachineTransition_n8fmi"), "Dash Start", "Dash Loop", SubResource("AnimationNodeStateMachineTransition_v5u1q"), "Dash Loop", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_wuuwg"), "Dash Start", "Dash Stop", SubResource("AnimationNodeStateMachineTransition_736w8"), "Dash Stop", "Walk", SubResource("AnimationNodeStateMachineTransition_rfqys"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_pg6u1"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_n43x8"), "Land", "Walk", SubResource("AnimationNodeStateMachineTransition_ik7w8"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_rpode"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_y120s"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_dxhkg"), "Dash Loop", "Jump", SubResource("AnimationNodeStateMachineTransition_2g13o"), "Jump", "Double Jump", SubResource("AnimationNodeStateMachineTransition_1bxuv"), "Fall", "Double Jump", SubResource("AnimationNodeStateMachineTransition_apmyj"), "Double Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_kgbrc"), "Double Jump", "Land", SubResource("AnimationNodeStateMachineTransition_52ovb"), "Land", "Jump", SubResource("AnimationNodeStateMachineTransition_k765a")]
-graph_offset = Vector2(-130.47, -38.37799)
+graph_offset = Vector2(-183.63783, -455.378)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wjype"]
 animation = &"Lower Body/Idle"
@@ -538,6 +538,9 @@ animation = &"Upper Body/Attack - Melee Heavy 3"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_my5bf"]
 animation = &"Upper Body/Attack - Melee Heavy 4"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ul78w"]
+animation = &"Upper Body/Attack - Melee Heavy Air"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xnv0s"]
 animation = &"Upper Body/Block Hit - Melee Heavy"
 
@@ -667,6 +670,19 @@ advance_expression = "!is_blocking"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qnb05"]
+advance_mode = 2
+advance_expression = "is_attacking and !is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_62vr5"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_scqt7"]
+advance_mode = 2
+advance_expression = "is_dropping"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k2843"]
 "states/Attack 1/node" = SubResource("AnimationNodeAnimation_t03xb")
 "states/Attack 1/position" = Vector2(200, -30)
@@ -676,6 +692,8 @@ advance_mode = 2
 "states/Attack 3/position" = Vector2(200, -216)
 "states/Attack 4/node" = SubResource("AnimationNodeAnimation_my5bf")
 "states/Attack 4/position" = Vector2(200, -308)
+"states/Attack Air/node" = SubResource("AnimationNodeAnimation_ul78w")
+"states/Attack Air/position" = Vector2(781, -189)
 states/Block/node = SubResource("AnimationNodeAnimation_mgf7u")
 states/Block/position = Vector2(540, 204)
 "states/Block Hit/node" = SubResource("AnimationNodeAnimation_xnv0s")
@@ -684,8 +702,8 @@ states/Drop/node = SubResource("AnimationNodeAnimation_u8mvn")
 states/Drop/position = Vector2(540, -189)
 states/Look/node = SubResource("AnimationNodeBlendSpace2D_mq6ix")
 states/Look/position = Vector2(540, 100)
-transitions = ["Start", "Look", SubResource("AnimationNodeStateMachineTransition_c36tx"), "Look", "Attack 1", SubResource("AnimationNodeStateMachineTransition_b7uux"), "Attack 1", "Attack 2", SubResource("AnimationNodeStateMachineTransition_yst72"), "Attack 2", "Attack 3", SubResource("AnimationNodeStateMachineTransition_vqvtm"), "Attack 3", "Attack 4", SubResource("AnimationNodeStateMachineTransition_mjbtj"), "Attack 1", "Look", SubResource("AnimationNodeStateMachineTransition_jg0sv"), "Attack 2", "Look", SubResource("AnimationNodeStateMachineTransition_1r4xf"), "Attack 3", "Look", SubResource("AnimationNodeStateMachineTransition_2heml"), "Attack 4", "Look", SubResource("AnimationNodeStateMachineTransition_duowi"), "Look", "Drop", SubResource("AnimationNodeStateMachineTransition_k1cqc"), "Drop", "End", SubResource("AnimationNodeStateMachineTransition_ctlgg"), "Attack 1", "Drop", SubResource("AnimationNodeStateMachineTransition_pxgcf"), "Attack 2", "Drop", SubResource("AnimationNodeStateMachineTransition_8nicv"), "Attack 3", "Drop", SubResource("AnimationNodeStateMachineTransition_wn3db"), "Attack 4", "Drop", SubResource("AnimationNodeStateMachineTransition_wdrb7"), "Look", "Block", SubResource("AnimationNodeStateMachineTransition_oel2q"), "Block", "Look", SubResource("AnimationNodeStateMachineTransition_7jl42"), "Block Hit", "Block", SubResource("AnimationNodeStateMachineTransition_giqyl")]
-graph_offset = Vector2(-8, -87)
+transitions = ["Start", "Look", SubResource("AnimationNodeStateMachineTransition_c36tx"), "Look", "Attack 1", SubResource("AnimationNodeStateMachineTransition_b7uux"), "Attack 1", "Attack 2", SubResource("AnimationNodeStateMachineTransition_yst72"), "Attack 2", "Attack 3", SubResource("AnimationNodeStateMachineTransition_vqvtm"), "Attack 3", "Attack 4", SubResource("AnimationNodeStateMachineTransition_mjbtj"), "Attack 1", "Look", SubResource("AnimationNodeStateMachineTransition_jg0sv"), "Attack 2", "Look", SubResource("AnimationNodeStateMachineTransition_1r4xf"), "Attack 3", "Look", SubResource("AnimationNodeStateMachineTransition_2heml"), "Attack 4", "Look", SubResource("AnimationNodeStateMachineTransition_duowi"), "Look", "Drop", SubResource("AnimationNodeStateMachineTransition_k1cqc"), "Drop", "End", SubResource("AnimationNodeStateMachineTransition_ctlgg"), "Attack 1", "Drop", SubResource("AnimationNodeStateMachineTransition_pxgcf"), "Attack 2", "Drop", SubResource("AnimationNodeStateMachineTransition_8nicv"), "Attack 3", "Drop", SubResource("AnimationNodeStateMachineTransition_wn3db"), "Attack 4", "Drop", SubResource("AnimationNodeStateMachineTransition_wdrb7"), "Look", "Block", SubResource("AnimationNodeStateMachineTransition_oel2q"), "Block", "Look", SubResource("AnimationNodeStateMachineTransition_7jl42"), "Block Hit", "Block", SubResource("AnimationNodeStateMachineTransition_giqyl"), "Look", "Attack Air", SubResource("AnimationNodeStateMachineTransition_qnb05"), "Attack Air", "Look", SubResource("AnimationNodeStateMachineTransition_62vr5"), "Attack Air", "Drop", SubResource("AnimationNodeStateMachineTransition_scqt7")]
+graph_offset = Vector2(30, -287)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r3o4p"]
 animation = &"Upper Body/Attack - Melee Light 1"
@@ -698,6 +716,9 @@ animation = &"Upper Body/Attack - Melee Light 3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lr75m"]
 animation = &"Upper Body/Attack - Melee Light 4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jwo1d"]
+animation = &"Upper Body/Attack - Melee Light Air"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_htgh5"]
 animation = &"Upper Body/Block Hit - Melee Light"
@@ -750,7 +771,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1dbq4"]
 advance_mode = 2
-advance_expression = "is_attacking"
+advance_expression = "is_attacking and is_on_floor"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_my5bf"]
 switch_mode = 2
@@ -833,6 +854,20 @@ xfade_time = 0.1
 advance_mode = 2
 advance_expression = "!is_blocking"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vr4nr"]
+advance_mode = 2
+advance_expression = "is_attacking and !is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r2jbc"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+advance_expression = "is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_to4tl"]
+advance_mode = 2
+advance_expression = "is_dropping"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c36tx"]
 "states/Attack 1/node" = SubResource("AnimationNodeAnimation_r3o4p")
 "states/Attack 1/position" = Vector2(200, -2)
@@ -842,6 +877,8 @@ advance_expression = "!is_blocking"
 "states/Attack 3/position" = Vector2(200, -197)
 "states/Attack 4/node" = SubResource("AnimationNodeAnimation_lr75m")
 "states/Attack 4/position" = Vector2(200, -297)
+"states/Attack Air/node" = SubResource("AnimationNodeAnimation_jwo1d")
+"states/Attack Air/position" = Vector2(840, -161)
 states/Block/node = SubResource("AnimationNodeAnimation_4nuab")
 states/Block/position = Vector2(547, 215)
 "states/Block Hit/node" = SubResource("AnimationNodeAnimation_htgh5")
@@ -850,8 +887,8 @@ states/Drop/node = SubResource("AnimationNodeAnimation_nvpku")
 states/Drop/position = Vector2(550, -161)
 states/Look/node = SubResource("AnimationNodeBlendSpace2D_t03xb")
 states/Look/position = Vector2(550, 100)
-transitions = ["Start", "Look", SubResource("AnimationNodeStateMachineTransition_fo6g2"), "Look", "Attack 1", SubResource("AnimationNodeStateMachineTransition_1dbq4"), "Attack 1", "Attack 2", SubResource("AnimationNodeStateMachineTransition_my5bf"), "Attack 2", "Attack 3", SubResource("AnimationNodeStateMachineTransition_u8mvn"), "Attack 3", "Attack 4", SubResource("AnimationNodeStateMachineTransition_l6m14"), "Attack 1", "Look", SubResource("AnimationNodeStateMachineTransition_o0xih"), "Attack 2", "Look", SubResource("AnimationNodeStateMachineTransition_oa4wk"), "Attack 3", "Look", SubResource("AnimationNodeStateMachineTransition_7x2p0"), "Attack 4", "Look", SubResource("AnimationNodeStateMachineTransition_l7bkm"), "Drop", "End", SubResource("AnimationNodeStateMachineTransition_feapi"), "Attack 4", "Drop", SubResource("AnimationNodeStateMachineTransition_cphgn"), "Attack 3", "Drop", SubResource("AnimationNodeStateMachineTransition_mq6ix"), "Attack 2", "Drop", SubResource("AnimationNodeStateMachineTransition_8pr42"), "Attack 1", "Drop", SubResource("AnimationNodeStateMachineTransition_7uxyi"), "Look", "Drop", SubResource("AnimationNodeStateMachineTransition_mibqv"), "Look", "Block", SubResource("AnimationNodeStateMachineTransition_ul78w"), "Block Hit", "Block", SubResource("AnimationNodeStateMachineTransition_vk5wp"), "Block", "Look", SubResource("AnimationNodeStateMachineTransition_36hkt")]
-graph_offset = Vector2(66, -61)
+transitions = ["Start", "Look", SubResource("AnimationNodeStateMachineTransition_fo6g2"), "Look", "Attack 1", SubResource("AnimationNodeStateMachineTransition_1dbq4"), "Attack 1", "Attack 2", SubResource("AnimationNodeStateMachineTransition_my5bf"), "Attack 2", "Attack 3", SubResource("AnimationNodeStateMachineTransition_u8mvn"), "Attack 3", "Attack 4", SubResource("AnimationNodeStateMachineTransition_l6m14"), "Attack 1", "Look", SubResource("AnimationNodeStateMachineTransition_o0xih"), "Attack 2", "Look", SubResource("AnimationNodeStateMachineTransition_oa4wk"), "Attack 3", "Look", SubResource("AnimationNodeStateMachineTransition_7x2p0"), "Attack 4", "Look", SubResource("AnimationNodeStateMachineTransition_l7bkm"), "Drop", "End", SubResource("AnimationNodeStateMachineTransition_feapi"), "Attack 4", "Drop", SubResource("AnimationNodeStateMachineTransition_cphgn"), "Attack 3", "Drop", SubResource("AnimationNodeStateMachineTransition_mq6ix"), "Attack 2", "Drop", SubResource("AnimationNodeStateMachineTransition_8pr42"), "Attack 1", "Drop", SubResource("AnimationNodeStateMachineTransition_7uxyi"), "Look", "Drop", SubResource("AnimationNodeStateMachineTransition_mibqv"), "Look", "Block", SubResource("AnimationNodeStateMachineTransition_ul78w"), "Block Hit", "Block", SubResource("AnimationNodeStateMachineTransition_vk5wp"), "Block", "Look", SubResource("AnimationNodeStateMachineTransition_36hkt"), "Look", "Attack Air", SubResource("AnimationNodeStateMachineTransition_vr4nr"), "Attack Air", "Look", SubResource("AnimationNodeStateMachineTransition_r2jbc"), "Attack Air", "Drop", SubResource("AnimationNodeStateMachineTransition_to4tl")]
+graph_offset = Vector2(11, -258)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_er7k5"]
 animation = &"Upper Body/Pickup"
@@ -1353,17 +1390,17 @@ states/WeaponDouble/position = Vector2(966, 289)
 states/WeaponSingle/node = SubResource("AnimationNodeStateMachine_36hkt")
 states/WeaponSingle/position = Vector2(966, -125)
 transitions = ["WeaponSingle", "Empty", SubResource("AnimationNodeStateMachineTransition_dimvp"), "WeaponDouble", "Empty", SubResource("AnimationNodeStateMachineTransition_faq1v"), "MeleeLight", "Empty", SubResource("AnimationNodeStateMachineTransition_0frea"), "MeleeHeavy", "Empty", SubResource("AnimationNodeStateMachineTransition_1qdp5"), "TravelToEquip", "MeleeLight", SubResource("AnimationNodeStateMachineTransition_lh2at"), "TravelToEquip", "MeleeHeavy", SubResource("AnimationNodeStateMachineTransition_befyj"), "TravelToEquip", "WeaponSingle", SubResource("AnimationNodeStateMachineTransition_v4nkf"), "TravelToEquip", "WeaponDouble", SubResource("AnimationNodeStateMachineTransition_7t6dc"), "TravelToEquip", "Empty", SubResource("AnimationNodeStateMachineTransition_22yo7"), "Start", "TravelToEquip", SubResource("AnimationNodeStateMachineTransition_ytl4b"), "Pickup", "MeleeLight", SubResource("AnimationNodeStateMachineTransition_f74iq"), "Pickup", "WeaponSingle", SubResource("AnimationNodeStateMachineTransition_hd665"), "Pickup", "WeaponDouble", SubResource("AnimationNodeStateMachineTransition_8us1h"), "Pickup", "MeleeHeavy", SubResource("AnimationNodeStateMachineTransition_gd7rn"), "Hit", "MeleeHeavy", SubResource("AnimationNodeStateMachineTransition_s3rxa"), "Hit", "MeleeLight", SubResource("AnimationNodeStateMachineTransition_vlk85"), "Hit", "WeaponDouble", SubResource("AnimationNodeStateMachineTransition_rycj0"), "Hit", "WeaponSingle", SubResource("AnimationNodeStateMachineTransition_r3o4p"), "Hit", "Empty", SubResource("AnimationNodeStateMachineTransition_5fc7c")]
-graph_offset = Vector2(623.5, -151)
+graph_offset = Vector2(766.5, -145)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_a81bo"]
-graph_offset = Vector2(-315.51028, -189.45859)
+graph_offset = Vector2(-460.14667, -65.00409)
 nodes/output/position = Vector2(700, 40)
 "nodes/Full Body/node" = SubResource("AnimationNodeBlend2_bsv2t")
 "nodes/Full Body/position" = Vector2(80, 160)
 nodes/Gameplay/node = SubResource("AnimationNodeBlend2_4874o")
 nodes/Gameplay/position = Vector2(350, -20)
 "nodes/Lower Body/node" = SubResource("AnimationNodeStateMachine_7op5x")
-"nodes/Lower Body/position" = Vector2(-280, 320)
+"nodes/Lower Body/position" = Vector2(-280, 340)
 nodes/Reaction/node = SubResource("AnimationNodeStateMachine_vw2u0")
 nodes/Reaction/position = Vector2(70, -130)
 "nodes/Upper Body/node" = SubResource("AnimationNodeStateMachine_phig5")
