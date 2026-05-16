@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bhudqhirmgvh2" path="res://Textures/Particles/sparks_1.png" id="3_m0xck"]
 [ext_resource type="Shader" uid="uid://bdhbm38nj0vc0" path="res://addons/gputrail/shaders/trail.gdshader" id="4_rfa61"]
 [ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="5_4m6tn"]
+[ext_resource type="Script" uid="uid://cd3queck3xtfc" path="res://Scripts/Physics/ExtendedArea3D.gd" id="5_aegih"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="6_gy3ro"]
 [ext_resource type="Texture2D" uid="uid://4vjrkbjsgvqe" path="res://Textures/Particles/ray_trail.png" id="7_1f7iy"]
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="8_1jjkf"]
@@ -104,31 +105,25 @@ item_name = "Ray Sword"
 equip_type = 3
 splash = ExtResource("2_rfa61")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=765497425]
+[node name="Blade" type="Area3D" parent="." unique_id=1466101564]
 collision_layer = 8
 collision_mask = 76
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
-continuous_cd = true
-contact_monitor = true
+script = ExtResource("5_aegih")
+metadata/_custom_type_script = "uid://cd3queck3xtfc"
 
-[node name="Ray Sword" parent="RigidBody3D" unique_id=198721144 instance=ExtResource("1_jnhx5")]
+[node name="Ray Sword" parent="Blade" unique_id=198721144 instance=ExtResource("1_jnhx5")]
 
-[node name="Base" parent="RigidBody3D/Ray Sword" index="0"]
+[node name="Base" parent="Blade/Ray Sword" index="0"]
 layers = 8
 
-[node name="Base Beam" parent="RigidBody3D/Ray Sword" index="1"]
+[node name="Base Beam" parent="Blade/Ray Sword" index="1"]
 layers = 8
 
-[node name="Beam" parent="RigidBody3D/Ray Sword" index="2"]
+[node name="Beam" parent="Blade/Ray Sword" index="2"]
 visible = false
 layers = 8
 
-[node name="ParticleBeam" type="GPUParticles3D" parent="RigidBody3D/Ray Sword" unique_id=2101661351]
+[node name="ParticleBeam" type="GPUParticles3D" parent="Blade/Ray Sword" unique_id=2101661351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.241323, 0.109678)
 amount = 2
 lifetime = 0.01
@@ -139,7 +134,7 @@ transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_mmye7")
 draw_pass_1 = SubResource("QuadMesh_kkvwg")
 
-[node name="ParticleBase" type="GPUParticles3D" parent="RigidBody3D/Ray Sword" unique_id=1331650918]
+[node name="ParticleBase" type="GPUParticles3D" parent="Blade/Ray Sword" unique_id=1331650918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31405, 0.109678)
 amount = 2
 lifetime = 0.01
@@ -149,7 +144,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_4q1af")
 draw_pass_1 = SubResource("QuadMesh_dg780")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1835634040]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blade" unique_id=1835634040]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0023994, -0.11287497)
 shape = SubResource("BoxShape3D_4m6tn")
 
@@ -176,4 +171,4 @@ omni_range = 3.0
 script = ExtResource("9_1d6td")
 max_light_range = 0.5
 
-[editable path="RigidBody3D/Ray Sword"]
+[editable path="Blade/Ray Sword"]

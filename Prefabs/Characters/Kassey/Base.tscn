@@ -267,7 +267,7 @@ avatar_small = ExtResource("3_qklw6")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
 stat_speed = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
-fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/RightFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/LeftFist")]
+fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/LeftFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/RightFist")]
 jiggle_bones = [NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_L"), NodePath("Model/Armature/GeneralSkeleton/BoobJiggle_R")]
 sfx_controller = NodePath("SFX")
 gameplay_animation_tree = ExtResource("4_ea3kh")
@@ -347,14 +347,14 @@ visible = false
 visible = false
 
 [node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="5" unique_id=335985710]
-transform = Transform3D(-0.8103659, -0.5544372, 0.18948917, 0.51822335, -0.5273089, 0.67334217, -0.27340657, 0.6438515, 0.7146356, -0.027533904, 1.3688049, 0.002070561)
+transform = Transform3D(-0.81012243, -0.5546847, 0.18980558, 0.5184548, -0.5266969, 0.6736428, -0.2736893, 0.6441389, 0.71426827, -0.027533904, 1.3682363, 0.002070561)
 bone_name = "Boob.L"
 bone_idx = 29
 script = ExtResource("5_0hxec")
 properties = SubResource("Resource_6rvdl")
 
 [node name="BoobJiggle_R" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="6" unique_id=929789024]
-transform = Transform3D(0.15282774, -0.85072094, -0.50290895, -0.47774845, -0.509071, 0.71596295, -0.86510116, 0.13084504, -0.4842307, -0.07301909, 1.3716061, -0.07668944)
+transform = Transform3D(0.15248351, -0.8510875, -0.5023928, -0.4779543, -0.50844336, 0.71627134, -0.865048, 0.13090137, -0.4843101, -0.07301909, 1.3710375, -0.07668944)
 bone_name = "Boob.R"
 bone_idx = 30
 script = ExtResource("5_0hxec")

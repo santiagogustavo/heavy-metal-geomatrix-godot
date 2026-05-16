@@ -346,7 +346,7 @@ layers = 8
 [node name="Hitboxes" parent="Model/Armature/GeneralSkeleton" index="10" unique_id=979417101 instance=ExtResource("5_rn7ny")]
 
 [node name="Head" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="0"]
-transform = Transform3D(0.9899549, -0.13321465, -0.04736218, 0.12674563, 0.98462343, -0.12021826, 0.062648594, 0.11300781, 0.991617, -0.1914341, 1.2086208, -0.9397615)
+transform = Transform3D(0.9899549, -0.13321465, -0.04736218, 0.12674563, 0.98462343, -0.12021826, 0.062648594, 0.11300781, 0.991617, -0.19143409, 1.2086208, -0.9397615)
 
 [node name="Torso" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="1"]
 transform = Transform3D(0.5097587, -0.3762228, -0.77369404, -0.08198122, 0.87397724, -0.47900182, 0.8564024, 0.30760372, 0.4146743, -0.07076831, 0.8771439, -1.0532914)
@@ -354,8 +354,11 @@ transform = Transform3D(0.5097587, -0.3762228, -0.77369404, -0.08198122, 0.87397
 [node name="HipL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="2"]
 transform = Transform3D(0.7463021, 0.17626473, -0.6418442, 0.25434977, 0.81559354, 0.5197244, 0.61509293, -0.55112433, 0.56384623, 0.016093396, 0.754383, -1.020236)
 
+[node name="Area3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/HipL" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.223, 0)
+
 [node name="ShinL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="3"]
-transform = Transform3D(0.66396475, 0.2537866, 0.70338, 0.2650624, -0.9594438, 0.09596795, 0.6992087, 0.12272027, -0.7043061, -0.041099995, 0.46481854, -0.8311033)
+transform = Transform3D(0.66396475, 0.2537866, 0.70338, 0.2650624, -0.9594438, 0.09596795, 0.6992087, 0.12272027, -0.7043061, -0.04109999, 0.46481854, -0.8311033)
 bone_name = "LeftLowerLeg"
 
 [node name="FootL" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="4"]
@@ -364,6 +367,9 @@ bone_name = "LeftFoot"
 
 [node name="HipR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="5"]
 transform = Transform3D(-0.057318956, 0.41736624, -0.9069289, -0.31077808, 0.8558282, 0.41349134, 0.9487525, 0.3055545, 0.080653146, -0.05781956, 0.76081747, -1.1533331)
+
+[node name="Area3D" parent="Model/Armature/GeneralSkeleton/Hitboxes/HipR" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22310358, -9.778887e-09)
 
 [node name="ShinR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="6"]
 transform = Transform3D(0.012027174, 0.18723911, 0.9822407, -0.36785114, -0.9125979, 0.17846766, 0.9298068, -0.36346483, 0.05790008, -0.19762166, 0.45791018, -1.261001)
@@ -387,7 +393,7 @@ bone_name = "LeftHand"
 transform = Transform3D(0.6834092, 0.19025595, -0.7048081, 0.6549288, -0.58630306, 0.47677767, -0.32252145, -0.78743327, -0.5252889, -0.20635043, 1.0905628, -1.0677363)
 
 [node name="TricepR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="12"]
-transform = Transform3D(0.84159124, -0.24321403, -0.4822562, -0.008763567, -0.8989084, 0.4380489, -0.54004383, -0.36443168, -0.7586447, -0.1492732, 0.93323165, -1.2816565)
+transform = Transform3D(0.84159124, -0.24321403, -0.4822562, -0.008763567, -0.8989084, 0.4380489, -0.54004383, -0.36443168, -0.7586447, -0.14927319, 0.93323165, -1.2816565)
 
 [node name="HandR" parent="Model/Armature/GeneralSkeleton/Hitboxes" index="13"]
 transform = Transform3D(-0.9090436, -0.40741384, -0.087485105, 0.3684606, -0.6878363, -0.6253942, 0.19461888, -0.60074526, 0.7753892, -0.21181788, 0.71499217, -1.3663982)

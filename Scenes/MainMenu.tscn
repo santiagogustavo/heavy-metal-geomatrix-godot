@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cpf3eubmomcnn"]
+[gd_scene format=3 uid="uid://cpf3eubmomcnn"]
 
 [ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="1_6nodx"]
 [ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="6_kwx8k"]
@@ -236,6 +236,8 @@ font_size = 24
 font = ExtResource("25_mrw8j")
 font_size = 18
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0m5m"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghy7a"]
 content_margin_right = 0.0
 draw_center = false
@@ -243,8 +245,6 @@ skew = Vector2(0.2, 0)
 border_width_right = 12
 border_color = Color(0, 1, 0.996078, 1)
 expand_margin_right = 32.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0m5m"]
 
 [sub_resource type="Animation" id="Animation_t7r6j"]
 resource_name = "Enter"
@@ -702,7 +702,7 @@ stream_0/stream = ExtResource("24_rhnf5")
 stream_1/stream = ExtResource("25_frs1i")
 stream_2/stream = ExtResource("26_5yl72")
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("options", "cursor_sfx", "select1_sfx", "select2_sfx", "description_label")]
+[node name="MainMenu" type="Control" unique_id=775617561 node_paths=PackedStringArray("options", "cursor_sfx", "select1_sfx", "select2_sfx", "description_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -716,7 +716,7 @@ select1_sfx = NodePath("SFX/Select1")
 select2_sfx = NodePath("SFX/Select2")
 description_label = NodePath("MainMenuLayer/OptionsContainer/MarginContainer/Control/ModeExplanation/Description")
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="." unique_id=693386457]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -726,7 +726,7 @@ grow_vertical = 2
 texture = ExtResource("18_xlly3")
 expand_mode = 2
 
-[node name="FireContainer" type="Control" parent="."]
+[node name="FireContainer" type="Control" parent="." unique_id=867537488]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -736,7 +736,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Fire" type="GPUParticles2D" parent="FireContainer"]
+[node name="Fire" type="GPUParticles2D" parent="FireContainer" unique_id=1539037690]
 modulate = Color(1, 1, 1, 0.392157)
 amount = 2500
 texture = ExtResource("6_kwx8k")
@@ -746,7 +746,7 @@ randomness = 1.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_2up6b")
 
-[node name="LogoContainer" type="Control" parent="."]
+[node name="LogoContainer" type="Control" parent="." unique_id=298513937]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -756,7 +756,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Logo" type="TextureRect" parent="LogoContainer"]
+[node name="Logo" type="TextureRect" parent="LogoContainer" unique_id=1264182471]
 material = SubResource("ShaderMaterial_mtjij")
 layout_mode = 1
 anchors_preset = 8
@@ -774,7 +774,7 @@ pivot_offset = Vector2(325, 215)
 texture = ExtResource("19_yd0un")
 expand_mode = 1
 
-[node name="Fill" type="TextureRect" parent="LogoContainer/Logo"]
+[node name="Fill" type="TextureRect" parent="LogoContainer/Logo" unique_id=1862540983]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -790,18 +790,16 @@ grow_vertical = 2
 texture = ExtResource("20_1u3u5")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LogoContainer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LogoContainer" unique_id=513209177]
 root_node = NodePath("../Logo")
-libraries = {
-&"": SubResource("AnimationLibrary_kuo4l")
-}
+libraries/ = SubResource("AnimationLibrary_kuo4l")
 
-[node name="AnimationTree" type="AnimationTree" parent="LogoContainer"]
+[node name="AnimationTree" type="AnimationTree" parent="LogoContainer" unique_id=1160958667]
 root_node = NodePath("../Logo")
 tree_root = SubResource("AnimationNodeStateMachine_lxwk5")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="PressAnyButton" type="Label" parent="."]
+[node name="PressAnyButton" type="Label" parent="." unique_id=1809124715]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -819,18 +817,16 @@ label_settings = SubResource("LabelSettings_esefs")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PressAnyButton"]
-libraries = {
-&"": SubResource("AnimationLibrary_rtj68")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PressAnyButton" unique_id=278403154]
+libraries/ = SubResource("AnimationLibrary_rtj68")
 
-[node name="AnimationTree" type="AnimationTree" parent="PressAnyButton"]
+[node name="AnimationTree" type="AnimationTree" parent="PressAnyButton" unique_id=385614884]
 tree_root = SubResource("AnimationNodeStateMachine_bhrjf")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="MainMenuLayer" type="CanvasLayer" parent="."]
+[node name="MainMenuLayer" type="CanvasLayer" parent="." unique_id=342098400]
 
-[node name="OptionsContainer" type="Control" parent="MainMenuLayer"]
+[node name="OptionsContainer" type="Control" parent="MainMenuLayer" unique_id=1902837825]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -840,7 +836,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 324)
 
-[node name="Static BG" type="ColorRect" parent="MainMenuLayer/OptionsContainer"]
+[node name="Static BG" type="ColorRect" parent="MainMenuLayer/OptionsContainer" unique_id=792471447]
 material = SubResource("ShaderMaterial_peag1")
 layout_mode = 1
 anchors_preset = 15
@@ -850,7 +846,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Hex" type="TextureRect" parent="MainMenuLayer/OptionsContainer"]
+[node name="Hex" type="TextureRect" parent="MainMenuLayer/OptionsContainer" unique_id=1760101130]
 material = SubResource("ShaderMaterial_1jqtu")
 layout_mode = 1
 anchors_preset = 15
@@ -866,7 +862,7 @@ pivot_offset = Vector2(0, 393)
 texture = ExtResource("19_swgpn")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenuLayer/OptionsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuLayer/OptionsContainer" unique_id=1424768061]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -878,11 +874,11 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 96
 theme_override_constants/margin_bottom = 64
 
-[node name="Control" type="Control" parent="MainMenuLayer/OptionsContainer/MarginContainer"]
+[node name="Control" type="Control" parent="MainMenuLayer/OptionsContainer/MarginContainer" unique_id=1557135488]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control"]
-layout_mode = 2
+[node name="Label" type="Label" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control" unique_id=1049087333]
+layout_mode = 0
 offset_right = 183.0
 offset_bottom = 55.0
 size_flags_horizontal = 0
@@ -890,7 +886,7 @@ size_flags_vertical = 0
 text = "Main Menu"
 label_settings = ExtResource("23_25555")
 
-[node name="ModeExplanation" type="VBoxContainer" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control"]
+[node name="ModeExplanation" type="VBoxContainer" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control" unique_id=579410990]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -902,12 +898,12 @@ pivot_offset = Vector2(0, 59)
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/ModeExplanation"]
+[node name="Label" type="Label" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/ModeExplanation" unique_id=1521260297]
 layout_mode = 2
 text = "Mode explanation"
 label_settings = SubResource("LabelSettings_n35vk")
 
-[node name="Description" type="Label" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/ModeExplanation"]
+[node name="Description" type="Label" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/ModeExplanation" unique_id=635300966]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "Lorem ipsum dolor sit amet"
@@ -915,7 +911,7 @@ label_settings = SubResource("LabelSettings_6tkrj")
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="Options" type="VBoxContainer" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control"]
+[node name="Options" type="VBoxContainer" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control" unique_id=851258511]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -930,78 +926,75 @@ size_flags_vertical = 4
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Arcade" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options"]
+[node name="Arcade" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options" unique_id=443468531]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("24_e5pxh")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ghy7a")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ghy7a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w0m5m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghy7a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
 text = "ARCADE"
 alignment = 2
 clip_text = true
 script = ExtResource("26_y5fpb")
 redirect_to_scene = "res://Scenes/SelectPlayer.tscn"
 
-[node name="Options" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options"]
+[node name="Options" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options" unique_id=1038733197]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("24_e5pxh")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ghy7a")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ghy7a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w0m5m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghy7a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
 text = "OPTIONS"
 alignment = 2
 clip_text = true
 script = ExtResource("27_en1de")
 
-[node name="Exit" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options"]
+[node name="Exit" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options" unique_id=153392991]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
 theme_override_fonts/font = ExtResource("24_e5pxh")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ghy7a")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ghy7a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w0m5m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghy7a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ghy7a")
 text = "EXIT GAME"
 alignment = 2
 clip_text = true
 script = ExtResource("28_typom")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenuLayer/OptionsContainer"]
-libraries = {
-&"": SubResource("AnimationLibrary_8rab5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenuLayer/OptionsContainer" unique_id=1304389202]
+libraries/ = SubResource("AnimationLibrary_8rab5")
 
-[node name="AnimationTree" type="AnimationTree" parent="MainMenuLayer/OptionsContainer"]
+[node name="AnimationTree" type="AnimationTree" parent="MainMenuLayer/OptionsContainer" unique_id=1684951061]
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_ghois")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_closed = false
 parameters/conditions/is_open = false
 
-[node name="SFX" type="Control" parent="MainMenuLayer/OptionsContainer"]
-layout_mode = 3
+[node name="SFX" type="Control" parent="MainMenuLayer/OptionsContainer" unique_id=1507190191]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Open" type="AudioStreamPlayer" parent="MainMenuLayer/OptionsContainer/SFX"]
+[node name="Open" type="AudioStreamPlayer" parent="MainMenuLayer/OptionsContainer/SFX" unique_id=1987723826]
 stream = ExtResource("16_e7065")
 bus = &"Main Menu"
 
-[node name="Fade" type="ColorRect" parent="MainMenuLayer"]
+[node name="Fade" type="ColorRect" parent="MainMenuLayer" unique_id=1506820474]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -1010,7 +1003,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Glitch" type="ColorRect" parent="MainMenuLayer/Fade"]
+[node name="Glitch" type="ColorRect" parent="MainMenuLayer/Fade" unique_id=1069045732]
 visible = false
 material = SubResource("ShaderMaterial_qsj4r")
 layout_mode = 1
@@ -1020,53 +1013,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionsMenuLayer" type="CanvasLayer" parent="."]
+[node name="OptionsMenuLayer" type="CanvasLayer" parent="." unique_id=958006529]
 layer = 128
 
-[node name="OptionsMenu" parent="OptionsMenuLayer" instance=ExtResource("17_r8y2w")]
+[node name="OptionsMenu" parent="OptionsMenuLayer" unique_id=880118738 instance=ExtResource("17_r8y2w")]
 
-[node name="SFX" type="Control" parent="."]
+[node name="SFX" type="Control" parent="." unique_id=1909642398]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Startup" type="AudioStreamPlayer" parent="SFX"]
+[node name="Startup" type="AudioStreamPlayer" parent="SFX" unique_id=715783993]
 stream = ExtResource("17_yhrry")
 volume_db = -10.0
 autoplay = true
 bus = &"UI Reverb"
 
-[node name="Close" type="AudioStreamPlayer" parent="SFX"]
+[node name="Close" type="AudioStreamPlayer" parent="SFX" unique_id=622292202]
 stream = ExtResource("18_eu1qu")
 bus = &"Main Menu"
 
-[node name="Cursor" type="AudioStreamPlayer" parent="SFX"]
+[node name="Cursor" type="AudioStreamPlayer" parent="SFX" unique_id=794510317]
 stream = ExtResource("19_shsqe")
 volume_db = -15.0
 bus = &"Main Menu"
 
-[node name="Select1" type="AudioStreamPlayer" parent="SFX"]
+[node name="Select1" type="AudioStreamPlayer" parent="SFX" unique_id=38086563]
 stream = ExtResource("22_erlg1")
 volume_db = -10.0
 bus = &"Main Menu"
 
-[node name="Select2" type="AudioStreamPlayer" parent="SFX"]
+[node name="Select2" type="AudioStreamPlayer" parent="SFX" unique_id=397770401]
 stream = ExtResource("21_cfejl")
 volume_db = -10.0
 bus = &"Main Menu"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6adix")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=417728160]
+libraries/ = SubResource("AnimationLibrary_6adix")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=66740294]
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_rrknu")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/selected = false
 
-[node name="OST" type="AudioStreamPlayer2D" parent="."]
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=209938022]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_2ynpi")
 autoplay = true

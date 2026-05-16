@@ -1,4 +1,4 @@
-extends ExtendedRigidBody3D
+extends ExtendedArea3D
 class_name FistController
 
 @export var damage: int = 10

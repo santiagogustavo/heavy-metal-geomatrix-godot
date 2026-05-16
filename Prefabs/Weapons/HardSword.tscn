@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_33btf"]
 [ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="4_qxgn8"]
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="5_iwcxs"]
+[ext_resource type="Script" uid="uid://cd3queck3xtfc" path="res://Scripts/Physics/ExtendedArea3D.gd" id="5_l7eib"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_62g4i"]
 points = PackedVector3Array(-2.8433278e-06, 1.1817657, 0.052504882, 0.014523869, 1.2208868, 0.01434508, -2.8433278e-06, 1.3219305, -0.0035982653, -0.014523869, 1.2208868, 0.01434508, -2.8433278e-06, 0.16195382, 0.052504882, 0.014523869, 0.16149086, -0.01099962, 0.014523869, 1.1767888, -0.01435988, -2.8433278e-06, 1.1817657, -0.05967945, -0.014523869, 1.1767888, -0.01435988, -0.014523869, 0.16149086, -0.01099962, -2.8433278e-06, 0.13961542, -0.05967945, 0.014521027, 0.187996, -0.01435988, -0.014523869, 0.187996, -0.01435988)
@@ -53,27 +54,21 @@ item_name = "Hard Sword"
 equip_type = 3
 splash = ExtResource("2_33btf")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1756254571]
+[node name="Blade" type="Area3D" parent="." unique_id=1376228667]
 collision_layer = 8
 collision_mask = 76
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
-continuous_cd = true
-contact_monitor = true
+script = ExtResource("5_l7eib")
+metadata/_custom_type_script = "uid://cd3queck3xtfc"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=391927165]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blade" unique_id=391927165]
 shape = SubResource("ConvexPolygonShape3D_62g4i")
 
-[node name="Hard Sword" parent="RigidBody3D" unique_id=1435148152 instance=ExtResource("1_62g4i")]
+[node name="Hard Sword" parent="Blade" unique_id=1435148152 instance=ExtResource("1_62g4i")]
 
-[node name="object_0" parent="RigidBody3D/Hard Sword" index="0"]
+[node name="object_0" parent="Blade/Hard Sword" index="0"]
 layers = 8
 
-[node name="object_1" parent="RigidBody3D/Hard Sword" index="1"]
+[node name="object_1" parent="Blade/Hard Sword" index="1"]
 layers = 8
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=1468600719]
@@ -91,4 +86,4 @@ color_ramp = SubResource("GradientTexture1D_iqolc")
 curve = SubResource("CurveTexture_pays7")
 _defaults_have_been_set = true
 
-[editable path="RigidBody3D/Hard Sword"]
+[editable path="Blade/Hard Sword"]

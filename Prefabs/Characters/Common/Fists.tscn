@@ -20,20 +20,15 @@ bone_idx = 20
 use_external_skeleton = true
 external_skeleton = NodePath("../..")
 
-[node name="LeftFist" type="RigidBody3D" parent="HandL" unique_id=631813799]
+[node name="LeftFist" type="Area3D" parent="HandL" unique_id=1837715478]
 transform = Transform3D(0.99999934, 0, 0, 0, 0.9999991, 0, 0, 0, 0.99999905, 0, 0, 0)
 collision_layer = 8
 collision_mask = 64
 collision_priority = 2.0
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-gravity_scale = 0.0
-contact_monitor = true
-max_contacts_reported = 4
 script = ExtResource("1_805bh")
 damage = 5
 hit_decal = ExtResource("2_pfhgh")
+metadata/_custom_type_script = "uid://cd3queck3xtfc"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HandL/LeftFist" unique_id=173894629]
 shape = SubResource("SphereShape3D_jqpkx")
@@ -49,20 +44,15 @@ bone_idx = 26
 use_external_skeleton = true
 external_skeleton = NodePath("../..")
 
-[node name="RightFist" type="RigidBody3D" parent="HandR" unique_id=59190840]
+[node name="RightFist" type="Area3D" parent="HandR" unique_id=1377088950]
 transform = Transform3D(0.9999995, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000002, 0, 0, 0)
 collision_layer = 8
 collision_mask = 64
 collision_priority = 2.0
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-gravity_scale = 0.0
-contact_monitor = true
-max_contacts_reported = 4
 script = ExtResource("1_805bh")
 damage = 5
 hit_decal = ExtResource("2_pfhgh")
+metadata/_custom_type_script = "uid://cd3queck3xtfc"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HandR/RightFist" unique_id=1255486430]
 shape = SubResource("SphereShape3D_jqpkx")

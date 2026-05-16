@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://psswwkmow84n" path="res://Materials/Weapons/FAKK2/Chain Sword/teeth_animated.tres" id="2_v3oo7"]
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_v3oo7"]
 [ext_resource type="Texture2D" uid="uid://pf847ev6efpp" path="res://Textures/Pickups/Splash/ChainSword.png" id="4_us80l"]
+[ext_resource type="Script" uid="uid://cd3queck3xtfc" path="res://Scripts/Physics/ExtendedArea3D.gd" id="5_i34yi"]
 [ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="8_x3xd2"]
 [ext_resource type="AudioStream" uid="uid://davwofshhqepr" path="res://Sound/Weapons/FAKK2/Chain Sword/Loop.wav" id="9_5obur"]
 [ext_resource type="AudioStream" uid="uid://p45u1o7up6m1" path="res://Sound/Weapons/FAKK2/Chain Sword/Attack1.wav" id="10_gc8ga"]
@@ -19,7 +20,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0k5yj"]
 size = Vector3(0.07910156, 0.94641113, 0.17871094)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0k5yj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6tnn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_v3oo7")
@@ -236,58 +237,52 @@ material = SubResource("ShaderMaterial_luk4k")
 script = ExtResource("1_distt")
 damage = 15
 weapon_range = 2.4
-animation_tree = NodePath("RigidBody3D/AnimationTree")
+animation_tree = NodePath("Blade/AnimationTree")
 hit_general_particle = ExtResource("2_m8woc")
 hit_player_particle = ExtResource("3_v3oo7")
 item_name = "Chain Sword"
 equip_type = 4
 splash = ExtResource("4_us80l")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=190511257]
+[node name="Blade" type="Area3D" parent="." unique_id=263534740]
 collision_layer = 8
 collision_mask = 68
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
-continuous_cd = true
-contact_monitor = true
+script = ExtResource("5_i34yi")
+metadata/_custom_type_script = "uid://cd3queck3xtfc"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=561126397]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blade" unique_id=561126397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69634527, -0.012093008)
 shape = SubResource("BoxShape3D_0k5yj")
 
-[node name="Chain Sword" parent="RigidBody3D" unique_id=375389054 instance=ExtResource("1_m8woc")]
+[node name="Chain Sword" parent="Blade" unique_id=375389054 instance=ExtResource("1_m8woc")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
 
-[node name="models_weapons_chainsword_cs_slow" parent="RigidBody3D/Chain Sword" index="0"]
-surface_material_override/2 = SubResource("ShaderMaterial_0k5yj")
+[node name="models_weapons_chainsword_cs_slow" parent="Blade/Chain Sword" index="0"]
+surface_material_override/2 = SubResource("ShaderMaterial_g6tnn")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody3D" unique_id=632741518]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Blade" unique_id=632741518]
 libraries/ = SubResource("AnimationLibrary_fp3qp")
 
-[node name="AnimationTree" type="AnimationTree" parent="RigidBody3D" unique_id=772683071]
+[node name="AnimationTree" type="AnimationTree" parent="Blade" unique_id=772683071]
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_d7hal")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_attacking = false
 parameters/conditions/is_not_attacking = false
 
-[node name="Smoke" type="GPUParticles3D" parent="RigidBody3D" unique_id=557375441]
+[node name="Smoke" type="GPUParticles3D" parent="Blade" unique_id=557375441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012688, 0.21767, -0.00943405)
 amount = 5
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_us80l")
 draw_pass_1 = SubResource("QuadMesh_3ley7")
 
-[node name="Loop" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=71604406]
+[node name="Loop" type="AudioStreamPlayer3D" parent="Blade" unique_id=71604406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278687, 0)
 stream = ExtResource("9_5obur")
 bus = &"Effects"
 
-[node name="Attack" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=105638243]
+[node name="Attack" type="AudioStreamPlayer3D" parent="Blade" unique_id=105638243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278687, 0)
 stream = SubResource("AudioStreamRandomizer_2jufr")
 volume_db = -7.5
@@ -308,4 +303,4 @@ color_ramp = SubResource("GradientTexture1D_picdi")
 curve = ExtResource("13_ukuqe")
 _defaults_have_been_set = true
 
-[editable path="RigidBody3D/Chain Sword"]
+[editable path="Blade/Chain Sword"]

@@ -23,7 +23,6 @@ func _ready() -> void:
 	GameManager.current_scene_type = Definitions.SceneType.MainMenu
 	open.connect(open_menu)
 	close.connect(close_menu)
-	options_menu.close.connect(focus_first_option)
 	for option: Button in options:
 		option.connect("focus_entered", func ():
 			cursor_sfx.play()
@@ -58,13 +57,19 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel") and is_open:
 		close.emit()
 
-func focus_first_option():
+func focus_first_option() -> void:
+	var has_focused_button: bool = false
 	for option: Button in options:
-		option.release_focus()
-	options[0].grab_focus()
+		if option.has_focus():
+			has_focused_button = true
+		else:
+			option.release_focus()
+	if !has_focused_button:
+		options[0].grab_focus()
 
 func open_menu() -> void:
 	is_open = true
+	focus_first_option()
 	InputManager.vibrate_controller(0, 0, 1, 0.2)
 
 func close_menu() -> void:

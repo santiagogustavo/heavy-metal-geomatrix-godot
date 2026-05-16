@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="3_mw62h"]
 [ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="3_o2oi7"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/gputrail/defaults/curve.tres" id="4_1main"]
+[ext_resource type="Script" uid="uid://cd3queck3xtfc" path="res://Scripts/Physics/ExtendedArea3D.gd" id="5_2hdn8"]
 [ext_resource type="Texture2D" uid="uid://fxq2v6ou128p" path="res://Textures/Particles/sword_trail.png" id="5_cy6ke"]
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="6_mw62h"]
 
@@ -47,27 +48,21 @@ item_name = "Killer Sword"
 equip_type = 4
 splash = ExtResource("2_1main")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=721806859]
+[node name="Blade" type="Area3D" parent="." unique_id=429057201]
 collision_layer = 8
 collision_mask = 76
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
-continuous_cd = true
-contact_monitor = true
+script = ExtResource("5_2hdn8")
+metadata/_custom_type_script = "uid://cd3queck3xtfc"
 
-[node name="Killer Sword" parent="RigidBody3D" unique_id=821806956 instance=ExtResource("1_i50vw")]
+[node name="Killer Sword" parent="Blade" unique_id=821806956 instance=ExtResource("1_i50vw")]
 
-[node name="object_0" parent="RigidBody3D/Killer Sword" index="0"]
+[node name="object_0" parent="Blade/Killer Sword" index="0"]
 layers = 8
 
-[node name="object_1" parent="RigidBody3D/Killer Sword" index="1"]
+[node name="object_1" parent="Blade/Killer Sword" index="1"]
 layers = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1087523926]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blade" unique_id=1087523926]
 shape = SubResource("ConvexPolygonShape3D_i50vw")
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=938853475]
@@ -85,4 +80,4 @@ color_ramp = SubResource("GradientTexture1D_knqdu")
 curve = ExtResource("4_1main")
 _defaults_have_been_set = true
 
-[editable path="RigidBody3D/Killer Sword"]
+[editable path="Blade/Killer Sword"]

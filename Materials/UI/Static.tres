@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://csjnnlyg70rjj"]
+[gd_resource type="VisualShader" format=3 uid="uid://csjnnlyg70rjj"]
 
 [ext_resource type="Script" uid="uid://beoarykdprfb2" path="res://addons/shaderV/uv/rotate.gd" id="1_d4wbw"]
 [ext_resource type="Script" uid="uid://cuwtkklmjd0w1" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="2_so6xy"]
@@ -50,100 +50,6 @@ default_value_enabled = true
 default_value = 1.0
 
 [resource]
-code = "shader_type canvas_item;
-render_mode blend_mix;
-
-uniform vec4 Color : source_color;
-uniform float Scale : hint_range(0.0, 500.0) = 500.0;
-uniform float Color_Weight : hint_range(0.0, 1.0) = 0.5;
-uniform float Opacity : hint_range(0.0, 1.0) = 1.0;
-
-
-// RotateUV
-vec3 _rotateUV(vec3 _rotate_uv, vec2 _rotate_pivot_vect, float _rotate_radians){
-	//_r0tation_r0tate = radians(_r0tationDeg_r0tate);
-	vec2 _rotation_angle = vec2(cos(_rotate_radians), sin(_rotate_radians));
-	_rotate_uv.xy -= _rotate_pivot_vect;
-	_rotate_uv.xy = vec2((_rotate_uv.x*_rotation_angle.x-_rotate_uv.y*_rotation_angle.y), 
-						 (_rotate_uv.x*_rotation_angle.y+_rotate_uv.y*_rotation_angle.x));
-	_rotate_uv.xy += _rotate_pivot_vect;
-	return _rotate_uv;
-}
-// GenericNoise2D
-float _hash2_generic2D(vec2 _p_hash2_generic) {
-	return (fract(1e4 * sin(17.0 * _p_hash2_generic.x + _p_hash2_generic.y * 0.1) *
-					(0.1 + abs(sin(_p_hash2_generic.y * 13.0 + _p_hash2_generic.x)))));
-}
-
-float _genericNoise2D(vec2 _x_generic2D) {
-	vec2 _temp_i_generic2D = floor(_x_generic2D);
-	vec2 _temp_f_generic2D = fract(_x_generic2D);
-
-	float _a_g1n2 = _hash2_generic2D(_temp_i_generic2D);
-	float _b_g1n2 = _hash2_generic2D(_temp_i_generic2D + vec2(1.0, 0.0));
-	float _c_g1n2 = _hash2_generic2D(_temp_i_generic2D + vec2(0.0, 1.0));
-	float _d_g1n2 = _hash2_generic2D(_temp_i_generic2D + vec2(1.0, 1.0));
-	
-	vec2 _u_g1n2 = _temp_f_generic2D * _temp_f_generic2D * (3.0 - 2.0 * _temp_f_generic2D);
-	return (mix(_a_g1n2, _b_g1n2, _u_g1n2.x) + (_c_g1n2 - _a_g1n2) *
-				_u_g1n2.y * (1.0 - _u_g1n2.x) + (_d_g1n2 - _b_g1n2) * _u_g1n2.x * _u_g1n2.y);
-}
-
-void fragment() {
-// ColorParameter:11
-	vec4 n_out11p0 = Color;
-
-
-// Input:3
-	vec2 n_out3p0 = UV;
-
-
-// Input:4
-	float n_out4p0 = TIME;
-
-
-// Vector2Constant:5
-	vec2 n_out5p0 = vec2(10.000000, 10.000000);
-
-
-	vec3 n_out2p0;
-// RotateUV:2
-	{
-		n_out2p0 = _rotateUV(vec3(n_out3p0, 0.0), vec3(n_out5p0, 0.0).xy, n_out4p0);
-	}
-
-
-// FloatParameter:7
-	float n_out7p0 = Scale;
-
-
-	float n_out6p0;
-// GenericNoise2D:6
-	vec3 n_in6p1 = vec3(0.00000, 0.00000, 0.00000);
-	{
-		n_out6p0 = _genericNoise2D((n_out2p0.xy + n_in6p1.xy) * n_out7p0);
-	}
-
-
-// FloatParameter:12
-	float n_out12p0 = Color_Weight;
-
-
-// Mix:10
-	float n_out10p0 = mix(n_out11p0.x, n_out6p0, n_out12p0);
-
-
-// FloatParameter:8
-	float n_out8p0 = Opacity;
-
-
-// Output:0
-	COLOR.rgb = vec3(n_out10p0);
-	COLOR.a = n_out8p0;
-
-
-}
-"
 mode = 1
 flags/light_only = false
 nodes/fragment/2/node = SubResource("VisualShaderNodeCustom_h31l5")
