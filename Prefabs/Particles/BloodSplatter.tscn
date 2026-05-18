@@ -500,6 +500,7 @@ mesh = SubResource("SphereMesh_y6kuc")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1859079128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, 1.177)
 visible = false
+layers = 16
 mesh = SubResource("BoxMesh_hbobm")
 
 [node name="Floor1" type="Decal" parent="MeshInstance3D" unique_id=410867840]
@@ -513,6 +514,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
+max_scale = 1.25
 
 [node name="Floor2" type="Decal" parent="MeshInstance3D" unique_id=102666787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -525,6 +527,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
+max_scale = 1.25
 
 [node name="Floor3" type="Decal" parent="MeshInstance3D" unique_id=86713801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -537,6 +540,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
+max_scale = 1.25
 
 [node name="Floor4" type="Decal" parent="MeshInstance3D" unique_id=1411486141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -549,6 +553,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
+max_scale = 1.25
 
 [node name="Floor5" type="Decal" parent="MeshInstance3D" unique_id=613606753]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -561,6 +566,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
+max_scale = 1.25
 
 [node name="Floor6" type="Decal" parent="MeshInstance3D" unique_id=474987863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -573,6 +579,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -180
 max_rotation = 180
+max_scale = 1.25
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1338245638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859131, 1.177)
@@ -590,6 +597,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
+max_scale = 1.25
 
 [node name="Wall2" type="Decal" parent="MeshInstance3D2" unique_id=1985866963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -602,6 +610,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
+max_scale = 1.25
 
 [node name="Wall3" type="Decal" parent="MeshInstance3D2" unique_id=2086511478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -614,6 +623,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
+max_scale = 1.25
 
 [node name="Wall4" type="Decal" parent="MeshInstance3D2" unique_id=514656469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -626,6 +636,7 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
+max_scale = 1.25
 
 [node name="Wall5" type="Decal" parent="MeshInstance3D2" unique_id=871808682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144468, -0.407346)
@@ -638,3 +649,4 @@ cull_mask = 16
 script = ExtResource("6_3m2na")
 min_rotation = -45
 max_rotation = 45
+max_scale = 1.25

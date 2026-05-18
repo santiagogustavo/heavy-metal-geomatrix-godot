@@ -23,6 +23,11 @@ func _ready() -> void:
 	)
 
 func instantiate_decal(decal: Decal) -> void:
+	if GameplaySettingsManager.blood_amount > 1:
+		decal.randomize_position = true
+		decal.position_range = 0.5
+	var modulate_amount: float = randf_range(0.75, 1)
+	decal.modulate = Color(modulate_amount, modulate_amount, modulate_amount)
 	decal.reparent(get_tree().root)
 	decal.global_transform.origin = rigid_body.local_collision_pos
 	decal.look_at(
@@ -31,12 +36,15 @@ func instantiate_decal(decal: Decal) -> void:
 		+ Vector3(0.001, 0.0, 0.0)
 	)
 	decal.rotation_degrees.x += 90
+	decal.randomize()
 	decal.visible = true
 
 func instantiate_wall_decal() -> void:
-	var wall_decal_instance: Decal = wall_decals.pick_random()
-	instantiate_decal(wall_decal_instance)
+	for i in GameplaySettingsManager.blood_amount:
+		var wall_decal_instance: Decal = wall_decals.pick_random()
+		instantiate_decal(wall_decal_instance)
 
 func instantiate_floor_decal() -> void:
-	var floor_decal_instance: Decal = floor_decals.pick_random()
-	instantiate_decal(floor_decal_instance)
+	for i in GameplaySettingsManager.blood_amount:
+		var floor_decal_instance: Decal = floor_decals.pick_random()
+		instantiate_decal(floor_decal_instance)

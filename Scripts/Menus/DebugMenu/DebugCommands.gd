@@ -37,8 +37,9 @@ func clear() -> void:
 func reload() -> void:
 	tree.reload_current_scene()
 
-func pacifist() -> void:
+func pacifist() -> String:
 	is_pacifist = !is_pacifist
+	return "Sweet dreams..." if is_pacifist else "WAKE THE FUCK UP"
 
 func add_bot() -> String:
 	var resource: Resource = load("res://Prefabs/BotPlayer.tscn")
@@ -152,3 +153,6 @@ func timeout_round() -> String:
 		return "Round " + str(GameManager.current_match.current_round) + " timeouted!"
 	else:
 		return "No matches available"
+
+func set_blood_amount(amount: int) -> void:
+	GameplaySettingsManager.set_blood_amount(amount)

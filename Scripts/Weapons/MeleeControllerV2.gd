@@ -52,9 +52,15 @@ func travel_to_attack_instantly() -> void:
 		animation_tree_playback.travel("Attack", true)
 		animation_tree.set("parameters/Attack/TimeSeek/seek_request", 0.0)
 
-func instantiate_hit(collider: CollisionObject3D, point: Vector3, normal: Vector3, type: int):
+func instantiate_hit(
+	collider: CollisionObject3D,
+	point: Vector3,
+	normal: Vector3,
+	type: int,
+	is_blocking: bool
+):
 	var hit_instance
-	if type == Definitions.SurfaceType.Hitbox and can_hit:
+	if type == Definitions.SurfaceType.Hitbox and !is_blocking:
 		hit_instance = hit_player_particle.instantiate()
 	else:
 		hit_instance = hit_general_particle.instantiate()
@@ -77,11 +83,13 @@ func handle_hit(body: Node3D, point: Vector3, normal: Vector3):
 		var push_direction: Vector3 = collided_player.global_position - global_position
 		collided_player.apply_global_force(push_direction.normalized() * hit_push_force)
 	
+	var is_blocking: bool = false
 	if "damage_taken" in body:
 		if body is PristineBody:
 			body.damage_taken(damage)
 		elif body is CharacterHitbox:
 			can_hit = false
+			is_blocking = is_hitbox_player_blocking(body)
 			(body as CharacterHitbox).damage_taken(
 				damage,
 				point,
@@ -89,7 +97,11 @@ func handle_hit(body: Node3D, point: Vector3, normal: Vector3):
 				true,
 				player_rid
 			)
-	instantiate_hit(body, point, normal, body.collision_layer)
+	instantiate_hit(body, point, normal, body.collision_layer, is_blocking)
+
+func is_hitbox_player_blocking(hitbox: CharacterHitbox) -> bool:
+	var hit_player: Player = GameManager.get_player(hitbox.player_rid)
+	return hit_player.brain.is_blocking
 
 func vibrate_hard() -> void:
 	if player_rid != GameManager.get_player_one().get_rid():
