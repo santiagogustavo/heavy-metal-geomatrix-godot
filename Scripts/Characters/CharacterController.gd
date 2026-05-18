@@ -46,6 +46,12 @@ signal block
 # Internals
 @onready var character_name: String = Definitions.CharacterNames[character]
 @onready var team_name: String = Definitions.TeamNames[character_team]
+
+var current_collision_surface: Definitions.SurfaceType = Definitions.SurfaceType.LevelGeometry
+
+var dust_thud: Resource = preload("res://Prefabs/Particles/DustThud.tscn")
+var water_thud: Resource = preload("res://Prefabs/Particles/WaterThud.tscn")
+
 var animation_tree: AnimationTree
 var jiggle_physics_enabled: bool = true
 var current_skin: int = default_skin
@@ -160,6 +166,20 @@ func create_damage_indicator(emissor_position: Vector3) -> void:
 		damage_indicator_instance.player_camera = player.camera
 		damage_indicator_instance.target_position = emissor_position
 		player.player_ui.player_hud.main_container.add_child(damage_indicator_instance)
+
+func instantiate_thud() -> void:
+	var thud_instance: Node3D
+	match current_collision_surface:
+		Definitions.SurfaceType.Water:
+			thud_instance = water_thud.instantiate()
+		Definitions.SurfaceType.Stone:
+			thud_instance = dust_thud.instantiate()
+		Definitions.SurfaceType.Dirt:
+			thud_instance = dust_thud.instantiate()
+		_:
+			return
+	add_child(thud_instance)
+	thud_instance.top_level = true
 
 func take_damage_from_hitbox(
 	damage_taken: float,

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dg5dx8l4qtbs8"]
+
+[ext_resource type="Script" uid="uid://8dfbh1na7qeh" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="1_a0h4r"]
+[ext_resource type="Texture2D" uid="uid://dgmp5n6ey6rir" path="res://Textures/Particles/fog_1.png" id="1_iyf2r"]
+
+[sub_resource type="Curve" id="Curve_iyf2r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_a0h4r"]
+curve = SubResource("Curve_iyf2r")
+
+[sub_resource type="Curve" id="Curve_1g11a"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_w4p3x"]
+curve = SubResource("Curve_1g11a")
+
+[sub_resource type="Curve" id="Curve_l4e8d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0ccys"]
+curve = SubResource("Curve_l4e8d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a0h4r"]
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0, 0.1)
+radial_velocity_min = 0.99997765
+radial_velocity_max = 4.9999776
+velocity_limit_curve = SubResource("CurveTexture_0ccys")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_w4p3x")
+alpha_curve = SubResource("CurveTexture_a0h4r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g11a"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.827451, 0.6784314, 0.4745098)
+albedo_texture = ExtResource("1_iyf2r")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_w4p3x"]
+material = SubResource("StandardMaterial3D_1g11a")
+size = Vector2(3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m36va"]
+size = Vector3(1, 0.1, 1)
+
+[node name="DustThud" type="Node3D" unique_id=872179981]
+script = ExtResource("1_a0h4r")
+timeout = 1.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1743678881]
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_a0h4r")
+draw_pass_1 = SubResource("QuadMesh_w4p3x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=692185413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14516601, 0)
+visible = false
+mesh = SubResource("BoxMesh_m36va")

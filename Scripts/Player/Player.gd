@@ -69,6 +69,9 @@ var global_force: Vector3 = Vector3.ZERO
 var friction: float = 50.0
 var push_force: float = 1.0
 
+var last_is_on_floor: bool = true
+var last_is_dashing: bool = false
+
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
 
@@ -127,6 +130,7 @@ func _ready() -> void:
 		var loadout_instance: Item = character.initial_loadout.instantiate() as Item
 		inventory_manager.pick_up_item(loadout_instance.equip_type, character.initial_loadout)
 	reset_player_to_spawn()
+	move_and_slide()
 	player_ready.emit()
 
 func _physics_process(delta: float) -> void:
@@ -196,6 +200,8 @@ func push_rigid_bodies() -> void:
 			collider.apply_central_impulse(direction * push_force)
 
 func collide(collision: StaticBody3D):
+	if character:
+		character.current_collision_surface = collision.collision_layer as Definitions.SurfaceType
 	if sfx_controller:
 		sfx_controller.current_collision_surface = collision.collision_layer as Definitions.SurfaceType
 
@@ -221,6 +227,12 @@ func update_internals() -> void:
 	if player_input:
 		rotation = player_input.rotation
 	character.current_skin = clamp(selected_skin, 0, character.skins.size() - 1)
+	if !last_is_on_floor and is_on_floor():
+		character.instantiate_thud()
+	last_is_on_floor = is_on_floor()
+	if !last_is_dashing and brain.is_dashing:
+		character.instantiate_thud()
+	last_is_dashing = brain.is_dashing
 
 func update_externals(delta: float) -> void:
 	if player_input:
