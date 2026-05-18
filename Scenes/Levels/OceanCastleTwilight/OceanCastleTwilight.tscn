@@ -82,6 +82,55 @@ shader_parameter/Occlusion_Intensity = 1.0
 shader_parameter/Normal_Map = ExtResource("10_y1cec")
 shader_parameter/normal_intensity = 0.263
 
+[sub_resource type="Animation" id="Animation_151h5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.1415927, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ex2nk"]
+resource_name = "Ship Idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(3.106686, 0, 0), Vector3(3.159046, 0, 0), Vector3(3.106686, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k2jka"]
+_data = {
+&"RESET": SubResource("Animation_151h5"),
+&"Ship Idle": SubResource("Animation_ex2nk")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_151h5"]
+animation = &"Ship Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ex2nk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k2jka"]
+"states/Ship Idle/node" = SubResource("AnimationNodeAnimation_151h5")
+"states/Ship Idle/position" = Vector2(522, 100)
+transitions = ["Start", "Ship Idle", SubResource("AnimationNodeStateMachineTransition_ex2nk")]
+
 [sub_resource type="Gradient" id="Gradient_60yld"]
 offsets = PackedFloat32Array(0, 0.37276, 0.637993, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.631373, 1, 1, 0.670028, 0.0601307, 0.0952381, 1, 0.635294, 0, 0)
@@ -136,6 +185,8 @@ billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 0.5
 
 [sub_resource type="QuadMesh" id="QuadMesh_nrtou"]
 material = SubResource("StandardMaterial3D_04t7g")
@@ -297,7 +348,15 @@ layers = 16
 layers = 16
 
 [node name="object_25" parent="Level Geometry/Ocean Castle Twilight" index="19"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 24, 0, 34)
 layers = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level Geometry/Ocean Castle Twilight/object_25" index="0" unique_id=1535413232]
+libraries/ = SubResource("AnimationLibrary_k2jka")
+
+[node name="AnimationTree" type="AnimationTree" parent="Level Geometry/Ocean Castle Twilight/object_25" index="1" unique_id=888588157]
+tree_root = SubResource("AnimationNodeStateMachine_k2jka")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="object_26" parent="Level Geometry/Ocean Castle Twilight" index="20"]
 layers = 16
