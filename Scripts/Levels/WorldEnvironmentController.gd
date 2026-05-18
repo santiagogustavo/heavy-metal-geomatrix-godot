@@ -10,6 +10,6 @@ func _process(_delta: float) -> void:
 		if effect is GuertinMotionBlur:
 			effect.enabled = (
 				VideoSettingsManager.motion_blur_enabled and
-				GameManager.current_match.is_ongoing
+				(GameManager.current_match and GameManager.current_match.is_ongoing)
 			)
 			effect.intensity = VideoSettingsManager.motion_blur_intensity

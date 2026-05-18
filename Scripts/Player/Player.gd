@@ -67,6 +67,7 @@ var target_position: Vector3 = Vector3.ZERO
 var force: Vector3 = Vector3.ZERO
 var global_force: Vector3 = Vector3.ZERO
 var friction: float = 50.0
+var push_force: float = 1.0
 
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
@@ -136,6 +137,7 @@ func _physics_process(delta: float) -> void:
 	if aim_raycast.is_colliding() and aim_raycast.get_collider() is StaticBody3D:
 		collide(aim_raycast.get_collider())
 	move_and_slide()
+	push_rigid_bodies()
 
 func _process(delta: float) -> void:
 	update_internals()
@@ -181,6 +183,17 @@ func reset_player_to_spawn() -> void:
 		player_bot_ai.state = PlayerBotAI.AIState.Idle
 	if animation_tree:
 		animation_tree.reset_player()
+
+func push_rigid_bodies() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if (
+			collider is RigidBody3D and
+			(collider.collision_layer == Definitions.SurfaceType.LevelGeometry)
+		):
+			var direction = -collision.get_normal()
+			collider.apply_central_impulse(direction * push_force)
 
 func collide(collision: StaticBody3D):
 	if sfx_controller:

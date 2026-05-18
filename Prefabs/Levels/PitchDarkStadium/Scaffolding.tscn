@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bk1epvk5mge47"]
+
+[ext_resource type="PackedScene" uid="uid://rrl3mxme1bc8" path="res://Models/Levels/Pitch Dark Stadium/Scaffolding.glb" id="1_baq6f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1urub"]
+size = Vector3(8.0354, 1.5454102, 4.453125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjsbe"]
+size = Vector3(7.404297, 3.003296, 0.20751953)
+
+[node name="Scaffolding" type="Node3D" unique_id=456961310]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1171485996]
+collision_layer = 4
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2134057896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7463136, 0)
+shape = SubResource("BoxShape3D_1urub")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1338203939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0125754, -2.1228027)
+shape = SubResource("BoxShape3D_rjsbe")
+
+[node name="Model" parent="StaticBody3D" unique_id=1171440998 instance=ExtResource("1_baq6f")]

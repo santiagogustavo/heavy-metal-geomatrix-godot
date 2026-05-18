@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://sccq4r11cphj"]
+
+[ext_resource type="PackedScene" uid="uid://bfie6xwo54xaa" path="res://Models/Levels/Pitch Dark Stadium/Billboard.glb" id="1_7xo7g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7xo7g"]
+size = Vector3(1, 4.296631, 0.111328125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3aw5b"]
+size = Vector3(1, 0.32928467, 0.111328125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxj7j"]
+size = Vector3(1, 3.0484314, 0.111328125)
+
+[node name="Billboard" type="Node3D" unique_id=1000338004]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=723320370]
+collision_layer = 4
+collision_mask = 13
+
+[node name="Model" parent="StaticBody3D" unique_id=172062296 instance=ExtResource("1_7xo7g")]
+
+[node name="object_5" parent="StaticBody3D/Model" index="0" unique_id=1122812345]
+layers = 16
+
+[node name="object_6" parent="StaticBody3D/Model" index="1" unique_id=269602278]
+layers = 16
+
+[node name="object_11" parent="StaticBody3D/Model" index="2" unique_id=679049128]
+layers = 16
+
+[node name="object_29" parent="StaticBody3D/Model" index="3" unique_id=1117959265]
+layers = 16
+
+[node name="object_23_001" parent="StaticBody3D/Model" index="4" unique_id=2025981750]
+layers = 16
+
+[node name="object_9" parent="StaticBody3D/Model" index="5" unique_id=1315237131]
+layers = 16
+
+[node name="object_10" parent="StaticBody3D/Model" index="6" unique_id=593854137]
+layers = 16
+
+[node name="object_15" parent="StaticBody3D/Model" index="7" unique_id=1159811417]
+layers = 16
+
+[node name="object_16" parent="StaticBody3D/Model" index="8" unique_id=12325995]
+layers = 16
+
+[node name="OmniLight3D" type="OmniLight3D" parent="StaticBody3D" unique_id=1795061178]
+transform = Transform3D(1, 0, 0, 0, 0.27347243, 0.96187985, 0, -0.96187985, 0.27347243, 3.008131, 4.90878, -0.09127101)
+light_energy = 2.5
+light_cull_mask = 16
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="StaticBody3D" unique_id=1832663197]
+transform = Transform3D(1, 0, 0, 0, 0.27347243, 0.96187985, 0, -0.96187985, 0.27347243, -1.0219686, 4.90878, -0.09127101)
+light_energy = 2.5
+light_cull_mask = 16
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="StaticBody3D" unique_id=414108032]
+transform = Transform3D(1, 0, 0, 0, 0.27347243, 0.96187985, 0, -0.96187985, 0.27347243, -3.0243115, 4.90878, -0.09127101)
+light_energy = 2.5
+light_cull_mask = 16
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1017373107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8483334, 0)
+shape = SubResource("BoxShape3D_7xo7g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1256323691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8320065, -0.08675517)
+shape = SubResource("BoxShape3D_3aw5b")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1404414265]
+transform = Transform3D(1, 0, 0, 0, 0.9978268, -0.06589077, 0, 0.06589077, 0.9978268, 0, 1.5193288, -0.13133778)
+shape = SubResource("BoxShape3D_sxj7j")
+
+[editable path="StaticBody3D/Model"]

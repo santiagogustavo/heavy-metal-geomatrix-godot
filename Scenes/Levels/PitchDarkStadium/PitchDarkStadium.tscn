@@ -27,6 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://btn7c23i0enhg" path="res://Prefabs/Weapons/FAKK2/ChainSword.tscn" id="15_qvd3e"]
 [ext_resource type="AudioStream" uid="uid://dtxpgwc7umcfc" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst5.mp3" id="16_0hywk"]
 [ext_resource type="PackedScene" uid="uid://c6o2b3j7355k1" path="res://Models/Levels/Pitch Dark Stadium/Navmesh.glb" id="17_a6sam"]
+[ext_resource type="PackedScene" uid="uid://sccq4r11cphj" path="res://Prefabs/Levels/PitchDarkStadium/Billboard.tscn" id="23_6ghj8"]
+[ext_resource type="PackedScene" uid="uid://c56qnsqh3erq6" path="res://Prefabs/Levels/PitchDarkStadium/ConstructionSign.tscn" id="28_qvd3e"]
+[ext_resource type="PackedScene" uid="uid://8h7q0mdl25gi" path="res://Prefabs/Levels/PitchDarkStadium/BlueprintScreen.tscn" id="29_4e3ak"]
+[ext_resource type="PackedScene" uid="uid://cy60bym2dpuph" path="res://Prefabs/Levels/PitchDarkStadium/MachineControl.tscn" id="30_7wfqp"]
+[ext_resource type="PackedScene" uid="uid://bk1epvk5mge47" path="res://Prefabs/Levels/PitchDarkStadium/Scaffolding.tscn" id="32_3p02d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25dxq"]
 panorama = ExtResource("2_caq5r")
@@ -39,7 +44,7 @@ sky_material = SubResource("PanoramaSkyMaterial_25dxq")
 background_mode = 2
 sky = SubResource("Sky_ygp6j")
 glow_enabled = true
-glow_bloom = 1.0
+glow_bloom = 0.5
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.0392157, 0.0588235, 0.0745098, 1)
@@ -52,7 +57,7 @@ volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_55oue"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3p02d"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
@@ -132,7 +137,7 @@ script = ExtResource("4_4e3ak")
 [node name="SplashLayer" parent="." unique_id=1486111303 instance=ExtResource("2_7jn1i")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_55oue")
+texture = SubResource("ViewportTexture_3p02d")
 metadata/_edit_use_anchors_ = true
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=695088672]
@@ -141,7 +146,7 @@ size = Vector2i(1280, 720)
 script = ExtResource("3_8d4wu")
 
 [node name="SnapshotCamera" parent="SnapshotViewport" unique_id=1655463632 instance=ExtResource("4_tqjn4")]
-transform = Transform3D(-0.766044, 0.261445, 0.587216, 0, 0.913545, -0.406736, -0.642788, -0.311578, -0.699816, 1.88, 3.76, 13.83)
+transform = Transform3D(-0.9456093, 0.030805968, 0.32384264, -3.084375e-10, 0.995506, -0.09469884, -0.32530457, -0.089548096, -0.9413597, 3.815968, 5.876517, 4.5427704)
 cull_mask = 209
 
 [node name="Spawn Points" type="Node3D" parent="." unique_id=1479927715]
@@ -163,6 +168,7 @@ sky_mode = 1
 navigation_region = NodePath("../LevelGeometry/NavigationRegion3D")
 spawn_concurrent = 2
 spawn_min_distance = 20.0
+spawn_timeout = 5.0
 items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("12_qvd3e"), ExtResource("13_qvd3e"), ExtResource("12_qjnkp"), ExtResource("15_qvd3e")])
 
 [node name="LevelGeometry" type="Node3D" parent="." unique_id=1236181171]
@@ -464,13 +470,13 @@ amount = 25
 [node name="SpotLight3D10" type="DirectionalLight3D" parent="LevelGeometry/LightingArena" unique_id=232438802]
 transform = Transform3D(-1, 3.11927e-08, -8.16686e-08, 0, 0.93418, 0.356803, 8.74228e-08, 0.356803, -0.93418, 3.27419, 67.27, -185.232)
 layers = 128
-light_energy = 0.2
+light_energy = 0.15
 shadow_enabled = true
 
 [node name="SpotLight3D11" type="DirectionalLight3D" parent="LevelGeometry/LightingArena" unique_id=646741725]
 transform = Transform3D(-4.37114e-08, 0.417613, -0.908625, 0, 0.908625, 0.417613, 1, 1.82545e-08, -3.97173e-08, -111.214, 67.27, 16.383)
 layers = 128
-light_energy = 0.2
+light_energy = 0.15
 shadow_enabled = true
 
 [node name="SpotLight3D12" type="DirectionalLight3D" parent="LevelGeometry/LightingArena" unique_id=1586282507]
@@ -557,6 +563,35 @@ size = Vector3(5.43844, 1.54541, 10.8586)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37586, 1.36992, -6.45155)
 cull_mask = 4293919232
 size = Vector3(14.7829, 1.48315, 18.8431)
+
+[node name="Props" type="Node3D" parent="LevelGeometry" unique_id=589317091]
+
+[node name="ConstructionSign" parent="LevelGeometry/Props" unique_id=383063865 instance=ExtResource("28_qvd3e")]
+transform = Transform3D(0.9778015, 0, -0.20953323, 0, 1, 0, 0.20953323, 0, 0.9778015, -6.7723517, 3.5089023, 18.450708)
+
+[node name="ConstructionSign2" parent="LevelGeometry/Props" unique_id=258719757 instance=ExtResource("28_qvd3e")]
+transform = Transform3D(0.99592376, 0, 0.09019801, 0, 1, 0, -0.09019801, 0, 0.99592376, -4.4097013, 3.5089023, 18.521078)
+
+[node name="ConstructionSign3" parent="LevelGeometry/Props" unique_id=1900800401 instance=ExtResource("28_qvd3e")]
+transform = Transform3D(-0.2117512, 0, 0.9773236, 0, 1, 0, -0.9773236, 0, -0.2117512, 11.416981, 5.0185623, -9.751512)
+
+[node name="ConstructionSign4" parent="LevelGeometry/Props" unique_id=976991775 instance=ExtResource("28_qvd3e")]
+transform = Transform3D(0.07405904, 0.0016929992, 0.9972525, 0.07628446, 0.9970589, -0.007357804, -0.994332, 0.07661978, 0.073712125, 11.416981, 5.0185623, -12.090271)
+
+[node name="BlueprintScreen" parent="LevelGeometry/Props" unique_id=617077521 instance=ExtResource("29_4e3ak")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.158037, 1.9812782, -15.36867)
+
+[node name="BlueprintScreen2" parent="LevelGeometry/Props" unique_id=1709553789 instance=ExtResource("29_4e3ak")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.6198902, 3.4891355, 18.493223)
+
+[node name="MachineControl" parent="LevelGeometry/Props" unique_id=1556050522 instance=ExtResource("30_7wfqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8947234, 2.0353205, -15.4358425)
+
+[node name="Billboard" parent="LevelGeometry/Props" unique_id=1000338004 instance=ExtResource("23_6ghj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1490183, 3.5217452, 10.485868)
+
+[node name="Scaffolding" parent="LevelGeometry/Props" unique_id=456961310 instance=ExtResource("32_3p02d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0959454, 3.491692, 12.745452)
 
 [node name="World Boundaries" parent="." unique_id=1034404737 instance=ExtResource("8_j5vkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.29899, 0)

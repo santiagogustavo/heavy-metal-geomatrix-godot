@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c56qnsqh3erq6"]
+
+[ext_resource type="PackedScene" uid="uid://bof46644ejp3n" path="res://Models/Levels/Pitch Dark Stadium/ConstructionSign.glb" id="1_n2yfa"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n2yfa"]
+points = PackedVector3Array(99.16642, 94.899994, 2.0230083, 74.5041, 2.9510036e-05, 26.13279, 99.16642, 76.69288, 2.0230083, 99.14733, 94.899994, -1.8774052, -95.84153, 94.899994, 2.489418, -77.59294, 2.9510036e-05, 26.496693, 74.38958, 2.9510036e-05, -25.864178, 99.14733, 76.69288, -1.8774052, 62.68833, 2.9510036e-05, -25.83855, -77.70747, 2.9510036e-05, -25.505402, -95.84153, 94.899994, -1.4109955, -95.84153, 76.69288, 2.489418, -95.84153, 76.69288, -1.4109955)
+
+[node name="ConstructionSign" type="Node3D" unique_id=383063865]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=2057465551]
+collision_layer = 4
+collision_mask = 61
+
+[node name="Model" parent="RigidBody3D" unique_id=2021380120 instance=ExtResource("1_n2yfa")]
+
+[node name="object_12" parent="RigidBody3D/Model" index="0" unique_id=925631064]
+layers = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=832522402]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_n2yfa")
+
+[editable path="RigidBody3D/Model"]

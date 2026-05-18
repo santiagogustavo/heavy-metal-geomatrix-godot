@@ -14,6 +14,8 @@ var last_spawn_location: Vector3 = Vector3.ZERO
 var spawned_pickups: Array[Node3D] = []
 
 func _process(_delta: float) -> void:
+	if !GameManager.current_match:
+		return
 	if (
 		GameManager.current_match.round_status == MatchManager.RoundStatus.Started
 		and !started

@@ -1,0 +1,65 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://rrl3mxme1bc8"
+path="res://.godot/imported/Scaffolding.glb-f538c231826ba8818e78f1fb8030b562.scn"
+
+[deps]
+
+source_file="res://Models/Levels/Pitch Dark Stadium/Scaffolding.glb"
+dest_files=["res://.godot/imported/Scaffolding.glb-f538c231826ba8818e78f1fb8030b562.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"b52de668": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/b52de668.tres",
+"use_external/path": "uid://gwwmpoyj2soj"
+},
+"b52de668.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/b52de668.tres",
+"use_external/path": "uid://gwwmpoyj2soj"
+},
+"f9d1ef50": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/f9d1ef50.tres",
+"use_external/path": "uid://cthuq8cls10e6"
+},
+"f9d1ef50.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Pitch Dark Stadium/f9d1ef50.tres",
+"use_external/path": "uid://cthuq8cls10e6"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

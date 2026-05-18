@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cy60bym2dpuph"]
+
+[ext_resource type="PackedScene" uid="uid://dpq0wupcfkx6" path="res://Models/Levels/Pitch Dark Stadium/MachineControl.glb" id="1_8exae"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8exae"]
+points = PackedVector3Array(132.2422, 172.50002, -9.203234, 132.2422, 89.6946, 27.59819, 132.2422, 172.50002, -27.601242, -132.25786, 172.50002, -9.203234, 109.22531, 0, 4.602028, 132.2422, 86.233116, 21.843746, -132.25786, 89.6946, 27.59819, 132.2422, 112.69235, -27.601242, -132.25786, 172.50002, -27.601242, 109.22531, 0, -16.09776, -109.26686, 0, 4.602028, -132.25786, 86.233116, 21.843746, -132.25786, 112.69235, -27.601242, -109.26686, 0, -16.09776)
+
+[node name="MachineControl" type="Node3D" unique_id=1556050522]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1578640986]
+collision_layer = 4
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=463090502]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_8exae")
+
+[node name="Model" parent="StaticBody3D" unique_id=370849261 instance=ExtResource("1_8exae")]
+
+[node name="object_8" parent="StaticBody3D/Model" index="0" unique_id=1256327110]
+layers = 16
+
+[editable path="StaticBody3D/Model"]
