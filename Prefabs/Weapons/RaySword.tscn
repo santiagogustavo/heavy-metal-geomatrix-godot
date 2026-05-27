@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://4vjrkbjsgvqe" path="res://Textures/Particles/ray_trail.png" id="7_1f7iy"]
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="8_1jjkf"]
 [ext_resource type="Script" uid="uid://hywqchyqup6p" path="res://Scripts/Lights/FlickeringLight.gd" id="9_1d6td"]
+[ext_resource type="AudioStream" uid="uid://hd6ncrssquj7" path="res://Sound/Weapons/Ray Sword/loop.wav" id="10_x03rk"]
+[ext_resource type="AudioStream" uid="uid://cusyyc3utl17" path="res://Sound/Weapons/Ray Sword/attack.wav" id="11_4uerp"]
+[ext_resource type="Texture2D" uid="uid://30fgd8e7sr0s" path="res://Textures/Particles/lightning.png" id="15_puxi0"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="18_a3kpp"]
 
 [sub_resource type="Gradient" id="Gradient_6er6j"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -73,6 +77,46 @@ size = Vector2(0.3, 0.3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m6tn"]
 size = Vector3(0.048828125, 1.3891602, 0.033203125)
 
+[sub_resource type="Curve" id="Curve_x03rk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_4uerp"]
+curve = SubResource("Curve_x03rk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3kpp"]
+emission_shape_scale = Vector3(0, 0.75, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 45.00001
+angle_max = 90.000015
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+alpha_curve = SubResource("CurveTexture_4uerp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_528qr"]
+transparency = 4
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.54901963)
+albedo_texture = ExtResource("15_puxi0")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_distance = 26.75
+
+[sub_resource type="QuadMesh" id="QuadMesh_uk2pp"]
+material = SubResource("StandardMaterial3D_528qr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4uerp"]
+playback_mode = 2
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("11_4uerp")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yvjhu"]
 shader = ExtResource("4_rfa61")
 
@@ -95,10 +139,132 @@ shader_parameter/flags = 40
 [sub_resource type="QuadMesh" id="QuadMesh_ded2u"]
 material = SubResource("ShaderMaterial_d2q0u")
 
-[node name="RaySwordV2" type="Node3D" unique_id=1795923304]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3kpp"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_528qr"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uk2pp"]
+graph_offset = Vector2(-303, 63)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_528qr")
+nodes/TimeSeek/position = Vector2(100, 140)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_a3kpp")
+nodes/Animation/position = Vector2(-180, 120)
+node_connections = [&"output", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_528qr"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uk2pp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pdypr"]
+advance_mode = 2
+advance_expression = "is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gfjs6"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "is_not_attacking"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ovsci"]
+states/Attack/node = SubResource("AnimationNodeBlendTree_uk2pp")
+states/Attack/position = Vector2(526, -42)
+states/RESET/node = SubResource("AnimationNodeAnimation_528qr")
+states/RESET/position = Vector2(526, 100)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_uk2pp"), "RESET", "Attack", SubResource("AnimationNodeStateMachineTransition_pdypr"), "Attack", "RESET", SubResource("AnimationNodeStateMachineTransition_gfjs6")]
+graph_offset = Vector2(-54, -122)
+
+[sub_resource type="Animation" id="Animation_a3kpp"]
+resource_name = "Attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blade/Attack:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blade/Loop:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blade/GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_528qr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blade/Attack:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blade/Loop:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blade/GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uk2pp"]
+_data = {
+&"Attack": SubResource("Animation_a3kpp"),
+&"RESET": SubResource("Animation_528qr")
+}
+
+[node name="RaySwordV2" type="Node3D" unique_id=1795923304 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_m0xck")
 damage = 10
 weapon_range = 1.9
+animation_tree = NodePath("GunAnimationTree")
 hit_general_particle = ExtResource("2_4m6tn")
 hit_player_particle = ExtResource("3_gy3ro")
 item_name = "Ray Sword"
@@ -145,8 +311,33 @@ process_material = SubResource("ParticleProcessMaterial_4q1af")
 draw_pass_1 = SubResource("QuadMesh_dg780")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blade" unique_id=1835634040]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0023994, -0.11287497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0023994, 0.108316064)
 shape = SubResource("BoxShape3D_4m6tn")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Blade" unique_id=1556648973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9798751, 0.10247177)
+emitting = false
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_a3kpp")
+draw_pass_1 = SubResource("QuadMesh_uk2pp")
+
+[node name="Loop" type="AudioStreamPlayer3D" parent="Blade" unique_id=597063400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31364775, 0.111420855)
+stream = ExtResource("10_x03rk")
+volume_db = -35.0
+autoplay = true
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="Attack" type="AudioStreamPlayer3D" parent="Blade" unique_id=22089474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31364775, 0.111420855)
+stream = SubResource("AudioStreamRandomizer_4uerp")
+volume_db = -25.0
+bus = &"Effects"
+attenuation_filter_db = 0.0
 
 [node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=1941725381]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 0.727841, 0, 8.74228e-08, 0, -1, -5.04566e-09, 1.03843, -0.113149)
@@ -170,5 +361,16 @@ light_energy = 0.5
 omni_range = 3.0
 script = ExtResource("9_1d6td")
 max_light_range = 0.5
+
+[node name="GunAnimationTree" type="AnimationTree" parent="." unique_id=45963607]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_ovsci")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/TimeSeek/seek_request = -1.0
+script = ExtResource("18_a3kpp")
+metadata/_custom_type_script = "uid://bnf8w76u6lm3g"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1943394886]
+libraries/ = SubResource("AnimationLibrary_uk2pp")
 
 [editable path="Blade/Ray Sword"]
