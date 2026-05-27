@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://dd1bkwhq7msm2"]
+
+[ext_resource type="Script" uid="uid://b5m1bfey82ohw" path="res://Scripts/Weapons/GunEnergyMode.gd" id="1_3cbd6"]
+[ext_resource type="Script" uid="uid://b0f626p3mv6vk" path="res://Scripts/Weapons/GunControllerV2.gd" id="1_dry4h"]
+[ext_resource type="Texture2D" uid="uid://dp3pyjcld68ol" path="res://Textures/Pickups/Splash/SprayGun.png" id="2_76njk"]
+[ext_resource type="PackedScene" uid="uid://biv5gi8p8wbak" path="res://Models/Weapons/Spray Gun.glb" id="4_thvkv"]
+[ext_resource type="PackedScene" uid="uid://fpnk20jnrqky" path="res://Prefabs/Decals/PaintSplatterDecal.tscn" id="4_ttf5c"]
+[ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="5_vyrr2"]
+[ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="6_0ch35"]
+
+[sub_resource type="Curve" id="Curve_vyrr2"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0ch35"]
+curve = SubResource("Curve_vyrr2")
+
+[sub_resource type="Curve" id="Curve_ttf5c"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6as6o"]
+curve = SubResource("Curve_ttf5c")
+
+[sub_resource type="Gradient" id="Gradient_fdhxw"]
+offsets = PackedFloat32Array(0, 0.1, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.305882, 0, 1, 0.45, 0.171525, 0.0945, 0.568627, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fnjxi"]
+gradient = SubResource("Gradient_fdhxw")
+
+[sub_resource type="Curve" id="Curve_a7yui"]
+_data = [Vector2(0, 0.1), 0.0, 0.900009, 0, 0, Vector2(1, 1), 0.9, 1.33017, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_532ph"]
+curve = SubResource("Curve_a7yui")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cga5c"]
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_0ch35")
+direction = Vector3(0, 0, -1)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+angular_velocity_curve = SubResource("CurveTexture_6as6o")
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_532ph")
+color_ramp = SubResource("GradientTexture1D_fnjxi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttf5c"]
+transparency = 1
+albedo_color = Color(0, 1, 0.9666667, 1)
+albedo_texture = ExtResource("5_vyrr2")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_6as6o"]
+material = SubResource("StandardMaterial3D_ttf5c")
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="Animation" id="Animation_vyrr2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnergyMode/GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0ch35"]
+resource_name = "Spray Start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnergyMode/GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttf5c"]
+_data = {
+&"RESET": SubResource("Animation_vyrr2"),
+&"Spray Start": SubResource("Animation_0ch35")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ttf5c"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6as6o"]
+animation = &"Spray Start"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fdhxw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fnjxi"]
+advance_mode = 2
+advance_expression = "is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7yui"]
+advance_mode = 2
+advance_expression = "!is_shooting"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_532ph"]
+states/RESET/node = SubResource("AnimationNodeAnimation_ttf5c")
+states/RESET/position = Vector2(530, 100)
+states/Spray/node = SubResource("AnimationNodeAnimation_6as6o")
+states/Spray/position = Vector2(530, -18)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_fdhxw"), "RESET", "Spray", SubResource("AnimationNodeStateMachineTransition_fnjxi"), "Spray", "RESET", SubResource("AnimationNodeStateMachineTransition_a7yui")]
+graph_offset = Vector2(0, -86)
+
+[node name="SprayGun" type="Node3D" unique_id=552258279 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes")]
+script = ExtResource("1_dry4h")
+fire_modes = [NodePath("GunEnergyMode")]
+animation_tree = NodePath("AnimationTree")
+bullet_holes = [NodePath("EnergyMode/Raycasts")]
+item_name = "Spray Gun"
+equip_type = 1
+splash = ExtResource("2_76njk")
+metadata/_custom_type_script = "uid://b0f626p3mv6vk"
+
+[node name="GunEnergyMode" type="Node" parent="." unique_id=460001752 node_paths=PackedStringArray("beam", "raycasts")]
+script = ExtResource("1_3cbd6")
+spend_amount = 10.0
+beam = NodePath("../EnergyMode/GPUParticles3D")
+raycasts = [NodePath("../EnergyMode/Raycasts/RayCast3D"), NodePath("../EnergyMode/Raycasts/RayCast3D2"), NodePath("../EnergyMode/Raycasts/RayCast3D3"), NodePath("../EnergyMode/Raycasts/RayCast3D4"), NodePath("../EnergyMode/Raycasts/RayCast3D5")]
+hit_decal = ExtResource("4_ttf5c")
+randomize_color = true
+metadata/_custom_type_script = "uid://b5m1bfey82ohw"
+
+[node name="Model" parent="." unique_id=1662733768 instance=ExtResource("4_thvkv")]
+
+[node name="EnergyMode" type="Node3D" parent="." unique_id=2057207984]
+
+[node name="Raycasts" type="Node3D" parent="EnergyMode" unique_id=1728985298]
+
+[node name="RayCast3D" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=1329094295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18010183, -0.2697444)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D2" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=1993898801]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0.18010183, -0.2697444)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D3" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=1934991883]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0, 0.18010183, -0.2697444)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D4" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=974050099]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0.18010183, -0.2697444)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="RayCast3D5" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=823680799]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.18010183, -0.2697444)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 68
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="EnergyMode" unique_id=606459546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18294889, -0.26662314)
+cast_shadow = 0
+emitting = false
+amount = 15
+lifetime = 0.25
+process_material = SubResource("ParticleProcessMaterial_cga5c")
+draw_pass_1 = SubResource("QuadMesh_6as6o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=914248258]
+libraries/ = SubResource("AnimationLibrary_ttf5c")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2052625466]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_532ph")
+anim_player = NodePath("../AnimationPlayer")
+script = ExtResource("6_0ch35")
+metadata/_custom_type_script = "uid://bnf8w76u6lm3g"

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://fpnk20jnrqky"]
+
+[ext_resource type="Texture2D" uid="uid://dnv8jub1k3n1v" path="res://Textures/Particles/splatter_paint.png" id="1_i4084"]
+[ext_resource type="Script" uid="uid://yoby5tmeglig" path="res://Scripts/Decals/PaintSplatterDecal.gd" id="1_xhun0"]
+[ext_resource type="Script" uid="uid://ctakc5waetkpu" path="res://Scripts/Decals/DecalRandomizer.gd" id="2_xhun0"]
+[ext_resource type="Texture2D" uid="uid://dd31ii6hhu402" path="res://Textures/Particles/splatter_paint_2.png" id="3_nglh2"]
+[ext_resource type="Texture2D" uid="uid://b44fhxgrdkllq" path="res://Textures/Particles/splatter_paint_3.png" id="4_virq8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3wbvs"]
+size = Vector3(1, 0.1, 1)
+
+[node name="PaintSplatter" type="Node3D" unique_id=900157207 node_paths=PackedStringArray("decals")]
+script = ExtResource("1_xhun0")
+decals = [NodePath("Splatter1"), NodePath("Splatter2"), NodePath("Splatter3")]
+
+[node name="Splatter1" type="Decal" parent="." unique_id=1809325489]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
+layers = 29
+size = Vector3(1, 0.2, 1)
+texture_albedo = ExtResource("1_i4084")
+modulate = Color(0, 0.5, 1, 1)
+script = ExtResource("2_xhun0")
+min_rotation = -180
+max_rotation = 180
+rotation_axis = 2
+max_scale = 1.5
+
+[node name="Splatter2" type="Decal" parent="." unique_id=1448075403]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
+layers = 29
+size = Vector3(1, 0.2, 1)
+texture_albedo = ExtResource("3_nglh2")
+modulate = Color(0, 0.5, 1, 1)
+script = ExtResource("2_xhun0")
+min_rotation = -180
+max_rotation = 180
+rotation_axis = 2
+max_scale = 1.5
+
+[node name="Splatter3" type="Decal" parent="." unique_id=584779900]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
+layers = 29
+size = Vector3(1, 0.2, 1)
+texture_albedo = ExtResource("4_virq8")
+modulate = Color(0, 0.5, 1, 1)
+script = ExtResource("2_xhun0")
+min_rotation = -180
+max_rotation = 180
+rotation_axis = 2
+max_scale = 1.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=895354340]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
+layers = 16
+mesh = SubResource("BoxMesh_3wbvs")

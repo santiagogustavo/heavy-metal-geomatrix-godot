@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://pppqi04p45c8"]
+
+[ext_resource type="Texture2D" uid="uid://6fq7dkqrabsb" path="res://Textures/Weapons/Spray Gun/1eb71e98.png" id="1_xmd1i"]
+[ext_resource type="Texture2D" uid="uid://4fu7x8f8miph" path="res://Textures/Weapons/Spray Gun/1eb71e98_spec.png" id="2_uhp6u"]
+
+[resource]
+albedo_texture = ExtResource("1_xmd1i")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_uhp6u")
