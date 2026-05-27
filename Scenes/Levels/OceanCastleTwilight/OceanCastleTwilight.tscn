@@ -411,7 +411,7 @@ transform = Transform3D(1, -2.02931e-11, 0, -6.1732e-11, 1, -1.16415e-10, -2.910
 [node name="Waves" type="AudioStreamPlayer3D" parent="Level Geometry/Audios" unique_id=891113697]
 transform = Transform3D(1, -8.63497e-09, 1.08557e-08, -3.12639e-12, 1, 3.84171e-09, -1.45519e-10, -1.16415e-10, 1, -26.9558, 8.3819e-09, 2)
 stream = ExtResource("13_j3mkj")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"
@@ -420,7 +420,7 @@ attenuation_filter_db = 0.0
 [node name="Waves2" type="AudioStreamPlayer3D" parent="Level Geometry/Audios" unique_id=1932668679]
 transform = Transform3D(1, -8.63497e-09, 1.09139e-08, -3.0127e-12, 1, 3.84171e-09, -2.03727e-10, -1.16415e-10, 1, -26.9558, -6.14673e-08, -17)
 stream = ExtResource("13_j3mkj")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"
@@ -429,7 +429,7 @@ attenuation_filter_db = 0.0
 [node name="Waves3" type="AudioStreamPlayer3D" parent="Level Geometry/Audios" unique_id=763544839]
 transform = Transform3D(1, -8.63497e-09, 1.12341e-08, -2.55795e-12, 1, 3.84171e-09, -5.23869e-10, -1.16415e-10, 1, -17.1022, 0.00360952, -31.9969)
 stream = ExtResource("13_j3mkj")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"
@@ -438,7 +438,7 @@ attenuation_filter_db = 0.0
 [node name="Waves4" type="AudioStreamPlayer3D" parent="Level Geometry/Audios" unique_id=648506875]
 transform = Transform3D(1, -8.63497e-09, 1.12632e-08, -2.55795e-12, 1, 3.84171e-09, -5.52973e-10, -1.16415e-10, 1, 2.89782, 0.00257822, -31.9977)
 stream = ExtResource("13_j3mkj")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"
@@ -447,7 +447,7 @@ attenuation_filter_db = 0.0
 [node name="Waves5" type="AudioStreamPlayer3D" parent="Level Geometry/Audios" unique_id=2075401578]
 transform = Transform3D(1, -8.63497e-09, 1.1205e-08, -2.6148e-12, 1, 3.84171e-09, -4.94765e-10, -1.16415e-10, 1, 6.89782, 0.00257828, -13.9978)
 stream = ExtResource("13_j3mkj")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"
@@ -456,7 +456,7 @@ attenuation_filter_db = 0.0
 [node name="Waves6" type="AudioStreamPlayer3D" parent="Level Geometry/Audios" unique_id=321538255]
 transform = Transform3D(1, -8.63497e-09, 1.12632e-08, -2.55795e-12, 1, 3.84171e-09, -5.52973e-10, -1.16415e-10, 1, 6.8987, 0.00180594, 5.00397)
 stream = ExtResource("13_j3mkj")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"
@@ -465,7 +465,7 @@ attenuation_filter_db = 0.0
 [node name="Waves7" type="AudioStreamPlayer3D" parent="Level Geometry/Audios" unique_id=1251985137]
 transform = Transform3D(1, -8.63497e-09, 1.14669e-08, -2.27374e-12, 1, 3.84171e-09, -7.567e-10, -1.16415e-10, 1, -12.0995, 0.00593344, 13.0123)
 stream = ExtResource("13_j3mkj")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 0.0
 autoplay = true
 bus = &"Effects"

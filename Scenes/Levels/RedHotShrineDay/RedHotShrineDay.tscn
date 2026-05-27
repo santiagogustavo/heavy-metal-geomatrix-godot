@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dxa1tcgelr650" path="res://Textures/Particles/dust_1.png" id="7_yl6su"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="8_68oyf"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="9_kf12v"]
+[ext_resource type="AudioStream" uid="uid://o1vlf2beoe6c" path="res://Sound/Levels/RedHotShrineDay/ambient_loop.wav" id="10_84gig"]
 [ext_resource type="PackedScene" uid="uid://bn3lfst3ikk2g" path="res://Prefabs/Weapons/HardSword.tscn" id="10_xifv4"]
 [ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="11_yl6su"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="12_68oyf"]
@@ -285,6 +286,12 @@ navigation_mesh = SubResource("NavigationMesh_uuidt")
 
 [node name="Navmesh" parent="Level Geometry/NavigationRegion3D" unique_id=306674287 instance=ExtResource("5_uuidt")]
 visible = false
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="Level Geometry" unique_id=1275980643]
+stream = ExtResource("10_84gig")
+volume_db = -5.0
+autoplay = true
+bus = &"Reverb"
 
 [node name="Spawner" parent="." unique_id=785663173 node_paths=PackedStringArray("navigation_region") instance=ExtResource("7_ktx3f")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")

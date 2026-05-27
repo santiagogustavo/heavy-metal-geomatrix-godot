@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sccq4r11cphj"]
 
 [ext_resource type="PackedScene" uid="uid://bfie6xwo54xaa" path="res://Models/Levels/Pitch Dark Stadium/Billboard.glb" id="1_7xo7g"]
+[ext_resource type="Texture2D" uid="uid://0fgjg6ytfm32" path="res://Textures/Lens Flares/flare10.png" id="2_3aw5b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xo7g"]
 size = Vector3(1, 4.296631, 0.111328125)
@@ -10,6 +11,20 @@ size = Vector3(1, 0.32928467, 0.111328125)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxj7j"]
 size = Vector3(1, 3.0484314, 0.111328125)
+
+[sub_resource type="QuadMesh" id="QuadMesh_sxj7j"]
+size = Vector2(5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxp7s"]
+transparency = 4
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.09803922)
+albedo_texture = ExtResource("2_3aw5b")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
 
 [node name="Billboard" type="Node3D" unique_id=1000338004]
 
@@ -75,5 +90,20 @@ shape = SubResource("BoxShape3D_3aw5b")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1404414265]
 transform = Transform3D(1, 0, 0, 0, 0.9978268, -0.06589077, 0, 0.06589077, 0.9978268, 0, 1.5193288, -0.13133778)
 shape = SubResource("BoxShape3D_sxj7j")
+
+[node name="FlareLight" type="MeshInstance3D" parent="StaticBody3D" unique_id=1937473611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0195234, 4.924712, -0.2066899)
+mesh = SubResource("QuadMesh_sxj7j")
+surface_material_override/0 = SubResource("StandardMaterial3D_hxp7s")
+
+[node name="FlareLight2" type="MeshInstance3D" parent="StaticBody3D" unique_id=49282499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0437849, 4.924712, -0.2066899)
+mesh = SubResource("QuadMesh_sxj7j")
+surface_material_override/0 = SubResource("StandardMaterial3D_hxp7s")
+
+[node name="FlareLight3" type="MeshInstance3D" parent="StaticBody3D" unique_id=553669433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.970504, 4.924712, -0.2066899)
+mesh = SubResource("QuadMesh_sxj7j")
+surface_material_override/0 = SubResource("StandardMaterial3D_hxp7s")
 
 [editable path="StaticBody3D/Model"]

@@ -163,4 +163,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61485, 0.0625181, -4.03928
 timeout = 15.0
 item = ExtResource("6_2od80")
 
+[node name="Pickup5" parent="." unique_id=1417594139 instance=ExtResource("19_3kfwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3568707, 0.06251812, -0.4504776)
+timeout = 15.0
+item = ExtResource("13_6vc2e")
+
 [editable path="Spawner"]

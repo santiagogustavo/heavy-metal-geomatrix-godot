@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1bkwhq7msm2" path="res://Prefabs/Weapons/SprayGun/SprayGun.tscn" id="25_dorkn"]
 [ext_resource type="PackedScene" uid="uid://cow3de7hn73bf" path="res://Prefabs/Levels/Ocean Castle Twilight/Guillotine.tscn" id="25_nhjaw"]
 [ext_resource type="PackedScene" uid="uid://d2b75t1ilt30u" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="25_ptem2"]
+[ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="26_74gyk"]
 [ext_resource type="PackedScene" uid="uid://ceje3sfnyrp2o" path="res://Prefabs/Levels/Red Hot Shrine Day/TotemSmall.tscn" id="26_ptem2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6eb3a"]
@@ -245,6 +246,11 @@ item = ExtResource("25_dorkn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.356871, 0.0625181, -11.450477)
 timeout = 15.0
 item = ExtResource("17_6njym")
+
+[node name="Pickup5" parent="." unique_id=1652256111 instance=ExtResource("22_4nt3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.356871, 0.0625181, 16.549522)
+timeout = 15.0
+item = ExtResource("26_74gyk")
 
 [node name="Guillotine" parent="." unique_id=1012458926 instance=ExtResource("25_nhjaw")]
 transform = Transform3D(-0.7388318, 0, -0.6738898, 0, 1, 0, 0.6738898, 0, -0.7388318, 11.973581, -0.023739815, 10.645496)
