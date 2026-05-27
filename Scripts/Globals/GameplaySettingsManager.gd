@@ -3,7 +3,7 @@ extends Node
 var fov: float = 60
 var hitmarkers_enabled: bool = true
 var free_look_enabled: bool = false
-var blood_amount: int = 1
+var blood_amount: int = 2
 
 var crosshair_style: int = 2
 var crosshair_scale: float = 0.5

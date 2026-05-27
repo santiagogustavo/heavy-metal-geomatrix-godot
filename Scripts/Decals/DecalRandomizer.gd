@@ -19,11 +19,11 @@ enum RotationAxis {
 @export var max_scale: float = 1
 
 func _ready() -> void:
-	randomize()
+	randomize_decal()
 	if !VideoSettingsManager.permanent_decals:
 		get_tree().create_timer(VideoSettingsManager.decal_lifetime).timeout.connect(queue_free)
 
-func randomize() -> void:
+func randomize_decal() -> void:
 	if randomize_position:
 		var random_x = randf_range(-position_range, position_range)
 		var random_z = randf_range(-position_range, position_range)
@@ -31,10 +31,11 @@ func randomize() -> void:
 		position.z += random_z
 	var random_scale = randf_range(min_scale, max_scale)
 	scale = Vector3(random_scale, random_scale, random_scale)
+	var random_rotation = deg_to_rad(randi_range(min_rotation, max_rotation))
 	match rotation_axis:
 		RotationAxis.x:
-			rotation_degrees.x = randi_range(min_rotation, max_rotation)
+			rotate_x(random_rotation)
 		RotationAxis.y:
-			rotation_degrees.y = randi_range(min_rotation, max_rotation)
+			rotate_y(random_rotation)
 		RotationAxis.z:
-			rotation_degrees.z = randi_range(min_rotation, max_rotation)
+			rotate_z(random_rotation)

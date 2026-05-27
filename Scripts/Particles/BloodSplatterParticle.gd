@@ -27,8 +27,9 @@ func instantiate_decal(decal: Decal) -> void:
 		decal.randomize_position = true
 		decal.position_range = 0.5
 	var modulate_amount: float = randf_range(0.75, 1)
+	decal = decal.duplicate()
+	get_tree().root.add_child(decal)
 	decal.modulate = Color(modulate_amount, modulate_amount, modulate_amount)
-	decal.reparent(get_tree().root)
 	decal.global_transform.origin = rigid_body.local_collision_pos
 	decal.look_at(
 		rigid_body.local_collision_pos
@@ -36,7 +37,7 @@ func instantiate_decal(decal: Decal) -> void:
 		+ Vector3(0.001, 0.0, 0.0)
 	)
 	decal.rotation_degrees.x += 90
-	decal.randomize()
+	decal.randomize_decal()
 	decal.visible = true
 
 func instantiate_wall_decal() -> void:
