@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbrwdyjtj7ipr"]
+[gd_scene format=3 uid="uid://dbrwdyjtj7ipr"]
 
 [ext_resource type="Script" uid="uid://8dfbh1na7qeh" path="res://Scripts/Utils/QueueFreeTimeout.gd" id="1_551j4"]
 [ext_resource type="Texture2D" uid="uid://csn3yiy2jvwce" path="res://Textures/Decals/burn_mark.png" id="1_w6fqy"]
@@ -79,11 +79,11 @@ states/Burn/node = SubResource("AnimationNodeAnimation_wa28u")
 states/Burn/position = Vector2(484, 100.75)
 transitions = ["Start", "Burn", SubResource("AnimationNodeStateMachineTransition_oivle")]
 
-[node name="BurnDecal" type="Node3D"]
+[node name="BurnDecal" type="Node3D" unique_id=911553861]
 script = ExtResource("1_551j4")
 timeout = 2.0
 
-[node name="Decal" type="Decal" parent="."]
+[node name="Decal" type="Decal" parent="." unique_id=1869855229]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 size = Vector3(1, 1, 1)
 texture_albedo = ExtResource("1_w6fqy")
@@ -97,16 +97,14 @@ max_rotation = 360
 min_scale = 0.8
 max_scale = 1.2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=776140130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.503882)
 visible = false
 mesh = SubResource("BoxMesh_4u06n")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6v536")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1171474463]
+libraries/ = SubResource("AnimationLibrary_6v536")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1935899345]
 tree_root = SubResource("AnimationNodeStateMachine_yvn12")
 anim_player = NodePath("../AnimationPlayer")

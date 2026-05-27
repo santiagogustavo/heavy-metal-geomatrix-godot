@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://8c1bg7a2pj75"]
+[gd_scene format=3 uid="uid://8c1bg7a2pj75"]
 
 [ext_resource type="Script" uid="uid://b0f626p3mv6vk" path="res://Scripts/Weapons/GunControllerV2.gd" id="1_euqh0"]
 [ext_resource type="PackedScene" uid="uid://c10u54kbc48we" path="res://Models/Weapons/Flame Gun.glb" id="2_2i1oq"]
@@ -53,7 +53,7 @@ size = Vector2(0.75, 0.75)
 [sub_resource type="Gradient" id="Gradient_giipa"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_c81qw"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tvqrr"]
 gradient = SubResource("Gradient_giipa")
 
 [sub_resource type="Curve" id="Curve_cokjr"]
@@ -61,7 +61,7 @@ _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
-[sub_resource type="CurveTexture" id="CurveTexture_jeqdk"]
+[sub_resource type="CurveTexture" id="CurveTexture_lbtd1"]
 curve = SubResource("Curve_cokjr")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_12fdp"]
@@ -72,11 +72,11 @@ initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 gravity = Vector3(0, 9.8, 0)
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_jeqdk")
+scale_curve = SubResource("CurveTexture_lbtd1")
 color = Color(0.29, 0.29, 0.29, 1)
-color_ramp = SubResource("GradientTexture1D_c81qw")
+color_ramp = SubResource("GradientTexture1D_tvqrr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh71l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqwyh"]
 transparency = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -88,7 +88,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_uwiq3"]
-material = SubResource("StandardMaterial3D_fh71l")
+material = SubResource("StandardMaterial3D_yqwyh")
 
 [sub_resource type="Animation" id="Animation_yby63"]
 resource_name = "FlameStart"
@@ -373,7 +373,7 @@ states/Shoot/position = Vector2(283, -37)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_euqh0"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_onadi"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_upb4l"), "Idle", "FlameStart", SubResource("AnimationNodeStateMachineTransition_25514"), "FlameStart", "FlameStop", SubResource("AnimationNodeStateMachineTransition_vpbts"), "FlameStop", "Idle", SubResource("AnimationNodeStateMachineTransition_3qipr")]
 graph_offset = Vector2(-50, -90)
 
-[node name="FlameGun" type="Node3D" node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes")]
+[node name="FlameGun" type="Node3D" unique_id=263060241 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes")]
 script = ExtResource("1_euqh0")
 fire_modes = [NodePath("GunBulletMode"), NodePath("GunEnergyMode")]
 animation_tree = NodePath("AnimationTree")
@@ -382,7 +382,7 @@ item_name = "Flame Gun"
 equip_type = 1
 splash = ExtResource("2_onadi")
 
-[node name="GunBulletMode" type="Node" parent="."]
+[node name="GunBulletMode" type="Node" parent="." unique_id=297569126]
 script = ExtResource("3_euqh0")
 bullets = 8
 fire_rate = 1.0
@@ -392,7 +392,7 @@ damage = 5
 fire_range = 15.0
 metadata/_custom_type_script = "uid://upo11pnbegro"
 
-[node name="GunEnergyMode" type="Node" parent="." node_paths=PackedStringArray("beam", "raycasts")]
+[node name="GunEnergyMode" type="Node" parent="." unique_id=1431015854 node_paths=PackedStringArray("beam", "raycasts")]
 script = ExtResource("5_upb4l")
 spend_amount = 20.0
 beam = NodePath("../EnergyMode/Flame")
@@ -403,15 +403,15 @@ damage = 100
 fire_range = 3.0
 metadata/_custom_type_script = "uid://b5m1bfey82ohw"
 
-[node name="Flame Gun" parent="." instance=ExtResource("2_2i1oq")]
+[node name="Flame Gun" parent="." unique_id=2089281012 instance=ExtResource("2_2i1oq")]
 
 [node name="object_4" parent="Flame Gun" index="0"]
 layers = 8
 
-[node name="BulletHole" type="Node3D" parent="."]
+[node name="BulletHole" type="Node3D" parent="." unique_id=844893462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.009844542, -0.8788264)
 
-[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole"]
+[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole" unique_id=2061068587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235036, 0.000154138)
 emitting = false
 amount = 1
@@ -422,20 +422,20 @@ transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_euqh0")
 draw_pass_1 = SubResource("QuadMesh_onadi")
 
-[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole"]
+[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole" unique_id=603432072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00157207, -0.0459177)
 light_color = Color(1, 0.666667, 0, 1)
 light_energy = 0.0
 
-[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=1321915049]
 stream = ExtResource("4_nw2nc")
 max_db = 0.0
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 
-[node name="EnergyMode" type="Node3D" parent="."]
+[node name="EnergyMode" type="Node3D" parent="." unique_id=1775619853]
 
-[node name="BaseLight" type="OmniLight3D" parent="EnergyMode"]
+[node name="BaseLight" type="OmniLight3D" parent="EnergyMode" unique_id=1534719869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00270765, -0.918352)
 visible = false
 light_color = Color(1, 0.75, 0, 1)
@@ -444,39 +444,39 @@ omni_range = 3.0
 script = ExtResource("10_yby63")
 max_light_range = 0.5
 
-[node name="Raycasts" type="Node3D" parent="EnergyMode"]
+[node name="Raycasts" type="Node3D" parent="EnergyMode" unique_id=1842608488]
 
-[node name="RayCast3D" type="RayCast3D" parent="EnergyMode/Raycasts"]
+[node name="RayCast3D" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=1269238935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83176)
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 68
 
-[node name="RayCast3D2" type="RayCast3D" parent="EnergyMode/Raycasts"]
+[node name="RayCast3D2" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=1321136035]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, -0.83176)
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 68
 
-[node name="RayCast3D3" type="RayCast3D" parent="EnergyMode/Raycasts"]
+[node name="RayCast3D3" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=120428105]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0, 0, -0.83176)
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 68
 
-[node name="RayCast3D4" type="RayCast3D" parent="EnergyMode/Raycasts"]
+[node name="RayCast3D4" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=716897514]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, -0.83176)
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 68
 
-[node name="RayCast3D5" type="RayCast3D" parent="EnergyMode/Raycasts"]
+[node name="RayCast3D5" type="RayCast3D" parent="EnergyMode/Raycasts" unique_id=283819875]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, -0.83176)
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 68
 
-[node name="Flame" parent="EnergyMode" instance=ExtResource("11_wog54")]
+[node name="Flame" parent="EnergyMode" unique_id=1257925191 instance=ExtResource("11_wog54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.877798)
 emitting = false
 visibility_aabb = AABB(-2, -2, -4.5, 4, 4, 6.33333)
 
-[node name="Smoke" type="GPUParticles3D" parent="EnergyMode"]
+[node name="Smoke" type="GPUParticles3D" parent="EnergyMode" unique_id=1093696517]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.00342714, 0.000118643, -0.844176)
 emitting = false
 amount = 5
@@ -486,33 +486,31 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_12fdp")
 draw_pass_1 = SubResource("QuadMesh_uwiq3")
 
-[node name="SFX" type="Node3D" parent="EnergyMode"]
+[node name="SFX" type="Node3D" parent="EnergyMode" unique_id=1291619108]
 
-[node name="FireStart" type="AudioStreamPlayer3D" parent="EnergyMode/SFX"]
+[node name="FireStart" type="AudioStreamPlayer3D" parent="EnergyMode/SFX" unique_id=1034213869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.847462)
 stream = ExtResource("13_vpbts")
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="FireLoop" type="AudioStreamPlayer3D" parent="EnergyMode/SFX"]
+[node name="FireLoop" type="AudioStreamPlayer3D" parent="EnergyMode/SFX" unique_id=358597478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.847462)
 stream = ExtResource("14_3qipr")
 volume_db = -15.0
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="FireStop" type="AudioStreamPlayer3D" parent="EnergyMode/SFX"]
+[node name="FireStop" type="AudioStreamPlayer3D" parent="EnergyMode/SFX" unique_id=813745772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.847462)
 stream = ExtResource("15_qnkme")
 bus = &"Effects"
 attenuation_filter_db = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_3wegn")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1790999218]
+libraries/ = SubResource("AnimationLibrary_3wegn")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=220322764]
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_nwj4r")
 anim_player = NodePath("../AnimationPlayer")
