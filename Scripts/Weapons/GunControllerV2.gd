@@ -54,12 +54,8 @@ func _process(delta: float) -> void:
 	if will_change_fire_mode or !selected_fire_mode:
 		update_selected_fire_mode()
 	if selected_fire_mode is GunBulletMode:
-		is_bullet_mode = true
-		is_energy_mode = false
 		process_bullet_mode()
 	elif selected_fire_mode is GunEnergyMode:
-		is_bullet_mode = false
-		is_energy_mode = true
 		process_energy_mode(delta)
 
 func _physics_process(delta: float) -> void:
@@ -70,6 +66,12 @@ func _physics_process(delta: float) -> void:
 func update_selected_fire_mode() -> void:
 	selected_fire_mode = fire_modes[selected_fire_mode_index]
 	animation_tree.selected_fire_mode = selected_fire_mode.mode_name
+	if selected_fire_mode is GunBulletMode:
+		is_bullet_mode = true
+		is_energy_mode = false
+	elif selected_fire_mode is GunEnergyMode:
+		is_bullet_mode = false
+		is_energy_mode = true
 	fire_mode_changed.emit()
 
 func clear_current_fire_mode_and_go_to_next() -> void:
@@ -188,10 +190,13 @@ func spend_fuel(delta: float) -> void:
 			if (selected_fire_mode as GunEnergyMode).energy < 0:
 				(selected_fire_mode as GunEnergyMode).energy = 0
 
-func instantiate_hit(point: Vector3, normal: Vector3, _type: int) -> void:
-	var hit_instance: Node3D
-	hit_instance = (selected_fire_mode as GunEnergyMode).hit_decal.instantiate()
-	get_tree().root.add_child(hit_instance)
+func instantiate_hit(collider: Node3D, point: Vector3, normal: Vector3, _type: int) -> void:
+	var hit_instance: Node3D = (selected_fire_mode as GunEnergyMode).hit_decal.instantiate()
+	if "color" in hit_instance:
+		hit_instance.color = (selected_fire_mode as GunEnergyMode).color
+	hit_instance.visible = true
+	hit_instance.scale = hit_instance.scale / collider.scale
+	collider.add_child(hit_instance)
 	hit_instance.global_transform.origin = point
 	TransformUtils.safe_look_at(hit_instance, point + normal)
 
@@ -205,7 +210,7 @@ func detect_raycast_collision(delta: float) -> void:
 				return
 			var point = raycast.get_collision_point()
 			var normal = raycast.get_collision_normal()
-			instantiate_hit(point, normal, collider.collision_layer)
+			instantiate_hit(collider, point, normal, collider.collision_layer)
 			if collider.collision_layer == Definitions.SurfaceType.Hitbox:
 				(collider as CharacterHitbox).damage_taken(selected_fire_mode.damage * delta, point, global_position)
 			frames_elapsed = 0
