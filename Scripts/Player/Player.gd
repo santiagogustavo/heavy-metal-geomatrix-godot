@@ -263,21 +263,22 @@ func look_at_target_position() -> void:
 	#look_at(target_position)
 	#rotation.x = initial_rotation.x
 	#rotation.z = initial_rotation.z
-	if !player_input:
-		return
 	var aim_condition = animation_tree.is_current_node_shooting_or_aiming()
 	var look_condition = (
 		!brain.should_look_at_target and brain.is_walking
 	) or brain.should_look_at_target
 	if aim_condition and look_condition:
-		inventory_manager.right_hand_instance.look_at(camera.target_point)
+		if camera:
+			inventory_manager.right_hand_instance.look_at(camera.target_point)
+		elif player_bot_ai:
+			inventory_manager.right_hand_instance.look_at(player_bot_ai.target_position)
 	elif inventory_manager.has_gun:
 		inventory_manager.right_hand_instance.look_at(
 			inventory_manager.right_hand_instance.global_position
 			+ inventory_manager.right_hand_instance.global_transform.basis.z
 			* -1
 		)
-	if player_input.is_locked_on:
+	if player_input and player_input.is_locked_on:
 		camera_pivot.look_at(target_position)
 		brain.new_rotation = camera_pivot.global_rotation
 
