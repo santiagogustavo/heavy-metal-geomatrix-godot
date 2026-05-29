@@ -198,212 +198,212 @@ items_to_spawn = Array[PackedScene]([ExtResource("10_55oue"), ExtResource("12_qv
 
 [node name="Pitch Dark Stadium" parent="LevelGeometry" unique_id=1888370747 instance=ExtResource("1_e6pgn")]
 
-[node name="object_0" parent="LevelGeometry/Pitch Dark Stadium" index="0"]
+[node name="object_0" parent="LevelGeometry/Pitch Dark Stadium" index="0" unique_id=378816998]
 layers = 16
 
-[node name="object_1" parent="LevelGeometry/Pitch Dark Stadium" index="1"]
+[node name="object_1" parent="LevelGeometry/Pitch Dark Stadium" index="1" unique_id=620516781]
 layers = 16
 
-[node name="object_2" parent="LevelGeometry/Pitch Dark Stadium" index="2"]
+[node name="object_2" parent="LevelGeometry/Pitch Dark Stadium" index="2" unique_id=690482809]
 layers = 16
 
-[node name="object_3" parent="LevelGeometry/Pitch Dark Stadium" index="3"]
+[node name="object_3" parent="LevelGeometry/Pitch Dark Stadium" index="3" unique_id=744597398]
 layers = 16
 
-[node name="object_4" parent="LevelGeometry/Pitch Dark Stadium" index="4"]
+[node name="object_4" parent="LevelGeometry/Pitch Dark Stadium" index="4" unique_id=1230453771]
 layers = 16
 
-[node name="object_5" parent="LevelGeometry/Pitch Dark Stadium" index="5"]
+[node name="object_5" parent="LevelGeometry/Pitch Dark Stadium" index="5" unique_id=1420082276]
 layers = 16
 
-[node name="object_6" parent="LevelGeometry/Pitch Dark Stadium" index="6"]
+[node name="object_6" parent="LevelGeometry/Pitch Dark Stadium" index="6" unique_id=688075485]
 layers = 16
 
-[node name="object_7" parent="LevelGeometry/Pitch Dark Stadium" index="7"]
+[node name="object_7" parent="LevelGeometry/Pitch Dark Stadium" index="7" unique_id=704429027]
 layers = 16
 
-[node name="object_8" parent="LevelGeometry/Pitch Dark Stadium" index="8"]
+[node name="object_8" parent="LevelGeometry/Pitch Dark Stadium" index="8" unique_id=680567284]
 layers = 16
 
-[node name="object_10" parent="LevelGeometry/Pitch Dark Stadium" index="9"]
+[node name="object_10" parent="LevelGeometry/Pitch Dark Stadium" index="9" unique_id=177589385]
 layers = 16
 
-[node name="object_11" parent="LevelGeometry/Pitch Dark Stadium" index="10"]
+[node name="object_11" parent="LevelGeometry/Pitch Dark Stadium" index="10" unique_id=487268364]
 layers = 16
 
-[node name="object_12" parent="LevelGeometry/Pitch Dark Stadium" index="11"]
+[node name="object_12" parent="LevelGeometry/Pitch Dark Stadium" index="11" unique_id=1760716644]
 layers = 16
 
-[node name="object_13" parent="LevelGeometry/Pitch Dark Stadium" index="12"]
+[node name="object_13" parent="LevelGeometry/Pitch Dark Stadium" index="12" unique_id=1632192027]
 layers = 16
 
-[node name="object_14" parent="LevelGeometry/Pitch Dark Stadium" index="13"]
+[node name="object_14" parent="LevelGeometry/Pitch Dark Stadium" index="13" unique_id=1670641519]
 layers = 16
 
-[node name="object_15" parent="LevelGeometry/Pitch Dark Stadium" index="14"]
+[node name="object_15" parent="LevelGeometry/Pitch Dark Stadium" index="14" unique_id=245733444]
 layers = 16
 
-[node name="object_16" parent="LevelGeometry/Pitch Dark Stadium" index="15"]
+[node name="object_16" parent="LevelGeometry/Pitch Dark Stadium" index="15" unique_id=737241574]
 layers = 16
 
-[node name="object_17" parent="LevelGeometry/Pitch Dark Stadium" index="16"]
+[node name="object_17" parent="LevelGeometry/Pitch Dark Stadium" index="16" unique_id=711226008]
 layers = 16
 
-[node name="object_18" parent="LevelGeometry/Pitch Dark Stadium" index="17"]
+[node name="object_18" parent="LevelGeometry/Pitch Dark Stadium" index="17" unique_id=1347681688]
 layers = 16
 
-[node name="object_19" parent="LevelGeometry/Pitch Dark Stadium" index="18"]
+[node name="object_19" parent="LevelGeometry/Pitch Dark Stadium" index="18" unique_id=665930184]
 layers = 16
 
-[node name="object_20" parent="LevelGeometry/Pitch Dark Stadium" index="19"]
+[node name="object_20" parent="LevelGeometry/Pitch Dark Stadium" index="19" unique_id=1124893229]
 layers = 16
 
-[node name="object_21" parent="LevelGeometry/Pitch Dark Stadium" index="20"]
+[node name="object_21" parent="LevelGeometry/Pitch Dark Stadium" index="20" unique_id=909600164]
 layers = 16
 
-[node name="object_22" parent="LevelGeometry/Pitch Dark Stadium" index="21"]
+[node name="object_22" parent="LevelGeometry/Pitch Dark Stadium" index="21" unique_id=1702941935]
 layers = 16
 
-[node name="object_23" parent="LevelGeometry/Pitch Dark Stadium" index="22"]
+[node name="object_23" parent="LevelGeometry/Pitch Dark Stadium" index="22" unique_id=1318966693]
 layers = 16
 
-[node name="object_24" parent="LevelGeometry/Pitch Dark Stadium" index="23"]
+[node name="object_24" parent="LevelGeometry/Pitch Dark Stadium" index="23" unique_id=19338798]
 layers = 16
 
-[node name="object_25" parent="LevelGeometry/Pitch Dark Stadium" index="24"]
+[node name="object_25" parent="LevelGeometry/Pitch Dark Stadium" index="24" unique_id=1490396852]
 layers = 16
 
-[node name="object_26" parent="LevelGeometry/Pitch Dark Stadium" index="25"]
+[node name="object_26" parent="LevelGeometry/Pitch Dark Stadium" index="25" unique_id=1589478618]
 layers = 16
 
-[node name="object_27" parent="LevelGeometry/Pitch Dark Stadium" index="26"]
+[node name="object_27" parent="LevelGeometry/Pitch Dark Stadium" index="26" unique_id=1143394406]
 layers = 16
 
-[node name="object_28" parent="LevelGeometry/Pitch Dark Stadium" index="27"]
+[node name="object_28" parent="LevelGeometry/Pitch Dark Stadium" index="27" unique_id=1096947532]
 layers = 16
 
-[node name="object_29" parent="LevelGeometry/Pitch Dark Stadium" index="28"]
+[node name="object_29" parent="LevelGeometry/Pitch Dark Stadium" index="28" unique_id=105229019]
 layers = 16
 
-[node name="object_30" parent="LevelGeometry/Pitch Dark Stadium" index="29"]
+[node name="object_30" parent="LevelGeometry/Pitch Dark Stadium" index="29" unique_id=2145260921]
 layers = 16
 
-[node name="object_31" parent="LevelGeometry/Pitch Dark Stadium" index="30"]
+[node name="object_31" parent="LevelGeometry/Pitch Dark Stadium" index="30" unique_id=1855903972]
 layers = 16
 
-[node name="object_32" parent="LevelGeometry/Pitch Dark Stadium" index="31"]
+[node name="object_32" parent="LevelGeometry/Pitch Dark Stadium" index="31" unique_id=1453818633]
 layers = 16
 
-[node name="object_33" parent="LevelGeometry/Pitch Dark Stadium" index="32"]
+[node name="object_33" parent="LevelGeometry/Pitch Dark Stadium" index="32" unique_id=1448058576]
 layers = 16
 
-[node name="object_34" parent="LevelGeometry/Pitch Dark Stadium" index="33"]
+[node name="object_34" parent="LevelGeometry/Pitch Dark Stadium" index="33" unique_id=326971288]
 layers = 16
 
-[node name="object_35" parent="LevelGeometry/Pitch Dark Stadium" index="34"]
+[node name="object_35" parent="LevelGeometry/Pitch Dark Stadium" index="34" unique_id=1745425638]
 layers = 16
 
-[node name="object_36" parent="LevelGeometry/Pitch Dark Stadium" index="35"]
+[node name="object_36" parent="LevelGeometry/Pitch Dark Stadium" index="35" unique_id=384383277]
 layers = 16
 
-[node name="object_37" parent="LevelGeometry/Pitch Dark Stadium" index="36"]
+[node name="object_37" parent="LevelGeometry/Pitch Dark Stadium" index="36" unique_id=23466575]
 layers = 16
 
-[node name="object_38" parent="LevelGeometry/Pitch Dark Stadium" index="37"]
+[node name="object_38" parent="LevelGeometry/Pitch Dark Stadium" index="37" unique_id=671352449]
 layers = 16
 
-[node name="object_39" parent="LevelGeometry/Pitch Dark Stadium" index="38"]
+[node name="object_39" parent="LevelGeometry/Pitch Dark Stadium" index="38" unique_id=676406021]
 layers = 16
 
-[node name="object_40" parent="LevelGeometry/Pitch Dark Stadium" index="39"]
+[node name="object_40" parent="LevelGeometry/Pitch Dark Stadium" index="39" unique_id=1659940545]
 layers = 16
 
-[node name="object_41" parent="LevelGeometry/Pitch Dark Stadium" index="40"]
+[node name="object_41" parent="LevelGeometry/Pitch Dark Stadium" index="40" unique_id=1334181469]
 layers = 16
 
-[node name="object_42" parent="LevelGeometry/Pitch Dark Stadium" index="41"]
+[node name="object_42" parent="LevelGeometry/Pitch Dark Stadium" index="41" unique_id=2129479318]
 layers = 16
 
-[node name="object_43" parent="LevelGeometry/Pitch Dark Stadium" index="42"]
+[node name="object_43" parent="LevelGeometry/Pitch Dark Stadium" index="42" unique_id=2126076977]
 layers = 16
 
-[node name="object_44" parent="LevelGeometry/Pitch Dark Stadium" index="43"]
+[node name="object_44" parent="LevelGeometry/Pitch Dark Stadium" index="43" unique_id=1921318840]
 layers = 16
 
-[node name="object_45" parent="LevelGeometry/Pitch Dark Stadium" index="44"]
+[node name="object_45" parent="LevelGeometry/Pitch Dark Stadium" index="44" unique_id=1298216239]
 layers = 16
 
-[node name="object_46" parent="LevelGeometry/Pitch Dark Stadium" index="45"]
+[node name="object_46" parent="LevelGeometry/Pitch Dark Stadium" index="45" unique_id=665477525]
 layers = 16
 surface_material_override/0 = ExtResource("4_t2tlk")
 
-[node name="object_48" parent="LevelGeometry/Pitch Dark Stadium" index="46"]
+[node name="object_48" parent="LevelGeometry/Pitch Dark Stadium" index="46" unique_id=201916903]
 layers = 16
 
-[node name="object_49" parent="LevelGeometry/Pitch Dark Stadium" index="47"]
+[node name="object_49" parent="LevelGeometry/Pitch Dark Stadium" index="47" unique_id=1223038510]
 layers = 16
 
-[node name="object_50" parent="LevelGeometry/Pitch Dark Stadium" index="48"]
+[node name="object_50" parent="LevelGeometry/Pitch Dark Stadium" index="48" unique_id=596975591]
 layers = 16
 
-[node name="object_51" parent="LevelGeometry/Pitch Dark Stadium" index="49"]
+[node name="object_51" parent="LevelGeometry/Pitch Dark Stadium" index="49" unique_id=124404880]
 layers = 16
 
-[node name="object_52" parent="LevelGeometry/Pitch Dark Stadium" index="50"]
+[node name="object_52" parent="LevelGeometry/Pitch Dark Stadium" index="50" unique_id=2127967763]
 layers = 16
 
-[node name="object_53" parent="LevelGeometry/Pitch Dark Stadium" index="51"]
+[node name="object_53" parent="LevelGeometry/Pitch Dark Stadium" index="51" unique_id=466304707]
 layers = 16
 
-[node name="object_54" parent="LevelGeometry/Pitch Dark Stadium" index="52"]
+[node name="object_54" parent="LevelGeometry/Pitch Dark Stadium" index="52" unique_id=1152088730]
 layers = 16
 
-[node name="object_55" parent="LevelGeometry/Pitch Dark Stadium" index="53"]
+[node name="object_55" parent="LevelGeometry/Pitch Dark Stadium" index="53" unique_id=709361281]
 layers = 16
 
-[node name="object_56" parent="LevelGeometry/Pitch Dark Stadium" index="54"]
+[node name="object_56" parent="LevelGeometry/Pitch Dark Stadium" index="54" unique_id=1477236218]
 layers = 16
 
-[node name="object_57" parent="LevelGeometry/Pitch Dark Stadium" index="55"]
+[node name="object_57" parent="LevelGeometry/Pitch Dark Stadium" index="55" unique_id=1853542403]
 layers = 16
 
-[node name="object_58" parent="LevelGeometry/Pitch Dark Stadium" index="56"]
+[node name="object_58" parent="LevelGeometry/Pitch Dark Stadium" index="56" unique_id=652892251]
 layers = 16
 
-[node name="object_59" parent="LevelGeometry/Pitch Dark Stadium" index="57"]
+[node name="object_59" parent="LevelGeometry/Pitch Dark Stadium" index="57" unique_id=728595603]
 layers = 16
 
-[node name="object_60" parent="LevelGeometry/Pitch Dark Stadium" index="58"]
+[node name="object_60" parent="LevelGeometry/Pitch Dark Stadium" index="58" unique_id=796252512]
 layers = 16
 
-[node name="object_61" parent="LevelGeometry/Pitch Dark Stadium" index="59"]
+[node name="object_61" parent="LevelGeometry/Pitch Dark Stadium" index="59" unique_id=320979980]
 layers = 16
 
-[node name="object_62" parent="LevelGeometry/Pitch Dark Stadium" index="60"]
+[node name="object_62" parent="LevelGeometry/Pitch Dark Stadium" index="60" unique_id=553702898]
 layers = 16
 
-[node name="object_63" parent="LevelGeometry/Pitch Dark Stadium" index="61"]
+[node name="object_63" parent="LevelGeometry/Pitch Dark Stadium" index="61" unique_id=1857538481]
 layers = 16
 
-[node name="object_64" parent="LevelGeometry/Pitch Dark Stadium" index="62"]
+[node name="object_64" parent="LevelGeometry/Pitch Dark Stadium" index="62" unique_id=299462417]
 layers = 16
 
-[node name="object_65" parent="LevelGeometry/Pitch Dark Stadium" index="63"]
+[node name="object_65" parent="LevelGeometry/Pitch Dark Stadium" index="63" unique_id=1553993921]
 layers = 16
 
-[node name="object_66" parent="LevelGeometry/Pitch Dark Stadium" index="64"]
+[node name="object_66" parent="LevelGeometry/Pitch Dark Stadium" index="64" unique_id=169773213]
 layers = 16
 
-[node name="object_67" parent="LevelGeometry/Pitch Dark Stadium" index="65"]
+[node name="object_67" parent="LevelGeometry/Pitch Dark Stadium" index="65" unique_id=1186912255]
 layers = 16
 
-[node name="object_68" parent="LevelGeometry/Pitch Dark Stadium" index="66"]
+[node name="object_68" parent="LevelGeometry/Pitch Dark Stadium" index="66" unique_id=1427790618]
 layers = 16
 
-[node name="object_69" parent="LevelGeometry/Pitch Dark Stadium" index="67"]
+[node name="object_69" parent="LevelGeometry/Pitch Dark Stadium" index="67" unique_id=1908951476]
 layers = 16
 
-[node name="object_9" parent="LevelGeometry/Pitch Dark Stadium" index="68"]
+[node name="object_9" parent="LevelGeometry/Pitch Dark Stadium" index="68" unique_id=645711902]
 layers = 16
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="LevelGeometry" unique_id=1855749916]
