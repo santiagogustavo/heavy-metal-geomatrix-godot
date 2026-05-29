@@ -296,6 +296,8 @@ bus = &"Reverb"
 [node name="Spawner" parent="." unique_id=785663173 node_paths=PackedStringArray("navigation_region") instance=ExtResource("7_ktx3f")]
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 3
+spawn_min_distance = 10.0
+spawn_timeout = 5.0
 items_to_spawn = Array[PackedScene]([ExtResource("8_68oyf"), ExtResource("9_kf12v"), ExtResource("10_xifv4"), ExtResource("11_yl6su")])
 
 [node name="World Boundaries" parent="." unique_id=896150592 instance=ExtResource("12_68oyf")]
