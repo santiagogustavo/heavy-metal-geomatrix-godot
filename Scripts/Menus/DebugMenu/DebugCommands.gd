@@ -48,8 +48,8 @@ func add_bot() -> String:
 	instance.selected_character = [
 		#Definitions.Characters.Mayfly,
 		#Definitions.Characters.Slash,
-		Definitions.Characters.Di
-		#Definitions.Characters.Kassey,
+		#Definitions.Characters.Di
+		Definitions.Characters.Kassey,
 		#Definitions.Characters.Hound
 	].pick_random()
 	instance.selected_skin = 0
