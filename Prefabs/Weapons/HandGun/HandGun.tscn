@@ -412,10 +412,12 @@ autoplay = &"Noise"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletHole/LaserAim" unique_id=1865868356]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+layers = 8
 mesh = SubResource("CylinderMesh_6uugd")
 
 [node name="Dot" type="GPUParticles3D" parent="BulletHole/LaserAim" unique_id=40562598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78998e-08, 0, 1.0054564)
+layers = 8
 amount = 1
 lifetime = 0.01
 process_material = SubResource("ParticleProcessMaterial_6uugd")
