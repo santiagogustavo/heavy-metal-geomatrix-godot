@@ -23,6 +23,7 @@ func _ready() -> void:
 	GameManager.current_scene_type = Definitions.SceneType.MainMenu
 	open.connect(open_menu)
 	close.connect(close_menu)
+	options_menu.close.connect(focus_first_option)
 	for option: Button in options:
 		option.connect("focus_entered", func ():
 			cursor_sfx.play()
