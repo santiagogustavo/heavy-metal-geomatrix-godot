@@ -392,10 +392,10 @@ damage = 5
 fire_range = 15.0
 metadata/_custom_type_script = "uid://upo11pnbegro"
 
-[node name="GunEnergyMode" type="Node" parent="." unique_id=1431015854 node_paths=PackedStringArray("beam", "raycasts")]
+[node name="GunEnergyMode" type="Node" parent="." unique_id=1431015854 node_paths=PackedStringArray("beams", "raycasts")]
 script = ExtResource("5_upb4l")
 spend_amount = 20.0
-beam = NodePath("../EnergyMode/Flame")
+beams = [NodePath("../EnergyMode/Flame")]
 raycasts = [NodePath("../EnergyMode/Raycasts/RayCast3D"), NodePath("../EnergyMode/Raycasts/RayCast3D2"), NodePath("../EnergyMode/Raycasts/RayCast3D3"), NodePath("../EnergyMode/Raycasts/RayCast3D4"), NodePath("../EnergyMode/Raycasts/RayCast3D5")]
 hit_decal = ExtResource("6_avivq")
 mode_name = "Fire"

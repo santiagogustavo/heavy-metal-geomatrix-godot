@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="4_6ynbh"]
 [ext_resource type="AudioStream" uid="uid://ca8e7tabc8ne6" path="res://Sound/Weapons/FAKK2/Uzi/shoot.wav" id="4_84lj5"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_st85g"]
+[ext_resource type="AudioStream" uid="uid://bmgj3r1ioroc3" path="res://Sound/Weapons/FAKK2/Uzi/load.wav" id="9_070oh"]
 
 [sub_resource type="Gradient" id="Gradient_6ynbh"]
 offsets = PackedFloat32Array(0, 0.984791)
@@ -81,6 +82,22 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8vqen"]
+resource_name = "Load"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletHole/Load:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_p2nfn"]
@@ -180,12 +197,16 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6sgh"]
 _data = {
 &"Idle": SubResource("Animation_2haon"),
+&"Load": SubResource("Animation_8vqen"),
 &"RESET": SubResource("Animation_p2nfn"),
 &"Shoot": SubResource("Animation_hewpo")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wj4m"]
 animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_070oh"]
+animation = &"Load"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tne18"]
 animation = &"Shoot"
@@ -204,9 +225,6 @@ nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_hfi10")
 nodes/TimeSeek/position = Vector2(-20, 120)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_armo7"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vsmr"]
 advance_mode = 2
 advance_condition = &"is_shooting"
@@ -216,13 +234,23 @@ reset = false
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m2rc6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_arnk2"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_me6rs"]
 states/Idle/node = SubResource("AnimationNodeAnimation_3wj4m")
 states/Idle/position = Vector2(380, 100)
+states/Load/node = SubResource("AnimationNodeAnimation_070oh")
+states/Load/position = Vector2(197, 100)
 states/Shoot/node = SubResource("AnimationNodeBlendTree_lhv35")
 states/Shoot/position = Vector2(379.938, -5.5)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_armo7"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7")]
-graph_offset = Vector2(-92, -60)
+states/Start/position = Vector2(28, 100)
+transitions = ["Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7"), "Start", "Load", SubResource("AnimationNodeStateMachineTransition_m2rc6"), "Load", "Idle", SubResource("AnimationNodeStateMachineTransition_arnk2")]
+graph_offset = Vector2(-219, -36)
 
 [node name="Uzi" type="Node3D" unique_id=800325800 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_84lj5")
@@ -273,6 +301,12 @@ volume_db = -17.0
 max_db = 0.0
 pitch_scale = 1.5
 bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[node name="Load" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=1619725705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2662286)
+stream = ExtResource("9_070oh")
+bus = &"Effects"
 attenuation_filter_db = 0.0
 
 [node name="EjectHole" type="Node3D" parent="." unique_id=1477257404]

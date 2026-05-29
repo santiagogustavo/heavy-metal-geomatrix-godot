@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ca42hevpjgitj"]
+[gd_scene format=3 uid="uid://ca42hevpjgitj"]
 
 [ext_resource type="PackedScene" uid="uid://7xmuvkjde0ri" path="res://Models/Weapons/Moto Gun.glb" id="1_b0xym"]
 [ext_resource type="Script" uid="uid://b0f626p3mv6vk" path="res://Scripts/Weapons/GunControllerV2.gd" id="1_eq5kf"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dw6saiukdbbkh" path="res://Sound/Weapons/Moto Gun/Moto Gun Shoot.wav" id="5_p3ww2"]
 [ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="6_8e4is"]
 [ext_resource type="AudioStream" uid="uid://baxree7roh7ni" path="res://Sound/Weapons/Moto Gun/Moto Gun Idle.wav" id="9_rrald"]
+[ext_resource type="AudioStream" uid="uid://c7j6d6wq1flw5" path="res://Sound/Weapons/Moto Gun/load.wav" id="12_q2s4d"]
 
 [sub_resource type="Animation" id="Animation_yeigw"]
 resource_name = "Idle"
@@ -67,6 +68,25 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+
+[sub_resource type="Animation" id="Animation_q2s4d"]
+resource_name = "Load"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BulletHole/Load:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_je2pl"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_mnxn4"]
 resource_name = "Shoot"
@@ -199,11 +219,16 @@ tracks/10/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0mab"]
 _data = {
 &"Idle": SubResource("Animation_yeigw"),
+&"Load": SubResource("Animation_q2s4d"),
+&"RESET": SubResource("Animation_je2pl"),
 &"Shoot": SubResource("Animation_mnxn4")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wj4m"]
 animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q2s4d"]
+animation = &"Load"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tne18"]
 animation = &"Shoot"
@@ -222,9 +247,6 @@ nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_hfi10")
 nodes/TimeSeek/position = Vector2(-20, 120)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_armo7"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vsmr"]
 advance_mode = 2
 advance_condition = &"is_shooting"
@@ -235,12 +257,22 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting and !is_bursting"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_je2pl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ham6w"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qh7na"]
 states/Idle/node = SubResource("AnimationNodeAnimation_3wj4m")
 states/Idle/position = Vector2(380, 100)
+states/Load/node = SubResource("AnimationNodeAnimation_q2s4d")
+states/Load/position = Vector2(197, 100)
 states/Shoot/node = SubResource("AnimationNodeBlendTree_lhv35")
 states/Shoot/position = Vector2(380, -14)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_armo7"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7")]
+states/Start/position = Vector2(30, 100)
+transitions = ["Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7"), "Start", "Load", SubResource("AnimationNodeStateMachineTransition_je2pl"), "Load", "Idle", SubResource("AnimationNodeStateMachineTransition_ham6w")]
 graph_offset = Vector2(-92, -60)
 
 [sub_resource type="Gradient" id="Gradient_c0m1o"]
@@ -407,7 +439,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_dkrti")
 size = Vector2(0.5, 0.5)
 
-[node name="MotoGun" type="Node3D" node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes", "eject_hole")]
+[node name="MotoGun" type="Node3D" unique_id=1048289849 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_eq5kf")
 fire_modes = [NodePath("BurstMode"), NodePath("AutoMode")]
 animation_tree = NodePath("AnimationTree")
@@ -417,7 +449,7 @@ item_name = "Moto Gun"
 equip_type = 1
 splash = ExtResource("4_xoqmw")
 
-[node name="BurstMode" type="Node" parent="."]
+[node name="BurstMode" type="Node" parent="." unique_id=1460902160]
 script = ExtResource("5_eq5kf")
 bullets = 45
 fire_rate = 1.0
@@ -429,7 +461,7 @@ mode_name = "Burst"
 fire_range = 10.0
 metadata/_custom_type_script = "uid://upo11pnbegro"
 
-[node name="AutoMode" type="Node" parent="."]
+[node name="AutoMode" type="Node" parent="." unique_id=316015212]
 script = ExtResource("5_eq5kf")
 bullets = 45
 fire_rate = 0.15
@@ -442,10 +474,10 @@ mode_name = "Auto"
 fire_range = 10.0
 metadata/_custom_type_script = "uid://upo11pnbegro"
 
-[node name="Moto Gun" parent="." instance=ExtResource("1_b0xym")]
+[node name="Moto Gun" parent="." unique_id=865013181 instance=ExtResource("1_b0xym")]
 
 [node name="Skeleton3D" parent="Moto Gun/Armature" index="0"]
-bones/1/position = Vector3(1.2292541e-05, 0.009557662, -0.0172)
+bones/1/position = Vector3(-0.000274402, 0.00896966, -0.0172379)
 bones/2/position = Vector3(0, 0.01, 0.00158699)
 
 [node name="object_0" parent="Moto Gun/Armature/Skeleton3D" index="0"]
@@ -457,12 +489,10 @@ layers = 8
 [node name="object_1_001" parent="Moto Gun/Armature/Skeleton3D" index="2"]
 layers = 8
 
-[node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Moto Gun"]
-libraries = {
-&"": SubResource("AnimationLibrary_h0mab")
-}
+[node name="AnimationPlayerCustom" type="AnimationPlayer" parent="Moto Gun" unique_id=152887410]
+libraries/ = SubResource("AnimationLibrary_h0mab")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1895793295]
 root_node = NodePath("../Moto Gun")
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_qh7na")
@@ -472,7 +502,7 @@ parameters/Shoot/TimeScale/scale = 1.0
 parameters/Shoot/TimeSeek/seek_request = -1.0
 script = ExtResource("2_fdte5")
 
-[node name="EngineFireL" type="GPUParticles3D" parent="."]
+[node name="EngineFireL" type="GPUParticles3D" parent="." unique_id=19889765]
 transform = Transform3D(-0.717573, 0.277028, -0.639018, 0.463262, 0.874949, -0.140901, 0.520075, -0.39714, -0.756176, -0.482, 0.349, -0.305)
 emitting = false
 amount = 20
@@ -482,7 +512,7 @@ visibility_aabb = AABB(-4, -0.001, -4, 8, 0.002, 8)
 process_material = SubResource("ParticleProcessMaterial_186di")
 draw_pass_1 = SubResource("QuadMesh_n1467")
 
-[node name="EngineFireR" type="GPUParticles3D" parent="."]
+[node name="EngineFireR" type="GPUParticles3D" parent="." unique_id=1145114164]
 transform = Transform3D(0.697317, -0.314907, -0.643881, 0.512496, 0.847077, 0.140742, 0.501096, -0.428128, 0.75207, 0.481962, 0.348832, -0.305018)
 emitting = false
 amount = 20
@@ -492,24 +522,24 @@ visibility_aabb = AABB(-4, -0.001, -4, 8, 0.002, 8)
 process_material = SubResource("ParticleProcessMaterial_186di")
 draw_pass_1 = SubResource("QuadMesh_n1467")
 
-[node name="SmokeL" type="GPUParticles3D" parent="."]
+[node name="SmokeL" type="GPUParticles3D" parent="." unique_id=652421318]
 transform = Transform3D(-0.717573, 0.277028, -0.639019, 0.463262, 0.874949, -0.140901, 0.520075, -0.39714, -0.756176, -0.482, 0.349, -0.305)
 amount = 5
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_h2qjb")
 draw_pass_1 = SubResource("QuadMesh_ofont")
 
-[node name="SmokeR" type="GPUParticles3D" parent="."]
+[node name="SmokeR" type="GPUParticles3D" parent="." unique_id=15034978]
 transform = Transform3D(0.697317, -0.314907, -0.643881, 0.512496, 0.847077, 0.140742, 0.501096, -0.428128, 0.75207, 0.481962, 0.348832, -0.305018)
 amount = 5
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_h2qjb")
 draw_pass_1 = SubResource("QuadMesh_ofont")
 
-[node name="BulletHole" type="Node3D" parent="."]
+[node name="BulletHole" type="Node3D" parent="." unique_id=1279213765]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.252531, -1.1465)
 
-[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole"]
+[node name="Muzzle Flash" type="GPUParticles3D" parent="BulletHole" unique_id=808986560]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235021, 0.000154138)
 emitting = false
 amount = 1
@@ -520,12 +550,12 @@ transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_hd04u")
 draw_pass_1 = SubResource("QuadMesh_2ug7b")
 
-[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole"]
+[node name="Muzzle Light" type="OmniLight3D" parent="BulletHole" unique_id=363690641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00157207, -0.0459177)
 light_color = Color(1, 0.666667, 0, 1)
 light_energy = 0.0
 
-[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole"]
+[node name="SFX" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=385959403]
 stream = ExtResource("5_p3ww2")
 volume_db = -16.0
 max_db = 0.0
@@ -533,7 +563,7 @@ pitch_scale = 0.64
 bus = &"Reverb"
 attenuation_filter_db = 0.0
 
-[node name="Smoke" type="GPUParticles3D" parent="BulletHole"]
+[node name="Smoke" type="GPUParticles3D" parent="BulletHole" unique_id=724119747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000235036, 0.000154138)
 visible = false
 amount = 5
@@ -543,10 +573,16 @@ transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_otdfm")
 draw_pass_1 = SubResource("QuadMesh_ryd2t")
 
-[node name="EjectHole" type="Node3D" parent="."]
+[node name="Load" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=1193089196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005687952, -0.0027117133)
+stream = ExtResource("12_q2s4d")
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="EjectHole" type="Node3D" parent="." unique_id=1184831343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339788, -0.268159)
 
-[node name="IdleSfx" type="AudioStreamPlayer3D" parent="."]
+[node name="IdleSfx" type="AudioStreamPlayer3D" parent="." unique_id=1624040294]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367834, -0.521461)
 stream = ExtResource("9_rrald")
 volume_db = -30.0

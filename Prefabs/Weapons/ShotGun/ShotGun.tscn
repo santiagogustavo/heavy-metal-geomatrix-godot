@@ -9,6 +9,23 @@
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="5_x0e5b"]
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="6_0nvmh"]
 [ext_resource type="AudioStream" uid="uid://beriiufu35fwu" path="res://Sound/Weapons/Shot Gun/Shot Gun Shoot.wav" id="7_hhc4u"]
+[ext_resource type="AudioStream" uid="uid://jwt51knxnhii" path="res://Sound/Weapons/Shot Gun/load.wav" id="10_h21d2"]
+
+[sub_resource type="Animation" id="Animation_h21d2"]
+resource_name = "Load"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Load:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_76ih7"]
 resource_name = "RESET"
@@ -95,12 +112,16 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_51iuw"]
 _data = {
+&"Load": SubResource("Animation_h21d2"),
 &"RESET": SubResource("Animation_76ih7"),
 &"Shoot": SubResource("Animation_qt47j")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nq8l5"]
 animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h21d2"]
+animation = &"Load"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nfvpc"]
 animation = &"Shoot"
@@ -115,9 +136,6 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_d3xeg")
 nodes/TimeScale/position = Vector2(90, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4pxnf"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ip78a"]
 advance_mode = 2
 advance_condition = &"is_shooting"
@@ -128,14 +146,24 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting and !is_bursting"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k2nvn"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vt4v3"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2tafv"]
 states/End/position = Vector2(682, 100.875)
 states/Idle/node = SubResource("AnimationNodeAnimation_nq8l5")
 states/Idle/position = Vector2(425.715, 100.969)
+states/Load/node = SubResource("AnimationNodeAnimation_h21d2")
+states/Load/position = Vector2(237, 101.031)
 states/Shoot/node = SubResource("AnimationNodeBlendTree_rlqws")
 states/Shoot/position = Vector2(424.911, -49.5)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4pxnf"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_ip78a"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_b1ohd")]
-graph_offset = Vector2(-70, -96)
+states/Start/position = Vector2(68, 100.844)
+transitions = ["Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_ip78a"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_b1ohd"), "Start", "Load", SubResource("AnimationNodeStateMachineTransition_k2nvn"), "Load", "Idle", SubResource("AnimationNodeStateMachineTransition_vt4v3")]
+graph_offset = Vector2(-120, -77)
 
 [sub_resource type="Gradient" id="Gradient_cgipg"]
 offsets = PackedFloat32Array(0, 0.984791)
@@ -260,6 +288,12 @@ stream = ExtResource("7_hhc4u")
 volume_db = -15.0
 max_db = 0.0
 bus = &"Reverb"
+attenuation_filter_db = 0.0
+
+[node name="Load" type="AudioStreamPlayer3D" parent="." unique_id=1135602288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13823277, -0.9198487)
+stream = ExtResource("10_h21d2")
+bus = &"Effects"
 attenuation_filter_db = 0.0
 
 [editable path="Shot Gun"]

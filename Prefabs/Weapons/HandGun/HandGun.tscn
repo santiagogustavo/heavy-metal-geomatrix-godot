@@ -9,9 +9,27 @@
 [ext_resource type="Texture2D" uid="uid://dkhcxilx3tn83" path="res://Textures/Particles/Muzzle/flash.png" id="5_75ilw"]
 [ext_resource type="PackedScene" uid="uid://cl467cu0ksyhu" path="res://Prefabs/Weapons/Common/EjectingBrass.tscn" id="5_rybl7"]
 [ext_resource type="AudioStream" uid="uid://dd1squ580mobp" path="res://Sound/Weapons/Hand Gun/Hand Gun Shoot.wav" id="6_rybl7"]
+[ext_resource type="AudioStream" uid="uid://dkx2cjujw07pk" path="res://Sound/Weapons/Hand Gun/load.wav" id="10_ktexn"]
+[ext_resource type="Script" uid="uid://x7wtr18c2a3q" path="res://Scripts/Weapons/LaserSightController.gd" id="11_6uugd"]
 
 [sub_resource type="Animation" id="Animation_aauk2"]
 resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_ktexn"]
+resource_name = "Load"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BulletHole/Load:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_yefmb"]
 length = 0.001
@@ -115,12 +133,16 @@ tracks/9/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ybghn"]
 _data = {
 &"Idle": SubResource("Animation_aauk2"),
+&"Load": SubResource("Animation_ktexn"),
 &"RESET": SubResource("Animation_yefmb"),
 &"Shoot": SubResource("Animation_u2ae3")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wj4m"]
 animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ktexn"]
+animation = &"Load"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tne18"]
 animation = &"Shoot"
@@ -139,9 +161,6 @@ nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_hfi10")
 nodes/TimeSeek/position = Vector2(-20, 120)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_armo7"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vsmr"]
 advance_mode = 2
 advance_condition = &"is_shooting"
@@ -153,12 +172,22 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "!is_shooting"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6uugd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ck8o0"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rwkdm"]
 states/Idle/node = SubResource("AnimationNodeAnimation_3wj4m")
 states/Idle/position = Vector2(380, 100)
+states/Load/node = SubResource("AnimationNodeAnimation_ktexn")
+states/Load/position = Vector2(217, 100)
 states/Shoot/node = SubResource("AnimationNodeBlendTree_lhv35")
 states/Shoot/position = Vector2(379.938, -5.5)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_armo7"), "Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7")]
+states/Start/position = Vector2(59, 100)
+transitions = ["Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_6vsmr"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_f5hq7"), "Start", "Load", SubResource("AnimationNodeStateMachineTransition_6uugd"), "Load", "Idle", SubResource("AnimationNodeStateMachineTransition_ck8o0")]
 graph_offset = Vector2(-92, -60)
 
 [sub_resource type="Gradient" id="Gradient_r5phl"]
@@ -193,6 +222,101 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_bhgq0"]
 material = SubResource("StandardMaterial3D_2q7ou")
 size = Vector2(0.75, 0.75)
+
+[sub_resource type="Animation" id="Animation_6uugd"]
+resource_name = "Noise"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ck8o0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yc03"]
+_data = {
+&"Noise": SubResource("Animation_6uugd"),
+&"RESET": SubResource("Animation_ck8o0")
+}
+
+[sub_resource type="Gradient" id="Gradient_6uugd"]
+offsets = PackedFloat32Array(0, 0.5625)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3d6rl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ck8o0"]
+noise = SubResource("FastNoiseLite_3d6rl")
+color_ramp = SubResource("Gradient_6uugd")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uugd"]
+transparency = 1
+albedo_texture = SubResource("NoiseTexture2D_ck8o0")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6uugd"]
+material = SubResource("StandardMaterial3D_6uugd")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6uugd"]
+emission_shape_scale = Vector3(0.01, 0.01, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+
+[sub_resource type="Gradient" id="Gradient_ck8o0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0yc03"]
+gradient = SubResource("Gradient_ck8o0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.3)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3d6rl"]
+transparency = 4
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_0yc03")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_0wbsw"]
+material = SubResource("StandardMaterial3D_3d6rl")
+size = Vector2(0.1, 0.1)
 
 [node name="HandGun" type="Node3D" unique_id=968131077 node_paths=PackedStringArray("fire_modes", "animation_tree", "bullet_holes", "eject_hole")]
 script = ExtResource("1_bydft")
@@ -266,6 +390,36 @@ max_db = 0.0
 pitch_scale = 0.75
 bus = &"Reverb"
 attenuation_filter_db = 0.0
+
+[node name="Load" type="AudioStreamPlayer3D" parent="BulletHole" unique_id=609286703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005687952, -0.0027117133)
+stream = ExtResource("10_ktexn")
+bus = &"Effects"
+attenuation_filter_db = 0.0
+
+[node name="LaserAim" type="Node3D" parent="BulletHole" unique_id=118069372]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.09083244, 0.13020885)
+script = ExtResource("11_6uugd")
+
+[node name="RayCast3D" type="RayCast3D" parent="BulletHole/LaserAim" unique_id=1429035531]
+visible = false
+target_position = Vector3(0, 0, 20)
+collision_mask = 116
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BulletHole/LaserAim" unique_id=1364374258]
+libraries/ = SubResource("AnimationLibrary_0yc03")
+autoplay = &"Noise"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletHole/LaserAim" unique_id=1865868356]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+mesh = SubResource("CylinderMesh_6uugd")
+
+[node name="Dot" type="GPUParticles3D" parent="BulletHole/LaserAim" unique_id=40562598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78998e-08, 0, 1.0054564)
+amount = 1
+lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_6uugd")
+draw_pass_1 = SubResource("QuadMesh_0wbsw")
 
 [node name="EjectHole" type="Node3D" parent="." unique_id=699369207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175679, -0.123125)

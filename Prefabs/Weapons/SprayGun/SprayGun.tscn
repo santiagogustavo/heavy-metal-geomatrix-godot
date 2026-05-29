@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://fpnk20jnrqky" path="res://Prefabs/Decals/PaintSplatterDecal.tscn" id="4_ttf5c"]
 [ext_resource type="Texture2D" uid="uid://c0bg2ml7qq5ur" path="res://Textures/Particles/fire.png" id="5_vyrr2"]
 [ext_resource type="Script" uid="uid://bnf8w76u6lm3g" path="res://Scripts/Weapons/GunAnimationTree.gd" id="6_0ch35"]
+[ext_resource type="Texture2D" uid="uid://veqwi61jwupo" path="res://Textures/Particles/smoke_1.png" id="7_6as6o"]
+[ext_resource type="AudioStream" uid="uid://c8ntsp8htcqwh" path="res://Sound/Weapons/Spray Gun/spray_loop.wav" id="8_fnjxi"]
+[ext_resource type="AudioStream" uid="uid://bg47n4ly2n8ul" path="res://Sound/Weapons/Spray Gun/spray_shake.wav" id="9_a7yui"]
 
 [sub_resource type="Curve" id="Curve_vyrr2"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -69,6 +72,37 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_ttf5c")
 size = Vector2(1.5, 1.5)
 
+[sub_resource type="Curve" id="Curve_fdhxw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_fnjxi"]
+curve = SubResource("Curve_fdhxw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a7yui"]
+angle_min = -89.99999
+angle_max = 90.000015
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 2, 0)
+alpha_curve = SubResource("CurveTexture_fnjxi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_532ph"]
+transparency = 4
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 1, 0.9666667, 1)
+albedo_texture = ExtResource("7_6as6o")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_cga5c"]
+material = SubResource("StandardMaterial3D_532ph")
+
 [sub_resource type="Animation" id="Animation_vyrr2"]
 length = 0.001
 tracks/0/type = "value"
@@ -83,6 +117,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnergyMode/GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnergyMode/Spray:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnergyMode/Shake:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_0ch35"]
 resource_name = "Spray Start"
@@ -93,7 +163,31 @@ tracks/0/path = NodePath("EnergyMode/GPUParticles3D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.06666667),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnergyMode/GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnergyMode/Spray:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -140,13 +234,15 @@ equip_type = 1
 splash = ExtResource("2_76njk")
 metadata/_custom_type_script = "uid://b0f626p3mv6vk"
 
-[node name="GunEnergyMode" type="Node" parent="." unique_id=460001752 node_paths=PackedStringArray("beam", "raycasts")]
+[node name="GunEnergyMode" type="Node" parent="." unique_id=460001752 node_paths=PackedStringArray("beams", "raycasts")]
 script = ExtResource("1_3cbd6")
 spend_amount = 10.0
-beam = NodePath("../EnergyMode/GPUParticles3D")
+beams = [NodePath("../EnergyMode/GPUParticles3D"), NodePath("../EnergyMode/GPUParticles3D2")]
 raycasts = [NodePath("../EnergyMode/Raycasts/RayCast3D"), NodePath("../EnergyMode/Raycasts/RayCast3D2"), NodePath("../EnergyMode/Raycasts/RayCast3D3"), NodePath("../EnergyMode/Raycasts/RayCast3D4"), NodePath("../EnergyMode/Raycasts/RayCast3D5")]
 hit_decal = ExtResource("4_ttf5c")
 randomize_color = true
+mode_name = "Spray"
+damage = 50
 metadata/_custom_type_script = "uid://b5m1bfey82ohw"
 
 [node name="Model" parent="." unique_id=1662733768 instance=ExtResource("4_thvkv")]
@@ -188,6 +284,24 @@ amount = 15
 lifetime = 0.25
 process_material = SubResource("ParticleProcessMaterial_cga5c")
 draw_pass_1 = SubResource("QuadMesh_6as6o")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="EnergyMode" unique_id=1413016077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22777301, -0.31700933)
+cast_shadow = 0
+emitting = false
+amount = 3
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_a7yui")
+draw_pass_1 = SubResource("QuadMesh_cga5c")
+
+[node name="Spray" type="AudioStreamPlayer3D" parent="EnergyMode" unique_id=550666648]
+stream = ExtResource("8_fnjxi")
+bus = &"Effects"
+
+[node name="Shake" type="AudioStreamPlayer3D" parent="EnergyMode" unique_id=289688273]
+stream = ExtResource("9_a7yui")
+bus = &"Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=914248258]
 libraries/ = SubResource("AnimationLibrary_ttf5c")
