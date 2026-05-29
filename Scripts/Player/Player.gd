@@ -263,7 +263,21 @@ func look_at_target_position() -> void:
 	#look_at(target_position)
 	#rotation.x = initial_rotation.x
 	#rotation.z = initial_rotation.z
-	if player_input and player_input.is_locked_on:
+	if !player_input:
+		return
+	var aim_condition = animation_tree.is_current_node_shooting_or_aiming()
+	var look_condition = (
+		!brain.should_look_at_target and brain.is_walking
+	) or brain.should_look_at_target
+	if aim_condition and look_condition:
+		inventory_manager.right_hand_instance.look_at(camera.target_point)
+	elif inventory_manager.has_gun:
+		inventory_manager.right_hand_instance.look_at(
+			inventory_manager.right_hand_instance.global_position
+			+ inventory_manager.right_hand_instance.global_transform.basis.z
+			* -1
+		)
+	if player_input.is_locked_on:
 		camera_pivot.look_at(target_position)
 		brain.new_rotation = camera_pivot.global_rotation
 
@@ -382,10 +396,11 @@ func set_animator_variables() -> void:
 	animation_tree.is_blocking = brain.is_blocking
 	animation_tree.is_picking_up = brain.is_picking_up and is_pickup_on_press
 	animation_tree.direction = brain.input_direction
+	var compensate_look = Vector2(0.0125, 0.01)
 	if player_input:
-		animation_tree.look = Vector2(0, camera.global_rotation.x * -0.6)
+		animation_tree.look = Vector2(0, camera.global_rotation.x * -0.6) + compensate_look
 	if player_bot_ai:
-		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6)
+		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6) + compensate_look
 	if !brain.should_look_at_target:
 		animation_tree.look = Vector2.ZERO
 	animation_tree.is_on_floor = brain.is_on_floor

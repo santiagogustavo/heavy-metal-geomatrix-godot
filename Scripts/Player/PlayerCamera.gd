@@ -7,7 +7,7 @@ class_name PlayerCamera
 
 @onready var camera_effects = $CameraEffects3D
 @onready var motion_blur = $CameraEffects3D/MotionBlur
-@onready var camera_target_raycast = $'../TargetRaycast'
+@onready var camera_target_raycast: RayCast3D = $'../TargetRaycast'
 @onready var camera_collider: RayCast3D = $'../CameraCollider'
 @onready var debug_collision_point: MeshInstance3D = $'../DebugCollisionPoint'
 
@@ -70,4 +70,6 @@ func update_camera_target() -> void:
 	if camera_target_raycast.is_colliding():
 		var point = camera_target_raycast.get_collision_point()
 		target_point = point
-		debug_collision_point.global_position = target_point
+	else:
+		target_point = camera_target_raycast.target_position
+	debug_collision_point.global_position = target_point
