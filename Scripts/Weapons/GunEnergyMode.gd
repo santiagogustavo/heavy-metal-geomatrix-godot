@@ -3,7 +3,7 @@ class_name GunEnergyMode
 
 @export_subgroup("Energy")
 @export var spend_amount: float
-@export var beam: GPUParticles3D
+@export var beams: Array[GPUParticles3D] = []
 @export var raycasts: Array[RayCast3D] = []
 @export var hit_decal: PackedScene
 @export var color: Color = Color(1.0, 1.0, 1.0)
@@ -19,5 +19,5 @@ func _ready() -> void:
 			randf_range(0, 1),
 			randf_range(0, 1),
 		)
-	if beam:
+	for beam in beams:
 		beam.draw_pass_1.surface_get_material(0).set("albedo_color", color)
