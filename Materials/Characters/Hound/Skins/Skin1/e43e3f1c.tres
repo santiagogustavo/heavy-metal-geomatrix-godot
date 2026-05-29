@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ckmnac8cke7iy"]
+
+[ext_resource type="Texture2D" uid="uid://bp5h2sdk10gp5" path="res://Textures/Characters/Hound/Skins/A/e43e3f1c.png" id="1_drcyt"]
+[ext_resource type="Texture2D" uid="uid://c2prt63wh4y2x" path="res://Textures/Characters/Hound/Skins/Default/305f6c86_occ.png" id="2_eeydi"]
+
+[resource]
+transparency = 4
+albedo_texture = ExtResource("1_drcyt")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_eeydi")

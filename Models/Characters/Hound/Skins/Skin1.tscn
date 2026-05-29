@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ct5u0wtdanwym"]
+
+[ext_resource type="PackedScene" uid="uid://b68p4wgq6r43d" path="res://Models/Characters/Hound/Skins/Default.tscn" id="1_e4s2x"]
+[ext_resource type="Material" uid="uid://ckmnac8cke7iy" path="res://Materials/Characters/Hound/Skins/Skin1/e43e3f1c.tres" id="2_dsebu"]
+[ext_resource type="Material" uid="uid://ctoidcafdp5x6" path="res://Materials/Characters/Hound/Skins/Skin1/a1cc1e6f.tres" id="3_fmv0h"]
+[ext_resource type="Material" uid="uid://briow5aphddgb" path="res://Materials/Characters/Hound/Skins/Skin1/5d4d9543.tres" id="4_vwknj"]
+[ext_resource type="Material" uid="uid://bk1b581bw1h20" path="res://Materials/Characters/Hound/Skins/Skin1/6741ca6.tres" id="5_tjsei"]
+
+[node name="Skin1" unique_id=1592987743 instance=ExtResource("1_e4s2x")]
+surface_material_override/0 = ExtResource("2_dsebu")
+surface_material_override/3 = ExtResource("3_fmv0h")
+surface_material_override/5 = ExtResource("4_vwknj")
+surface_material_override/6 = ExtResource("5_tjsei")
