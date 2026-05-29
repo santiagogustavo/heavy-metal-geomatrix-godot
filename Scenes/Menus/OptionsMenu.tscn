@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgn8aq1m4p0rb"]
+[gd_scene format=3 uid="uid://bgn8aq1m4p0rb"]
 
 [ext_resource type="Script" uid="uid://dfapx23aqs1tm" path="res://Scripts/Menus/OptionsMenu/OptionsMenuManager.gd" id="1_g87nk"]
 [ext_resource type="PackedScene" uid="uid://ckmlfl5g8p20j" path="res://Scenes/Menus/SettingsTabContainer.tscn" id="2_gknca"]
@@ -72,7 +72,7 @@ _data = {
 &"RESET": SubResource("Animation_f4v6y")
 }
 
-[node name="OptionsMenu" type="Control"]
+[node name="OptionsMenu" type="Control" unique_id=1982183104]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,7 +83,7 @@ scale = Vector2(1, 1e-05)
 pivot_offset = Vector2(576, 324)
 script = ExtResource("1_g87nk")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=264238661]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +92,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
 
-[node name="Decoration" type="TextureRect" parent="."]
+[node name="Decoration" type="TextureRect" parent="." unique_id=158570479]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,7 +108,7 @@ grow_vertical = 2
 texture = ExtResource("3_u7d0s")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Decoration"]
+[node name="Label" type="Label" parent="Decoration" unique_id=516288083]
 layout_mode = 0
 offset_left = 790.0
 offset_top = 9.0
@@ -120,7 +120,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 uppercase = true
 
-[node name="SettingsTabContainer" parent="." instance=ExtResource("2_gknca")]
+[node name="SettingsTabContainer" parent="." unique_id=1373901390 instance=ExtResource("2_gknca")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -133,21 +133,18 @@ offset_right = 478.0
 offset_bottom = 216.0
 size_flags_vertical = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_dyek6")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1293610076]
+libraries/ = SubResource("AnimationLibrary_dyek6")
 
-[node name="SFX" type="Control" parent="."]
-layout_mode = 3
+[node name="SFX" type="Control" parent="." unique_id=1064586374]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Open" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Open" type="AudioStreamPlayer2D" parent="SFX" unique_id=1807771534]
 stream = ExtResource("5_nn7mr")
 bus = &"UI"
 
-[node name="Close" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Close" type="AudioStreamPlayer2D" parent="SFX" unique_id=1226470267]
 stream = ExtResource("6_qncka")
 bus = &"UI"
