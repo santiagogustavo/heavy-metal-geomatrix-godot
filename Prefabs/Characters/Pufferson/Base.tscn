@@ -256,7 +256,7 @@ transform = Transform3D(0.9269567, -0.3146002, -0.20439738, -0.3137471, -0.35132
 bone_name = "LeftHand"
 bone_idx = 16
 
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandL/LeftFist" parent_id_path=PackedInt32Array(2034551123, 631813799) index="0" unique_id=173894629]
+[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandL/LeftFist" parent_id_path=PackedInt32Array(2034551123, 1837715478) index="0" unique_id=173894629]
 shape = SubResource("SphereShape3D_j2f2b")
 
 [node name="HandR" parent="Model/Armature/GeneralSkeleton/Fists" index="1" unique_id=415397566]
@@ -264,7 +264,7 @@ transform = Transform3D(0.8031939, -0.5874829, 0.098708495, 0.54807425, 0.663811
 bone_name = "RightHand"
 bone_idx = 20
 
-[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/RightFist" parent_id_path=PackedInt32Array(2034551123, 59190840) index="0" unique_id=1255486430]
+[node name="CollisionShape3D" parent="Model/Armature/GeneralSkeleton/Fists/HandR/RightFist" parent_id_path=PackedInt32Array(2034551123, 1377088950) index="0" unique_id=1255486430]
 shape = SubResource("SphereShape3D_j2f2b")
 
 [node name="Body Slot" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=310315654]
@@ -326,7 +326,7 @@ stream = ExtResource("17_104x1")
 volume_db = -10.0
 max_db = 0.0
 pitch_scale = 0.64
-bus = &"Characters"
+bus = &"CharacterDeath"
 attenuation_filter_db = 0.0
 
 [node name="Hit" type="AudioStreamPlayer3D" parent="SFX" unique_id=422630040]

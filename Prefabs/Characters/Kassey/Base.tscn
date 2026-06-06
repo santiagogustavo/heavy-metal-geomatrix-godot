@@ -517,7 +517,7 @@ stream = ExtResource("44_fs5gc")
 volume_db = -10.0
 max_db = 0.0
 pitch_scale = 0.64
-bus = &"Characters"
+bus = &"CharacterDeath"
 attenuation_filter_db = 0.0
 
 [node name="Hit" type="AudioStreamPlayer3D" parent="SFX" unique_id=979573349]
