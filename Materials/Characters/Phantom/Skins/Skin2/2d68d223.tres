@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://6s6uklw4vglk"]
+
+[ext_resource type="Texture2D" uid="uid://bh0c41ugad31e" path="res://Textures/Characters/Phantom/Skin2/2d68d223.png" id="1_s2x07"]
+[ext_resource type="Texture2D" uid="uid://0s8nv41ev8fg" path="res://Textures/Characters/Phantom/Default/7d3b83e7_occ.png" id="2_t317x"]
+
+[resource]
+albedo_texture = ExtResource("1_s2x07")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_t317x")

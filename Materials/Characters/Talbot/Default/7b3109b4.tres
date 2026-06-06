@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ddaths245ed0g"]
+
+[ext_resource type="Texture2D" uid="uid://7ajeuoagodap" path="res://Textures/Characters/Talbot/Default/7b3109b4.png" id="1_yiywp"]
+[ext_resource type="Texture2D" uid="uid://1r6svniew4jc" path="res://Textures/Characters/Talbot/Default/7b3109b4_occ.png" id="2_wses3"]
+
+[resource]
+albedo_texture = ExtResource("1_yiywp")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_wses3")

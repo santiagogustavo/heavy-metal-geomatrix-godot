@@ -1,0 +1,83 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c25852pr7xfph"
+path="res://.godot/imported/Phantom.glb-fd0548ebc3af188ff422f49044fe1bb2.scn"
+
+[deps]
+
+source_file="res://Models/Characters/Phantom/Phantom.glb"
+dest_files=["res://.godot/imported/Phantom.glb-fd0548ebc3af188ff422f49044fe1bb2.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=0.00999999999999999
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"282fce93": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Phantom/Skins/Default/282fce93.tres",
+"use_external/path": "uid://btnxu80oe265p"
+},
+"43cdb73f": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Phantom/Skins/Default/43cdb73f.tres",
+"use_external/path": "uid://dslovdw1ska8n"
+},
+"69f10584": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Phantom/Skins/Default/69f10584.tres",
+"use_external/path": "uid://d0k8dg87a5nt6"
+},
+"7d3b83e7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Phantom/Skins/Default/7d3b83e7.tres",
+"use_external/path": "uid://c2k16lu3pe2k"
+},
+"88e4c233": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Phantom/Skins/Default/88e4c233.tres",
+"use_external/path": "uid://nkqre822gsd4"
+},
+"e5b055f3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Phantom/Skins/Default/e5b055f3.tres",
+"use_external/path": "uid://c650ohx7a8sv7"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": Resource("uid://bqyvsk7cobkps", "res://Animations/CharacterBoneMap.tres")
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

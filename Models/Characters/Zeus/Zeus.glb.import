@@ -1,0 +1,88 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://lh8qaoa4ytim"
+path="res://.godot/imported/Zeus.glb-0e6304214a3d1b2c3cc2af069f255c9f.scn"
+
+[deps]
+
+source_file="res://Models/Characters/Zeus/Zeus.glb"
+dest_files=["res://.godot/imported/Zeus.glb-0e6304214a3d1b2c3cc2af069f255c9f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=0.00999999999999999
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"4364523e": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Zeus/Default/4364523e.tres",
+"use_external/path": "uid://c3g51warf7arc"
+},
+"49adf126": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Zeus/Default/49adf126.tres",
+"use_external/path": "uid://cy8atwp8628li"
+},
+"53e5a176": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Zeus/Default/53e5a176.tres",
+"use_external/path": "uid://css2jmhbcwyj0"
+},
+"7c2f7b27": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Zeus/Default/7c2f7b27.tres",
+"use_external/path": "uid://bg8m4utqxq5hb"
+},
+"9a6c93a1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Zeus/Default/9a6c93a1.tres",
+"use_external/path": "uid://fafon3qlvpaj"
+},
+"d21c508a": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Zeus/Default/d21c508a.tres",
+"use_external/path": "uid://c0fokorrgfkgf"
+},
+"e0fd6b82": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Zeus/Default/e0fd6b82.tres",
+"use_external/path": "uid://dstt2ppjwrthv"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": Resource("uid://bqyvsk7cobkps", "res://Animations/CharacterBoneMap.tres")
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
