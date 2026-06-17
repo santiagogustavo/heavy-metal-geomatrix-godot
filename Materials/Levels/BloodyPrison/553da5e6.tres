@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://qilgv6r31j76"]
+
+[ext_resource type="Texture2D" uid="uid://dls5xwu5kjo3r" path="res://Textures/Levels/BloodyPrison/553da5e6.png" id="1_p6ouc"]
+[ext_resource type="Texture2D" uid="uid://d2mygwi2atk2b" path="res://Textures/Levels/BloodyPrison/553da5e6_occ.png" id="2_p85yd"]
+
+[resource]
+albedo_texture = ExtResource("1_p6ouc")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_p85yd")

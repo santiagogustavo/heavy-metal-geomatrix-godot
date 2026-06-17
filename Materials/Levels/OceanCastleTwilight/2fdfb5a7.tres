@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://pmupgl1f26pb"]
+
+[ext_resource type="Texture2D" uid="uid://cgwtnu1jirnmb" path="res://Textures/Levels/OceanCastleTwilight/2fdfb5a7.png" id="1_1n067"]
+
+[resource]
+transparency = 4
+cull_mode = 2
+specular_mode = 2
+albedo_texture = ExtResource("1_1n067")

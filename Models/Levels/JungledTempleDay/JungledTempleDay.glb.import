@@ -1,0 +1,185 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cc54pgedoqp87"
+path="res://.godot/imported/JungledTempleDay.glb-16c19c207c464e5a5046c6d1234451c7.scn"
+
+[deps]
+
+source_file="res://Models/Levels/JungledTempleDay/JungledTempleDay.glb"
+dest_files=["res://.godot/imported/JungledTempleDay.glb-16c19c207c464e5a5046c6d1234451c7.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"1102f582": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/1102f582.tres",
+"use_external/path": "uid://bm7iyemt1ncmp"
+},
+"1373886d": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/1373886d.tres",
+"use_external/path": "uid://bsn46fpjonw1"
+},
+"18e079f2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/18e079f2.tres",
+"use_external/path": "uid://djlos2rv62f1u"
+},
+"1ef13f8b": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/1ef13f8b.tres",
+"use_external/path": "uid://cxcmerhm6k1gs"
+},
+"24efc7cd": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/24efc7cd.tres",
+"use_external/path": "uid://ciygwxwkro0sk"
+},
+"4736e42c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/4736e42c.tres",
+"use_external/path": "uid://ch4jpkqq6xy0j"
+},
+"58643699": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/58643699.tres",
+"use_external/path": "uid://b36wffgqja3jo"
+},
+"5c66e14f": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/5c66e14f.tres",
+"use_external/path": "uid://br7xulaw6i6ag"
+},
+"5e068bcc": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/5e068bcc.tres",
+"use_external/path": "uid://b8xdemhvj1jj1"
+},
+"644d91a4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/644d91a4.tres",
+"use_external/path": "uid://bai0c7nugm8hw"
+},
+"64e97b0f": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/64e97b0f.tres",
+"use_external/path": "uid://c10dl0x0vidij"
+},
+"66e14949": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/66e14949.tres",
+"use_external/path": "uid://cwlg6q55ffcty"
+},
+"746c9aac": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/746c9aac.tres",
+"use_external/path": "uid://c3l5jdtwqqseb"
+},
+"8545b81b": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/8545b81b.tres",
+"use_external/path": "uid://dei0lsptn7ul2"
+},
+"8e2d2aa2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/8e2d2aa2.tres",
+"use_external/path": "uid://sxylsyt3cq7y"
+},
+"97ad4b10": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/97ad4b10.tres",
+"use_external/path": "uid://tdocquycwy06"
+},
+"a855d2d6": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/a855d2d6.tres",
+"use_external/path": "uid://ga228jtfgdq2"
+},
+"ad788ea2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/ad788ea2.tres",
+"use_external/path": "uid://qtyos6wniakv"
+},
+"ae43ab1f": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/ae43ab1f.tres",
+"use_external/path": "uid://wluhj0x0q6dw"
+},
+"af5721b7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/af5721b7.tres",
+"use_external/path": "uid://rfo31vwlgy3k"
+},
+"b2a850c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/b2a850c.tres",
+"use_external/path": "uid://cdk2rq1h1i1n8"
+},
+"c59cd3b0-211f-4cf8-ba65-2be91b34ba4b": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/c59cd3b0-211f-4cf8-ba65-2be91b34ba4b.tres",
+"use_external/path": "uid://b2oamd6yueh80"
+},
+"cb69f974": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/cb69f974.tres",
+"use_external/path": "uid://ddamv2uqg2qpq"
+},
+"d5a50004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/d5a50004.tres",
+"use_external/path": "uid://cafwx2o1mt0x7"
+},
+"dd7d6f4f": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/dd7d6f4f.tres",
+"use_external/path": "uid://kv0xv823n18u"
+},
+"f02635fd": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/f02635fd.tres",
+"use_external/path": "uid://bgkfmw51lwe31"
+},
+"f6a7683e": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/f6a7683e.tres",
+"use_external/path": "uid://dmj0plri3assb"
+},
+"f7ca6dd9": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/JungledTempleDay/f7ca6dd9.tres",
+"use_external/path": "uid://dyr2mau7yy0a7"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

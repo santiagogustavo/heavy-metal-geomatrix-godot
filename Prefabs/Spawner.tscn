@@ -6,5 +6,4 @@
 script = ExtResource("1_hango")
 spawn_concurrent = null
 spawn_min_distance = null
-spawn_timeout = null
 items_to_spawn = null

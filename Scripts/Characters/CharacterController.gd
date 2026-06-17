@@ -48,6 +48,7 @@ signal block
 @onready var team_name: String = Definitions.TeamNames[character_team]
 
 var current_collision_surface: Definitions.SurfaceType = Definitions.SurfaceType.LevelGeometry
+var forced_collision_surface = null
 
 var dust_thud: Resource = preload("res://Prefabs/Particles/DustThud.tscn")
 var water_thud: Resource = preload("res://Prefabs/Particles/WaterThud.tscn")
@@ -89,6 +90,8 @@ func _process(_delta: float) -> void:
 	update_skin_variables()
 
 func update_internal_variables() -> void:
+	if sfx_controller:
+		sfx_controller.current_collision_surface = current_collision_surface
 	var player: Player = GameManager.get_player(player_rid)
 	if player:
 		is_dead = player.health <= 0
@@ -169,7 +172,7 @@ func create_damage_indicator(emissor_position: Vector3) -> void:
 
 func instantiate_thud() -> void:
 	var thud_instance: Node3D
-	match current_collision_surface:
+	match sfx_controller.current_collision_surface:
 		Definitions.SurfaceType.Water:
 			thud_instance = water_thud.instantiate()
 		Definitions.SurfaceType.Stone:

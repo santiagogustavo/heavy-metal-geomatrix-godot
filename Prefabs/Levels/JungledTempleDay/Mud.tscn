@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cx5y25bv800ue"]
+
+[ext_resource type="Texture2D" uid="uid://cy77fspnoef1t" path="res://Textures/Decals/puddle.png" id="1_kp7ps"]
+[ext_resource type="Script" uid="uid://c0d6b2v2w3a5" path="res://Scripts/Levels/MudController.gd" id="1_rwrda"]
+[ext_resource type="Texture2D" uid="uid://vpmaerkahuhw" path="res://Textures/Levels/JungledTempleDay/8545b81b_occ.png" id="2_rwrda"]
+[ext_resource type="Texture2D" uid="uid://dnv8jub1k3n1v" path="res://Textures/Particles/splatter_paint.png" id="4_fmdkd"]
+[ext_resource type="Script" uid="uid://ctakc5waetkpu" path="res://Scripts/Decals/DecalRandomizer.gd" id="5_poqu1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kp7ps"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dreac"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l71ah"]
+noise = SubResource("FastNoiseLite_dreac")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0c6f"]
+transparency = 4
+albedo_color = Color(0.31, 0.21183334, 0, 0.85490197)
+albedo_texture = ExtResource("1_kp7ps")
+roughness_texture = SubResource("NoiseTexture2D_l71ah")
+clearcoat_roughness = 0.0
+ao_enabled = true
+ao_light_affect = 0.5
+ao_texture = ExtResource("2_rwrda")
+stencil_flags = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_hw8v5"]
+material = SubResource("StandardMaterial3D_s0c6f")
+size = Vector2(3, 3)
+
+[sub_resource type="QuadMesh" id="QuadMesh_poqu1"]
+size = Vector2(3, 3)
+
+[node name="Mud" type="Area3D" unique_id=1892476922]
+collision_layer = 8196
+collision_mask = 64
+script = ExtResource("1_rwrda")
+metadata/_custom_type_script = "uid://cd3queck3xtfc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1722914798]
+shape = SubResource("BoxShape3D_kp7ps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=813927340]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_hw8v5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1013651977]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("QuadMesh_poqu1")
+skeleton = NodePath("../..")
+
+[node name="Decal" type="Decal" parent="." unique_id=326176021]
+size = Vector3(1, 1, 1)
+texture_albedo = ExtResource("4_fmdkd")
+modulate = Color(0.27, 0.16200002, 0, 1)
+cull_mask = 4
+script = ExtResource("5_poqu1")
+min_rotation = -90
+max_rotation = 90
+position_range = 0.2
+randomize_position = true
+min_scale = 0.5

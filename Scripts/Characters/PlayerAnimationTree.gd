@@ -140,15 +140,26 @@ func is_current_node_shooting() -> bool:
 		current_node = weapon_single_state_machine.get_current_node()
 	elif equip == 2:
 		current_node = weapon_double_state_machine.get_current_node()
+	else:
+		return false
 	return current_node.to_lower().contains('shoot')
 
-func is_current_node_shooting_or_aiming() -> bool:
+func is_current_node_aiming() -> bool:
 	var current_node: StringName
 	if equip == 1:
 		current_node = weapon_single_state_machine.get_current_node()
 	elif equip == 2:
 		current_node = weapon_double_state_machine.get_current_node()
-	return current_node.to_lower().contains('aim') or is_current_node_shooting()
+	else:
+		return false
+	return current_node.to_lower().contains('aim')
+
+func is_current_node_pickup() -> bool:
+	return upper_body_state_machine.get_current_node().to_lower().contains('pickup')
+
+
+func is_current_node_shooting_or_aiming() -> bool:
+	return !is_current_node_pickup() and (is_current_node_aiming() or is_current_node_shooting())
 
 func is_current_node_attacking() -> bool:
 	var current_node: StringName

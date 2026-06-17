@@ -1,0 +1,120 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b1bxu46erkcdu"
+path="res://.godot/imported/Ocean Castle Twilight.glb-f47de148998b46468ae79d558dbfc00e.scn"
+
+[deps]
+
+source_file="res://Models/Levels/OceanCastleTwilight/Ocean Castle Twilight.glb"
+dest_files=["res://.godot/imported/Ocean Castle Twilight.glb-f47de148998b46468ae79d558dbfc00e.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"1448c99": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/1448c99.tres",
+"use_external/path": "uid://bulikaslkc5by"
+},
+"171fefb": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/171fefb.tres",
+"use_external/path": "uid://sm7wkbnqbdl8"
+},
+"1ee2aa2d": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/1ee2aa2d.tres",
+"use_external/path": "uid://v3giv7jg2k6n"
+},
+"2fdfb5a7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/2fdfb5a7.tres",
+"use_external/path": "uid://pmupgl1f26pb"
+},
+"3c1b2d1b": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/3c1b2d1b.tres",
+"use_external/path": "uid://dewdiqteyvudn"
+},
+"48bbc6a7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/48bbc6a7.tres",
+"use_external/path": "uid://cjtsacman7igl"
+},
+"5e58c3a1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/5e58c3a1.tres",
+"use_external/path": "uid://cc54bknjrn8bv"
+},
+"645cd4b3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/645cd4b3.tres",
+"use_external/path": "uid://kgj56wy85g6k"
+},
+"6dc85889": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/6dc85889.tres",
+"use_external/path": "uid://cw3gxf8l4k55s"
+},
+"779ff58a": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/779ff58a.tres",
+"use_external/path": "uid://ceo5ulsxwutxg"
+},
+"83b505fe": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/83b505fe.tres",
+"use_external/path": "uid://demimoa7fuldd"
+},
+"a5e8cdbe": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/a5e8cdbe.tres",
+"use_external/path": "uid://dkusdyovitdje"
+},
+"e109d152": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/e109d152.tres",
+"use_external/path": "uid://ci1wcuciwn4if"
+},
+"e7c9ad4c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/e7c9ad4c.tres",
+"use_external/path": "uid://b0iw1xq4nd5gh"
+},
+"f2c1fced": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/OceanCastleTwilight/f2c1fced.tres",
+"use_external/path": "uid://dnae7i3c1ig4i"
+}
+}
+}
+gltf/naming_version=0
+gltf/embedded_image_handling=1

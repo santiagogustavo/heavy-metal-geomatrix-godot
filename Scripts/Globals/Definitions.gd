@@ -39,6 +39,7 @@ enum SurfaceType {
 	Water = 4 + 512,
 	Stone = 4 + 1024,
 	Dirt = 4 + 2048,
+	Mud = 4 + 8192,
 	InvisibleWater = 32 + 512,
 	InvisibleStone = 32 + 1024,
 	InvisibleDirt = 32 + 2048

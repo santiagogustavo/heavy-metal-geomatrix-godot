@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8h7q0mdl25gi"]
 
-[ext_resource type="PackedScene" uid="uid://cpmkmi8mkg1pl" path="res://Models/Levels/Pitch Dark Stadium/BlueprintScreen.glb" id="1_3litt"]
+[ext_resource type="PackedScene" uid="uid://cpmkmi8mkg1pl" path="res://Models/Levels/PitchDarkStadium/BlueprintScreen.glb" id="1_3litt"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3litt"]
 points = PackedVector3Array(219.99342, 183.98257, 25.512283, 219.99342, 173.98647, 25.512283, 219.99342, 183.98257, 15.512909, -220.00676, 183.98257, 25.512283, 217.96916, 0, 10.515717, 219.99342, 75.988495, -15.488652, -220.00676, 173.98647, 25.512283, 219.99342, 85.98461, -25.483036, -220.00676, 183.98257, 15.512909, 217.96916, 0, 0.51634026, -218.02556, 0, 10.515717, 219.99342, 75.988495, -25.483036, -220.00676, 75.988495, -15.488652, -220.00676, 85.98461, -25.483036, -218.02556, 0, 0.51634026, -220.00676, 75.988495, -25.483036)

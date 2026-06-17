@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bk1epvk5mge47"]
 
-[ext_resource type="PackedScene" uid="uid://rrl3mxme1bc8" path="res://Models/Levels/Pitch Dark Stadium/Scaffolding.glb" id="1_baq6f"]
+[ext_resource type="PackedScene" uid="uid://rrl3mxme1bc8" path="res://Models/Levels/PitchDarkStadium/Scaffolding.glb" id="1_baq6f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1urub"]
 size = Vector3(8.0354, 1.5454102, 4.453125)

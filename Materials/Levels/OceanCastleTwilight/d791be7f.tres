@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cobkvfu7jxy8y"]
+
+[ext_resource type="Texture2D" uid="uid://c00oqysbb71pa" path="res://Textures/Levels/OceanCastleTwilight/d791be7f.png" id="1_ya5q8"]
+[ext_resource type="Texture2D" uid="uid://2jalrweefh8r" path="res://Textures/Levels/OceanCastleTwilight/d791be7f_spec.png" id="2_hgtjh"]
+
+[resource]
+transparency = 4
+blend_mode = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_ya5q8")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_hgtjh")

@@ -2,9 +2,9 @@ extends Node3D
 
 @export var decals: Array[Decal]
 @export var color: Color
-@export_range(0.0, 10.0) var lifetime: float = 300.0
+@export_range(0.0, 300.0) var lifetime: float = 300.0
 
-var selected: Decal	
+var selected: Decal
 var time_elapsed: float = 0.0
 
 func _ready() -> void:
@@ -13,6 +13,8 @@ func _ready() -> void:
 	selected.visible = true
 
 func _process(delta: float) -> void:
+	if !selected:
+		return
 	if time_elapsed < lifetime:
 		time_elapsed += delta
 		var ratio = time_elapsed / lifetime

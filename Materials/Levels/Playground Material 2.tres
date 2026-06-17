@@ -1,7 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dc5ihrsx5aehi"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dc5ihrsx5aehi"]
 
-[ext_resource type="Texture2D" uid="uid://brjcur4gycq3o" path="res://Textures/Levels/Ocean Castle Twilight/48bbc6a7.png" id="1_yi7h0"]
-[ext_resource type="Texture2D" uid="uid://cuxecv4wdnovt" path="res://Textures/Levels/Ocean Castle Twilight/48bbc6a7_spec.png" id="2_s13dj"]
+[ext_resource type="Texture2D" uid="uid://brjcur4gycq3o" path="res://Textures/Levels/OceanCastleTwilight/48bbc6a7.png" id="1_yi7h0"]
+[ext_resource type="Texture2D" uid="uid://cuxecv4wdnovt" path="res://Textures/Levels/OceanCastleTwilight/48bbc6a7_spec.png" id="2_s13dj"]
 
 [resource]
 albedo_texture = ExtResource("1_yi7h0")

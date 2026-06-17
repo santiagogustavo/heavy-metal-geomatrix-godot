@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://drns658eovibc"]
+[gd_scene format=3 uid="uid://drns658eovibc"]
 
 [ext_resource type="Script" uid="uid://cmjg1uynvej02" path="res://Scripts/Menus/SelectPlayer/SelectPlayerController.gd" id="1_c107j"]
 [ext_resource type="Material" uid="uid://bl4gl2wdbx05f" path="res://Materials/Menus/Select Player/bf365546.tres" id="1_vupum"]
@@ -260,7 +260,7 @@ states/Idle/node = SubResource("AnimationNodeAnimation_orith")
 states/Idle/position = Vector2(455, 101)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cjkb3")]
 
-[node name="SelectPlayer" type="Node3D" node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "loadout_label", "ost", "cursor_sfx", "select_sfx")]
+[node name="SelectPlayer" type="Node3D" unique_id=50085878 node_paths=PackedStringArray("avatar_cards", "character_name_label", "team_icon", "team_name_label", "stat_speed_label", "stat_power_label", "stat_vitality_label", "loadout_label", "ost", "cursor_sfx", "select_sfx")]
 script = ExtResource("1_c107j")
 redirect_to_scene = "res://Scenes/SelectArena.tscn"
 avatar_cards = [NodePath("Control/MarginContainer/Control/Characters/Slash"), NodePath("Control/MarginContainer/Control/Characters/Kassey"), NodePath("Control/MarginContainer/Control/Characters/Di"), NodePath("Control/MarginContainer/Control/Characters/Mayfly"), NodePath("Control/MarginContainer/Control/Characters/Hound")]
@@ -276,14 +276,14 @@ ost = NodePath("Control/OST")
 cursor_sfx = NodePath("Control/Cursor")
 select_sfx = NodePath("Control/Select")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=719743575]
 environment = SubResource("Environment_6hd2o")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=334336496]
 transform = Transform3D(0.9999997, 0, 0, 0, 1, 0, 0, 0, 0.9999997, 0, 0, 0)
 mesh = SubResource("SphereMesh_ypora")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=65224943]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -291,7 +291,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Tunnel" type="TextureRect" parent="Control"]
+[node name="Tunnel" type="TextureRect" parent="Control" unique_id=1341548857]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -301,7 +301,7 @@ grow_vertical = 2
 texture = SubResource("ViewportTexture_brymh")
 expand_mode = 1
 
-[node name="Hex" type="TextureRect" parent="Control"]
+[node name="Hex" type="TextureRect" parent="Control" unique_id=111565947]
 material = SubResource("ShaderMaterial_7psxi")
 layout_mode = 1
 anchors_preset = 15
@@ -317,7 +317,7 @@ pivot_offset = Vector2(0, 393)
 texture = ExtResource("3_xtnxi")
 expand_mode = 1
 
-[node name="Player" type="TextureRect" parent="Control"]
+[node name="Player" type="TextureRect" parent="Control" unique_id=742644989]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -327,7 +327,7 @@ grow_vertical = 2
 texture = SubResource("ViewportTexture_oc4ha")
 expand_mode = 1
 
-[node name="Glitch" type="ColorRect" parent="Control"]
+[node name="Glitch" type="ColorRect" parent="Control" unique_id=1381109753]
 material = SubResource("ShaderMaterial_4y3u4")
 layout_mode = 1
 anchors_preset = 15
@@ -336,7 +336,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=759189706]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -348,10 +348,10 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 96
 theme_override_constants/margin_bottom = 64
 
-[node name="Control" type="Control" parent="Control/MarginContainer"]
+[node name="Control" type="Control" parent="Control/MarginContainer" unique_id=749382271]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control"]
+[node name="Label" type="Label" parent="Control/MarginContainer/Control" unique_id=1179032120]
 layout_mode = 0
 offset_right = 183.0
 offset_bottom = 55.0
@@ -360,7 +360,7 @@ size_flags_vertical = 0
 text = "Select Player"
 label_settings = ExtResource("4_agtup")
 
-[node name="Characters" type="GridContainer" parent="Control/MarginContainer/Control"]
+[node name="Characters" type="GridContainer" parent="Control/MarginContainer/Control" unique_id=1076919541]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -372,36 +372,36 @@ grow_vertical = 2
 theme_override_constants/h_separation = -31
 theme_override_constants/v_separation = -4
 
-[node name="Slash" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+[node name="Slash" parent="Control/MarginContainer/Control/Characters" unique_id=905640802 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Mayfly")
 focus_neighbor_bottom = NodePath("../Kassey")
 character = 1
 
-[node name="Kassey" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+[node name="Kassey" parent="Control/MarginContainer/Control/Characters" unique_id=1460854790 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Slash")
 focus_neighbor_bottom = NodePath("../Di")
 character = 2
 
-[node name="Di" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+[node name="Di" parent="Control/MarginContainer/Control/Characters" unique_id=1534903469 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Kassey")
 focus_neighbor_bottom = NodePath("../Mayfly")
 character = 3
 
-[node name="Mayfly" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+[node name="Mayfly" parent="Control/MarginContainer/Control/Characters" unique_id=312458292 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Di")
 focus_neighbor_bottom = NodePath("../Hound")
 
-[node name="Hound" parent="Control/MarginContainer/Control/Characters" instance=ExtResource("5_km5t0")]
+[node name="Hound" parent="Control/MarginContainer/Control/Characters" unique_id=1890332029 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Mayfly")
 focus_neighbor_bottom = NodePath("../Slash")
 character = 4
 
-[node name="Info" type="VBoxContainer" parent="Control/MarginContainer/Control"]
+[node name="Info" type="VBoxContainer" parent="Control/MarginContainer/Control" unique_id=980871945]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 1
 anchors_preset = 6
@@ -416,22 +416,22 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="Character" type="VBoxContainer" parent="Control/MarginContainer/Control/Info"]
+[node name="Character" type="VBoxContainer" parent="Control/MarginContainer/Control/Info" unique_id=2086839750]
 layout_mode = 2
 theme_override_constants/separation = -12
 
-[node name="Name" type="Label" parent="Control/MarginContainer/Control/Info/Character"]
+[node name="Name" type="Label" parent="Control/MarginContainer/Control/Info/Character" unique_id=528397624]
 layout_mode = 2
 text = "Mayfly"
 label_settings = SubResource("LabelSettings_xgq5a")
 uppercase = true
 
-[node name="Team" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Character"]
+[node name="Team" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Character" unique_id=1389209846]
 layout_mode = 2
 size_flags_horizontal = 0
 alignment = 1
 
-[node name="Icon" type="TextureRect" parent="Control/MarginContainer/Control/Info/Character/Team"]
+[node name="Icon" type="TextureRect" parent="Control/MarginContainer/Control/Info/Character/Team" unique_id=397746137]
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -439,7 +439,7 @@ size_flags_vertical = 4
 texture = ExtResource("6_2w7o8")
 expand_mode = 1
 
-[node name="Name" type="Label" parent="Control/MarginContainer/Control/Info/Character/Team"]
+[node name="Name" type="Label" parent="Control/MarginContainer/Control/Info/Character/Team" unique_id=1136899625]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "323 Agents"
@@ -447,70 +447,70 @@ label_settings = SubResource("LabelSettings_tg767")
 vertical_alignment = 1
 uppercase = true
 
-[node name="Stats" type="VBoxContainer" parent="Control/MarginContainer/Control/Info"]
+[node name="Stats" type="VBoxContainer" parent="Control/MarginContainer/Control/Info" unique_id=953708488]
 layout_mode = 2
 
-[node name="Speed" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+[node name="Speed" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats" unique_id=643879383]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Speed"]
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Speed" unique_id=1495343375]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Speed"
 label_settings = SubResource("LabelSettings_aa4dx")
 uppercase = true
 
-[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Speed"]
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Speed" unique_id=1254342116]
 layout_mode = 2
 text = "////"
 label_settings = SubResource("LabelSettings_wyn6c")
 
-[node name="Power" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+[node name="Power" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats" unique_id=1088572609]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Power"]
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Power" unique_id=233392360]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Power"
 label_settings = SubResource("LabelSettings_aa4dx")
 uppercase = true
 
-[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Power"]
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Power" unique_id=1595658023]
 layout_mode = 2
 text = "/"
 label_settings = SubResource("LabelSettings_wyn6c")
 
-[node name="Vitality" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+[node name="Vitality" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats" unique_id=72110740]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Vitality"]
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Vitality" unique_id=1029425940]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Vitality"
 label_settings = SubResource("LabelSettings_aa4dx")
 uppercase = true
 
-[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Vitality"]
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Vitality" unique_id=952662724]
 layout_mode = 2
 text = "//"
 label_settings = SubResource("LabelSettings_wyn6c")
 
-[node name="Loadout" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats"]
+[node name="Loadout" type="HBoxContainer" parent="Control/MarginContainer/Control/Info/Stats" unique_id=482484278]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Loadout"]
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Loadout" unique_id=1465713182]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Loadout"
 label_settings = SubResource("LabelSettings_aa4dx")
 uppercase = true
 
-[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Loadout"]
+[node name="Value" type="Label" parent="Control/MarginContainer/Control/Info/Stats/Loadout" unique_id=1065244487]
 layout_mode = 2
 text = "Sniper Rifle"
 label_settings = SubResource("LabelSettings_r4kny")
 
-[node name="Fade" type="ColorRect" parent="Control"]
+[node name="Fade" type="ColorRect" parent="Control" unique_id=824705953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -519,90 +519,86 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Intro" type="AudioStreamPlayer2D" parent="Control"]
+[node name="Intro" type="AudioStreamPlayer2D" parent="Control" unique_id=2078584865]
 stream = ExtResource("14_0hce8")
 autoplay = true
 bus = &"UI"
 
-[node name="OST" type="AudioStreamPlayer2D" parent="Control"]
+[node name="OST" type="AudioStreamPlayer2D" parent="Control" unique_id=991652470]
 stream = ExtResource("15_qlg06")
 autoplay = true
 bus = &"Menus"
 
-[node name="Cursor" type="AudioStreamPlayer2D" parent="Control"]
+[node name="Cursor" type="AudioStreamPlayer2D" parent="Control" unique_id=704996887]
 stream = ExtResource("15_uygjb")
 bus = &"UI"
 
-[node name="Select" type="AudioStreamPlayer2D" parent="Control"]
+[node name="Select" type="AudioStreamPlayer2D" parent="Control" unique_id=1016119783]
 stream = ExtResource("16_k1njm")
 bus = &"UI"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
-libraries = {
-&"": SubResource("AnimationLibrary_et6t4")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=756050348]
+libraries/ = SubResource("AnimationLibrary_et6t4")
 
-[node name="AnimationTree" type="AnimationTree" parent="Control"]
+[node name="AnimationTree" type="AnimationTree" parent="Control" unique_id=2112083338]
 tree_root = SubResource("AnimationNodeStateMachine_myy3w")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Tunnel" parent="." instance=ExtResource("5_ecqj0")]
+[node name="Tunnel" parent="." unique_id=1459081473 instance=ExtResource("5_ecqj0")]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="object_0" parent="Tunnel" index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -46.8)
 cast_shadow = 0
 
-[node name="CharacterContainer" type="Node3D" parent="."]
+[node name="CharacterContainer" type="Node3D" parent="." unique_id=1975253680]
 transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, -13, 154.86)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CharacterContainer"]
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterContainer" unique_id=881463529]
 transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 1.13687e-13, 0.0588192, -1.26593)
 layers = 4
 light_color = Color(0, 0.416667, 1, 1)
 light_energy = 15.0
 spot_range = 50.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="CharacterContainer"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="CharacterContainer" unique_id=2109300293]
 transform = Transform3D(1, 0, 0, 0, -0.866026, 0.5, 0, -0.5, -0.866026, 1.13687e-13, 1.85882, -1.26593)
 layers = 4
 light_energy = 7.5
 spot_range = 50.0
 
-[node name="Mayfly" parent="CharacterContainer" instance=ExtResource("20_oglmc")]
+[node name="Mayfly" parent="CharacterContainer" unique_id=1396813443 instance=ExtResource("20_oglmc")]
 visible = false
 
-[node name="TunnelViewport" type="SubViewport" parent="."]
+[node name="TunnelViewport" type="SubViewport" parent="." unique_id=1062823255]
 size = Vector2i(1280, 720)
 script = ExtResource("21_ha3xj")
 
-[node name="TunnelCamera" type="Camera3D" parent="TunnelViewport"]
+[node name="TunnelCamera" type="Camera3D" parent="TunnelViewport" unique_id=122645220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.63)
 cull_mask = 1048563
 fov = 90.0
 
-[node name="PlayerViewport" type="SubViewport" parent="."]
+[node name="PlayerViewport" type="SubViewport" parent="." unique_id=529571141]
 transparent_bg = true
 audio_listener_enable_3d = true
 size = Vector2i(1280, 720)
 script = ExtResource("21_ha3xj")
 
-[node name="PlayerCamera" type="Camera3D" parent="PlayerViewport"]
+[node name="PlayerCamera" type="Camera3D" parent="PlayerViewport" unique_id=2034252535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.63)
 cull_mask = 12
 fov = 40.0
 
-[node name="AudioListener3D" type="AudioListener3D" parent="PlayerViewport"]
+[node name="AudioListener3D" type="AudioListener3D" parent="PlayerViewport" unique_id=173914086]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -13, 154.86)
 current = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=660461708]
 root_node = NodePath("../Tunnel")
-libraries = {
-&"": SubResource("AnimationLibrary_y516w")
-}
+libraries/ = SubResource("AnimationLibrary_y516w")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1199839303]
 root_node = NodePath("../Tunnel")
 tree_root = SubResource("AnimationNodeStateMachine_udew1")
 anim_player = NodePath("../AnimationPlayer")

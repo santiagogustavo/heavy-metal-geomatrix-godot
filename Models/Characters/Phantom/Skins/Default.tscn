@@ -209,5 +209,6 @@ bind/33/bone = -1
 bind/33/pose = Transform3D(1, 0, 0, 0, -0.5496171, 0.8354166, 0, -0.83541644, -0.5496171, 0.12443054, 0.15368357, 0.08963239)
 
 [node name="Default" type="MeshInstance3D" unique_id=795111]
+layers = 4
 mesh = SubResource("ArrayMesh_cl0yb")
 skin = SubResource("Skin_w84h3")

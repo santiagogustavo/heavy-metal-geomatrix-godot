@@ -1,0 +1,45 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dr536egmj4g18"
+path.s3tc="res://.godot/imported/JungledTempleDay_97ad4b10.png-065104cbf1d458e27aea19c9cd35287c.s3tc.ctex"
+path.etc2="res://.godot/imported/JungledTempleDay_97ad4b10.png-065104cbf1d458e27aea19c9cd35287c.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "b47e0423ba2684dfbb47f34f7d66d753"
+}
+
+[deps]
+
+source_file="res://Models/Levels/JungledTempleDay/JungledTempleDay_97ad4b10.png"
+dest_files=["res://.godot/imported/JungledTempleDay_97ad4b10.png-065104cbf1d458e27aea19c9cd35287c.s3tc.ctex", "res://.godot/imported/JungledTempleDay_97ad4b10.png-065104cbf1d458e27aea19c9cd35287c.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

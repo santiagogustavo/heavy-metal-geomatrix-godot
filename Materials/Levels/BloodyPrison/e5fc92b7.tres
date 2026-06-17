@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://box6oosckihvu"]
+
+[ext_resource type="Texture2D" uid="uid://dqjx3ufq7ger0" path="res://Textures/Levels/BloodyPrison/e5fc92b7.png" id="1_de27q"]
+[ext_resource type="Texture2D" uid="uid://bt03y8vpipqsf" path="res://Textures/Levels/BloodyPrison/e5fc92b7_occ.png" id="2_8tr2e"]
+
+[resource]
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_de27q")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_8tr2e")
+proximity_fade_enabled = true
+proximity_fade_distance = 104.04

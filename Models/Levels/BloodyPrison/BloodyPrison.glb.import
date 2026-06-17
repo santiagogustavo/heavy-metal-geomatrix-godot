@@ -1,0 +1,170 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c38nd48madvlu"
+path="res://.godot/imported/BloodyPrison.glb-0c7d9873df5295960f120b0edaddabc6.scn"
+
+[deps]
+
+source_file="res://Models/Levels/BloodyPrison/BloodyPrison.glb"
+dest_files=["res://.godot/imported/BloodyPrison.glb-0c7d9873df5295960f120b0edaddabc6.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"1c2a9a1c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/1c2a9a1c.tres",
+"use_external/path": "uid://f50k6gkahv2y"
+},
+"1ef2f890": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/1ef2f890.tres",
+"use_external/path": "uid://dgybjjinjmpgf"
+},
+"25455a25": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/25455a25.tres",
+"use_external/path": "uid://dm6pkra5jhstp"
+},
+"25aa8633": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/25aa8633.tres",
+"use_external/path": "uid://cj88t0mjvw76i"
+},
+"43b82089": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/43b82089.tres",
+"use_external/path": "uid://doa3mopn2e7dx"
+},
+"43cf650d": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/43cf650d.tres",
+"use_external/path": "uid://4uvsykdrxlw3"
+},
+"478d0fe4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/478d0fe4.tres",
+"use_external/path": "uid://c5an5fj85sqcj"
+},
+"553da5e6": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/553da5e6.tres",
+"use_external/path": "uid://qilgv6r31j76"
+},
+"61abfa2f": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/61abfa2f.tres",
+"use_external/path": "uid://yy2tmwn71wis"
+},
+"6aaef78e": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/6aaef78e.tres",
+"use_external/path": "uid://c80bq2d7ny1i"
+},
+"72808578": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/72808578.tres",
+"use_external/path": "uid://nqva2inxerfi"
+},
+"7f4e3636": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/7f4e3636.tres",
+"use_external/path": "uid://b11l45ncjstyy"
+},
+"8310248": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/8310248.tres",
+"use_external/path": "uid://vpwqft81861h"
+},
+"91ff07b5": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/91ff07b5.tres",
+"use_external/path": "uid://bmhycg6hnywd3"
+},
+"d00322a7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/d00322a7.tres",
+"use_external/path": "uid://c8ubemtwleflu"
+},
+"d4dc50e2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/d4dc50e2.tres",
+"use_external/path": "uid://ycu2ftd3ad0l"
+},
+"d541120a": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/d541120a.tres",
+"use_external/path": "uid://4dnwnaxtb7wt"
+},
+"e15d51af": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/e15d51af.tres",
+"use_external/path": "uid://hu2bjslw5vg2"
+},
+"e5fc92b7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/e5fc92b7.tres",
+"use_external/path": "uid://box6oosckihvu"
+},
+"e6453dd5": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/e6453dd5.tres",
+"use_external/path": "uid://ulwa5sur8j8l"
+},
+"e86854b2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/e86854b2.tres",
+"use_external/path": "uid://bx33owxlsia0v"
+},
+"ecddb7aa": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/ecddb7aa.tres",
+"use_external/path": "uid://ge6u1cpitcrq"
+},
+"fafe2f4e": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/fafe2f4e.tres",
+"use_external/path": "uid://2avrrxd085qq"
+},
+"fb712b3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/fb712b3.tres",
+"use_external/path": "uid://b5bgx4qcrt7bi"
+},
+"fcafade4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Levels/Bloody Prison/fcafade4.tres",
+"use_external/path": "uid://yiigqxt1r4xc"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
