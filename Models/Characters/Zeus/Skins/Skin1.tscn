@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ck4oen3p0jl3o"]
+
+[ext_resource type="PackedScene" uid="uid://dllyflmd65wjc" path="res://Models/Characters/Zeus/Skins/Default.tscn" id="1_d512d"]
+[ext_resource type="Material" uid="uid://bpflv807fld7t" path="res://Materials/Characters/Zeus/Skin1/892e67ae.tres" id="2_sg6rb"]
+[ext_resource type="Material" uid="uid://kx048ixjshya" path="res://Materials/Characters/Zeus/Skin1/4269fcef.tres" id="3_25tlm"]
+[ext_resource type="Material" uid="uid://bxowljlq7vhim" path="res://Materials/Characters/Zeus/Skin1/ea22015c.tres" id="4_niugv"]
+[ext_resource type="Material" uid="uid://cslfu8p2idhif" path="res://Materials/Characters/Zeus/Skin1/546e9c95.tres" id="5_kne53"]
+[ext_resource type="Material" uid="uid://bhqq4sjkbaou3" path="res://Materials/Characters/Zeus/Skin1/418a77a2.tres" id="6_bu4i5"]
+[ext_resource type="Material" uid="uid://c20ensnealfu" path="res://Materials/Characters/Zeus/Skin1/91814be2.tres" id="7_b1h6w"]
+[ext_resource type="Material" uid="uid://baqh0k5ao01ug" path="res://Materials/Characters/Zeus/Skin1/407c9968.tres" id="8_2kj6f"]
+
+[node name="Skin1" unique_id=1748815633 instance=ExtResource("1_d512d")]
+surface_material_override/0 = ExtResource("2_sg6rb")
+surface_material_override/1 = ExtResource("3_25tlm")
+surface_material_override/2 = ExtResource("4_niugv")
+surface_material_override/3 = ExtResource("5_kne53")
+surface_material_override/4 = ExtResource("6_bu4i5")
+surface_material_override/5 = ExtResource("7_b1h6w")
+surface_material_override/6 = ExtResource("8_2kj6f")

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="2_pg3qa"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_s26dd"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="3_m5gjv"]
-[ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/Red Hot Shrine Day/336e412d.png" id="6_lid83"]
-[ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/Red Hot Shrine Day/336e412d_spec.png" id="7_yuttg"]
+[ext_resource type="Texture2D" uid="uid://6tf72mvjqsq0" path="res://Textures/Levels/RedHotShrineDay/336e412d.png" id="6_lid83"]
+[ext_resource type="Texture2D" uid="uid://g334ivrxd7fj" path="res://Textures/Levels/RedHotShrineDay/336e412d_spec.png" id="7_yuttg"]
 [ext_resource type="Shader" uid="uid://dkjcr2ocolsln" path="res://Materials/Shaders/Warping Water.tres" id="8_hapiw"]
 [ext_resource type="Texture2D" uid="uid://706hkh4icsgu" path="res://Textures/Levels/5a480546.png" id="9_ds7yn"]
 [ext_resource type="Texture2D" uid="uid://djdwcspbmak5r" path="res://Textures/Levels/5a480546_nrm.png" id="10_kuhwj"]
@@ -216,7 +216,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25417, 4.15649, 0)
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 10.0
-spawn_timeout = 5.0
 items_to_spawn = Array[PackedScene]([ExtResource("16_euj4p"), ExtResource("17_6njym"), ExtResource("24_dorkn"), ExtResource("19_4nt3m")])
 
 [node name="World Boundaries" parent="." unique_id=2017473306 instance=ExtResource("22_4s6i1")]

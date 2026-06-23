@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://tsv4st1rvlxg"]
+
+[ext_resource type="Texture2D" uid="uid://dlsexkqn4nua8" path="res://Textures/Characters/Zeus/Skin2/9d41bf41.png" id="1_vlod1"]
+[ext_resource type="Texture2D" uid="uid://cppbmnbn2qo10" path="res://Textures/Characters/Zeus/Default/4364523e_occ.png" id="2_pb6rk"]
+
+[resource]
+albedo_texture = ExtResource("1_vlod1")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_pb6rk")

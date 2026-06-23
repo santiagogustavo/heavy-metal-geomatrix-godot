@@ -212,6 +212,7 @@ stream_2/stream = ExtResource("17_sq7nw")
 script = ExtResource("1_2d4v2")
 character = 3
 character_team = 2
+bio = "A tomboy type, DI handles heavy weapons with great skill."
 avatar_big = ExtResource("2_51v3q")
 avatar_small = ExtResource("3_j6tad")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
@@ -446,7 +447,7 @@ stream = ExtResource("8_vd4rb")
 volume_db = -10.0
 max_db = 0.0
 pitch_scale = 0.64
-bus = &"Characters"
+bus = &"CharacterDeath"
 attenuation_filter_db = 0.0
 
 [node name="Hit" type="AudioStreamPlayer3D" parent="SFX" unique_id=559946080]

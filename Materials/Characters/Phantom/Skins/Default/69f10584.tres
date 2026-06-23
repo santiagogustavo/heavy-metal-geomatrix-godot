@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d0k8dg87a5nt6"]
+
+[ext_resource type="Texture2D" uid="uid://cfyewtd51xlqp" path="res://Textures/Characters/Phantom/Default/69f10584.png" id="1_h4is6"]
+[ext_resource type="Texture2D" uid="uid://beali0hi4oxhm" path="res://Textures/Characters/Phantom/Default/69f10584_occ.png" id="2_uslwv"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_h4is6")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_uslwv")

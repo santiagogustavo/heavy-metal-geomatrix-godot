@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b2oamd6yueh80"]
+
+[ext_resource type="Texture2D" uid="uid://ka7k2w4f6rw" path="res://Textures/Levels/JungledTempleDay/c59cd3b0-211f-4cf8-ba65-2be91b34ba4b.png" id="1_nokd1"]
+
+[resource]
+transparency = 4
+albedo_texture = ExtResource("1_nokd1")
+texture_filter = 2

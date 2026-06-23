@@ -8,10 +8,12 @@ class_name CharacterSFXController
 @onready var walk_stone_sfx: AudioStreamPlayer3D = $Common/WalkStone
 @onready var walk_water_sfx: AudioStreamPlayer3D = $Common/WalkWater
 @onready var walk_default_sfx: AudioStreamPlayer3D = $Common/WalkDefault
+@onready var walk_mud_sfx: AudioStreamPlayer3D = $Common/WalkMud
 @onready var land_dirt_sfx: AudioStreamPlayer3D = $Common/LandDirt
 @onready var land_stone_sfx: AudioStreamPlayer3D = $Common/LandStone
 @onready var land_water_sfx: AudioStreamPlayer3D = $Common/LandWater
 @onready var land_default_sfx: AudioStreamPlayer3D = $Common/LandDefault
+@onready var land_mud_sfx: AudioStreamPlayer3D = $Common/LandMud
 
 var is_walking: bool = false
 var current_collision_surface: Definitions.SurfaceType = Definitions.SurfaceType.LevelGeometry
@@ -39,6 +41,9 @@ func play_surface_walk_sound() -> void:
 		Definitions.SurfaceType.Water, Definitions.SurfaceType.InvisibleWater:
 			walk_water_sfx.playing = true
 			pass
+		Definitions.SurfaceType.Mud:
+			walk_mud_sfx.playing = true
+			pass
 		_:
 			walk_default_sfx.playing = true
 
@@ -52,6 +57,9 @@ func play_surface_land_sound() -> void:
 			pass
 		Definitions.SurfaceType.Water, Definitions.SurfaceType.InvisibleWater:
 			land_water_sfx.playing = true
+			pass
+		Definitions.SurfaceType.Mud:
+			land_mud_sfx.playing = true
 			pass
 		_:
 			land_default_sfx.playing = true

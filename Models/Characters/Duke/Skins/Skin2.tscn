@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b5iqe5coriwny"]
+
+[ext_resource type="PackedScene" uid="uid://bu5pj4jekcs8i" path="res://Models/Characters/Duke/Skins/Default.tscn" id="1_frppf"]
+[ext_resource type="Material" uid="uid://j84chj1cw2s1" path="res://Materials/Characters/Duke/Skins/Skin2/606f0e8d.tres" id="2_eduqf"]
+[ext_resource type="Material" uid="uid://d3rpos0bxka7c" path="res://Materials/Characters/Duke/Skins/Skin2/6d3d4270.tres" id="3_4pfne"]
+[ext_resource type="Material" uid="uid://6txsjre4n4c4" path="res://Materials/Characters/Duke/Skins/Skin2/20fa2709.tres" id="4_yawie"]
+[ext_resource type="Material" uid="uid://g7ulfnmy5yf5" path="res://Materials/Characters/Duke/Skins/Skin2/94f0a700.tres" id="5_ophl5"]
+[ext_resource type="Material" uid="uid://cp63ytclhqs2h" path="res://Materials/Characters/Duke/Skins/Skin2/8a7e0d9d.tres" id="6_qtsh4"]
+[ext_resource type="Material" uid="uid://6r1v5nrlvx11" path="res://Materials/Characters/Duke/Skins/Skin2/691f1cd2.tres" id="7_o2txj"]
+
+[node name="Skin2" unique_id=454401021 instance=ExtResource("1_frppf")]
+surface_material_override/0 = ExtResource("2_eduqf")
+surface_material_override/1 = ExtResource("3_4pfne")
+surface_material_override/2 = ExtResource("4_yawie")
+surface_material_override/3 = ExtResource("5_ophl5")
+surface_material_override/4 = ExtResource("6_qtsh4")
+surface_material_override/6 = ExtResource("7_o2txj")

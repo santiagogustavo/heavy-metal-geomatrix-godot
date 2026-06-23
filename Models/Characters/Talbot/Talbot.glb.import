@@ -1,0 +1,83 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://djd0qcmup5emx"
+path="res://.godot/imported/Talbot.glb-7a64d523d873edae8515affee3134379.scn"
+
+[deps]
+
+source_file="res://Models/Characters/Talbot/Talbot.glb"
+dest_files=["res://.godot/imported/Talbot.glb-7a64d523d873edae8515affee3134379.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=0.00999999999999999
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"7b3109b4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Talbot/Default/7b3109b4.tres",
+"use_external/path": "uid://ddaths245ed0g"
+},
+"8e7096e7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Talbot/Default/8e7096e7.tres",
+"use_external/path": "uid://b4oemfrvjvloi"
+},
+"98ee99a4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Talbot/Default/98ee99a4.tres",
+"use_external/path": "uid://bgmdesq2becmu"
+},
+"b0e7edba": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Talbot/Default/b0e7edba.tres",
+"use_external/path": "uid://4apkfyuja3xj"
+},
+"ba638058": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Talbot/Default/ba638058.tres",
+"use_external/path": "uid://dqcakgg42uloc"
+},
+"cfb167ba": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Talbot/Default/cfb167ba.tres",
+"use_external/path": "uid://b3ajr4tqr3mda"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": Resource("uid://bqyvsk7cobkps", "res://Animations/CharacterBoneMap.tres")
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

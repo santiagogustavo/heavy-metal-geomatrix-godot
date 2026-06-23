@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="2_uuu12"]
 [ext_resource type="Script" uid="uid://cqve5bpmljhwj" path="res://Scripts/Levels/Sun.gd" id="3_8hau5"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="3_jwvik"]
-[ext_resource type="PackedScene" uid="uid://cna45sa1xwk7h" path="res://Models/Levels/Red Hot Shrine Day/Red Hot Shrine Day.glb" id="3_uuu12"]
-[ext_resource type="PackedScene" uid="uid://beq3l6dsrsgrn" path="res://Models/Levels/Red Hot Shrine Day/Navmesh.glb" id="5_uuidt"]
+[ext_resource type="PackedScene" uid="uid://cna45sa1xwk7h" path="res://Models/Levels/RedHotShrineDay/Red Hot Shrine Day.glb" id="3_uuu12"]
+[ext_resource type="PackedScene" uid="uid://beq3l6dsrsgrn" path="res://Models/Levels/RedHotShrineDay/Navmesh.glb" id="5_uuidt"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="7_ktx3f"]
 [ext_resource type="Texture2D" uid="uid://dxa1tcgelr650" path="res://Textures/Particles/dust_1.png" id="7_yl6su"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="8_68oyf"]
@@ -297,7 +297,6 @@ bus = &"Reverb"
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 3
 spawn_min_distance = 10.0
-spawn_timeout = 5.0
 items_to_spawn = Array[PackedScene]([ExtResource("8_68oyf"), ExtResource("9_kf12v"), ExtResource("10_xifv4"), ExtResource("11_yl6su")])
 
 [node name="World Boundaries" parent="." unique_id=896150592 instance=ExtResource("12_68oyf")]

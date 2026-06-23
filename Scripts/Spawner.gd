@@ -44,7 +44,7 @@ func spawn_concurrents() -> void:
 	get_tree().create_timer(spawn_timeout, false).timeout.connect(spawn_concurrents)
 
 func spawn_at_random_navigation_position() -> void:
-	var spawn_location: Vector3 = last_spawn_location
+	var spawn_location: Vector3 = get_navigation_random_position()
 	while last_spawn_location.distance_to(spawn_location) < spawn_min_distance:
 		spawn_location = get_navigation_random_position()
 	last_spawn_location = spawn_location

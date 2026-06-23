@@ -138,7 +138,7 @@ func _physics_process(delta: float) -> void:
 	compute_movement()
 	compute_forces(delta)
 	compute_global_forces(delta)
-	if aim_raycast.is_colliding() and aim_raycast.get_collider() is StaticBody3D:
+	if aim_raycast.is_colliding() and aim_raycast.get_collider() is CollisionObject3D:
 		collide(aim_raycast.get_collider())
 	move_and_slide()
 	push_rigid_bodies()
@@ -146,10 +146,10 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	update_internals()
 	update_externals(delta)
-	look_at_target_position()
 	set_animator_variables()
 	set_camera_variables()
 	set_inventory_items_variables()
+	look_at_target_position()
 
 func _exit_tree() -> void:
 	if player_ui:
@@ -199,11 +199,9 @@ func push_rigid_bodies() -> void:
 			var direction = -collision.get_normal()
 			collider.apply_central_impulse(direction * push_force)
 
-func collide(collision: StaticBody3D):
+func collide(collision: CollisionObject3D):
 	if character:
 		character.current_collision_surface = collision.collision_layer as Definitions.SurfaceType
-	if sfx_controller:
-		sfx_controller.current_collision_surface = collision.collision_layer as Definitions.SurfaceType
 
 func heal_player(amount: int) -> void:
 	health += amount
@@ -263,24 +261,20 @@ func look_at_target_position() -> void:
 	#look_at(target_position)
 	#rotation.x = initial_rotation.x
 	#rotation.z = initial_rotation.z
+	if player_input and player_input.is_locked_on:
+		camera_pivot.look_at(target_position)
+		brain.new_rotation = camera_pivot.global_rotation
 	var aim_condition = animation_tree.is_current_node_shooting_or_aiming()
 	var look_condition = (
 		!brain.should_look_at_target and brain.is_walking
 	) or brain.should_look_at_target
-	if aim_condition and look_condition:
+	if inventory_manager.has_gun and aim_condition and look_condition:
 		if camera:
 			inventory_manager.right_hand_instance.look_at(camera.target_point)
 		elif player_bot_ai:
 			inventory_manager.right_hand_instance.look_at(player_bot_ai.target_position)
-	elif inventory_manager.has_gun:
-		inventory_manager.right_hand_instance.look_at(
-			inventory_manager.right_hand_instance.global_position
-			+ inventory_manager.right_hand_instance.global_transform.basis.z
-			* -1
-		)
-	if player_input and player_input.is_locked_on:
-		camera_pivot.look_at(target_position)
-		brain.new_rotation = camera_pivot.global_rotation
+	elif inventory_manager.right_hand_instance:
+		inventory_manager.right_hand_instance.rotation = Vector3.ZERO
 
 func compute_free_look(delta: float) -> void:
 	var new_rotation: Vector3 = character.rotation

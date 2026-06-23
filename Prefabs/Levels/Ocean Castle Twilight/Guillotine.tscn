@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://cow3de7hn73bf"]
 
-[ext_resource type="PackedScene" uid="uid://byxg1c6xwhrr5" path="res://Models/Levels/Ocean Castle Twilight/Guillotine.glb" id="1_c6u6e"]
+[ext_resource type="PackedScene" uid="uid://byxg1c6xwhrr5" path="res://Models/Levels/OceanCastleTwilight/Guillotine.glb" id="1_c6u6e"]
 [ext_resource type="PackedScene" uid="uid://1w54ocdv7xpf" path="res://Prefabs/Levels/Ocean Castle Twilight/ChainPart.tscn" id="1_js0fj"]
-[ext_resource type="Material" uid="uid://b84ydyqoqyeqm" path="res://Materials/Levels/Ocean Castle Twilight/c6624452.tres" id="3_i1ivc"]
+[ext_resource type="Material" uid="uid://b84ydyqoqyeqm" path="res://Materials/Levels/OceanCastleTwilight/c6624452.tres" id="3_i1ivc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js0fj"]
 size = Vector3(0.2, 0.2, 0.2)

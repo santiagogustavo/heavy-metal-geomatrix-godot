@@ -262,6 +262,7 @@ stream_2/stream = ExtResource("48_kjlt8")
 script = ExtResource("1_j5lmb")
 character = 2
 character_team = 1
+bio = "Young KASSEY is a computer genius. Her fighting experience is limited, but growing."
 avatar_big = ExtResource("2_gu0ub")
 avatar_small = ExtResource("3_qklw6")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
@@ -517,7 +518,7 @@ stream = ExtResource("44_fs5gc")
 volume_db = -10.0
 max_db = 0.0
 pitch_scale = 0.64
-bus = &"Characters"
+bus = &"CharacterDeath"
 attenuation_filter_db = 0.0
 
 [node name="Hit" type="AudioStreamPlayer3D" parent="SFX" unique_id=979573349]

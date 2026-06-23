@@ -38,7 +38,7 @@ color_ramp = SubResource("GradientTexture1D_hbext")
 turbulence_noise_scale = 0.0
 
 [node name="Player" type="CharacterBody3D" unique_id=1805307860]
-collision_mask = 4023
+collision_mask = 12215
 floor_constant_speed = true
 script = ExtResource("1_s5b7i")
 
@@ -53,7 +53,8 @@ surface_material_override/3 = SubResource("StandardMaterial3D_6ltrx")
 
 [node name="AimRaycast" type="RayCast3D" parent="." unique_id=32736809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-collision_mask = 3876
+collision_mask = 12068
+collide_with_areas = true
 
 [node name="DashParticle" parent="." unique_id=1873573577 instance=ExtResource("2_3ycw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853793, 0)

@@ -86,7 +86,6 @@ light_energy = 0.1
 navigation_region = NodePath("../Level Geometry/NavigationRegion3D")
 spawn_concurrent = 10
 spawn_min_distance = 20.0
-spawn_timeout = 5.0
 items_to_spawn = Array[PackedScene]([ExtResource("6_2od80"), ExtResource("7_sl81g"), ExtResource("10_1dd0n"), ExtResource("9_6vc2e"), ExtResource("12_1dd0n"), ExtResource("13_1dd0n"), ExtResource("14_1dd0n"), ExtResource("13_6vc2e")])
 
 [node name="Level Geometry" type="Node3D" parent="." unique_id=1177179093]

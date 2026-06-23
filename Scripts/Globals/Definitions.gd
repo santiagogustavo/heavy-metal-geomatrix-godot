@@ -39,6 +39,7 @@ enum SurfaceType {
 	Water = 4 + 512,
 	Stone = 4 + 1024,
 	Dirt = 4 + 2048,
+	Mud = 4 + 8192,
 	InvisibleWater = 32 + 512,
 	InvisibleStone = 32 + 1024,
 	InvisibleDirt = 32 + 2048
@@ -58,6 +59,13 @@ enum Characters {
 	Di,
 	Hound,
 	Pufferson,
+	Phantom,
+	Talbot,
+	Zeus,
+	Duke,
+	Lance,
+	Sarge,
+	Stab,
 }
 
 const TeamNames: Dictionary = {
@@ -73,7 +81,14 @@ const CharacterNames: Dictionary = {
 	Characters.Kassey: "Kassey",
 	Characters.Di: "Di",
 	Characters.Hound: "Hound",
-	Characters.Pufferson: "Pufferson"
+	Characters.Pufferson: "Pufferson",
+	Characters.Phantom: "Phantom",
+	Characters.Talbot: "Talbot",
+	Characters.Zeus: "Zeus",
+	Characters.Duke: "Duke",
+	Characters.Lance: "Lance",
+	Characters.Sarge: "Sarge",
+	Characters.Stab: "Stab",
 }
 
 const Scenes: Dictionary = {
@@ -86,7 +101,14 @@ const Selects: Dictionary = {
 	Characters.Slash: "res://Prefabs/Characters/Slash/Base.tscn",
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Base.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Base.tscn",
-	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn"
+	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn",
+	Characters.Phantom: "res://Prefabs/Characters/Phantom/Base.tscn",
+	Characters.Talbot: "res://Prefabs/Characters/Talbot/Base.tscn",
+	Characters.Zeus: "res://Prefabs/Characters/Zeus/Base.tscn",
+	Characters.Duke: "res://Prefabs/Characters/Duke/Base.tscn",
+	Characters.Lance: "res://Prefabs/Characters/Lance/Base.tscn",
+	Characters.Sarge: "res://Prefabs/Characters/Sarge/Base.tscn",
+	Characters.Stab: "res://Prefabs/Characters/Stab/Base.tscn",
 }
 
 const Players: Dictionary = {
@@ -95,7 +117,14 @@ const Players: Dictionary = {
 	Characters.Kassey: "res://Prefabs/Characters/Kassey/Base.tscn",
 	Characters.Di: "res://Prefabs/Characters/Di/Base.tscn",
 	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn",
-	Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn"
+	Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn",
+	Characters.Phantom: "res://Prefabs/Characters/Phantom/Base.tscn",
+	Characters.Talbot: "res://Prefabs/Characters/Talbot/Base.tscn",
+	Characters.Zeus: "res://Prefabs/Characters/Zeus/Base.tscn",
+	Characters.Duke: "res://Prefabs/Characters/Duke/Base.tscn",
+	Characters.Lance: "res://Prefabs/Characters/Lance/Base.tscn",
+	Characters.Sarge: "res://Prefabs/Characters/Sarge/Base.tscn",
+	Characters.Stab: "res://Prefabs/Characters/Stab/Base.tscn",
 }
 
 const WeaponRange: Dictionary = {

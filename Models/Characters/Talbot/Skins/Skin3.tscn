@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c4l0ne6yhlrje"]
+
+[ext_resource type="PackedScene" uid="uid://c4xxgta0kintr" path="res://Models/Characters/Talbot/Skins/Default.tscn" id="1_ut0oc"]
+[ext_resource type="Material" uid="uid://cr42y1ae5gc02" path="res://Materials/Characters/Talbot/Skin3/273452d5.tres" id="2_22g8n"]
+[ext_resource type="Material" uid="uid://bo52lvwueajiy" path="res://Materials/Characters/Talbot/Skin3/3a8cda29.tres" id="3_2y2y5"]
+[ext_resource type="Material" uid="uid://f75fgiuwgu81" path="res://Materials/Characters/Talbot/Skin3/971596f9.tres" id="4_5qm2u"]
+[ext_resource type="Material" uid="uid://fdy15coykmot" path="res://Materials/Characters/Talbot/Skin3/bf172710.tres" id="5_xbkgb"]
+[ext_resource type="Material" uid="uid://doidyqwm0oxcu" path="res://Materials/Characters/Talbot/Skin3/13cce47e.tres" id="6_q0m57"]
+[ext_resource type="Material" uid="uid://dvlfnxid2h87" path="res://Materials/Characters/Talbot/Skin3/c1a3226a.tres" id="7_1bsxl"]
+
+[node name="Skin3" unique_id=1934040148 instance=ExtResource("1_ut0oc")]
+surface_material_override/0 = ExtResource("2_22g8n")
+surface_material_override/1 = ExtResource("3_2y2y5")
+surface_material_override/2 = ExtResource("4_5qm2u")
+surface_material_override/3 = ExtResource("5_xbkgb")
+surface_material_override/4 = ExtResource("6_q0m57")
+surface_material_override/5 = ExtResource("7_1bsxl")

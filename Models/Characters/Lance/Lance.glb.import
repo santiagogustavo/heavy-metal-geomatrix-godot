@@ -1,0 +1,88 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://sy6slrcqh1ie"
+path="res://.godot/imported/Lance.glb-e4a3283aba97547dff6e210827ebf144.scn"
+
+[deps]
+
+source_file="res://Models/Characters/Lance/Lance.glb"
+dest_files=["res://.godot/imported/Lance.glb-e4a3283aba97547dff6e210827ebf144.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=0.00999999999999999
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"61c7ad75": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Lance/Skins/Default/61c7ad75.tres",
+"use_external/path": "uid://dbh2gglxp0dli"
+},
+"63960dfb": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Lance/Skins/Default/63960dfb.tres",
+"use_external/path": "uid://blx75va0a2rqe"
+},
+"69dbbe2c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Lance/Skins/Default/69dbbe2c.tres",
+"use_external/path": "uid://cj1yogfoc8qkq"
+},
+"6f3f567c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Lance/Skins/Default/6f3f567c.tres",
+"use_external/path": "uid://cgralnxn5eh26"
+},
+"765c04a4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Lance/Skins/Default/765c04a4.tres",
+"use_external/path": "uid://dq3ptwpfgeo5w"
+},
+"cd1a2e34": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Lance/Skins/Default/cd1a2e34.tres",
+"use_external/path": "uid://bhln44003b8om"
+},
+"f7d4be0c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Lance/Skins/Default/f7d4be0c.tres",
+"use_external/path": "uid://cuv7k5rm6dtky"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": Resource("uid://bqyvsk7cobkps", "res://Animations/CharacterBoneMap.tres")
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

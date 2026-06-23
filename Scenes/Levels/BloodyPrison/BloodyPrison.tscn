@@ -1,0 +1,439 @@
+[gd_scene format=4 uid="uid://cojvgdttx08iu"]
+
+[ext_resource type="Texture2D" uid="uid://bwrjgm4ch5jrd" path="res://Textures/Skyboxes/Bloody Sunset Cloudy.png" id="1_dblvh"]
+[ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="1_upkte"]
+[ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_yu288"]
+[ext_resource type="PackedScene" uid="uid://c38nd48madvlu" path="res://Models/Levels/BloodyPrison/BloodyPrison.glb" id="2_rkjbk"]
+[ext_resource type="Material" uid="uid://dfsl0rhj152sa" path="res://Materials/Levels/BloodyPrison/8310248_emm.tres" id="3_w61g4"]
+[ext_resource type="PackedScene" uid="uid://caudimco02mw5" path="res://Prefabs/Levels/Bloody Prison/CeilingLight.tscn" id="4_lm7vh"]
+[ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="6_vtewr"]
+[ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="9_jts2d"]
+[ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="10_byp64"]
+[ext_resource type="Material" uid="uid://q8v8247e41kk" path="res://Materials/Levels/BloodyPrison/d471a9c8.tres" id="10_txvps"]
+[ext_resource type="PackedScene" uid="uid://dd1bkwhq7msm2" path="res://Prefabs/Weapons/SprayGun/SprayGun.tscn" id="11_nd3s8"]
+[ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="12_txvps"]
+[ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="13_0t6m7"]
+[ext_resource type="Texture2D" uid="uid://cayd3a25g1r75" path="res://Textures/Levels/BloodyPrison/kindpng_438236.png" id="14_0t6m7"]
+[ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="14_nd3s8"]
+[ext_resource type="Texture2D" uid="uid://d34wccg0c87se" path="res://Textures/Particles/bc814aba_1R.png" id="15_do68w"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rkjbk"]
+panorama = ExtResource("1_dblvh")
+
+[sub_resource type="Sky" id="Sky_xac2t"]
+sky_material = SubResource("PanoramaSkyMaterial_rkjbk")
+
+[sub_resource type="Environment" id="Environment_w61g4"]
+background_mode = 2
+sky = SubResource("Sky_xac2t")
+sky_rotation = Vector3(0, 2.3509586, 0)
+ssao_enabled = true
+ssao_radius = 5.0
+ssao_intensity = 2.5
+glow_enabled = true
+glow_bloom = 0.5
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(1, 0.80784315, 0.5019608, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txvps"]
+size = Vector3(22, 1, 29)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0t6m7"]
+size = Vector3(6.005554, 15.012146, 2.038086)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_do68w"]
+size = Vector3(10, 10.817871, 2.038086)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wydrt"]
+size = Vector3(1, 15.012146, 11.525879)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjmyc"]
+size = Vector3(18.012085, 15.012146, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb187"]
+size = Vector3(3.0986328, 15.012146, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_txvps"]
+vertices = PackedVector3Array(-2.5, 0.73334503, -18, -2.5, 0.73334503, -27, -3, 0.73334503, -27.5, -6.75, 0.73334503, -18, -20, 0.73334503, -27.5, -20.5, 0.73334503, -27, -20.5, 0.73334503, -18, -16.5, 0.73334503, -18, -20.5, 0.73334503, -12.25, -20.5, 0.73334503, -3, -20, 0.73334503, -2.5, -16.5, 0.73334503, -12.25, -3, 0.73334503, -2.5, -2.5, 0.73334503, -3, -2.5, 0.73334503, -12.25, -6.75, 0.73334503, -12.25, -15.5, 0.73334503, -17.5, -14.75, 0.73334503, -16.25, -8.5, 0.73334503, -16.25, -8, 0.73334503, -17.25, -14.75, 0.73334503, -14, -8.5, 0.73334503, -14, -15.5, 0.73334503, -12.75, -7.75, 0.73334503, -12.75)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 16), PackedInt32Array(19, 16, 4), PackedInt32Array(19, 4, 2), PackedInt32Array(18, 21, 17), PackedInt32Array(17, 21, 20), PackedInt32Array(2, 3, 19), PackedInt32Array(21, 23, 20), PackedInt32Array(20, 23, 22), PackedInt32Array(22, 23, 10), PackedInt32Array(10, 23, 12), PackedInt32Array(16, 7, 4), PackedInt32Array(10, 11, 22), PackedInt32Array(23, 15, 12)]
+sample_partition_type = 1
+agent_height = 1.75
+agent_radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6vbc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tsdov"]
+_surfaces = [{
+"aabb": AABB(-22.5, 0, -29.5, 22, 1e-05, 29.01),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAgADAAQAAAALAAEAAgAEABQAFAAEAAYAFAAGAAUAFAAFAAcAAgAUABUAAgAVAAAAFAAHABUAFQAIAAAAFQAJAAgABwAJABUABwAKAAkACwATABEACwARABYAFgARABIAFgASABAAFgAQAAwACwAWABcAFgAMABcACwAXAAEAFwANAAEAFwAOAA0ADAAOABcADAAPAA4A"),
+"lods": [0.0006408438, PackedByteArray("AAABAAIAAgADAAQAAgAEAAUABQAEAAYAAgAFAAcAAgAHAAAABwAIAAAABwAJAAgABwAKAAkAAAALAAEACwAMAAEADAANAAEADAAOAA0ADAAPAA4ACwAQAAwACwARABAAEAARABIACwATABEA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("0UUAAMeIAAAtugAAIXcAAC26AADHiAAA//8AAMeIAAD//wAAHe4AAC26AAD//wAAuegAAP//AADRRQAA//8AAAAAAADHiAAAAAAAAB3uAABFFwAA//8AANFFAAAhdwAALboAAAAAAAD//wAAIXcAAP//AADeEQAAuegAAAAAAADRRQAAAAAAAAAAAADeEQAARRcAAAAAAAAAAAAAIXcAAC26AAAd7gAA0UUAAB3uAADRRQAA3hEAAC26AADeEQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x1bnj"]
+resource_name = "Navmesh_Plane"
+_surfaces = [{
+"aabb": AABB(-22.5, 0, -29.5, 22, 1e-05, 29.01),
+"attribute_data": PackedByteArray("AAD/////AAD//////////////////////////wAA//8AAP//AAD//wAA//8AAAAA//8AAP//AAD//wAA//8AAAAAAAAAAAAAAAAAAAAAAAD/////AAD//wAAAAD//wAA"),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAgADAAQAAAALAAEAAgAEABQAFAAEAAYAFAAGAAUAFAAFAAcAAgAUABUAAgAVAAAAFAAHABUAFQAIAAAAFQAJAAgABwAJABUABwAKAAkACwATABEACwARABYAFgARABIAFgASABAAFgAQAAwACwAWABcAFgAMABcACwAXAAEAFwANAAEAFwAOAA0ADAAOABcADAAPAA4A"),
+"lods": [0.0006408438, PackedByteArray("AAABAAIAAgADAAQAAgAEAAUABQAEAAYAAgAFAAcAAgAHAAAABwAIAAAABwAJAAgABwAKAAkAAAALAAEACwAMAAEADAANAAEADAAOAA0ADAAPAA4ACwAQAAwACwARABAAEAARABIACwATABEA")],
+"material": SubResource("StandardMaterial3D_f6vbc"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("0UUAAMeI/78tugAAIXf/vy26AADHiP+///8AAMeI/7///wAAHe7/vy26AAD///+/uegAAP///7/RRQAA////vwAAAADHiP+/AAAAAB3u/79FFwAA////v9FFAAAhd/+/LboAAAAA/7///wAAIXf/v///AADeEf+/uegAAAAA/7/RRQAAAAD/vwAAAADeEf+/RRcAAAAA/78AAAAAIXf/vy26AAAd7v+/0UUAAB3u/7/RRQAA3hH/vy26AADeEf+/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tsdov")
+
+[node name="BloodyPrison" type="Node3D" unique_id=422898450]
+
+[node name="LevelConfig" parent="." unique_id=679296039 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_yu288")]
+level_name = "Bloody Prison"
+spawn_points = [NodePath("../SpawnPoints/SpawnPoint"), NodePath("../SpawnPoints/SpawnPoint2")]
+pickup_spawner = NodePath("../Spawner")
+world_environment = NodePath("../WorldEnvironment")
+play_versus_screen = false
+spawn_bots_count = 0
+
+[node name="Sun" parent="." unique_id=986681617 instance=ExtResource("1_upkte")]
+transform = Transform3D(0.70710677, -0.35355332, 0.61237246, -2.9802322e-08, 0.86602545, 0.5, -0.70710677, -0.35355335, 0.6123725, 0, 3, 5)
+light_color = Color(1, 0.9019608, 0.87058824, 1)
+light_energy = 0.1
+
+[node name="Sun2" parent="." unique_id=1967642682 instance=ExtResource("1_upkte")]
+transform = Transform3D(-0.8660254, 0.24999991, -0.43301266, -2.9802322e-08, 0.86602545, 0.49999994, 0.49999994, 0.4330126, -0.7500001, 0, 3, 5)
+light_color = Color(1, 0.9019608, 0.87058824, 1)
+light_energy = 0.05
+shadow_enabled = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1316860144]
+environment = SubResource("Environment_w61g4")
+
+[node name="Spawner" parent="." unique_id=785663173 node_paths=PackedStringArray("navigation_region") instance=ExtResource("9_jts2d")]
+navigation_region = NodePath("../LevelGeometry/NavigationRegion3D")
+spawn_concurrent = 2
+spawn_min_distance = 10.0
+items_to_spawn = Array[PackedScene]([ExtResource("10_byp64"), ExtResource("11_nd3s8"), ExtResource("12_txvps"), ExtResource("13_0t6m7")])
+
+[node name="LevelGeometry" type="Node3D" parent="." unique_id=1131082444]
+
+[node name="BloodyPrison" parent="LevelGeometry" unique_id=584076194 instance=ExtResource("2_rkjbk")]
+
+[node name="object_0" parent="LevelGeometry/BloodyPrison" index="0" unique_id=610049118]
+layers = 16
+
+[node name="object_1" parent="LevelGeometry/BloodyPrison" index="1" unique_id=1021125906]
+layers = 16
+
+[node name="object_2" parent="LevelGeometry/BloodyPrison" index="2" unique_id=738484044]
+layers = 16
+
+[node name="object_3" parent="LevelGeometry/BloodyPrison" index="3" unique_id=1706356069]
+layers = 16
+
+[node name="object_4" parent="LevelGeometry/BloodyPrison" index="4" unique_id=249323462]
+layers = 16
+
+[node name="object_5" parent="LevelGeometry/BloodyPrison" index="5" unique_id=1839057454]
+layers = 16
+
+[node name="object_6" parent="LevelGeometry/BloodyPrison" index="6" unique_id=576110466]
+layers = 16
+
+[node name="object_7" parent="LevelGeometry/BloodyPrison" index="7" unique_id=1640146059]
+layers = 16
+
+[node name="object_8" parent="LevelGeometry/BloodyPrison" index="8" unique_id=963319938]
+layers = 16
+
+[node name="object_9" parent="LevelGeometry/BloodyPrison" index="9" unique_id=84228199]
+layers = 16
+
+[node name="object_10" parent="LevelGeometry/BloodyPrison" index="10" unique_id=1507444621]
+layers = 16
+
+[node name="object_11" parent="LevelGeometry/BloodyPrison" index="11" unique_id=1672734108]
+layers = 16
+
+[node name="object_12" parent="LevelGeometry/BloodyPrison" index="12" unique_id=1785767066]
+layers = 16
+
+[node name="object_13" parent="LevelGeometry/BloodyPrison" index="13" unique_id=890320384]
+layers = 16
+
+[node name="object_14" parent="LevelGeometry/BloodyPrison" index="14" unique_id=750801865]
+layers = 16
+
+[node name="object_15" parent="LevelGeometry/BloodyPrison" index="15" unique_id=1208907010]
+layers = 16
+
+[node name="object_16" parent="LevelGeometry/BloodyPrison" index="16" unique_id=2102160400]
+layers = 16
+
+[node name="object_17" parent="LevelGeometry/BloodyPrison" index="17" unique_id=601062684]
+layers = 16
+
+[node name="object_18" parent="LevelGeometry/BloodyPrison" index="18" unique_id=949980350]
+layers = 16
+
+[node name="object_19" parent="LevelGeometry/BloodyPrison" index="19" unique_id=1375430951]
+layers = 16
+
+[node name="object_20" parent="LevelGeometry/BloodyPrison" index="20" unique_id=2029458633]
+layers = 16
+
+[node name="object_21" parent="LevelGeometry/BloodyPrison" index="21" unique_id=99809275]
+layers = 16
+
+[node name="object_22" parent="LevelGeometry/BloodyPrison" index="22" unique_id=1856331617]
+layers = 16
+
+[node name="object_23" parent="LevelGeometry/BloodyPrison" index="23" unique_id=324668960]
+layers = 16
+
+[node name="object_24" parent="LevelGeometry/BloodyPrison" index="24" unique_id=777713508]
+visible = false
+layers = 16
+
+[node name="object_25" parent="LevelGeometry/BloodyPrison" index="25" unique_id=1841416097]
+visible = false
+layers = 16
+
+[node name="object_26" parent="LevelGeometry/BloodyPrison" index="26" unique_id=106300350]
+layers = 16
+
+[node name="object_27" parent="LevelGeometry/BloodyPrison" index="27" unique_id=952494458]
+layers = 16
+
+[node name="object_28" parent="LevelGeometry/BloodyPrison" index="28" unique_id=891373688]
+layers = 16
+
+[node name="object_29" parent="LevelGeometry/BloodyPrison" index="29" unique_id=1221177579]
+layers = 16
+
+[node name="object_30" parent="LevelGeometry/BloodyPrison" index="30" unique_id=459441060]
+layers = 16
+
+[node name="object_31" parent="LevelGeometry/BloodyPrison" index="31" unique_id=1849615098]
+layers = 16
+
+[node name="object_32" parent="LevelGeometry/BloodyPrison" index="32" unique_id=1021179886]
+layers = 16
+
+[node name="object_33" parent="LevelGeometry/BloodyPrison" index="33" unique_id=140729408]
+layers = 16
+
+[node name="object_34" parent="LevelGeometry/BloodyPrison" index="34" unique_id=788630376]
+layers = 16
+
+[node name="object_35" parent="LevelGeometry/BloodyPrison" index="35" unique_id=1655347694]
+layers = 16
+
+[node name="object_36" parent="LevelGeometry/BloodyPrison" index="36" unique_id=767058408]
+layers = 16
+
+[node name="object_37" parent="LevelGeometry/BloodyPrison" index="37" unique_id=1664071957]
+layers = 16
+
+[node name="object_38" parent="LevelGeometry/BloodyPrison" index="38" unique_id=823095281]
+layers = 16
+
+[node name="object_40" parent="LevelGeometry/BloodyPrison" index="39" unique_id=53615659]
+layers = 16
+surface_material_override/0 = ExtResource("10_txvps")
+
+[node name="object_41" parent="LevelGeometry/BloodyPrison" index="40" unique_id=2060660171]
+layers = 16
+
+[node name="object_42" parent="LevelGeometry/BloodyPrison" index="41" unique_id=818788239]
+layers = 16
+
+[node name="object_43" parent="LevelGeometry/BloodyPrison" index="42" unique_id=764939684]
+layers = 16
+
+[node name="object_44" parent="LevelGeometry/BloodyPrison" index="43" unique_id=1133036717]
+layers = 16
+
+[node name="object_45" parent="LevelGeometry/BloodyPrison" index="44" unique_id=1527701378]
+layers = 16
+
+[node name="object_46" parent="LevelGeometry/BloodyPrison" index="45" unique_id=2105883346]
+layers = 16
+
+[node name="object_47" parent="LevelGeometry/BloodyPrison" index="46" unique_id=1120442048]
+layers = 16
+
+[node name="object_48" parent="LevelGeometry/BloodyPrison" index="47" unique_id=1174941711]
+layers = 16
+
+[node name="object_49" parent="LevelGeometry/BloodyPrison" index="48" unique_id=2045791354]
+layers = 16
+
+[node name="object_50" parent="LevelGeometry/BloodyPrison" index="49" unique_id=506932598]
+layers = 16
+
+[node name="object_51" parent="LevelGeometry/BloodyPrison" index="50" unique_id=46472972]
+layers = 16
+
+[node name="object_5_001" parent="LevelGeometry/BloodyPrison" index="51" unique_id=720629310]
+layers = 16
+
+[node name="object_24_001" parent="LevelGeometry/BloodyPrison" index="52" unique_id=1003190893]
+visible = false
+layers = 16
+cast_shadow = 0
+surface_material_override/0 = ExtResource("3_w61g4")
+
+[node name="Lighting" type="Node3D" parent="LevelGeometry" unique_id=213615991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.80753, 16.775377, 0.31740952)
+
+[node name="CeilingLight" parent="LevelGeometry/Lighting" unique_id=1101394616 instance=ExtResource("4_lm7vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.80753, -16.775377, -0.31740952)
+
+[node name="CeilingLight2" parent="LevelGeometry/Lighting" unique_id=2082079569 instance=ExtResource("4_lm7vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.80753, -16.775377, -15.155543)
+
+[node name="Collisions" type="Node3D" parent="LevelGeometry" unique_id=1378696442]
+
+[node name="Level" type="StaticBody3D" parent="LevelGeometry/Collisions" unique_id=547733726]
+collision_layer = 1028
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=2110234446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, -0.49364495, -15)
+shape = SubResource("BoxShape3D_txvps")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=359892817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 15.430328, -15)
+shape = SubResource("BoxShape3D_txvps")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=1723093856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.497223, 7.5029893, -15)
+shape = SubResource("BoxShape3D_0t6m7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=434768617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5188813, 7.5029893, -15)
+shape = SubResource("BoxShape3D_0t6m7")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=1989207614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.497223, 9.600126, -15)
+shape = SubResource("BoxShape3D_do68w")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=1780432445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.989962, 7.5029893, -8.2561035)
+shape = SubResource("BoxShape3D_wydrt")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=2103578027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018417835, 7.5029893, -8.2561035)
+shape = SubResource("BoxShape3D_wydrt")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=1078039034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.989962, 7.5029893, -21.753529)
+shape = SubResource("BoxShape3D_wydrt")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=276604200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018417835, 7.5029893, -21.753529)
+shape = SubResource("BoxShape3D_wydrt")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=457439060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.492722, 7.5029893, -29.99416)
+shape = SubResource("BoxShape3D_jjmyc")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=2056410538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.492722, 7.5029893, -0.0006914139)
+shape = SubResource("BoxShape3D_jjmyc")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=1104345630]
+transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, -21.846941, 7.5029893, -1.1512133)
+shape = SubResource("BoxShape3D_kb187")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=1969770654]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -1.1548853, 7.5029893, -1.1512133)
+shape = SubResource("BoxShape3D_kb187")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=781255192]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -1.1548853, 7.5029893, -28.848558)
+shape = SubResource("BoxShape3D_kb187")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="LevelGeometry/Collisions/Level" unique_id=1174450319]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -21.850544, 7.5029893, -28.848558)
+shape = SubResource("BoxShape3D_kb187")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="LevelGeometry" unique_id=1105692801]
+navigation_mesh = SubResource("NavigationMesh_txvps")
+
+[node name="Navmesh" type="MeshInstance3D" parent="LevelGeometry/NavigationRegion3D" unique_id=1942800381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23334503, 0)
+visible = false
+layers = 16
+mesh = SubResource("ArrayMesh_x1bnj")
+skeleton = NodePath("")
+
+[node name="Decal" type="Decal" parent="LevelGeometry" unique_id=1905627106]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -0.4392142, 6.4997673, -15.5)
+layers = 16
+size = Vector3(28, 1, 17)
+texture_albedo = ExtResource("14_0t6m7")
+upper_fade = 0.005201121
+lower_fade = 0.006403315
+cull_mask = 16
+
+[node name="Decal2" type="Decal" parent="LevelGeometry" unique_id=474587968]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -22.439215, 6.4997673, -15.5)
+layers = 16
+size = Vector3(28, 1, 17)
+texture_albedo = ExtResource("14_0t6m7")
+upper_fade = 0.005201121
+lower_fade = 0.006403315
+cull_mask = 16
+
+[node name="Decal4" type="Decal" parent="LevelGeometry" unique_id=460413825]
+transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -11.439215, 6.4997673, -0.5)
+layers = 16
+size = Vector3(28, 1, 17)
+texture_albedo = ExtResource("14_0t6m7")
+upper_fade = 0.005201121
+lower_fade = 0.006403315
+cull_mask = 16
+
+[node name="Decal5" type="Decal" parent="LevelGeometry" unique_id=467347731]
+transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -11.439215, 6.4997673, -29.5)
+layers = 16
+size = Vector3(28, 1, 17)
+texture_albedo = ExtResource("14_0t6m7")
+upper_fade = 0.005201121
+lower_fade = 0.006403315
+cull_mask = 16
+
+[node name="Decal3" type="Decal" parent="LevelGeometry" unique_id=683873830]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -11.439215, 4.4997673, -15)
+layers = 16
+size = Vector3(31, 25, 17)
+texture_albedo = ExtResource("15_do68w")
+albedo_mix = 0.25
+upper_fade = 0.005201121
+lower_fade = 0.006403315
+cull_mask = 16
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1384533436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -15)
+
+[node name="SpawnPoint" parent="SpawnPoints" unique_id=1369484712 instance=ExtResource("6_vtewr")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 8, 0, 11)
+
+[node name="SpawnPoint2" parent="SpawnPoints" unique_id=698851062 instance=ExtResource("6_vtewr")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -8, 0, -12)
+
+[node name="World Boundaries" parent="." unique_id=885481922 instance=ExtResource("14_nd3s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 6.29899, -16)
+
+[editable path="LevelGeometry/BloodyPrison"]

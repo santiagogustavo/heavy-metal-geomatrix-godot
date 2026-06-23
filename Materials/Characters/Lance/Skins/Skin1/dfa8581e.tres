@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bt3y2wc6c2voy"]
+
+[ext_resource type="Texture2D" uid="uid://dx78tco5c1u1f" path="res://Textures/Characters/Lance/Skin1/dfa8581e.png" id="1_jvll3"]
+[ext_resource type="Texture2D" uid="uid://bi8sapo3lenba" path="res://Textures/Characters/Lance/Default/765c04a4_occ.png" id="2_xee08"]
+
+[resource]
+albedo_texture = ExtResource("1_jvll3")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_xee08")

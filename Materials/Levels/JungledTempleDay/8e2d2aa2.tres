@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://sxylsyt3cq7y"]
+
+[ext_resource type="Texture2D" uid="uid://dcknen027butf" path="res://Textures/Levels/JungledTempleDay/8e2d2aa2.png" id="1_xi11q"]
+[ext_resource type="Texture2D" uid="uid://bp16lbshkx5f0" path="res://Textures/Levels/JungledTempleDay/8e2d2aa2_occ.png" id="2_8rdfs"]
+
+[resource]
+albedo_texture = ExtResource("1_xi11q")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_8rdfs")

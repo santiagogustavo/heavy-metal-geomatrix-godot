@@ -10,6 +10,13 @@ room_size = 0.7
 damping = 0.65
 wet = 0.22
 
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_0dgsk"]
+resource_name = "Delay"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_0dgsk"]
+resource_name = "Reverb"
+wet = 0.0
+
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_ac2e2"]
 resource_name = "Reverb"
 room_size = 0.2
@@ -124,3 +131,13 @@ bus/12/mute = false
 bus/12/bypass_fx = false
 bus/12/volume_db = -5.04538
 bus/12/send = &"Effects"
+bus/13/name = &"CharacterDeath"
+bus/13/solo = false
+bus/13/mute = false
+bus/13/bypass_fx = false
+bus/13/volume_db = 0.46499825
+bus/13/send = &"Characters"
+bus/13/effect/0/effect = SubResource("AudioEffectDelay_0dgsk")
+bus/13/effect/0/enabled = true
+bus/13/effect/1/effect = SubResource("AudioEffectReverb_0dgsk")
+bus/13/effect/1/enabled = true

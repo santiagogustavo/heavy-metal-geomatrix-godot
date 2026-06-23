@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sccq4r11cphj"]
 
-[ext_resource type="PackedScene" uid="uid://bfie6xwo54xaa" path="res://Models/Levels/Pitch Dark Stadium/Billboard.glb" id="1_7xo7g"]
+[ext_resource type="PackedScene" uid="uid://bfie6xwo54xaa" path="res://Models/Levels/PitchDarkStadium/Billboard.glb" id="1_7xo7g"]
 [ext_resource type="Texture2D" uid="uid://0fgjg6ytfm32" path="res://Textures/Lens Flares/flare10.png" id="2_3aw5b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xo7g"]

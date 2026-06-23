@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://1w54ocdv7xpf"]
+[gd_scene format=4 uid="uid://1w54ocdv7xpf"]
 
-[ext_resource type="Material" uid="uid://cobkvfu7jxy8y" path="res://Materials/Levels/Ocean Castle Twilight/d791be7f.tres" id="1_xqxa8"]
+[ext_resource type="Material" uid="uid://cobkvfu7jxy8y" path="res://Materials/Levels/OceanCastleTwilight/d791be7f.tres" id="1_xqxa8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7vjio"]
 radius = 0.106933594
