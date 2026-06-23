@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d0e7adsvqwyr3"]
+
+[ext_resource type="Texture2D" uid="uid://cjcswmniyutvm" path="res://Textures/Characters/Duke/Skin3/94bc5976.png" id="1_bojbt"]
+[ext_resource type="Texture2D" uid="uid://os87gx8ago3k" path="res://Textures/Characters/Duke/Default/521d3495_occ.png" id="2_dufur"]
+
+[resource]
+albedo_texture = ExtResource("1_bojbt")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_dufur")

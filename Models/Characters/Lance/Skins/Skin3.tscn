@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ddbg8uufhuvw4"]
+
+[ext_resource type="PackedScene" uid="uid://bcnewwhbuyf8h" path="res://Models/Characters/Lance/Skins/Default.tscn" id="1_tf1mv"]
+[ext_resource type="Material" uid="uid://duakigdnb6g7j" path="res://Materials/Characters/Lance/Skins/Skin3/1c46ad22.tres" id="2_huevc"]
+[ext_resource type="Material" uid="uid://2pds6e0jhi3l" path="res://Materials/Characters/Lance/Skins/Skin3/c113cd7f.tres" id="3_p0e6a"]
+[ext_resource type="Material" uid="uid://yqraier4g6ca" path="res://Materials/Characters/Lance/Skins/Skin3/dff55078.tres" id="4_5a4qa"]
+[ext_resource type="Material" uid="uid://cuowp4opxkdsb" path="res://Materials/Characters/Lance/Skins/Skin3/2ce852f7.tres" id="5_ng6o8"]
+[ext_resource type="Material" uid="uid://cc8lr4pd7soqu" path="res://Materials/Characters/Lance/Skins/Skin3/9aa48092.tres" id="6_qotjp"]
+
+[node name="Skin3" unique_id=1220679411 instance=ExtResource("1_tf1mv")]
+surface_material_override/0 = ExtResource("2_huevc")
+surface_material_override/1 = ExtResource("3_p0e6a")
+surface_material_override/2 = ExtResource("4_5a4qa")
+surface_material_override/4 = ExtResource("5_ng6o8")
+surface_material_override/6 = ExtResource("6_qotjp")

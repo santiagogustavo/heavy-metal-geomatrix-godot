@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://rv56kifagqvp"]
+
+[ext_resource type="PackedScene" uid="uid://cys5mwojosl80" path="res://Models/Characters/Sarge/Skins/Default.tscn" id="1_fh6d8"]
+[ext_resource type="Material" uid="uid://cw88gpedcpxhm" path="res://Materials/Characters/Sarge/Skins/Skin3/142e8d37.tres" id="2_3r4as"]
+[ext_resource type="Material" uid="uid://bsabw3dbumlrk" path="res://Materials/Characters/Sarge/Skins/Skin3/15e24a6f.tres" id="3_pdrns"]
+[ext_resource type="Material" uid="uid://crjh0qkj6f0hd" path="res://Materials/Characters/Sarge/Skins/Skin3/f80f45ae.tres" id="4_cufi0"]
+[ext_resource type="Material" uid="uid://mae3375arcto" path="res://Materials/Characters/Sarge/Skins/Skin3/19fd5680.tres" id="5_0sc6a"]
+[ext_resource type="Material" uid="uid://d253fgj4mpscn" path="res://Materials/Characters/Sarge/Skins/Skin3/314741e5.tres" id="6_hoq5g"]
+[ext_resource type="Material" uid="uid://bvkcufq6hjvnb" path="res://Materials/Characters/Sarge/Skins/Skin3/3589a1b3.tres" id="7_ygb6r"]
+
+[node name="Skin3" unique_id=242268142 instance=ExtResource("1_fh6d8")]
+surface_material_override/0 = ExtResource("2_3r4as")
+surface_material_override/1 = ExtResource("3_pdrns")
+surface_material_override/2 = ExtResource("4_cufi0")
+surface_material_override/4 = ExtResource("5_0sc6a")
+surface_material_override/5 = ExtResource("6_hoq5g")
+surface_material_override/6 = ExtResource("7_ygb6r")

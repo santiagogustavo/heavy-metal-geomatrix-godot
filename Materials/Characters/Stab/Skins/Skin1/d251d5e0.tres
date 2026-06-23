@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bea66lnyflsrp"]
+
+[ext_resource type="Texture2D" uid="uid://6nrcvevfvsrq" path="res://Textures/Characters/Stab/Skin1/d251d5e0.png" id="1_wexas"]
+[ext_resource type="Texture2D" uid="uid://kqxcmes4eot4" path="res://Textures/Characters/Stab/Default/c9769310_occ.png" id="2_h3h7h"]
+
+[resource]
+albedo_texture = ExtResource("1_wexas")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_h3h7h")
