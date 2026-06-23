@@ -7,6 +7,7 @@ signal block
 @export_subgroup("Properties")
 @export var character: Definitions.Characters
 @export var character_team: Definitions.Teams
+@export var bio: String
 @export var avatar_big: Texture2D
 @export var avatar_small: Texture2D
 @export var skins: Array[MeshInstance3D]

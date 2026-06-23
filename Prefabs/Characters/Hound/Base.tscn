@@ -185,6 +185,7 @@ stream_2/stream = ExtResource("18_p1tty")
 [node name="Hound" type="Node3D" unique_id=1950269893 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_75d35")
 character = 4
+bio = "Tough leader of the 818 STOMPERS, HOUND goes the distance in rough combat."
 avatar_big = ExtResource("2_68nn1")
 avatar_small = ExtResource("3_lcsv2")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]

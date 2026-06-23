@@ -262,6 +262,7 @@ stream_2/stream = ExtResource("48_kjlt8")
 script = ExtResource("1_j5lmb")
 character = 2
 character_team = 1
+bio = "Young KASSEY is a computer genius. Her fighting experience is limited, but growing."
 avatar_big = ExtResource("2_gu0ub")
 avatar_small = ExtResource("3_qklw6")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]

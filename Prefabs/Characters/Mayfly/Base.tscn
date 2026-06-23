@@ -136,6 +136,7 @@ stream_2/stream = ExtResource("19_nntld")
 [node name="Mayfly" type="Node3D" unique_id=1923316814 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
 script = ExtResource("1_wgll5")
 character_team = 3
+bio = "MAYFLY is cheerful and flighty. She can easily destroy someone with her cruel ignorance."
 avatar_big = ExtResource("2_qdmts")
 avatar_small = ExtResource("3_ji630")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]

@@ -101,6 +101,7 @@ stream_2/stream = ExtResource("19_rxqag")
 [node name="Slash" type="Node3D" unique_id=1866415356 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
 script = ExtResource("1_rxafh")
 character = 1
+bio = "Though usually cool-headed, SLASH can get as intense as any fighter once a battle begins."
 avatar_big = ExtResource("2_gjt6c")
 avatar_small = ExtResource("3_msvhg")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
