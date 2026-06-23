@@ -100,7 +100,7 @@ pickup_spawner = NodePath("../Spawner")
 world_environment = NodePath("../WorldEnvironment")
 play_versus_screen = false
 spawn_bots_count = 0
-is_sunny = true
+is_rainy = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947572696]
 environment = SubResource("Environment_7p6v3")
