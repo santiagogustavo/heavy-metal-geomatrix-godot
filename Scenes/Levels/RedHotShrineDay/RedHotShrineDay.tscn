@@ -144,55 +144,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.601013, 15.010206, -43.923
 
 [node name="Red Hot Shrine Day" parent="Level Geometry" unique_id=1208771775 instance=ExtResource("3_uuu12")]
 
-[node name="object_0" parent="Level Geometry/Red Hot Shrine Day" index="0" unique_id=1211378912]
+[node name="object_0" parent="Level Geometry/Red Hot Shrine Day" index="0" unique_id=1734077046]
 layers = 16
 
-[node name="object_1" parent="Level Geometry/Red Hot Shrine Day" index="1" unique_id=1796634432]
+[node name="object_1" parent="Level Geometry/Red Hot Shrine Day" index="1" unique_id=1704136981]
 layers = 16
 
-[node name="object_2" parent="Level Geometry/Red Hot Shrine Day" index="2" unique_id=505918313]
+[node name="object_2" parent="Level Geometry/Red Hot Shrine Day" index="2" unique_id=942270252]
 layers = 16
 
-[node name="object_3" parent="Level Geometry/Red Hot Shrine Day" index="3" unique_id=1957115144]
+[node name="object_3" parent="Level Geometry/Red Hot Shrine Day" index="3" unique_id=1088849297]
 layers = 16
 
-[node name="object_4" parent="Level Geometry/Red Hot Shrine Day" index="4" unique_id=355926999]
+[node name="object_4" parent="Level Geometry/Red Hot Shrine Day" index="4" unique_id=1468430055]
 layers = 16
 
-[node name="object_5" parent="Level Geometry/Red Hot Shrine Day" index="5" unique_id=632746357]
+[node name="object_5" parent="Level Geometry/Red Hot Shrine Day" index="5" unique_id=470230294]
 layers = 16
 
-[node name="object_9" parent="Level Geometry/Red Hot Shrine Day" index="6" unique_id=1085259750]
+[node name="object_9" parent="Level Geometry/Red Hot Shrine Day" index="6" unique_id=449519481]
 layers = 16
 
-[node name="object_11" parent="Level Geometry/Red Hot Shrine Day" index="7" unique_id=885896151]
+[node name="object_11" parent="Level Geometry/Red Hot Shrine Day" index="7" unique_id=1660254476]
 layers = 16
 
-[node name="object_14" parent="Level Geometry/Red Hot Shrine Day" index="8" unique_id=1578774831]
+[node name="object_14" parent="Level Geometry/Red Hot Shrine Day" index="8" unique_id=369003350]
 layers = 16
 
-[node name="object_15" parent="Level Geometry/Red Hot Shrine Day" index="9" unique_id=561321316]
+[node name="object_15" parent="Level Geometry/Red Hot Shrine Day" index="9" unique_id=1258699044]
 layers = 16
 
-[node name="object_16" parent="Level Geometry/Red Hot Shrine Day" index="10" unique_id=20174514]
+[node name="object_16" parent="Level Geometry/Red Hot Shrine Day" index="10" unique_id=1846848785]
 layers = 16
 
-[node name="object_8" parent="Level Geometry/Red Hot Shrine Day" index="11" unique_id=1101786582]
+[node name="object_8" parent="Level Geometry/Red Hot Shrine Day" index="11" unique_id=403809139]
 layers = 16
 
-[node name="object_17" parent="Level Geometry/Red Hot Shrine Day" index="12" unique_id=471736873]
+[node name="object_17" parent="Level Geometry/Red Hot Shrine Day" index="12" unique_id=905706442]
 layers = 16
 
-[node name="object_12" parent="Level Geometry/Red Hot Shrine Day" index="13" unique_id=1074946830]
+[node name="object_12" parent="Level Geometry/Red Hot Shrine Day" index="13" unique_id=592060069]
 layers = 16
 
-[node name="object_10" parent="Level Geometry/Red Hot Shrine Day" index="14" unique_id=1912548420]
+[node name="object_10" parent="Level Geometry/Red Hot Shrine Day" index="14" unique_id=270683142]
 layers = 16
 
-[node name="object_7" parent="Level Geometry/Red Hot Shrine Day" index="15" unique_id=79241657]
+[node name="object_7" parent="Level Geometry/Red Hot Shrine Day" index="15" unique_id=109716537]
 layers = 16
 
-[node name="object_6" parent="Level Geometry/Red Hot Shrine Day" index="16" unique_id=393413767]
+[node name="object_6" parent="Level Geometry/Red Hot Shrine Day" index="16" unique_id=1173894431]
 layers = 16
 
 [node name="Collisions" type="Node3D" parent="Level Geometry" unique_id=245485778]

@@ -13,8 +13,9 @@ func _ready() -> void:
 	tab_bar.current_tab = tab_container.current_tab
 
 func _process(_delta: float) -> void:
-	check_current_tab_scroll()
 	compute_tab_change_input()
+	if Input.is_action_just_pressed("ui_up"):
+		check_current_tab_scroll()
 
 func tab_selected(current_tab: int) -> void:
 	select_sfx.play()
