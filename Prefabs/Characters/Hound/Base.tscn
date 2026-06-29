@@ -520,7 +520,7 @@ attenuation_filter_db = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.2)
 
 [node name="CameraPivotOffset" type="Marker3D" parent="." unique_id=667704730]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
 
 [editable path="Model"]
 [editable path="Model/Armature/GeneralSkeleton/Hitboxes"]

@@ -28,8 +28,8 @@ func _get_autocomplete_match(input: String) -> String:
 			return method
 	return input
 
-func hello(text: String = foo) -> String:
-	return text
+func print_message(message: String = foo) -> String:
+	return message
 
 func clear() -> void:
 	clear_console.emit()
@@ -46,11 +46,7 @@ func add_bot() -> String:
 	resource.resource_local_to_scene = true
 	var instance: Player = resource.instantiate()
 	instance.selected_character = [
-		#Definitions.Characters.Mayfly,
-		#Definitions.Characters.Slash,
-		#Definitions.Characters.Di
-		Definitions.Characters.Kassey,
-		#Definitions.Characters.Hound
+		Definitions.Characters.Kassey
 	].pick_random()
 	instance.selected_skin = 0
 	#instance.selected_skin = randi_range(0, 3)

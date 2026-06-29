@@ -104,15 +104,7 @@ metadata/_custom_type_script = "uid://b67p4er5pdntl"
 [node name="Model" parent="." unique_id=1883379947 instance=ExtResource("19_ahvq4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(1883379947, 96741728) index="0" unique_id=886321484]
-bones/0/position = Vector3(0.85898083, 1.5809287, -0.75531775)
-bones/0/rotation = Quaternion(-0.49735036, 0.50263566, -0.50263566, 0.49735036)
-bones/1/position = Vector3(0.41218218, 0.5048661, 0.82411444)
-bones/1/rotation = Quaternion(0.70710677, 5.3385083e-08, 5.3385083e-08, 0.70710677)
-bones/2/position = Vector3(0.26327416, 0.12473998, 0.16422367)
-bones/2/rotation = Quaternion(0.8776906, -0.036035202, 0.06684247, 0.4731732)
-bones/3/position = Vector3(-0.025792222, 1.6103811, 0.7721202)
-bones/3/rotation = Quaternion(-0.70710677, 1.3767878e-07, 1.3767878e-07, -0.70710677)
+[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(1883379947, 2075879290) index="0" unique_id=800536814]
 bones/4/position = Vector3(9.6259246e-05, 0.95743483, 3.7275255e-05)
 bones/4/rotation = Quaternion(-0.0049266303, -0.48704395, 0.037235666, 0.87256944)
 bones/5/rotation = Quaternion(0.097459525, 0.0032527288, -0.024091817, 0.99494255)
@@ -132,26 +124,14 @@ bones/17/rotation = Quaternion(0.4855563, 0.5579608, 0.5370255, -0.40560883)
 bones/18/rotation = Quaternion(-0.32271454, -0.21479522, 0.014945598, 0.9216806)
 bones/19/rotation = Quaternion(-0.00023846325, 0.0004436075, -0.3678813, 0.92987263)
 bones/20/rotation = Quaternion(0.0755037, 0.9710165, 0.12641297, -0.18827057)
-bones/21/rotation = Quaternion(0.49999997, 0.5000001, 0.50000006, 0.49999988)
-bones/22/position = Vector3(0.25848645, -0.29428244, 0.2785393)
-bones/22/rotation = Quaternion(0.22145465, -0.6353435, -0.7302242, 0.11861347)
 bones/23/position = Vector3(-0.045409106, 0.19129398, -0.019481508)
 bones/23/rotation = Quaternion(0.48159647, -0.55847275, -0.52970135, -0.419034)
 bones/24/rotation = Quaternion(-0.31522468, 0.38880664, -0.1196257, 0.85741043)
 bones/25/rotation = Quaternion(-0.06480088, 0.044915583, 0.81657326, 0.57183164)
 bones/26/rotation = Quaternion(-0.10104196, 0.9869383, 0.092866644, -0.08437508)
-bones/27/rotation = Quaternion(0.5000001, -0.5000002, -0.49999997, 0.4999999)
-bones/28/position = Vector3(-0.13001972, -0.22127867, 0.1355887)
-bones/28/rotation = Quaternion(0.26912338, 0.63617015, 0.7130612, -0.12001622)
 bones/29/rotation = Quaternion(0.4130531, 0.40231866, 0.81672794, 0.02196448)
-bones/31/position = Vector3(-0.13330114, 1.250619, -0.7389869)
-bones/31/rotation = Quaternion(-0.49735036, -0.50263566, 0.50263566, 0.49735036)
-bones/32/position = Vector3(-0.77765054, 0.8180187, 0.5094253)
-bones/32/rotation = Quaternion(-0.70710677, 5.3385083e-08, 5.3385083e-08, -0.70710677)
-bones/33/position = Vector3(-0.2178287, 0.12473999, -0.25756577)
-bones/33/rotation = Quaternion(0.86305946, -0.093278944, 0.17302284, 0.4652854)
 
-[node name="object_0_011" parent="Model/Armature/GeneralSkeleton" index="0" unique_id=872162287]
+[node name="object_0_011" parent="Model/Armature/GeneralSkeleton" index="0" unique_id=854759597]
 visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=454401021 instance=ExtResource("2_hpnof")]
@@ -388,7 +368,7 @@ attenuation_filter_db = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.25)
 
 [node name="CameraPivotOffset" type="Marker3D" parent="." unique_id=590196617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
 
 [editable path="Model"]
 [editable path="Model/Armature/GeneralSkeleton/Hitboxes"]

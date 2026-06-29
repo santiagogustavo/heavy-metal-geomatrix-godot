@@ -7,8 +7,9 @@ class_name PlayerCamera
 
 @onready var camera_effects = $CameraEffects3D
 @onready var motion_blur = $CameraEffects3D/MotionBlur
-@onready var camera_target_raycast: RayCast3D = $'../TargetRaycast'
-@onready var camera_collider: RayCast3D = $'../CameraCollider'
+@onready var camera_target_raycast: RayCast3D = $TargetRaycast
+@onready var spring_arm: SpringArm3D = $'../SpringArm3D'
+@onready var spring_position: Node3D = $'../SpringArm3D/SpringPosition'
 @onready var debug_collision_point: MeshInstance3D = $'../DebugCollisionPoint'
 
 var has_jetpack: bool = false
@@ -57,14 +58,11 @@ func update_fov() -> void:
 	fov = lerp(fov, current_fov, 0.1)
 
 func update_camera_collision(delta: float) -> void:
-	if camera_collider.is_colliding():
-		global_transform.origin = lerp(
-			global_transform.origin,
-			camera_collider.get_collision_point(),
-			10 * delta
-		)
-	else:
-		global_transform.origin = camera_collider.global_transform.origin
+	global_transform.origin = lerp(
+		global_transform.origin,
+		spring_position.global_transform.origin,
+		50 * delta
+	)
 
 func update_camera_target() -> void:
 	if camera_target_raycast.is_colliding():

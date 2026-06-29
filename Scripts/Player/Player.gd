@@ -75,6 +75,10 @@ var last_is_dashing: bool = false
 var lock_on_prefab: Resource = preload("res://Prefabs/Player/LockOnTarget.tscn")
 @onready var ko_offset: Vector3 = ko_pivot.position if ko_pivot else Vector3.ZERO
 
+var speed_factor: float = 1.0
+var power_factor: float = 1.0
+var vitality_factor: float = 1.0
+
 func _ready() -> void:
 	brain = PlayerBrain.new()
 	add_child(brain)
@@ -96,6 +100,9 @@ func _ready() -> void:
 	character.player_rid = get_rid()
 	character.damage.connect(damage_player)
 	character.block.connect(block_damage_player)
+	speed_factor = 1.0 - ((3 - character.stat_speed) * 0.1)
+	power_factor = 1.0 - ((3 - character.stat_power) * 0.1)
+	vitality_factor = 1.0 - ((character.stat_vitality - 1) * 0.15)
 	initial_character_rotation = character.rotation
 	if character.round_pivot_offset and round_pivot:
 		round_pivot.position = character.round_pivot_offset.position
@@ -116,6 +123,8 @@ func _ready() -> void:
 		sfx_controller = character.sfx_controller
 	if character.animation_tree:
 		animation_tree = character.animation_tree
+		animation_tree.speed_factor = speed_factor
+		animation_tree.power_factor = power_factor
 		animation_tree.combo_animation_changed.connect(func():
 			for fist in character.fists:
 				fist.handle_combo_animation_changed()
@@ -146,10 +155,10 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	update_internals()
 	update_externals(delta)
+	look_at_target_position()
 	set_animator_variables()
 	set_camera_variables()
 	set_inventory_items_variables()
-	look_at_target_position()
 
 func _exit_tree() -> void:
 	if player_ui:
@@ -213,7 +222,7 @@ func damage_player(amount: int, show_hit_reaction = false) -> void:
 	player_damage.emit()
 	if DebugCommands.full_health and player_type == PlayerType.Player1:
 		return
-	health -= amount
+	health -= amount * vitality_factor
 	health = clamp(health, 0, 100)
 	if health == 0:
 		player_killed.emit()
@@ -305,6 +314,7 @@ func compute_movement() -> void:
 		and inventory_manager.jetpack_has_fuel
 	):
 		current_speed = character.jetpack_dashing_speed
+	current_speed = current_speed * speed_factor
 	
 	if player_input and brain.is_walking and !brain.is_movement_locked:
 		velocity.x = brain.direction.x * current_speed

@@ -712,6 +712,7 @@ metadata/_snap_enabled = true
 curve = SubResource("Curve_07d42")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x4rkp"]
+resource_local_to_scene = true
 emission_shape_scale = Vector3(0.5, 0, 0.5)
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
