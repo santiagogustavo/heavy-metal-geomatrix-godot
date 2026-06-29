@@ -84,7 +84,7 @@ character_team = 1
 bio = "STAB's muscular body is extremely powerful. He cheers his team with his rowdy style."
 avatar_big = ExtResource("2_u3pcq")
 avatar_small = ExtResource("3_dv5e3")
-skins = [null, NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
 stat_power = 3
 stat_vitality = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
@@ -385,7 +385,7 @@ attenuation_filter_db = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.25)
 
 [node name="CameraPivotOffset" type="Marker3D" parent="." unique_id=1127741854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 1.3, 0)
 
 [editable path="Model"]
 [editable path="Model/Armature/GeneralSkeleton/Hitboxes"]
