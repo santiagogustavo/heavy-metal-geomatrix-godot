@@ -17,6 +17,8 @@ var direction: Vector2 = Vector2.ZERO
 var look: Vector2 = Vector2.ZERO
 
 var equip: Definitions.EquipType = Definitions.EquipType.Body
+var speed_factor: float = 1.0
+var power_factor: float = 1.0
 
 var is_dashing: bool = false
 var is_jumping: bool = false
@@ -197,6 +199,9 @@ func update_lower_body(delta: float) -> void:
 	set("parameters/Lower Body/Dash Start/Blend/blend_position", lerp_direction)
 	set("parameters/Lower Body/Dash Loop/Blend/blend_position", lerp_direction)
 	set("parameters/Lower Body/Dash Stop/Blend/blend_position", lerp_direction)
+	
+	# TIME SCALES #
+	set("parameters/Lower Body TimeScale/scale", speed_factor)
 
 func update_upper_body(delta: float) -> void:
 	# CONDITIONS #
@@ -228,3 +233,15 @@ func update_upper_body(delta: float) -> void:
 	
 	# MELEE HEAVY #
 	set("parameters/Upper Body/MeleeHeavy/Look/blend_position", lerp_look)
+	
+	# TIME SCALES #
+	update_upper_body_time_scale()
+
+func update_upper_body_time_scale() -> void:
+	if (
+		equip == Definitions.EquipType.MeleeLight
+		or equip == Definitions.EquipType.MeleeHeavy
+	) and is_current_node_attacking():
+		set("parameters/Upper Body TimeScale/scale", power_factor)
+	else:
+		set("parameters/Upper Body TimeScale/scale", 1.0)

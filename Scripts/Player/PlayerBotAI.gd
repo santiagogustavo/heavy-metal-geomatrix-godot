@@ -311,7 +311,7 @@ func advance_to_target(delta: float) -> void:
 		get_tree().create_timer(player.brain.dash_duration + 1.0).timeout.connect(func (): can_dash = true)
 	var current_location: Vector3 = player.global_transform.origin
 	var next_location: Vector3 = player.navigation_agent.get_next_path_position()
-	var delta_factor: float = delta * 25
+	var delta_factor: float = delta * 45
 	var new_velocity: Vector3 = (next_location - current_location).normalized() * player.current_speed
 	player.velocity.x = (new_velocity.x + additive_velocity.x) * delta_factor
 	player.velocity.z = (new_velocity.z + additive_velocity.z) * delta_factor
