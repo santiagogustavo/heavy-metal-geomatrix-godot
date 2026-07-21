@@ -1,0 +1,440 @@
+[gd_scene format=3 uid="uid://bcc476hb3qa1f"]
+
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="1_4tlok"]
+[ext_resource type="Script" uid="uid://thatj0f46a7n" path="res://Scripts/Menus/SelectPlayerV2/PlayerInfoCard.gd" id="1_qi1ps"]
+[ext_resource type="Texture2D" uid="uid://d3q2u2uxtfpv6" path="res://Textures/Characters/Portraits/Di/Default.png" id="1_wtp4u"]
+[ext_resource type="Shader" uid="uid://c4iakb2dji8h3" path="res://Materials/Shaders/2DDropShadow.gdshader" id="3_qi1ps"]
+[ext_resource type="FontFile" uid="uid://b5gmgkqqs4yp" path="res://Fonts/Perfect Futures Italic.ttf" id="5_pi8w4"]
+[ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="6_pi8w4"]
+[ext_resource type="RichTextEffect" uid="uid://bqyrnpkvlfsix" path="res://Prefabs/Menus/SelectPlayer/BioBold.tres" id="7_jgcva"]
+[ext_resource type="FontFile" uid="uid://dmvvnx2e4kgm6" path="res://Fonts/Oxanium Bold.ttf" id="7_umlx6"]
+[ext_resource type="FontVariation" uid="uid://dlxrfvcvos53u" path="res://Fonts/Valorax Bold.tres" id="8_2pavc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tlok"]
+shader = ExtResource("3_qi1ps")
+shader_parameter/debug = false
+shader_parameter/border_scale = 1.1
+shader_parameter/shadow_offset = Vector2(25, -25)
+shader_parameter/color = Color(0, 0, 0, 0.19607843)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 0.0
+shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qi1ps"]
+shader = ExtResource("1_4tlok")
+shader_parameter/shake_power = 0.1
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 20.0
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_2pavc"]
+font = ExtResource("5_pi8w4")
+font_size = 64
+font_color = Color(0.33333334, 0.91764706, 1, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1.5, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgl5d"]
+font = ExtResource("6_pi8w4")
+font_size = 24
+font_color = Color(0.33333334, 0.91764706, 1, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fggmu"]
+font = ExtResource("7_umlx6")
+font_size = 22
+font_color = Color(0.33333334, 0.91764706, 1, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vuf5l"]
+font = ExtResource("8_2pavc")
+font_size = 24
+font_color = Color(1, 0.847059, 0.294118, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umlx6"]
+font = ExtResource("6_pi8w4")
+font_size = 22
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qi1ps"]
+resource_name = "ChangeSkin"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PortraitContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PortraitContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glitch:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_lfy13"]
+resource_name = "Focus"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PortraitContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PortraitContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4tlok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PortraitContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PortraitContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glitch:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PortraitContainer/Portrait:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1dsna"]
+resource_name = "Select"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PortraitContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PortraitContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PortraitContainer/Portrait:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4tlok"]
+_data = {
+&"ChangeSkin": SubResource("Animation_qi1ps"),
+&"Focus": SubResource("Animation_lfy13"),
+&"RESET": SubResource("Animation_4tlok"),
+&"Select": SubResource("Animation_1dsna")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qi1ps"]
+animation = &"ChangeSkin"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_qi1ps"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_pi8w4"]
+graph_offset = Vector2(-403, -5)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_qi1ps")
+nodes/Animation/position = Vector2(-220, 140)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_qi1ps")
+nodes/TimeSeek/position = Vector2(20, 140)
+node_connections = [&"output", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1dsna"]
+animation = &"Focus"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_pi8w4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qi1ps"]
+graph_offset = Vector2(-519, -45)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_pi8w4")
+nodes/TimeSeek/position = Vector2(80, 140)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_1dsna")
+nodes/Animation/position = Vector2(-120, 140)
+node_connections = [&"output", 0, &"TimeSeek", &"TimeSeek", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pi8w4"]
+animation = &"Select"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1dsna"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_umlx6"]
+reset = false
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qi1ps"]
+advance_mode = 2
+advance_condition = &"selected"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1dsna"]
+states/ChangeSkin/node = SubResource("AnimationNodeBlendTree_pi8w4")
+states/ChangeSkin/position = Vector2(535, -28)
+states/Fade/node = SubResource("AnimationNodeBlendTree_qi1ps")
+states/Fade/position = Vector2(535, 100)
+states/Select/node = SubResource("AnimationNodeAnimation_pi8w4")
+states/Select/position = Vector2(727, 100)
+transitions = ["Start", "Fade", SubResource("AnimationNodeStateMachineTransition_1dsna"), "ChangeSkin", "Fade", SubResource("AnimationNodeStateMachineTransition_umlx6"), "Fade", "Select", SubResource("AnimationNodeStateMachineTransition_qi1ps")]
+graph_offset = Vector2(-36, -91)
+
+[node name="PlayerInfoCard" type="Control" unique_id=1847102002]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_qi1ps")
+portrait_texture = ExtResource("1_wtp4u")
+
+[node name="PortraitContainer" type="Control" parent="." unique_id=482035991]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.85, 0.85)
+pivot_offset_ratio = Vector2(0.5, 1)
+
+[node name="Portrait" type="TextureRect" parent="PortraitContainer" unique_id=1461239586]
+material = SubResource("ShaderMaterial_4tlok")
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -214.9875
+offset_right = 214.9875
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+texture = ExtResource("1_wtp4u")
+expand_mode = 3
+
+[node name="Glitch" type="ColorRect" parent="." unique_id=727067690]
+visible = false
+material = SubResource("ShaderMaterial_qi1ps")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="InfoContainer" type="VBoxContainer" parent="." unique_id=1345455650]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -335.0
+offset_right = -35.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoContainer" unique_id=1113144745]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelName" type="Label" parent="InfoContainer/VBoxContainer" unique_id=761817427]
+layout_mode = 2
+text = "MAYFLY"
+label_settings = SubResource("LabelSettings_2pavc")
+
+[node name="LabelTeam" type="Label" parent="InfoContainer/VBoxContainer" unique_id=1572370944]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "313 AGENTS"
+label_settings = SubResource("LabelSettings_mgl5d")
+autowrap_mode = 2
+uppercase = true
+
+[node name="LabelBio" type="RichTextLabel" parent="InfoContainer/VBoxContainer" unique_id=618451643]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]MAYFLY[/b] is cheerful and flighty. She can easily destroy someone with her cruel ignorance."
+fit_content = true
+autowrap_mode = 2
+custom_effects = [ExtResource("7_jgcva")]
+
+[node name="GridContainer" type="GridContainer" parent="InfoContainer" unique_id=487999865]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+columns = 2
+
+[node name="LabelSpeed" type="Label" parent="InfoContainer/GridContainer" unique_id=54840362]
+layout_mode = 2
+text = "Speed"
+label_settings = SubResource("LabelSettings_fggmu")
+uppercase = true
+
+[node name="ValueSpeed" type="Label" parent="InfoContainer/GridContainer" unique_id=1285302565]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "///"
+label_settings = SubResource("LabelSettings_vuf5l")
+uppercase = true
+
+[node name="LabelPower" type="Label" parent="InfoContainer/GridContainer" unique_id=852853082]
+layout_mode = 2
+text = "Power"
+label_settings = SubResource("LabelSettings_fggmu")
+uppercase = true
+
+[node name="ValuePower" type="Label" parent="InfoContainer/GridContainer" unique_id=432826220]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "///"
+label_settings = SubResource("LabelSettings_vuf5l")
+uppercase = true
+
+[node name="LabelVitality" type="Label" parent="InfoContainer/GridContainer" unique_id=127098359]
+layout_mode = 2
+text = "Vitality"
+label_settings = SubResource("LabelSettings_fggmu")
+uppercase = true
+
+[node name="ValueVitality" type="Label" parent="InfoContainer/GridContainer" unique_id=1162367489]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "///"
+label_settings = SubResource("LabelSettings_vuf5l")
+uppercase = true
+
+[node name="LabelLoadout" type="Label" parent="InfoContainer/GridContainer" unique_id=1324619122]
+layout_mode = 2
+text = "Loadout"
+label_settings = SubResource("LabelSettings_fggmu")
+uppercase = true
+
+[node name="ValueLoadout" type="Label" parent="InfoContainer/GridContainer" unique_id=1646225041]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sniper Rifle"
+label_settings = SubResource("LabelSettings_umlx6")
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1321802865]
+libraries/ = SubResource("AnimationLibrary_4tlok")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1565454962]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_1dsna")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/selected = false
+parameters/ChangeSkin/TimeSeek/seek_request = -1.0
+parameters/Fade/TimeSeek/seek_request = -1.0

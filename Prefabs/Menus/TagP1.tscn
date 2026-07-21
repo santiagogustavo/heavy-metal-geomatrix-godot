@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cc4fq15byh2wc"]
+
+[ext_resource type="Texture2D" uid="uid://d1qwpf4j7y5wl" path="res://Textures/Menus/SelectPlayer/V2/card_tag.png" id="1_ejdip"]
+[ext_resource type="FontVariation" uid="uid://di5l671jloxoe" path="res://Fonts/Oxanium ExtraBold Italic.tres" id="2_hmlin"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_46lty"]
+font = ExtResource("2_hmlin")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="TagP1" type="TextureRect" unique_id=1195396270]
+visible = false
+modulate = Color(0.33333334, 0.91764706, 1, 1)
+offset_left = 27.904758
+offset_top = -15.904766
+offset_right = 92.904755
+offset_bottom = 24.095234
+texture = ExtResource("1_ejdip")
+
+[node name="Label" type="Label" parent="." unique_id=779852988]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -16.5
+offset_right = 20.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1P"
+label_settings = SubResource("LabelSettings_46lty")
+horizontal_alignment = 1
+vertical_alignment = 1

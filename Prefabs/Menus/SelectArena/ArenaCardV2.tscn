@@ -1,0 +1,576 @@
+[gd_scene format=3 uid="uid://c1r5u4k3fmrhn"]
+
+[ext_resource type="Script" uid="uid://w84xl5aeqqmx" path="res://Scripts/Menus/SelectArenaV2/ArenaCard.gd" id="1_4n4n6"]
+[ext_resource type="Texture2D" uid="uid://3gbk6fji2jgb" path="res://Textures/Menus/SelectArena/V2/stage_card_outline.png" id="1_s8ptu"]
+[ext_resource type="PackedScene" uid="uid://cc4fq15byh2wc" path="res://Prefabs/Menus/TagP1.tscn" id="2_jheyf"]
+[ext_resource type="Texture2D" uid="uid://bq6f0p6wsl3uu" path="res://Textures/Menus/SelectArena/V2/stage_card_mask.png" id="3_jheyf"]
+[ext_resource type="Texture2D" uid="uid://dvevyincv5dvp" path="res://Textures/Levels/Splashes/OceanCastleTwilight.png" id="4_4n4n6"]
+[ext_resource type="FontVariation" uid="uid://gwsiuuprt051" path="res://Fonts/Oxanium Bold Italic.tres" id="6_4n4n6"]
+[ext_resource type="AudioStream" uid="uid://d11lpsogmqpj" path="res://Sound/Menus/Select Player/Cursor.wav" id="7_ai5il"]
+[ext_resource type="AudioStream" uid="uid://benm8gdx2t3ly" path="res://Sound/Menus/Select Player/Select.wav" id="8_4wppd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4n4n6"]
+
+[sub_resource type="Gradient" id="Gradient_jheyf"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.9964539)
+colors = PackedColorArray(0, 0, 0, 0.68235296, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4n4n6"]
+gradient = SubResource("Gradient_jheyf")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.4)
+metadata/_snap_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_oe6vt"]
+font = ExtResource("6_4n4n6")
+font_size = 28
+font_color = Color(0.32941177, 1, 0.7647059, 1)
+
+[sub_resource type="Animation" id="Animation_oe6vt"]
+resource_name = "HoverOutP1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardOutline/SplashMask/Splash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.7, 0.7, 0.7, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardOutline/SplashMask/Splash/ArenaName:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardOutline/TagP1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardOutline:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardOutline:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.33333334, 0.91764706, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jheyf"]
+resource_name = "HoverP1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardOutline/SplashMask/Splash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7, 0.7, 0.7, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardOutline/SplashMask/Splash/ArenaName:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardOutline/TagP1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardOutline:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardOutline:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.33333334, 0.91764706, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cursor:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4n4n6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardOutline/SplashMask/Splash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.7, 0.7, 0.7, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardOutline/SplashMask/Splash/ArenaName:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardOutline/TagP1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardOutline:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardOutline:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardOutline/TagP1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.33333334, 0.91764706, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CardOutline/SplashMask/Splash/Shimmer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CardOutline/SplashMask/Splash/Shimmer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cursor:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Select:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ai5il"]
+resource_name = "SelectP1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardOutline:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.2, 1.2), Vector2(1.1, 1.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardOutline:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.33333334, 0.91764706, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardOutline/TagP1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.33333334, 0.91764706, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardOutline/SplashMask/Splash/Shimmer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardOutline/SplashMask/Splash/Shimmer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5019608), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardOutline/TagP1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CardOutline/SplashMask/Splash/ArenaName:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CardOutline/SplashMask/Splash:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Select:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4n4n6"]
+_data = {
+&"HoverOutP1": SubResource("Animation_oe6vt"),
+&"HoverP1": SubResource("Animation_jheyf"),
+&"RESET": SubResource("Animation_4n4n6"),
+&"SelectP1": SubResource("Animation_ai5il")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jheyf"]
+animation = &"HoverP1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4n4n6"]
+animation = &"HoverOutP1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oe6vt"]
+animation = &"SelectP1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ai5il"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wppd"]
+advance_mode = 2
+advance_condition = &"unhovered_p1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mkqlm"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_68rjn"]
+advance_mode = 2
+advance_condition = &"selected_p1"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yvtrf"]
+states/Hover/node = SubResource("AnimationNodeAnimation_jheyf")
+states/Hover/position = Vector2(447, 100)
+states/HoverOut/node = SubResource("AnimationNodeAnimation_4n4n6")
+states/HoverOut/position = Vector2(667, 100)
+states/Select/node = SubResource("AnimationNodeAnimation_oe6vt")
+states/Select/position = Vector2(447, -48)
+transitions = ["Start", "Hover", SubResource("AnimationNodeStateMachineTransition_ai5il"), "Hover", "HoverOut", SubResource("AnimationNodeStateMachineTransition_4wppd"), "HoverOut", "End", SubResource("AnimationNodeStateMachineTransition_mkqlm"), "Hover", "Select", SubResource("AnimationNodeStateMachineTransition_68rjn")]
+graph_offset = Vector2(-25, -103)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cqlbf"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1dthy"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4yai0"]
+advance_mode = 2
+advance_condition = &"hovered_p1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82sa3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d2018"]
+states/P1/node = SubResource("AnimationNodeStateMachine_yvtrf")
+states/P1/position = Vector2(525, -34)
+states/RESET/node = SubResource("AnimationNodeAnimation_cqlbf")
+states/RESET/position = Vector2(525, 100)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_1dthy"), "RESET", "P1", SubResource("AnimationNodeStateMachineTransition_4yai0"), "P1", "RESET", SubResource("AnimationNodeStateMachineTransition_82sa3")]
+graph_offset = Vector2(-38, -100)
+
+[node name="ArenaCard" type="Button" unique_id=318041559]
+custom_minimum_size = Vector2(489, 511.343)
+offset_right = 489.0
+offset_bottom = 511.343
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4n4n6")
+flat = true
+script = ExtResource("1_4n4n6")
+
+[node name="CardOutline" type="TextureRect" parent="." unique_id=647263727]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 17.0
+offset_right = 489.0
+offset_bottom = 528.3433
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_s8ptu")
+expand_mode = 1
+
+[node name="TagP1" parent="CardOutline" unique_id=1195396270 instance=ExtResource("2_jheyf")]
+layout_mode = 0
+offset_left = 111.0
+offset_top = -16.0
+offset_right = 176.0
+offset_bottom = 24.0
+
+[node name="SplashMask" type="TextureRect" parent="CardOutline" unique_id=1307804682]
+show_behind_parent = true
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jheyf")
+expand_mode = 1
+
+[node name="Splash" type="TextureRect" parent="CardOutline/SplashMask" unique_id=708035359]
+modulate = Color(0.7, 0.7, 0.7, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4n4n6")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ArenaName" type="TextureRect" parent="CardOutline/SplashMask/Splash" unique_id=821037108]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4n4n6")
+
+[node name="Label" type="Label" parent="CardOutline/SplashMask/Splash/ArenaName" unique_id=1366623693]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.5
+offset_top = -51.343323
+offset_right = 120.5
+offset_bottom = -23.343323
+grow_horizontal = 2
+grow_vertical = 0
+text = "OCEAN CASTLE TWILIGHT"
+label_settings = SubResource("LabelSettings_oe6vt")
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Shimmer" type="ColorRect" parent="CardOutline/SplashMask/Splash" unique_id=1925514178]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cursor" type="AudioStreamPlayer2D" parent="." unique_id=941827957]
+stream = ExtResource("7_ai5il")
+volume_db = -7.5
+bus = &"UI"
+
+[node name="Select" type="AudioStreamPlayer2D" parent="." unique_id=1598410309]
+stream = ExtResource("8_4wppd")
+volume_db = -5.0
+bus = &"UI"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1239490436]
+libraries/ = SubResource("AnimationLibrary_4n4n6")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=111982903]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_d2018")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/hovered_p1 = false
+parameters/P1/conditions/selected_p1 = false
+parameters/P1/conditions/unhovered_p1 = false

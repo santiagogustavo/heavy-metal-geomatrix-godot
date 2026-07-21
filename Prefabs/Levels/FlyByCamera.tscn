@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dcydxftpb4bho"]
+
+[ext_resource type="Script" uid="uid://ct8jfafuskckn" path="res://Scripts/Levels/FlyByCamera.gd" id="1_a5vqw"]
+
+[node name="FlyByCamera" type="Node3D" unique_id=1544694959]
+script = ExtResource("1_a5vqw")
+metadata/_custom_type_script = "uid://ct8jfafuskckn"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=194414076]
+cull_mask = 1048049
+current = true

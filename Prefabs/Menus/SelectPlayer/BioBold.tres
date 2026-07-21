@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="RichTextBioBold" format=3 uid="uid://bqyrnpkvlfsix"]
+
+[ext_resource type="Script" uid="uid://b1wmv8labxerb" path="res://Prefabs/Menus/SelectPlayer/BioBold.gd" id="1_1hudd"]
+
+[resource]
+script = ExtResource("1_1hudd")

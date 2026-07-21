@@ -1,0 +1,350 @@
+[gd_scene format=3 uid="uid://dmjb7mesvihv3"]
+
+[ext_resource type="PackedScene" uid="uid://xbyaorwiaixv" path="res://Prefabs/Menus/SelectPlayer/PlayerCard.tscn" id="1_6gf68"]
+[ext_resource type="Script" uid="uid://cp568cp13q8sn" path="res://Scripts/Menus/SelectPlayerV2/SelectPlayerMenuV2.gd" id="1_sfirt"]
+[ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="2_78com"]
+[ext_resource type="Texture2D" uid="uid://1lwm8rg7qqie" path="res://Textures/Characters/Portraits/Hound/Small.png" id="2_hxjtf"]
+[ext_resource type="Shader" uid="uid://bw8b8jh86f3he" path="res://Materials/UI/Bubbling.tres" id="2_wka5o"]
+[ext_resource type="Texture2D" uid="uid://cxsl4j0ejtuqb" path="res://Textures/Menus/Main Menu/hex_grid.png" id="3_elaox"]
+[ext_resource type="Texture2D" uid="uid://c5is4giq86vpj" path="res://Textures/Characters/Portraits/Slash/Small.png" id="3_sfirt"]
+[ext_resource type="Texture2D" uid="uid://dvlwhyyqilrsp" path="res://Textures/Characters/Portraits/Zeus/Small.png" id="4_e5dc5"]
+[ext_resource type="PackedScene" uid="uid://bcc476hb3qa1f" path="res://Prefabs/Menus/SelectPlayer/PlayerInfoCard.tscn" id="6_e5dc5"]
+[ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="6_elaox"]
+[ext_resource type="PackedScene" uid="uid://dnufef8qdqorn" path="res://Prefabs/Menus/SelectPlayer/TeamCard.tscn" id="7_rikto"]
+[ext_resource type="Material" uid="uid://bl4gl2wdbx05f" path="res://Materials/Menus/Select Player/bf365546.tres" id="7_xp13o"]
+[ext_resource type="PackedScene" uid="uid://csiacq2gsocyl" path="res://Models/Menus/Select Player/Tunnel.glb" id="8_78com"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="9_86ssy"]
+[ext_resource type="AudioStream" uid="uid://bm5apxkvpbcwi" path="res://Sound/Menus/Select Player/Intro.wav" id="14_txor1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xp13o"]
+viewport_path = NodePath("Node3D/TunnelViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txor1"]
+shader = ExtResource("2_wka5o")
+shader_parameter/Bubble_Color = Color(0.34, 1, 0.582, 1)
+shader_parameter/Speed = 0.1
+shader_parameter/Size = 10.0
+shader_parameter/BG_Color = Color(0, 0.840667, 0.97, 1)
+shader_parameter/Mask = ExtResource("3_elaox")
+
+[sub_resource type="LabelSettings" id="LabelSettings_86ssy"]
+font = ExtResource("2_78com")
+font_size = 18
+font_color = Color(0.32999998, 1, 0.76550007, 1)
+
+[sub_resource type="Environment" id="Environment_wka5o"]
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.1
+glow_mix = 0.33
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_mode = 1
+fog_light_color = Color(0, 0.069, 0.18, 1)
+fog_density = 1.174
+fog_depth_begin = 0.0
+fog_depth_end = 300.9
+volumetric_fog_density = 0.01
+volumetric_fog_length = 41.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_elaox"]
+material = ExtResource("7_xp13o")
+radius = 500.0
+height = 1000.0
+
+[sub_resource type="Animation" id="Animation_eioya"]
+resource_name = "Idle"
+length = 100.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 50, 100),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319), Vector3(0, 0, 12.5664)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 100),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fi66b"]
+resource_name = "RESET"
+length = 100.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txor1"]
+_data = {
+&"Idle": SubResource("Animation_eioya"),
+&"RESET": SubResource("Animation_fi66b")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_orith"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cjkb3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rikto"]
+states/Idle/node = SubResource("AnimationNodeAnimation_orith")
+states/Idle/position = Vector2(455, 101)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cjkb3")]
+
+[node name="SelectPlayerV2" type="Node3D" unique_id=559413559]
+script = ExtResource("1_sfirt")
+
+[node name="Control" type="Control" parent="." unique_id=11993034]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Control" unique_id=7135962]
+modulate = Color(0.32941177, 1, 0.7647059, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_xp13o")
+
+[node name="Hex" type="TextureRect" parent="Control" unique_id=1486606348]
+visible = false
+material = SubResource("ShaderMaterial_txor1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -134.0
+offset_right = -581.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 393)
+texture = ExtResource("3_elaox")
+expand_mode = 1
+
+[node name="PlayerInfoCard" parent="Control" unique_id=1847102002 instance=ExtResource("6_e5dc5")]
+layout_mode = 1
+pivot_offset_ratio = Vector2(1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=93620289]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="Control/MarginContainer" unique_id=834727290]
+layout_mode = 2
+
+[node name="ModeDescription" type="Label" parent="Control/MarginContainer/Control" unique_id=189794577]
+layout_mode = 1
+offset_right = 1120.0
+offset_bottom = 23.0
+text = "// GEOMATRIX COMBAT NETWORK
+// GAME MODE: arcade
+// SELECT PLAYER"
+label_settings = SubResource("LabelSettings_86ssy")
+script = ExtResource("6_elaox")
+typing_time = 1.0
+start_with_random = true
+
+[node name="Status" type="Label" parent="Control/MarginContainer/Control" unique_id=1643137533]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1120.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "awaiting player 1 input..."
+label_settings = SubResource("LabelSettings_86ssy")
+horizontal_alignment = 2
+script = ExtResource("6_elaox")
+typing_time = 1.0
+start_with_random = true
+
+[node name="TeamCard" parent="Control" unique_id=1958413587 instance=ExtResource("7_rikto")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 65.0
+offset_top = 128.0
+offset_right = 65.0
+offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.55, 0.55)
+
+[node name="GridContainerExample" type="GridContainer" parent="Control" unique_id=2097743833]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -390.0
+offset_right = 479.0
+offset_bottom = 394.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = -8
+theme_override_constants/v_separation = 32
+columns = 3
+
+[node name="PlayerCard" parent="Control/GridContainerExample" unique_id=1630519011 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("2_hxjtf")
+
+[node name="PlayerCard2" parent="Control/GridContainerExample" unique_id=1222446546 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("3_sfirt")
+
+[node name="PlayerCard3" parent="Control/GridContainerExample" unique_id=828856802 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("4_e5dc5")
+
+[node name="PlayerCard4" parent="Control/GridContainerExample" unique_id=1224419969 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("2_hxjtf")
+
+[node name="PlayerCard5" parent="Control/GridContainerExample" unique_id=1246136989 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("3_sfirt")
+
+[node name="PlayerCard6" parent="Control/GridContainerExample" unique_id=2057452273 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("4_e5dc5")
+
+[node name="PlayerCard7" parent="Control/GridContainerExample" unique_id=1680593468 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("2_hxjtf")
+
+[node name="PlayerCard8" parent="Control/GridContainerExample" unique_id=2003270953 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("3_sfirt")
+
+[node name="PlayerCard9" parent="Control/GridContainerExample" unique_id=1247877821 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("4_e5dc5")
+
+[node name="PlayerCard10" parent="Control/GridContainerExample" unique_id=2006605935 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("2_hxjtf")
+
+[node name="PlayerCard11" parent="Control/GridContainerExample" unique_id=244806105 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("3_sfirt")
+
+[node name="PlayerCard12" parent="Control/GridContainerExample" unique_id=1657760267 instance=ExtResource("1_6gf68")]
+layout_mode = 2
+character_portrait = ExtResource("4_e5dc5")
+
+[node name="PlayerCardsContainer" type="GridContainer" parent="Control" unique_id=337582183]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -390.0
+offset_right = 479.0
+offset_bottom = 394.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_mode = 2
+theme_override_constants/h_separation = -8
+theme_override_constants/v_separation = 32
+columns = 3
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1037745813]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=1548295747]
+environment = SubResource("Environment_wka5o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=2080674730]
+transform = Transform3D(0.9999989, 0, 0, 0, 1, 0, 0, 0, 0.9999989, 0, 0, 0)
+mesh = SubResource("SphereMesh_elaox")
+skeleton = NodePath("../..")
+
+[node name="Tunnel" parent="Node3D" unique_id=1669224374 instance=ExtResource("8_78com")]
+transform = Transform3D(0.99999905, 0, 0, 0, 0.99999905, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="object_0" parent="Node3D/Tunnel" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -46.8)
+cast_shadow = 0
+
+[node name="TunnelViewport" type="SubViewport" parent="Node3D" unique_id=1402336165]
+size = Vector2i(1280, 720)
+script = ExtResource("9_86ssy")
+
+[node name="TunnelCamera" type="Camera3D" parent="Node3D/TunnelViewport" unique_id=1863079988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.63)
+cull_mask = 1048563
+fov = 90.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D" unique_id=639574680]
+root_node = NodePath("../Tunnel")
+libraries/ = SubResource("AnimationLibrary_txor1")
+
+[node name="AnimationTree" type="AnimationTree" parent="Node3D" unique_id=725565350]
+root_node = NodePath("../Tunnel")
+tree_root = SubResource("AnimationNodeStateMachine_rikto")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Intro" type="AudioStreamPlayer2D" parent="." unique_id=1536861306]
+stream = ExtResource("14_txor1")
+autoplay = true
+bus = &"UI"
+
+[editable path="Node3D/Tunnel"]

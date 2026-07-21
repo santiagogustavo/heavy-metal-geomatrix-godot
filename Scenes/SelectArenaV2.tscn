@@ -1,0 +1,270 @@
+[gd_scene format=3 uid="uid://thgd31y1g4sv"]
+
+[ext_resource type="Script" uid="uid://b80lsu8m35r8q" path="res://Scripts/Menus/SelectArenaV2/SelectArenaMenuV2.gd" id="1_4kadd"]
+[ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="1_le24r"]
+[ext_resource type="Texture2D" uid="uid://dvevyincv5dvp" path="res://Textures/Levels/Splashes/OceanCastleTwilight.png" id="2_l61m0"]
+[ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="2_s78kl"]
+[ext_resource type="PackedScene" uid="uid://c1r5u4k3fmrhn" path="res://Prefabs/Menus/SelectArena/ArenaCardV2.tscn" id="3_s78kl"]
+[ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="3_srne1"]
+[ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="4_2ak2h"]
+[ext_resource type="PackedScene" uid="uid://bgl5hu5vx840g" path="res://Prefabs/Menus/SelectArena/RegisteredPlayerCard.tscn" id="7_srne1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gfeh"]
+shader = ExtResource("3_srne1")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Scale = 500.0
+shader_parameter/Color_Weight = 0.5
+shader_parameter/Opacity = 0.30000001425
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srne1"]
+shader = ExtResource("4_2ak2h")
+shader_parameter/shake_power = 0.1
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="Gradient" id="Gradient_wohr2"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 0.78431374, 0, 0, 0, 0.11764706)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ak2h"]
+gradient = SubResource("Gradient_wohr2")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kadd"]
+font = ExtResource("1_le24r")
+font_size = 18
+font_color = Color(0.32999998, 1, 0.76550007, 1)
+
+[sub_resource type="Animation" id="Animation_2ak2h"]
+resource_name = "ChangeArena"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/BG/Glitch:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_srne1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/BG/Glitch:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gfeh"]
+_data = {
+&"ChangeArena": SubResource("Animation_2ak2h"),
+&"RESET": SubResource("Animation_srne1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_srne1"]
+animation = &"ChangeArena"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ak2h"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_srne1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3gfeh"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3gfeh"]
+states/ChangeArena/node = SubResource("AnimationNodeAnimation_srne1")
+states/ChangeArena/position = Vector2(533, -27)
+states/RESET/node = SubResource("AnimationNodeAnimation_2ak2h")
+states/RESET/position = Vector2(533, 100)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_srne1"), "ChangeArena", "RESET", SubResource("AnimationNodeStateMachineTransition_3gfeh")]
+graph_offset = Vector2(-41, -86)
+
+[node name="SelectArenaV2" type="Node3D" unique_id=1340168011]
+script = ExtResource("1_4kadd")
+
+[node name="Control" type="Control" parent="." unique_id=355097160]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Control" unique_id=1874526923]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l61m0")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Static" type="ColorRect" parent="Control/BG" unique_id=733192185]
+material = SubResource("ShaderMaterial_3gfeh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Glitch" type="ColorRect" parent="Control/BG" unique_id=841895855]
+visible = false
+material = SubResource("ShaderMaterial_srne1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="TextureRect" parent="Control/BG" unique_id=2010000642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_2ak2h")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1829402693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="Control/MarginContainer" unique_id=813882754]
+layout_mode = 2
+
+[node name="ModeDescription" type="Label" parent="Control/MarginContainer/Control" unique_id=448078392]
+layout_mode = 1
+offset_right = 1120.0
+offset_bottom = 23.0
+text = "// GEOMATRIX COMBAT NETWORK
+// GAME MODE: arcade
+// SELECT ARENA"
+label_settings = SubResource("LabelSettings_4kadd")
+script = ExtResource("2_s78kl")
+typing_time = 1.0
+start_with_random = true
+
+[node name="Status" type="Label" parent="Control/MarginContainer/Control" unique_id=1429663341]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1120.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "awaiting player 1 input..."
+label_settings = SubResource("LabelSettings_4kadd")
+horizontal_alignment = 2
+script = ExtResource("2_s78kl")
+typing_time = 1.0
+start_with_random = true
+
+[node name="RegisteredPlayersContainer" type="VBoxContainer" parent="Control/MarginContainer/Control" unique_id=75189589]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+offset_right = 202.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/RegisteredPlayersContainer" unique_id=1493163051]
+layout_mode = 2
+text = "// REGISTERED PLAYERS"
+label_settings = SubResource("LabelSettings_4kadd")
+script = ExtResource("2_s78kl")
+typing_time = 1.0
+start_with_random = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/Control/RegisteredPlayersContainer" unique_id=363118120]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="Placeholder" parent="Control/MarginContainer/Control/RegisteredPlayersContainer/HBoxContainer" unique_id=437543191 instance=ExtResource("7_srne1")]
+layout_mode = 2
+
+[node name="CardContainer" type="HBoxContainer" parent="Control" unique_id=932956774]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -310.2
+offset_right = 47.0
+offset_bottom = 200.79999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = -300
+alignment = 1
+
+[node name="ArenaCard" parent="Control/CardContainer" unique_id=318041559 instance=ExtResource("3_s78kl")]
+layout_mode = 2
+
+[node name="ArenaCard2" parent="Control/CardContainer" unique_id=355062829 instance=ExtResource("3_s78kl")]
+layout_mode = 2
+
+[node name="ArenaCard3" parent="Control/CardContainer" unique_id=731055170 instance=ExtResource("3_s78kl")]
+layout_mode = 2
+
+[node name="ArenaCard4" parent="Control/CardContainer" unique_id=2078329123 instance=ExtResource("3_s78kl")]
+layout_mode = 2
+
+[node name="ArenaCard5" parent="Control/CardContainer" unique_id=1235375653 instance=ExtResource("3_s78kl")]
+layout_mode = 2
+
+[node name="ArenaCardContainer" type="HBoxContainer" parent="Control" unique_id=192659955]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 0.5
+offset_top = -54.700012
+offset_right = 0.5
+offset_bottom = -54.700012
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = -300
+alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1135672682]
+libraries/ = SubResource("AnimationLibrary_3gfeh")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=293843754]
+tree_root = SubResource("AnimationNodeStateMachine_3gfeh")
+anim_player = NodePath("../AnimationPlayer")

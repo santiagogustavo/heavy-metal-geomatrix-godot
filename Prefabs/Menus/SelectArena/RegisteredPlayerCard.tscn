@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bgl5hu5vx840g"]
+
+[ext_resource type="Script" uid="uid://0um1i7cq1q80" path="res://Scripts/Menus/SelectArenaV2/RegisteredPlayerCard.gd" id="1_2c2k8"]
+[ext_resource type="Texture2D" uid="uid://dvmqgsj3yqrof" path="res://Textures/Menus/SelectArena/V2/player_card_outline.png" id="1_gfstb"]
+[ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_2tvx2"]
+[ext_resource type="Texture2D" uid="uid://d1ttnmk43ax3m" path="res://Textures/Characters/Portraits/Di/MugshotSmall.png" id="2_sgact"]
+[ext_resource type="Texture2D" uid="uid://dtrw8bmy4ccgo" path="res://Textures/Menus/SelectArena/V2/player_card_mask.png" id="3_050tm"]
+[ext_resource type="Texture2D" uid="uid://dkhqjy48d5rgn" path="res://Textures/Menus/SelectPlayer/bf365546.png" id="4_2tvx2"]
+[ext_resource type="Texture2D" uid="uid://cy46a1h1hicab" path="res://Textures/Characters/Portraits/Mayfly/MugshotSmall.png" id="4_att47"]
+[ext_resource type="FontVariation" uid="uid://di5l671jloxoe" path="res://Fonts/Oxanium ExtraBold Italic.tres" id="6_050tm"]
+[ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="6_att47"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpqki"]
+shader = ExtResource("2_2tvx2")
+shader_parameter/Mask = ExtResource("3_050tm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2c2k8"]
+shader = ExtResource("6_att47")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Scale = 134.22800637583
+shader_parameter/Color_Weight = 0.5
+shader_parameter/Opacity = 0.47600002261
+shader_parameter/Mask = ExtResource("3_050tm")
+
+[sub_resource type="Gradient" id="Gradient_att47"]
+colors = PackedColorArray(0, 0, 0, 0.80784315, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2c2k8"]
+gradient = SubResource("Gradient_att47")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_sgact"]
+font = ExtResource("6_050tm")
+font_color = Color(0.32941177, 1, 0.7647059, 1)
+
+[node name="RegisteredPlayerCard" type="Control" unique_id=437543191]
+custom_minimum_size = Vector2(95.4, 87.6)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 95.4
+offset_bottom = 87.6
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_2c2k8")
+player_type = 2
+mugshot_small = ExtResource("2_sgact")
+
+[node name="Outline" type="TextureRect" parent="." unique_id=618087748]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 159.0
+offset_bottom = 146.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_gfstb")
+
+[node name="BG" type="TextureRect" parent="Outline" unique_id=1413463580]
+modulate = Color(0.32941177, 1, 0.7647059, 1)
+show_behind_parent = true
+clip_children = 2
+material = SubResource("ShaderMaterial_tpqki")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_2tvx2")
+expand_mode = 1
+
+[node name="MugshotSmall" type="TextureRect" parent="Outline/BG" unique_id=1360547050]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_att47")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Static" type="ColorRect" parent="Outline/BG" unique_id=908892416]
+material = SubResource("ShaderMaterial_2c2k8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="TextureRect" parent="Outline/BG" unique_id=869136997]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_2c2k8")
+
+[node name="Label" type="Label" parent="Outline/BG" unique_id=1560306225]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.5
+offset_top = -28.0
+offset_right = 28.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PLAYER 1"
+label_settings = SubResource("LabelSettings_sgact")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dnufef8qdqorn"]
+
+[ext_resource type="Texture2D" uid="uid://deocdw5870uhy" path="res://Textures/Menus/SelectPlayer/V2/team_card_outline.png" id="1_2ro0c"]
+[ext_resource type="Script" uid="uid://cibwwr2oyp6w1" path="res://Scripts/Menus/SelectPlayerV2/TeamCard.gd" id="1_3hpcc"]
+[ext_resource type="FontFile" uid="uid://dmvvnx2e4kgm6" path="res://Fonts/Oxanium Bold.ttf" id="1_3hv85"]
+[ext_resource type="Shader" uid="uid://dmuoj36w2v5t8" path="res://Materials/Shaders/Skew.gdshader" id="1_po7bc"]
+[ext_resource type="Texture2D" uid="uid://ch117fja7x7u7" path="res://Textures/Menus/SelectPlayer/V2/team_card_mask.png" id="2_k656f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hpcc"]
+shader = ExtResource("1_po7bc")
+shader_parameter/skew_x = 0.25
+shader_parameter/skew_y = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je481"]
+bg_color = Color(0.32999998, 1, 0.76550007, 1)
+border_width_left = 8
+border_width_top = 2
+border_width_right = 8
+border_width_bottom = 2
+border_color = Color(0.32941177, 1, 0.7647059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_po7bc"]
+font = ExtResource("1_3hv85")
+font_color = Color(0, 0, 0, 1)
+
+[node name="TeamCard" type="Control" unique_id=1958413587]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3hpcc")
+team = 3
+
+[node name="Label" type="Label" parent="." unique_id=288467223]
+material = SubResource("ShaderMaterial_3hpcc")
+layout_mode = 1
+offset_left = 4.0
+offset_top = 131.0
+offset_right = 21.0
+offset_bottom = 152.0
+rotation = -1.3351768
+pivot_offset_ratio = Vector2(0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_je481")
+label_settings = SubResource("LabelSettings_po7bc")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Outline" type="TextureRect" parent="." unique_id=719349116]
+modulate = Color(0.32941177, 1, 0.7647059, 1)
+layout_mode = 1
+offset_right = 529.0
+offset_bottom = 193.0
+texture = ExtResource("1_2ro0c")
+
+[node name="Mask" type="TextureRect" parent="Outline" unique_id=519409496]
+modulate = Color(0.32999998, 1, 0.76550007, 0.078431375)
+layout_mode = 0
+offset_right = 529.0
+offset_bottom = 193.0
+texture = ExtResource("2_k656f")
