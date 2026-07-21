@@ -53,19 +53,28 @@ enum Teams {
 }
 
 enum Characters {
-	Mayfly,
-	Slash,
-	Kassey,
-	Di,
 	Hound,
-	Pufferson,
-	Phantom,
-	Talbot,
+	Slash,
 	Zeus,
-	Duke,
-	Lance,
 	Sarge,
+	Kassey,
 	Stab,
+	Duke,
+	Di,
+	Lance,
+	Phantom,
+	Mayfly,
+	Talbot,
+	#Pufferson,
+}
+
+enum Arenas {
+	RedHotShrineDay,
+	OceanCastleTwilight,
+	SunkenCityNight,
+	PitchDarkStadium,
+	JungledTempleDay,
+	BloodyPrison,
 }
 
 const TeamNames: Dictionary = {
@@ -76,19 +85,28 @@ const TeamNames: Dictionary = {
 }
 
 const CharacterNames: Dictionary = {
-	Characters.Mayfly: "Mayfly",
-	Characters.Slash: "Slash",
-	Characters.Kassey: "Kassey",
-	Characters.Di: "Di",
 	Characters.Hound: "Hound",
-	Characters.Pufferson: "Pufferson",
-	Characters.Phantom: "Phantom",
-	Characters.Talbot: "Talbot",
+	Characters.Slash: "Slash",
 	Characters.Zeus: "Zeus",
-	Characters.Duke: "Duke",
-	Characters.Lance: "Lance",
 	Characters.Sarge: "Sarge",
+	Characters.Kassey: "Kassey",
 	Characters.Stab: "Stab",
+	Characters.Duke: "Duke",
+	Characters.Di: "Di",
+	Characters.Lance: "Lance",
+	Characters.Phantom: "Phantom",
+	Characters.Mayfly: "Mayfly",
+	Characters.Talbot: "Talbot",
+	#Characters.Pufferson: "Pufferson",
+}
+
+const ArenaNames: Dictionary = {
+	Arenas.RedHotShrineDay: "Red Hot Shrine Day",
+	Arenas.OceanCastleTwilight: "Ocean Castle Twilight",
+	Arenas.SunkenCityNight: "Sunken City Night",
+	Arenas.PitchDarkStadium: "Pitch Dark Stadium",
+	Arenas.JungledTempleDay: "Jungled Temple Day",
+	Arenas.BloodyPrison: "Bloody Prison",
 }
 
 const Scenes: Dictionary = {
@@ -96,35 +114,29 @@ const Scenes: Dictionary = {
 	"Intro": "res://Scenes/Intro.tscn",
 }
 
-const Selects: Dictionary = {
-	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Base.tscn",
-	Characters.Slash: "res://Prefabs/Characters/Slash/Base.tscn",
-	Characters.Kassey: "res://Prefabs/Characters/Kassey/Base.tscn",
-	Characters.Di: "res://Prefabs/Characters/Di/Base.tscn",
+const Players: Dictionary = {
 	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn",
-	Characters.Phantom: "res://Prefabs/Characters/Phantom/Base.tscn",
-	Characters.Talbot: "res://Prefabs/Characters/Talbot/Base.tscn",
+	Characters.Slash: "res://Prefabs/Characters/Slash/Base.tscn",
 	Characters.Zeus: "res://Prefabs/Characters/Zeus/Base.tscn",
-	Characters.Duke: "res://Prefabs/Characters/Duke/Base.tscn",
-	Characters.Lance: "res://Prefabs/Characters/Lance/Base.tscn",
 	Characters.Sarge: "res://Prefabs/Characters/Sarge/Base.tscn",
+	Characters.Kassey: "res://Prefabs/Characters/Kassey/Base.tscn",
 	Characters.Stab: "res://Prefabs/Characters/Stab/Base.tscn",
+	Characters.Duke: "res://Prefabs/Characters/Duke/Base.tscn",
+	Characters.Di: "res://Prefabs/Characters/Di/Base.tscn",
+	Characters.Lance: "res://Prefabs/Characters/Lance/Base.tscn",
+	Characters.Phantom: "res://Prefabs/Characters/Phantom/Base.tscn",
+	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Base.tscn",
+	Characters.Talbot: "res://Prefabs/Characters/Talbot/Base.tscn",
+	#Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn",
 }
 
-const Players: Dictionary = {
-	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Base.tscn",
-	Characters.Slash: "res://Prefabs/Characters/Slash/Base.tscn",
-	Characters.Kassey: "res://Prefabs/Characters/Kassey/Base.tscn",
-	Characters.Di: "res://Prefabs/Characters/Di/Base.tscn",
-	Characters.Hound: "res://Prefabs/Characters/Hound/Base.tscn",
-	Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn",
-	Characters.Phantom: "res://Prefabs/Characters/Phantom/Base.tscn",
-	Characters.Talbot: "res://Prefabs/Characters/Talbot/Base.tscn",
-	Characters.Zeus: "res://Prefabs/Characters/Zeus/Base.tscn",
-	Characters.Duke: "res://Prefabs/Characters/Duke/Base.tscn",
-	Characters.Lance: "res://Prefabs/Characters/Lance/Base.tscn",
-	Characters.Sarge: "res://Prefabs/Characters/Sarge/Base.tscn",
-	Characters.Stab: "res://Prefabs/Characters/Stab/Base.tscn",
+const ArenaScenes: Dictionary = {
+	Arenas.RedHotShrineDay: "res://Scenes/Levels/RedHotShrineDay/RedHotShrineDay.tscn",
+	Arenas.OceanCastleTwilight: "res://Scenes/Levels/OceanCastleTwilight/OceanCastleTwilight.tscn",
+	Arenas.SunkenCityNight: "res://Scenes/Levels/SunkenCityNight/SunkenCityNight.tscn",
+	Arenas.PitchDarkStadium: "res://Scenes/Levels/PitchDarkStadium/PitchDarkStadium.tscn",
+	Arenas.JungledTempleDay: "res://Scenes/Levels/JungledTempleDay/JungledTempleDay.tscn",
+	Arenas.BloodyPrison: "res://Scenes/Levels/BloodyPrison/BloodyPrison.tscn",
 }
 
 const WeaponRange: Dictionary = {

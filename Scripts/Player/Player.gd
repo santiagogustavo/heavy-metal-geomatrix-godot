@@ -5,7 +5,9 @@ signal player_ready
 signal player_damage
 signal player_killed
 
+@warning_ignore("unused_signal")
 signal pickup_collided
+@warning_ignore("unused_signal")
 signal pickup_leave
 
 enum PlayerType {
@@ -222,7 +224,7 @@ func damage_player(amount: int, show_hit_reaction = false) -> void:
 	player_damage.emit()
 	if DebugCommands.full_health and player_type == PlayerType.Player1:
 		return
-	health -= amount * vitality_factor
+	health -= round(amount * vitality_factor)
 	health = clamp(health, 0, 100)
 	if health == 0:
 		player_killed.emit()

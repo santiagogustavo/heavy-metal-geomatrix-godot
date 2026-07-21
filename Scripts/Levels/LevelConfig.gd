@@ -21,18 +21,31 @@ class_name LevelConfig
 @export var snapshot_mode: bool = false
 @export var snapshot_viewport: SubViewport
 @export var splash_animation_tree: AnimationTree
+@export var splash_layer: CanvasLayer
 
 @onready var versus_screen_resource: PackedScene = load("res://Prefabs/Menus/Versus/VersusScreen.tscn")
+@onready var flyby_camera_resource: PackedScene = load("res://Prefabs/Levels/FlyByCamera.tscn")
 var versus_screen_instance: VersusScreen
 
 func _ready() -> void:
 	GameManager.lock_cursor()
 	GameManager.current_level_config = self
-	if !snapshot_mode:
+	if DebugCommands.flyby_mode:
+		var flyby_camera: FlyByCamera = flyby_camera_resource.instantiate()
+		if snapshot_viewport:
+			var snapshot_camera: Camera3D = snapshot_viewport.get_child(0)
+			if snapshot_camera:
+				flyby_camera.start_position = snapshot_camera.global_position
+				flyby_camera.start_rotation = snapshot_camera.global_rotation
+			snapshot_viewport.queue_free()
+		if splash_layer:
+			splash_layer.queue_free()
+		get_tree().root.add_child.call_deferred(flyby_camera)
+	if !snapshot_mode and !DebugCommands.flyby_mode:
 		if !GameManager.get_player_one():
-			create_player_one()
+			GameManager.create_player_one(Definitions.Characters.Lance)
 			for i in range(spawn_bots_count):
-				create_bot()
+				GameManager.create_bot()
 		if !GameManager.current_match:
 			GameManager.create_match(MatchManager.new())
 			GameManager.current_match.time = 99
@@ -42,7 +55,7 @@ func _ready() -> void:
 			instantiate_versus_screen()
 		else:
 			on_versus_screen_ended()
-	else:
+	elif !DebugCommands.flyby_mode:
 		GameManager.unlock_cursor()
 
 func _process(_delta: float) -> void:
@@ -119,13 +132,3 @@ func get_available_spawn_point() -> SpawnPoint:
 func on_player_added(player: Player, team: Team) -> void:
 	if get_available_spawn_point():
 		team.spawn_player(player, get_available_spawn_point())
-
-func create_player_one() -> void:
-	var player_instance: Player = load("res://Prefabs/Player1.tscn").instantiate()
-	player_instance.selected_character = Definitions.Characters.Duke
-	var team_index: int = GameManager.create_team()
-	GameManager.add_player(player_instance, team_index)
-
-func create_bot() -> void:
-	var debug: DebugCommands = DebugCommands.new(get_tree())
-	debug.add_bot()

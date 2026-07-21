@@ -15,6 +15,7 @@ var spawned_pickups: Array[Node3D] = []
 
 func _process(_delta: float) -> void:
 	if !GameManager.current_match:
+		started = false
 		return
 	if (
 		GameManager.current_match.round_status == MatchManager.RoundStatus.Started

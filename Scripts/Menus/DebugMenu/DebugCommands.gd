@@ -12,6 +12,7 @@ static var target_point_visible: bool = false
 static var full_ammo: bool = false
 static var full_health: bool = false
 static var is_pacifist: bool = false
+static var flyby_mode: bool = false
 
 var tree: SceneTree
 
@@ -152,3 +153,6 @@ func timeout_round() -> String:
 
 func set_blood_amount(amount: int) -> void:
 	GameplaySettingsManager.set_blood_amount(amount)
+
+func toggle_flyby_mode() -> void:
+	flyby_mode = !flyby_mode

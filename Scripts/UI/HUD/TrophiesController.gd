@@ -17,6 +17,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var index = 0
+	if !GameManager.get_players().size():
+		return
 	for result in GameManager.teams[team].round_results:
 		trophies[index].is_excessive = result == MatchManager.RoundResult.Excessive
 		trophies[index].is_win = result == MatchManager.RoundResult.Win

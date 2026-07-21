@@ -10,6 +10,13 @@ var current_scene_type: Definitions.SceneType = Definitions.SceneType.Intro
 
 var engine_version: String = Engine.get_version_info().string
 
+@onready var player1_prefab: Player = (
+	load("res://Prefabs/Player1.tscn") as PackedScene
+).instantiate()
+@onready var bot_player_prefab: Player = (
+	load("res://Prefabs/BotPlayer.tscn") as PackedScene
+).instantiate()
+
 # Gameplay variables
 var is_game_paused: bool = false
 var current_match: MatchManager
@@ -97,6 +104,15 @@ func toggle_pause_game() -> void:
 		resume_game()
 	else:
 		pause_game()
+
+func get_players() -> Array[Player]:
+	var players: Array[Player] = []
+	teams.map(func (team: Team):
+		team.players.map(func (player: Player):
+			players.append(player)
+		)
+	)
+	return players
 
 func get_player_one() -> Player:
 	for team: Team in teams:
@@ -214,3 +230,21 @@ func is_match_a_draw() -> bool:
 		if team.get_team_health() != teams_health:
 			return false
 	return true
+
+func create_player_one(
+	character: Definitions.Characters = Definitions.Characters.Mayfly,
+	skin: int = 0,
+) -> void:
+	var player_instance: Player = player1_prefab.duplicate()
+	player_instance.selected_character = character
+	player_instance.selected_skin = skin
+	var team_index: int = GameManager.create_team()
+	GameManager.add_player(player_instance, team_index)
+
+func create_bot(team_index: int = 1) -> void:
+	var bot_instance: Player = bot_player_prefab.duplicate()
+	bot_instance.selected_character = Definitions.Characters.values().pick_random()
+	bot_instance.selected_skin = randi_range(0, 3)
+	if GameManager.teams.size() < team_index + 1:
+		team_index = GameManager.create_team()
+	GameManager.add_player(bot_instance, team_index)

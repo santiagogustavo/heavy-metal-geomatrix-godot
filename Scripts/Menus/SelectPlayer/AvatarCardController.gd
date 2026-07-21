@@ -7,7 +7,7 @@ class_name AvatarCard
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var avatar: TextureRect = $Avatar
 
-@onready var select_screen_player: PackedScene = load(Definitions.Selects[character])
+@onready var select_screen_player: PackedScene = load(Definitions.Players[character])
 @onready var select: CharacterController = select_screen_player.instantiate()
 
 func _ready() -> void:

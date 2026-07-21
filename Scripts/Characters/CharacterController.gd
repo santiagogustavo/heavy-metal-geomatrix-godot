@@ -14,6 +14,13 @@ signal block
 @export var default_skin: int = 0
 @export var is_taunt: bool = false
 
+@export_subgroup("SelectPlayerV2")
+@export var portrait_skins: Array[Texture2D]
+@export var portrait_small: Texture2D
+@export var mugshot: Texture2D
+@export var mugshot_small: Texture2D
+@export var select_taunt: AudioStream
+
 @export_subgroup("Stats")
 @export_range(1, 3) var stat_speed: int = 1
 @export_range(1, 3) var stat_power: int = 1
