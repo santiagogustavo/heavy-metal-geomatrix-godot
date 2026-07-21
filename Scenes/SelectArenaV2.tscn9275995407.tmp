@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://thgd31y1g4sv"]
+
+[ext_resource type="Script" uid="uid://b80lsu8m35r8q" path="res://Scripts/Menus/SelectArenaV2/SelectArenaMenuV2.gd" id="1_4kadd"]
+[ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="1_le24r"]
+[ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="2_s78kl"]
+[ext_resource type="PackedScene" uid="uid://c1r5u4k3fmrhn" path="res://Prefabs/Menus/SelectArena/ArenaCardV2.tscn" id="3_s78kl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kadd"]
+font = ExtResource("1_le24r")
+font_size = 18
+font_color = Color(0.32999998, 1, 0.76550007, 1)
+
+[node name="SelectArenaV2" type="Node3D" unique_id=1340168011]
+script = ExtResource("1_4kadd")
+
+[node name="Control" type="Control" parent="." unique_id=355097160]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1829402693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="Control/MarginContainer" unique_id=813882754]
+layout_mode = 2
+
+[node name="ModeDescription" type="Label" parent="Control/MarginContainer/Control" unique_id=448078392]
+layout_mode = 1
+offset_right = 1120.0
+offset_bottom = 23.0
+text = "// GEOMATRIX COMBAT NETWORK
+// GAME MODE: arcade
+// SELECT ARENA"
+label_settings = SubResource("LabelSettings_4kadd")
+script = ExtResource("2_s78kl")
+typing_time = 1.0
+start_with_random = true
+
+[node name="Status" type="Label" parent="Control/MarginContainer/Control" unique_id=1429663341]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1120.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "awaiting player 1 input..."
+label_settings = SubResource("LabelSettings_4kadd")
+horizontal_alignment = 2
+script = ExtResource("2_s78kl")
+typing_time = 1.0
+start_with_random = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=932956774]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -255.5
+offset_bottom = 255.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ArenaCard" parent="Control/HBoxContainer" unique_id=318041559 instance=ExtResource("3_s78kl")]
+layout_mode = 2
+
+[node name="ArenaCard2" parent="Control/HBoxContainer" unique_id=989688347 instance=ExtResource("3_s78kl")]
+layout_mode = 2
+
+[node name="ArenaCard3" parent="Control/HBoxContainer" unique_id=1317530022 instance=ExtResource("3_s78kl")]
+layout_mode = 2

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ca0ipgbobbi6i"]
+
+[ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="1_o02vu"]
+[ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="2_7w86a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7w86a"]
+font = ExtResource("1_o02vu")
+font_size = 18
+font_color = Color(0.32999998, 1, 0.76550007, 1)
+
+[node name="Control" type="Control" unique_id=755435162]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1525206683]
+layout_mode = 0
+offset_right = 1120.0
+offset_bottom = 23.0
+text = "// GEOMATRIX COMBAT NETWORK
+// GAME MODE: arcade
+// SELECT PLAYER"
+label_settings = SubResource("LabelSettings_7w86a")
+script = ExtResource("2_7w86a")
+start_with_random = true
