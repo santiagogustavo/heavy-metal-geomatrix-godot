@@ -117,7 +117,7 @@ metadata/_custom_type_script = "uid://b67p4er5pdntl"
 [node name="Model" parent="." unique_id=313830246 instance=ExtResource("7_78tta")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(313830246, 1890569816) index="0" unique_id=428380593]
+[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(313830246, 1964451346) index="0" unique_id=156409530]
 bones/0/position = Vector3(0.85898083, 1.5809287, -0.75531775)
 bones/0/rotation = Quaternion(-0.49735036, 0.50263566, -0.50263566, 0.49735036)
 bones/1/position = Vector3(0.41218215, 0.5048661, 0.82411444)
@@ -163,9 +163,6 @@ bones/32/position = Vector3(-0.77765054, 0.8180187, 0.5094253)
 bones/32/rotation = Quaternion(-0.70710677, 5.3385083e-08, 5.3385083e-08, -0.70710677)
 bones/33/position = Vector3(-0.2178287, 0.12473999, -0.25756577)
 bones/33/rotation = Quaternion(0.86305946, -0.093278944, 0.17302284, 0.4652854)
-
-[node name="object_6" parent="Model/Armature/GeneralSkeleton" index="0" unique_id=183472711]
-visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1220679411 instance=ExtResource("8_d5en2")]
 
