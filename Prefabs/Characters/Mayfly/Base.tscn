@@ -7,19 +7,27 @@
 [ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="3_dhxsf"]
 [ext_resource type="Texture2D" uid="uid://b4us62c4nw8bf" path="res://Textures/Characters/Mayfly/Cards/fe56c5eb.png" id="3_ji630"]
 [ext_resource type="AnimationLibrary" uid="uid://bsjytcm2c8cq4" path="res://Animations/Characters/Mayfly/Taunts.res" id="3_wgll5"]
+[ext_resource type="Texture2D" uid="uid://dkpu8loypyfqn" path="res://Textures/Characters/Portraits/Mayfly/Default.png" id="4_1sken"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="4_5qxpq"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_7pwax"]
 [ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="4_c1562"]
+[ext_resource type="Texture2D" uid="uid://cdu1xoeq7q4wk" path="res://Textures/Characters/Portraits/Mayfly/Small.png" id="4_k765d"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="5_dhxsf"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_jksom"]
+[ext_resource type="Texture2D" uid="uid://c8p4jvwxtda46" path="res://Textures/Characters/Portraits/Mayfly/Skin1.png" id="5_lx5hi"]
 [ext_resource type="AudioStream" uid="uid://caqbht7qwhd8r" path="res://Sound/Characters/Mayfly/Taunts/Entrance.wav" id="6_c1562"]
+[ext_resource type="Texture2D" uid="uid://bb28fb0pv51rn" path="res://Textures/Characters/Portraits/Mayfly/Skin2.png" id="6_cjwx8"]
 [ext_resource type="PackedScene" uid="uid://blnck15xqws86" path="res://Prefabs/Weapons/SniperRifle/SniperRifle.tscn" id="6_vtabk"]
+[ext_resource type="Texture2D" uid="uid://driaoe7i4s6v8" path="res://Textures/Characters/Portraits/Mayfly/Skin3.png" id="7_kj2gj"]
 [ext_resource type="AudioStream" uid="uid://dur2jfph1faay" path="res://Sound/Characters/Mayfly/Taunts/Win.wav" id="7_qdmts"]
 [ext_resource type="PackedScene" uid="uid://e2x4pxle61fa" path="res://Models/Characters/Mayfly/Skins/Default.tscn" id="8_icvnh"]
 [ext_resource type="AudioStream" uid="uid://dheiicvawvtyy" path="res://Sound/Characters/Mayfly/Taunts/Lose.wav" id="8_ji630"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="9_7pwax"]
+[ext_resource type="Texture2D" uid="uid://dlxs4dkux6hiv" path="res://Textures/Characters/Portraits/Mayfly/Mugshot.png" id="9_kj2gj"]
+[ext_resource type="AudioStream" uid="uid://24sep2yo6n45" path="res://Sound/Characters/Mayfly/Taunts/Select.wav" id="9_lx5hi"]
 [ext_resource type="PackedScene" uid="uid://dh6m3j8i17st7" path="res://Models/Characters/Mayfly/Skins/Skin1.tscn" id="9_uxa88"]
 [ext_resource type="Texture2D" uid="uid://dedf31r5e3rwt" path="res://Textures/Characters/Mayfly/Skins/Default/ef72a3db.png" id="9_vtabk"]
+[ext_resource type="Texture2D" uid="uid://cy46a1h1hicab" path="res://Textures/Characters/Portraits/Mayfly/MugshotSmall.png" id="10_1h406"]
 [ext_resource type="Texture2D" uid="uid://e368eaqrqnqw" path="res://Textures/Characters/Mayfly/ef72a3db_spec.png" id="10_50vbu"]
 [ext_resource type="AudioStream" uid="uid://ufpw410hen6y" path="res://Sound/Characters/Mayfly/Damage/Death.wav" id="10_jksom"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="10_mexmt"]
@@ -40,7 +48,7 @@
 [ext_resource type="AudioStream" uid="uid://xvrtauyxmkuq" path="res://Sound/Characters/Mayfly/Specials/Special 2.wav" id="21_l5512"]
 [ext_resource type="AudioStream" uid="uid://d7lbvw0h2m3l" path="res://Sound/Characters/Mayfly/Specials/Special 3.wav" id="22_4cc3r"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50vbu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj2gj"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("9_vtabk")
 ao_enabled = true
@@ -133,13 +141,19 @@ stream_0/stream = ExtResource("17_8spsv")
 stream_1/stream = ExtResource("18_swefm")
 stream_2/stream = ExtResource("19_nntld")
 
-[node name="Mayfly" type="Node3D" unique_id=1923316814 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
+[node name="Mayfly" type="Node3D" unique_id=1923316814 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot", "camera_pivot_offset")]
 script = ExtResource("1_wgll5")
+character = 10
 character_team = 3
-bio = "MAYFLY is cheerful and flighty. She can easily destroy someone with her cruel ignorance."
+bio = "[bb]MAYFLY[/bb] is cheerful and flighty. She can easily destroy someone with her cruel ignorance."
 avatar_big = ExtResource("2_qdmts")
 avatar_small = ExtResource("3_ji630")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_1sken"), ExtResource("5_lx5hi"), ExtResource("6_cjwx8"), ExtResource("7_kj2gj")])
+portrait_small = ExtResource("4_k765d")
+mugshot = ExtResource("9_kj2gj")
+mugshot_small = ExtResource("10_1h406")
+select_taunt = ExtResource("9_lx5hi")
 stat_speed = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
 fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/LeftFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/RightFist")]
@@ -150,6 +164,7 @@ taunt_animation_tree = ExtResource("5_jksom")
 body_slot = NodePath("Model/Armature/GeneralSkeleton/Body Slot")
 right_hand_slot = NodePath("Model/Armature/GeneralSkeleton/Right Hand Slot")
 initial_loadout = ExtResource("6_vtabk")
+camera_pivot_offset = NodePath("CameraPivotOffset")
 
 [node name="Model" parent="." unique_id=289208743 instance=ExtResource("1_b1dom")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -199,7 +214,7 @@ bones/33/rotation = Quaternion(0.98026574, 0.0034835562, 0.081359796, -0.1801323
 visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1951877582 instance=ExtResource("8_icvnh")]
-surface_material_override/1 = SubResource("StandardMaterial3D_50vbu")
+surface_material_override/1 = SubResource("StandardMaterial3D_kj2gj")
 
 [node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=525841906 instance=ExtResource("9_uxa88")]
 visible = false
@@ -417,6 +432,9 @@ max_db = 0.0
 pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
+
+[node name="CameraPivotOffset" type="Marker3D" parent="." unique_id=489633100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1, 0)
 
 [editable path="Model"]
 [editable path="Model/Armature/GeneralSkeleton/Hitboxes"]

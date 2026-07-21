@@ -7,17 +7,25 @@
 [ext_resource type="PackedScene" uid="uid://dmuralb7vf4hs" path="res://Models/Characters/Kassey/Skins/Default.tscn" id="2_tkdiu"]
 [ext_resource type="PackedScene" uid="uid://cqt67vp121ste" path="res://Models/Characters/Kassey/Skins/Skin1.tscn" id="3_8tnxv"]
 [ext_resource type="Texture2D" uid="uid://bc2dnikq5olds" path="res://Textures/Characters/Kassey/Cards/4a771680.png" id="3_qklw6"]
+[ext_resource type="Texture2D" uid="uid://b2pa4g0ud7cn6" path="res://Textures/Characters/Portraits/Kassey/Small.png" id="4_5bgq1"]
 [ext_resource type="PackedScene" uid="uid://c21gahrcwjfd1" path="res://Models/Characters/Kassey/Skins/Skin2.tscn" id="4_al6k4"]
+[ext_resource type="Texture2D" uid="uid://gux63hdqsr7w" path="res://Textures/Characters/Portraits/Kassey/Default.png" id="4_ddyhc"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_ea3kh"]
 [ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="5_0hxec"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_drebd"]
+[ext_resource type="Texture2D" uid="uid://dr7n8r8rcmtwb" path="res://Textures/Characters/Portraits/Kassey/Skin1.png" id="5_kngan"]
 [ext_resource type="PackedScene" uid="uid://c8068nwrjcnur" path="res://Models/Characters/Kassey/Skins/Skin3.tscn" id="5_yhhg2"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="6_7s2fl"]
 [ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="6_drebd"]
 [ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="6_hcat4"]
+[ext_resource type="Texture2D" uid="uid://dn3ysnm5trr12" path="res://Textures/Characters/Portraits/Kassey/Skin2.png" id="6_ss2si"]
+[ext_resource type="Texture2D" uid="uid://brsclu03c2fp3" path="res://Textures/Characters/Portraits/Kassey/Skin3.png" id="7_iearr"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="8_kngan"]
 [ext_resource type="Texture2D" uid="uid://dqabejviu4qug" path="res://Textures/Characters/Kassey/Skins/Default/d8a37c3.png" id="9_ea3kh"]
+[ext_resource type="Texture2D" uid="uid://cxq80owbmg8pl" path="res://Textures/Characters/Portraits/Kassey/Mugshot.png" id="9_iearr"]
+[ext_resource type="AudioStream" uid="uid://djrnooha8ogbd" path="res://Sound/Characters/Kassey/Taunts/Select.wav" id="9_kngan"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="9_ss2si"]
+[ext_resource type="Texture2D" uid="uid://blclitsqqj1aw" path="res://Textures/Characters/Portraits/Kassey/MugshotSmall.png" id="10_6486s"]
 [ext_resource type="Texture2D" uid="uid://0wwle8jcqngi" path="res://Textures/Characters/Kassey/Skins/Default/d8a37c3_spec.png" id="10_drebd"]
 [ext_resource type="AudioStream" uid="uid://batjkus31e212" path="res://Sound/Characters/Kassey/Taunts/Entrance.wav" id="11_g4l87"]
 [ext_resource type="Texture2D" uid="uid://dq7xf6ri4i8g3" path="res://Textures/Characters/Kassey/Skins/Default/3bad84f5.png" id="11_s4vkl"]
@@ -52,38 +60,38 @@
 [ext_resource type="AudioStream" uid="uid://b8coxs1hsf0cp" path="res://Sound/Characters/Kassey/Specials/Special 2.wav" id="50_ds2fd"]
 [ext_resource type="AudioStream" uid="uid://bhjhus7dgkh8w" path="res://Sound/Characters/Kassey/Specials/Special 3.wav" id="51_jsy6k"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4vkl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iearr"]
 resource_local_to_scene = true
 transparency = 4
 albedo_texture = ExtResource("9_ea3kh")
 ao_enabled = true
 ao_texture = ExtResource("10_drebd")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bgq1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6486s"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("11_s4vkl")
 ao_enabled = true
 ao_texture = ExtResource("12_5bgq1")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhhtn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m24l"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("13_jhhtn")
 ao_enabled = true
 ao_texture = ExtResource("14_gvu7j")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvu7j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmg8s"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("15_42dvd")
 ao_enabled = true
 ao_texture = ExtResource("16_ddyhc")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42dvd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bppfm"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("17_kngan")
 ao_enabled = true
 ao_texture = ExtResource("18_ss2si")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddyhc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l302k"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("19_iearr")
 ao_enabled = true
@@ -258,14 +266,19 @@ stream_0/stream = ExtResource("46_gkxgm")
 stream_1/stream = ExtResource("47_1ael4")
 stream_2/stream = ExtResource("48_kjlt8")
 
-[node name="Kassey" type="Node3D" unique_id=1015752579 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
+[node name="Kassey" type="Node3D" unique_id=1015752579 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot", "camera_pivot_offset")]
 script = ExtResource("1_j5lmb")
-character = 2
+character = 4
 character_team = 1
-bio = "Young KASSEY is a computer genius. Her fighting experience is limited, but growing."
+bio = "Young [bb]KASSEY[/bb] is a computer genius. Her fighting experience is limited, but growing."
 avatar_big = ExtResource("2_gu0ub")
 avatar_small = ExtResource("3_qklw6")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_ddyhc"), ExtResource("5_kngan"), ExtResource("6_ss2si"), ExtResource("7_iearr")])
+portrait_small = ExtResource("4_5bgq1")
+mugshot = ExtResource("9_iearr")
+mugshot_small = ExtResource("10_6486s")
+select_taunt = ExtResource("9_kngan")
 stat_speed = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
 fists = [NodePath("Model/Armature/GeneralSkeleton/Fists/HandL/LeftFist"), NodePath("Model/Armature/GeneralSkeleton/Fists/HandR/RightFist")]
@@ -276,6 +289,7 @@ taunt_animation_tree = ExtResource("5_drebd")
 body_slot = NodePath("Model/Armature/GeneralSkeleton/Body Slot")
 right_hand_slot = NodePath("Model/Armature/GeneralSkeleton/Right Hand Slot")
 initial_loadout = ExtResource("6_drebd")
+camera_pivot_offset = NodePath("CameraPivotOffset")
 
 [node name="Model" parent="." unique_id=725245511 instance=ExtResource("1_1w1qp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -331,12 +345,12 @@ visible = false
 layers = 4
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1294128584 instance=ExtResource("2_tkdiu")]
-surface_material_override/0 = SubResource("StandardMaterial3D_s4vkl")
-surface_material_override/1 = SubResource("StandardMaterial3D_5bgq1")
-surface_material_override/2 = SubResource("StandardMaterial3D_jhhtn")
-surface_material_override/3 = SubResource("StandardMaterial3D_gvu7j")
-surface_material_override/4 = SubResource("StandardMaterial3D_42dvd")
-surface_material_override/5 = SubResource("StandardMaterial3D_ddyhc")
+surface_material_override/0 = SubResource("StandardMaterial3D_iearr")
+surface_material_override/1 = SubResource("StandardMaterial3D_6486s")
+surface_material_override/2 = SubResource("StandardMaterial3D_7m24l")
+surface_material_override/3 = SubResource("StandardMaterial3D_gmg8s")
+surface_material_override/4 = SubResource("StandardMaterial3D_bppfm")
+surface_material_override/5 = SubResource("StandardMaterial3D_l302k")
 
 [node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=91992195 instance=ExtResource("3_8tnxv")]
 visible = false
@@ -574,6 +588,9 @@ max_db = 0.0
 pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
+
+[node name="CameraPivotOffset" type="Marker3D" parent="." unique_id=988766212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1, 0)
 
 [editable path="Model"]
 [editable path="Model/Armature/GeneralSkeleton/Hitboxes"]

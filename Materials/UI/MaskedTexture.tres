@@ -1,5 +1,12 @@
 [gd_resource type="VisualShader" format=3 uid="uid://bwdk5nymy6541"]
 
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_y4tpo"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_klcqm"]
+operator = 2
+
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_adiu5"]
 parameter_name = "Mask"
 
@@ -25,5 +32,9 @@ nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_7cohb")
 nodes/fragment/8/position = Vector2(-1760, -80)
 nodes/fragment/9/node = SubResource("VisualShaderNodeVectorDecompose_ng07x")
 nodes/fragment/9/position = Vector2(-1100, 140)
-nodes/fragment/connections = PackedInt32Array(6, 0, 8, 2, 7, 0, 8, 0, 8, 0, 9, 0, 9, 3, 0, 1)
+nodes/fragment/10/node = SubResource("VisualShaderNodeInput_y4tpo")
+nodes/fragment/10/position = Vector2(-1240, 400)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatOp_klcqm")
+nodes/fragment/11/position = Vector2(-780, 320)
+nodes/fragment/connections = PackedInt32Array(6, 0, 8, 2, 7, 0, 8, 0, 8, 0, 9, 0, 10, 4, 11, 1, 9, 3, 11, 0, 11, 0, 0, 1)
 metadata/_edit_res_path = "res://Materials/UI/MaskedTexture.tres"

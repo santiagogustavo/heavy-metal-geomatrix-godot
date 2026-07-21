@@ -10,14 +10,22 @@
 [ext_resource type="PackedScene" uid="uid://bwlr34inkbj40" path="res://Models/Characters/Phantom/Skins/Skin1.tscn" id="4_3e0t5"]
 [ext_resource type="AnimationLibrary" uid="uid://ctr3odfdjnyok" path="res://Animations/Libraries/Taunts.res" id="4_dbnqv"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_j1l27"]
+[ext_resource type="Texture2D" uid="uid://me3qd14oqe74" path="res://Textures/Characters/Portraits/Phantom/Small.png" id="4_qkubj"]
+[ext_resource type="Texture2D" uid="uid://b25vjbmpkgc6r" path="res://Textures/Characters/Portraits/Phantom/Default.png" id="4_s73g8"]
 [ext_resource type="PackedScene" uid="uid://bhcqj11vwspih" path="res://Models/Characters/Phantom/Skins/Skin2.tscn" id="5_b40nq"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="5_mf71y"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_syjad"]
+[ext_resource type="Texture2D" uid="uid://pm5rs2e8hgmb" path="res://Textures/Characters/Portraits/Phantom/Skin1.png" id="5_ukh11"]
+[ext_resource type="Texture2D" uid="uid://dh6rd0vu68osu" path="res://Textures/Characters/Portraits/Phantom/Skin2.png" id="6_8as7h"]
 [ext_resource type="PackedScene" uid="uid://c7orcbrniyacq" path="res://Models/Characters/Phantom/Skins/Skin3.tscn" id="6_ibe0k"]
 [ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="6_syjad"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="7_dqwxw"]
+[ext_resource type="Texture2D" uid="uid://c4gdxj1gcgv3k" path="res://Textures/Characters/Portraits/Phantom/Skin3.png" id="7_eownr"]
 [ext_resource type="AudioStream" uid="uid://b80tft6jqoj5x" path="res://Sound/Characters/Phantom/Taunts/Entrance.wav" id="8_21rwm"]
 [ext_resource type="AudioStream" uid="uid://nifekxjy32tt" path="res://Sound/Characters/Phantom/Taunts/Win.wav" id="9_21rwm"]
+[ext_resource type="Texture2D" uid="uid://brdmcxag04uge" path="res://Textures/Characters/Portraits/Phantom/Mugshot.png" id="9_eownr"]
+[ext_resource type="AudioStream" uid="uid://l1kd53x1icn4" path="res://Sound/Characters/Phantom/Taunts/Select.wav" id="9_ukh11"]
+[ext_resource type="Texture2D" uid="uid://bjqxxo1q726kl" path="res://Textures/Characters/Portraits/Phantom/MugshotSmall.png" id="10_5p7q1"]
 [ext_resource type="AudioStream" uid="uid://b1g23j35np8cy" path="res://Sound/Characters/Phantom/Taunts/Lose.wav" id="10_21rwm"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="11_b40nq"]
 [ext_resource type="AudioStream" uid="uid://b8jhuxa42fsb7" path="res://Sound/Characters/Phantom/Damage/Death.wav" id="12_21rwm"]
@@ -80,12 +88,17 @@ stream_2/stream = ExtResource("21_x8myr")
 
 [node name="Phantom" type="Node3D" unique_id=1952305468 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_21rwm")
-character = 6
+character = 9
 character_team = 3
-bio = "The leader of 323 AGENTS, PHANTOM becomes totally engrossed in the heat of the battle."
+bio = "The leader of 323 AGENTS, [bb]PHANTOM[/bb] becomes totally engrossed in the heat of the battle."
 avatar_big = ExtResource("2_27eif")
 avatar_small = ExtResource("3_wi5nv")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_s73g8"), ExtResource("5_ukh11"), ExtResource("6_8as7h"), ExtResource("7_eownr")])
+portrait_small = ExtResource("4_qkubj")
+mugshot = ExtResource("9_eownr")
+mugshot_small = ExtResource("10_5p7q1")
+select_taunt = ExtResource("9_ukh11")
 stat_speed = 2
 stat_power = 2
 stat_vitality = 2

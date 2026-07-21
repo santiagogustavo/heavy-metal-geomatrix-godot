@@ -8,20 +8,28 @@
 [ext_resource type="Texture2D" uid="uid://dlsyrn6e2r4da" path="res://Textures/Characters/Slash/Cards/68aa414a.png" id="3_msvhg"]
 [ext_resource type="Script" uid="uid://0a1jysr3rwqr" path="res://addons/wigglebone/wiggle_bone.gd" id="3_y61a5"]
 [ext_resource type="Script" uid="uid://clqr0agw21yiu" path="res://addons/wigglebone/wiggle_properties.gd" id="4_fu0jm"]
+[ext_resource type="Texture2D" uid="uid://c5is4giq86vpj" path="res://Textures/Characters/Portraits/Slash/Small.png" id="4_mjju6"]
+[ext_resource type="Texture2D" uid="uid://cv13c2raoq0l" path="res://Textures/Characters/Portraits/Slash/Default.png" id="4_ohw34"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_rwktk"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="4_tt1ck"]
+[ext_resource type="Texture2D" uid="uid://cg3cs4uu8rxnx" path="res://Textures/Characters/Portraits/Slash/Skin1.png" id="5_85yu7"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="5_gjt6c"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_hhmb0"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="5_yfynj"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="6_msvhg"]
+[ext_resource type="Texture2D" uid="uid://ciy1er12nelks" path="res://Textures/Characters/Portraits/Slash/Skin2.png" id="6_ppyg1"]
 [ext_resource type="AudioStream" uid="uid://citc7ltmti8jj" path="res://Sound/Characters/Slash/Taunts/Entrance.wav" id="6_u1owl"]
 [ext_resource type="PackedScene" uid="uid://8c1bg7a2pj75" path="res://Prefabs/Weapons/FlameGun/FlameGun.tscn" id="6_wmxk3"]
+[ext_resource type="Texture2D" uid="uid://brdxoyjdfstfu" path="res://Textures/Characters/Portraits/Slash/Skin3.png" id="7_v2sjg"]
 [ext_resource type="AudioStream" uid="uid://dx5w5kgydqstp" path="res://Sound/Characters/Slash/Taunts/Win.wav" id="7_y61a5"]
 [ext_resource type="AudioStream" uid="uid://ueewreyl8s8t" path="res://Sound/Characters/Slash/Taunts/Lose.wav" id="8_fu0jm"]
 [ext_resource type="PackedScene" uid="uid://cglrt740g5kfb" path="res://Models/Characters/Slash/Skins/Default.tscn" id="8_nowrf"]
+[ext_resource type="AudioStream" uid="uid://nx7en14joaop" path="res://Sound/Characters/Slash/Taunts/Select.wav" id="9_85yu7"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="9_gjt6c"]
 [ext_resource type="PackedScene" uid="uid://dsrmij1xfjshh" path="res://Models/Characters/Slash/Skins/Skin1.tscn" id="9_twjt3"]
+[ext_resource type="Texture2D" uid="uid://2d5dwdlkomsq" path="res://Textures/Characters/Portraits/Slash/Mugshot.png" id="9_v2sjg"]
 [ext_resource type="Texture2D" uid="uid://qo0i1lcfs8q3" path="res://Textures/Characters/Slash/Skins/Default/f589e076.png" id="9_wmxk3"]
+[ext_resource type="Texture2D" uid="uid://dbcjjsfsxm5n4" path="res://Textures/Characters/Portraits/Slash/MugshotSmall.png" id="10_2ca0b"]
 [ext_resource type="PackedScene" uid="uid://c3qip1at3pftc" path="res://Models/Characters/Slash/Skins/Skin2.tscn" id="10_7357b"]
 [ext_resource type="AudioStream" uid="uid://cfn5r2xt6j3tg" path="res://Sound/Characters/Slash/Damage/Death.wav" id="10_msvhg"]
 [ext_resource type="Texture2D" uid="uid://tkn1umjwsirn" path="res://Textures/Characters/Slash/f589e076_spec.png" id="10_p30er"]
@@ -43,25 +51,25 @@
 [ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="21_p30er"]
 [ext_resource type="AudioStream" uid="uid://cid7ihc3iljle" path="res://Sound/Characters/Slash/Specials/Special 3.wav" id="22_i13xs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p30er"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2sjg"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("9_wmxk3")
 ao_enabled = true
 ao_texture = ExtResource("10_p30er")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjju6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ca0b"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("12_mjju6")
 ao_enabled = true
 ao_texture = ExtResource("10_p30er")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynuop"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxovc"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("14_ynuop")
 ao_enabled = true
 ao_texture = ExtResource("10_p30er")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2ga8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fr0ey"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("16_v2ga8")
 ao_enabled = true
@@ -98,13 +106,18 @@ stream_0/stream = ExtResource("17_7357b")
 stream_1/stream = ExtResource("18_4hjc6")
 stream_2/stream = ExtResource("19_rxqag")
 
-[node name="Slash" type="Node3D" unique_id=1866415356 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot")]
+[node name="Slash" type="Node3D" unique_id=1866415356 node_paths=PackedStringArray("skins", "hitboxes", "fists", "jiggle_bones", "sfx_controller", "body_slot", "right_hand_slot", "camera_pivot_offset")]
 script = ExtResource("1_rxafh")
 character = 1
-bio = "Though usually cool-headed, SLASH can get as intense as any fighter once a battle begins."
+bio = "Though usually cool-headed, [bb]SLASH[/bb] can get as intense as any fighter once a battle begins."
 avatar_big = ExtResource("2_gjt6c")
 avatar_small = ExtResource("3_msvhg")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_ohw34"), ExtResource("5_85yu7"), ExtResource("6_ppyg1"), ExtResource("7_v2sjg")])
+portrait_small = ExtResource("4_mjju6")
+mugshot = ExtResource("9_v2sjg")
+mugshot_small = ExtResource("10_2ca0b")
+select_taunt = ExtResource("9_85yu7")
 stat_speed = 3
 stat_power = 2
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
@@ -116,6 +129,7 @@ taunt_animation_tree = ExtResource("5_hhmb0")
 body_slot = NodePath("Model/Armature/GeneralSkeleton/Body Slot")
 right_hand_slot = NodePath("Model/Armature/GeneralSkeleton/Right Hand Slot")
 initial_loadout = ExtResource("6_wmxk3")
+camera_pivot_offset = NodePath("CameraPivotOffset")
 
 [node name="Model" parent="." unique_id=851658278 instance=ExtResource("1_8wfds")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
@@ -168,19 +182,19 @@ bones/33/rotation = Quaternion(0.92980677, 0.097210556, 0.23281486, 0.2679681)
 visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1300241982 instance=ExtResource("8_nowrf")]
-surface_material_override/3 = SubResource("StandardMaterial3D_p30er")
+surface_material_override/3 = SubResource("StandardMaterial3D_v2sjg")
 
 [node name="Skin1" parent="Model/Armature/GeneralSkeleton" index="2" unique_id=1760771654 instance=ExtResource("9_twjt3")]
 visible = false
-surface_material_override/3 = SubResource("StandardMaterial3D_mjju6")
+surface_material_override/3 = SubResource("StandardMaterial3D_2ca0b")
 
 [node name="Skin2" parent="Model/Armature/GeneralSkeleton" index="3" unique_id=364026006 instance=ExtResource("10_7357b")]
 visible = false
-surface_material_override/3 = SubResource("StandardMaterial3D_ynuop")
+surface_material_override/3 = SubResource("StandardMaterial3D_xxovc")
 
 [node name="Skin3" parent="Model/Armature/GeneralSkeleton" index="4" unique_id=270853801 instance=ExtResource("11_n3uxg")]
 visible = false
-surface_material_override/3 = SubResource("StandardMaterial3D_v2ga8")
+surface_material_override/3 = SubResource("StandardMaterial3D_fr0ey")
 
 [node name="BoobJiggle_L" type="BoneAttachment3D" parent="Model/Armature/GeneralSkeleton" index="5" unique_id=1614622999]
 transform = Transform3D(-0.19037458, 0.6548235, 0.7314122, 0.008197515, -0.7439515, 0.6681834, 0.98167723, 0.13320081, 0.13626139, 0.090620354, 1.2753118, 0.15072861)
@@ -371,6 +385,9 @@ max_db = 0.0
 pitch_scale = 0.64
 bus = &"Characters"
 attenuation_filter_db = 0.0
+
+[node name="CameraPivotOffset" type="Marker3D" parent="." unique_id=179653959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.9, 0)
 
 [editable path="Model"]
 [editable path="Model/Armature/GeneralSkeleton/Hitboxes"]

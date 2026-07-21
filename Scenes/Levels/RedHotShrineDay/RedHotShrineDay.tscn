@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b7ty5v7ifa1yn"]
 
 [ext_resource type="Texture2D" uid="uid://l5p0auj07jxm" path="res://Textures/Skyboxes/Day Sunny.png" id="1_3cl6h"]
+[ext_resource type="Script" uid="uid://bgp1t11wfvfn8" path="res://Scripts/Levels/ArenaController.gd" id="1_c4pty"]
 [ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_kf12v"]
+[ext_resource type="Texture2D" uid="uid://t3ta5x7tkrvo" path="res://Textures/Levels/Splashes/RedHotShrineDay/splash_big.png" id="2_0e22f"]
 [ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="2_uuu12"]
+[ext_resource type="Texture2D" uid="uid://lcpilebggc0c" path="res://Textures/Levels/Splashes/RedHotShrineDay/splash_small.png" id="3_1dfe0"]
 [ext_resource type="Script" uid="uid://cqve5bpmljhwj" path="res://Scripts/Levels/Sun.gd" id="3_8hau5"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="3_jwvik"]
 [ext_resource type="PackedScene" uid="uid://cna45sa1xwk7h" path="res://Models/Levels/RedHotShrineDay/Red Hot Shrine Day.glb" id="3_uuu12"]
@@ -98,7 +101,11 @@ size = Vector3(0.49389648, 16.597565, 35.999313)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0e22f"]
 size = Vector3(0.49389648, 16.597565, 17.96738)
 
-[node name="RedHotShrineDay" type="Node3D" unique_id=1138765275]
+[node name="RedHotShrineDay" type="Node3D" unique_id=399235583]
+script = ExtResource("1_c4pty")
+splash_big = ExtResource("2_0e22f")
+splash_small = ExtResource("3_1dfe0")
+metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
 [node name="LevelConfig" parent="." unique_id=785466676 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_kf12v")]
 level_name = "Red Hot Shrine Day"

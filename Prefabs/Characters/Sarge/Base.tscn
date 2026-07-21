@@ -8,16 +8,24 @@
 [ext_resource type="Texture2D" uid="uid://d1iuwar41glj8" path="res://Textures/Characters/Sarge/Cards/804ab1ca.png" id="3_do226"]
 [ext_resource type="PackedScene" uid="uid://brsn00ejmwof" path="res://Models/Characters/Sarge/Skins/Skin1.tscn" id="3_eebu7"]
 [ext_resource type="AudioStream" uid="uid://b8v8yc1nn6hia" path="res://Sound/Characters/Sarge/Taunts/Entrance.wav" id="3_lg2ry"]
+[ext_resource type="Texture2D" uid="uid://73lbas7rie46" path="res://Textures/Characters/Portraits/Sarge/Default.png" id="4_cmv0b"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_do226"]
 [ext_resource type="PackedScene" uid="uid://btf5ffewytdm5" path="res://Models/Characters/Sarge/Skins/Skin2.tscn" id="4_fensy"]
 [ext_resource type="AudioStream" uid="uid://c7bda50dljvk7" path="res://Sound/Characters/Sarge/Taunts/Win.wav" id="4_lg2ry"]
+[ext_resource type="Texture2D" uid="uid://b5ud2yfix4eut" path="res://Textures/Characters/Portraits/Sarge/Small.png" id="4_w57ry"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_1rvq0"]
+[ext_resource type="Texture2D" uid="uid://da8v328yh62jk" path="res://Textures/Characters/Portraits/Sarge/Skin1.png" id="5_40a4s"]
 [ext_resource type="AudioStream" uid="uid://bb6py22xn5vjc" path="res://Sound/Characters/Sarge/Taunts/Lose.wav" id="5_lg2ry"]
 [ext_resource type="PackedScene" uid="uid://rv56kifagqvp" path="res://Models/Characters/Sarge/Skins/Skin3.tscn" id="5_yjk0c"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="6_eebu7"]
+[ext_resource type="Texture2D" uid="uid://kxsvvrst3w60" path="res://Textures/Characters/Portraits/Sarge/Skin2.png" id="6_rhx43"]
 [ext_resource type="AudioStream" uid="uid://b43qq8xj15j5p" path="res://Sound/Characters/Sarge/Damage/Death.wav" id="7_lg2ry"]
+[ext_resource type="Texture2D" uid="uid://dxe842s2ksxc5" path="res://Textures/Characters/Portraits/Sarge/Skin3.png" id="7_o3rud"]
 [ext_resource type="AudioStream" uid="uid://dsdj4pmxoe2ef" path="res://Sound/Characters/Sarge/Damage/Hit1.wav" id="8_lg2ry"]
 [ext_resource type="AudioStream" uid="uid://tucchgjio650" path="res://Sound/Characters/Sarge/Damage/Hit2.wav" id="9_3wx6t"]
+[ext_resource type="AudioStream" uid="uid://ypjjifelr7ii" path="res://Sound/Characters/Sarge/Taunts/Select.wav" id="9_40a4s"]
+[ext_resource type="Texture2D" uid="uid://cga2smprkdym6" path="res://Textures/Characters/Portraits/Sarge/Mugshot.png" id="9_o3rud"]
+[ext_resource type="Texture2D" uid="uid://6kgodvufywr4" path="res://Textures/Characters/Portraits/Sarge/MugshotSmall.png" id="10_qorpa"]
 [ext_resource type="AudioStream" uid="uid://xj6mxlb7otpl" path="res://Sound/Characters/Sarge/Damage/Hit3.wav" id="10_wu4vu"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="11_855pg"]
 [ext_resource type="AudioStream" uid="uid://bdbnreojer4si" path="res://Sound/Characters/Sarge/Pickup/Pickup1.wav" id="11_lg2ry"]
@@ -79,12 +87,17 @@ stream_2/stream = ExtResource("16_wu4vu")
 
 [node name="Sarge" type="Node3D" unique_id=348563512 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_rrsm7")
-character = 11
+character = 3
 character_team = 1
-bio = "The leader of the 911 ELITES, SARGE's battle experience has given him extreme confidence."
+bio = "The leader of the 911 ELITES, [bb]SARGE[/bb]'s battle experience has given him extreme confidence."
 avatar_big = ExtResource("2_6xlie")
 avatar_small = ExtResource("3_do226")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_cmv0b"), ExtResource("5_40a4s"), ExtResource("6_rhx43"), ExtResource("7_o3rud")])
+portrait_small = ExtResource("4_w57ry")
+mugshot = ExtResource("9_o3rud")
+mugshot_small = ExtResource("10_qorpa")
+select_taunt = ExtResource("9_40a4s")
 stat_speed = 2
 stat_power = 2
 stat_vitality = 2

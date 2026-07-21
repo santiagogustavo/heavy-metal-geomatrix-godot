@@ -8,16 +8,24 @@
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="4_5qgjw"]
 [ext_resource type="PackedScene" uid="uid://ca42hevpjgitj" path="res://Prefabs/Weapons/MotoGun/MotoGun.tscn" id="4_atjvi"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_h1yqc"]
+[ext_resource type="Texture2D" uid="uid://1lwm8rg7qqie" path="res://Textures/Characters/Portraits/Hound/Small.png" id="4_nu4w7"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="4_stcy1"]
+[ext_resource type="Texture2D" uid="uid://bkturmu6sdssh" path="res://Textures/Characters/Portraits/Hound/Default.png" id="4_xrq4a"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_11ge4"]
 [ext_resource type="AudioStream" uid="uid://cp6a3rheknba1" path="res://Sound/Characters/Hound/Taunts/Entrance.wav" id="5_75d35"]
+[ext_resource type="Texture2D" uid="uid://c8bf52f17ls1x" path="res://Textures/Characters/Portraits/Hound/Skin1.png" id="5_ddimd"]
 [ext_resource type="AudioStream" uid="uid://ciqdealm8lwi7" path="res://Sound/Characters/Hound/Taunts/Win.wav" id="6_stcy1"]
+[ext_resource type="Texture2D" uid="uid://clj0qjb86poph" path="res://Textures/Characters/Portraits/Hound/Skin2.png" id="6_vc8gm"]
 [ext_resource type="AudioStream" uid="uid://dgar85868g1kl" path="res://Sound/Characters/Hound/Taunts/Lose.wav" id="7_stcy1"]
+[ext_resource type="Texture2D" uid="uid://xx56rwsrjj2t" path="res://Textures/Characters/Portraits/Hound/Skin3.png" id="7_yfjhi"]
 [ext_resource type="PackedScene" uid="uid://b68p4wgq6r43d" path="res://Models/Characters/Hound/Skins/Default.tscn" id="8_kgubi"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="8_lcsv2"]
 [ext_resource type="PackedScene" uid="uid://ct5u0wtdanwym" path="res://Models/Characters/Hound/Skins/Skin1.tscn" id="9_atjvi"]
+[ext_resource type="AudioStream" uid="uid://ddrtu80aowtig" path="res://Sound/Characters/Hound/Taunts/Select.wav" id="9_ddimd"]
 [ext_resource type="PackedScene" uid="uid://7xmuvkjde0ri" path="res://Models/Weapons/Moto Gun.glb" id="9_kgubi"]
 [ext_resource type="AudioStream" uid="uid://ce2bdrrr0kqnq" path="res://Sound/Characters/Hound/Damage/Death.wav" id="9_stcy1"]
+[ext_resource type="Texture2D" uid="uid://th22b0bsf2sr" path="res://Textures/Characters/Portraits/Hound/Mugshot.png" id="9_yfjhi"]
+[ext_resource type="Texture2D" uid="uid://cdnfj81elqqi7" path="res://Textures/Characters/Portraits/Hound/MugshotSmall.png" id="10_5p16t"]
 [ext_resource type="AudioStream" uid="uid://bm3tfn88lx36t" path="res://Sound/Characters/Hound/Damage/Hit 1.wav" id="10_75d35"]
 [ext_resource type="PackedScene" uid="uid://doyhigtr3jde4" path="res://Models/Characters/Hound/Skins/Skin2.tscn" id="10_h1yqc"]
 [ext_resource type="AnimationLibrary" uid="uid://8yhy4ywiskgx" path="res://Animations/Characters/Hound/Taunts.res" id="11_jcis8"]
@@ -184,11 +192,15 @@ stream_2/stream = ExtResource("18_p1tty")
 
 [node name="Hound" type="Node3D" unique_id=1950269893 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_75d35")
-character = 4
-bio = "Tough leader of the 818 STOMPERS, HOUND goes the distance in rough combat."
+bio = "Tough leader of the 818 STOMPERS, [bb]HOUND[/bb] goes the distance in rough combat."
 avatar_big = ExtResource("2_68nn1")
 avatar_small = ExtResource("3_lcsv2")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_xrq4a"), ExtResource("5_ddimd"), ExtResource("6_vc8gm"), ExtResource("7_yfjhi")])
+portrait_small = ExtResource("4_nu4w7")
+mugshot = ExtResource("9_yfjhi")
+mugshot_small = ExtResource("10_5p16t")
+select_taunt = ExtResource("9_ddimd")
 stat_speed = 2
 stat_power = 2
 stat_vitality = 2

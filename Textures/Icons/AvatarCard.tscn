@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c40ij0jj6lb38"]
+[gd_scene format=3 uid="uid://c40ij0jj6lb38"]
 
 [ext_resource type="Shader" uid="uid://dwsg1rhd8i4h8" path="res://Materials/Shaders/Sprite Cutout.gdshader" id="1_0eee4"]
 [ext_resource type="Script" uid="uid://b1d1oui4os4cc" path="res://Scripts/Menus/SelectPlayer/AvatarCardController.gd" id="1_2ceh1"]
-[ext_resource type="Texture2D" uid="uid://c6yq13u0krwfj" path="res://Textures/Menus/Select Player/small_card_avatar_mask.png" id="2_esqk3"]
-[ext_resource type="Texture2D" uid="uid://dkhqjy48d5rgn" path="res://Textures/Menus/Select Player/bf365546.png" id="4_m3u43"]
-[ext_resource type="Texture2D" uid="uid://dqtxsjm4p5una" path="res://Textures/Menus/Select Player/small_card.png" id="4_n372v"]
+[ext_resource type="Texture2D" uid="uid://c6yq13u0krwfj" path="res://Textures/Menus/SelectPlayer/small_card_avatar_mask.png" id="2_esqk3"]
+[ext_resource type="Texture2D" uid="uid://dkhqjy48d5rgn" path="res://Textures/Menus/SelectPlayer/bf365546.png" id="4_m3u43"]
+[ext_resource type="Texture2D" uid="uid://dqtxsjm4p5una" path="res://Textures/Menus/SelectPlayer/small_card.png" id="4_n372v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq4in"]
 
@@ -131,7 +131,7 @@ states/RESET/position = Vector2(438, 99.5)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_xocgj"), "RESET", "Hover", SubResource("AnimationNodeStateMachineTransition_iecj8"), "Hover", "RESET", SubResource("AnimationNodeStateMachineTransition_6tn7u")]
 graph_offset = Vector2(4, -114)
 
-[node name="AvatarCard" type="Button"]
+[node name="AvatarCard" type="Button" unique_id=1700390095]
 custom_minimum_size = Vector2(112, 88)
 offset_right = 112.0
 offset_bottom = 88.0
@@ -139,7 +139,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_iq4in")
 flat = true
 script = ExtResource("1_2ceh1")
 
-[node name="Avatar" type="TextureRect" parent="."]
+[node name="Avatar" type="TextureRect" parent="." unique_id=882914627]
 material = SubResource("ShaderMaterial_1vaq7")
 layout_mode = 1
 anchors_preset = 8
@@ -157,7 +157,7 @@ texture = ExtResource("4_m3u43")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Decoration" type="TextureRect" parent="."]
+[node name="Decoration" type="TextureRect" parent="." unique_id=1940126966]
 modulate = Color(0, 0.716667, 1, 1)
 custom_minimum_size = Vector2(112, 88)
 layout_mode = 1
@@ -166,12 +166,10 @@ offset_bottom = 88.0
 texture = ExtResource("4_n372v")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1beg3")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1381413839]
+libraries/ = SubResource("AnimationLibrary_1beg3")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=203596815]
 tree_root = SubResource("AnimationNodeStateMachine_0v3um")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/focus_entered = false

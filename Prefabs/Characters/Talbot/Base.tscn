@@ -8,13 +8,21 @@
 [ext_resource type="Texture2D" uid="uid://cbsab0gosyl2t" path="res://Textures/Characters/Talbot/Cards/3c0a5adf.png" id="3_xyvlu"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_34yyh"]
 [ext_resource type="PackedScene" uid="uid://cl1rwwt15go2" path="res://Models/Characters/Talbot/Skins/Skin1.tscn" id="4_334pf"]
+[ext_resource type="Texture2D" uid="uid://e2wpf1p0xv4f" path="res://Textures/Characters/Portraits/Talbot/Small.png" id="4_428e1"]
 [ext_resource type="AnimationLibrary" uid="uid://vfmegwigbpp6" path="res://Animations/Libraries/Lower Body.res" id="4_fdltt"]
+[ext_resource type="Texture2D" uid="uid://ck77dcc7fvnyy" path="res://Textures/Characters/Portraits/Talbot/Default.png" id="4_fw6br"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_5k20y"]
 [ext_resource type="PackedScene" uid="uid://byfipepts8bje" path="res://Models/Characters/Talbot/Skins/Skin2.tscn" id="5_dc3a5"]
+[ext_resource type="Texture2D" uid="uid://c6ek0rpbvo5oq" path="res://Textures/Characters/Portraits/Talbot/Skin1.png" id="5_jua3e"]
 [ext_resource type="AnimationLibrary" uid="uid://ctr3odfdjnyok" path="res://Animations/Libraries/Taunts.res" id="5_pf3v3"]
 [ext_resource type="PackedScene" uid="uid://c4l0ne6yhlrje" path="res://Models/Characters/Talbot/Skins/Skin3.tscn" id="6_0tst1"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="6_1lveb"]
 [ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="6_awmr7"]
+[ext_resource type="Texture2D" uid="uid://ct8ua46i1ag02" path="res://Textures/Characters/Portraits/Talbot/Skin2.png" id="6_sry4a"]
+[ext_resource type="Texture2D" uid="uid://dmo73yj0xgm1d" path="res://Textures/Characters/Portraits/Talbot/Skin3.png" id="7_1ynh0"]
+[ext_resource type="Texture2D" uid="uid://cefwty2075ohi" path="res://Textures/Characters/Portraits/Talbot/Mugshot.png" id="9_1ynh0"]
+[ext_resource type="AudioStream" uid="uid://xheq0apt70pv" path="res://Sound/Characters/Talbot/Taunts/Select.wav" id="9_jua3e"]
+[ext_resource type="Texture2D" uid="uid://dae020xnio2hq" path="res://Textures/Characters/Portraits/Talbot/MugshotSmall.png" id="10_v00a7"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="11_34yyh"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="12_5k20y"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="17_1mv0x"]
@@ -80,12 +88,17 @@ stream_2/stream = ExtResource("31_3l0oc")
 
 [node name="Talbot" type="Node3D" unique_id=511980141 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_hj5tf")
-character = 7
+character = 11
 character_team = 3
-bio = "A cyborg purposely designed for assassination, TALBOT destroys his target instinctively."
+bio = "A cyborg purposely designed for assassination, [bb]TALBOT[/bb] destroys his target instinctively."
 avatar_big = ExtResource("2_xljvw")
 avatar_small = ExtResource("3_xyvlu")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_fw6br"), ExtResource("5_jua3e"), ExtResource("6_sry4a"), ExtResource("7_1ynh0")])
+portrait_small = ExtResource("4_428e1")
+mugshot = ExtResource("9_1ynh0")
+mugshot_small = ExtResource("10_v00a7")
+select_taunt = ExtResource("9_jua3e")
 stat_power = 3
 stat_vitality = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]

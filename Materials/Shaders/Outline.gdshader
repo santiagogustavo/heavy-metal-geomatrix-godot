@@ -49,7 +49,7 @@ void fragment(){
 
 	vec4 sprite_color = tex(TEXTURE, uv);
 
-	float alpha = sprite_color.a;
+	float alpha = COLOR.a * sprite_color.a;
 	if (square_border){
 		for(int i=0;i<ring_count;++i){
 			float r = float(i) / float(ring_count) + ring_offset;

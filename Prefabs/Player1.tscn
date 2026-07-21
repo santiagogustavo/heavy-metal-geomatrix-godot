@@ -43,7 +43,7 @@ round_pivot = NodePath("RoundPivot")
 [node name="TEST" parent="." index="1" unique_id=168524473]
 surface_material_override/3 = SubResource("StandardMaterial3D_5emqi")
 
-[node name="Dash" parent="." index="3" unique_id=1873573577]
+[node name="DashParticle" parent="." index="3" unique_id=1873573577]
 process_material = SubResource("ParticleProcessMaterial_n06s0")
 
 [node name="CameraPivot" parent="." index="4" unique_id=763261655 instance=ExtResource("2_b8oq1")]

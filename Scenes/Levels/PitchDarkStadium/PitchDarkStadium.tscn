@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://bpxpio7ixipg6"]
 
 [ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_8fted"]
+[ext_resource type="Script" uid="uid://bgp1t11wfvfn8" path="res://Scripts/Levels/ArenaController.gd" id="1_46h7k"]
 [ext_resource type="PackedScene" uid="uid://bx6x38rwt2ym5" path="res://Models/Levels/PitchDarkStadium/PitchDarkStadium.glb" id="1_e6pgn"]
 [ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_7jn1i"]
 [ext_resource type="Texture2D" uid="uid://cwe67c5gjbitq" path="res://Textures/Skyboxes/Night Moony.png" id="2_caq5r"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="2_enk1q"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_fhn3g"]
+[ext_resource type="Texture2D" uid="uid://etk2n7xpoyga" path="res://Textures/Levels/Splashes/PitchDarkStadium/splash_big.png" id="2_nrdvh"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_8d4wu"]
+[ext_resource type="Texture2D" uid="uid://bqwsx2wxot7cu" path="res://Textures/Levels/Splashes/PitchDarkStadium/splash_small.png" id="3_qb7n8"]
 [ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_4e3ak"]
 [ext_resource type="Material" uid="uid://tfoi3l654p5d" path="res://Materials/Levels/PitchDarkStadium/9939eb6_emit.tres" id="4_t2tlk"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_tqjn4"]
@@ -59,7 +62,7 @@ volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a6sam"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_46h7k"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
@@ -143,9 +146,14 @@ stream_2/stream = ExtResource("14_a616r")
 stream_3/stream = ExtResource("15_d40he")
 stream_4/stream = ExtResource("16_0hywk")
 
-[node name="PitchDarkStadium" type="Node3D" unique_id=1441522439]
+[node name="PitchDarkStadium" type="Node3D" unique_id=769338497]
+script = ExtResource("1_46h7k")
+arena = 3
+splash_big = ExtResource("2_nrdvh")
+splash_small = ExtResource("3_qb7n8")
+metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
-[node name="LevelConfig" parent="." unique_id=303055488 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_8fted")]
+[node name="LevelConfig" parent="." unique_id=303055488 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree", "splash_layer") instance=ExtResource("1_8fted")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")
@@ -153,6 +161,7 @@ world_environment = NodePath("../WorldEnvironment")
 is_snowy = true
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
+splash_layer = NodePath("../SplashLayer")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1157527330]
 environment = SubResource("Environment_h4pe8")
@@ -161,7 +170,7 @@ script = ExtResource("4_4e3ak")
 [node name="SplashLayer" parent="." unique_id=1486111303 instance=ExtResource("2_7jn1i")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_a6sam")
+texture = SubResource("ViewportTexture_46h7k")
 metadata/_edit_use_anchors_ = true
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=695088672]
@@ -172,6 +181,7 @@ script = ExtResource("3_8d4wu")
 [node name="SnapshotCamera" parent="SnapshotViewport" unique_id=1655463632 instance=ExtResource("4_tqjn4")]
 transform = Transform3D(-0.9456093, 0.030805968, 0.32384264, -3.084375e-10, 0.995506, -0.09469884, -0.32530457, -0.089548096, -0.9413597, 3.815968, 5.876517, 4.5427704)
 cull_mask = 209
+current = true
 
 [node name="Spawn Points" type="Node3D" parent="." unique_id=1479927715]
 

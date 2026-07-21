@@ -63,5 +63,3 @@ lifetime = 0.1
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_ps541")
 script = ExtResource("5_1f0ha")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1328474174]

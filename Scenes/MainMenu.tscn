@@ -941,7 +941,7 @@ text = "ARCADE"
 alignment = 2
 clip_text = true
 script = ExtResource("26_y5fpb")
-redirect_to_scene = "res://Scenes/SelectPlayer.tscn"
+redirect_to_scene = "uid://dmjb7mesvihv3"
 
 [node name="Options" type="Button" parent="MainMenuLayer/OptionsContainer/MarginContainer/Control/Options" unique_id=1038733197]
 layout_mode = 2

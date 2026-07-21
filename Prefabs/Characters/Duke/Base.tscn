@@ -13,17 +13,25 @@
 [ext_resource type="PackedScene" uid="uid://b5iqe5coriwny" path="res://Models/Characters/Duke/Skins/Skin2.tscn" id="4_8scy3"]
 [ext_resource type="AudioStream" uid="uid://dcqa4q6bad325" path="res://Sound/Characters/Duke/Taunts/Lose.wav" id="4_57pb5"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_dkqso"]
+[ext_resource type="Texture2D" uid="uid://baj3ogvaradpp" path="res://Textures/Characters/Portraits/Duke/Default.png" id="4_l4ipt"]
 [ext_resource type="AnimationLibrary" uid="uid://ctr3odfdjnyok" path="res://Animations/Libraries/Taunts.res" id="4_m2dvu"]
+[ext_resource type="Texture2D" uid="uid://chg65d584wgtd" path="res://Textures/Characters/Portraits/Duke/Small.png" id="4_tpx50"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="5_cad48"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="5_iegre"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_tpx50"]
+[ext_resource type="Texture2D" uid="uid://dv7qk1xcbp8y2" path="res://Textures/Characters/Portraits/Duke/Skin1.png" id="5_veygs"]
 [ext_resource type="PackedScene" uid="uid://clrr04qqfce2g" path="res://Models/Characters/Duke/Skins/Skin3.tscn" id="5_xdmy3"]
 [ext_resource type="AudioStream" uid="uid://f333gmxtpcru" path="res://Sound/Characters/Duke/Damage/Death.wav" id="6_57pb5"]
 [ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="6_dkqso"]
+[ext_resource type="Texture2D" uid="uid://j4n3trp2obtp" path="res://Textures/Characters/Portraits/Duke/Skin2.png" id="6_ni71q"]
 [ext_resource type="AudioStream" uid="uid://3ciumw874yvo" path="res://Sound/Characters/Duke/Damage/Hit1.wav" id="7_57pb5"]
+[ext_resource type="Texture2D" uid="uid://btbv4b23b2spu" path="res://Textures/Characters/Portraits/Duke/Skin3.png" id="7_ni26i"]
 [ext_resource type="AudioStream" uid="uid://cw62pjvvlqfcq" path="res://Sound/Characters/Duke/Damage/Hit2.wav" id="8_ahvq4"]
 [ext_resource type="AudioStream" uid="uid://b2tth8irsfft5" path="res://Sound/Characters/Duke/Damage/Hit3.wav" id="9_dwdk0"]
+[ext_resource type="Texture2D" uid="uid://c7f0x08t3ihli" path="res://Textures/Characters/Portraits/Duke/Mugshot.png" id="9_ni26i"]
+[ext_resource type="AudioStream" uid="uid://nl3wqft5jwtt" path="res://Sound/Characters/Duke/Taunts/Select.wav" id="9_veygs"]
 [ext_resource type="AudioStream" uid="uid://cqnid5d7rmv4y" path="res://Sound/Characters/Duke/Pickup/Pickup1.wav" id="10_57pb5"]
+[ext_resource type="Texture2D" uid="uid://duo0fijd7vkeg" path="res://Textures/Characters/Portraits/Duke/MugshotSmall.png" id="10_uxoxf"]
 [ext_resource type="AudioStream" uid="uid://dj0h2q04grs25" path="res://Sound/Characters/Duke/Pickup/Pickup2.wav" id="11_ahvq4"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="11_msn32"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="12_dkqso"]
@@ -80,12 +88,17 @@ stream_2/stream = ExtResource("15_dwdk0")
 
 [node name="Duke" type="Node3D" unique_id=2103853471 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_3kspa")
-character = 9
+character = 6
 character_team = 2
-bio = "A cool, experienced swordsman, DUKE is admired and imitated by his team members."
+bio = "A cool, experienced swordsman, [bb]DUKE[/bb] is admired and imitated by his team members."
 avatar_big = ExtResource("2_funax")
 avatar_small = ExtResource("3_msn32")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_l4ipt"), ExtResource("5_veygs"), ExtResource("6_ni71q"), ExtResource("7_ni26i")])
+portrait_small = ExtResource("4_tpx50")
+mugshot = ExtResource("9_ni26i")
+mugshot_small = ExtResource("10_uxoxf")
+select_taunt = ExtResource("9_veygs")
 stat_speed = 2
 stat_power = 2
 stat_vitality = 2

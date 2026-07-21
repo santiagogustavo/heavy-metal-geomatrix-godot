@@ -15,6 +15,26 @@ hint = 1
 default_value_enabled = true
 default_value = 0.5
 
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ufnpk"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_olqds"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ufnpk"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_olqds"]
+parameter_name = "Mask"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_knwh1"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xegqx"]
+operator = 2
+
 [sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_h31l5"]
 output_port_for_preview = 0
 default_input_values = [1, 0.0, 2, Vector3(0.5, 0.5, 0)]
@@ -65,12 +85,24 @@ nodes/fragment/6/position = Vector2(-280, 280)
 nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_gyuoc")
 nodes/fragment/7/position = Vector2(-740, 100)
 nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_mokv6")
-nodes/fragment/8/position = Vector2(-60, 480)
+nodes/fragment/8/position = Vector2(-320, 640)
 nodes/fragment/10/node = SubResource("VisualShaderNodeMix_plssw")
 nodes/fragment/10/position = Vector2(20, 120)
 nodes/fragment/11/node = SubResource("VisualShaderNodeColorParameter_rxu6t")
 nodes/fragment/11/position = Vector2(-340, -180)
 nodes/fragment/12/node = SubResource("VisualShaderNodeFloatParameter_ummao")
 nodes/fragment/12/position = Vector2(-340, 0)
-nodes/fragment/connections = PackedInt32Array(8, 0, 0, 1, 10, 0, 0, 0, 11, 0, 10, 0, 12, 0, 10, 2, 2, 0, 6, 0, 6, 0, 10, 1, 7, 0, 6, 2, 3, 0, 2, 0, 4, 0, 2, 1, 5, 0, 2, 2)
+nodes/fragment/13/node = SubResource("VisualShaderNodeInput_ufnpk")
+nodes/fragment/13/position = Vector2(-380, 960)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatOp_olqds")
+nodes/fragment/14/position = Vector2(20, 580)
+nodes/fragment/15/node = SubResource("VisualShaderNodeTexture_ufnpk")
+nodes/fragment/15/position = Vector2(-280, 1220)
+nodes/fragment/16/node = SubResource("VisualShaderNodeTexture2DParameter_olqds")
+nodes/fragment/16/position = Vector2(-840, 1480)
+nodes/fragment/17/node = SubResource("VisualShaderNodeInput_knwh1")
+nodes/fragment/17/position = Vector2(-840, 1320)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatOp_xegqx")
+nodes/fragment/18/position = Vector2(220, 640)
+nodes/fragment/connections = PackedInt32Array(10, 0, 0, 0, 11, 0, 10, 0, 12, 0, 10, 2, 2, 0, 6, 0, 6, 0, 10, 1, 7, 0, 6, 2, 3, 0, 2, 0, 4, 0, 2, 1, 5, 0, 2, 2, 13, 4, 14, 1, 8, 0, 14, 0, 16, 0, 15, 2, 17, 0, 15, 0, 15, 4, 18, 1, 14, 0, 18, 0, 18, 0, 0, 1)
 metadata/_edit_res_path = "res://Materials/UI/Static.tres"

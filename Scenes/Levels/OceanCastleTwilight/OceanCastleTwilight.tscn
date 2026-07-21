@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://x2kmujmq04vr"]
 
 [ext_resource type="PackedScene" uid="uid://cpg1ylex7b80a" path="res://Scenes/Levels/OceanCastleTwilight/LevelConfig.tscn" id="1_4un3q"]
+[ext_resource type="Script" uid="uid://bgp1t11wfvfn8" path="res://Scripts/Levels/ArenaController.gd" id="1_k2jka"]
+[ext_resource type="Texture2D" uid="uid://co3lg0pcd75qs" path="res://Textures/Levels/Splashes/OceanCastleTwilight/splash_big.png" id="2_rw4wi"]
 [ext_resource type="PackedScene" uid="uid://bpvrx20vfamv5" path="res://Prefabs/Levels/SplashLayer.tscn" id="2_tegcv"]
+[ext_resource type="Texture2D" uid="uid://bt1n0d04lehi7" path="res://Textures/Levels/Splashes/OceanCastleTwilight/splash_small.png" id="3_b4tba"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="3_i8vr7"]
 [ext_resource type="Script" uid="uid://bi551ld0ixtlq" path="res://Scripts/Levels/WorldEnvironmentController.gd" id="4_ex2nk"]
 [ext_resource type="PackedScene" uid="uid://cmprtuf5511xj" path="res://Prefabs/Levels/SnapshotCamera.tscn" id="4_heanl"]
@@ -61,7 +64,7 @@ volumetric_fog_ambient_inject = 0.23
 volumetric_fog_sky_affect = 0.0
 volumetric_fog_temporal_reprojection_enabled = false
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_151h5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2j4g5"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkfy"]
@@ -243,9 +246,14 @@ stream_2/stream = ExtResource("25_2uk6u")
 stream_3/stream = ExtResource("26_wj5b2")
 stream_4/stream = ExtResource("27_ryyg3")
 
-[node name="Ocean Castle Twilight" type="Node3D" unique_id=2077813121]
+[node name="Ocean Castle Twilight" type="Node3D" unique_id=1358061820]
+script = ExtResource("1_k2jka")
+arena = 1
+splash_big = ExtResource("2_rw4wi")
+splash_small = ExtResource("3_b4tba")
+metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
-[node name="LevelConfig" parent="." unique_id=1888432946 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree") instance=ExtResource("1_4un3q")]
+[node name="LevelConfig" parent="." unique_id=1888432946 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree", "splash_layer") instance=ExtResource("1_4un3q")]
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")
@@ -253,6 +261,7 @@ ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
 snapshot_viewport = NodePath("../SnapshotViewport")
 splash_animation_tree = NodePath("../SplashLayer/AnimationTree")
+splash_layer = NodePath("../SplashLayer")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741432771]
 environment = SubResource("Environment_q5l4r")
@@ -261,7 +270,7 @@ script = ExtResource("4_ex2nk")
 [node name="SplashLayer" parent="." unique_id=168747904 instance=ExtResource("2_tegcv")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_151h5")
+texture = SubResource("ViewportTexture_2j4g5")
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=2017796208]
 audio_listener_enable_3d = true
@@ -271,6 +280,7 @@ script = ExtResource("3_i8vr7")
 [node name="SnapshotCamera" parent="SnapshotViewport" unique_id=431318575 instance=ExtResource("4_heanl")]
 transform = Transform3D(-0.71934, 0.0846576, 0.68948, 0, 0.992546, -0.121869, -0.694658, -0.0876656, -0.713978, -12.8, 1.13, -8.98)
 cull_mask = 209
+current = true
 
 [node name="Spawn Points" type="Node3D" parent="." unique_id=2074575898]
 

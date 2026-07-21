@@ -45,7 +45,7 @@ detectors = [NodePath("DetectorLeft"), NodePath("DetectorRight"), NodePath("Dete
 [node name="TEST" parent="." index="1" unique_id=168524473]
 surface_material_override/3 = SubResource("StandardMaterial3D_2i6tu")
 
-[node name="Dash" parent="." index="3" unique_id=1873573577]
+[node name="DashParticle" parent="." index="3" unique_id=1873573577]
 process_material = SubResource("ParticleProcessMaterial_oqhji")
 
 [node name="LookPivot" type="Marker3D" parent="." index="4" unique_id=1403654790]

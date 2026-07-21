@@ -729,6 +729,7 @@ color = Color(1, 0, 0.0901961, 1)
 alpha_curve = SubResource("CurveTexture_m7u2o")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12pog"]
+resource_local_to_scene = true
 transparency = 1
 specular_mode = 2
 vertex_color_use_as_albedo = true
@@ -917,6 +918,7 @@ transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 [node name="Base" type="Node3D" parent="Meshes" unique_id=1906700992]
 
 [node name="object_0" type="MeshInstance3D" parent="Meshes/Base" unique_id=2029607519]
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_ianq7")
 skeleton = NodePath("")
@@ -924,6 +926,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_e0hny")
 
 [node name="object_0_001" type="MeshInstance3D" parent="Meshes/Base" unique_id=1092236775]
 transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 0, 0, 0)
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_xep0f")
 skeleton = NodePath("")
@@ -942,6 +945,7 @@ anim_player = NodePath("../BasePlayer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="object_0_001" type="MeshInstance3D" parent="Meshes/ItemSmall" unique_id=450838873]
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_sy2qa")
 skeleton = NodePath("")
@@ -949,12 +953,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fbnvk")
 
 [node name="object_0_002" type="MeshInstance3D" parent="Meshes/ItemSmall" unique_id=218869138]
 transform = Transform3D(1.04471, 0, 0, 0, 1.04471, 0, 0, 0, 1.04471, 0, 0, 0)
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_iur8b")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_a6o3d")
 
 [node name="object_0_003" type="MeshInstance3D" parent="Meshes/ItemSmall" unique_id=558865270]
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_rtwka")
 skeleton = NodePath("")
@@ -965,18 +971,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 visible = false
 
 [node name="object_0_003" type="MeshInstance3D" parent="Meshes/ItemBig" unique_id=1504200712]
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_v8qis")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_id1vv")
 
 [node name="object_0" type="MeshInstance3D" parent="Meshes/ItemBig" unique_id=1743059078]
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_7geod")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_67j3u")
 
 [node name="object_0_001" type="MeshInstance3D" parent="Meshes/ItemBig" unique_id=1120913206]
+layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_gfc6y")
 skeleton = NodePath("")
@@ -1021,9 +1030,11 @@ parameters/conditions/is_picking_up = false
 
 [node name="BaseLight" type="OmniLight3D" parent="." unique_id=1479692911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+layers = 2
 light_color = Color(1, 0, 0.0901961, 1)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1843703955]
+layers = 2
 cast_shadow = 0
 lifetime = 0.5
 visibility_aabb = AABB(-2.8952, -2, -2.59253, 5.78996, 4, 5.1967)

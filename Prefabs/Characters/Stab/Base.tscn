@@ -8,14 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://8r4sdso08sn7" path="res://Models/Characters/Stab/Skins/Skin1.tscn" id="3_ts544"]
 [ext_resource type="PackedScene" uid="uid://l6ey7wrhb4ed" path="res://Models/Characters/Stab/Skins/Skin2.tscn" id="4_f1d15"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_g4i5f"]
+[ext_resource type="Texture2D" uid="uid://end4mi5b5y47" path="res://Textures/Characters/Portraits/Stab/Small.png" id="4_nm1pb"]
+[ext_resource type="Texture2D" uid="uid://wnssaf7tqgkc" path="res://Textures/Characters/Portraits/Stab/Default.png" id="4_uqefs"]
 [ext_resource type="PackedScene" uid="uid://b6qp8c6k3f220" path="res://Models/Characters/Stab/Skins/Skin3.tscn" id="5_8vru5"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_ajcdt"]
+[ext_resource type="Texture2D" uid="uid://djoqyrk3jkckx" path="res://Textures/Characters/Portraits/Stab/Skin1.png" id="5_wwiil"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="6_5a3wq"]
+[ext_resource type="Texture2D" uid="uid://c6ycqd5ytp18c" path="res://Textures/Characters/Portraits/Stab/Skin2.png" id="6_382oa"]
 [ext_resource type="Script" uid="uid://bosu3x1t1to4" path="res://Scripts/Characters/CharacterSFXController.gd" id="6_t4pwk"]
+[ext_resource type="Texture2D" uid="uid://db33c0hyld8lv" path="res://Textures/Characters/Portraits/Stab/Skin3.png" id="7_c7drx"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="7_e2cnc"]
+[ext_resource type="Texture2D" uid="uid://cg3be5ahd1qge" path="res://Textures/Characters/Portraits/Stab/Mugshot.png" id="9_c7drx"]
+[ext_resource type="AudioStream" uid="uid://b3tlwf3yyed3r" path="res://Sound/Characters/Stab/Taunts/Select.wav" id="9_wwiil"]
 [ext_resource type="AudioStream" uid="uid://dq0muc8s0r5gv" path="res://Sound/Characters/Stab/Taunts/Entrance.wav" id="10_5a3wq"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="10_cm8bk"]
 [ext_resource type="AudioStream" uid="uid://dampfa8k5d32t" path="res://Sound/Characters/Stab/Taunts/Win.wav" id="10_e2cnc"]
+[ext_resource type="Texture2D" uid="uid://fe4174bkt4yp" path="res://Textures/Characters/Portraits/Stab/MugshotSmall.png" id="10_vnaww"]
 [ext_resource type="AudioStream" uid="uid://n4npegomf812" path="res://Sound/Characters/Stab/Taunts/Lose.wav" id="11_5a3wq"]
 [ext_resource type="AudioStream" uid="uid://fhrx0jnkdhie" path="res://Sound/Characters/Stab/Damage/Death.wav" id="13_5a3wq"]
 [ext_resource type="AnimationLibrary" uid="uid://dge8odbv61k4d" path="res://Animations/Libraries/Hit Reactions.res" id="13_m7v4x"]
@@ -79,12 +87,17 @@ stream_2/stream = ExtResource("22_cm8bk")
 
 [node name="Stab" type="Node3D" unique_id=1174258652 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_e2cnc")
-character = 12
+character = 5
 character_team = 1
-bio = "STAB's muscular body is extremely powerful. He cheers his team with his rowdy style."
+bio = "[bb]STAB[/bb]'s muscular body is extremely powerful. He cheers his team with his rowdy style."
 avatar_big = ExtResource("2_u3pcq")
 avatar_small = ExtResource("3_dv5e3")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_uqefs"), ExtResource("5_wwiil"), ExtResource("6_382oa"), ExtResource("7_c7drx")])
+portrait_small = ExtResource("4_nm1pb")
+mugshot = ExtResource("9_c7drx")
+mugshot_small = ExtResource("10_vnaww")
+select_taunt = ExtResource("9_wwiil")
 stat_power = 3
 stat_vitality = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]

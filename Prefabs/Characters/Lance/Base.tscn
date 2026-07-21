@@ -3,12 +3,20 @@
 [ext_resource type="Script" uid="uid://b67p4er5pdntl" path="res://Scripts/Characters/CharacterController.gd" id="1_50o6a"]
 [ext_resource type="Texture2D" uid="uid://dgfmjtia726b7" path="res://Textures/Characters/Lance/Cards/2132ce0e.png" id="2_2qs0a"]
 [ext_resource type="Texture2D" uid="uid://d4ii8sg35k6ah" path="res://Textures/Characters/Lance/Cards/55c2b055.png" id="3_u1ym4"]
+[ext_resource type="Texture2D" uid="uid://dfmpj23vwyfmj" path="res://Textures/Characters/Portraits/Lance/Default.png" id="4_efmu2"]
+[ext_resource type="Texture2D" uid="uid://chcpbqm2rtny4" path="res://Textures/Characters/Portraits/Lance/Small.png" id="4_gn2ks"]
 [ext_resource type="PackedScene" uid="uid://cbljabamec4yv" path="res://Prefabs/Characters/Common/GameplayAnimationTreeV2.tscn" id="4_lb4ey"]
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="5_hmnvt"]
+[ext_resource type="Texture2D" uid="uid://cjpchecj0hesr" path="res://Textures/Characters/Portraits/Lance/Skin1.png" id="5_kknes"]
 [ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="6_gn2ks"]
+[ext_resource type="Texture2D" uid="uid://bg8aslp0tu2wj" path="res://Textures/Characters/Portraits/Lance/Skin2.png" id="6_gpgjn"]
 [ext_resource type="PackedScene" uid="uid://sy6slrcqh1ie" path="res://Models/Characters/Lance/Lance.glb" id="7_78tta"]
+[ext_resource type="Texture2D" uid="uid://c3ili2sm76bcv" path="res://Textures/Characters/Portraits/Lance/Skin3.png" id="7_k6sxn"]
 [ext_resource type="PackedScene" uid="uid://bcnewwhbuyf8h" path="res://Models/Characters/Lance/Skins/Default.tscn" id="8_d5en2"]
+[ext_resource type="Texture2D" uid="uid://c240bhuey8fpn" path="res://Textures/Characters/Portraits/Lance/Mugshot.png" id="9_k6sxn"]
+[ext_resource type="AudioStream" uid="uid://ctl7esiyenyji" path="res://Sound/Characters/Lance/Taunts/Select.wav" id="9_kknes"]
 [ext_resource type="PackedScene" uid="uid://citmjcc1snksb" path="res://Models/Characters/Lance/Skins/Skin1.tscn" id="9_w8b8s"]
+[ext_resource type="Texture2D" uid="uid://c3ps4jy1gwqtg" path="res://Textures/Characters/Portraits/Lance/MugshotSmall.png" id="10_2xpx2"]
 [ext_resource type="PackedScene" uid="uid://b8d307y3iwpbl" path="res://Models/Characters/Lance/Skins/Skin2.tscn" id="10_efmu2"]
 [ext_resource type="PackedScene" uid="uid://ddbg8uufhuvw4" path="res://Models/Characters/Lance/Skins/Skin3.tscn" id="11_kknes"]
 [ext_resource type="PackedScene" uid="uid://bmuljmi6fxn4h" path="res://Prefabs/Characters/Common/Hitboxes.tscn" id="12_gpgjn"]
@@ -80,12 +88,17 @@ stream_2/stream = ExtResource("28_0g2hq")
 
 [node name="Lance" type="Node3D" unique_id=1706003507 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_50o6a")
-character = 10
+character = 8
 character_team = 2
-bio = "Young LANCE is loaded with fighting spirit. He doesn't know he's descended from noble hood."
+bio = "Young [bb]LANCE[/bb] is loaded with fighting spirit. He doesn't know he's descended from noble hood."
 avatar_big = ExtResource("2_2qs0a")
 avatar_small = ExtResource("3_u1ym4")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_efmu2"), ExtResource("5_kknes"), ExtResource("6_gpgjn"), ExtResource("7_k6sxn")])
+portrait_small = ExtResource("4_gn2ks")
+mugshot = ExtResource("9_k6sxn")
+mugshot_small = ExtResource("10_2xpx2")
+select_taunt = ExtResource("9_kknes")
 stat_speed = 2
 stat_power = 2
 stat_vitality = 2

@@ -382,24 +382,24 @@ character = 1
 layout_mode = 2
 focus_neighbor_top = NodePath("../Slash")
 focus_neighbor_bottom = NodePath("../Di")
-character = 2
+character = 4
 
 [node name="Di" parent="Control/MarginContainer/Control/Characters" unique_id=1534903469 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Kassey")
 focus_neighbor_bottom = NodePath("../Mayfly")
-character = 3
+character = 7
 
 [node name="Mayfly" parent="Control/MarginContainer/Control/Characters" unique_id=312458292 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Di")
 focus_neighbor_bottom = NodePath("../Hound")
+character = 10
 
 [node name="Hound" parent="Control/MarginContainer/Control/Characters" unique_id=1890332029 instance=ExtResource("5_km5t0")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Mayfly")
 focus_neighbor_bottom = NodePath("../Slash")
-character = 4
 
 [node name="Info" type="VBoxContainer" parent="Control/MarginContainer/Control" unique_id=980871945]
 custom_minimum_size = Vector2(320, 0)

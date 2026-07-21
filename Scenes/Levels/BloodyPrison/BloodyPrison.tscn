@@ -2,8 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bwrjgm4ch5jrd" path="res://Textures/Skyboxes/Bloody Sunset Cloudy.png" id="1_dblvh"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="1_upkte"]
+[ext_resource type="Script" uid="uid://bgp1t11wfvfn8" path="res://Scripts/Levels/ArenaController.gd" id="1_wydrt"]
 [ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_yu288"]
+[ext_resource type="Texture2D" uid="uid://bmkaj103u1028" path="res://Textures/Levels/Splashes/BloodyPrison/splash_big.png" id="2_kb187"]
 [ext_resource type="PackedScene" uid="uid://c38nd48madvlu" path="res://Models/Levels/BloodyPrison/BloodyPrison.glb" id="2_rkjbk"]
+[ext_resource type="Texture2D" uid="uid://d0p24kv0wyend" path="res://Textures/Levels/Splashes/BloodyPrison/splash_small.png" id="3_h1lsp"]
 [ext_resource type="Material" uid="uid://dfsl0rhj152sa" path="res://Materials/Levels/BloodyPrison/8310248_emm.tres" id="3_w61g4"]
 [ext_resource type="PackedScene" uid="uid://caudimco02mw5" path="res://Prefabs/Levels/Bloody Prison/CeilingLight.tscn" id="4_lm7vh"]
 [ext_resource type="PackedScene" uid="uid://dn50xulvhibl6" path="res://Prefabs/Levels/SpawnPoint.tscn" id="6_vtewr"]
@@ -16,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cayd3a25g1r75" path="res://Textures/Levels/BloodyPrison/kindpng_438236.png" id="14_0t6m7"]
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="14_nd3s8"]
 [ext_resource type="Texture2D" uid="uid://d34wccg0c87se" path="res://Textures/Particles/bc814aba_1R.png" id="15_do68w"]
+[ext_resource type="AudioStream" uid="uid://37df6iqihgou" path="res://Sound/Levels/BloodyPrison/ambient_loop.wav" id="19_jjmyc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rkjbk"]
 panorama = ExtResource("1_dblvh")
@@ -94,7 +98,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tsdov")
 
-[node name="BloodyPrison" type="Node3D" unique_id=422898450]
+[node name="BloodyPrison" type="Node3D" unique_id=263604254]
+script = ExtResource("1_wydrt")
+arena = 5
+splash_big = ExtResource("2_kb187")
+splash_small = ExtResource("3_h1lsp")
+metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
 [node name="LevelConfig" parent="." unique_id=679296039 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_yu288")]
 level_name = "Bloody Prison"
@@ -435,5 +444,11 @@ transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49
 
 [node name="World Boundaries" parent="." unique_id=885481922 instance=ExtResource("14_nd3s8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 6.29899, -16)
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1921248841]
+stream = ExtResource("19_jjmyc")
+volume_db = -1.0
+autoplay = true
+bus = &"Effects"
 
 [editable path="LevelGeometry/BloodyPrison"]

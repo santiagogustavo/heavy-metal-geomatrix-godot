@@ -2,9 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dwg0cufyqx3pf" path="res://Textures/Skyboxes/Panorama_Lush_02-2048x1024.png" id="1_0hyha"]
 [ext_resource type="PackedScene" uid="uid://byxmrc7x2jx7m" path="res://Scenes/Levels/PitchDarkStadium/LevelConfig.tscn" id="1_bsc4m"]
+[ext_resource type="Script" uid="uid://bgp1t11wfvfn8" path="res://Scripts/Levels/ArenaController.gd" id="1_dreac"]
 [ext_resource type="PackedScene" uid="uid://cc54pgedoqp87" path="res://Models/Levels/JungledTempleDay/JungledTempleDay.glb" id="2_louig"]
 [ext_resource type="PackedScene" uid="uid://cv0tt2a33vhav" path="res://Prefabs/Levels/Sun.tscn" id="2_mfwpf"]
+[ext_resource type="Texture2D" uid="uid://bxyivnoym0u8b" path="res://Textures/Levels/Splashes/JungledTempleDay/splash_big.png" id="2_s0c6f"]
 [ext_resource type="PackedScene" uid="uid://bkieffjienrol" path="res://Prefabs/Spawner.tscn" id="3_2obwa"]
+[ext_resource type="Texture2D" uid="uid://citi0myn33qy5" path="res://Textures/Levels/Splashes/JungledTempleDay/splash_small.png" id="3_hw8v5"]
 [ext_resource type="PackedScene" uid="uid://dvhwp6amggbyt" path="res://Models/Levels/JungledTempleDay/Navmesh.glb" id="4_7p6v3"]
 [ext_resource type="PackedScene" uid="uid://2hs4n36k3cbd" path="res://Prefabs/Weapons/KillerSword.tscn" id="4_rpndf"]
 [ext_resource type="PackedScene" uid="uid://dd1bkwhq7msm2" path="res://Prefabs/Weapons/SprayGun/SprayGun.tscn" id="5_tguyn"]
@@ -15,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://d2pc4utlvhahx" path="res://Prefabs/Levels/InvisibleWalls.tscn" id="13_kq1q6"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_8oiv2"]
 [ext_resource type="PackedScene" uid="uid://cx5y25bv800ue" path="res://Prefabs/Levels/JungledTempleDay/Mud.tscn" id="15_8oiv2"]
+[ext_resource type="AudioStream" uid="uid://d1u62ylfobow" path="res://Sound/Levels/JungledTempleDay/ambient_loop.wav" id="18_l71ah"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_louig"]
 panorama = ExtResource("1_0hyha")
@@ -91,7 +95,12 @@ size = Vector3(17.007324, 28.012878, 0.70214844)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kq1q6"]
 size = Vector3(14.935303, 28.012878, 0.70214844)
 
-[node name="JungledTempleDay" type="Node3D" unique_id=492399972]
+[node name="JungledTempleDay" type="Node3D" unique_id=761543668]
+script = ExtResource("1_dreac")
+arena = 4
+splash_big = ExtResource("2_s0c6f")
+splash_small = ExtResource("3_hw8v5")
+metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
 [node name="LevelConfig" parent="." unique_id=779541935 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_bsc4m")]
 level_name = "Jungled Temple Day"
@@ -405,6 +414,12 @@ shape = SubResource("BoxShape3D_kq1q6")
 [node name="CollisionShape3D8" parent="Invisible Walls" unique_id=1802804147 instance=ExtResource("14_8oiv2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.962543, 31.049408, -30.000189)
 shape = SubResource("BoxShape3D_kq1q6")
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1374703313]
+stream = ExtResource("18_l71ah")
+volume_db = 5.0
+autoplay = true
+bus = &"Effects"
 
 [editable path="LevelGeometry/JungledTempleDay"]
 [editable path="LevelGeometry/NavigationRegion3D/Navmesh2"]

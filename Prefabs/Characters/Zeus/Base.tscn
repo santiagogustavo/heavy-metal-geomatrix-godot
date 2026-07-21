@@ -11,13 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://cnwwwjk7llw03" path="res://Prefabs/Characters/Common/TauntAnimationTree.tscn" id="3_i5owu"]
 [ext_resource type="Texture2D" uid="uid://07dcafdl5ju0" path="res://Textures/Characters/Zeus/Cards/5380137f.png" id="3_up418"]
 [ext_resource type="PackedScene" uid="uid://bexuiaqh7fwn0" path="res://Prefabs/Characters/Common/Fists.tscn" id="3_xqtq2"]
+[ext_resource type="Texture2D" uid="uid://dvlwhyyqilrsp" path="res://Textures/Characters/Portraits/Zeus/Small.png" id="4_32kwp"]
+[ext_resource type="Texture2D" uid="uid://0kex8r07ia5v" path="res://Textures/Characters/Portraits/Zeus/Default.png" id="4_w7ny1"]
 [ext_resource type="AnimationLibrary" uid="uid://ctr3odfdjnyok" path="res://Animations/Libraries/Taunts.res" id="4_xgvjg"]
+[ext_resource type="Texture2D" uid="uid://b0u3ibhss47aj" path="res://Textures/Characters/Portraits/Zeus/Skin1.png" id="5_oatuv"]
 [ext_resource type="AnimationLibrary" uid="uid://dnhupqy51bnxj" path="res://Animations/Libraries/Upper Body.res" id="5_xqtq2"]
+[ext_resource type="Texture2D" uid="uid://dk2y6wi4bhjvw" path="res://Textures/Characters/Portraits/Zeus/Skin2.png" id="6_lfrom"]
 [ext_resource type="PackedScene" uid="uid://blgqvbxjfjr68" path="res://Prefabs/Characters/Common/SFX/Common.tscn" id="6_lgtjj"]
+[ext_resource type="Texture2D" uid="uid://dcap3gphqoruh" path="res://Textures/Characters/Portraits/Zeus/Skin3.png" id="7_0leyd"]
 [ext_resource type="PackedScene" uid="uid://dllyflmd65wjc" path="res://Models/Characters/Zeus/Skins/Default.tscn" id="7_up418"]
 [ext_resource type="PackedScene" uid="uid://ck4oen3p0jl3o" path="res://Models/Characters/Zeus/Skins/Skin1.tscn" id="8_orack"]
+[ext_resource type="Texture2D" uid="uid://cwo7vihkfoxv2" path="res://Textures/Characters/Portraits/Zeus/Mugshot.png" id="9_0leyd"]
 [ext_resource type="PackedScene" uid="uid://bo1gjcyjd2rq8" path="res://Models/Characters/Zeus/Skins/Skin2.tscn" id="9_32kwp"]
+[ext_resource type="AudioStream" uid="uid://der3jo7h50blh" path="res://Sound/Characters/Zeus/Taunts/Select.wav" id="9_oatuv"]
 [ext_resource type="PackedScene" uid="uid://difl63w4bqjw6" path="res://Models/Characters/Zeus/Skins/Skin3.tscn" id="10_paja2"]
+[ext_resource type="Texture2D" uid="uid://bskv5bcfuyfuo" path="res://Textures/Characters/Portraits/Zeus/MugshotSmall.png" id="10_vbopd"]
 [ext_resource type="AudioStream" uid="uid://cqv2gui3c0v12" path="res://Sound/Characters/Zeus/Taunts/Entrance.wav" id="18_orack"]
 [ext_resource type="AudioStream" uid="uid://dknp7215nqxwx" path="res://Sound/Characters/Zeus/Taunts/Win.wav" id="19_orack"]
 [ext_resource type="AudioStream" uid="uid://j1srcf18e61p" path="res://Sound/Characters/Zeus/Taunts/Lose.wav" id="20_32kwp"]
@@ -79,11 +87,16 @@ stream_2/stream = ExtResource("31_paja2")
 
 [node name="Zeus" type="Node3D" unique_id=752101120 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot", "round_pivot_offset", "camera_pivot_offset")]
 script = ExtResource("1_xqtq2")
-character = 8
-bio = "ZEUS is the most powerful member of the 818 STOMPERS. He is a masked sledgehammer."
+character = 2
+bio = "[bb]ZEUS[/bb] is the most powerful member of the 818 STOMPERS. He is a masked sledgehammer."
 avatar_big = ExtResource("2_v8mfr")
 avatar_small = ExtResource("3_up418")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Default"), NodePath("Model/Armature/GeneralSkeleton/Skin1"), NodePath("Model/Armature/GeneralSkeleton/Skin2"), NodePath("Model/Armature/GeneralSkeleton/Skin3")]
+portrait_skins = Array[Texture2D]([ExtResource("4_w7ny1"), ExtResource("5_oatuv"), ExtResource("6_lfrom"), ExtResource("7_0leyd")])
+portrait_small = ExtResource("4_32kwp")
+mugshot = ExtResource("9_0leyd")
+mugshot_small = ExtResource("10_vbopd")
+select_taunt = ExtResource("9_oatuv")
 stat_power = 3
 stat_vitality = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]

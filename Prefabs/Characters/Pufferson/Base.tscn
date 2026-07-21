@@ -84,7 +84,6 @@ stream_2/stream = ExtResource("26_2tpj4")
 
 [node name="Pufferson" type="Node3D" unique_id=1531387802 node_paths=PackedStringArray("skins", "hitboxes", "fists", "sfx_controller", "body_slot", "right_hand_slot")]
 script = ExtResource("1_f7t6p")
-character = 5
 avatar_big = ExtResource("2_4ydor")
 avatar_small = ExtResource("2_4ydor")
 skins = [NodePath("Model/Armature/GeneralSkeleton/Cylinder")]
