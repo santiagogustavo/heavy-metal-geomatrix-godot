@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://4tfkpbq1bur8"]
+
+[ext_resource type="Script" uid="uid://fq5656p8kiei" path="res://Scripts/UI/InputInstruction.gd" id="1_7boip"]
+[ext_resource type="FontFile" uid="uid://dmvvnx2e4kgm6" path="res://Fonts/Oxanium Bold.ttf" id="1_hwbs0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mvp5x"]
+font = ExtResource("1_hwbs0")
+
+[node name="InputInstruction" type="HBoxContainer" unique_id=1975978946]
+modulate = Color(0.32941177, 1, 0.7647059, 1)
+offset_right = 59.0
+offset_bottom = 17.0
+script = ExtResource("1_7boip")
+
+[node name="Label" type="Label" parent="." unique_id=5600069]
+layout_mode = 2
+text = "Action"
+label_settings = SubResource("LabelSettings_mvp5x")
+vertical_alignment = 1
+uppercase = true
