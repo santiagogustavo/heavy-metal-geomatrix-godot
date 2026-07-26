@@ -19,16 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="8_j5vkf"]
 [ext_resource type="PackedScene" uid="uid://d2pc4utlvhahx" path="res://Prefabs/Levels/InvisibleWalls.tscn" id="9_hnk50"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="10_55oue"]
-[ext_resource type="AudioStream" uid="uid://l86jwrpnijve" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst1.mp3" id="12_amb02"]
 [ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="12_qjnkp"]
 [ext_resource type="PackedScene" uid="uid://d2b75t1ilt30u" path="res://Prefabs/Weapons/FAKK2/Uzi/Uzi.tscn" id="12_qvd3e"]
-[ext_resource type="AudioStream" uid="uid://b80lbhjnp7oom" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst2.mp3" id="13_6pnrr"]
 [ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="13_qvd3e"]
-[ext_resource type="AudioStream" uid="uid://itq6igqdma3k" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst3.mp3" id="14_a616r"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_hifk7"]
-[ext_resource type="AudioStream" uid="uid://dbjtrx1brw8ue" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst4.mp3" id="15_d40he"]
 [ext_resource type="PackedScene" uid="uid://btn7c23i0enhg" path="res://Prefabs/Weapons/FAKK2/ChainSword.tscn" id="15_qvd3e"]
-[ext_resource type="AudioStream" uid="uid://dtxpgwc7umcfc" path="res://Music/PitchDarkStadium/PitchDarkStadiumOst5.mp3" id="16_0hywk"]
 [ext_resource type="PackedScene" uid="uid://c6o2b3j7355k1" path="res://Models/Levels/PitchDarkStadium/Navmesh.glb" id="17_a6sam"]
 [ext_resource type="Texture2D" uid="uid://c2axca041ro8" path="res://Textures/Lens Flares/flare1.png" id="20_uccxj"]
 [ext_resource type="PackedScene" uid="uid://sccq4r11cphj" path="res://Prefabs/Levels/PitchDarkStadium/Billboard.tscn" id="23_6ghj8"]
@@ -37,6 +32,11 @@
 [ext_resource type="PackedScene" uid="uid://8h7q0mdl25gi" path="res://Prefabs/Levels/PitchDarkStadium/BlueprintScreen.tscn" id="29_4e3ak"]
 [ext_resource type="PackedScene" uid="uid://cy60bym2dpuph" path="res://Prefabs/Levels/PitchDarkStadium/MachineControl.tscn" id="30_7wfqp"]
 [ext_resource type="PackedScene" uid="uid://bk1epvk5mge47" path="res://Prefabs/Levels/PitchDarkStadium/Scaffolding.tscn" id="32_3p02d"]
+[ext_resource type="AudioStream" uid="uid://i5yc5b25qrpp" path="res://Music/PitchDarkStadium/PitchDarkStadium1.mp3" id="33_nrdvh"]
+[ext_resource type="AudioStream" uid="uid://d2on1s2vxpaqs" path="res://Music/PitchDarkStadium/PitchDarkStadium2.mp3" id="34_nrdvh"]
+[ext_resource type="AudioStream" uid="uid://0gap7waqbfu5" path="res://Music/PitchDarkStadium/PitchDarkStadium3.mp3" id="35_nrdvh"]
+[ext_resource type="AudioStream" uid="uid://dsidke48l7yl1" path="res://Music/PitchDarkStadium/PitchDarkStadium4.mp3" id="36_qb7n8"]
+[ext_resource type="AudioStream" uid="uid://ch5ao1ijepkc5" path="res://Music/PitchDarkStadium/PitchDarkStadium5.mp3" id="37_nrdvh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_25dxq"]
 panorama = ExtResource("2_caq5r")
@@ -62,7 +62,7 @@ volumetric_fog_albedo = Color(0.0666666, 0, 1, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_46h7k"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qb7n8"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kvm1f"]
@@ -140,11 +140,11 @@ size = Vector3(0.5, 20, 25)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ov48a"]
 streams_count = 5
-stream_0/stream = ExtResource("12_amb02")
-stream_1/stream = ExtResource("13_6pnrr")
-stream_2/stream = ExtResource("14_a616r")
-stream_3/stream = ExtResource("15_d40he")
-stream_4/stream = ExtResource("16_0hywk")
+stream_0/stream = ExtResource("33_nrdvh")
+stream_1/stream = ExtResource("34_nrdvh")
+stream_2/stream = ExtResource("35_nrdvh")
+stream_3/stream = ExtResource("36_qb7n8")
+stream_4/stream = ExtResource("37_nrdvh")
 
 [node name="PitchDarkStadium" type="Node3D" unique_id=769338497]
 script = ExtResource("1_46h7k")
@@ -170,7 +170,7 @@ script = ExtResource("4_4e3ak")
 [node name="SplashLayer" parent="." unique_id=1486111303 instance=ExtResource("2_7jn1i")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_46h7k")
+texture = SubResource("ViewportTexture_qb7n8")
 metadata/_edit_use_anchors_ = true
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=695088672]

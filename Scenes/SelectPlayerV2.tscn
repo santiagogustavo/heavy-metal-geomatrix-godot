@@ -10,11 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://dvlwhyyqilrsp" path="res://Textures/Characters/Portraits/Zeus/Small.png" id="4_e5dc5"]
 [ext_resource type="PackedScene" uid="uid://bcc476hb3qa1f" path="res://Prefabs/Menus/SelectPlayer/PlayerInfoCard.tscn" id="6_e5dc5"]
 [ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="6_elaox"]
+[ext_resource type="PackedScene" uid="uid://4tfkpbq1bur8" path="res://Prefabs/UI/InputInstruction.tscn" id="7_0bc1l"]
 [ext_resource type="PackedScene" uid="uid://dnufef8qdqorn" path="res://Prefabs/Menus/SelectPlayer/TeamCard.tscn" id="7_rikto"]
 [ext_resource type="Material" uid="uid://bl4gl2wdbx05f" path="res://Materials/Menus/Select Player/bf365546.tres" id="7_xp13o"]
 [ext_resource type="PackedScene" uid="uid://csiacq2gsocyl" path="res://Models/Menus/Select Player/Tunnel.glb" id="8_78com"]
 [ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="9_86ssy"]
 [ext_resource type="AudioStream" uid="uid://bm5apxkvpbcwi" path="res://Sound/Menus/Select Player/Intro.wav" id="14_txor1"]
+[ext_resource type="AudioStream" uid="uid://bxyvq7n2hq4hx" path="res://Music/SelectPlayer/SelectPlayerV2Ost.mp3" id="17_g5505"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xp13o"]
 viewport_path = NodePath("Node3D/TunnelViewport")
@@ -213,6 +215,44 @@ script = ExtResource("6_elaox")
 typing_time = 1.0
 start_with_random = true
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/Control" unique_id=2062475380]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="InputInstruction" parent="Control/MarginContainer/Control/HBoxContainer" unique_id=1975978946 instance=ExtResource("7_0bc1l")]
+layout_mode = 2
+actions = Array[int]([2, 3, 4, 5])
+
+[node name="InputInstruction2" parent="Control/MarginContainer/Control/HBoxContainer" unique_id=1370951949 instance=ExtResource("7_0bc1l")]
+layout_mode = 2
+actions = Array[int]([0])
+
+[node name="InputInstruction3" parent="Control/MarginContainer/Control/HBoxContainer" unique_id=1389787540 instance=ExtResource("7_0bc1l")]
+layout_mode = 2
+actions = Array[int]([1])
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/Control" unique_id=1461947144]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+offset_right = 59.0
+grow_vertical = 0
+
+[node name="InputInstruction" parent="Control/MarginContainer/Control/HBoxContainer2" unique_id=941769687 instance=ExtResource("7_0bc1l")]
+layout_mode = 2
+actions = Array[int]([6])
+
 [node name="TeamCard" parent="Control" unique_id=1958413587 instance=ExtResource("7_rikto")]
 layout_mode = 0
 anchors_preset = 0
@@ -313,12 +353,12 @@ columns = 3
 environment = SubResource("Environment_wka5o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=2080674730]
-transform = Transform3D(0.9999989, 0, 0, 0, 1, 0, 0, 0, 0.9999989, 0, 0, 0)
+transform = Transform3D(0.9999988, 0, 0, 0, 1, 0, 0, 0, 0.9999988, 0, 0, 0)
 mesh = SubResource("SphereMesh_elaox")
 skeleton = NodePath("../..")
 
 [node name="Tunnel" parent="Node3D" unique_id=1669224374 instance=ExtResource("8_78com")]
-transform = Transform3D(0.99999905, 0, 0, 0, 0.99999905, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.9999991, 0, 0, 0, 0.9999991, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="object_0" parent="Node3D/Tunnel" index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -46.8)
@@ -344,7 +384,16 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Intro" type="AudioStreamPlayer2D" parent="." unique_id=1536861306]
 stream = ExtResource("14_txor1")
+volume_db = -3.5
 autoplay = true
 bus = &"UI"
+
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=551572860]
+stream = ExtResource("17_g5505")
+volume_db = -2.5
+autoplay = true
+bus = &"Menus"
+playback_type = 1
+parameters/looping = true
 
 [editable path="Node3D/Tunnel"]

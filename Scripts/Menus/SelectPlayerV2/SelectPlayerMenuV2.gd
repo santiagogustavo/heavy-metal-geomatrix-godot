@@ -10,6 +10,7 @@ class_name SelectPlayerMenuV2
 @onready var status_label: LabelRandomizerEffect = $Control/MarginContainer/Control/Status
 @onready var team_card: TeamCard = $Control/TeamCard
 @onready var select_taunt: AudioStreamPlayer2D = $Control/PlayerInfoCard/SelectTaunt
+@onready var ost: AudioStreamPlayer2D = $OST
 
 var player_cards: Array[PlayerCardV2] = []
 
@@ -20,6 +21,7 @@ var redirect_to_scene: NodePath
 func _ready() -> void:
 	redirect_to_scene = "res://Scenes/SelectArenaV2.tscn"
 	grid_container_example.queue_free()
+	SceneManager.persist_node(ost)
 	instantiate_player_cards()
 
 func _process(_delta: float) -> void:

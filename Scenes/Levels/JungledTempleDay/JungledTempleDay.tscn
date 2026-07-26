@@ -19,6 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_8oiv2"]
 [ext_resource type="PackedScene" uid="uid://cx5y25bv800ue" path="res://Prefabs/Levels/JungledTempleDay/Mud.tscn" id="15_8oiv2"]
 [ext_resource type="AudioStream" uid="uid://d1u62ylfobow" path="res://Sound/Levels/JungledTempleDay/ambient_loop.wav" id="18_l71ah"]
+[ext_resource type="AudioStream" uid="uid://bcnnu38l8k48w" path="res://Music/JungledTempleDay/JungledTempleDay1.mp3" id="20_7s7se"]
+[ext_resource type="AudioStream" uid="uid://cl7v4xmop5ndb" path="res://Music/JungledTempleDay/JungledTempleDay2.mp3" id="21_dfn0n"]
+[ext_resource type="AudioStream" uid="uid://c5fndw04omhre" path="res://Music/JungledTempleDay/JungledTempleDay3.mp3" id="22_td0gs"]
+[ext_resource type="AudioStream" uid="uid://5rgd11afxrd8" path="res://Music/JungledTempleDay/JungledTempleDay4.mp3" id="23_ybg16"]
+[ext_resource type="AudioStream" uid="uid://vuvusemuxvo0" path="res://Music/JungledTempleDay/JungledTempleDay5.mp3" id="24_am1tb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_louig"]
 panorama = ExtResource("1_0hyha")
@@ -95,6 +100,14 @@ size = Vector3(17.007324, 28.012878, 0.70214844)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kq1q6"]
 size = Vector3(14.935303, 28.012878, 0.70214844)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a50lh"]
+streams_count = 5
+stream_0/stream = ExtResource("20_7s7se")
+stream_1/stream = ExtResource("21_dfn0n")
+stream_2/stream = ExtResource("22_td0gs")
+stream_3/stream = ExtResource("23_ybg16")
+stream_4/stream = ExtResource("24_am1tb")
+
 [node name="JungledTempleDay" type="Node3D" unique_id=761543668]
 script = ExtResource("1_dreac")
 arena = 4
@@ -102,13 +115,12 @@ splash_big = ExtResource("2_s0c6f")
 splash_small = ExtResource("3_hw8v5")
 metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
-[node name="LevelConfig" parent="." unique_id=779541935 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_bsc4m")]
+[node name="LevelConfig" parent="." unique_id=779541935 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment") instance=ExtResource("1_bsc4m")]
 level_name = "Jungled Temple Day"
 spawn_points = [NodePath("../SpawnPoints/SpawnPoint"), NodePath("../SpawnPoints/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
+ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
-play_versus_screen = false
-spawn_bots_count = 0
 is_rainy = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947572696]
@@ -420,6 +432,11 @@ stream = ExtResource("18_l71ah")
 volume_db = 5.0
 autoplay = true
 bus = &"Effects"
+
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=1736366106]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_a50lh")
+bus = &"Game"
 
 [editable path="LevelGeometry/JungledTempleDay"]
 [editable path="LevelGeometry/NavigationRegion3D/Navmesh2"]

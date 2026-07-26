@@ -20,6 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="14_nd3s8"]
 [ext_resource type="Texture2D" uid="uid://d34wccg0c87se" path="res://Textures/Particles/bc814aba_1R.png" id="15_do68w"]
 [ext_resource type="AudioStream" uid="uid://37df6iqihgou" path="res://Sound/Levels/BloodyPrison/ambient_loop.wav" id="19_jjmyc"]
+[ext_resource type="AudioStream" uid="uid://2efk8dykx5dh" path="res://Music/BloodyPrison/BloodyPrison1.mp3" id="21_ani5p"]
+[ext_resource type="AudioStream" uid="uid://6qf1yj0dilk8" path="res://Music/BloodyPrison/BloodyPrison2.mp3" id="22_nl4gj"]
+[ext_resource type="AudioStream" uid="uid://c55kvlodf6byw" path="res://Music/BloodyPrison/BloodyPrison3.mp3" id="23_odibh"]
+[ext_resource type="AudioStream" uid="uid://dvdgbd2y8y7nm" path="res://Music/BloodyPrison/BloodyPrison4.mp3" id="24_hcetu"]
+[ext_resource type="AudioStream" uid="uid://d3k4dce7fxulq" path="res://Music/BloodyPrison/BloodyPrison5.mp3" id="25_vrofs"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rkjbk"]
 panorama = ExtResource("1_dblvh")
@@ -98,6 +103,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tsdov")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ttqa2"]
+streams_count = 5
+stream_0/stream = ExtResource("21_ani5p")
+stream_1/stream = ExtResource("22_nl4gj")
+stream_2/stream = ExtResource("23_odibh")
+stream_3/stream = ExtResource("24_hcetu")
+stream_4/stream = ExtResource("25_vrofs")
+
 [node name="BloodyPrison" type="Node3D" unique_id=263604254]
 script = ExtResource("1_wydrt")
 arena = 5
@@ -105,13 +118,12 @@ splash_big = ExtResource("2_kb187")
 splash_small = ExtResource("3_h1lsp")
 metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
-[node name="LevelConfig" parent="." unique_id=679296039 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_yu288")]
+[node name="LevelConfig" parent="." unique_id=679296039 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment") instance=ExtResource("1_yu288")]
 level_name = "Bloody Prison"
 spawn_points = [NodePath("../SpawnPoints/SpawnPoint"), NodePath("../SpawnPoints/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
+ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
-play_versus_screen = false
-spawn_bots_count = 0
 
 [node name="Sun" parent="." unique_id=986681617 instance=ExtResource("1_upkte")]
 transform = Transform3D(0.70710677, -0.35355332, 0.61237246, -2.9802322e-08, 0.86602545, 0.5, -0.70710677, -0.35355335, 0.6123725, 0, 3, 5)
@@ -450,5 +462,10 @@ stream = ExtResource("19_jjmyc")
 volume_db = -1.0
 autoplay = true
 bus = &"Effects"
+
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=695339105]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_ttqa2")
+bus = &"Game"
 
 [editable path="LevelGeometry/BloodyPrison"]

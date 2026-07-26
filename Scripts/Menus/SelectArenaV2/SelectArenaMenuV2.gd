@@ -45,6 +45,11 @@ func _process(_delta: float) -> void:
 	elif !focused_first:
 		focus_on_first()
 
+func _exit_tree() -> void:
+	var ost_node: Node = SceneManager.get_persistent_node_by_name("OST")
+	if ost_node:
+		SceneManager.remove_persistent_node_by_name("OST")
+
 func instantiate_arena_cards() -> void:
 	var max_index: int = Definitions.Arenas.size() - 1
 	for arena in Definitions.Arenas:

@@ -29,15 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://cv3wy4a10swgm" path="res://Textures/Levels/SunkenCityNight/neon_sign_2_emm.png" id="19_tje26"]
 [ext_resource type="Texture2D" uid="uid://cf7vxkny4oigw" path="res://Textures/Levels/SunkenCityNight/scaffold.png" id="20_pjyb5"]
 [ext_resource type="Texture2D" uid="uid://dbb6w4lrnl6lq" path="res://Textures/Levels/SunkenCityNight/neon_sign_4.png" id="21_4yqmx"]
-[ext_resource type="AudioStream" uid="uid://isrukokcyqys" path="res://Music/SunkenCityNight/SunkenCityNightOst1.mp3" id="22_2go6x"]
 [ext_resource type="Texture2D" uid="uid://hycwwu4qihhb" path="res://Textures/Levels/SunkenCityNight/neon_sign_4_emm.png" id="22_7niyf"]
 [ext_resource type="Texture2D" uid="uid://h3ll8kw65on7" path="res://Textures/Levels/SunkenCityNight/neon_sign_6.jpg" id="23_6r3uq"]
-[ext_resource type="AudioStream" uid="uid://c7d4hjvtwq004" path="res://Music/SunkenCityNight/SunkenCityNightOst2.mp3" id="23_qfqmc"]
 [ext_resource type="Shader" uid="uid://nb31d8362g8b" path="res://Materials/Shaders/3dGlitch.gdshader" id="24_gl3ra"]
-[ext_resource type="AudioStream" uid="uid://bxdcda0l5k8rf" path="res://Music/SunkenCityNight/SunkenCityNightOst3.mp3" id="24_y4q1x"]
 [ext_resource type="Texture2D" uid="uid://ci4wiams1s2og" path="res://Textures/Levels/SunkenCityNight/neon_sign_5.jpg" id="25_53wty"]
-[ext_resource type="AudioStream" uid="uid://m7w5l1kyndam" path="res://Music/SunkenCityNight/SunkenCityNightOst4.mp3" id="25_hbknm"]
-[ext_resource type="AudioStream" uid="uid://bx1ere4wxkls6" path="res://Music/SunkenCityNight/SunkenCityNightOst5.mp3" id="26_jeo0a"]
 [ext_resource type="PackedScene" uid="uid://c2b14t4ld7u2a" path="res://Models/Levels/SunkenCityNight/Navmesh.glb" id="28_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://cy8lwontrbyhp" path="res://Prefabs/Items/jetpack.tscn" id="31_a3hbx"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="32_pxprx"]
@@ -45,6 +40,11 @@
 [ext_resource type="PackedScene" uid="uid://dojwk8kvm3dvr" path="res://Prefabs/Weapons/HandGun/HandGun.tscn" id="33_4nhff"]
 [ext_resource type="PackedScene" uid="uid://drsqk1uj3io3i" path="res://Prefabs/Weapons/RaySword.tscn" id="34_u1d5f"]
 [ext_resource type="PackedScene" uid="uid://b7f0ill0m1ryd" path="res://Prefabs/Weapons/ShotGun/ShotGun.tscn" id="35_4nhff"]
+[ext_resource type="AudioStream" uid="uid://dgurmcnlxk3gv" path="res://Music/SunkenCityNight/SunkenCityNight1.mp3" id="41_ajwuo"]
+[ext_resource type="AudioStream" uid="uid://ci2migvbd0ytt" path="res://Music/SunkenCityNight/SunkenCityNight2.mp3" id="42_pulof"]
+[ext_resource type="AudioStream" uid="uid://cdgohgiqq5ott" path="res://Music/SunkenCityNight/SunkenCityNight3.mp3" id="43_dt5c8"]
+[ext_resource type="AudioStream" uid="uid://cd0somuokpxqs" path="res://Music/SunkenCityNight/SunkenCityNight4.mp3" id="44_5wi0w"]
+[ext_resource type="AudioStream" uid="uid://dj75f0gfaibr1" path="res://Music/SunkenCityNight/SunkenCityNight5.mp3" id="45_7i4v6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nxkqp"]
 panorama = ExtResource("1_x780f")
@@ -64,7 +64,7 @@ fog_sky_affect = 0.0
 volumetric_fog_density = 0.0126
 volumetric_fog_albedo = Color(0.57, 0.684667, 1, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dt5c8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nkbkb"]
 viewport_path = NodePath("../SnapshotViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vlpe4"]
@@ -266,11 +266,11 @@ size = Vector3(0.318848, 22.8315, 20.9529)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rq1vi"]
 streams_count = 5
-stream_0/stream = ExtResource("22_2go6x")
-stream_1/stream = ExtResource("23_qfqmc")
-stream_2/stream = ExtResource("24_y4q1x")
-stream_3/stream = ExtResource("25_hbknm")
-stream_4/stream = ExtResource("26_jeo0a")
+stream_0/stream = ExtResource("41_ajwuo")
+stream_1/stream = ExtResource("42_pulof")
+stream_2/stream = ExtResource("43_dt5c8")
+stream_3/stream = ExtResource("44_5wi0w")
+stream_4/stream = ExtResource("45_7i4v6")
 
 [node name="SunkenCityNight" type="Node3D" unique_id=1515067452]
 script = ExtResource("1_4nhff")
@@ -295,7 +295,7 @@ script = ExtResource("4_4nhff")
 [node name="SplashLayer" parent="." unique_id=1807516140 instance=ExtResource("2_1r2ip")]
 
 [node name="Viewport" parent="SplashLayer/Splash" index="0"]
-texture = SubResource("ViewportTexture_dt5c8")
+texture = SubResource("ViewportTexture_nkbkb")
 
 [node name="SnapshotViewport" type="SubViewport" parent="." unique_id=611891105]
 audio_listener_enable_3d = true

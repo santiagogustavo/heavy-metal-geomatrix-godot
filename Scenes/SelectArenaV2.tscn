@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="3_srne1"]
 [ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="4_2ak2h"]
 [ext_resource type="PackedScene" uid="uid://bgl5hu5vx840g" path="res://Prefabs/Menus/SelectArena/RegisteredPlayerCard.tscn" id="7_srne1"]
+[ext_resource type="PackedScene" uid="uid://4tfkpbq1bur8" path="res://Prefabs/UI/InputInstruction.tscn" id="8_3gfeh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3gfeh"]
 shader = ExtResource("3_srne1")
@@ -212,6 +213,31 @@ theme_override_constants/separation = -8
 
 [node name="Placeholder" parent="Control/MarginContainer/Control/RegisteredPlayersContainer/HBoxContainer" unique_id=437543191 instance=ExtResource("7_srne1")]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/Control" unique_id=1462127726]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="InputInstruction" parent="Control/MarginContainer/Control/HBoxContainer" unique_id=1975978946 instance=ExtResource("8_3gfeh")]
+layout_mode = 2
+actions = Array[int]([2, 3, 4, 5])
+
+[node name="InputInstruction2" parent="Control/MarginContainer/Control/HBoxContainer" unique_id=377899838 instance=ExtResource("8_3gfeh")]
+layout_mode = 2
+actions = Array[int]([0])
+
+[node name="InputInstruction3" parent="Control/MarginContainer/Control/HBoxContainer" unique_id=614819922 instance=ExtResource("8_3gfeh")]
+layout_mode = 2
+actions = Array[int]([1])
 
 [node name="CardContainer" type="HBoxContainer" parent="Control" unique_id=932956774]
 layout_mode = 1

@@ -20,6 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://df3ipi8fivujg" path="res://Prefabs/Levels/WorldBoundaries.tscn" id="12_68oyf"]
 [ext_resource type="PackedScene" uid="uid://dsq011hun8pqa" path="res://Prefabs/Levels/InvisibleWall.tscn" id="14_xifv4"]
 [ext_resource type="PackedScene" uid="uid://ceje3sfnyrp2o" path="res://Prefabs/Levels/Red Hot Shrine Day/TotemSmall.tscn" id="16_d2ocq"]
+[ext_resource type="AudioStream" uid="uid://bhgbu4sajxf45" path="res://Music/RedHotShrineDay/RedHotShrineDay1.mp3" id="21_hqnus"]
+[ext_resource type="AudioStream" uid="uid://bmc4yvrx6xp77" path="res://Music/RedHotShrineDay/RedHotShrineDay2.mp3" id="22_q60pu"]
+[ext_resource type="AudioStream" uid="uid://djpjhs37qiflk" path="res://Music/RedHotShrineDay/RedHotShrineDay3.mp3" id="23_2ofwy"]
+[ext_resource type="AudioStream" uid="uid://chwpu6v28h5cw" path="res://Music/RedHotShrineDay/RedHotShrineDay4.mp3" id="24_3kcgr"]
+[ext_resource type="AudioStream" uid="uid://kp87kfq8hasy" path="res://Music/RedHotShrineDay/RedHotShrineDay5.mp3" id="25_br7bd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8hau5"]
 panorama = ExtResource("1_3cl6h")
@@ -101,19 +106,27 @@ size = Vector3(0.49389648, 16.597565, 35.999313)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0e22f"]
 size = Vector3(0.49389648, 16.597565, 17.96738)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5tkuq"]
+streams_count = 5
+stream_0/stream = ExtResource("21_hqnus")
+stream_1/stream = ExtResource("22_q60pu")
+stream_2/stream = ExtResource("23_2ofwy")
+stream_3/stream = ExtResource("24_3kcgr")
+stream_4/stream = ExtResource("25_br7bd")
+
 [node name="RedHotShrineDay" type="Node3D" unique_id=399235583]
 script = ExtResource("1_c4pty")
 splash_big = ExtResource("2_0e22f")
 splash_small = ExtResource("3_1dfe0")
 metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
-[node name="LevelConfig" parent="." unique_id=785466676 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "world_environment") instance=ExtResource("1_kf12v")]
+[node name="LevelConfig" parent="." unique_id=785466676 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment") instance=ExtResource("1_kf12v")]
 level_name = "Red Hot Shrine Day"
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")
+ost_player = NodePath("../OST")
 world_environment = NodePath("../WorldEnvironment")
-spawn_bots_count = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1928442071]
 environment = SubResource("Environment_jwvik")
@@ -340,6 +353,11 @@ shape = SubResource("BoxShape3D_c4pty")
 [node name="CollisionShape3D7" parent="Invisible Walls" unique_id=1917661291 instance=ExtResource("14_xifv4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.147713, 10.147724, -23.280083)
 shape = SubResource("BoxShape3D_0e22f")
+
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=1514531958]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_5tkuq")
+bus = &"Game"
 
 [editable path="Level Geometry/Red Hot Shrine Day"]
 [editable path="Spawner"]
