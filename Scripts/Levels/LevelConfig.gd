@@ -2,6 +2,7 @@ extends Node3D
 class_name LevelConfig
 
 @export_subgroup("Properties")
+@export var arena: Definitions.Arenas
 @export var level_name: String = ""
 @export var splash: Texture2D
 @export var spawn_points: Array[SpawnPoint]
@@ -24,8 +25,10 @@ class_name LevelConfig
 @export var splash_layer: CanvasLayer
 
 @onready var versus_screen_resource: PackedScene = load("res://Prefabs/Menus/Versus/VersusScreen.tscn")
+@onready var versus_screen_v2_resource: PackedScene = load("res://Prefabs/Menus/Versus/VersusScreenV2.tscn")
 @onready var flyby_camera_resource: PackedScene = load("res://Prefabs/Levels/FlyByCamera.tscn")
 var versus_screen_instance: VersusScreen
+var versus_screen_v2_instance: VersusScreenV2
 
 func _ready() -> void:
 	GameManager.lock_cursor()
@@ -49,10 +52,11 @@ func _ready() -> void:
 		if !GameManager.current_match:
 			GameManager.create_match(MatchManager.new())
 			GameManager.current_match.time = 99
+		GameManager.current_arena = arena
 		GameManager.spawn_players()
 		GameManager.added_player.connect(on_player_added)
 		if play_versus_screen:
-			instantiate_versus_screen()
+			instantiate_versus_screen_v2()
 		else:
 			on_versus_screen_ended()
 	elif !DebugCommands.flyby_mode:
@@ -78,6 +82,14 @@ func instantiate_versus_screen() -> void:
 	)
 	versus_screen_instance.ended.connect(on_versus_screen_ended)
 	get_tree().process_frame.connect(after_process_first_frame)
+
+func instantiate_versus_screen_v2() -> void:
+	versus_screen_v2_instance = versus_screen_v2_resource.instantiate()
+	versus_screen_v2_instance.ended.connect(func ():
+		versus_screen_v2_instance.queue_free()
+		on_versus_screen_ended()
+	)
+	get_tree().root.add_child.call_deferred(versus_screen_v2_instance)
 
 func enable_environment_composition_effects() -> void:
 	if !world_environment or !world_environment.compositor:

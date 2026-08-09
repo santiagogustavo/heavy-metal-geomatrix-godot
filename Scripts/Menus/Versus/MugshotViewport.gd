@@ -15,6 +15,7 @@ class_name MugshotViewport
 @onready var phantom_mug: TextureRect = $SubViewport/Control/Phantom
 @onready var mayfly_mug: TextureRect = $SubViewport/Control/Mayfly
 @onready var talbot_mug: TextureRect = $SubViewport/Control/Talbot
+@onready var pufferson_mug: TextureRect = $SubViewport/Control/Pufferson
 
 @onready var color_rect: ColorRect = $SubViewport/Control/ColorRect
 @onready var headshot: ColorRect = $SubViewport/Control/Headshot
@@ -48,6 +49,8 @@ func _process(_delta: float) -> void:
 			mayfly_mug.visible = true
 		Definitions.Characters.Talbot:
 			talbot_mug.visible = true
+		Definitions.Characters.Pufferson:
+			pufferson_mug.visible = true
 
 func clear_all_mugshots() -> void:
 	hound_mug.visible = false
@@ -62,4 +65,4 @@ func clear_all_mugshots() -> void:
 	phantom_mug.visible = false
 	mayfly_mug.visible = false
 	talbot_mug.visible = false
-	
+	pufferson_mug.visible = false

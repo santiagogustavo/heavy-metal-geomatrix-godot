@@ -100,6 +100,7 @@ func handle_selected_arena(arena: Definitions.Arenas) -> void:
 	status_label.typing_time = 0.5
 	status_label.play_effect()
 	GameManager.create_match(MatchManager.new())
+	GameManager.current_arena = arena
 	GameManager.current_match.rounds = rules_rounds
 	GameManager.current_match.time = rules_time
 	get_tree().create_timer(1.0).timeout.connect(func (): 

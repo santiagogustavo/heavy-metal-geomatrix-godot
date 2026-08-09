@@ -44,7 +44,7 @@ var look_at_speed_max: float = 17.0
 
 var can_dash: bool = true
 
-var always_look_at_enemy: bool = true
+var always_look_at_enemy: bool = false
 
 var detector_collided_left: bool = false
 var detector_collided_right: bool = false

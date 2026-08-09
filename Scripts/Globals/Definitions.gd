@@ -100,6 +100,22 @@ const CharacterNames: Dictionary = {
 	Characters.Pufferson: "Pufferson",
 }
 
+const CharacterTeams: Dictionary = {
+	Characters.Hound: Teams.Stompers,
+	Characters.Slash: Teams.Stompers,
+	Characters.Zeus: Teams.Stompers,
+	Characters.Sarge: Teams.Elite,
+	Characters.Kassey: Teams.Elite,
+	Characters.Stab: Teams.Elite,
+	Characters.Duke: Teams.Metalheads,
+	Characters.Di: Teams.Metalheads,
+	Characters.Lance: Teams.Metalheads,
+	Characters.Phantom: Teams.Agents,
+	Characters.Mayfly: Teams.Agents,
+	Characters.Talbot: Teams.Agents,
+	Characters.Pufferson: Teams.Agents,
+}
+
 const ArenaNames: Dictionary = {
 	Arenas.RedHotShrineDay: "Red Hot Shrine Day",
 	Arenas.OceanCastleTwilight: "Ocean Castle Twilight",

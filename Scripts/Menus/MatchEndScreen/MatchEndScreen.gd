@@ -51,4 +51,4 @@ func format_time(total_seconds: float) -> String:
 func redirect_to_main_menu() -> void:
 	var redirect_to_scene = "res://Scenes/MainMenu.tscn"
 	SceneManager.load_scene_file(redirect_to_scene)
-	queue_free()
+	get_parent().get_parent().queue_free()

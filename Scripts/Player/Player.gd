@@ -106,9 +106,9 @@ func _ready() -> void:
 	power_factor = 1.0 - ((3 - character.stat_power) * 0.1)
 	vitality_factor = 1.0 - ((character.stat_vitality - 1) * 0.15)
 	initial_character_rotation = character.rotation
-	if character.round_pivot_offset and round_pivot:
+	if character.round_pivot_offset and player_type != PlayerType.Bot and round_pivot:
 		round_pivot.position = character.round_pivot_offset.position
-	if character.camera_pivot_offset and camera_pivot:
+	if character.camera_pivot_offset and player_type != PlayerType.Bot  and camera_pivot:
 		camera_pivot.position = character.camera_pivot_offset.position
 	add_child(character)
 	player_name = character.character_name

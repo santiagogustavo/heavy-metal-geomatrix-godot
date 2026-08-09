@@ -16,6 +16,6 @@ func add_versus_card(player: Player) -> void:
 		return
 	var instance: VersusCard = versus_card.instantiate()
 	instance.player_name = player.player_name
-	instance.avatar = player.character.avatar_big
+	instance.avatar = player.character.mugshot_small
 	instance.player = player
 	container.add_child(instance)

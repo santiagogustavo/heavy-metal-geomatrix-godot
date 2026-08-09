@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 		return
 	visible = true
 	name_label.text = player.player_name
-	avatar_image.texture = player.character.avatar_big
+	avatar_image.texture = player.character.mugshot_small
 	var health_percentage: float = player.health / 100.0
 	health_bar.material.set_shader_parameter("Progress", health_percentage)
 	update_shadow(health_percentage)

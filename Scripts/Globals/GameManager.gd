@@ -20,6 +20,7 @@ var engine_version: String = Engine.get_version_info().string
 # Gameplay variables
 var is_game_paused: bool = false
 var current_match: MatchManager
+var current_arena: Definitions.Arenas
 var teams: Array[Team] = []
 
 func _init() -> void:
