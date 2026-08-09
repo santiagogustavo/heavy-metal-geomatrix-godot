@@ -1,6 +1,6 @@
 [gd_resource type="FontVariation" format=3 uid="uid://di5l671jloxoe"]
 
-[ext_resource type="FontFile" uid="uid://dnybghtsiasl7" path="res://Fonts/Oxanium ExtraBold.ttf" id="1_xgmb4"]
+[ext_resource type="FontFile" uid="uid://dmvvnx2e4kgm6" path="res://Fonts/Oxanium Bold.ttf" id="1_xgmb4"]
 
 [resource]
 base_font = ExtResource("1_xgmb4")
