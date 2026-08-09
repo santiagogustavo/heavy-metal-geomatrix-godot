@@ -12,8 +12,6 @@ offset_right = 716.0
 offset_bottom = 536.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("1_pyavt")
-characters = Array[int]([10, 3])
-characters_teams = Array[int]([3, 1])
 
 [node name="DebugContainer" type="HBoxContainer" parent="." unique_id=285998055]
 layout_mode = 1

@@ -254,6 +254,7 @@ splash_small = ExtResource("3_b4tba")
 metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
 [node name="LevelConfig" parent="." unique_id=1888432946 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree", "splash_layer") instance=ExtResource("1_4un3q")]
+arena = 1
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 randomize_spawn = true
 pickup_spawner = NodePath("../Spawner")

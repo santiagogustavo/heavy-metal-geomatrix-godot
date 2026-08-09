@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://brdmcxag04uge" path="res://Textures/Characters/Portraits/Phantom/Mugshot.png" id="2_gypxv"]
 [ext_resource type="Texture2D" uid="uid://cefwty2075ohi" path="res://Textures/Characters/Portraits/Talbot/Mugshot.png" id="3_1eakq"]
 [ext_resource type="Texture2D" uid="uid://c7f0x08t3ihli" path="res://Textures/Characters/Portraits/Duke/Mugshot.png" id="4_fif1a"]
+[ext_resource type="Texture2D" uid="uid://bdjg3xio3sk7h" path="res://Textures/Characters/Portraits/Pufferson/Mugshot.png" id="15_5cjfe"]
 
 [sub_resource type="Gradient" id="Gradient_pyavt"]
 interpolation_mode = 2
@@ -287,6 +288,24 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7908144, 0.7908144)
 texture = ExtResource("3_1eakq")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Pufferson" type="TextureRect" parent="SubViewport/Control" unique_id=857695007]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = 133.00002
+offset_right = 572.0973
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5508138, 0.5508138)
+texture = ExtResource("15_5cjfe")
 expand_mode = 3
 stretch_mode = 4
 

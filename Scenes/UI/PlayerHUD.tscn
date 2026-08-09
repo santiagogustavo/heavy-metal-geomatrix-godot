@@ -9,13 +9,15 @@
 [ext_resource type="Script" uid="uid://dfd5k8mgf2wtg" path="res://Scripts/UI/HUD/Player.gd" id="8_5ig34"]
 [ext_resource type="Texture2D" uid="uid://dwjcsemw1xwdy" path="res://Textures/UI/HUD/New/player_health_bar_mask_bar.png" id="8_flou3"]
 [ext_resource type="Texture2D" uid="uid://delaoxbtyokwb" path="res://Textures/UI/HUD/New/jetpack_fuel_bar_mask.png" id="8_yjlvy"]
+[ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="9_hb1q4"]
+[ext_resource type="Texture2D" uid="uid://cy46a1h1hicab" path="res://Textures/Characters/Portraits/Mayfly/MugshotSmall.png" id="10_1ny2s"]
 [ext_resource type="Texture2D" uid="uid://cbfcwlbkf8b7n" path="res://Textures/UI/HUD/New/player_health_bar_mask_avatar.png" id="10_61mf5"]
 [ext_resource type="Texture2D" uid="uid://ptp35yt7fh3d" path="res://Textures/UI/HUD/grid.png" id="11_2lcjo"]
-[ext_resource type="FontFile" uid="uid://b5gmgkqqs4yp" path="res://Fonts/Perfect Futures Italic.ttf" id="11_da2ak"]
+[ext_resource type="Texture2D" uid="uid://bn4bdr2jsm2i2" path="res://Textures/Menus/SelectArena/7dbfa667_bg_R.png" id="12_3qihl"]
 [ext_resource type="Texture2D" uid="uid://cdb17vbu6c3kc" path="res://Textures/UI/HUD/New/player_health_bar.png" id="12_34r24"]
-[ext_resource type="Texture2D" uid="uid://b0g1xv1gbqo2t" path="res://Textures/Characters/Mayfly/Cards/6c34b3ba.png" id="12_tjik2"]
 [ext_resource type="Script" uid="uid://bg75qdlhge7u5" path="res://Scripts/UI/HUD/VersusCardsController.gd" id="12_y0lsx"]
 [ext_resource type="PackedScene" uid="uid://bsaqwrl4mvuaf" path="res://Prefabs/UI/Trophies.tscn" id="13_a837n"]
+[ext_resource type="FontVariation" uid="uid://di5l671jloxoe" path="res://Fonts/Oxanium ExtraBold Italic.tres" id="13_hb1q4"]
 [ext_resource type="PackedScene" uid="uid://ds8i2exuwegk4" path="res://Prefabs/UI/VersusCard.tscn" id="14_3o7sl"]
 [ext_resource type="Texture2D" uid="uid://bhgtb3nef8el1" path="res://Textures/Characters/Di/Cards/ddb26342.png" id="15_1kw6d"]
 [ext_resource type="Script" uid="uid://ds7b5mg8vfxsc" path="res://Scripts/UI/HUD/Jetpack.gd" id="17_kcelk"]
@@ -112,11 +114,23 @@ shader_parameter/Mask = ExtResource("8_flou3")
 shader = ExtResource("2_2efbf")
 shader_parameter/Mask = ExtResource("10_61mf5")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hb1q4"]
+shader = ExtResource("9_hb1q4")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Scale = 200.0000095
+shader_parameter/Color_Weight = 0.750000035625
+shader_parameter/Opacity = 0.4690000222775
+shader_parameter/Mask = ExtResource("10_61mf5")
+
 [sub_resource type="LabelSettings" id="LabelSettings_hnf54"]
-font = ExtResource("11_da2ak")
-font_size = 20
-shadow_color = Color(0, 0, 0, 0.490196)
-shadow_offset = Vector2(-2, 2)
+font = ExtResource("13_hb1q4")
+font_size = 24
+font_color = Color(0.33333334, 0.91764706, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gcgwj"]
 resource_local_to_scene = true
@@ -174,14 +188,20 @@ shadow_color = Color(0, 0, 0, 0.490196)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lnars"]
-font = ExtResource("19_kvrfk")
-font_size = 32
+font = ExtResource("13_hb1q4")
+font_size = 42
+font_color = Color(1, 0.84705883, 0.29411766, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_r1fs0"]
 font = ExtResource("25_xpoe2")
 font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 2)
 
@@ -420,14 +440,36 @@ texture = ExtResource("11_2lcjo")
 expand_mode = 1
 
 [node name="Avatar" type="TextureRect" parent="Container/Control/Player" unique_id=1750493344]
+modulate = Color(0.5, 1, 0.85833335, 1)
 material = SubResource("ShaderMaterial_lbkkf")
 layout_mode = 0
 offset_left = 8.0
 offset_top = 4.0
 offset_right = 97.0
 offset_bottom = 94.0
-texture = ExtResource("12_tjik2")
+texture = ExtResource("10_1ny2s")
 expand_mode = 1
+
+[node name="BG" type="TextureRect" parent="Container/Control/Player/Avatar" unique_id=810307015]
+show_behind_parent = true
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_3qihl")
+expand_mode = 1
+
+[node name="Static" type="ColorRect" parent="Container/Control/Player/Avatar" unique_id=2118623280]
+material = SubResource("ShaderMaterial_hb1q4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PlayerName" type="Label" parent="Container/Control/Player" unique_id=1696818048]
 layout_mode = 0

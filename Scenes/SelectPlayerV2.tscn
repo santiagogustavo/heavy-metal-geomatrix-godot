@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cskmxsk66hd01" path="res://Textures/Weapons/Sniper Rifle/scope_outline.png" id="18_tauti"]
 [ext_resource type="Shader" uid="uid://7klejhs6r38u" path="res://Materials/Shaders/GlitchEffect.gdshader" id="18_xa5p2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xp13o"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lf24s"]
 viewport_path = NodePath("Node3D/TunnelViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_txor1"]
@@ -133,6 +133,9 @@ advance_mode = 2
 states/Idle/node = SubResource("AnimationNodeAnimation_orith")
 states/Idle/position = Vector2(455, 101)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_cjkb3")]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xp13o"]
+viewport_path = NodePath("Node3D/TunnelViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37efc"]
 shader = ExtResource("18_xa5p2")
@@ -430,7 +433,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_xp13o")
+texture = SubResource("ViewportTexture_lf24s")
 
 [node name="Hex" type="TextureRect" parent="Control" unique_id=1486606348]
 visible = false

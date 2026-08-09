@@ -280,6 +280,7 @@ splash_small = ExtResource("3_pulof")
 metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
 [node name="LevelConfig" parent="." unique_id=639634506 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment", "snapshot_viewport", "splash_animation_tree", "splash_layer") instance=ExtResource("1_irl40")]
+arena = 2
 spawn_points = [NodePath("../Spawn Points/SpawnPoint"), NodePath("../Spawn Points/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")
 ost_player = NodePath("../OST")

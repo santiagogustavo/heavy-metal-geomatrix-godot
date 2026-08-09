@@ -119,6 +119,7 @@ splash_small = ExtResource("3_h1lsp")
 metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
 [node name="LevelConfig" parent="." unique_id=679296039 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment") instance=ExtResource("1_yu288")]
+arena = 5
 level_name = "Bloody Prison"
 spawn_points = [NodePath("../SpawnPoints/SpawnPoint"), NodePath("../SpawnPoints/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")

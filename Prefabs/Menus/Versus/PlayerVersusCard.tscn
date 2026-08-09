@@ -17,7 +17,7 @@ fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0.8)
 metadata/_snap_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtyhj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ggk04"]
 resource_local_to_scene = true
 shader = ExtResource("1_j6myt")
 shader_parameter/mask = SubResource("GradientTexture2D_80rx8")
@@ -31,7 +31,7 @@ shader_parameter/square_border = false
 shader_parameter/offset = Vector2(0, -15)
 shader_parameter/max_or_add = false
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4mdry"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4l0mj"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Gradient" id="Gradient_ggk04"]
@@ -260,7 +260,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Portrait" parent="Pivot" unique_id=97121399 instance=ExtResource("3_aigbs")]
-material = SubResource("ShaderMaterial_rtyhj")
+material = SubResource("ShaderMaterial_ggk04")
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -273,7 +273,7 @@ offset_right = 358.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("ViewportTexture_4mdry")
+texture = SubResource("ViewportTexture_4l0mj")
 
 [node name="CharacterName" parent="Pivot/Portrait" unique_id=1321711274 instance=ExtResource("4_bcwxe")]
 layout_mode = 1

@@ -116,6 +116,7 @@ splash_small = ExtResource("3_hw8v5")
 metadata/_custom_type_script = "uid://bgp1t11wfvfn8"
 
 [node name="LevelConfig" parent="." unique_id=779541935 node_paths=PackedStringArray("spawn_points", "pickup_spawner", "ost_player", "world_environment") instance=ExtResource("1_bsc4m")]
+arena = 4
 level_name = "Jungled Temple Day"
 spawn_points = [NodePath("../SpawnPoints/SpawnPoint"), NodePath("../SpawnPoints/SpawnPoint2")]
 pickup_spawner = NodePath("../Spawner")

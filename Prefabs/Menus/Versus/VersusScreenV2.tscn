@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ods3yn7i2453" path="res://Prefabs/Menus/Versus/TeamVersusCard.tscn" id="1_ejh6n"]
 [ext_resource type="Texture2D" uid="uid://c486hwwic0gao" path="res://Textures/Menus/Versus/2020109d_R.jpg" id="1_g80if"]
+[ext_resource type="Script" uid="uid://dc53e8c4x03ng" path="res://Scripts/Menus/Versus/VersusScreen.gd" id="1_meiby"]
 [ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="2_pwxk1"]
 [ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="3_thp04"]
 [ext_resource type="AudioStream" uid="uid://bo2gmt5macheo" path="res://Sound/Menus/Versus/VERSUS.wav" id="4_aexss"]
@@ -29,7 +30,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MarginContainer:scale")
+tracks/0/path = NodePath("Control/TeamsContainer:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +42,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MarginContainer:modulate")
+tracks/1/path = NodePath("Control/TeamsContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -117,7 +118,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Control/MarginContainer:scale")
+tracks/5/path = NodePath("Control/TeamsContainer:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -129,7 +130,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Control/MarginContainer:modulate")
+tracks/6/path = NodePath("Control/TeamsContainer:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -137,6 +138,23 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(4.5, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"emit_fade_signal"
+}, {
+"args": [],
+"method": &"emit_end_signal"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ejh6n"]
@@ -157,25 +175,16 @@ states/Versus/position = Vector2(547, 100)
 transitions = ["Start", "Versus", SubResource("AnimationNodeStateMachineTransition_q03x5")]
 
 [node name="VersusScreenV2" type="CanvasLayer" unique_id=1477703806]
+layer = 4
+script = ExtResource("1_meiby")
 
 [node name="Control" type="Control" parent="." unique_id=1013713054]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=609962778]
-modulate = Color(1, 1, 1, 0.49019608)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture2D_meiby")
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=1828222526]
 visible = false
@@ -190,7 +199,17 @@ texture = ExtResource("1_g80if")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=893274923]
+[node name="Vignette" type="TextureRect" parent="Control" unique_id=609962778]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_meiby")
+
+[node name="TeamsContainer" type="MarginContainer" parent="Control" unique_id=893274923]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,10 +222,10 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = -80
 theme_override_constants/margin_bottom = 64
 
-[node name="Control" type="Control" parent="Control/MarginContainer" unique_id=428540505]
+[node name="Control" type="Control" parent="Control/TeamsContainer" unique_id=428540505]
 layout_mode = 2
 
-[node name="TeamVersusCard" parent="Control/MarginContainer/Control" unique_id=530725173 instance=ExtResource("1_ejh6n")]
+[node name="TeamVersusCard" parent="Control/TeamsContainer/Control" unique_id=530725173 instance=ExtResource("1_ejh6n")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -217,7 +236,7 @@ grow_vertical = 2
 characters = Array[int]([10, 9])
 characters_teams = Array[int]([3, 3])
 
-[node name="TeamVersusCard2" parent="Control/MarginContainer/Control" unique_id=1801375878 instance=ExtResource("1_ejh6n")]
+[node name="TeamVersusCard2" parent="Control/TeamsContainer/Control" unique_id=1801375878 instance=ExtResource("1_ejh6n")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -298,7 +317,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 
 [node name="Impact" type="AudioStreamPlayer2D" parent="Control/VSContainer" unique_id=369558149]
 position = Vector2(-556, -304)
