@@ -1,7 +1,7 @@
 extends ExtendedArea3D
 
 @onready var decal: Decal = $Decal
-@export_range(0.0, 60000.0) var lifetime: float = 60000.0
+@export_range(0.0, 60000.0) var lifetime: float = 6000.0
 
 var time_elapsed: float = 0.0
 
