@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://yb7xidhwoo1n" path="res://Textures/Icons/Teams/323agents.png" id="4_5ntvh"]
 [ext_resource type="Texture2D" uid="uid://dkpu8loypyfqn" path="res://Textures/Characters/Portraits/Mayfly/Default.png" id="4_mgl5d"]
 [ext_resource type="Script" uid="uid://c3776beuekfb5" path="res://Scripts/UI/TeamIcon.gd" id="5_fwerp"]
-[ext_resource type="FontFile" uid="uid://b5gmgkqqs4yp" path="res://Fonts/Perfect Futures Italic.ttf" id="5_pi8w4"]
 [ext_resource type="Shader" uid="uid://k0bndsx2hlvt" path="res://Materials/Shaders/Outline.gdshader" id="5_vuf5l"]
 [ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="6_pi8w4"]
 [ext_resource type="RichTextEffect" uid="uid://bqyrnpkvlfsix" path="res://Prefabs/Menus/SelectPlayer/BioBold.tres" id="7_jgcva"]
+[ext_resource type="FontVariation" uid="uid://gwsiuuprt051" path="res://Fonts/Oxanium Bold Italic.tres" id="7_jxn4l"]
 [ext_resource type="FontFile" uid="uid://dmvvnx2e4kgm6" path="res://Fonts/Oxanium Bold.ttf" id="7_umlx6"]
 [ext_resource type="FontVariation" uid="uid://dlxrfvcvos53u" path="res://Fonts/Valorax Bold.tres" id="8_2pavc"]
 [ext_resource type="AudioStream" uid="uid://24sep2yo6n45" path="res://Sound/Characters/Mayfly/Taunts/Select.wav" id="11_vuf5l"]
@@ -47,7 +47,7 @@ shader_parameter/shake_block_size = 20.0
 shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="LabelSettings" id="LabelSettings_2pavc"]
-font = ExtResource("5_pi8w4")
+font = ExtResource("7_jxn4l")
 font_size = 64
 font_color = Color(0.33333334, 0.91764706, 1, 1)
 shadow_size = 15
@@ -571,6 +571,7 @@ theme_override_constants/separation = 12
 layout_mode = 2
 text = "MAYFLY"
 label_settings = SubResource("LabelSettings_2pavc")
+uppercase = true
 
 [node name="LabelTeam" type="Label" parent="InfoContainer/VBoxContainer" unique_id=1572370944]
 custom_minimum_size = Vector2(300, 0)
@@ -648,7 +649,7 @@ uppercase = true
 
 [node name="SelectTaunt" type="AudioStreamPlayer2D" parent="." unique_id=1115460979]
 stream = ExtResource("11_vuf5l")
-volume_db = 5.0
+volume_db = 7.5
 pitch_scale = 0.64
 bus = &"Characters"
 

@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://uy4iefd5n7u0"]
+
+[ext_resource type="Texture2D" uid="uid://c240bhuey8fpn" path="res://Textures/Characters/Portraits/Lance/Mugshot.png" id="1_4d1hb"]
+[ext_resource type="Texture2D" uid="uid://th22b0bsf2sr" path="res://Textures/Characters/Portraits/Hound/Mugshot.png" id="1_b6s6f"]
+[ext_resource type="Texture2D" uid="uid://bsq66oyopr3rv" path="res://Textures/Characters/Portraits/Di/Mugshot.png" id="1_by3mv"]
+[ext_resource type="Script" uid="uid://doushuvneffo7" path="res://Scripts/Menus/Versus/MugshotViewport.gd" id="1_ffity"]
+[ext_resource type="Texture2D" uid="uid://cwo7vihkfoxv2" path="res://Textures/Characters/Portraits/Zeus/Mugshot.png" id="1_fk7k8"]
+[ext_resource type="Texture2D" uid="uid://cg3be5ahd1qge" path="res://Textures/Characters/Portraits/Stab/Mugshot.png" id="1_insxi"]
+[ext_resource type="Texture2D" uid="uid://dlxs4dkux6hiv" path="res://Textures/Characters/Portraits/Mayfly/Mugshot.png" id="1_k4r6e"]
+[ext_resource type="Texture2D" uid="uid://2d5dwdlkomsq" path="res://Textures/Characters/Portraits/Slash/Mugshot.png" id="1_m3kj5"]
+[ext_resource type="Shader" uid="uid://k0bndsx2hlvt" path="res://Materials/Shaders/Outline.gdshader" id="1_nyij4"]
+[ext_resource type="Texture2D" uid="uid://cxq80owbmg8pl" path="res://Textures/Characters/Portraits/Kassey/Mugshot.png" id="1_rncnn"]
+[ext_resource type="Texture2D" uid="uid://cga2smprkdym6" path="res://Textures/Characters/Portraits/Sarge/Mugshot.png" id="1_wwa18"]
+[ext_resource type="Texture2D" uid="uid://brdmcxag04uge" path="res://Textures/Characters/Portraits/Phantom/Mugshot.png" id="2_gypxv"]
+[ext_resource type="Texture2D" uid="uid://cefwty2075ohi" path="res://Textures/Characters/Portraits/Talbot/Mugshot.png" id="3_1eakq"]
+[ext_resource type="Texture2D" uid="uid://c7f0x08t3ihli" path="res://Textures/Characters/Portraits/Duke/Mugshot.png" id="4_fif1a"]
+
+[sub_resource type="Gradient" id="Gradient_pyavt"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80rx8"]
+gradient = SubResource("Gradient_pyavt")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.8)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5cjfe"]
+resource_local_to_scene = true
+shader = ExtResource("1_nyij4")
+shader_parameter/mask = SubResource("GradientTexture2D_80rx8")
+shader_parameter/thickness = 15.0000007125
+shader_parameter/ring_count = 1
+shader_parameter/ring_offset = 0.999999977648
+shader_parameter/outline_color = Color(0, 0, 0, 0.39215687)
+shader_parameter/border_clipping_fix = false
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, -15)
+shader_parameter/max_or_add = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b6s6f"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_gypxv"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.024822712, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1eakq"]
+gradient = SubResource("Gradient_gypxv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="MugshotViewport" type="TextureRect" unique_id=97121399]
+material = SubResource("ShaderMaterial_5cjfe")
+offset_right = 716.0
+offset_bottom = 486.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_b6s6f")
+script = ExtResource("1_ffity")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1087299812]
+transparent_bg = true
+size = Vector2i(716, 486)
+
+[node name="Control" type="Control" parent="SubViewport" unique_id=1884432680]
+custom_minimum_size = Vector2(640, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 648.0
+pivot_offset_ratio = Vector2(0.5, 0)
+
+[node name="Hound" type="TextureRect" parent="SubViewport/Control" unique_id=1571218688]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = 56.260994
+offset_right = 600.3242
+offset_bottom = 56.260986
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7667819, 0.7667819)
+texture = ExtResource("1_b6s6f")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Slash" type="TextureRect" parent="SubViewport/Control" unique_id=1111343296]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = 38.260994
+offset_right = 629.3242
+offset_bottom = 38.260986
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.85404426, 0.85404426)
+texture = ExtResource("1_m3kj5")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Zeus" type="TextureRect" parent="SubViewport/Control" unique_id=1146263409]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -376.0
+offset_top = 96.26099
+offset_right = 446.32422
+offset_bottom = 96.26099
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.21109395
+scale = Vector2(0.90110147, 0.90110147)
+texture = ExtResource("1_fk7k8")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Sarge" type="TextureRect" parent="SubViewport/Control" unique_id=1366725270]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -207.0
+offset_top = 70.260994
+offset_right = 615.3242
+offset_bottom = 70.26099
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.657761, 0.657761)
+texture = ExtResource("1_wwa18")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Kassey" type="TextureRect" parent="SubViewport/Control" unique_id=1043684383]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = 74.260994
+offset_right = 663.3242
+offset_bottom = 74.26099
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.70184976, 0.70184976)
+texture = ExtResource("1_rncnn")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Stab" type="TextureRect" parent="SubViewport/Control" unique_id=57235518]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -297.0
+offset_top = 89.260994
+offset_right = 525.3242
+offset_bottom = 89.26099
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75144005, 0.75144005)
+texture = ExtResource("1_insxi")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Duke" type="TextureRect" parent="SubViewport/Control" unique_id=758114463]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -269.99997
+offset_top = 85.261
+offset_right = 608.7395
+offset_bottom = 85.26099
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6547933, 0.6547933)
+texture = ExtResource("4_fif1a")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Di" type="TextureRect" parent="SubViewport/Control" unique_id=514085840]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.00003
+offset_top = 56.260998
+offset_right = 701.3242
+offset_bottom = 56.260986
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7166544, 0.7166544)
+texture = ExtResource("1_by3mv")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Lance" type="TextureRect" parent="SubViewport/Control" unique_id=667103977]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = 78.260994
+offset_right = 698.3242
+offset_bottom = 78.26099
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6349358, 0.6349358)
+texture = ExtResource("1_4d1hb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Phantom" type="TextureRect" parent="SubViewport/Control" unique_id=192793821]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = 21.0
+offset_right = 354.38647
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.93460494, 0.93460494)
+texture = ExtResource("2_gypxv")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Mayfly" type="TextureRect" parent="SubViewport/Control" unique_id=674425380]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.00003
+offset_top = 56.260994
+offset_right = 386.38647
+offset_bottom = 56.260986
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8140149, 0.8140149)
+texture = ExtResource("1_k4r6e")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Talbot" type="TextureRect" parent="SubViewport/Control" unique_id=42103134]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -219.0
+offset_top = 29.260994
+offset_right = 464.0973
+offset_bottom = 29.260986
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7908144, 0.7908144)
+texture = ExtResource("3_1eakq")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/Control" unique_id=1245240046]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 358.0
+offset_bottom = -112.09003
+grow_vertical = 2
+color = Color(0, 0.41568628, 1, 0.49019608)
+
+[node name="Headshot" type="ColorRect" parent="SubViewport/Control" unique_id=2121236186]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = -171.00002
+offset_right = 59.0
+offset_bottom = -131.00002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.2400072, 3.2400072)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(1, 0.4666667, 0, 0.4392157)
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/Control/Headshot" unique_id=1936185144]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_1eakq")
+expand_mode = 1
+stretch_mode = 4

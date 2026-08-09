@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cvl62u5imifu2"]
+[gd_scene format=3 uid="uid://cvl62u5imifu2"]
 
 [ext_resource type="Shader" uid="uid://b4o2fauv7bvey" path="res://Materials/Shaders/Thermal.gdshader" id="1_s5arm"]
 [ext_resource type="Script" uid="uid://cub56m841dw1x" path="res://Scripts/Menus/Versus/VersusScreenController.gd" id="1_ul0yp"]
@@ -17,13 +17,13 @@
 colors = PackedColorArray(0, 0, 0, 1, 0.439216, 0.541176, 1, 1)
 metadata/_snap_enabled = true
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qopbe"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0gxbu"]
 gradient = SubResource("Gradient_iqqcg")
 metadata/_snap_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bmex7"]
 shader = ExtResource("1_s5arm")
-shader_parameter/gradient = SubResource("GradientTexture2D_qopbe")
+shader_parameter/gradient = SubResource("GradientTexture2D_0gxbu")
 shader_parameter/use_screen_texture = true
 shader_parameter/use_screen_uv = false
 
@@ -31,9 +31,9 @@ shader_parameter/use_screen_uv = false
 noise_type = 3
 frequency = 0.023
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_06kd2"]
-seamless = true
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ypkns"]
 noise = SubResource("FastNoiseLite_t14vm")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_06kd2"]
 shader = ExtResource("4_t14vm")
@@ -45,17 +45,17 @@ shader_parameter/filter_magnitude = 1.0
 shader_parameter/filter_minv = 0.0
 shader_parameter/cut_inner_radius = 0.0
 shader_parameter/color = Color(0.576471, 0, 0.870588, 1)
-shader_parameter/NOISE = SubResource("NoiseTexture2D_06kd2")
+shader_parameter/NOISE = SubResource("NoiseTexture2D_ypkns")
 shader_parameter/NOISE_speed = Vector2(0, 0.1)
 shader_parameter/NOISE_magnitude = 0.39
 
-[sub_resource type="Gradient" id="Gradient_qliqg"]
+[sub_resource type="Gradient" id="Gradient_xnyxp"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0vwxq"]
-gradient = SubResource("Gradient_qliqg")
+gradient = SubResource("Gradient_xnyxp")
 
 [sub_resource type="Animation" id="Animation_gvbsg"]
 resource_name = "Announce"
@@ -243,13 +243,13 @@ states/Announce/node = SubResource("AnimationNodeAnimation_0gxbu")
 states/Announce/position = Vector2(408, 100)
 transitions = ["Start", "Announce", SubResource("AnimationNodeStateMachineTransition_ypkns")]
 
-[node name="VersusScreen" type="CanvasLayer"]
+[node name="VersusScreen" type="CanvasLayer" unique_id=164564605]
 layer = 4
 script = ExtResource("1_ul0yp")
 player_card_left = ExtResource("3_0jpgm")
 player_card_right = ExtResource("5_ul0yp")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1985309106]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,7 +257,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelSplash" type="ColorRect" parent="Control"]
+[node name="LevelSplash" type="ColorRect" parent="Control" unique_id=715085977]
 material = SubResource("ShaderMaterial_bmex7")
 layout_mode = 1
 anchors_preset = 15
@@ -267,7 +267,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_0gxbu")
 
-[node name="LevelSplashDebug" type="ColorRect" parent="Control"]
+[node name="LevelSplashDebug" type="ColorRect" parent="Control" unique_id=1863432506]
 material = SubResource("ShaderMaterial_bmex7")
 layout_mode = 1
 anchors_preset = 15
@@ -278,7 +278,7 @@ grow_vertical = 2
 script = ExtResource("6_0gxbu")
 texture = ExtResource("2_5f5ga")
 
-[node name="VSContainer" type="Control" parent="Control"]
+[node name="VSContainer" type="Control" parent="Control" unique_id=888065059]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -288,13 +288,13 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Impact" type="AudioStreamPlayer2D" parent="Control/VSContainer"]
+[node name="Impact" type="AudioStreamPlayer2D" parent="Control/VSContainer" unique_id=312848727]
 position = Vector2(-556, -304)
 stream = ExtResource("8_1sq3t")
 volume_db = 5.0
 bus = &"Effects"
 
-[node name="Rect" type="ColorRect" parent="Control/VSContainer"]
+[node name="Rect" type="ColorRect" parent="Control/VSContainer" unique_id=104167124]
 material = SubResource("ShaderMaterial_06kd2")
 custom_minimum_size = Vector2(1000, 1000)
 layout_mode = 1
@@ -311,7 +311,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.639216)
 
-[node name="VS" type="TextureRect" parent="Control/VSContainer"]
+[node name="VS" type="TextureRect" parent="Control/VSContainer" unique_id=109092612]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -328,7 +328,7 @@ pivot_offset = Vector2(123, 120)
 texture = ExtResource("3_5f5ga")
 expand_mode = 1
 
-[node name="Vignette" type="TextureRect" parent="Control"]
+[node name="Vignette" type="TextureRect" parent="Control" unique_id=1357591849]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -337,7 +337,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_0vwxq")
 
-[node name="White Glow" type="ColorRect" parent="Control"]
+[node name="White Glow" type="ColorRect" parent="Control" unique_id=1256404346]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -346,7 +346,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TeamLeft" type="VBoxContainer" parent="Control"]
+[node name="TeamLeft" type="VBoxContainer" parent="Control" unique_id=850923674]
 custom_minimum_size = Vector2(0, 1500)
 layout_mode = 1
 anchors_preset = 4
@@ -362,7 +362,7 @@ pivot_offset = Vector2(0, 750)
 theme_override_constants/separation = -46
 alignment = 1
 
-[node name="TeamRight" type="VBoxContainer" parent="Control"]
+[node name="TeamRight" type="VBoxContainer" parent="Control" unique_id=399547549]
 custom_minimum_size = Vector2(0, 1500)
 layout_mode = 1
 anchors_preset = 6
@@ -381,7 +381,7 @@ pivot_offset = Vector2(0, 750)
 theme_override_constants/separation = -46
 alignment = 1
 
-[node name="TeamLeftDebug" type="VBoxContainer" parent="Control"]
+[node name="TeamLeftDebug" type="VBoxContainer" parent="Control" unique_id=186363894]
 custom_minimum_size = Vector2(0, 1500)
 layout_mode = 1
 anchors_preset = 4
@@ -397,18 +397,12 @@ pivot_offset = Vector2(0, 750)
 theme_override_constants/separation = -46
 alignment = 1
 
-[node name="PlayerCardLeft" parent="Control/TeamLeftDebug" instance=ExtResource("3_0jpgm")]
+[node name="PlayerCardLeft" parent="Control/TeamLeftDebug" unique_id=1968709674 instance=ExtResource("3_0jpgm")]
 layout_mode = 2
 player_name = "Slash"
 avatar = ExtResource("7_0jpgm")
 
-[node name="Control" parent="Control/TeamLeftDebug/PlayerCardLeft" index="0"]
-offset_left = -500.0
-offset_top = 0.0
-offset_right = -500.0
-offset_bottom = 0.0
-
-[node name="TeamRightDebug" type="VBoxContainer" parent="Control"]
+[node name="TeamRightDebug" type="VBoxContainer" parent="Control" unique_id=1280623653]
 custom_minimum_size = Vector2(0, 1500)
 layout_mode = 1
 anchors_preset = 6
@@ -427,29 +421,21 @@ pivot_offset = Vector2(0, 750)
 theme_override_constants/separation = -46
 alignment = 1
 
-[node name="PlayerCardRight" parent="Control/TeamRightDebug" instance=ExtResource("5_ul0yp")]
+[node name="PlayerCardRight" parent="Control/TeamRightDebug" unique_id=1443702539 instance=ExtResource("5_ul0yp")]
 layout_mode = 2
 player_name = "Mayfly"
 avatar = ExtResource("9_ypkns")
 team = 3
 
-[node name="Control" parent="Control/TeamRightDebug/PlayerCardRight" index="0"]
-offset_left = 500.0
-offset_top = 0.0
-offset_right = 500.0
-offset_bottom = 0.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=667429395]
+libraries/ = SubResource("AnimationLibrary_hkfw4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
-libraries = {
-&"": SubResource("AnimationLibrary_hkfw4")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="Control"]
+[node name="AnimationTree" type="AnimationTree" parent="Control" unique_id=1809900727]
 callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeStateMachine_xnyxp")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="OST" type="AudioStreamPlayer2D" parent="."]
+[node name="OST" type="AudioStreamPlayer2D" parent="." unique_id=1292804634]
 stream = ExtResource("10_sj6li")
 bus = &"Menus"
 

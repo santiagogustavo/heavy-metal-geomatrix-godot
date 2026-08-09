@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://xbtcngrxpkb7"]
+
+[ext_resource type="FontVariation" uid="uid://di5l671jloxoe" path="res://Fonts/Oxanium ExtraBold Italic.tres" id="2_gmmuq"]
+[ext_resource type="FontVariation" uid="uid://gwsiuuprt051" path="res://Fonts/Oxanium Bold Italic.tres" id="2_jnwqy"]
+[ext_resource type="Script" uid="uid://dd6c8c64r36s2" path="res://Scripts/Menus/Versus/CharacterNameLabel.gd" id="2_ohour"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4mdry"]
+font = ExtResource("2_gmmuq")
+font_size = 48
+font_color = Color(0.33333334, 0.91764706, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_522lr"]
+font = ExtResource("2_jnwqy")
+font_size = 24
+font_color = Color(0.32941177, 1, 0.7647059, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="CharacterName" type="Control" unique_id=1321711274]
+z_index = 98
+custom_minimum_size = Vector2(157, 71)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 157.0
+offset_bottom = 71.0
+pivot_offset_ratio = Vector2(0.5, 0)
+script = ExtResource("2_ohour")
+
+[node name="Label" type="Label" parent="." unique_id=2146534117]
+layout_mode = 1
+offset_right = 182.0
+offset_bottom = 49.0
+text = "MAYFLY"
+label_settings = SubResource("LabelSettings_4mdry")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="PlayerTag" type="Label" parent="Label" unique_id=1547124746]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.5
+offset_top = -3.0
+offset_right = -1.5
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Player 1"
+label_settings = SubResource("LabelSettings_522lr")
+horizontal_alignment = 2
+uppercase = true

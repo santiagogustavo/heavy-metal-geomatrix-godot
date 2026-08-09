@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ods3yn7i2453"]
+
+[ext_resource type="Script" uid="uid://c3aooj0upkdap" path="res://Scripts/Menus/Versus/TeamVersusCard.gd" id="1_pyavt"]
+[ext_resource type="PackedScene" uid="uid://dg3w8pbpj1mx1" path="res://Prefabs/Menus/Versus/PlayerVersusCard.tscn" id="2_b1kqy"]
+[ext_resource type="PackedScene" uid="uid://xbtcngrxpkb7" path="res://Prefabs/Menus/Versus/CharacterNameLabel.tscn" id="3_pyavt"]
+
+[node name="TeamVersusCard" type="Control" unique_id=530725173]
+custom_minimum_size = Vector2(716, 536)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 716.0
+offset_bottom = 536.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_pyavt")
+characters = Array[int]([10, 3])
+characters_teams = Array[int]([3, 1])
+
+[node name="DebugContainer" type="HBoxContainer" parent="." unique_id=285998055]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -600
+alignment = 1
+
+[node name="PlayerVersusCard" parent="DebugContainer" unique_id=709661726 instance=ExtResource("2_b1kqy")]
+layout_mode = 2
+
+[node name="PlayerVersusCard2" parent="DebugContainer" unique_id=1095866346 instance=ExtResource("2_b1kqy")]
+layout_mode = 2
+
+[node name="DebugNamesContainer" type="HBoxContainer" parent="." unique_id=678135379]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -71.0
+offset_right = 167.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="CharacterName" parent="DebugNamesContainer" unique_id=1269314896 instance=ExtResource("3_pyavt")]
+layout_mode = 2
+
+[node name="Label" parent="DebugNamesContainer/CharacterName" index="0" unique_id=2146534117]
+offset_top = -10.0
+offset_bottom = -10.0
+scale = Vector2(0.9, 0.9)
+
+[node name="CharacterName2" parent="DebugNamesContainer" unique_id=1557025107 instance=ExtResource("3_pyavt")]
+layout_mode = 2
+character = 3
+
+[node name="PlayerVersusCards" type="HBoxContainer" parent="." unique_id=2136988621]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -600
+
+[node name="PlayerNameCards" type="HBoxContainer" parent="." unique_id=1620410762]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -40.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+alignment = 1
+
+[editable path="DebugNamesContainer/CharacterName"]

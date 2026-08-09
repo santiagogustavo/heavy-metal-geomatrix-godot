@@ -1,0 +1,344 @@
+[gd_scene format=3 uid="uid://m81ov7of2to1"]
+
+[ext_resource type="Texture2D" uid="uid://ck3nfobqxvs0c" path="res://Textures/Levels/Splashes/PitchDarkStadium.png" id="1_0u6kc"]
+[ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="1_3kmqm"]
+[ext_resource type="Shader" uid="uid://3hc3nx3f8f4b" path="res://Materials/Shaders/Transitions/HexTransition.gdshader" id="1_d22on"]
+[ext_resource type="Script" uid="uid://cjnu8cfu2542q" path="res://Scripts/Menus/MatchEndScreen/MatchEndScreen.gd" id="1_pfie0"]
+[ext_resource type="Script" uid="uid://ccothkrd5rmml" path="res://Scripts/Utils/ViewportResolutionController.gd" id="1_pgnds"]
+[ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="2_stl4u"]
+[ext_resource type="FontVariation" uid="uid://di5l671jloxoe" path="res://Fonts/Oxanium ExtraBold Italic.tres" id="4_55yd4"]
+[ext_resource type="PackedScene" uid="uid://bgl5hu5vx840g" path="res://Prefabs/Menus/SelectArena/RegisteredPlayerCard.tscn" id="4_d0y3q"]
+[ext_resource type="FontFile" uid="uid://dmvvnx2e4kgm6" path="res://Fonts/Oxanium Bold.ttf" id="6_d0y3q"]
+[ext_resource type="FontVariation" uid="uid://gwsiuuprt051" path="res://Fonts/Oxanium Bold Italic.tres" id="7_0u6kc"]
+[ext_resource type="PackedScene" uid="uid://4tfkpbq1bur8" path="res://Prefabs/UI/InputInstruction.tscn" id="10_d22on"]
+[ext_resource type="AudioStream" uid="uid://dur2jfph1faay" path="res://Sound/Characters/Mayfly/Taunts/Win.wav" id="12_6pw5f"]
+[ext_resource type="AudioStream" uid="uid://dheiicvawvtyy" path="res://Sound/Characters/Mayfly/Taunts/Lose.wav" id="13_0l8i4"]
+
+[sub_resource type="Gradient" id="Gradient_pgnds"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d22on"]
+gradient = SubResource("Gradient_pgnds")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pgnds"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pw5f"]
+resource_local_to_scene = true
+shader = ExtResource("1_d22on")
+shader_parameter/from_tex = SubResource("GradientTexture1D_d22on")
+shader_parameter/to_tex = SubResource("ViewportTexture_pgnds")
+shader_parameter/progress = 0.0
+shader_parameter/hex_size = 0.08
+shader_parameter/randomness = 0.05
+shader_parameter/edge_softness = 0.01
+shader_parameter/transition_speed = 0.3
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfufc"]
+font = ExtResource("1_3kmqm")
+font_size = 18
+font_color = Color(0.32999998, 1, 0.76550007, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0u6kc"]
+font = ExtResource("4_55yd4")
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pgnds"]
+font = ExtResource("6_d0y3q")
+font_size = 24
+font_color = Color(0.32941177, 1, 0.7647059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d22on"]
+font = ExtResource("7_0u6kc")
+font_size = 40
+font_color = Color(1, 0.84705883, 0.29411766, 1)
+
+[sub_resource type="Animation" id="Animation_d22on"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pgnds"]
+resource_name = "ShowScreen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d22on"]
+_data = {
+&"RESET": SubResource("Animation_d22on"),
+&"ShowScreen": SubResource("Animation_pgnds")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pgnds"]
+animation = &"ShowScreen"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d22on"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6pw5f"]
+states/ShowScreen/node = SubResource("AnimationNodeAnimation_pgnds")
+states/ShowScreen/position = Vector2(552, 100)
+transitions = ["Start", "ShowScreen", SubResource("AnimationNodeStateMachineTransition_d22on")]
+
+[node name="MatchEndScreenLayer" type="CanvasLayer" unique_id=765119595]
+
+[node name="Control" type="Control" parent="." unique_id=1238925499]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="Control" unique_id=1463821254]
+material = SubResource("ShaderMaterial_6pw5f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=407841691]
+transparent_bg = true
+audio_listener_enable_2d = true
+size = Vector2i(1280, 720)
+script = ExtResource("1_pgnds")
+metadata/_custom_type_script = "uid://ccothkrd5rmml"
+
+[node name="MatchEndScreen" type="Control" parent="SubViewport" unique_id=1459697073]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pfie0")
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/MatchEndScreen" unique_id=1159911330]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0u6kc")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MatchEndScreen" unique_id=1692097629]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6862745)
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MatchEndScreen" unique_id=1782318373]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="SubViewport/MatchEndScreen/MarginContainer" unique_id=658692009]
+layout_mode = 2
+
+[node name="ModeDescription" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=1049401952]
+layout_mode = 0
+offset_right = 1120.0
+offset_bottom = 23.0
+text = "// GEOMATRIX COMBAT NETWORK
+// GAME MODE: Arcade"
+label_settings = SubResource("LabelSettings_gfufc")
+script = ExtResource("2_stl4u")
+typing_time = 1.0
+start_with_random = true
+
+[node name="Status" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=647990420]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1120.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "match ended!"
+label_settings = SubResource("LabelSettings_gfufc")
+horizontal_alignment = 2
+script = ExtResource("2_stl4u")
+typing_time = 1.0
+start_with_random = true
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=1299829176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 40
+
+[node name="Control" type="Control" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer" unique_id=1859971874]
+layout_mode = 2
+
+[node name="TeamInfoContainer" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control" unique_id=1015154427]
+layout_mode = 1
+offset_right = 297.0
+offset_bottom = 87.0
+
+[node name="RegisteredPlayerCard" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer" unique_id=437543191 instance=ExtResource("4_d0y3q")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer" unique_id=2034430029]
+layout_mode = 2
+alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer/VBoxContainer" unique_id=904145036]
+modulate = Color(0.32941177, 1, 0.7647059, 1)
+layout_mode = 2
+text = "Winner"
+label_settings = SubResource("LabelSettings_0u6kc")
+uppercase = true
+
+[node name="LoserLabel" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer/VBoxContainer" unique_id=8835904]
+visible = false
+modulate = Color(0.94, 0.376, 0.376, 1)
+layout_mode = 2
+text = "Loser"
+label_settings = SubResource("LabelSettings_0u6kc")
+uppercase = true
+
+[node name="Control" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control" unique_id=1636674491]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 796.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 1)
+theme_override_constants/separation = 64
+alignment = 2
+
+[node name="ElapsedTime" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control" unique_id=921507583]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="Label" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/ElapsedTime" unique_id=26948988]
+layout_mode = 2
+size_flags_vertical = 1
+text = "> Elapsed Time"
+label_settings = SubResource("LabelSettings_pgnds")
+vertical_alignment = 2
+uppercase = true
+script = ExtResource("2_stl4u")
+start_with_random = true
+metadata/_custom_type_script = "uid://mopm23s34d2g"
+
+[node name="Value" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/ElapsedTime" unique_id=1238862334]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "00:30.011"
+label_settings = SubResource("LabelSettings_d22on")
+vertical_alignment = 2
+uppercase = true
+
+[node name="TotalTime" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control" unique_id=1638275243]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="Label" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/TotalTime" unique_id=1614685882]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "> Total Time"
+label_settings = SubResource("LabelSettings_pgnds")
+vertical_alignment = 2
+uppercase = true
+script = ExtResource("2_stl4u")
+typing_time = 1.0
+start_with_random = true
+metadata/_custom_type_script = "uid://mopm23s34d2g"
+
+[node name="Value" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/TotalTime" unique_id=1992124678]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "01:67.230"
+label_settings = SubResource("LabelSettings_d22on")
+vertical_alignment = 2
+uppercase = true
+
+[node name="Controls" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=224361985]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="InputInstruction" parent="SubViewport/MatchEndScreen/MarginContainer/Control/Controls" unique_id=1975978946 instance=ExtResource("10_d22on")]
+layout_mode = 2
+actions = Array[int]([0])
+
+[node name="TauntWin" type="AudioStreamPlayer2D" parent="SubViewport/MatchEndScreen" unique_id=245423532]
+stream = ExtResource("12_6pw5f")
+volume_db = 3.0
+bus = &"Characters"
+
+[node name="TauntLose" type="AudioStreamPlayer2D" parent="SubViewport/MatchEndScreen" unique_id=2028628142]
+stream = ExtResource("13_0l8i4")
+volume_db = 3.0
+bus = &"Characters"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=301810878]
+root_node = NodePath("../Control")
+libraries/ = SubResource("AnimationLibrary_d22on")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=729582374]
+root_node = NodePath("../Control")
+tree_root = SubResource("AnimationNodeStateMachine_6pw5f")
+anim_player = NodePath("../AnimationPlayer")

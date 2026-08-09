@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://b0g425uqwp6ck"]
+
+[ext_resource type="Texture2D" uid="uid://dvmqgsj3yqrof" path="res://Textures/Menus/SelectArena/V2/player_card_outline.png" id="1_2rqdf"]
+[ext_resource type="Script" uid="uid://c2h44s2gxm6bw" path="res://Scripts/Menus/Versus/VersusArenaCard.gd" id="1_pjqhv"]
+[ext_resource type="Shader" uid="uid://bwdk5nymy6541" path="res://Materials/UI/MaskedTexture.tres" id="2_pjqhv"]
+[ext_resource type="Texture2D" uid="uid://dtrw8bmy4ccgo" path="res://Textures/Menus/SelectArena/V2/player_card_mask.png" id="3_afiht"]
+[ext_resource type="Texture2D" uid="uid://dkhqjy48d5rgn" path="res://Textures/Menus/SelectPlayer/bf365546.png" id="4_gjbj2"]
+[ext_resource type="Texture2D" uid="uid://lcpilebggc0c" path="res://Textures/Levels/Splashes/RedHotShrineDay/splash_small.png" id="5_2rqdf"]
+[ext_resource type="Shader" uid="uid://dmuoj36w2v5t8" path="res://Materials/Shaders/Skew.gdshader" id="6_afiht"]
+[ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="6_iq2ii"]
+[ext_resource type="FontVariation" uid="uid://di5l671jloxoe" path="res://Fonts/Oxanium ExtraBold Italic.tres" id="7_s3pfj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksg6n"]
+shader = ExtResource("2_pjqhv")
+shader_parameter/Mask = ExtResource("3_afiht")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjbj2"]
+shader = ExtResource("6_afiht")
+shader_parameter/skew_x = 0.5
+shader_parameter/skew_y = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_laq04"]
+shader = ExtResource("6_iq2ii")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Scale = 134.22800637583
+shader_parameter/Color_Weight = 0.5
+shader_parameter/Opacity = 0.47600002261
+shader_parameter/Mask = ExtResource("3_afiht")
+
+[sub_resource type="Gradient" id="Gradient_att47"]
+colors = PackedColorArray(0, 0, 0, 0.80784315, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0u0h5"]
+gradient = SubResource("Gradient_att47")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_nimcx"]
+font = ExtResource("7_s3pfj")
+font_size = 12
+font_color = Color(0.32941177, 1, 0.7647059, 1)
+
+[node name="VersusArenaCard" type="Control" unique_id=1261616692]
+custom_minimum_size = Vector2(222, 146)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -930.0
+offset_bottom = -502.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pjqhv")
+
+[node name="Outline" type="TextureRect" parent="." unique_id=1507487000]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+offset_right = 222.0
+offset_bottom = 146.0
+texture = ExtResource("1_2rqdf")
+
+[node name="BG" type="TextureRect" parent="Outline" unique_id=1410222961]
+show_behind_parent = true
+clip_children = 2
+material = SubResource("ShaderMaterial_ksg6n")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_gjbj2")
+expand_mode = 1
+
+[node name="Splash" type="TextureRect" parent="Outline/BG" unique_id=558009041]
+material = SubResource("ShaderMaterial_gjbj2")
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_2rqdf")
+expand_mode = 1
+
+[node name="Static" type="ColorRect" parent="Outline/BG" unique_id=1666644258]
+material = SubResource("ShaderMaterial_laq04")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="TextureRect" parent="Outline/BG" unique_id=1451504968]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0u0h5")
+
+[node name="Label" type="Label" parent="Outline/BG" unique_id=2014160606]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -34.0
+offset_right = 54.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Red Hot Shrine Day"
+label_settings = SubResource("LabelSettings_nimcx")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+uppercase = true

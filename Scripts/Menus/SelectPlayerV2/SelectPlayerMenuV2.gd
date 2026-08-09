@@ -21,7 +21,6 @@ var redirect_to_scene: NodePath
 func _ready() -> void:
 	redirect_to_scene = "res://Scenes/SelectArenaV2.tscn"
 	grid_container_example.queue_free()
-	SceneManager.persist_node(ost)
 	instantiate_player_cards()
 
 func _process(_delta: float) -> void:
@@ -38,6 +37,8 @@ func instantiate_player_cards() -> void:
 		var current_character: CharacterController = (
 			load(Definitions.Players[character_key]) as PackedScene
 		).instantiate()
+		if current_character.is_hidden:
+			break
 		current_character_player_card.character_portrait = current_character.portrait_small
 		current_character_player_card.selected.connect(func (): 
 			handle_selected_player_character(character_key, current_character.current_skin)
@@ -78,6 +79,7 @@ func handle_selected_player_character(character: Definitions.Characters, skin: i
 	status_label.play_effect()
 	GameManager.create_player_one(character, skin)
 	GameManager.create_bot()
+	SceneManager.persist_node(ost)
 	SceneManager.persist_node(select_taunt)
 	get_tree().create_timer(1.0).timeout.connect(func ():
 		SceneManager.load_scene_file(redirect_to_scene)

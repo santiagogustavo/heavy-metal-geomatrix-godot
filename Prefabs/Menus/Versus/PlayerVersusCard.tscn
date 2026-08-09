@@ -1,0 +1,329 @@
+[gd_scene format=3 uid="uid://dg3w8pbpj1mx1"]
+
+[ext_resource type="Script" uid="uid://ctl4gvksvdoi" path="res://Scripts/Menus/Versus/PlayerVersusCard.gd" id="1_aigbs"]
+[ext_resource type="Shader" uid="uid://k0bndsx2hlvt" path="res://Materials/Shaders/Outline.gdshader" id="1_j6myt"]
+[ext_resource type="PackedScene" uid="uid://uy4iefd5n7u0" path="res://Prefabs/Menus/Versus/MugshotViewport.tscn" id="3_aigbs"]
+[ext_resource type="PackedScene" uid="uid://xbtcngrxpkb7" path="res://Prefabs/Menus/Versus/CharacterNameLabel.tscn" id="4_bcwxe"]
+[ext_resource type="Texture2D" uid="uid://yb7xidhwoo1n" path="res://Textures/Icons/Teams/323agents.png" id="5_ggk04"]
+[ext_resource type="Script" uid="uid://c3776beuekfb5" path="res://Scripts/UI/TeamIcon.gd" id="6_4l0mj"]
+
+[sub_resource type="Gradient" id="Gradient_pyavt"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80rx8"]
+gradient = SubResource("Gradient_pyavt")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.8)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtyhj"]
+resource_local_to_scene = true
+shader = ExtResource("1_j6myt")
+shader_parameter/mask = SubResource("GradientTexture2D_80rx8")
+shader_parameter/thickness = 15.0000007125
+shader_parameter/ring_count = 1
+shader_parameter/ring_offset = 0.999999977648
+shader_parameter/outline_color = Color(0, 0, 0, 0.39215687)
+shader_parameter/border_clipping_fix = false
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, -15)
+shader_parameter/max_or_add = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4mdry"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_ggk04"]
+offsets = PackedFloat32Array(0, 0.4)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4l0mj"]
+gradient = SubResource("Gradient_ggk04")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_pyavt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Portrait:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Portrait:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Portrait/CharacterName:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_80rx8"]
+resource_name = "ShowLeft"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-250, 0), Vector2(-50, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Portrait:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Portrait:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Portrait/CharacterName:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j6myt"]
+resource_name = "ShowRight"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(250, 0), Vector2(50, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Portrait:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1.1, 1.1), Vector2(-1, 1), Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Portrait:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Portrait/CharacterName:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_223uy"]
+_data = {
+&"RESET": SubResource("Animation_pyavt"),
+&"ShowLeft": SubResource("Animation_80rx8"),
+&"ShowRight": SubResource("Animation_j6myt")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aigbs"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bcwxe"]
+animation = &"ShowLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ln6ry"]
+animation = &"ShowRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ggk04"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4l0mj"]
+advance_mode = 2
+advance_condition = &"is_left"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rtyhj"]
+advance_mode = 2
+advance_condition = &"is_right"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_aigbs"]
+states/RESET/node = SubResource("AnimationNodeAnimation_aigbs")
+states/RESET/position = Vector2(523, 100)
+states/ShowLeft/node = SubResource("AnimationNodeAnimation_bcwxe")
+states/ShowLeft/position = Vector2(376, -13)
+states/ShowRight/node = SubResource("AnimationNodeAnimation_ln6ry")
+states/ShowRight/position = Vector2(660, -13)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_ggk04"), "RESET", "ShowLeft", SubResource("AnimationNodeStateMachineTransition_4l0mj"), "RESET", "ShowRight", SubResource("AnimationNodeStateMachineTransition_rtyhj")]
+graph_offset = Vector2(-7, -61)
+
+[node name="PlayerVersusCard" type="Control" unique_id=709661726]
+custom_minimum_size = Vector2(716, 486)
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 716.0
+offset_bottom = -162.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_aigbs")
+
+[node name="Pivot" type="Control" parent="." unique_id=988790048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Portrait" parent="Pivot" unique_id=97121399 instance=ExtResource("3_aigbs")]
+material = SubResource("ShaderMaterial_rtyhj")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.0
+offset_top = -486.0
+offset_right = 358.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("ViewportTexture_4mdry")
+
+[node name="CharacterName" parent="Pivot/Portrait" unique_id=1321711274 instance=ExtResource("4_bcwxe")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -71.0
+offset_right = 48.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BG Fade" type="TextureRect" parent="Pivot/Portrait" unique_id=1880428039]
+modulate = Color(1, 1, 1, 0.78431374)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4l0mj")
+expand_mode = 5
+
+[node name="TeamIcon" type="TextureRect" parent="Pivot/Portrait" unique_id=1988416851]
+modulate = Color(0.32999998, 0.9218333, 1, 0.29411766)
+show_behind_parent = true
+z_index = -20
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_ggk04")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("6_4l0mj")
+metadata/_custom_type_script = "uid://c3776beuekfb5"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1338616738]
+libraries/ = SubResource("AnimationLibrary_223uy")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=349565729]
+callback_mode_discrete = 0
+tree_root = SubResource("AnimationNodeStateMachine_aigbs")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_left = false
+parameters/conditions/is_right = false
