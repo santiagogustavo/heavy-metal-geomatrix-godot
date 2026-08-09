@@ -2,7 +2,7 @@ extends Node3D
 
 @export var decals: Array[Decal]
 @export var color: Color
-@export_range(0.0, 300.0) var lifetime: float = 300.0
+@export_range(0.0, 60000.0) var lifetime: float = 6000.0
 
 var selected: Decal
 var time_elapsed: float = 0.0

@@ -35,6 +35,10 @@ var round_status: RoundStatus = RoundStatus.Idle
 var is_final_round: bool = false
 var is_player_input_locked: bool = true
 var is_ongoing: bool = false
+var has_started: bool = false
+var has_ended: bool = false
+
+var round_start_time: float = 0.0
 
 func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -52,6 +56,7 @@ func _ready() -> void:
 			start_round()
 	)
 	started.emit()
+	has_started = true
 
 func _process(_delta: float) -> void:
 	is_ongoing = round_status == RoundStatus.Started
@@ -64,8 +69,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func finish_and_show_results():
 	ended.emit()
-	var redirect_to_scene = "res://Scenes/MainMenu.tscn"
-	SceneManager.load_scene_file(redirect_to_scene)
+	has_ended = true
+	var match_end_screen: CanvasLayer = load(
+		"res://Prefabs/Menus/MatchEndScreen.tscn"
+	).instantiate()
+	get_tree().root.add_child(match_end_screen)
 
 # Round management
 func can_start_round() -> bool:
@@ -80,6 +88,7 @@ func start_round() -> bool:
 	current_round += 1
 	is_final_round = current_round == (rounds * 2) - 1
 	is_player_input_locked = true
+	round_start_time = Time.get_unix_time_from_system()
 	round_start.emit()
 	announcer.announce_round()
 	announcer.rounds_manager.current_round = current_round
@@ -101,7 +110,7 @@ func end_round(timeout: bool = false) -> bool:
 	else:
 		announcer.end_round_ko()
 	round_end.emit()
-	total_time += time - timer.time_left
+	total_time += Time.get_unix_time_from_system() - round_start_time
 	timer.stop()
 	round_status = RoundStatus.Ended
 	is_player_input_locked = true

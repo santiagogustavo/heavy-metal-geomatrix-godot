@@ -19,6 +19,9 @@ func _process(delta: float) -> void:
 		decal.modulate.a = lerpf(decal.modulate.a, 0.0, ratio)
 
 func handle_hitbox_mud_splash(body: Node3D, _point: Vector3, _normal: Vector3) -> void:
+	if !decal:
+		return
 	var decal_instance = decal.duplicate()
 	decal_instance.visible = true
+	decal_instance.scale = decal_instance.scale / body.scale
 	body.add_child(decal_instance)

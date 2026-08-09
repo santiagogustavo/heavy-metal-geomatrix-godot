@@ -20,6 +20,9 @@ signal block
 @export var mugshot: Texture2D
 @export var mugshot_small: Texture2D
 @export var select_taunt: AudioStream
+@export var win_taunt: AudioStream
+@export var lose_taunt: AudioStream
+@export var is_hidden: bool = false
 
 @export_subgroup("Stats")
 @export_range(1, 3) var stat_speed: int = 1

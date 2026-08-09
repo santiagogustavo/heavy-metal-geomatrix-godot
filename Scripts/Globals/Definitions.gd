@@ -65,7 +65,7 @@ enum Characters {
 	Phantom,
 	Mayfly,
 	Talbot,
-	#Pufferson,
+	Pufferson,
 }
 
 enum Arenas {
@@ -97,7 +97,7 @@ const CharacterNames: Dictionary = {
 	Characters.Phantom: "Phantom",
 	Characters.Mayfly: "Mayfly",
 	Characters.Talbot: "Talbot",
-	#Characters.Pufferson: "Pufferson",
+	Characters.Pufferson: "Pufferson",
 }
 
 const ArenaNames: Dictionary = {
@@ -127,7 +127,7 @@ const Players: Dictionary = {
 	Characters.Phantom: "res://Prefabs/Characters/Phantom/Base.tscn",
 	Characters.Mayfly: "res://Prefabs/Characters/Mayfly/Base.tscn",
 	Characters.Talbot: "res://Prefabs/Characters/Talbot/Base.tscn",
-	#Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn",
+	Characters.Pufferson: "res://Prefabs/Characters/Pufferson/Base.tscn",
 }
 
 const ArenaScenes: Dictionary = {

@@ -121,6 +121,15 @@ func get_player_one() -> Player:
 			return team.players[index]
 	return null
 
+func get_player_one_team() -> Array[Player]:
+	var player_one: Player = get_player_one()
+	if !player_one:
+		return []
+	else:
+		var p1_team_name: String = player_one.team.name
+		var filtered_teams: Array[Team] = teams.filter(func (team: Team): return team.name == p1_team_name)
+		return filtered_teams[0].players if !filtered_teams.is_empty() else []
+
 func get_player(rid: RID) -> Player:
 	if !rid:
 		return null
@@ -201,6 +210,12 @@ func has_a_winner() -> bool:
 		if team.score == current_match.rounds:
 			return true
 	return false
+
+func get_winning_team() -> Team:
+	for team in teams:
+		if team.score == current_match.rounds:
+			return team
+	return null
 
 func match_round_ended() -> void:
 	var player_one: Player = get_player_one()

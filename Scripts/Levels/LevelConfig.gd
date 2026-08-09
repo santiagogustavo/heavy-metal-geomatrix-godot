@@ -43,7 +43,7 @@ func _ready() -> void:
 		get_tree().root.add_child.call_deferred(flyby_camera)
 	if !snapshot_mode and !DebugCommands.flyby_mode:
 		if !GameManager.get_player_one():
-			GameManager.create_player_one(Definitions.Characters.Lance)
+			GameManager.create_player_one(Definitions.Characters.Pufferson)
 			for i in range(spawn_bots_count):
 				GameManager.create_bot()
 		if !GameManager.current_match:
