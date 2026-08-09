@@ -1,6 +1,7 @@
 shader_type canvas_item;
 render_mode unshaded;
 
+uniform sampler2D mask : source_color;
 uniform float thickness : hint_range(0.0, 100.0);
 uniform int ring_count : hint_range(1,128) = 16;
 uniform float ring_offset : hint_range(0.0, 1.0, 0.01);
@@ -64,6 +65,7 @@ void fragment(){
 			}
 		}
 	}
-    vec3 final_color = mix(outline_color.rgb, sprite_color.rgb, sprite_color.a);
-    COLOR = vec4(final_color, clamp(alpha, 0.0, 1.0));
+    vec3 final_color = mix(outline_color.rgb, sprite_color.rgb, sprite_color.a * COLOR.a);
+	float mask_alpha = texture(mask, UV).a;
+    COLOR = vec4(final_color, clamp(alpha * mask_alpha, 0.0, 1.0));
 }

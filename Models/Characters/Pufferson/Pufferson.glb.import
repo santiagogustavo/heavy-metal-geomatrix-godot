@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Puff.Albedo": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Characters/Pufferson/Puff.tres",
+"use_external/path": "uid://dqdudwgol2lj8"
+}
+},
 "nodes": {
 "PATH:AnimationPlayer": {
 "import/skip_import": true

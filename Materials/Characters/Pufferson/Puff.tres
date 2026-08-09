@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dqdudwgol2lj8"]
+
+[ext_resource type="Texture2D" uid="uid://dycllvp3xet71" path="res://Models/Characters/Pufferson/Pufferson_Puff.png" id="1_ucthq"]
+
+[resource]
+albedo_texture = ExtResource("1_ucthq")

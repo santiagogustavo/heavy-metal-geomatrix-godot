@@ -97,6 +97,8 @@ portrait_small = ExtResource("4_32kwp")
 mugshot = ExtResource("9_0leyd")
 mugshot_small = ExtResource("10_vbopd")
 select_taunt = ExtResource("9_oatuv")
+win_taunt = ExtResource("19_orack")
+lose_taunt = ExtResource("20_32kwp")
 stat_power = 3
 stat_vitality = 3
 hitboxes = [NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Head/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/Torso/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HipR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/ShinR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/FootR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandL/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/BicepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/TricepR/Area3D"), NodePath("Model/Armature/GeneralSkeleton/Hitboxes/HandR/Area3D")]
@@ -113,7 +115,7 @@ metadata/_custom_type_script = "uid://b67p4er5pdntl"
 [node name="Model" parent="." unique_id=1356226331 instance=ExtResource("1_jkhvi")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(1356226331, 352359733) index="0" unique_id=919751800]
+[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(1356226331, 1019990898) index="0" unique_id=2085649276]
 bones/0/position = Vector3(0.8818435, 1.6230067, -0.7754213)
 bones/0/rotation = Quaternion(0.4973504, -0.50263566, 0.50263566, -0.4973504)
 bones/1/position = Vector3(0.4231528, 0.51830363, 0.8460491)
@@ -157,7 +159,7 @@ bones/32/position = Vector3(-0.7983485, 0.83979106, 0.52298415)
 bones/33/position = Vector3(-0.22362643, 0.12806007, -0.26442114)
 bones/33/rotation = Quaternion(0.86305946, -0.093278944, 0.17302284, 0.46528542)
 
-[node name="object_0" parent="Model/Armature/GeneralSkeleton" index="0" unique_id=231908756]
+[node name="object_0" parent="Model/Armature/GeneralSkeleton" index="0" unique_id=1267031379]
 visible = false
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=1748815633 instance=ExtResource("7_up418")]

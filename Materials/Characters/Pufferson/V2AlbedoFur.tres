@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ipdgk57mu04v"]
+
+[ext_resource type="Texture2D" uid="uid://bt4xo0600ljcn" path="res://Textures/Characters/Pufferson/Albedo.png" id="1_ndqw8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ndqw8"]
+noise_type = 5
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bo7nc"]
+noise = SubResource("FastNoiseLite_ndqw8")
+as_normal_map = true
+
+[resource]
+albedo_texture = ExtResource("1_ndqw8")
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = SubResource("NoiseTexture2D_bo7nc")

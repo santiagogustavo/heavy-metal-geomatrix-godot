@@ -98,6 +98,8 @@ portrait_small = ExtResource("4_w57ry")
 mugshot = ExtResource("9_o3rud")
 mugshot_small = ExtResource("10_qorpa")
 select_taunt = ExtResource("9_40a4s")
+win_taunt = ExtResource("4_lg2ry")
+lose_taunt = ExtResource("5_lg2ry")
 stat_speed = 2
 stat_power = 2
 stat_vitality = 2
@@ -115,7 +117,7 @@ metadata/_custom_type_script = "uid://b67p4er5pdntl"
 [node name="Model" parent="." unique_id=680191072 instance=ExtResource("1_1te5i")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(680191072, 1973956201) index="0" unique_id=1672886971]
+[node name="GeneralSkeleton" parent="Model/Armature" parent_id_path=PackedInt32Array(680191072, 1539803971) index="0" unique_id=1813581102]
 bones/0/position = Vector3(0.85898083, 1.5809287, -0.75531775)
 bones/0/rotation = Quaternion(-0.49735036, 0.50263566, -0.50263566, 0.49735036)
 bones/1/position = Vector3(0.41218215, 0.5048661, 0.82411444)
@@ -162,8 +164,9 @@ bones/32/rotation = Quaternion(-0.70710677, 5.3385083e-08, 5.3385083e-08, -0.707
 bones/33/position = Vector3(-0.2178287, 0.12473999, -0.25756577)
 bones/33/rotation = Quaternion(0.86305946, -0.093278944, 0.17302284, 0.4652854)
 
-[node name="object_0" parent="Model/Armature/GeneralSkeleton" index="0" unique_id=1735705166]
+[node name="object_0" parent="Model/Armature/GeneralSkeleton" index="0" unique_id=132614264]
 visible = false
+layers = 4
 
 [node name="Default" parent="Model/Armature/GeneralSkeleton" index="1" unique_id=825037339 instance=ExtResource("2_3wx6t")]
 
