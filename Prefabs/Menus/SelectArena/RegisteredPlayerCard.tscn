@@ -57,7 +57,6 @@ texture = ExtResource("1_gfstb")
 [node name="BG" type="TextureRect" parent="Outline" unique_id=1413463580]
 modulate = Color(0.32941177, 1, 0.7647059, 1)
 show_behind_parent = true
-clip_children = 2
 material = SubResource("ShaderMaterial_tpqki")
 layout_mode = 1
 anchors_preset = 15

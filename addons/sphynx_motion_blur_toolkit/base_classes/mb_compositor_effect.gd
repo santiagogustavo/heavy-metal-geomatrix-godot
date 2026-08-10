@@ -68,7 +68,7 @@ const COLOR_OUTPUT_TEXTURE_NAME : StringName = "color_output"
 
 var custom_curve_texture_rd: Texture2DRD
 
-var _properties_to_remove: Dictionary[String, bool] = {
+var _properties_to_remove: Dictionary = {
 	"needs_motion_vectors": true,
 	"needs_normal_roughness": true,
 }

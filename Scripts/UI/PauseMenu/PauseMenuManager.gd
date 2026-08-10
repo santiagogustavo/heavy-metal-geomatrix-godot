@@ -7,6 +7,7 @@ class_name PauseMenuManager
 @onready var panel: Control = $Control/Panel
 @onready var panel_animator: AnimationPlayer = $Control/Panel/AnimationPlayer
 @onready var options_menu: OptionsMenuManager = $OptionsMenu
+@onready var controls_info: Container = $Control/MarginContainer/Control/ControlsInfo
 
 # SFX
 @onready var open: AudioStreamPlayer2D = $SFX/Open
@@ -26,6 +27,7 @@ func _ready():
 	GameManager.connect("resume", close_menu)
 
 func _process(_delta: float) -> void:
+	controls_info.visible = !options_menu.is_menu_open
 	set_process_unhandled_input(!DebugMenuManager.is_menu_open and !OptionsMenuManager.is_menu_open and is_menu_open)
 
 func _unhandled_input(event: InputEvent) -> void:

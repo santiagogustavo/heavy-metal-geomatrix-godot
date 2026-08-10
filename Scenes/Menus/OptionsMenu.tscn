@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfapx23aqs1tm" path="res://Scripts/Menus/OptionsMenu/OptionsMenuManager.gd" id="1_g87nk"]
 [ext_resource type="PackedScene" uid="uid://ckmlfl5g8p20j" path="res://Scenes/Menus/SettingsTabContainer.tscn" id="2_gknca"]
+[ext_resource type="PackedScene" uid="uid://4tfkpbq1bur8" path="res://Prefabs/UI/InputInstruction.tscn" id="2_nemqh"]
 [ext_resource type="Texture2D" uid="uid://bwxcnluxv0a35" path="res://Textures/UI/Menus/Options Menu/decoration.png" id="3_u7d0s"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="4_fqhev"]
 [ext_resource type="AudioStream" uid="uid://dbyq16y3ws57u" path="res://Sound/UI/PauseMenu/750432__rescopicsound__ui-alert-menu-modern-interface-pop-up-small.mp3" id="5_nn7mr"]
@@ -91,6 +92,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=601351385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=1530295800]
+layout_mode = 2
+
+[node name="ControlsInfo" type="HBoxContainer" parent="MarginContainer/Control" unique_id=1031069837]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="InputInstruction4" parent="MarginContainer/Control/ControlsInfo" unique_id=2045836707 instance=ExtResource("2_nemqh")]
+layout_mode = 2
+actions = Array[int]([8, 7])
+
+[node name="InputInstruction" parent="MarginContainer/Control/ControlsInfo" unique_id=1975978946 instance=ExtResource("2_nemqh")]
+layout_mode = 2
+actions = Array[int]([2, 3])
+
+[node name="InputInstruction5" parent="MarginContainer/Control/ControlsInfo" unique_id=1427029160 instance=ExtResource("2_nemqh")]
+layout_mode = 2
+actions = Array[int]([4, 5])
+custom_label_translation = "ui_change"
+
+[node name="InputInstruction2" parent="MarginContainer/Control/ControlsInfo" unique_id=1279292368 instance=ExtResource("2_nemqh")]
+layout_mode = 2
+actions = Array[int]([0])
+custom_label_translation = "ui_toggle"
+
+[node name="InputInstruction3" parent="MarginContainer/Control/ControlsInfo" unique_id=644449121 instance=ExtResource("2_nemqh")]
+layout_mode = 2
+actions = Array[int]([1])
+custom_label_translation = "ui_close"
 
 [node name="Decoration" type="TextureRect" parent="." unique_id=158570479]
 layout_mode = 1

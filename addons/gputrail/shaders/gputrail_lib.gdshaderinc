@@ -4,8 +4,9 @@
 // TODO make optional
 render_mode unshaded,world_vertex_coords,cull_disabled;
 
-uniform sampler2D tex : source_color, hint_default_white;
-uniform sampler2D color_ramp : source_color, hint_default_white;
+uniform sampler2D tex : repeat_enable, source_color, hint_default_white;
+uniform vec2 uv_offset = vec2(0);
+uniform sampler2D color_ramp : repeat_disable, source_color, hint_default_white;
 uniform sampler2D curve : repeat_disable, hint_default_white;
 uniform mat4 emmission_transform = mat4(1);
 uniform int flags = 0;
@@ -96,6 +97,8 @@ void missing_parens(){}
 	} \
 	 \
 	vec2 raw_uv = base_uv; \
+	 \
+	base_uv -= uv_offset; \
 	 \
 	if(vertical_texture){ \
 		base_uv = base_uv.yx; \

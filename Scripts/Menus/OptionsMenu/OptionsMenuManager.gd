@@ -1,6 +1,7 @@
 extends Control
 class_name OptionsMenuManager
 
+signal open
 signal close
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -33,6 +34,7 @@ func _input(event: InputEvent) -> void:
 
 func open_menu() -> void:
 	is_menu_open = true
+	open.emit()
 
 func close_menu() -> void:
 	SettingsManager.save_settings()

@@ -24,10 +24,10 @@ shader_parameter/Mask = ExtResource("5_le80q")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5busm"]
 shader = ExtResource("8_ktc8t")
-shader_parameter/Color = Color(0, 0, 0, 1)
-shader_parameter/Scale = 200.0000095
-shader_parameter/Color_Weight = 0.750000035625
-shader_parameter/Opacity = 0.4690000222775
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Scale = 100.00000475
+shader_parameter/Color_Weight = 1.0
+shader_parameter/Opacity = 0.250000011875
 shader_parameter/Mask = ExtResource("5_le80q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_d8ain"]

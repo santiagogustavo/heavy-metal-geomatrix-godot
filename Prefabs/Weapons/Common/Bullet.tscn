@@ -11,36 +11,43 @@
 [ext_resource type="Script" uid="uid://bhin8aytj02s4" path="res://addons/gputrail/GPUTrail3D.gd" id="7_c46t5"]
 [ext_resource type="PackedScene" uid="uid://dqfi86eummdhp" path="res://Prefabs/Decals/BloodDecal.tscn" id="7_yh4oq"]
 [ext_resource type="Shader" uid="uid://b7d83yx144v5k" path="res://addons/gputrail/shaders/trail_draw_pass.gdshader" id="9_ma2x0"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/gputrail/defaults/texture.tres" id="10_rkhkj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1hjxn"]
 radius = 0.05
 height = 0.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rppy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqifk"]
 shader = ExtResource("4_0llqw")
 
-[sub_resource type="Curve" id="Curve_hhuuh"]
-_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
-point_count = 2
-metadata/_snap_count = 15
+[sub_resource type="Gradient" id="Gradient_fkqhy"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.847, 0.45999998, 0.8, 1, 0.7166667, 0, 0)
 metadata/_snap_enabled = true
 
-[sub_resource type="CurveTexture" id="CurveTexture_k2op2"]
-curve = SubResource("Curve_hhuuh")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a7cjw"]
+gradient = SubResource("Gradient_fkqhy")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bacuo"]
+[sub_resource type="Curve" id="Curve_8jmik"]
+bake_resolution = 16
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vvev0"]
+curve = SubResource("Curve_8jmik")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8lfk"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_ma2x0")
-shader_parameter/tex = ExtResource("10_rkhkj")
-shader_parameter/color_ramp = ExtResource("10_rkhkj")
-shader_parameter/curve = SubResource("CurveTexture_k2op2")
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_a7cjw")
+shader_parameter/curve = SubResource("CurveTexture_vvev0")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
+shader_parameter/flags = 44
 
-[sub_resource type="QuadMesh" id="QuadMesh_2gd2c"]
-material = SubResource("ShaderMaterial_bacuo")
+[sub_resource type="QuadMesh" id="QuadMesh_agqh6"]
+material = SubResource("ShaderMaterial_w8lfk")
 
 [node name="Bullet" type="RigidBody3D" unique_id=640216223]
 collision_layer = 8
@@ -68,18 +75,21 @@ visible = false
 transform = Transform3D(-1.5, 4.40457e-20, -1.31134e-07, -1.31134e-07, -6.55671e-08, 1.5, -5.73205e-15, 1.5, 6.55671e-08, -3.97047e-23, 0, 0.000448741)
 shape = SubResource("CapsuleShape3D_1hjxn")
 
-[node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=334826275]
+[node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=1037893966]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 amount = 10
 lifetime = 10.0
 explosiveness = 1.0
-fixed_fps = 0
-process_material = SubResource("ShaderMaterial_8rppy")
-draw_pass_1 = SubResource("QuadMesh_2gd2c")
+fixed_fps = 143
+process_material = SubResource("ShaderMaterial_yqifk")
+draw_pass_1 = SubResource("QuadMesh_agqh6")
 script = ExtResource("7_c46t5")
 length = 10
-color_ramp = ExtResource("10_rkhkj")
-curve = SubResource("CurveTexture_k2op2")
+length_seconds = 0.06993006993006994
+color_ramp = SubResource("GradientTexture1D_a7cjw")
+curve = SubResource("CurveTexture_vvev0")
+billboard = true
 _defaults_have_been_set = true
+metadata/_custom_type_script = "uid://bhin8aytj02s4"
 
 [editable path="Mesh"]

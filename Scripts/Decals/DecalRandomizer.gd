@@ -1,4 +1,5 @@
 extends Decal
+class_name DecalRandomizer
 
 enum RotationAxis {
 	x,

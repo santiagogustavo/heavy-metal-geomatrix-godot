@@ -1,11 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://djao4jgemsc0"]
+[gd_scene format=3 uid="uid://djao4jgemsc0"]
 
 [ext_resource type="Script" uid="uid://qedi2a3by84t" path="res://Scripts/UI/PauseMenu/PauseMenuManager.gd" id="1_14uh4"]
 [ext_resource type="Shader" uid="uid://csjnnlyg70rjj" path="res://Materials/UI/Static.tres" id="2_pxpvk"]
 [ext_resource type="FontVariation" uid="uid://brlyr5corwi28" path="res://Fonts/Maximum Impact Bold Italic.tres" id="2_yn0ir"]
+[ext_resource type="FontFile" uid="uid://d32wflp4t6gqj" path="res://Fonts/Oxanium Regular.ttf" id="3_138wg"]
 [ext_resource type="Texture2D" uid="uid://rmxp2qxw6t4k" path="res://Textures/UI/Menus/Pause Menu/decoration.png" id="3_binch"]
+[ext_resource type="Script" uid="uid://mopm23s34d2g" path="res://Scripts/UI/LabelRandomizerEffect.gd" id="4_buady"]
 [ext_resource type="FontVariation" uid="uid://clggyid4me2ei" path="res://Fonts/Maximum Impact Italic.tres" id="4_g42m2"]
 [ext_resource type="Script" uid="uid://brshwipln3iac" path="res://Scripts/UI/PauseMenu/ButtonResume.gd" id="5_1g2l3"]
+[ext_resource type="PackedScene" uid="uid://4tfkpbq1bur8" path="res://Prefabs/UI/InputInstruction.tscn" id="5_buady"]
 [ext_resource type="Script" uid="uid://54ftr5uv0bml" path="res://Scripts/UI/PauseMenu/ButtonOptions.gd" id="7_5wxh1"]
 [ext_resource type="Script" uid="uid://cvlbc57ukbvty" path="res://Scripts/UI/PauseMenu/ButtonExit.gd" id="8_hawb2"]
 [ext_resource type="Script" uid="uid://3u3w0nor6bb2" path="res://Scripts/UI/PauseMenu/MatchInfoLabel.gd" id="8_wdjjr"]
@@ -21,6 +24,11 @@ shader_parameter/Color = Color(0, 0, 0, 1)
 shader_parameter/Scale = 500.0
 shader_parameter/Color_Weight = 0.5
 shader_parameter/Opacity = 0.223
+
+[sub_resource type="LabelSettings" id="LabelSettings_heeld"]
+font = ExtResource("3_138wg")
+font_size = 18
+font_color = Color(0.32999998, 1, 0.76550007, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_uu8wp"]
 font = ExtResource("2_yn0ir")
@@ -48,6 +56,34 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 0), Vector2(1, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MarginContainer/Control/BattleNetwork")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_effect"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MarginContainer/Control/PausedLabel")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_effect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_fhtwi"]
 length = 0.001
@@ -70,13 +106,13 @@ _data = {
 &"RESET": SubResource("Animation_fhtwi")
 }
 
-[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("panel_buttons")]
+[node name="PauseMenu" type="CanvasLayer" unique_id=807755445 node_paths=PackedStringArray("panel_buttons")]
 process_mode = 3
 layer = 11
 script = ExtResource("1_14uh4")
 panel_buttons = [NodePath("Control/Panel/Decoration/Buttons/Resume/Resume"), NodePath("Control/Panel/Decoration/Buttons/Options/Options"), NodePath("Control/Panel/Decoration/Buttons/Exit/Exit")]
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=85612725]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,7 +120,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Static" type="ColorRect" parent="Control"]
+[node name="Static" type="ColorRect" parent="Control" unique_id=2038439740]
 material = SubResource("ShaderMaterial_7fk4s")
 layout_mode = 1
 anchors_preset = 15
@@ -94,7 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="BG" type="ColorRect" parent="Control"]
+[node name="BG" type="ColorRect" parent="Control" unique_id=1295961762]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,7 +139,72 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="Panel" type="Control" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=2074256459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="Control/MarginContainer" unique_id=1773958969]
+layout_mode = 2
+
+[node name="BattleNetwork" type="Label" parent="Control/MarginContainer/Control" unique_id=1658114946]
+layout_mode = 0
+offset_right = 1120.0
+offset_bottom = 63.0
+text = "// GEOMATRIX COMBAT NETWORK
+// GAME MODE: Arcade"
+label_settings = SubResource("LabelSettings_heeld")
+script = ExtResource("4_buady")
+start_with_random = true
+
+[node name="PausedLabel" type="Label" parent="Control/MarginContainer/Control" unique_id=1842466486]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1120.0
+offset_bottom = 63.0
+grow_horizontal = 0
+text = "system paused..."
+label_settings = SubResource("LabelSettings_heeld")
+horizontal_alignment = 2
+script = ExtResource("4_buady")
+start_with_random = true
+
+[node name="ControlsInfo" type="HBoxContainer" parent="Control/MarginContainer/Control" unique_id=2010984810]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="InputInstruction" parent="Control/MarginContainer/Control/ControlsInfo" unique_id=1975978946 instance=ExtResource("5_buady")]
+layout_mode = 2
+actions = Array[int]([2, 3])
+
+[node name="InputInstruction2" parent="Control/MarginContainer/Control/ControlsInfo" unique_id=714655913 instance=ExtResource("5_buady")]
+layout_mode = 2
+actions = Array[int]([0])
+
+[node name="InputInstruction3" parent="Control/MarginContainer/Control/ControlsInfo" unique_id=1074990307 instance=ExtResource("5_buady")]
+layout_mode = 2
+actions = Array[int]([1])
+custom_label_translation = "ui_close"
+
+[node name="Panel" type="Control" parent="Control" unique_id=1977582079]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,7 +213,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 324)
 
-[node name="Decoration" type="TextureRect" parent="Control/Panel"]
+[node name="Decoration" type="TextureRect" parent="Control/Panel" unique_id=2132868969]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -128,7 +229,7 @@ grow_vertical = 2
 texture = ExtResource("3_binch")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Control/Panel/Decoration"]
+[node name="Label" type="Label" parent="Control/Panel/Decoration" unique_id=913084569]
 layout_mode = 0
 offset_left = 259.5
 offset_top = -30.0
@@ -138,7 +239,7 @@ text = "Game Paused"
 label_settings = SubResource("LabelSettings_uu8wp")
 uppercase = true
 
-[node name="Buttons" type="VBoxContainer" parent="Control/Panel/Decoration"]
+[node name="Buttons" type="VBoxContainer" parent="Control/Panel/Decoration" unique_id=297971130]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,15 +254,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Resume" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons"]
+[node name="Resume" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons" unique_id=526818123]
 layout_mode = 2
 alignment = 2
 
-[node name="Resume" type="Button" parent="Control/Panel/Decoration/Buttons/Resume"]
+[node name="Resume" type="Button" parent="Control/Panel/Decoration/Buttons/Resume" unique_id=78858976]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
-theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
+theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_fonts/font = ExtResource("4_g42m2")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
@@ -170,18 +271,18 @@ text = "RESUME GAME"
 flat = true
 script = ExtResource("5_1g2l3")
 
-[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Resume"]
+[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Resume" unique_id=108320807]
 layout_mode = 2
 
-[node name="Options" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons"]
+[node name="Options" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons" unique_id=831922524]
 layout_mode = 2
 alignment = 2
 
-[node name="Options" type="Button" parent="Control/Panel/Decoration/Buttons/Options"]
+[node name="Options" type="Button" parent="Control/Panel/Decoration/Buttons/Options" unique_id=1384938803]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
-theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
+theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_fonts/font = ExtResource("4_g42m2")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
@@ -190,19 +291,19 @@ text = "OPTIONS"
 flat = true
 script = ExtResource("7_5wxh1")
 
-[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Options"]
+[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Options" unique_id=1130552803]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="Exit" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons"]
+[node name="Exit" type="HBoxContainer" parent="Control/Panel/Decoration/Buttons" unique_id=2144377760]
 layout_mode = 2
 alignment = 2
 
-[node name="Exit" type="Button" parent="Control/Panel/Decoration/Buttons/Exit"]
+[node name="Exit" type="Button" parent="Control/Panel/Decoration/Buttons/Exit" unique_id=1672726473]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
-theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 0.490196)
+theme_override_colors/font_focus_color = Color(1, 0.847059, 0.294118, 1)
+theme_override_colors/font_hover_color = Color(1, 0.847059, 0.294118, 1)
 theme_override_fonts/font = ExtResource("4_g42m2")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = SubResource("StyleBoxFlat_sgbn7")
@@ -211,11 +312,11 @@ text = "EXIT"
 flat = true
 script = ExtResource("8_hawb2")
 
-[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Exit"]
+[node name="Control" type="Control" parent="Control/Panel/Decoration/Buttons/Exit" unique_id=349743326]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="Info" type="HBoxContainer" parent="Control/Panel/Decoration"]
+[node name="Info" type="HBoxContainer" parent="Control/Panel/Decoration" unique_id=1070800719]
 custom_minimum_size = Vector2(354, 0)
 layout_mode = 0
 offset_left = 39.5
@@ -224,12 +325,12 @@ offset_right = 393.5
 offset_bottom = 215.0
 alignment = 1
 
-[node name="ModeInfo" type="Label" parent="Control/Panel/Decoration/Info"]
+[node name="ModeInfo" type="Label" parent="Control/Panel/Decoration/Info" unique_id=1919768927]
 layout_mode = 2
 text = "Arcade Mode"
 label_settings = SubResource("LabelSettings_nfhi7")
 
-[node name="MatchInfo" type="Label" parent="Control/Panel/Decoration/Info"]
+[node name="MatchInfo" type="Label" parent="Control/Panel/Decoration/Info" unique_id=359093615]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "2 Wins - 60s"
@@ -237,32 +338,30 @@ label_settings = SubResource("LabelSettings_nfhi7")
 horizontal_alignment = 2
 script = ExtResource("8_wdjjr")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Panel"]
-libraries = {
-"": SubResource("AnimationLibrary_30blp")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Panel" unique_id=1205606832]
+libraries/ = SubResource("AnimationLibrary_30blp")
 
-[node name="OptionsMenu" parent="." instance=ExtResource("13_queq0")]
+[node name="OptionsMenu" parent="." unique_id=1076890538 instance=ExtResource("13_queq0")]
 visible = false
 
-[node name="SFX" type="Control" parent="."]
+[node name="SFX" type="Control" parent="." unique_id=2126883810]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Open" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Open" type="AudioStreamPlayer2D" parent="SFX" unique_id=1853527322]
 stream = ExtResource("11_fcmb8")
 bus = &"UI"
 
-[node name="Close" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Close" type="AudioStreamPlayer2D" parent="SFX" unique_id=1551834267]
 stream = ExtResource("12_w08al")
 bus = &"UI"
 
-[node name="Entered" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Entered" type="AudioStreamPlayer2D" parent="SFX" unique_id=912420247]
 stream = ExtResource("13_2hjct")
 bus = &"UI"
 
-[node name="Selected" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Selected" type="AudioStreamPlayer2D" parent="SFX" unique_id=1491266997]
 stream = ExtResource("14_bx17c")
 bus = &"UI"

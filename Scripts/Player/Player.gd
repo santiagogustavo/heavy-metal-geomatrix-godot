@@ -247,6 +247,8 @@ func update_externals(delta: float) -> void:
 	if player_input:
 		is_locked_on = lock_on_target != -1
 		player_input.is_locked_on = is_locked_on
+		if player_ui:
+			player_ui.player_hud.input_look = player_input.input_look
 		if player_input.is_locked_on:
 			target_position = GameManager.get_enemies(team.name)[lock_on_target].global_position + Vector3(0, 1.0, 0)
 	if inventory_manager.right_hand_instance == null:

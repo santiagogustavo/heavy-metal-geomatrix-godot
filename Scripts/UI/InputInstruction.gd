@@ -9,6 +9,8 @@ enum InputAction {
 	UI_LEFT,
 	UI_RIGHT,
 	UI_CHANGE_SKIN,
+	UI_NEXT_TAB,
+	UI_PREV_TAB,
 }
 
 const InputActionKeys: Dictionary = {
@@ -18,16 +20,22 @@ const InputActionKeys: Dictionary = {
 	InputAction.UI_DOWN: "ui_down",
 	InputAction.UI_LEFT: "ui_left",
 	InputAction.UI_RIGHT: "ui_right",
-	InputAction.UI_CHANGE_SKIN: "ui_change_skin"
+	InputAction.UI_CHANGE_SKIN: "ui_change_skin",
+	InputAction.UI_NEXT_TAB: "ui_next_tab",
+	InputAction.UI_PREV_TAB: "ui_prev_tab"
 }
 
 @export var actions: Array[InputAction]
+@export var custom_label_translation: String
 @onready var label: Label = $Label
 
 func _ready() -> void:
 	for action in actions:
 		add_input_icon_rect(action, 0)
-		label.text = tr(InputActionKeys[action])
+		if custom_label_translation:
+			label.text = tr(custom_label_translation)
+		else:
+			label.text = tr(InputActionKeys[action])
 	move_child(label, get_child_count() - 1)
 
 func add_input_icon_rect(action: InputAction, event_index: int = 0) -> InputIconTextureRect:

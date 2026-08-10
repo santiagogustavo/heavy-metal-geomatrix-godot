@@ -20,14 +20,14 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_d22on"]
 gradient = SubResource("Gradient_pgnds")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xa5p2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_r5fjw"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6pw5f"]
 resource_local_to_scene = true
 shader = ExtResource("1_d22on")
 shader_parameter/from_tex = SubResource("GradientTexture1D_d22on")
-shader_parameter/to_tex = SubResource("ViewportTexture_xa5p2")
+shader_parameter/to_tex = SubResource("ViewportTexture_r5fjw")
 shader_parameter/progress = 0.0
 shader_parameter/hex_size = 0.08
 shader_parameter/randomness = 0.05
