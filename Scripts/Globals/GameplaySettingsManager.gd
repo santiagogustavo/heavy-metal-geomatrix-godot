@@ -12,6 +12,9 @@ var crosshair_color_g: float = 0
 var crosshair_color_b: float = 240
 var crosshair_color_a: float = 255
 
+var hud_sway_enabled: bool = true
+var hud_visor_effect_enabled: bool = true
+
 func set_fov(value: float) -> void:
 	fov = value
 
@@ -41,3 +44,9 @@ func set_crosshair_color_b(value: float) -> void:
 
 func set_crosshair_color_a(value: float) -> void:
 	crosshair_color_a = value
+
+func set_hud_sway_enabled(value: bool) -> void:
+	hud_sway_enabled = value
+
+func set_hud_visor_effect_enabled(value: bool) -> void:
+	hud_visor_effect_enabled = value

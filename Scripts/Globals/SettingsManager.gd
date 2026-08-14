@@ -68,6 +68,8 @@ func load_gameplay_settings():
 	GameplaySettingsManager.set_crosshair_color_g(file.get_value("gameplay", "crosshair_color_g", GameplaySettingsManager.crosshair_color_g))
 	GameplaySettingsManager.set_crosshair_color_b(file.get_value("gameplay", "crosshair_color_b", GameplaySettingsManager.crosshair_color_b))
 	GameplaySettingsManager.set_crosshair_color_a(file.get_value("gameplay", "crosshair_color_a", GameplaySettingsManager.crosshair_color_a))
+	GameplaySettingsManager.set_hud_sway_enabled(file.get_value("gameplay", "hud_sway_enabled", GameplaySettingsManager.hud_sway_enabled))
+	GameplaySettingsManager.set_hud_visor_effect_enabled(file.get_value("gameplay", "hud_visor_effect_enabled", GameplaySettingsManager.hud_visor_effect_enabled))
 
 func save_audio_settings():
 	file.set_value("audio", "master_volume", AudioSettingsManager.volumes["Master"])
@@ -108,6 +110,8 @@ func save_gameplay_settings():
 	file.set_value("gameplay", "crosshair_color_g", GameplaySettingsManager.crosshair_color_g)
 	file.set_value("gameplay", "crosshair_color_b", GameplaySettingsManager.crosshair_color_b)
 	file.set_value("gameplay", "crosshair_color_a", GameplaySettingsManager.crosshair_color_a)
-	
+	file.set_value("gameplay", "hud_sway_enabled", GameplaySettingsManager.hud_sway_enabled)
+	file.set_value("gameplay", "hud_visor_effect_enabled", GameplaySettingsManager.hud_visor_effect_enabled)
+
 func save_settings_file():
 	file.save(path)

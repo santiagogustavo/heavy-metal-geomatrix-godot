@@ -46,9 +46,7 @@ func add_bot() -> String:
 	var resource: Resource = load("res://Prefabs/BotPlayer.tscn")
 	resource.resource_local_to_scene = true
 	var instance: Player = resource.instantiate()
-	instance.selected_character = [
-		Definitions.Characters.Kassey
-	].pick_random()
+	instance.selected_character = Definitions.Characters.keys().pick_random()
 	instance.selected_skin = 0
 	#instance.selected_skin = randi_range(0, 3)
 	if !GameManager.get_team(1):
