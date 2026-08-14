@@ -4,7 +4,7 @@ shader_type canvas_item;
 // 输入纹理
 // ========================
 uniform sampler2D from_tex;
-uniform sampler2D to_tex;
+//uniform sampler2D to_tex;
 
 // ========================
 // 过渡控制
@@ -74,14 +74,14 @@ void fragment() {
 
         // 纹理混合
         vec4 from_col = texture(from_tex, uv).rgba;
-        vec4 to_col = texture(to_tex, uv).rgba;
+        vec4 to_col = COLOR.rgba;
         vec4 col = mix(from_col, to_col, mask);
         
         final_color = col;
     }
     
     if (progress >= 1.0) {
-        final_color = texture(to_tex, uv);
+        final_color = COLOR.rgba;
     }
     
     COLOR = final_color;

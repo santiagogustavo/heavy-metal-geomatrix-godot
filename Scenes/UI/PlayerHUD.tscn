@@ -111,7 +111,7 @@ graph_offset = Vector2(64, -71)
 shader = ExtResource("2_3qihl")
 shader_parameter/uv_mode = false
 shader_parameter/y_factor = 1.0
-shader_parameter/bulge = -0.07499995606249998
+shader_parameter/bulge = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iknaq"]
 shader = ExtResource("2_2efbf")

@@ -20,15 +20,11 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_d22on"]
 gradient = SubResource("Gradient_pgnds")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_r5fjw"]
-viewport_path = NodePath("SubViewport")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6pw5f"]
 resource_local_to_scene = true
 shader = ExtResource("1_d22on")
 shader_parameter/from_tex = SubResource("GradientTexture1D_d22on")
-shader_parameter/to_tex = SubResource("ViewportTexture_r5fjw")
-shader_parameter/progress = 0.0
+shader_parameter/progress = 1.0
 shader_parameter/hex_size = 0.08
 shader_parameter/randomness = 0.05
 shader_parameter/edge_softness = 0.01
@@ -69,7 +65,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_pgnds"]
@@ -107,31 +103,23 @@ transitions = ["Start", "ShowScreen", SubResource("AnimationNodeStateMachineTran
 [node name="MatchEndScreenLayer" type="CanvasLayer" unique_id=765119595]
 layer = 4
 
-[node name="Control" type="Control" parent="." unique_id=1238925499]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="ColorRect" parent="Control" unique_id=1463821254]
+[node name="TextureRect" type="SubViewportContainer" parent="." unique_id=2032767149]
 material = SubResource("ShaderMaterial_6pw5f")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=407841691]
+[node name="SubViewport" type="SubViewport" parent="TextureRect" unique_id=407841691]
 transparent_bg = true
 audio_listener_enable_2d = true
-size = Vector2i(1280, 720)
+size = Vector2i(1152, 648)
 script = ExtResource("1_pgnds")
 metadata/_custom_type_script = "uid://ccothkrd5rmml"
 
-[node name="MatchEndScreen" type="Control" parent="SubViewport" unique_id=1459697073]
+[node name="MatchEndScreen" type="Control" parent="TextureRect/SubViewport" unique_id=1459697073]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,7 +128,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pfie0")
 
-[node name="TextureRect" type="TextureRect" parent="SubViewport/MatchEndScreen" unique_id=1159911330]
+[node name="TextureRect" type="TextureRect" parent="TextureRect/SubViewport/MatchEndScreen" unique_id=1159911330]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -152,7 +140,7 @@ texture = ExtResource("1_0u6kc")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="ColorRect" type="ColorRect" parent="SubViewport/MatchEndScreen" unique_id=1692097629]
+[node name="ColorRect" type="ColorRect" parent="TextureRect/SubViewport/MatchEndScreen" unique_id=1692097629]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,7 +149,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6862745)
 
-[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MatchEndScreen" unique_id=1782318373]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/SubViewport/MatchEndScreen" unique_id=1782318373]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -173,10 +161,10 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Control" type="Control" parent="SubViewport/MatchEndScreen/MarginContainer" unique_id=658692009]
+[node name="Control" type="Control" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer" unique_id=658692009]
 layout_mode = 2
 
-[node name="ModeDescription" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=1049401952]
+[node name="ModeDescription" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=1049401952]
 layout_mode = 0
 offset_right = 1120.0
 offset_bottom = 23.0
@@ -187,7 +175,7 @@ script = ExtResource("2_stl4u")
 typing_time = 1.0
 start_with_random = true
 
-[node name="Status" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=647990420]
+[node name="Status" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=647990420]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -202,7 +190,7 @@ script = ExtResource("2_stl4u")
 typing_time = 1.0
 start_with_random = true
 
-[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=1299829176]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=1299829176]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -214,29 +202,29 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 40
 
-[node name="Control" type="Control" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer" unique_id=1859971874]
+[node name="Control" type="Control" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer" unique_id=1859971874]
 layout_mode = 2
 
-[node name="TeamInfoContainer" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control" unique_id=1015154427]
+[node name="TeamInfoContainer" type="HBoxContainer" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control" unique_id=1015154427]
 layout_mode = 1
 offset_right = 297.0
 offset_bottom = 87.0
 
-[node name="RegisteredPlayerCard" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer" unique_id=437543191 instance=ExtResource("4_d0y3q")]
+[node name="RegisteredPlayerCard" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer" unique_id=437543191 instance=ExtResource("4_d0y3q")]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer" unique_id=2034430029]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer" unique_id=2034430029]
 layout_mode = 2
 alignment = 1
 
-[node name="WinnerLabel" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer/VBoxContainer" unique_id=904145036]
+[node name="WinnerLabel" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer/VBoxContainer" unique_id=904145036]
 modulate = Color(0.32941177, 1, 0.7647059, 1)
 layout_mode = 2
 text = "Winner"
 label_settings = SubResource("LabelSettings_0u6kc")
 uppercase = true
 
-[node name="LoserLabel" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer/VBoxContainer" unique_id=8835904]
+[node name="LoserLabel" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/TeamInfoContainer/VBoxContainer" unique_id=8835904]
 visible = false
 modulate = Color(0.94, 0.376, 0.376, 1)
 layout_mode = 2
@@ -244,7 +232,7 @@ text = "Loser"
 label_settings = SubResource("LabelSettings_0u6kc")
 uppercase = true
 
-[node name="Control" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control" unique_id=1636674491]
+[node name="Control" type="HBoxContainer" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control" unique_id=1636674491]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -256,12 +244,12 @@ pivot_offset_ratio = Vector2(0.5, 1)
 theme_override_constants/separation = 64
 alignment = 2
 
-[node name="ElapsedTime" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control" unique_id=921507583]
+[node name="ElapsedTime" type="HBoxContainer" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control" unique_id=921507583]
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 2
 
-[node name="Label" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/ElapsedTime" unique_id=26948988]
+[node name="Label" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/ElapsedTime" unique_id=26948988]
 layout_mode = 2
 size_flags_vertical = 1
 text = "> Elapsed Time"
@@ -272,7 +260,7 @@ script = ExtResource("2_stl4u")
 start_with_random = true
 metadata/_custom_type_script = "uid://mopm23s34d2g"
 
-[node name="Value" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/ElapsedTime" unique_id=1238862334]
+[node name="Value" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/ElapsedTime" unique_id=1238862334]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -281,12 +269,12 @@ label_settings = SubResource("LabelSettings_d22on")
 vertical_alignment = 2
 uppercase = true
 
-[node name="TotalTime" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control" unique_id=1638275243]
+[node name="TotalTime" type="HBoxContainer" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control" unique_id=1638275243]
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 2
 
-[node name="Label" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/TotalTime" unique_id=1614685882]
+[node name="Label" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/TotalTime" unique_id=1614685882]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -299,7 +287,7 @@ typing_time = 1.0
 start_with_random = true
 metadata/_custom_type_script = "uid://mopm23s34d2g"
 
-[node name="Value" type="Label" parent="SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/TotalTime" unique_id=1992124678]
+[node name="Value" type="Label" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/MarginContainer/Control/Control/TotalTime" unique_id=1992124678]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -308,7 +296,7 @@ label_settings = SubResource("LabelSettings_d22on")
 vertical_alignment = 2
 uppercase = true
 
-[node name="Controls" type="HBoxContainer" parent="SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=224361985]
+[node name="Controls" type="HBoxContainer" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control" unique_id=224361985]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -321,25 +309,23 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 16
 
-[node name="InputInstruction" parent="SubViewport/MatchEndScreen/MarginContainer/Control/Controls" unique_id=1975978946 instance=ExtResource("10_d22on")]
+[node name="InputInstruction" parent="TextureRect/SubViewport/MatchEndScreen/MarginContainer/Control/Controls" unique_id=1975978946 instance=ExtResource("10_d22on")]
 layout_mode = 2
 actions = Array[int]([0])
 
-[node name="TauntWin" type="AudioStreamPlayer2D" parent="SubViewport/MatchEndScreen" unique_id=245423532]
+[node name="TauntWin" type="AudioStreamPlayer2D" parent="TextureRect/SubViewport/MatchEndScreen" unique_id=245423532]
 stream = ExtResource("12_6pw5f")
 volume_db = 3.0
 bus = &"Characters"
 
-[node name="TauntLose" type="AudioStreamPlayer2D" parent="SubViewport/MatchEndScreen" unique_id=2028628142]
+[node name="TauntLose" type="AudioStreamPlayer2D" parent="TextureRect/SubViewport/MatchEndScreen" unique_id=2028628142]
 stream = ExtResource("13_0l8i4")
 volume_db = 3.0
 bus = &"Characters"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=301810878]
-root_node = NodePath("../Control")
 libraries/ = SubResource("AnimationLibrary_d22on")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=729582374]
-root_node = NodePath("../Control")
 tree_root = SubResource("AnimationNodeStateMachine_6pw5f")
 anim_player = NodePath("../AnimationPlayer")
