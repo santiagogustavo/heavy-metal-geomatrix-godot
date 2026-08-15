@@ -24,6 +24,7 @@ enum PlayerType {
 
 @export_subgroup("Controls")
 @export var player_type: PlayerType
+@export var bot_difficulty: int = 1
 
 @export_subgroup("References")
 @export var camera_pivot: Marker3D
@@ -96,7 +97,15 @@ func _ready() -> void:
 			player_ui = load("res://Prefabs/Player/UI.tscn").instantiate()
 			get_tree().root.add_child.call_deferred(player_ui)
 		PlayerType.Bot:
+			# create a PlayerInputManager for bots so AI can drive input like a user
+			player_input = PlayerInputManager.new(self)
+			player_input.camera_pivot = camera_pivot
+			player_input.target_raycast = camera.camera_target_raycast if camera else null
+			player_input.aim_assist_raycast = get_node('AimAssist') if has_node('AimAssist') else null
+			player_input.virtual_input_enabled = true
+			add_child(player_input)
 			player_bot_ai = PlayerBotAI.new(self)
+			player_bot_ai.set_difficulty(bot_difficulty)
 			add_child(player_bot_ai)
 	character = load(Definitions.Players[selected_character]).instantiate()
 	character.player_rid = get_rid()
@@ -406,7 +415,7 @@ func set_animator_variables() -> void:
 	animation_tree.is_picking_up = brain.is_picking_up and is_pickup_on_press
 	animation_tree.direction = brain.input_direction
 	var compensate_look = Vector2(0.0125, 0.01)
-	if player_input:
+	if player_input and !player_bot_ai:
 		animation_tree.look = Vector2(0, camera.global_rotation.x * -0.6) + compensate_look
 	if player_bot_ai:
 		animation_tree.look = Vector2(0, camera_pivot.global_rotation.x * -0.6) + compensate_look

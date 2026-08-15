@@ -74,6 +74,7 @@ var dashing_factor = 2.5
 var dashing_speed = speed + dashing_factor
 var jetpack_dashing_speed = dashing_speed + dashing_factor
 var jump_height = 10.0
+var step_height = 0.5
 var weight = 2.5
 
 var is_dead: bool

@@ -38,6 +38,7 @@ size = Vector3(0.25, 1.2, 0.25)
 [node name="Bot" unique_id=2040670979 node_paths=PackedStringArray("camera_pivot", "navigation_agent", "detectors") instance=ExtResource("1_vkv67")]
 collision_mask = 3895
 player_type = 2
+bot_difficulty = 3
 camera_pivot = NodePath("LookPivot")
 navigation_agent = NodePath("NavigationAgent3D")
 detectors = [NodePath("DetectorLeft"), NodePath("DetectorRight"), NodePath("DetectorFront")]

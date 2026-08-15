@@ -1,6 +1,12 @@
 extends Node
 class_name PlayerBotAI
 
+enum Difficulty {
+	Easy,
+	Normal,
+	Hard,
+}
+
 enum AIState {
 	Idle,
 	Advance,
@@ -44,6 +50,52 @@ var look_at_speed_max: float = 17.0
 
 var can_dash: bool = true
 
+# Difficulty parameters
+@export var difficulty: int = Difficulty.Normal
+@export var aim_tolerance: float = 0.05
+@export var reaction_delay: float = 0.0
+@export var dash_distance_threshold: float = 10.0
+@export var pickup_priority_modifier: float = 1.0
+@export var movement_variance: float = 0.0
+
+@export var aim_time: float = 0.0
+@export var state_change_cooldown: float = 0.0
+
+var _last_reaction_time: float = 0.0
+var _last_state_change_time: float = 0.0
+var _aim_start_time: float = 0.0
+
+func set_difficulty(level: int) -> void:
+	difficulty = level
+	apply_difficulty_settings()
+
+func apply_difficulty_settings() -> void:
+	match difficulty:
+		Difficulty.Easy:
+			aim_tolerance = 0.12
+			reaction_delay = 0.35
+			dash_distance_threshold = 14.0
+			pickup_priority_modifier = 0.6
+			movement_variance = 0.35
+			aim_time = 0.6
+			state_change_cooldown = 0.6
+		Difficulty.Normal:
+			aim_tolerance = 0.06
+			reaction_delay = 0.18
+			dash_distance_threshold = 10.0
+			pickup_priority_modifier = 1.0
+			movement_variance = 0.15
+			aim_time = 0.35
+			state_change_cooldown = 0.35
+		Difficulty.Hard:
+			aim_tolerance = 0.03
+			reaction_delay = 0.08
+			dash_distance_threshold = 7.0
+			pickup_priority_modifier = 1.4
+			movement_variance = 0.05
+			aim_time = 0.12
+			state_change_cooldown = 0.12
+
 var always_look_at_enemy: bool = false
 
 var detector_collided_left: bool = false
@@ -73,6 +125,7 @@ func _ready() -> void:
 		compute_detector_collision(DetectorPosition.Front, body, false)
 	)
 	player.navigation_agent.link_reached.connect(handle_navigation_link_reached)
+	apply_difficulty_settings()
 
 func _process(delta: float) -> void:
 	clear_process_variables()
@@ -125,7 +178,7 @@ func compute_next_state():
 		or closest_pickup.equip_type == Definitions.EquipType.WeaponDouble
 	) if closest_pickup else false
 	var is_pickup_distance_viable: bool = (
-		closest_pickup_distance < enemy_distance
+		(closest_pickup_distance * pickup_priority_modifier) < enemy_distance
 	) if closest_pickup else false
 	var need_to_pickup: bool = (has_melee and is_closest_pickup_ranged) or !has_gun
 	if (
@@ -140,14 +193,24 @@ func compute_next_state():
 	if player.health == 0:
 		state = AIState.Dead
 		return
+	var desired_state: int
+	var desired_target_type: TargetType
 	if need_to_pickup and is_pickup_distance_viable:
-		target_type = TargetType.Pickup
-		state = AIState.Pickup
-		return
+		desired_state = AIState.Pickup
+		desired_target_type = TargetType.Pickup
 	else:
-		target_type = TargetType.Enemy
-		state = AIState.Advance
-		return
+		desired_state = AIState.Advance
+		desired_target_type = TargetType.Enemy
+
+	var now = Time.get_ticks_msec()
+	if desired_state != state:
+		if now - _last_state_change_time >= state_change_cooldown:
+			state = desired_state as AIState
+			target_type = desired_target_type as TargetType
+			_last_state_change_time = now
+	else:
+		target_type = desired_target_type as TargetType
+	return
 	#elif target_distance < 1.0:
 		#state = AIState.Retreat
 
@@ -158,21 +221,30 @@ func common_behaviour(delta: float) -> void:
 	compute_target()
 
 func clear_process_variables() -> void:
+	if player.player_input:
+		player.player_input.virtual_shoot = false
+		player.player_input.virtual_attack = false
 	player.brain.is_shooting = false
 	player.brain.is_attacking = false
 
 func clear_physics_process_variables() -> void:
+	if player.player_input:
+		player.player_input.virtual_jump_just_pressed = false
+		player.player_input.virtual_pickup_just_pressed = false
 	player.brain.is_jumping = false
 	player.brain.is_picking_up = false
 
 func clear_walking_variables() -> void:
 	if has_collided_with_an_obstacle() and GameManager.current_match.is_ongoing:
 		return
+	if player.player_input:
+		player.player_input.virtual_move = Vector2.ZERO
 	player.brain.is_walking = false
 	player.brain.is_dashing = false
 	player.brain.direction = Vector3.ZERO
 	player.brain.input_direction = Vector2.ZERO
-	player.velocity = Vector3(0.0, player.velocity.y, 0.0)
+	player.velocity.x = 0
+	player.velocity.z = 0
 
 func update_look(delta: float) -> void:
 	var clamped_distance: float = clamp(
@@ -227,18 +299,33 @@ func compute_attack() -> void:
 	if !is_distance_reliable:
 		return
 	var distance_of_aim = abs(player.rotation.y - player.brain.new_rotation.y)
-	player.brain.is_shooting = (
-		distance_of_aim < 0.05
+	var effective_tolerance = aim_tolerance + randf() * movement_variance
+	var can_shoot_condition = (
+		distance_of_aim < effective_tolerance
 		and !player.brain.is_movement_locked
 		and !DebugCommands.is_pacifist
 	)
-	player.brain.is_attacking = (
-		player.brain.is_shooting
-		and !player.brain.is_movement_locked
-		and !DebugCommands.is_pacifist
-	)
+	var now = Time.get_ticks_msec()
+	if can_shoot_condition:
+		if _aim_start_time == 0.0:
+			_aim_start_time = now
+		if now - _aim_start_time >= aim_time and (now - _last_reaction_time >= reaction_delay):
+			_last_reaction_time = now
+			if player.player_input:
+				player.player_input.virtual_shoot = true
+				player.player_input.virtual_attack = true
+			player.brain.is_shooting = true
+			player.brain.is_attacking = true
+	else:
+		_aim_start_time = 0.0
+		if player.player_input:
+			player.player_input.virtual_shoot = false
+		player.brain.is_shooting = false
+		player.brain.is_attacking = false
 
 func compute_pickup() -> void:
+	if player.player_input:
+		player.player_input.virtual_pickup_just_pressed = player.is_pickup_collided
 	player.brain.is_picking_up = player.is_pickup_collided
 
 func compute_detector_collision(detector: DetectorPosition, body: Node3D, entered: bool) -> void:
@@ -256,27 +343,39 @@ func compute_detector_collision(detector: DetectorPosition, body: Node3D, entere
 			return
 
 func action_jump() -> void:
-	player.brain.is_jumping = player.brain.is_on_floor
+	# Trigger a jump: set the virtual one-shot and ensure immediate vertical velocity
+	if player.player_input and player.is_on_floor():
+		player.player_input.virtual_jump_just_pressed = true
+		player.brain.is_jumping = true
+		# apply immediate jump velocity so the jump isn't missed due to ordering
+		player.velocity.y = player.character.jump_height
 
 func handle_navigation_link_reached(details: Dictionary) -> void:
-	var new_velocity: Vector3 = decompose_position_xz(
-		details.link_exit_position - details.link_entry_position
-	).normalized() * 10
-	new_velocity = new_velocity.clamp(Vector3(-1,-1,-1), Vector3(1,1,1))
-	new_velocity *= player.current_speed
-	additive_velocity = new_velocity
 	last_link_exit_location = details.link_exit_position
-	action_jump()
-	get_tree().create_timer(link_exit_reached_threshold).timeout.connect(func ():
-		additive_velocity = Vector3.ZERO
-	)
+	# give a short impulse via forces and trigger a jump via virtual input
+	player.apply_force(additive_velocity)
+	# Debug info to help reproduce missing jumps
+	# If on floor, trigger jump immediately (avoid missing due to physics ordering)
+	if player.player_input:
+		if player.is_on_floor():
+			player.player_input.virtual_jump_just_pressed = true
+			player.brain.is_jumping = true
+			player.velocity.y = player.character.jump_height
+		elif player.brain.can_double_jump:
+			player.player_input.virtual_jump_just_pressed = true
+			player.brain.is_double_jumping = true
+			player.velocity.y = player.character.jump_height
 
 func look_at_target_position(target: Vector3) -> void:
 	player.camera_pivot.look_at(target)
 	player.brain.new_rotation = player.camera_pivot.global_rotation
 
 func retreat_from_target() -> void:
-	player.velocity.z = -1 * player.current_speed
+	# drive input backwards
+	player.brain.input_direction = Vector2(0, 1)
+	if player.player_input:
+		player.player_input.virtual_move = Vector2(0, 1)
+	player.brain.is_walking = true
 
 func has_collided_with_an_obstacle() -> bool:
 	return detector_collided_front
@@ -287,34 +386,48 @@ func has_reached_target() -> bool:
 		and target_distance < player.inventory_manager.weapon_range
 	)
 
-func step_away_from_obstacle(delta: float) -> void:
-	var sidestep_velocity: Vector3 = Vector3.ZERO
+func step_away_from_obstacle(_delta: float) -> void:
 	if has_collided_with_an_obstacle():
-		sidestep_velocity += Vector3(0, 0, 2)
+		var sidestep_world = Vector3(0, 0, 2)
 		if detector_collided_right:
-			sidestep_velocity += Vector3(-1, 0, 0)
+			sidestep_world += Vector3(-1, 0, 0)
 		else:
-			sidestep_velocity += Vector3(1, 0, 0)
-		sidestep_velocity *= player.current_speed
+			sidestep_world += Vector3(1, 0, 0)
+		sidestep_world = sidestep_world.normalized()
 		player.brain.is_walking = true
-	player.velocity.x += sidestep_velocity.x * delta
-	player.velocity.z += sidestep_velocity.z * delta
+		# convert world dir to local input for PlayerInputManager
+		if player.player_input:
+			var local = player.global_transform.basis.transposed() * (sidestep_world)
+			var lv = Vector2(local.x, local.z)
+			if lv.length() > 1.0:
+				lv = lv.normalized()
+			player.player_input.virtual_move = lv
+	# movement applied by Player.compute_movement
 
-func advance_to_target(delta: float) -> void:
+func advance_to_target(_delta: float) -> void:
 	if has_reached_target() or player.brain.is_movement_locked:
 		clear_walking_variables()
 		return
 	player.brain.is_walking = true
-	if target_distance > 10 and can_dash:
-		player.brain.is_dashing = true
+	if target_distance > dash_distance_threshold and can_dash:
+		if player.player_input:
+			player.player_input.virtual_dash_just_pressed = true
+		else:
+			player.brain.is_dashing = true
 		can_dash = false
 		get_tree().create_timer(player.brain.dash_duration + 1.0).timeout.connect(func (): can_dash = true)
 	var current_location: Vector3 = player.global_transform.origin
 	var next_location: Vector3 = player.navigation_agent.get_next_path_position()
-	var delta_factor: float = delta * 45
-	var new_velocity: Vector3 = (next_location - current_location).normalized() * player.current_speed
-	player.velocity.x = (new_velocity.x + additive_velocity.x) * delta_factor
-	player.velocity.z = (new_velocity.z + additive_velocity.z) * delta_factor
+	var desired_world_dir: Vector3 = (next_location - current_location).normalized()
+	# convert world dir to local input for PlayerInputManager
+	if player.player_input:
+		var local = player.global_transform.basis.inverse() * (desired_world_dir)
+		var lv = Vector2(local.x, local.z)
+		if lv.length() > 1.0:
+			lv = lv.normalized()
+		player.player_input.virtual_move = lv
+		player.player_input.virtual_move = lv
+	# additive_velocity already applied once on link reached; do not re-apply here
 
 func set_navigation_target(target: Vector3) -> void:
 	player.navigation_agent.target_position = target
@@ -352,5 +465,7 @@ func get_distance_to_target(target: Vector3) -> float:
 	return player.global_transform.origin.distance_to(target)
 	
 func get_direction_to_target() -> void:
-	player.brain.direction = Vector3(0.0, 0.0, 1.0)
+	# face forward and move towards target in local input space
 	player.brain.input_direction = Vector2(0.0, -1.0)
+	if player.player_input:
+		player.player_input.virtual_move = Vector2(0.0, -1.0)
